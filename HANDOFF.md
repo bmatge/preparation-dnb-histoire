@@ -398,5 +398,155 @@ Bonne continuation. 🚀
 
 ---
 
+## ADDENDUM 2026-04-10 — Épreuve Repères HG-EMC (étape 3)
+
+Branche : `feature/hg-reperes` (merge prévu **avant** la PR français pour
+minimiser les conflits sur `app/core/`).
+
+### 1. Refacto par épreuve
+
+`app/histoire_geo_emc/` est maintenant scindé en sous-dossiers par
+épreuve :
+
+```
+app/histoire_geo_emc/
+  routes.py                        # router racine matière : index +
+                                   # redirects de compat + include_router
+  templates/index.html             # page d'index matière (2 cartes)
+  developpement_construit/         # ex-contenu de histoire_geo_emc/
+    routes.py, pedagogy.py, prompts.py, models.py, templates/
+  reperes/                         # NOUVEAU
+    routes.py, pedagogy.py, prompts.py, models.py, templates/
+```
+
+**URLs finales** :
+- `/histoire-geo-emc/` → index matière (liste les 2 épreuves)
+- `/histoire-geo-emc/developpement-construit/step/{n}` → DC (ex-`/step/{n}`)
+- `/histoire-geo-emc/reperes/` → accueil repères
+- `/histoire-geo-emc/reperes/quiz`, `/quiz/new`, `/quiz/answer`, `/quiz/synthese`
+
+**Redirects de compat** (dans `app/histoire_geo_emc/routes.py`) :
+- `/histoire-geo-emc/step/{n}` → 307 → `…/developpement-construit/step/{n}`
+- `/histoire-geo-emc/session/new` → 307 → DC
+- `/histoire-geo-emc/restart` → 303 → DC
+
+Les redirects root-level dans `app/core/main.py` (`/step/N`, `/session/new`,
+`/restart`) restent inchangés — ils redirigent vers les URLs matière, qui
+redirigent à leur tour vers l'épreuve (double-hop acceptable).
+
+### 2. Évolution du modèle `Session`
+
+```python
+class Session(SQLModel, table=True):
+    subject_kind: str = Field(default="hgemc_dc", index=True)
+    subject_id: int | None = Field(default=None, foreign_key="subject.id")
+    ...
+```
+
+- `subject_kind` : identifiant libre d'épreuve. Valeurs utilisées :
+  `"hgemc_dc"` et `"hgemc_reperes"`. L'agent français utilisera
+  `"francais_..."` (au choix).
+- `subject_id` : **nullable** — les sessions repères ne pointent pas
+  vers une ligne `Subject`.
+- `create_session(s, subject_kind=..., subject_id=..., mode=...)` :
+  signature étendue, appelants DC passent `subject_kind="hgemc_dc"`.
+
+### 3. ⚠️ À faire au redémarrage post-merge
+
+L'app est en mode « drop & recharge » (pas d'Alembic). **Avant de
+redémarrer après merge**, supprimer la DB pour recréer le schéma propre
+avec la nouvelle colonne :
+
+```bash
+rm -f data/app.db
+```
+
+Les contenus (sujets DC + repères) sont rechargés idempotemment au
+startup depuis les fichiers JSON dans `content/histoire-geo-emc/`.
+
+### 4. Épreuve Repères — contenu
+
+- **109 repères** chargés depuis
+  `content/histoire-geo-emc/reperes/_all.json`, extraits depuis le BO
+  n°42 du 14 novembre 2013 (annexe I — liste explicite des repères de
+  fin de scolarité obligatoire) et le programme cycle 4 actuel
+  (valeurs/notions EMC).
+- Répartition : 62 histoire, 29 géographie, 18 EMC. 36 dates, 29
+  événements, 29 lieux, 11 notions, 3 personnages, 1 définition.
+- Règle cardinale respectée : aucun repère inventé — tous proviennent
+  de listes textuelles explicites, avec traçabilité dans le champ
+  `source` de chaque entrée.
+
+### 5. Re-générer les repères si besoin
+
+Script offline (Claude Opus, pattern copié de `extract_subjects.py`) :
+
+```bash
+source .env
+.venv/bin/python -m scripts.extract_reperes
+.venv/bin/python -m scripts.extract_reperes --force   # re-traite tout
+.venv/bin/python -m scripts.extract_reperes --limit 2 # test rapide
+```
+
+Idempotent via SHA256 dans `data/ingest_state.db` (table
+`reperes_sources`).
+
+Note : la toute première extraction a été faite **directement dans une
+session Claude Code** (lecture PDF via Read, écriture JSON via Write)
+pour éviter un appel API Anthropic payant. Le script est là pour les
+mises à jour futures.
+
+### 6. Pédagogie repères — règle cardinale adaptée
+
+Contrairement au DC où l'IA ne donne jamais la réponse, ici la bonne
+réponse **est** l'objectif d'apprentissage. L'IA donne :
+
+- **Niveau 1** : contexte très large (époque, siècle, discipline).
+- **Niveau 2** : indice ciblé (verbe-clé, champ thématique précis).
+- **Niveau 3** : quasi-réponse (première lettre, décennie, région).
+- Après le 3ᵉ échec : **révélation** bienveillante avec
+  contextualisation, et le repère est ajouté à la file de
+  réexposition de fin de partie.
+
+L'évaluation de la réponse est **déterministe Python** (pas d'Albert) :
+normalisation accents/casse/ponctuation, tolérance ±1 an sur les
+dates, gestion des dates « avant J.-C. », match partiel généreux sur
+les libellés.
+
+Albert (Mistral-Small) n'est appelé que pour **formuler** les
+questions, les indices et la révélation — jamais pour **juger**.
+Fallback déterministe pour chaque appel si Albert est indisponible.
+
+### 7. Fichier `data/ingest_state.db`
+
+Nouvelle table :
+```
+reperes_sources(path TEXT PK, sha256 TEXT, processed_at TEXT)
+```
+Cohabite avec la table existante pour `extract_subjects.py` — pas de
+collision.
+
+### 8. Fichiers 100 % à moi (PR HG repères)
+
+Tout ce qui suit est dans le périmètre de cette PR et peut être
+reviewé isolément :
+- `app/histoire_geo_emc/routes.py` (nouveau rôle : router racine)
+- `app/histoire_geo_emc/templates/index.html`
+- `app/histoire_geo_emc/developpement_construit/**` (refacto pur
+  + URLs internes des templates mises à jour)
+- `app/histoire_geo_emc/reperes/**` (tout nouveau)
+- `content/histoire-geo-emc/reperes/_all.json`
+- `scripts/extract_reperes.py`
+- `app/core/main.py` (2 imports + 1 appel init_reperes)
+- `app/core/db.py` (Session.subject_kind + nullable subject_id)
+- `app/core/templates/home.html` (texte carte HG-EMC)
+
+**Non touché** (territoire français) : `app/francais/**`,
+`content/francais/**`, `scripts/extract_french_exercises.py`, et
+`app/core/albert_client.py` (qui a des modifs `Task.FR_COMP_*`
+attendues côté français).
+
+---
+
 *Fin du handoff. Fichier généré automatiquement — ne pas éditer à la main
 sauf pour ajouter des notes de passation additionnelles.*
