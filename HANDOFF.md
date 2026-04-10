@@ -548,5 +548,185 @@ attendues côté français).
 
 ---
 
+---
+
+## ADDENDUM 2026-04-10 — Workstream français compréhension (PR #4, #7, #9)
+
+Une matière complète ajoutée à la plateforme le même jour que l'addendum
+HG-repères. Trois PR mergées en séquence sur `main` :
+
+- **PR #4** `feature/francais-comprehension` — MVP compréhension (268 items)
+- **PR #7** `feature/francais-grammaire-reecriture` — grammaire + réécriture (+255 items)
+- **PR #9** `feature/francais-rag-methodo` — RAG programme + méthodo actif
+
+### État final du workstream
+
+```
+app/francais/
+  __init__.py
+  routes.py                        # router racine matière : /francais/
+  templates/index.html             # liste des sous-épreuves (1 active, 2 placeholders)
+  comprehension/
+    routes.py, pedagogy.py, prompts.py, models.py, loader.py
+    templates/
+      home.html, exercise.html, synthese.html
+      _partials/feedback.html, hint.html, reveal.html
+
+content/francais/
+  comprehension/
+    annales/*.pdf                  # 38 sujets bruts 2018-2025, tous centres
+    exercises/*.json               # 38 JSON extraits + _all.json
+  programme/                       # 5 PDF (cycle 4 + attendus 3e/4e/5e + repères)
+  methodologie/                    # 9 PDF (8 fiches + cadrage épreuve)
+  notation/                        # grilles officielles
+
+scripts/
+  extract_french_exercises.py      # extraction Opus multimodal (offline, idempotent)
+  ingest.py                        # étendu avec fr_programme / fr_methodo
+                                   # + flag --matiere qui compose avec --only
+```
+
+### Contenu du corpus
+
+- **38 sujets d'annales** (compréhension + grammaire + réécriture) couvrant
+  2018-2025, tous centres d'examen. Extraction via Opus multimodal :
+  2 sujets pilotes via le script + API Anthropic, 36 via 4 sous-agents
+  Claude Code en parallèle pour économiser les crédits API.
+- **523 items MVP** exploitables dans `flatten_items()` :
+  230 compréhension + 255 grammaire + 38 réécriture.
+- **51 items « texte_image »** filtrés par défaut (voir issue #10 pour la
+  réactivation : `include_image_questions=True` + rendu côté UI à
+  implémenter).
+- Barèmes observés : 32/18 (25 sujets), 30/20 (10), 26/24 (2), 30/18 (1 —
+  le 2019 Amérique du Nord fait 48 pts total, anomalie du sujet officiel).
+- Deux sujets à re-vérifier manuellement : 2019_amerique-nord (48 pts) et
+  2025_nouvelle-caledonie (numérotation grammaire qui saute Q6→Q9, total
+  30 au lieu de 32 annoncés).
+
+### Pédagogie français compréhension
+
+Règle cardinale identique au DC : l'IA ne donne jamais la bonne réponse.
+Trois niveaux d'indice gradués, puis révélation si l'élève bloque après
+le 3e indice.
+
+Trois variantes de prompts dans `app/francais/comprehension/prompts.py` :
+
+1. **Générique** (compréhension + grammaire) : `build_first_eval`,
+   `build_hint`, `build_reveal_answer`. La grammaire hérite de ces
+   builders parce que le pattern question-par-question est le même et
+   que le prompt générique s'adapte à la compétence via le champ
+   `item.competence` injecté dans la balise `<question>`.
+2. **Réécriture** : `build_reecriture_eval`, `build_reecriture_hint`,
+   `build_reecriture_reveal`. Grille d'évaluation totalement différente —
+   on vérifie contrainte par contrainte qu'une transformation mécanique a
+   été appliquée, et que toutes les concordances (accords, temps, pronoms,
+   participes passés) ont été propagées. Les 3 niveaux d'indice gradués
+   sont spécifiques : niveau 1 = rappel de contrainte non respectée,
+   niveau 2 = catégorie grammaticale de l'erreur, niveau 3 = désignation
+   d'un mot précis à revoir sans donner la forme corrigée.
+3. **Synthèse de fin de session** : `build_session_synthese` — bilan
+   encourageant, nomme 1-2 compétences à retravailler, propose une fiche
+   méthodo concrète à relire.
+
+Le dispatch vers la variante réécriture se fait dans
+`app/francais/comprehension/pedagogy.py` via `if item.type == "reecriture"`.
+Les 3 fonctions publiques `evaluate_answer`, `generate_hint` et
+`reveal_answer` gardent une signature unique, la pédagogie reste
+transparente côté routes.
+
+### RAG programme + méthodo
+
+Deux nouvelles collections Albert, créées et ingérées le 2026-04-10 :
+
+- `dnb_francais_programme` — id 184943, 5 documents (programme cycle 4
+  BO 2020, attendus fin 3e/4e/5e, repères progression)
+- `dnb_francais_methodo` — id 184944, 9 documents (fiches 1-8 + cadrage
+  épreuve)
+
+Allocation des tâches (`app/core/rag.py::TASK_COLLECTIONS`) :
+
+- `FR_COMP_EVAL` → méthodo uniquement
+- `FR_COMP_HINT` → méthodo uniquement
+- `FR_COMP_REVEAL` → méthodo + programme (règle + autorité officielle)
+- `FR_COMP_SYNTHESE` → programme + méthodo (pour renvoyer à un attendu
+  ou une fiche concrète à retravailler)
+
+La requête sémantique est construite par `_build_rag_query(item)` qui
+concatène `{compétence} — {énoncé}`. La compétence en première position
+améliore le match sur les fiches méthodo organisées thématiquement.
+
+Gestion d'erreur : `_search_rag()` catch tout et retourne `[]` en cas
+d'échec (réseau, collection manquante, timeout...). Les builders acceptent
+`passages=None` et injectent alors un placeholder neutre dans la balise
+`<context>`. **L'app reste fonctionnelle sans RAG**, juste moins ancrée
+dans les sources officielles.
+
+### Ré-ingérer les collections françaises si besoin
+
+```bash
+source .env
+.venv/bin/python -m scripts.ingest --matiere francais           # tout le français
+.venv/bin/python -m scripts.ingest --only fr_programme          # programme seul
+.venv/bin/python -m scripts.ingest --only fr_methodo            # méthodo seule
+.venv/bin/python -m scripts.ingest --matiere francais --force   # re-push total
+.venv/bin/python -m scripts.ingest --matiere francais --dry-run # simule
+```
+
+Idempotence SHA256 dans `data/ingest_state.db` — un re-run skip les
+14 fichiers inchangés.
+
+### Ré-extraire un sujet de compréhension si besoin
+
+```bash
+source .env
+.venv/bin/python -m scripts.extract_french_exercises content/francais/comprehension/annales/
+.venv/bin/python -m scripts.extract_french_exercises content/francais/comprehension/annales/2019_Amerique-Nord_francais_questions-grammaire-comp.pdf --force
+```
+
+Le script appelle l'API Anthropic directement (Claude Opus multimodal).
+Pour économiser les crédits API, la plupart des sujets du corpus initial
+ont été extraits via des sous-agents Claude Code (outil Read sur PDF +
+outil Write sur JSON) — voir l'historique de la PR #4 pour le pattern.
+
+### Sous-épreuves non implémentées (issues ouvertes)
+
+- **#5 Dictée** — priorité moyenne. Design TTS à trancher : Web Speech
+  API côté navigateur (gratuit, qualité variable) vs TTS serveur local
+  (meilleur, dépendance supplémentaire dans Docker) vs TTS externe
+  (exclu, viole la règle « pas d'appel externe en runtime »).
+- **#6 Rédaction** — priorité haute (40 pts sur 50). Session dédiée à
+  prévoir. Réutilisation massive du pattern 7 étapes du DC HG-EMC.
+  Nouveau corpus à extraire (les sujets de rédaction, distincts des
+  sujets de compréhension).
+- **#10 Images** — priorité basse/moyenne. 51 items `texte_image` à
+  débloquer une fois l'extraction et le rendu d'images opérationnels.
+  Recommandation : extraction PNG offline via pdfplumber vers
+  `content/francais/comprehension/images/<slug>.png`, rendu simple dans
+  `exercise.html` via `<img>` classique.
+
+### Fichiers 100 % à moi (workstream français)
+
+Cohérents avec les 3 PR mergées :
+- `app/francais/**` (tout nouveau)
+- `content/francais/**` (tout nouveau)
+- `scripts/extract_french_exercises.py` (tout nouveau)
+- `scripts/ingest.py` (modifié : +francais specs + --matiere flag)
+- `app/core/rag.py` (modifié : +francais_comprehension entries)
+- `app/core/albert_client.py` (modifié : +4 tâches FR_COMP_*)
+- `app/core/main.py` (modifié : include_router francais + init_french_comprehension)
+- `app/core/templates/home.html` (modifié : carte Français)
+
+### Nettoyages ponctuels
+
+- `.claude/settings.json` commité avec autorisation wildcard `Bash(*)`
+  (PR #11) — les futures sessions Claude Code ne redemandent plus la
+  confirmation des commandes Bash.
+- 22 doublons « fichier 2.ext » supprimés pendant le workstream (outil de
+  sync macOS, pattern find/rm documenté dans la mémoire Claude Code).
+  Seul le PDF méthodo légitime `Developpement construit DNB histographie 2.pdf`
+  est préservé.
+
+---
+
 *Fin du handoff. Fichier généré automatiquement — ne pas éditer à la main
 sauf pour ajouter des notes de passation additionnelles.*
