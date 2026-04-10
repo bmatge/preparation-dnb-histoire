@@ -74,10 +74,12 @@ revise-ton-dnb/
 ├── Dockerfile        # python:3.12-slim + uvicorn
 ├── docker-compose.yml# Traefik labels déjà intégrés (modifié par l'user)
 ├── requirements.txt  # FastAPI + jinja + sqlmodel + httpx + openai + anthropic + pdfplumber
-├── Anales/           # 23 PDF DNB 2018-2022
-├── Corrigés/         # 3 PDF corrigés modèles
-├── Methodologie/     # 9 PDF + 1 .md (MrDarras est la référence)
-├── Programme/        # 9 PDF officiels cycle 4 + compétences
+├── content/histoire-geo-emc/
+│   ├── annales/         # 23 PDF DNB 2018-2022
+│   ├── corriges/        # 3 PDF corrigés modèles
+│   ├── methodologie/    # 9 PDF + 1 .md (MrDarras est la référence)
+│   ├── programme/       # 9 PDF officiels cycle 4 + compétences
+│   └── subjects/        # 23 JSON + variations/ (cf extract_subjects.py)
 ├── app/
 │   ├── __init__.py
 │   ├── prompts.py       ✅ 5 templates pédagogiques, testés en live
@@ -89,7 +91,7 @@ revise-ton-dnb/
 │   ├── extract_subjects.py ✅ Opus offline → JSON structuré
 │   └── ingest.py           ✅ 4 collections Albert, idempotent
 └── data/
-    ├── subjects/     # 23 JSON + _all.json (sortie extract_subjects.py)
+    ├── app.db           # SQLite runtime (sessions élèves)
     └── ingest_state.db  # SQLite tracking sha256
 ```
 
@@ -126,7 +128,7 @@ revise-ton-dnb/
 - Schéma JSON : `consigne, discipline, theme, verbe_cle, bornes_chrono,
   bornes_spatiales, notions_attendues[], bareme_points`
 - Parse les noms de fichiers (`YYgenhgemcXXX.pdf`) pour année/série/session
-- **23/23 annales traitées** : data/subjects/*.json + _all.json
+- **23/23 annales traitées** : content/histoire-geo-emc/subjects/*.json + _all.json
 - Distribution : 11 DC histoire, 12 DC géo
 - Thèmes couverts : aménagement territoire, espaces faible densité,
   ultramarins, guerres mondiales, guerre froide, totalitarismes, Vichy
@@ -136,10 +138,10 @@ revise-ton-dnb/
 
 | Collection Albert | ID | Docs | Source |
 |---|---:|---:|---|
-| `dnb_methodo` | 184792 | 7 | Methodologie/ |
-| `dnb_corriges` | 184795 | 3 | Corrigés/ |
-| `dnb_programmes` | 184797 | 9 | Programme/ |
-| `dnb_sujets` | 184809 | 23 | data/subjects/*.json → md |
+| `dnb_methodo` | 184792 | 7 | content/histoire-geo-emc/methodologie/ |
+| `dnb_corriges` | 184795 | 3 | content/histoire-geo-emc/corriges/ |
+| `dnb_programmes` | 184797 | 9 | content/histoire-geo-emc/programme/ |
+| `dnb_sujets` | 184809 | 23 | content/histoire-geo-emc/subjects/*.json → md |
 
 - Idempotence via SHA256 dans `data/ingest_state.db`
 - **JSON → Markdown à la volée** pour `dnb_sujets` (Albert rejette le .json)
@@ -248,7 +250,7 @@ Ou mieux : résoudre dynamiquement par nom au démarrage via `GET /v1/collection
 SQLModel tables :
 - `Session(id, mode, subject_id, created_at)` — session d'un élève
 - `Turn(id, session_id, step: int, role: "user"|"assistant", content: text, created_at)`
-- `Subject(id, year, session, discipline, theme, consigne, verbe_cle, bornes_chrono, bornes_spatiales, notions_attendues: json, bareme_points, source_file)` — chargé depuis `data/subjects/*.json` au démarrage
+- `Subject(id, year, session, discipline, theme, consigne, verbe_cle, bornes_chrono, bornes_spatiales, notions_attendues: json, bareme_points, source_file)` — chargé depuis `content/histoire-geo-emc/subjects/*.json` au démarrage
 - Helpers : `load_subjects_from_jsons()`, `random_subject(discipline?, theme?)`, `create_session()`, `add_turn()`, `get_session_history()`
 - SQLite file : `data/app.db` (gitignored)
 
@@ -321,10 +323,10 @@ set -a && . ./.env && set +a
 .venv/bin/python -m scripts.ingest --force            # re-pousse
 
 # Extraction sujets (OFFLINE, coûte des tokens Opus)
-.venv/bin/python -m scripts.extract_subjects Anales/
-.venv/bin/python -m scripts.extract_subjects Anales/18genhgemcan1pdf-80388.pdf
-.venv/bin/python -m scripts.extract_subjects Anales/ --limit 2
-.venv/bin/python -m scripts.extract_subjects Anales/ --force
+.venv/bin/python -m scripts.extract_subjects content/histoire-geo-emc/annales/
+.venv/bin/python -m scripts.extract_subjects content/histoire-geo-emc/annales/18genhgemcan1pdf-80388.pdf
+.venv/bin/python -m scripts.extract_subjects content/histoire-geo-emc/annales/ --limit 2
+.venv/bin/python -m scripts.extract_subjects content/histoire-geo-emc/annales/ --force
 
 # Test de connectivité Albert
 .venv/bin/python -c "

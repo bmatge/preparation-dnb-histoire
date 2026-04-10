@@ -15,10 +15,10 @@ services:
       - "8000"
     volumes:
       - ./data:/app/data
-      - ./Anales:/app/corpus/Anales:ro
-      - ./Corrigés:/app/corpus/Corriges:ro
-      - ./Methodologie:/app/corpus/Methodologie:ro
-      - ./Programme:/app/corpus/Programme:ro
+      # Contenu pédagogique (PDF annales, programme, méthodo, sujets JSON).
+      # Monté en RW parce que scripts/generate_variations.py écrit dans
+      # content/histoire-geo-emc/subjects/variations/ via `docker compose run`.
+      - ./content:/app/content
     restart: unless-stopped
     networks:
       - ecosystem-network

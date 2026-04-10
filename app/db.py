@@ -8,7 +8,7 @@ stade : l'app est jeune, les schémas évoluent, on assume les drops manuels.
 Modèle :
 - `Subject` : un développement construit extrait des annales (un sujet par
   ligne, plusieurs sujets par fichier d'annale possible). Chargé au démarrage
-  depuis `data/subjects/*.json` (voir `load_subjects_from_jsons`). Idempotent.
+  depuis `content/histoire-geo-emc/subjects/*.json` (voir `load_subjects_from_jsons`). Idempotent.
 - `Session` : une session élève (mode + sujet tiré + état d'avancement).
 - `Turn` : un échange dans la session (étape + rôle + contenu).
 
@@ -33,7 +33,7 @@ logger = logging.getLogger(__name__)
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 DB_PATH = REPO_ROOT / "data" / "app.db"
-SUBJECTS_DIR = REPO_ROOT / "data" / "subjects"
+SUBJECTS_DIR = REPO_ROOT / "content" / "histoire-geo-emc" / "subjects"
 # Sujets générés offline par scripts/generate_variations.py — format JSON
 # identique mais marqués is_variation=True en base.
 VARIATIONS_DIR = SUBJECTS_DIR / "variations"
@@ -128,18 +128,18 @@ def init_db() -> None:
 
 
 # ============================================================================
-# Chargement des sujets depuis data/subjects/*.json
+# Chargement des sujets depuis content/histoire-geo-emc/subjects/*.json
 # ============================================================================
 
 
 def load_subjects_from_jsons(s: DBSession) -> int:
-    """Insère tous les DC présents dans data/subjects/*.json. Idempotent.
+    """Insère tous les DC présents dans content/histoire-geo-emc/subjects/*.json. Idempotent.
 
     Le format des JSON est celui produit par scripts/extract_subjects.py :
     chaque fichier contient une liste `developpements_construits` avec un ou
     plusieurs DC. On en fait un Subject par entrée.
 
-    Les fichiers situés dans `data/subjects/variations/` sont chargés avec le
+    Les fichiers situés dans `content/histoire-geo-emc/subjects/variations/` sont chargés avec le
     flag `is_variation=True` (générés offline par scripts/generate_variations.py).
     """
     inserted = 0

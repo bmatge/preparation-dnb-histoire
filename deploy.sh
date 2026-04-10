@@ -63,33 +63,32 @@ fi
 export APP_UID="$(id -u)"
 export APP_GID="$(id -g)"
 
-# 1ter. data/ et tout son contenu writable par l'utilisateur courant ?
+# 1ter. data/ et content/ writable par l'utilisateur courant ?
 # Sans ça, le git pull ci-dessous peut échouer ("Permission denied") si des
 # fichiers ont été créés en root par un ancien conteneur sans Dockerfile USER.
-# On teste non seulement data/ mais aussi son contenu récursif : il arrive
-# que data/ soit writable (dossier owned par ubuntu) alors que data/subjects/*
-# appartient encore à root à cause d'anciens déploiements.
-if [[ -d data ]]; then
-  # -not -writable trouve tout fichier/dossier pour lequel l'utilisateur
-  # courant n'a pas le droit d'écriture. On s'arrête au premier match.
-  first_bad="$(find data -not -writable -print -quit 2>/dev/null || true)"
+# On teste récursivement : content/ reçoit les variations générées par
+# `docker compose run --rm app python -m scripts.generate_variations`, et
+# data/ contient la SQLite runtime.
+for dir in data content; do
+  [[ -d "$dir" ]] || continue
+  first_bad="$(find "$dir" -not -writable -print -quit 2>/dev/null || true)"
   if [[ -n "$first_bad" ]]; then
-    warn "droits insuffisants sur data/ (ex: $first_bad)"
+    warn "droits insuffisants sur $dir/ (ex: $first_bad)"
     if command -v sudo >/dev/null 2>&1; then
-      log "tentative de chown -R $(id -un):$(id -gn) data/"
-      sudo chown -R "$(id -u):$(id -g)" data || {
+      log "tentative de chown -R $(id -un):$(id -gn) $dir/"
+      sudo chown -R "$(id -u):$(id -g)" "$dir" || {
         err "chown a échoué. Lance manuellement :"
-        err "  sudo chown -R \$(id -u):\$(id -g) data/"
+        err "  sudo chown -R \$(id -u):\$(id -g) $dir/"
         exit 1
       }
-      ok "data/ rebasculé sur $(id -un):$(id -gn)"
+      ok "$dir/ rebasculé sur $(id -un):$(id -gn)"
     else
       err "sudo indisponible. Corrige les droits manuellement :"
-      err "  chown -R \$(id -u):\$(id -g) data/"
+      err "  chown -R \$(id -u):\$(id -g) $dir/"
       exit 1
     fi
   fi
-fi
+done
 
 # 2. Pull
 if [[ $PULL -eq 1 ]]; then
@@ -163,8 +162,9 @@ docker compose build
 #   - pas besoin d'installer Python + anthropic sur le VPS
 #   - le conteneur éphémère hérite de env_file: .env, donc ANTHROPIC_API_KEY
 #     est injectée automatiquement (cf. docker-compose.yml)
-#   - les volumes data/ sont montés pareil que le service principal, donc les
-#     JSON atterrissent sur l'hôte dans data/subjects/variations/.
+#   - les volumes data/ et content/ sont montés pareil que le service principal,
+#     donc les JSON atterrissent sur l'hôte dans
+#     content/histoire-geo-emc/subjects/variations/.
 #
 # Important : cette étape tourne APRÈS le build (pour avoir la dernière version
 # de scripts/generate_variations.py dans l'image) mais AVANT le up final
@@ -175,7 +175,7 @@ if [[ $GENERATE_VARIATIONS -eq 1 ]]; then
   # On surcharge le CMD par la commande python souhaitée.
   docker compose run --rm --no-TTY app \
     python -m scripts.generate_variations
-  ok "variations à jour dans data/subjects/variations/"
+  ok "variations à jour dans content/histoire-geo-emc/subjects/variations/"
 fi
 
 # 7. Up

@@ -2,7 +2,7 @@
 Génération offline de variations de sujets DC via Claude Opus.
 
 Ce script prend les sujets extraits par `scripts/extract_subjects.py`
-(data/subjects/*.json) et, pour chacun, demande à Opus de produire N
+(content/histoire-geo-emc/subjects/*.json) et, pour chacun, demande à Opus de produire N
 variations qui restent dans le programme cycle 4 mais changent :
 - le verbe-clé de la consigne (décrire ↔ expliquer ↔ montrer…),
 - les bornes chronologiques ou spatiales,
@@ -19,7 +19,7 @@ Pourquoi ce script est offline (et pas du runtime) :
 - Coût one-shot : ~23 sujets × 3 variations × 1 appel = ~70 appels, une fois.
 
 Sortie :
-    data/subjects/variations/<stem>_var.json
+    content/histoire-geo-emc/subjects/variations/<stem>_var.json
 
 Format identique à celui produit par extract_subjects.py — ce qui permet à
 `app.db.load_subjects_from_jsons()` de les charger avec la même logique,
@@ -29,7 +29,7 @@ simplement marqués `is_variation=True` parce qu'ils sont dans le sous-dossier
 Usage :
     source .env
     .venv/bin/python -m scripts.generate_variations                       # traite tous les sujets
-    .venv/bin/python -m scripts.generate_variations --source data/subjects/22genhgemcan1pdf-98088.json
+    .venv/bin/python -m scripts.generate_variations --source content/histoire-geo-emc/subjects/22genhgemcan1pdf-98088.json
     .venv/bin/python -m scripts.generate_variations --count 5 --force
 
 Options :
@@ -59,7 +59,7 @@ logger = logging.getLogger(__name__)
 OPUS_MODEL = "claude-opus-4-6"
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-SUBJECTS_DIR = REPO_ROOT / "data" / "subjects"
+SUBJECTS_DIR = REPO_ROOT / "content" / "histoire-geo-emc" / "subjects"
 OUTPUT_DIR = SUBJECTS_DIR / "variations"
 
 
@@ -249,7 +249,7 @@ def main():
         type=Path,
         default=SUBJECTS_DIR,
         help="Fichier JSON unique ou dossier contenant les sujets d'annales "
-        "(défaut: data/subjects/)",
+        "(défaut: content/histoire-geo-emc/subjects/)",
     )
     parser.add_argument(
         "--count", type=int, default=3, help="Variations par sujet original (défaut 3)"
