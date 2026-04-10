@@ -7,6 +7,7 @@ Monté par `app.core.main` sous le préfixe `/francais`. Rôle :
 
 2. **Inclure le sous-router** de chaque sous-épreuve :
    - `comprehension/*` → `app.francais.comprehension.routes`
+   - `redaction/*`     → `app.francais.redaction.routes`
 
 Pas de redirections de compat : le français est une nouvelle matière, il
 n'a pas d'historique d'URL à préserver.
@@ -22,6 +23,7 @@ from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 
 from app.francais.comprehension.routes import router as comprehension_router
+from app.francais.redaction.routes import router as redaction_router
 
 logger = logging.getLogger(__name__)
 
@@ -44,5 +46,6 @@ def francais_index(request: Request):
 
 
 router.include_router(comprehension_router, prefix="/comprehension")
+router.include_router(redaction_router, prefix="/redaction")
 
 __all__ = ["router", "PREFIX"]

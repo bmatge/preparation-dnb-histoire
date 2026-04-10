@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block title %}Rédaction — Français — Révise ton DNB{% endblock %}
+
+{% block content %}
+<div class="space-y-6">
+  <header>
+    <p class="text-sm text-slate-500">
+      <a href="/francais/" class="hover:text-brand-700">← Français</a>
+    </p>
+    <h1 class="font-display text-3xl font-bold text-brand-900 mt-2">Rédaction</h1>
+    <p class="mt-2 text-slate-600">
+      L'épreuve de rédaction te propose <strong>deux sujets au choix</strong> :
+      un sujet d'imagination et un sujet de réflexion. Tu en choisis un et tu
+      écris 2 à 3 pages.
+    </p>
+    <p class="mt-1 text-xs text-slate-500">40 points · durée 1 h 30</p>
+  </header>
+
+  {% if subjects %}
+  <section class="space-y-3">
+    <h2 class="font-display text-xl font-bold text-brand-800">
+      Sujets disponibles ({{ subjects|length }})
+    </h2>
+    <ul class="grid gap-3 sm:grid-cols-2">
+      {% for s in subjects %}
+      <li class="rounded-2xl bg-white border border-slate-200 p-4 shadow-sm">
+        <p class="font-display text-sm font-bold text-brand-900">
+          {{ s.annee }} — {{ s.centre }}
+        </p>
+        <p class="mt-1 text-xs text-slate-500">{{ s.source_file }}</p>
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% else %}
+  <div class="rounded-2xl border border-dashed border-slate-300 bg-slate-50 p-6 text-slate-500">
+    <p class="font-bold">Aucun sujet chargé pour l'instant.</p>
+    <p class="mt-2 text-sm">
+      Les sujets seront disponibles une fois l'extraction Opus lancée
+      (cf. <code>scripts/extract_french_redactions.py</code>).
+    </p>
+  </div>
+  {% endif %}
+
+  <div class="rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">
+    <p class="font-bold">Parcours à venir</p>
+    <p class="mt-1">
+      Le parcours complet (choix du sujet, brouillon, évaluations
+      socratiques, correction finale) sera branché dans une prochaine
+      itération. Pour l'instant cette page ne sert qu'à vérifier que le
+      catalogue des sujets est bien chargé.
+    </p>
+  </div>
+</div>
+{% endblock %}
