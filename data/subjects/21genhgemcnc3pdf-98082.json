@@ -1,0 +1,27 @@
+{
+  "source_file": "21genhgemcnc3pdf-98082.pdf",
+  "year": 2021,
+  "serie": "generale",
+  "session": "nc",
+  "session_label": "Nouvelle-Calédonie",
+  "variant": "3",
+  "developpements_construits": [
+    {
+      "consigne": "Sous la forme d'un développement construit d'une vingtaine de lignes et en vous appuyant sur un exemple étudié en classe, vous expliquerez les atouts et les dynamiques d'un espace de faible densité en France.",
+      "discipline": "geographie",
+      "theme": "Les espaces de faible densité et leurs atouts",
+      "verbe_cle": "expliquer",
+      "bornes_chrono": null,
+      "bornes_spatiales": "France",
+      "notions_attendues": [
+        "espace de faible densité",
+        "atouts des espaces ruraux",
+        "dynamiques démographiques et économiques",
+        "tourisme vert",
+        "agriculture",
+        "aménagement du territoire"
+      ],
+      "bareme_points": 15
+    }
+  ]
+}

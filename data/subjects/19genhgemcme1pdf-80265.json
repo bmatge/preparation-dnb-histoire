@@ -1,0 +1,27 @@
+{
+  "source_file": "19genhgemcme1pdf-80265.pdf",
+  "year": 2019,
+  "serie": "generale",
+  "session": "me",
+  "session_label": "Métropole",
+  "variant": "1",
+  "developpements_construits": [
+    {
+      "consigne": "En vous appuyant sur un exemple étudié en classe, rédigez un développement construit d'environ vingt lignes montrant l'organisation et les dynamiques d'une aire urbaine en France.",
+      "discipline": "geographie",
+      "theme": "Dynamiques territoriales de la France contemporaine",
+      "verbe_cle": "montrer",
+      "bornes_chrono": null,
+      "bornes_spatiales": "France",
+      "notions_attendues": [
+        "aire urbaine",
+        "étalement urbain",
+        "périurbanisation",
+        "mobilités pendulaires",
+        "centre-ville / pôle urbain",
+        "couronne périurbaine"
+      ],
+      "bareme_points": 13
+    }
+  ]
+}

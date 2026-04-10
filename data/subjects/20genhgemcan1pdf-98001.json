@@ -1,0 +1,27 @@
+{
+  "source_file": "20genhgemcan1pdf-98001.pdf",
+  "year": 2020,
+  "serie": "generale",
+  "session": "an",
+  "session_label": "Amérique du Nord",
+  "variant": "1",
+  "developpements_construits": [
+    {
+      "consigne": "Rédigez un développement construit d'une vingtaine de lignes qui montre les caractéristiques du régime nazi dans l'entre-deux-guerres.",
+      "discipline": "histoire",
+      "theme": "démocraties fragilisées et expériences totalitaires dans l'Europe de l'entre-deux-guerres.",
+      "verbe_cle": "montrer",
+      "bornes_chrono": "entre-deux-guerres",
+      "bornes_spatiales": null,
+      "notions_attendues": [
+        "totalitarisme",
+        "nazisme",
+        "parti unique",
+        "culte du chef",
+        "propagande",
+        "antisémitisme"
+      ],
+      "bareme_points": 14
+    }
+  ]
+}

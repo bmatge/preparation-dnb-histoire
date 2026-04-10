@@ -1,0 +1,27 @@
+{
+  "source_file": "21genhgemcg11pdf-98079.pdf",
+  "year": 2021,
+  "serie": "generale",
+  "session": "g1",
+  "session_label": "Métropole (1er groupe)",
+  "variant": "1",
+  "developpements_construits": [
+    {
+      "consigne": "En vous appuyant sur vos connaissances et sur des exemples étudiés en classe, rédigez un développement construit d'une vingtaine de lignes qui décrit et explique les violences du front lors de la Première Guerre mondiale.",
+      "discipline": "histoire",
+      "theme": "L'Europe, un théâtre majeur des guerres totales (1914-1945)",
+      "verbe_cle": "décrire",
+      "bornes_chrono": "1914-1918",
+      "bornes_spatiales": null,
+      "notions_attendues": [
+        "guerre de tranchées",
+        "guerre de position",
+        "violence de masse",
+        "bataille de Verdun",
+        "bataille de la Somme",
+        "conditions de vie des soldats"
+      ],
+      "bareme_points": 13
+    }
+  ]
+}

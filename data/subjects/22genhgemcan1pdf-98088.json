@@ -1,0 +1,27 @@
+{
+  "source_file": "22genhgemcan1pdf-98088.pdf",
+  "year": 2022,
+  "serie": "generale",
+  "session": "an",
+  "session_label": "Amérique du Nord",
+  "variant": "1",
+  "developpements_construits": [
+    {
+      "consigne": "Rédigez un développement construit d'environ vingt lignes dans lequel vous montrerez que les territoires ultramarins sont faiblement intégrés dans leur espace régional mais mettent en œuvre des aménagements qui les valorisent. Vous pouvez vous appuyer sur des exemples précis vus en classe.",
+      "discipline": "geographie",
+      "theme": "Pourquoi et comment aménager le territoire ?",
+      "verbe_cle": "montrer",
+      "bornes_chrono": null,
+      "bornes_spatiales": "territoires ultramarins",
+      "notions_attendues": [
+        "aménagement du territoire",
+        "territoires ultramarins",
+        "intégration régionale",
+        "DROM-COM",
+        "ZEE (Zone Économique Exclusive)",
+        "développement et inégalités"
+      ],
+      "bareme_points": 13
+    }
+  ]
+}

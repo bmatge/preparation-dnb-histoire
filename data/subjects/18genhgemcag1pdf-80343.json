@@ -1,0 +1,27 @@
+{
+  "source_file": "18genhgemcag1pdf-80343.pdf",
+  "year": 2018,
+  "serie": "generale",
+  "session": "ag",
+  "session_label": "Antilles-Guyane",
+  "variant": "1",
+  "developpements_construits": [
+    {
+      "consigne": "Sous la forme d'un développement construit d'une vingtaine de lignes et en vous appuyant sur des exemples, montrez que le régime nazi est totalitaire et raciste.",
+      "discipline": "histoire",
+      "theme": "Démocraties fragilisées et expériences totalitaires dans l'Europe de l'entre-deux-guerres",
+      "verbe_cle": "montrer",
+      "bornes_chrono": null,
+      "bornes_spatiales": null,
+      "notions_attendues": [
+        "totalitarisme",
+        "nazisme",
+        "parti unique",
+        "propagande",
+        "antisémitisme",
+        "lois de Nuremberg"
+      ],
+      "bareme_points": 15
+    }
+  ]
+}

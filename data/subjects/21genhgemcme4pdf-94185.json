@@ -1,0 +1,27 @@
+{
+  "source_file": "21genhgemcme4pdf-94185.pdf",
+  "year": 2021,
+  "serie": "generale",
+  "session": "me",
+  "session_label": "Métropole",
+  "variant": "4",
+  "developpements_construits": [
+    {
+      "consigne": "Rédigez un développement construit d'une vingtaine de lignes pour montrer comment les deux blocs s'affrontent durant la guerre froide. Vous pouvez prendre appui sur des exemples étudiés en classe.",
+      "discipline": "histoire",
+      "theme": "Un monde bipolaire au temps de la guerre froide",
+      "verbe_cle": "montrer",
+      "bornes_chrono": null,
+      "bornes_spatiales": null,
+      "notions_attendues": [
+        "bloc de l'Ouest / bloc de l'Est",
+        "bipolarisation",
+        "course aux armements / équilibre de la terreur",
+        "crises de la guerre froide (Berlin, Cuba, etc.)",
+        "idéologies opposées (capitalisme / communisme)",
+        "alliances militaires (OTAN / Pacte de Varsovie)"
+      ],
+      "bareme_points": 14
+    }
+  ]
+}

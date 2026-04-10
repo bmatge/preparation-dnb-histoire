@@ -1,0 +1,27 @@
+{
+  "source_file": "20genhgemcme1pdf-94173.pdf",
+  "year": 2020,
+  "serie": "generale",
+  "session": "me",
+  "session_label": "Métropole",
+  "variant": "1",
+  "developpements_construits": [
+    {
+      "consigne": "Rédigez un développement construit d'une vingtaine de lignes montrant que les civils et les militaires subissent des violences extrêmes pendant la Première Guerre mondiale.",
+      "discipline": "histoire",
+      "theme": "L'Europe, un théâtre majeur des guerres totales",
+      "verbe_cle": "montrer",
+      "bornes_chrono": "Première Guerre mondiale",
+      "bornes_spatiales": null,
+      "notions_attendues": [
+        "guerre totale",
+        "violence de masse",
+        "tranchées",
+        "génocide arménien",
+        "bataille de Verdun",
+        "guerre industrielle"
+      ],
+      "bareme_points": 15
+    }
+  ]
+}

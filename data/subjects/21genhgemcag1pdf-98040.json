@@ -1,0 +1,27 @@
+{
+  "source_file": "21genhgemcag1pdf-98040.pdf",
+  "year": 2021,
+  "serie": "generale",
+  "session": "ag",
+  "session_label": "Antilles-Guyane",
+  "variant": "1",
+  "developpements_construits": [
+    {
+      "consigne": "En vous appuyant sur vos connaissances et sur l'exemple étudié en classe, rédigez un développement construit d'une vingtaine de lignes, qui décrit une aire urbaine et montre le rôle des mobilités dans son organisation. Vous pouvez réaliser un schéma qui illustre votre propos.",
+      "discipline": "geographie",
+      "theme": "Dynamiques territoriales de la France contemporaine",
+      "verbe_cle": "décrire",
+      "bornes_chrono": null,
+      "bornes_spatiales": null,
+      "notions_attendues": [
+        "aire urbaine",
+        "étalement urbain",
+        "périurbanisation",
+        "mobilités pendulaires",
+        "pôle urbain",
+        "couronne périurbaine"
+      ],
+      "bareme_points": 13
+    }
+  ]
+}

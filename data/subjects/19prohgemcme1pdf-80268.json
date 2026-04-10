@@ -1,0 +1,27 @@
+{
+  "source_file": "19prohgemcme1pdf-80268.pdf",
+  "year": 2019,
+  "serie": "professionnelle",
+  "session": "me",
+  "session_label": "Métropole",
+  "variant": "1",
+  "developpements_construits": [
+    {
+      "consigne": "Sous la forme d'un développement construit d'une quinzaine de lignes et en vous appuyant sur un exemple étudié en classe, présentez un espace de faible densité : ses atouts et ses contraintes.",
+      "discipline": "geographie",
+      "theme": "Les espaces de faibles densités en France",
+      "verbe_cle": "présenter",
+      "bornes_chrono": null,
+      "bornes_spatiales": "France",
+      "notions_attendues": [
+        "faible densité",
+        "contraintes naturelles",
+        "atouts touristiques",
+        "déprise rurale",
+        "aménagement du territoire",
+        "espaces ruraux"
+      ],
+      "bareme_points": 14
+    }
+  ]
+}

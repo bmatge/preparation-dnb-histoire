@@ -1,0 +1,27 @@
+{
+  "source_file": "20genhgemcg11pdf-98013.pdf",
+  "year": 2020,
+  "serie": "generale",
+  "session": "g1",
+  "session_label": "Métropole (1er groupe)",
+  "variant": "1",
+  "developpements_construits": [
+    {
+      "consigne": "En vous appuyant sur vos connaissances et sur un ou des exemple(s) étudié(s) en classe, rédigez un développement construit d'une vingtaine de lignes qui décrit et explique les aménagements des territoires français.",
+      "discipline": "geographie",
+      "theme": "Pourquoi et comment aménager le territoire ?",
+      "verbe_cle": "décrire",
+      "bornes_chrono": null,
+      "bornes_spatiales": "territoires français",
+      "notions_attendues": [
+        "aménagement du territoire",
+        "acteurs de l'aménagement (État, collectivités territoriales, Union européenne)",
+        "équité territoriale",
+        "compétitivité des territoires",
+        "transports et mobilités",
+        "développement durable"
+      ],
+      "bareme_points": 13
+    }
+  ]
+}

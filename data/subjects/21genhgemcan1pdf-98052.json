@@ -1,0 +1,27 @@
+{
+  "source_file": "21genhgemcan1pdf-98052.pdf",
+  "year": 2021,
+  "serie": "generale",
+  "session": "an",
+  "session_label": "Amérique du Nord",
+  "variant": "1",
+  "developpements_construits": [
+    {
+      "consigne": "Sous la forme d'un développement construit d'une vingtaine de lignes, décrivez et expliquez les souffrances subies par les populations civiles, victimes de violences pendant la Première Guerre mondiale.",
+      "discipline": "histoire",
+      "theme": "Civils et militaires dans la Première Guerre mondiale.",
+      "verbe_cle": "décrire",
+      "bornes_chrono": "Première Guerre mondiale",
+      "bornes_spatiales": null,
+      "notions_attendues": [
+        "génocide des Arméniens",
+        "guerre totale",
+        "violences de masse",
+        "populations civiles",
+        "propagande",
+        "blocus et pénuries"
+      ],
+      "bareme_points": 14
+    }
+  ]
+}

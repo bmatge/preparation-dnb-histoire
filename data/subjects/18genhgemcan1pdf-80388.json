@@ -1,0 +1,27 @@
+{
+  "source_file": "18genhgemcan1pdf-80388.pdf",
+  "year": 2018,
+  "serie": "generale",
+  "session": "an",
+  "session_label": "Amérique du Nord",
+  "variant": "1",
+  "developpements_construits": [
+    {
+      "consigne": "Rédigez un développement construit d'environ vingt lignes dans lequel vous présenterez les principales contraintes des territoires ultramarins français ainsi que les aménagements mis en œuvre pour valoriser ces territoires. Vous pouvez vous appuyer sur un ou plusieurs exemples vus en classe.",
+      "discipline": "geographie",
+      "theme": "Les territoires ultramarins français : une problématique spécifique",
+      "verbe_cle": "présenter",
+      "bornes_chrono": null,
+      "bornes_spatiales": "territoires ultramarins français",
+      "notions_attendues": [
+        "éloignement et insularité",
+        "risques naturels (cyclones, volcans, séismes)",
+        "aménagements de transport et de désenclavement",
+        "mise en valeur touristique",
+        "biodiversité et protection de l'environnement",
+        "inégalités de développement avec la métropole"
+      ],
+      "bareme_points": 15
+    }
+  ]
+}

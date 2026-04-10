@@ -1,0 +1,27 @@
+{
+  "source_file": "22genhgemcas1pdf-100164.pdf",
+  "year": 2022,
+  "serie": "generale",
+  "session": "as",
+  "session_label": "Asie",
+  "variant": "1",
+  "developpements_construits": [
+    {
+      "consigne": "Dans un développement construit d'une vingtaine de lignes, vous décrirez et expliquerez la politique autoritaire et de collaboration mise en place par le régime de Vichy.",
+      "discipline": "histoire",
+      "theme": "La France défaite et occupée : Régime de Vichy, collaboration et Résistance.",
+      "verbe_cle": "décrire",
+      "bornes_chrono": null,
+      "bornes_spatiales": null,
+      "notions_attendues": [
+        "régime de Vichy",
+        "collaboration",
+        "Pétain",
+        "armistice 1940",
+        "politique antisémite",
+        "Révolution nationale"
+      ],
+      "bareme_points": 14
+    }
+  ]
+}

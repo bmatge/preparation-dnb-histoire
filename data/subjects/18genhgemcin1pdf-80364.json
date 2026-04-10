@@ -1,0 +1,27 @@
+{
+  "source_file": "18genhgemcin1pdf-80364.pdf",
+  "year": 2018,
+  "serie": "generale",
+  "session": "in",
+  "session_label": "Inde / Pondichéry",
+  "variant": "1",
+  "developpements_construits": [
+    {
+      "consigne": "Rédigez un développement construit d'une vingtaine de lignes montrant à la fois l'influence de l'Union européenne dans le monde et les limites de son rayonnement.",
+      "discipline": "geographie",
+      "theme": "La France et l'Union européenne",
+      "verbe_cle": "montrer",
+      "bornes_chrono": null,
+      "bornes_spatiales": "Union européenne / monde",
+      "notions_attendues": [
+        "puissance économique et commerciale de l'UE",
+        "pôle du commerce mondial",
+        "soft power et rayonnement culturel",
+        "élargissement et intégration européenne",
+        "limites politiques et militaires de l'UE",
+        "place de l'UE dans la mondialisation"
+      ],
+      "bareme_points": 15
+    }
+  ]
+}

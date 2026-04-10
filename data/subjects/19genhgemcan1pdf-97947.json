@@ -1,0 +1,28 @@
+{
+  "source_file": "19genhgemcan1pdf-97947.pdf",
+  "year": 2019,
+  "serie": "generale",
+  "session": "an",
+  "session_label": "Amérique du Nord",
+  "variant": "1",
+  "developpements_construits": [
+    {
+      "consigne": "En vous appuyant sur des exemples vus en classe, rédigez un développement construit, d'environ vingt lignes, montrant que les espaces français de faible densité disposent d'atouts qu'ils mettent en valeur pour dépasser leurs contraintes.",
+      "discipline": "geographie",
+      "theme": "les espaces de faible densité (espaces ruraux, montagnes, secteurs touristiques peu urbanisés) et leurs atouts.",
+      "verbe_cle": "montrer",
+      "bornes_chrono": null,
+      "bornes_spatiales": "France",
+      "notions_attendues": [
+        "espaces de faible densité",
+        "contraintes naturelles",
+        "atouts des espaces ruraux",
+        "tourisme vert",
+        "agriculture extensive",
+        "aménagement du territoire",
+        "dynamiques démographiques"
+      ],
+      "bareme_points": 15
+    }
+  ]
+}

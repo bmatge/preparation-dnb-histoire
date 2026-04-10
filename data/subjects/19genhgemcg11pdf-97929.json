@@ -1,0 +1,27 @@
+{
+  "source_file": "19genhgemcg11pdf-97929.pdf",
+  "year": 2019,
+  "serie": "generale",
+  "session": "g1",
+  "session_label": "Métropole (1er groupe)",
+  "variant": "1",
+  "developpements_construits": [
+    {
+      "consigne": "Sous la forme d'un développement construit d'environ vingt lignes et en vous appuyant sur des connaissances précises, montrez que la guerre froide divise le monde en deux blocs qui s'opposent et s'affrontent.",
+      "discipline": "histoire",
+      "theme": "Un monde bipolaire au temps de la guerre froide",
+      "verbe_cle": "montrer",
+      "bornes_chrono": null,
+      "bornes_spatiales": null,
+      "notions_attendues": [
+        "guerre froide",
+        "bloc de l'Ouest / bloc de l'Est",
+        "OTAN / Pacte de Varsovie",
+        "rideau de fer",
+        "crises de la guerre froide (Berlin, Cuba)",
+        "modèle capitaliste / modèle communiste"
+      ],
+      "bareme_points": 14
+    }
+  ]
+}

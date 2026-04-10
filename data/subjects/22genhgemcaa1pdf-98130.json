@@ -1,0 +1,27 @@
+{
+  "source_file": "22genhgemcaa1pdf-98130.pdf",
+  "year": 2022,
+  "serie": "generale",
+  "session": "aa",
+  "session_label": "Afrique",
+  "variant": "1",
+  "developpements_construits": [
+    {
+      "consigne": "Dans un développement construit d'une vingtaine de lignes, vous expliquerez dans quelles conditions le Front populaire est arrivé au pouvoir en France en 1936 et quelle politique il a menée.",
+      "discipline": "histoire",
+      "theme": "Démocraties fragilisées et expériences totalitaires dans l'Europe de l'entre-deux-guerres",
+      "verbe_cle": "expliquer",
+      "bornes_chrono": "1936",
+      "bornes_spatiales": "France",
+      "notions_attendues": [
+        "Front populaire",
+        "crise des années 1930",
+        "montée des ligues d'extrême droite",
+        "accords de Matignon",
+        "congés payés",
+        "démocratie fragilisée"
+      ],
+      "bareme_points": 13
+    }
+  ]
+}

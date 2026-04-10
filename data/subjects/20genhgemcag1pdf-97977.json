@@ -1,0 +1,27 @@
+{
+  "source_file": "20genhgemcag1pdf-97977.pdf",
+  "year": 2020,
+  "serie": "generale",
+  "session": "ag",
+  "session_label": "Antilles-Guyane",
+  "variant": "1",
+  "developpements_construits": [
+    {
+      "consigne": "En vous appuyant sur vos connaissances et sur l'exemple d'indépendance étudié en classe, rédigez un développement construit d'une vingtaine de lignes qui décrit et explique comment les colonies sont devenues des États indépendants.",
+      "discipline": "histoire",
+      "theme": "Le monde depuis 1945.",
+      "verbe_cle": "décrire",
+      "bornes_chrono": null,
+      "bornes_spatiales": null,
+      "notions_attendues": [
+        "décolonisation",
+        "indépendance",
+        "métropole et colonie",
+        "mouvement nationaliste",
+        "guerre d'indépendance",
+        "tiers-monde"
+      ],
+      "bareme_points": 14
+    }
+  ]
+}

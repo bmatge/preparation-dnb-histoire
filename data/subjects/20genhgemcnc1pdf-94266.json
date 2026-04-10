@@ -1,0 +1,27 @@
+{
+  "source_file": "20genhgemcnc1pdf-94266.pdf",
+  "year": 2020,
+  "serie": "generale",
+  "session": "nc",
+  "session_label": "Nouvelle-Calédonie",
+  "variant": "1",
+  "developpements_construits": [
+    {
+      "consigne": "Sous la forme d'un développement construit d'une vingtaine de lignes et en vous appuyant sur des exemples étudiés en classe, décrivez les espaces des aires urbaines françaises et expliquez leurs évolutions.",
+      "discipline": "geographie",
+      "theme": "Les aires urbaines en France",
+      "verbe_cle": "décrire",
+      "bornes_chrono": null,
+      "bornes_spatiales": "France",
+      "notions_attendues": [
+        "aire urbaine",
+        "périurbanisation",
+        "étalement urbain",
+        "mobilités pendulaires",
+        "métropolisation",
+        "centre-ville / banlieue / couronne périurbaine"
+      ],
+      "bareme_points": 15
+    }
+  ]
+}

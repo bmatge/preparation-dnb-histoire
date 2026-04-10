@@ -1,0 +1,27 @@
+{
+  "source_file": "18genhgemcme2pdf-80307.pdf",
+  "year": 2018,
+  "serie": "generale",
+  "session": "me",
+  "session_label": "Métropole",
+  "variant": "2",
+  "developpements_construits": [
+    {
+      "consigne": "Rédigez un développement construit d'environ vingt lignes pour montrer les problèmes spécifiques rencontrés par les territoires ultra-marins français et les aménagements réalisés pour tenter d'y remédier. Vous pouvez prendre appui sur un exemple étudié en classe.",
+      "discipline": "geographie",
+      "theme": "Pourquoi et comment aménager le territoire ?",
+      "verbe_cle": "montrer",
+      "bornes_chrono": null,
+      "bornes_spatiales": "territoires ultra-marins français",
+      "notions_attendues": [
+        "territoires ultramarins",
+        "aménagement du territoire",
+        "éloignement et insularité",
+        "inégalités territoriales",
+        "développement économique",
+        "risques naturels"
+      ],
+      "bareme_points": 13
+    }
+  ]
+}

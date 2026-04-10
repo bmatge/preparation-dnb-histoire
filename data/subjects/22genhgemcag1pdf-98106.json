@@ -1,0 +1,27 @@
+{
+  "source_file": "22genhgemcag1pdf-98106.pdf",
+  "year": 2022,
+  "serie": "generale",
+  "session": "ag",
+  "session_label": "Antilles-Guyane",
+  "variant": "1",
+  "developpements_construits": [
+    {
+      "consigne": "Sous la forme d'un développement construit d'environ vingt lignes et en vous appuyant sur des connaissances précises, présentez l'action de la Résistance, sous toutes ses formes, contre l'occupant et contre le régime de Vichy.",
+      "discipline": "histoire",
+      "theme": "L'Europe, un théâtre majeur des guerres totales (1914-1945)",
+      "verbe_cle": "présenter",
+      "bornes_chrono": null,
+      "bornes_spatiales": null,
+      "notions_attendues": [
+        "Résistance intérieure",
+        "Résistance extérieure (France libre, de Gaulle)",
+        "régime de Vichy (collaboration)",
+        "formes de résistance (propagande, sabotage, maquis, réseaux)",
+        "Conseil National de la Résistance (CNR)",
+        "Libération"
+      ],
+      "bareme_points": 13
+    }
+  ]
+}

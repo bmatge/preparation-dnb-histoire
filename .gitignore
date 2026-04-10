@@ -15,8 +15,13 @@ env/
 .mypy_cache/
 .ruff_cache/
 
-# Data locale
-data/
+# Data locale (DB runtime + state d'ingestion) — on ignore tout le contenu
+# de data/, sauf data/subjects/ qui contient les sujets DC extraits par Opus
+# (artefacts du projet, nécessaires pour peupler la base au démarrage).
+# Note : git ne peut pas ré-inclure un fichier si son parent est totalement
+# exclu, d'où le pattern data/* (et non data/) ci-dessous.
+data/*
+!data/subjects/
 *.db
 *.db-journal
 *.sqlite
@@ -34,3 +39,4 @@ logs/
 
 # Docker
 .dockerignore.local
+data/subjects/_all.json
