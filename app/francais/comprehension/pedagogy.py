@@ -40,6 +40,9 @@ from app.francais.comprehension.prompts import (
     ExerciseContext,
     build_first_eval,
     build_hint,
+    build_reecriture_eval,
+    build_reecriture_hint,
+    build_reecriture_reveal,
     build_reveal_answer,
     build_session_synthese,
 )
@@ -200,12 +203,19 @@ def evaluate_answer(
 ) -> EvalResult:
     """Évalue une réponse élève. Ne donne jamais la bonne réponse.
 
+    Dispatche vers le prompt dédié si l'item est une question de
+    réécriture (la grille d'évaluation est totalement différente :
+    vérification contrainte par contrainte plutôt qu'interprétation).
+
     Sauve la réponse élève et le retour Albert dans la DB en tant que turns.
     """
     add_turn(db, session_id, step=item.order, role="user", content=reponse_eleve)
 
     ctx = _build_context(exo, item)
-    prompt = build_first_eval(ctx, reponse_eleve)
+    if item.type == "reecriture":
+        prompt = build_reecriture_eval(ctx, reponse_eleve)
+    else:
+        prompt = build_first_eval(ctx, reponse_eleve)
 
     try:
         raw = _chat(Task.FR_COMP_EVAL, prompt)
@@ -242,7 +252,10 @@ def generate_hint(
         raise ValueError(f"level must be 1, 2 or 3, got {level}")
 
     ctx = _build_context(exo, item)
-    prompt = build_hint(ctx, reponse_eleve, level)
+    if item.type == "reecriture":
+        prompt = build_reecriture_hint(ctx, reponse_eleve, level)
+    else:
+        prompt = build_hint(ctx, reponse_eleve, level)
 
     try:
         raw = _chat(Task.FR_COMP_HINT, prompt)
@@ -264,7 +277,10 @@ def reveal_answer(
 ) -> str:
     """Révèle la bonne réponse avec raisonnement. À appeler APRÈS les 3 indices."""
     ctx = _build_context(exo, item)
-    prompt = build_reveal_answer(ctx, reponse_eleve)
+    if item.type == "reecriture":
+        prompt = build_reecriture_reveal(ctx, reponse_eleve)
+    else:
+        prompt = build_reveal_answer(ctx, reponse_eleve)
 
     try:
         raw = _chat(Task.FR_COMP_REVEAL, prompt)

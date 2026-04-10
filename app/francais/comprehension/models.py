@@ -130,8 +130,8 @@ class ComprehensionExercise(BaseModel):
         self,
         *,
         include_image_questions: bool = False,
-        include_grammar: bool = False,
-        include_reecriture: bool = False,
+        include_grammar: bool = True,
+        include_reecriture: bool = True,
     ) -> list["ExerciseItem"]:
         """Déplie les questions/sous-questions en une liste linéaire.
 
@@ -140,10 +140,16 @@ class ComprehensionExercise(BaseModel):
         une étape. Les items sont numérotés `order` de 1 à N dans l'ordre
         officiel du sujet.
 
-        Les filtres du MVP excluent par défaut :
-        - les questions qui nécessitent l'image (pas encore rendu en UI) ;
-        - les questions de grammaire (MVP = compréhension seule) ;
-        - la question de réécriture (exercice pédagogiquement à part).
+        Par défaut on inclut toute la partie compréhension + toute la partie
+        grammaire + les questions de réécriture. Les trois bénéficient du
+        même parcours question-par-question avec indices gradués (la
+        réécriture utilise juste un prompt d'évaluation dédié côté pedagogy
+        parce que le type d'erreur à signaler est différent).
+
+        Seules les questions qui **nécessitent l'image** sont exclues par
+        défaut : leur rendu visuel n'est pas encore branché dans l'UI. À
+        réactiver via `include_image_questions=True` une fois les images
+        extraites et servies.
         """
         items: list[ExerciseItem] = []
         order = 0
@@ -168,6 +174,9 @@ class ComprehensionExercise(BaseModel):
                             enonce_complet=_build_enonce_complet(q, sq),
                             citation=q.citation,
                             lignes_ciblees=q.lignes_ciblees,
+                            mots_soulignes=q.mots_soulignes,
+                            passage_a_reecrire=q.passage_a_reecrire,
+                            contraintes=q.contraintes,
                             points=sq.points,
                             competence=sq.competence or q.competence,
                             necessite_image=q.necessite_image,
@@ -185,6 +194,9 @@ class ComprehensionExercise(BaseModel):
                         enonce_complet=_build_enonce_complet(q, None),
                         citation=q.citation,
                         lignes_ciblees=q.lignes_ciblees,
+                        mots_soulignes=q.mots_soulignes,
+                        passage_a_reecrire=q.passage_a_reecrire,
+                        contraintes=q.contraintes,
                         points=q.points,
                         competence=q.competence,
                         necessite_image=q.necessite_image,
@@ -194,7 +206,15 @@ class ComprehensionExercise(BaseModel):
 
 
 class ExerciseItem(BaseModel):
-    """Item présenté à l'élève : question ou sous-question atomique."""
+    """Item présenté à l'élève : question ou sous-question atomique.
+
+    Les champs `passage_a_reecrire`, `contraintes` et `mots_soulignes` sont
+    hérités de la `Question` parente (pas de la sous-question). C'est
+    intentionnel : sur une question de réécriture avec sous-questions, le
+    passage à réécrire est commun à toutes les sous-questions, et les
+    éventuelles sous-questions interprétatives (« quel état d'esprit ces
+    marques expriment-elles ») ont besoin d'accéder au même passage.
+    """
 
     order: int
     question_numero: str
@@ -204,6 +224,9 @@ class ExerciseItem(BaseModel):
     enonce_complet: str
     citation: str | None
     lignes_ciblees: list[LignesCiblees]
+    mots_soulignes: list[str] = PField(default_factory=list)
+    passage_a_reecrire: str | None = None
+    contraintes: list[str] = PField(default_factory=list)
     points: float
     competence: str | None
     necessite_image: bool

@@ -21,6 +21,18 @@
 - Génération d'indice → `mistral-small` (tâche `FR_COMP_HINT`)
 - Révélation finale → `gpt-oss-120b` (tâche `FR_COMP_REVEAL`)
 - Synthèse de fin de session → `gpt-oss-120b` (tâche `FR_COMP_SYNTHESE`)
+
+## Cas particulier : réécriture
+
+Les questions de type `reecriture` utilisent les builders `*_reecriture`
+plutôt que les builders génériques. Le contrat d'évaluation est
+différent : on ne juge pas si l'élève a « compris » quelque chose, on
+vérifie qu'il a bien appliqué une transformation mécanique (changer un
+pronom, un temps, un nombre…) en faisant toutes les modifications
+nécessaires de concordance. L'éval passe contrainte par contrainte et
+signale les erreurs sans donner la version corrigée. Les indices gradués
+fonctionnent aussi : niveau 1 = contrainte violée, niveau 2 = catégorie
+d'erreur, niveau 3 = orientation sur un mot précis.
 """
 
 from __future__ import annotations
@@ -346,6 +358,213 @@ Contraintes :
 
 
 # ============================================================================
+# Builders spécifiques à la réécriture
+# ============================================================================
+
+
+def _format_contraintes(contraintes: list[str]) -> str:
+    if not contraintes:
+        return "(aucune contrainte explicite)"
+    return "\n".join(f"- {c}" for c in contraintes)
+
+
+def build_reecriture_eval(ctx: ExerciseContext, reponse_eleve: str) -> str:
+    """Évalue une réécriture : le passage transformé par l'élève.
+
+    Contrairement à une question de compréhension, on ne juge pas une
+    « bonne interprétation » — on vérifie que chaque contrainte imposée
+    par la consigne a été correctement appliquée, et que l'élève a bien
+    propagé toutes les modifications de concordance (accords, temps,
+    pronoms...).
+    """
+    item = ctx.item
+    passage = item.passage_a_reecrire or "(passage manquant dans le JSON)"
+    contraintes = _format_contraintes(item.contraintes)
+
+    return f"""\
+Un·e élève de 3e vient de réécrire un passage d'un texte littéraire \
+selon des contraintes précises. Tu dois évaluer sa réécriture sans lui \
+donner la version corrigée.
+
+<texte_litteraire>
+{ctx.texte_balise()}
+</texte_litteraire>
+
+<consigne_reecriture>
+{item.enonce_complet}
+
+Contraintes à respecter :
+{contraintes}
+</consigne_reecriture>
+
+<passage_original>
+{passage}
+</passage_original>
+
+<reecriture_eleve>
+{reponse_eleve.strip()}
+</reecriture_eleve>
+
+Ta tâche : vérifier contrainte par contrainte si la réécriture est \
+correcte. Produis exactement trois sections :
+
+VERDICT : un seul mot parmi {{CORRECTE, PARTIELLE, INSUFFISANTE}}.
+- CORRECTE : toutes les contraintes sont respectées ET toutes les \
+modifications de concordance (accords sujet-verbe, accords en genre et \
+nombre, temps composés, pronoms possessifs, participes passés…) ont été \
+correctement propagées dans le passage. Les éléments qui ne devaient pas \
+bouger n'ont effectivement pas bougé.
+- PARTIELLE : les contraintes principales sont appliquées mais il reste \
+1 ou 2 erreurs de concordance oubliées (ex : un accord manqué, un \
+participe passé non adapté).
+- INSUFFISANTE : une contrainte principale n'est pas appliquée, ou il y \
+a plusieurs erreurs de concordance, ou l'élève a modifié des éléments \
+qui ne devaient pas l'être.
+
+COMMENTAIRE : deux à trois phrases qui indiquent ce qui va et ce qui \
+cloche, en pointant le TYPE d'erreur (accord, temps, pronom, \
+concordance…) mais SANS donner la version corrigée du passage et SANS \
+réécrire les mots que l'élève devrait trouver lui-même. Tu peux dire \
+« ton accord avec 'ils' n'a pas été propagé sur le verbe » mais pas \
+« il faut écrire 'étaient' ».
+
+PROCHAINE_ACTION : un seul mot parmi {{VALIDER, INDICE, RETENTER}}.
+- VALIDER : VERDICT = CORRECTE.
+- INDICE : VERDICT = INSUFFISANTE, l'élève a besoin d'un coup de pouce.
+- RETENTER : VERDICT = PARTIELLE, l'élève doit juste corriger les \
+dernières erreurs.
+
+Contraintes strictes :
+- N'écris JAMAIS le passage corrigé, même partiellement.
+- N'écris aucune phrase que l'élève pourrait recopier comme réponse.
+- Quand tu cites « tu as écrit X », vérifie que X est LITTÉRALEMENT dans \
+<reecriture_eleve>.
+- Pas de liste à puces, pas de titres markdown, juste les trois sections.
+"""
+
+
+def build_reecriture_hint(
+    ctx: ExerciseContext, reponse_eleve: str, level: int
+) -> str:
+    """Indice gradué pour une question de réécriture.
+
+    Niveau 1 : rappeler la contrainte principale qui n'est pas respectée.
+    Niveau 2 : nommer la catégorie d'erreur (accord, temps, pronom…).
+    Niveau 3 : orienter vers un mot précis à corriger, sans donner le mot
+               corrigé.
+    """
+    if level not in (1, 2, 3):
+        raise ValueError(f"hint level must be 1, 2 or 3, got {level}")
+
+    item = ctx.item
+    passage = item.passage_a_reecrire or ""
+    contraintes = _format_contraintes(item.contraintes)
+
+    niveaux = {
+        1: (
+            "INDICE NIVEAU 1 : rappel de contrainte.\n"
+            "Identifie UNE contrainte parmi celles de la consigne qui n'est "
+            "pas respectée dans la réécriture de l'élève, et rappelle-la lui "
+            "sans lui dire comment la corriger. Ne nomme pas encore la "
+            "catégorie grammaticale de l'erreur, reste au niveau de la "
+            "consigne."
+        ),
+        2: (
+            "INDICE NIVEAU 2 : catégorie d'erreur.\n"
+            "Nomme la catégorie grammaticale de l'erreur principale : accord "
+            "sujet-verbe, accord en genre/nombre, concordance des temps, "
+            "participe passé, pronom, etc. Dis dans quel type de mot ça "
+            "coince, mais ne montre pas encore quel mot précis."
+        ),
+        3: (
+            "INDICE NIVEAU 3 : mot à revoir.\n"
+            "Désigne un mot précis dans la réécriture de l'élève qui doit "
+            "être modifié (« regarde le verbe conjugué au début de la "
+            "deuxième ligne », « regarde l'adjectif qui suit ce nom »…). "
+            "Mais ne donne PAS la forme corrigée du mot. L'élève doit "
+            "encore faire le dernier pas lui-même."
+        ),
+    }
+
+    return f"""\
+Un·e élève de 3e a réécrit un passage mais sa réécriture contient des \
+erreurs. Tu dois lui donner un indice de niveau {level}.
+
+<consigne_reecriture>
+{item.enonce_complet}
+
+Contraintes :
+{contraintes}
+</consigne_reecriture>
+
+<passage_original>
+{passage}
+</passage_original>
+
+<reecriture_eleve_actuelle>
+{reponse_eleve.strip()}
+</reecriture_eleve_actuelle>
+
+{niveaux[level]}
+
+Contraintes strictes :
+- Tu ne donnes JAMAIS le mot corrigé ou la phrase corrigée.
+- Tu ne réécris JAMAIS un fragment tel qu'il devrait être.
+- Tu tutoies l'élève.
+- Maximum 3 phrases. Court et précis.
+- Pas de titre, pas de liste à puces, juste le texte de l'indice.
+"""
+
+
+def build_reecriture_reveal(ctx: ExerciseContext, reponse_eleve: str) -> str:
+    """Révélation de la réécriture corrigée après épuisement des 3 indices."""
+    item = ctx.item
+    passage = item.passage_a_reecrire or ""
+    contraintes = _format_contraintes(item.contraintes)
+
+    return f"""\
+Un·e élève de 3e a épuisé ses 3 indices sans réussir à corriger sa \
+réécriture. Il est temps de lui montrer la version corrigée, mais de \
+manière pédagogique pour qu'il comprenne pourquoi c'est comme ça et \
+pas autrement.
+
+<consigne_reecriture>
+{item.enonce_complet}
+
+Contraintes :
+{contraintes}
+</consigne_reecriture>
+
+<passage_original>
+{passage}
+</passage_original>
+
+<reecriture_eleve_finale>
+{reponse_eleve.strip()}
+</reecriture_eleve_finale>
+
+Réponds en trois sections :
+
+RAISONNEMENT : deux à trois phrases qui expliquent comment on applique \
+les contraintes et comment on propage les modifications de concordance. \
+Nomme les catégories grammaticales concernées (accord, temps, pronom…).
+
+REECRITURE_CORRIGEE : le passage entier correctement réécrit, sur une \
+seule ligne ou avec ses sauts de ligne originaux si nécessaire. C'est \
+la seule section où tu donnes littéralement la forme attendue.
+
+POUR_LA_PROCHAINE_FOIS : une seule phrase qui rappelle le réflexe à \
+mobiliser face à ce type de transformation (ex. « quand tu changes le \
+sujet, vérifie à chaque verbe et à chaque participe passé »).
+
+Contraintes :
+- Tu tutoies l'élève avec bienveillance.
+- Pas de liste à puces, pas de titres markdown autres que les trois \
+étiquettes de section ci-dessus.
+"""
+
+
+# ============================================================================
 # Helpers internes
 # ============================================================================
 
@@ -361,4 +580,7 @@ __all__ = [
     "build_hint",
     "build_reveal_answer",
     "build_session_synthese",
+    "build_reecriture_eval",
+    "build_reecriture_hint",
+    "build_reecriture_reveal",
 ]
