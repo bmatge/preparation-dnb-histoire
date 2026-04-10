@@ -39,3 +39,6 @@ logs/
 
 # Consolidé des sujets (régénéré par scripts/extract_subjects.py)
 content/histoire-geo-emc/subjects/_all.json
+
+# Consolidé des exercices français (régénéré par scripts/extract_french_exercises.py)
+content/francais/comprehension/exercises/_all.json
