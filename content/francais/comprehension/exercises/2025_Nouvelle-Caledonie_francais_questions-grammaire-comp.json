@@ -1,0 +1,462 @@
+{
+  "id": "2025_nouvelle-caledonie",
+  "source": {
+    "annee": 2025,
+    "session": "juin",
+    "centre": "Nouvelle-Calédonie",
+    "code_sujet": "25GENFRQGCNC1"
+  },
+  "epreuve": {
+    "intitule": "Grammaire et compétences linguistiques – Compréhension et compétences d'interprétation",
+    "duree_minutes": 70,
+    "points_total": 48,
+    "points_comprehension": 30,
+    "points_grammaire": 18
+  },
+  "paratexte": "Dans cette scène, Bélise et sa belle-sœur Philaminte ont tenté de faire comprendre à Chrysale qu'elles avaient raison d'être des femmes savantes. Dans ce passage, ce dernier s'y oppose.",
+  "texte_support": {
+    "auteur": "Molière",
+    "auteur_note": null,
+    "oeuvre": "Les Femmes savantes",
+    "partie": null,
+    "annee_publication": 1672,
+    "genre": "théâtre (comédie)",
+    "lignes": [
+      {
+        "n": 1,
+        "texte": "Chrysale, à Bélise."
+      },
+      {
+        "n": 2,
+        "texte": "C'est à vous que je parle, ma sœur. […]"
+      },
+      {
+        "n": 3,
+        "texte": "Il n'est pas bien honnête, et pour beaucoup de causes,"
+      },
+      {
+        "n": 4,
+        "texte": "Qu'une femme étudie et sache tant de choses."
+      },
+      {
+        "n": 5,
+        "texte": "Former aux bonnes mœurs l'esprit de ses enfants,"
+      },
+      {
+        "n": 6,
+        "texte": "Faire aller son ménage, avoir l'œil sur ses gens,"
+      },
+      {
+        "n": 7,
+        "texte": "Et régler la dépense avec économie,"
+      },
+      {
+        "n": 8,
+        "texte": "Doit être son étude et sa philosophie."
+      },
+      {
+        "n": 9,
+        "texte": "Nos pères, sur ce point, étaient gens bien sensés,"
+      },
+      {
+        "n": 10,
+        "texte": "Qui disaient qu'une femme en sait toujours assez"
+      },
+      {
+        "n": 11,
+        "texte": "Quand la capacité de son esprit se hausse"
+      },
+      {
+        "n": 12,
+        "texte": "À connaitre un pourpoint d'avec un haut de chausse."
+      },
+      {
+        "n": 13,
+        "texte": "Les leurs ne lisaient point, mais elles vivaient bien ;"
+      },
+      {
+        "n": 14,
+        "texte": "Leurs ménages étaient tout leur docte entretien ;"
+      },
+      {
+        "n": 15,
+        "texte": "Et leurs livres, un dé, du fil et des aiguilles,"
+      },
+      {
+        "n": 16,
+        "texte": "Dont elles travaillaient au trousseau de leurs filles."
+      },
+      {
+        "n": 17,
+        "texte": "Les femmes d'à présent sont bien loin de ces mœurs :"
+      },
+      {
+        "n": 18,
+        "texte": "Elles veulent écrire, et devenir auteurs."
+      },
+      {
+        "n": 19,
+        "texte": "Nulle science n'est pour elles trop profonde,"
+      },
+      {
+        "n": 20,
+        "texte": "Et céans beaucoup plus qu'en aucun lieu du monde :"
+      },
+      {
+        "n": 21,
+        "texte": "Les secrets les plus hauts s'y laissent concevoir,"
+      },
+      {
+        "n": 22,
+        "texte": "Et l'on sait tout chez moi, hors ce qu'il faut savoir."
+      },
+      {
+        "n": 23,
+        "texte": "On y sait comme vont lune, étoile polaire,"
+      },
+      {
+        "n": 24,
+        "texte": "Vénus, Saturne et Mars, dont je n'ai point affaire ;"
+      },
+      {
+        "n": 25,
+        "texte": "Et, dans ce vain savoir, qu'on va chercher si loin,"
+      },
+      {
+        "n": 26,
+        "texte": "On ne sait comme va mon pot, dont j'ai besoin."
+      },
+      {
+        "n": 27,
+        "texte": "Mes gens à la science aspirent pour vous plaire,"
+      },
+      {
+        "n": 28,
+        "texte": "Et tous ne font rien moins que ce qu'ils ont à faire."
+      },
+      {
+        "n": 29,
+        "texte": "Raisonner est l'emploi de toute ma maison,"
+      },
+      {
+        "n": 30,
+        "texte": "Et le raisonnement en bannit la raison… !"
+      },
+      {
+        "n": 31,
+        "texte": "L'un me brûle mon rôt, en lisant quelque histoire ;"
+      },
+      {
+        "n": 32,
+        "texte": "L'autre rêve à des vers, quand je demande à boire :"
+      },
+      {
+        "n": 33,
+        "texte": "Enfin, je vois par eux votre exemple suivi,"
+      },
+      {
+        "n": 34,
+        "texte": "Et j'ai des serviteurs, et ne suis point servi."
+      },
+      {
+        "n": 35,
+        "texte": "Une pauvre servante au moins m'était restée,"
+      },
+      {
+        "n": 36,
+        "texte": "Qui de ce mauvais air n'était point infectée ;"
+      },
+      {
+        "n": 37,
+        "texte": "Et voilà qu'on la chasse avec un grand fracas,"
+      },
+      {
+        "n": 38,
+        "texte": "À cause qu'elle manque à parler Vaugelas."
+      },
+      {
+        "n": 39,
+        "texte": "Je vous le dis, ma sœur, tout ce train-là me blesse ;"
+      },
+      {
+        "n": 40,
+        "texte": "Car c'est, comme j'ai dit, à vous que je m'adresse."
+      },
+      {
+        "n": 41,
+        "texte": "[…]"
+      },
+      {
+        "n": 42,
+        "texte": "Philaminte."
+      },
+      {
+        "n": 43,
+        "texte": "Quelle bassesse, ô ciel ! et d'âme et de langage !"
+      }
+    ]
+  },
+  "notes_texte": [
+    {
+      "n": 1,
+      "terme": "Un pourpoint",
+      "definition": "veste portée par les hommes."
+    },
+    {
+      "n": 2,
+      "terme": "Un haut de chausse",
+      "definition": "vêtement masculin allant de la ceinture au genou."
+    },
+    {
+      "n": 3,
+      "terme": "Docte",
+      "definition": "savant."
+    },
+    {
+      "n": 4,
+      "terme": "Un trousseau",
+      "definition": "le linge personnel et de maison qu'une jeune fille devait posséder en vue de son mariage."
+    },
+    {
+      "n": 5,
+      "terme": "Céans",
+      "definition": "ici."
+    },
+    {
+      "n": 6,
+      "terme": "Le pot",
+      "definition": "pot de chambre, ancêtre des toilettes."
+    },
+    {
+      "n": 7,
+      "terme": "Un rôt",
+      "definition": "une pièce de viande rôtie."
+    },
+    {
+      "n": 8,
+      "terme": "Vaugelas",
+      "definition": "grammairien du XVIIe siècle."
+    }
+  ],
+  "image": {
+    "type": "publicite",
+    "auteur": null,
+    "titre": "Publicité pour la cocotte-minute Seb",
+    "annee": 1960,
+    "description_visuelle": "Publicité vintage en couleurs, sur fond jaune vif. Une jeune femme brune, souriante, vêtue d'une veste rouge et d'une jupe sombre, se tient légèrement penchée en avant et présente de la main une cocotte-minute métallique de la marque Seb posée au premier plan. Un slogan manuscrit en blanc accompagne l'image : « Monsieur vous qui aimez la bonne cuisine offrez-lui une SUPER COCOTTE ». En bas à droite : « La cocotte de luxe à la portée de tous ». Publicité des années 1960 reproduisant les stéréotypes de genre autour de la cuisine et de la femme au foyer."
+  },
+  "questions": [
+    {
+      "numero": "1",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "À quel genre littéraire le texte appartient-il ? Justifiez votre réponse par au moins deux éléments.",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [],
+      "points": 3.0,
+      "competence": "reperage_explicite",
+      "necessite_image": false
+    },
+    {
+      "numero": "2",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "Qui sont les trois personnages et quel est leur lien ?",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [],
+      "points": 2.0,
+      "competence": "reperage_explicite",
+      "necessite_image": false
+    },
+    {
+      "numero": "3",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "Thèse et arguments de Chrysale.",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        {
+          "lettre": "a",
+          "enonce": "Quelle est la thèse défendue par Chrysale ?",
+          "points": 2.0,
+          "competence": "comprehension_implicite"
+        },
+        {
+          "lettre": "b",
+          "enonce": "Relevez et reformulez trois de ses arguments.",
+          "points": 6.0,
+          "competence": "selection_pertinente"
+        }
+      ],
+      "points": 8.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "4",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "Ce texte est-il comique ? Justifiez votre réponse par deux éléments du texte.",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [],
+      "points": 4.0,
+      "competence": "interpretation",
+      "necessite_image": false
+    },
+    {
+      "numero": "5",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "À votre avis, Molière partage-t-il le point de vue de Chrysale ? Vous développerez votre réponse de manière argumentée en vous appuyant sur au moins trois éléments de réponse.",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [],
+      "points": 6.0,
+      "competence": "interpretation",
+      "necessite_image": false
+    },
+    {
+      "numero": "6",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "Image :",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        {
+          "lettre": "a",
+          "enonce": "Présentez et décrivez cette image.",
+          "points": 3.0,
+          "competence": "texte_image"
+        },
+        {
+          "lettre": "b",
+          "enonce": "Trouvez-vous cette image bien choisie pour illustrer le texte ? Vous développerez votre réponse en vous appuyant sur au moins trois éléments.",
+          "points": 4.0,
+          "competence": "texte_image"
+        }
+      ],
+      "points": 7.0,
+      "competence": null,
+      "necessite_image": true
+    },
+    {
+      "numero": "9",
+      "partie": "grammaire",
+      "type": "standard",
+      "enonce": "« raisonnement » (vers 30)",
+      "citation": "raisonnement",
+      "mots_soulignes": [],
+      "lignes_ciblees": [
+        {
+          "start": 30,
+          "end": 30
+        }
+      ],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        {
+          "lettre": "a",
+          "enonce": "Expliquez la formation du mot « raisonnement » (vers 30) de manière à en donner le sens.",
+          "points": 2.0,
+          "competence": "lexique_etymologie"
+        },
+        {
+          "lettre": "b",
+          "enonce": "Quelle est sa classe grammaticale et quelle est sa fonction ?",
+          "points": 2.0,
+          "competence": "classes_grammaticales"
+        }
+      ],
+      "points": 4.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "10",
+      "partie": "grammaire",
+      "type": "standard",
+      "enonce": "Quel est le temps dominant entre les vers 17 et 22 ? Quelle est sa valeur ?",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [
+        {
+          "start": 17,
+          "end": 22
+        }
+      ],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [],
+      "points": 2.0,
+      "competence": "conjugaison",
+      "necessite_image": false
+    },
+    {
+      "numero": "11",
+      "partie": "grammaire",
+      "type": "standard",
+      "enonce": "Entre les vers 9 et 12, relevez les deux subordonnées et nommez-les.",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [
+        {
+          "start": 9,
+          "end": 12
+        }
+      ],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [],
+      "points": 4.0,
+      "competence": "propositions_subordonnees",
+      "necessite_image": false
+    },
+    {
+      "numero": "12",
+      "partie": "grammaire",
+      "type": "reecriture",
+      "enonce": "Réécrivez les vers 25 à 30 à l'imparfait.",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [
+        {
+          "start": 25,
+          "end": 30
+        }
+      ],
+      "passage_a_reecrire": "Et, dans ce vain savoir, qu'on va chercher si loin, / On ne sait comme va mon pot, dont j'ai besoin. / Mes gens à la science aspirent pour vous plaire, / Et tous ne font rien moins que ce qu'ils ont à faire. / Raisonner est l'emploi de toute ma maison, / Et le raisonnement en bannit la raison… !",
+      "contraintes": [
+        "Réécrire à l'imparfait"
+      ],
+      "sous_questions": [],
+      "points": 8.0,
+      "competence": "reecriture",
+      "necessite_image": false
+    }
+  ],
+  "source_file": "2025_Nouvelle-Caledonie_francais_questions-grammaire-comp.pdf"
+}

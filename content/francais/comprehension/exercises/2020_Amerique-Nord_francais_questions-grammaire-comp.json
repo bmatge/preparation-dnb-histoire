@@ -1,0 +1,237 @@
+{
+  "id": "2020_amerique-nord",
+  "source": {
+    "annee": 2020,
+    "session": "juin",
+    "centre": "Amérique du Nord",
+    "code_sujet": "20GENFRQGCAN1"
+  },
+  "epreuve": {
+    "intitule": "Grammaire et compétences linguistiques – Compréhension et compétences d'interprétation",
+    "duree_minutes": 70,
+    "points_total": 50,
+    "points_comprehension": 30,
+    "points_grammaire": 20
+  },
+  "paratexte": "Gabriel a onze ans et vit au Burundi, un pays d'Afrique centrale. Dans sa rue habite Mme Economopoulos, une vieille dame grecque. Son jardin est magnifique et sa bibliothèque impressionnante. Un jour, elle prête un livre à Gabriel.",
+  "texte_support": {
+    "auteur": "Gaël Faye",
+    "auteur_note": null,
+    "oeuvre": "Petit pays",
+    "partie": null,
+    "annee_publication": 2016,
+    "genre": "roman",
+    "lignes": [
+      {"n": 1, "texte": "Ce soir-là, avant d'aller au lit, j'ai emprunté une lampe torche dans un des tiroirs du"},
+      {"n": 2, "texte": "secrétaire de Papa. Sous les draps, j'ai commencé à lire le roman, l'histoire d'un vieux"},
+      {"n": 3, "texte": "pêcheur, d'un petit garçon, d'un gros poisson, d'une bande de requins… Au fil de la lecture,"},
+      {"n": 4, "texte": "mon lit se transformait en bateau, j'entendais le clapotis des vagues taper contre le bord du"},
+      {"n": 5, "texte": "matelas, je sentais l'air du large et le vent pousser la voile de mes draps."},
+      {"n": 6, "texte": "Le lendemain, j'ai rapporté le livre à Mme Economopoulos."},
+      {"n": 7, "texte": "- Tu l'as déjà terminé ? Bravo, Gabriel ! Je vais t'en prêter un autre."},
+      {"n": 8, "texte": "La nuit d'après, j'entendais le bruit des fers qui se croisent, le galop des chevaux, le"},
+      {"n": 9, "texte": "froissement des capes de chevaliers, le froufrou de la robe en dentelle d'une princesse."},
+      {"n": 10, "texte": "Un autre jour, j'étais dans une pièce exiguë, caché avec une adolescente et sa"},
+      {"n": 11, "texte": "famille, dans une ville en guerre et en ruines. Elle me laissait lire par-dessus son épaule les"},
+      {"n": 12, "texte": "pensées qu'elle couchait dans son journal intime. Elle parlait de ses peurs, de ses rêves,"},
+      {"n": 13, "texte": "de ses amours, de sa vie d'avant. J'avais l'impression que c'était moi dont il était question,"},
+      {"n": 14, "texte": "que j'aurais pu écrire ces lignes."},
+      {"n": 15, "texte": "Chaque fois que je lui rapportais un livre, Mme Economopoulos voulait savoir ce que"},
+      {"n": 16, "texte": "j'en avais pensé. Je me demandais ce que cela pouvait bien lui faire. Au début, je lui"},
+      {"n": 17, "texte": "racontais brièvement l'histoire, quelques actions significatives, le nom des lieux et des"},
+      {"n": 18, "texte": "protagonistes. Je voyais qu'elle était contente et j'avais surtout envie qu'elle me prête à"},
+      {"n": 19, "texte": "nouveau un livre pour filer dans ma chambre le dévorer."},
+      {"n": 20, "texte": "Et puis, j'ai commencé à lui dire ce que je ressentais, les questions que je me"},
+      {"n": 21, "texte": "posais, mon avis sur l'auteur ou les personnages. Ainsi je continuais à savourer mon livre,"},
+      {"n": 22, "texte": "je prolongeais l'histoire. J'ai pris l'habitude de lui rendre visite tous les après-midi. Grâce à"},
+      {"n": 23, "texte": "mes lectures, j'avais aboli les limites de l'impasse, je respirais à nouveau, le monde"},
+      {"n": 24, "texte": "s'étendait plus loin, au-delà des clôtures qui nous recroquevillaient sur nous-mêmes et sur"},
+      {"n": 25, "texte": "nos peurs. Je n'allais plus à la planque, je n'avais plus envie de voir les copains, de les"},
+      {"n": 26, "texte": "écouter parler de la guerre, des villes mortes, des Hutu et des Tutsi. Avec Mme"},
+      {"n": 27, "texte": "Economopoulos, nous nous asseyions dans son jardin sous un jacaranda mimosa. Sur sa"},
+      {"n": 28, "texte": "table en fer forgé, elle servait du thé et des biscuits chauds. Nous discutions pendant des"},
+      {"n": 29, "texte": "heures des livres qu'elle mettait entre mes mains. Je découvrais que je pouvais parler"},
+      {"n": 30, "texte": "d'une infinité de choses tapies au fond de moi et que j'ignorais. Dans ce havre de verdure,"},
+      {"n": 31, "texte": "j'apprenais à identifier mes goûts, mes envies, ma manière de voir et de ressentir l'univers."},
+      {"n": 32, "texte": "Mme Economopoulos me donnait confiance en moi, ne me jugeait jamais, avait le don de"},
+      {"n": 33, "texte": "m'écouter et de me rassurer."}
+    ]
+  },
+  "notes_texte": [
+    {"n": 1, "terme": "La planque", "definition": "lieu où se retrouvent Gabriel et ses amis."},
+    {"n": 2, "terme": "Hutu et Tutsi", "definition": "populations vivant au Rwanda. Dans les années 1990, une guerre civile sanglante les oppose qui aboutira au génocide des Tutsi."},
+    {"n": 3, "terme": "Jacaranda mimosa (ou flamboyant bleu)", "definition": "arbre subtropical aux fleurs bleues."},
+    {"n": 4, "terme": "Havre", "definition": "refuge sûr et tranquille."}
+  ],
+  "image": {
+    "type": "affiche",
+    "auteur": "La Fureur de lire",
+    "titre": "La Fureur de lire – festival littéraire belge",
+    "annee": 2018,
+    "description_visuelle": "Affiche sur fond blanc pour un festival littéraire. Sur la partie supérieure, divers objets emblématiques de la lecture et de l'aventure sont disposés comme en vitrine : une pipe, une plume d'encrier, un super-héros en cape, un coffre au trésor, un scorpion, une machine à écrire, une couronne de roi, une soucoupe volante, une bouée de sauvetage, un revolver et un petit avion biplan. En partie basse, le titre « LA FUREUR DE LIRE – Des histoires à lire et à découvrir – DU 10 AU 14 OCTOBRE 2018 », ainsi que des logos de partenaires."
+  },
+  "questions": [
+    {
+      "numero": "1",
+      "partie": "grammaire",
+      "type": "standard",
+      "enonce": "Ligne 7 : « Tu l'as déjà terminé ? »",
+      "citation": "Tu l'as déjà terminé ?",
+      "mots_soulignes": ["l'"],
+      "lignes_ciblees": [{"start": 7, "end": 7}],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        {"lettre": "a", "enonce": "Remplacez « l' » par le mot du texte auquel il renvoie et récrivez la phrase.", "points": 2.0, "competence": "reperage_explicite"},
+        {"lettre": "b", "enonce": "Quelle est la nature (classe grammaticale) de « l' » ?", "points": 2.0, "competence": "classes_grammaticales"}
+      ],
+      "points": 4.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "2",
+      "partie": "grammaire",
+      "type": "standard",
+      "enonce": "Ligne 10 : « Un autre jour, j'étais dans une pièce exiguë, caché avec une adolescente et sa famille ». Expliquez la terminaison du mot souligné.",
+      "citation": "Un autre jour, j'étais dans une pièce exiguë, caché avec une adolescente et sa famille",
+      "mots_soulignes": ["caché"],
+      "lignes_ciblees": [{"start": 10, "end": 10}],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [],
+      "points": 2.0,
+      "competence": "conjugaison",
+      "necessite_image": false
+    },
+    {
+      "numero": "3",
+      "partie": "grammaire",
+      "type": "reecriture",
+      "enonce": "Réécrivez le passage suivant en conjuguant les verbes au présent de l'indicatif et en remplaçant « je » par « nous » :\n« Et puis, j'ai commencé à lui dire ce que je ressentais, les questions que je me posais, mon avis sur l'auteur ou les personnages. Ainsi je continuais à savourer mon livre, je prolongeais l'histoire. J'ai pris l'habitude de lui rendre visite tous les après-midi. »",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [{"start": 20, "end": 22}],
+      "passage_a_reecrire": "Et puis, j'ai commencé à lui dire ce que je ressentais, les questions que je me posais, mon avis sur l'auteur ou les personnages. Ainsi je continuais à savourer mon livre, je prolongeais l'histoire. J'ai pris l'habitude de lui rendre visite tous les après-midi.",
+      "contraintes": [
+        "Conjuguer les verbes au présent de l'indicatif",
+        "Remplacer « je » par « nous »"
+      ],
+      "sous_questions": [],
+      "points": 10.0,
+      "competence": "reecriture",
+      "necessite_image": false
+    },
+    {
+      "numero": "4",
+      "partie": "grammaire",
+      "type": "standard",
+      "enonce": "Lignes 15-16 : « Chaque fois que je lui rapportais un livre, Mme Economopoulos voulait savoir ce que j'en avais pensé. »",
+      "citation": "Chaque fois que je lui rapportais un livre, Mme Economopoulos voulait savoir ce que j'en avais pensé.",
+      "mots_soulignes": ["rapportais", "voulait"],
+      "lignes_ciblees": [{"start": 15, "end": 16}],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        {"lettre": "a", "enonce": "À quel temps sont conjugués les deux verbes soulignés ?", "points": 2.0, "competence": "conjugaison"},
+        {"lettre": "b", "enonce": "Pourquoi ce temps est-il employé dans cette phrase ?", "points": 2.0, "competence": "conjugaison"}
+      ],
+      "points": 4.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "5",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "Premier paragraphe (lignes 1 à 5).",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [{"start": 1, "end": 5}],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        {"lettre": "a", "enonce": "Que fait Gabriel dans le premier paragraphe ?", "points": 1.0, "competence": "reperage_explicite"},
+        {"lettre": "b", "enonce": "Comment expliquez-vous l'expression : « mon lit se transformait en bateau » à la ligne 4 ?", "points": 2.0, "competence": "interpretation"},
+        {"lettre": "c", "enonce": "Relevez dans ce paragraphe une autre expression reprenant cette image : nommez la figure de style utilisée et expliquez-la.", "points": 3.0, "competence": "interpretation"}
+      ],
+      "points": 6.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "6",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "Ligne 19 : « j'avais surtout envie qu'elle me prête à nouveau un livre pour filer dans ma chambre le dévorer ».\nLigne 21 : « je continuais à savourer mon livre »",
+      "citation": null,
+      "mots_soulignes": ["dévorer", "savourer"],
+      "lignes_ciblees": [{"start": 19, "end": 19}, {"start": 21, "end": 21}],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        {"lettre": "a", "enonce": "À quel champ lexical appartiennent les deux verbes soulignés ?", "points": 1.0, "competence": "champ_lexical"},
+        {"lettre": "b", "enonce": "Que signifie ici chacun de ces verbes ?", "points": 2.0, "competence": "lexique_etymologie"},
+        {"lettre": "c", "enonce": "Quelle place occupe la lecture à ce moment-là dans la vie de Gabriel ?", "points": 3.0, "competence": "interpretation"}
+      ],
+      "points": 6.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "7",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "Lignes 25 à 31 (« Avec Mme Economopoulos (…) de ressentir l'univers »).",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [{"start": 25, "end": 31}],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        {"lettre": "a", "enonce": "Pourquoi Gabriel qualifie-t-il ce lieu de « havre de verdure » ?", "points": 2.0, "competence": "interpretation"},
+        {"lettre": "b", "enonce": "À quoi ce lieu s'oppose-t-il dans ce passage ? Pourquoi ?", "points": 3.0, "competence": "interpretation"}
+      ],
+      "points": 5.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "8",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "Mme Economopoulos et Gabriel.",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        {"lettre": "a", "enonce": "Quels rôles joue Mme Economopoulos auprès de Gabriel ?", "points": 3.0, "competence": "interpretation"},
+        {"lettre": "b", "enonce": "Montrez que Gabriel n'est plus le même à la fin du texte. Appuyez-vous sur des citations précises tirées de l'ensemble de l'extrait.", "points": 4.0, "competence": "structure_narrative"}
+      ],
+      "points": 7.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "9",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "Questions sur l'affiche.",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        {"lettre": "a", "enonce": "Observez les éléments de l'affiche (pipe, coffre au trésor, avion, etc.). Pour quelle raison sont-ils présentés ensemble ?", "points": 2.0, "competence": "texte_image"},
+        {"lettre": "b", "enonce": "Quels liens établissez-vous entre cette affiche et le texte ?", "points": 4.0, "competence": "texte_image"}
+      ],
+      "points": 6.0,
+      "competence": null,
+      "necessite_image": true
+    }
+  ],
+  "source_file": "2020_Amerique-Nord_francais_questions-grammaire-comp.pdf"
+}

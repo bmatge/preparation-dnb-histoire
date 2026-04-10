@@ -1,0 +1,364 @@
+"""Prompts Albert pour la sous-épreuve compréhension/interprétation français.
+
+## Règles cardinales (à ne pas relâcher sans forte raison)
+
+1. **L'IA ne donne jamais la réponse** tant que l'élève n'a pas épuisé ses
+   3 indices. Après le 3e indice, si l'élève bloque encore, la réponse est
+   révélée via `build_reveal_answer` avec une explication pédagogique.
+
+2. **Pas d'hallucination méta** : l'IA ne doit jamais attribuer à l'élève des
+   faits présents dans le texte littéraire mais absents de sa réponse. Les
+   balises XML séparent strictement texte source, question et réponse élève
+   (gotcha §5.1 de HANDOFF).
+
+3. **Pas de ghostwriting** : si un indice contient un extrait que l'élève
+   pourrait recopier comme réponse, c'est une violation. Les indices orientent,
+   ils n'exposent pas.
+
+## Découpage des modèles Albert (voir `app.core.albert_client`)
+
+- Évaluation d'une réponse → `gpt-oss-120b` (tâche `FR_COMP_EVAL`)
+- Génération d'indice → `mistral-small` (tâche `FR_COMP_HINT`)
+- Révélation finale → `gpt-oss-120b` (tâche `FR_COMP_REVEAL`)
+- Synthèse de fin de session → `gpt-oss-120b` (tâche `FR_COMP_SYNTHESE`)
+"""
+
+from __future__ import annotations
+
+from dataclasses import dataclass
+
+from app.francais.comprehension.models import ExerciseItem, Ligne, NoteTexte
+
+
+# ============================================================================
+# Persona système
+# ============================================================================
+
+SYSTEM_PERSONA = """\
+Tu es un assistant pédagogique français qui aide un·e élève de 3e à \
+s'entraîner à l'épreuve de « Compréhension et compétences d'interprétation » \
+du Diplôme National du Brevet.
+
+Ton rôle est d'accompagner l'élève dans son raisonnement, PAS de répondre à sa \
+place. Tu suis rigoureusement les règles suivantes :
+
+1. **Tu ne donnes jamais directement la réponse à une question.** Ton travail \
+consiste à guider l'élève par des questions, des reformulations et des \
+orientations méthodologiques jusqu'à ce qu'il trouve lui-même la réponse.
+
+2. **Quand tu cites le texte ou la réponse de l'élève, tu vérifies toujours** \
+que ce que tu cites se trouve littéralement dans la balise correspondante. \
+N'invente jamais une phrase que l'élève n'a pas écrite. N'attribue jamais à \
+l'élève une idée qu'il n'a pas exprimée.
+
+3. **Tu t'adresses à l'élève en le tutoyant**, dans un français simple, \
+bienveillant et encourageant. Ton ton est celui d'un·e professeur·e qui croit \
+en la capacité de l'élève à trouver par lui-même.
+
+4. **Tu ne recopies jamais d'extraits longs du texte littéraire** dans tes \
+indices : cela reviendrait à donner la réponse. Tu peux renvoyer à des lignes \
+précises (« regarde ce que dit le narrateur lignes 15 à 17 »), mais sans \
+copier leur contenu intégral.
+
+5. **Tu restes strictement dans le périmètre de la question en cours.** Tu ne \
+commentes pas les réponses précédentes, tu ne donnes pas de conseils \
+généraux sur la dissertation, tu ne digresses pas.
+
+6. **Tu réponds en français correct** : orthographe, ponctuation, guillemets \
+français « ». Pas d'emojis.
+"""
+
+
+# ============================================================================
+# Builders
+# ============================================================================
+
+
+@dataclass
+class ExerciseContext:
+    """Contexte partagé par tous les prompts d'un item."""
+
+    texte_lignes: list[Ligne]
+    notes: list[NoteTexte]
+    paratexte: str | None
+    item: ExerciseItem
+
+    def texte_balise(self) -> str:
+        """Rend le texte littéraire numéroté ligne par ligne dans une balise XML."""
+        parts = []
+        if self.paratexte:
+            parts.append(f"[Paratexte] {self.paratexte}")
+            parts.append("")
+        for ligne in self.texte_lignes:
+            parts.append(f"{ligne.n:>3}  {ligne.texte}")
+        return "\n".join(parts)
+
+    def notes_balise(self) -> str:
+        if not self.notes:
+            return "(aucune note)"
+        return "\n".join(f"[{n.n}] {n.terme} : {n.definition}" for n in self.notes)
+
+    def question_balise(self) -> str:
+        parts = [f"Question {self.item.label} ({self.item.points} point(s))"]
+        if self.item.citation:
+            parts.append(f"Citation de référence : « {self.item.citation} »")
+        if self.item.lignes_ciblees:
+            plages = ", ".join(
+                f"{p.start}" if p.start == p.end else f"{p.start}-{p.end}"
+                for p in self.item.lignes_ciblees
+            )
+            parts.append(f"Lignes visées : {plages}")
+        if self.item.competence:
+            parts.append(f"Compétence évaluée : {self.item.competence}")
+        parts.append("")
+        parts.append(f"Énoncé :\n{self.item.enonce_complet}")
+        return "\n".join(parts)
+
+
+def build_first_eval(ctx: ExerciseContext, reponse_eleve: str) -> str:
+    """Évalue la première tentative de l'élève.
+
+    Retour attendu du LLM : verdict structuré (correcte / partielle /
+    insuffisante) + commentaire court. PAS d'indice, PAS de réponse.
+    """
+    return f"""\
+Un·e élève de 3e tente de répondre à une question de compréhension d'un texte \
+littéraire. Voici le contexte.
+
+<texte_litteraire>
+{ctx.texte_balise()}
+</texte_litteraire>
+
+<notes_du_texte>
+{ctx.notes_balise()}
+</notes_du_texte>
+
+<question>
+{ctx.question_balise()}
+</question>
+
+<reponse_eleve>
+{reponse_eleve.strip()}
+</reponse_eleve>
+
+Ta tâche : évaluer cette réponse SANS donner la bonne réponse, SANS proposer \
+d'indice, SANS rédiger ce que l'élève aurait dû écrire.
+
+Tu dois produire exactement trois sections, dans cet ordre, séparées par des \
+sauts de ligne :
+
+VERDICT : un seul mot parmi {{CORRECTE, PARTIELLE, INSUFFISANTE}}.
+- CORRECTE : la réponse couvre l'essentiel de ce qui est attendu par la \
+question, même si la rédaction peut être améliorée.
+- PARTIELLE : la réponse contient un élément valide mais il en manque \
+d'autres OU la justification est incomplète.
+- INSUFFISANTE : la réponse est hors-sujet, trop vague, recopie le texte \
+sans analyse, ou ne répond pas à ce qui est demandé.
+
+COMMENTAIRE : deux à trois phrases, en t'adressant directement à l'élève \
+(« tu as... », « ta réponse... »). Explique ce qui va ou ne va pas, sans \
+jamais révéler ce qu'il fallait répondre. N'écris rien que l'élève pourrait \
+recopier tel quel comme réponse.
+
+PROCHAINE_ACTION : un seul mot parmi {{VALIDER, INDICE, RETENTER}}.
+- VALIDER : VERDICT = CORRECTE, l'élève peut passer à la question suivante.
+- INDICE : VERDICT = PARTIELLE ou INSUFFISANTE et tu penses qu'un indice \
+aiderait l'élève à progresser.
+- RETENTER : VERDICT = PARTIELLE, mais l'élève est sur la bonne voie et doit \
+juste approfondir ; pas besoin d'indice, juste une relance.
+
+Contraintes strictes :
+- Quand tu cites « tu as dit X », vérifie que X se trouve LITTÉRALEMENT dans \
+<reponse_eleve>. Jamais dans <texte_litteraire>.
+- Ne cite jamais plus de 5 mots consécutifs du texte littéraire.
+- Pas de liste à puces, pas de titres markdown, juste les trois sections.
+"""
+
+
+def build_hint(ctx: ExerciseContext, reponse_eleve: str, level: int) -> str:
+    """Construit un indice gradué (1, 2 ou 3).
+
+    Niveau 1 : reformulation / recentrage sur la question.
+    Niveau 2 : piste méthodologique (type d'outil d'analyse à mobiliser).
+    Niveau 3 : orientation concrète vers une zone du texte, sans révéler.
+    """
+    if level not in (1, 2, 3):
+        raise ValueError(f"hint level must be 1, 2 or 3, got {level}")
+
+    niveaux = {
+        1: (
+            "INDICE DE NIVEAU 1 : reformulation et recentrage.\n"
+            "Reformule la question autrement, rappelle à l'élève sur quoi "
+            "elle porte exactement (le narrateur ? un personnage ? un passage "
+            "précis ?), et éventuellement pose-lui une petite question de "
+            "relance qui l'oriente vers ce qu'il faut chercher. N'indique PAS "
+            "de méthode d'analyse, n'oriente PAS vers une zone particulière "
+            "du texte."
+        ),
+        2: (
+            "INDICE DE NIVEAU 2 : piste méthodologique.\n"
+            "Propose à l'élève un outil d'analyse qu'il pourrait mobiliser : "
+            "champ lexical, figure de style, connecteur logique, temps verbal, "
+            "ponctuation, inférence sur un personnage, contexte historique... "
+            "Mentionne l'outil mais ne dis pas où chercher. N'indique PAS de "
+            "ligne précise, ne donne PAS la réponse."
+        ),
+        3: (
+            "INDICE DE NIVEAU 3 : orientation concrète.\n"
+            "Oriente l'élève vers une zone précise du texte (ex : « regarde "
+            "aux lignes 15 à 18 ») ou vers un élément concret à chercher "
+            "(ex : « cherche un mot qui désigne la peur »). Mais NE CITE PAS "
+            "le contenu de ces lignes ni le mot recherché. Ne rédige pas la "
+            "réponse. L'élève doit encore faire le dernier pas lui-même."
+        ),
+    }
+
+    return f"""\
+Un·e élève de 3e n'a pas encore trouvé la réponse à une question de \
+compréhension. C'est sa {_ordinal(level + 1)} tentative : tu dois lui \
+fournir un indice de niveau {level}.
+
+<texte_litteraire>
+{ctx.texte_balise()}
+</texte_litteraire>
+
+<notes_du_texte>
+{ctx.notes_balise()}
+</notes_du_texte>
+
+<question>
+{ctx.question_balise()}
+</question>
+
+<reponse_eleve_actuelle>
+{reponse_eleve.strip()}
+</reponse_eleve_actuelle>
+
+{niveaux[level]}
+
+Contraintes strictes, valables à tous les niveaux d'indice :
+- Tu ne donnes JAMAIS la réponse, même partielle.
+- Tu ne cites jamais plus de 5 mots consécutifs du texte littéraire.
+- Tu ne rédiges jamais une phrase que l'élève pourrait recopier comme réponse.
+- Tu t'adresses directement à l'élève en le tutoyant.
+- Maximum 4 phrases. Court, net, pédagogique.
+- Pas de titre, pas de liste à puces, pas de balises markdown. Juste le texte \
+de l'indice.
+"""
+
+
+def build_reveal_answer(ctx: ExerciseContext, reponse_eleve: str) -> str:
+    """Révélation de la réponse après l'épuisement des 3 indices.
+
+    C'est le SEUL cas où l'IA donne la bonne réponse, et elle le fait sous
+    forme pédagogique : raisonnement complet, et non simple énoncé.
+    """
+    return f"""\
+Un·e élève de 3e a épuisé ses 3 indices sans trouver la réponse. Il est \
+temps de lui expliquer la bonne réponse, mais d'une manière qui reste \
+pédagogique : tu expliques le raisonnement et pas seulement le résultat, \
+pour qu'il comprenne comment faire la prochaine fois.
+
+<texte_litteraire>
+{ctx.texte_balise()}
+</texte_litteraire>
+
+<notes_du_texte>
+{ctx.notes_balise()}
+</notes_du_texte>
+
+<question>
+{ctx.question_balise()}
+</question>
+
+<reponse_eleve_finale>
+{reponse_eleve.strip()}
+</reponse_eleve_finale>
+
+Ta réponse doit comporter trois parties courtes, dans cet ordre :
+
+RAISONNEMENT : deux à quatre phrases qui expliquent comment on trouve la \
+réponse à partir du texte. Montre le chemin : où chercher, quoi repérer, \
+quoi en déduire.
+
+REPONSE : une ou deux phrases qui formulent la bonne réponse de manière \
+claire et complète, comme l'attendrait un correcteur du DNB.
+
+POUR_LA_PROCHAINE_FOIS : une seule phrase d'orientation générale qui résume \
+ce que l'élève devra mobiliser la prochaine fois face à ce type de question. \
+PAS un plan, PAS une méthode détaillée — juste une idée-phare.
+
+Contraintes :
+- Tu t'adresses à l'élève en le tutoyant, avec bienveillance.
+- Tu peux citer des passages courts (maxi une dizaine de mots) du texte, \
+en les mettant entre guillemets français « » et en indiquant la ligne.
+- Pas de liste à puces, pas de titres markdown, juste les trois sections.
+"""
+
+
+def build_session_synthese(
+    items_resolved: list[tuple[ExerciseItem, str, bool]]
+) -> str:
+    """Bilan de fin de session.
+
+    `items_resolved` : liste de (item, réponse finale élève, trouvée_seul).
+    """
+    lignes_items = []
+    for item, rep, seul in items_resolved:
+        statut = "trouvée seul·e" if seul else "révélée après indices"
+        lignes_items.append(
+            f"- Question {item.label} ({item.partie}, compétence={item.competence}) : "
+            f"{statut}."
+        )
+    items_block = "\n".join(lignes_items)
+
+    return f"""\
+Un·e élève de 3e vient de terminer une séance d'entraînement sur un sujet de \
+compréhension. Voici le bilan question par question :
+
+<bilan_session>
+{items_block}
+</bilan_session>
+
+Rédige pour l'élève une synthèse courte (8 phrases maximum) qui comprend, \
+dans cet ordre :
+
+1. Une phrase d'encouragement concrète qui reprend UN point fort observable \
+dans le bilan (ex : « tu as bien réussi les questions de repérage explicite »).
+
+2. Une identification des 1 à 2 compétences qu'il devrait retravailler en \
+priorité, basée sur les questions où la réponse a été révélée. Nomme la \
+compétence en mots simples (ex : « l'interprétation des intentions du \
+narrateur »).
+
+3. Une suggestion concrète d'entraînement : quoi relire, quel type de \
+question refaire la prochaine fois. Une seule suggestion, courte.
+
+4. Une dernière phrase d'encouragement.
+
+Contraintes :
+- Tu t'adresses à l'élève en le tutoyant.
+- Pas de liste à puces, pas de titres, juste un paragraphe ou deux.
+- Pas de jugement sur la personne (« tu es... »), seulement sur le travail \
+(« ton travail montre... »).
+- Pas d'emojis.
+"""
+
+
+# ============================================================================
+# Helpers internes
+# ============================================================================
+
+
+def _ordinal(n: int) -> str:
+    return {1: "1ère", 2: "2e", 3: "3e", 4: "4e"}.get(n, f"{n}e")
+
+
+__all__ = [
+    "SYSTEM_PERSONA",
+    "ExerciseContext",
+    "build_first_eval",
+    "build_hint",
+    "build_reveal_answer",
+    "build_session_synthese",
+]

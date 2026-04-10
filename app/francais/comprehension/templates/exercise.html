@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+{% block title %}{{ exercise.source.annee }} {{ exercise.source.centre }} — Compréhension{% endblock %}
+
+{% block progress %}
+<div class="max-w-5xl mx-auto px-4 pb-3">
+  <div class="flex items-center justify-between text-xs text-slate-500 mb-1">
+    <span>Question {{ item.order }} / {{ total_items }}</span>
+    <span>{{ exercise.texte_support.auteur }} — {{ exercise.texte_support.oeuvre }}</span>
+  </div>
+  <div class="h-1.5 w-full bg-slate-200 rounded-full overflow-hidden">
+    <div class="h-full progress-active" style="width: {{ (item.order / total_items * 100) | round(0) }}%"></div>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="grid lg:grid-cols-5 gap-8 -mx-4 lg:-mx-16">
+
+  {# =========================================
+     COLONNE GAUCHE : texte littéraire (sticky)
+     ========================================= #}
+  <aside class="lg:col-span-3 px-4">
+    <div class="lg:sticky lg:top-24">
+      <div class="rounded-2xl bg-white border border-slate-200 p-6 shadow-sm max-h-[calc(100vh-8rem)] overflow-y-auto">
+
+        {% if exercise.paratexte %}
+        <p class="text-sm italic text-slate-600 mb-4 pb-4 border-b border-slate-100">
+          {{ exercise.paratexte }}
+        </p>
+        {% endif %}
+
+        <div class="font-display text-[1.02rem] leading-relaxed text-slate-800 space-y-0">
+          {% for ligne in exercise.texte_support.lignes %}
+          <div class="flex gap-3" id="ligne-{{ ligne.n }}">
+            <span class="shrink-0 w-7 text-right text-xs text-slate-300 pt-1 select-none">
+              {% if ligne.n % 5 == 0 %}{{ ligne.n }}{% endif %}
+            </span>
+            <span>{{ ligne.texte }}</span>
+          </div>
+          {% endfor %}
+        </div>
+
+        <div class="mt-6 pt-4 border-t border-slate-100 text-xs text-slate-500">
+          <strong class="text-slate-700">{{ exercise.texte_support.auteur }}</strong>,
+          <em>{{ exercise.texte_support.oeuvre }}</em>{% if exercise.texte_support.partie %},
+          {{ exercise.texte_support.partie }}{% endif %}{% if exercise.texte_support.annee_publication %},
+          {{ exercise.texte_support.annee_publication }}{% endif %}.
+        </div>
+
+        {% if exercise.notes_texte %}
+        <details class="mt-4 text-xs text-slate-500">
+          <summary class="cursor-pointer hover:text-brand-700">Notes du texte</summary>
+          <ul class="mt-2 space-y-1">
+            {% for note in exercise.notes_texte %}
+            <li><sup>{{ note.n }}</sup> <strong>{{ note.terme }}</strong> : {{ note.definition }}</li>
+            {% endfor %}
+          </ul>
+        </details>
+        {% endif %}
+
+      </div>
+    </div>
+  </aside>
+
+  {# =========================================
+     COLONNE DROITE : question courante
+     ========================================= #}
+  <section class="lg:col-span-2 px-4 space-y-4">
+
+    <div class="rounded-2xl bg-white border border-slate-200 p-6 shadow-sm">
+      <div class="flex items-baseline justify-between mb-3">
+        <h2 class="font-display text-lg font-bold text-brand-900">
+          Question {{ item.label }}
+        </h2>
+        <span class="text-xs text-slate-500">{{ item.points }} point{% if item.points > 1 %}s{% endif %}</span>
+      </div>
+
+      {% if item.citation %}
+      <blockquote class="text-sm italic text-slate-700 border-l-2 border-brand-300 pl-3 mb-3">
+        « {{ item.citation }} »
+        {% if item.lignes_ciblees %}
+          <span class="text-xs text-slate-500 not-italic">
+            (ligne{% if item.lignes_ciblees|length > 1 %}s{% endif %}
+            {% for p in item.lignes_ciblees %}{{ p.start }}{% if p.end != p.start %}-{{ p.end }}{% endif %}{% if not loop.last %}, {% endif %}{% endfor %})
+          </span>
+        {% endif %}
+      </blockquote>
+      {% endif %}
+
+      <p class="text-slate-800 whitespace-pre-line">{{ item.enonce_complet }}</p>
+    </div>
+
+    <div id="interaction-zone" class="space-y-4">
+      <form hx-post="/francais/comprehension/session/{{ session.id }}/item/{{ item.order }}/answer"
+            hx-target="#feedback-zone"
+            hx-swap="innerHTML"
+            class="rounded-2xl bg-white border border-slate-200 p-4 shadow-sm">
+        <label for="reponse" class="text-xs font-semibold text-slate-600 uppercase tracking-wide">
+          Ta réponse
+        </label>
+        <textarea
+          id="reponse"
+          name="reponse"
+          rows="6"
+          class="mt-2 w-full rounded-xl border border-slate-200 p-3 text-sm focus:border-brand-400 focus:outline-none"
+          placeholder="Rédige ta réponse ici…"
+          required
+        >{{ last_answer }}</textarea>
+        <div class="mt-3 flex items-center justify-between gap-2">
+          <div class="text-xs text-slate-500">
+            <span class="htmx-indicator">⏳ Albert réfléchit…</span>
+          </div>
+          <button type="submit" class="btn-primary">Vérifier</button>
+        </div>
+      </form>
+
+      <div id="feedback-zone"></div>
+    </div>
+
+  </section>
+</div>
+{% endblock %}

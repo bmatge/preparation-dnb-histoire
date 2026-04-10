@@ -1,0 +1,236 @@
+{
+  "id": "2024_amerique-nord",
+  "source": {
+    "annee": 2024,
+    "session": "juin",
+    "centre": "Amérique du Nord",
+    "code_sujet": "24GENFRQGCAN1"
+  },
+  "epreuve": {
+    "intitule": "Compréhension et compétences d'interprétation – Grammaire et compétences linguistiques",
+    "duree_minutes": 70,
+    "points_total": 50,
+    "points_comprehension": 32,
+    "points_grammaire": 18
+  },
+  "paratexte": "Cet extrait se situe au tout début de la nouvelle. Le titre, composé de deux termes anglais (« wood » : le bois et « town » : la ville), signifie « La ville en bois ».",
+  "texte_support": {
+    "auteur": "Alphonse Daudet",
+    "auteur_note": null,
+    "oeuvre": "Wood'stown",
+    "partie": null,
+    "annee_publication": 1873,
+    "genre": "nouvelle",
+    "lignes": [
+      { "n": 1, "texte": "L'emplacement était superbe pour bâtir une ville. Il n'y avait qu'à déblayer les" },
+      { "n": 2, "texte": "bords du fleuve, en abattant une partie de la forêt, de l'immense forêt vierge enracinée" },
+      { "n": 3, "texte": "là depuis la naissance du monde. Alors abritée tout autour par des collines, la ville" },
+      { "n": 4, "texte": "descendrait jusqu'aux quais d'un port magnifique, établi dans l'embouchure de la" },
+      { "n": 5, "texte": "Rivière-Rouge, à quatre milles seulement de la mer." },
+      { "n": 6, "texte": "Dès que le gouvernement de Washington eut accordé la concession," },
+      { "n": 7, "texte": "charpentiers et bûcherons se mirent à l'œuvre ; mais vous n'avez jamais vu une forêt" },
+      { "n": 8, "texte": "pareille. Cramponnée au sol de toutes ses lianes, de toutes ses racines, quand on" },
+      { "n": 9, "texte": "l'abattait par un bout elle repoussait d'un autre, se rajeunissait de ses blessures, et" },
+      { "n": 10, "texte": "chaque coup de hache faisait sortir des bourgeons verts. Les rues, les places de la" },
+      { "n": 11, "texte": "ville à peine tracées étaient envahies par la végétation. Les murailles grandissaient" },
+      { "n": 12, "texte": "moins vite que les arbres et, sitôt élevées, croulaient sous l'effort des racines toujours" },
+      { "n": 13, "texte": "vivantes." },
+      { "n": 14, "texte": "Pour arriver à bout de cette résistance où s'émoussait le fer des cognées et des" },
+      { "n": 15, "texte": "haches, on fut obligé de recourir au feu. Jour et nuit une fumée étouffante emplit" },
+      { "n": 16, "texte": "l'épaisseur des fourrés, pendant que les grands arbres au-dessus flambaient comme" },
+      { "n": 17, "texte": "des cierges. La forêt essaya de lutter encore, retardant l'incendie avec des flots de" },
+      { "n": 18, "texte": "sève et la fraîcheur sans air de ses feuillages pressés. Enfin l'hiver arriva. La neige" },
+      { "n": 19, "texte": "s'abattit comme une seconde mort sur les grands terrains pleins de troncs noircis, de" },
+      { "n": 20, "texte": "racines consumées. Désormais on pouvait bâtir." },
+      { "n": 21, "texte": "Bientôt une ville immense, toute en bois comme Chicago, s'étendit aux bords" },
+      { "n": 22, "texte": "de la Rivière-Rouge, avec ses larges rues alignées, numérotées, rayonnant autour des" },
+      { "n": 23, "texte": "places, sa Bourse, ses halles, ses églises, ses écoles, et tout un attirail maritime de" },
+      { "n": 24, "texte": "hangars, de douanes, de docks, d'entrepôts, de chantiers de construction pour les" },
+      { "n": 25, "texte": "navires. La ville de bois, Wood'stown - comme on l'appela, - fut vite peuplée par les" },
+      { "n": 26, "texte": "essuyeurs de plâtres des villes neuves. Une activité fiévreuse circula dans tous ses" },
+      { "n": 27, "texte": "quartiers ; mais sur les collines environnantes, dominant les rues pleines de foule et le" },
+      { "n": 28, "texte": "port encombré de vaisseaux, une masse sombre et menaçante s'étalait en demi-" },
+      { "n": 29, "texte": "cercle. C'était la forêt qui regardait." },
+      { "n": 30, "texte": "Elle regardait cette ville insolente qui lui avait pris sa place au bord du fleuve, et" },
+      { "n": 31, "texte": "trois mille arbres gigantesques. Tout Wood'stown était fait avec sa vie à elle." }
+    ]
+  },
+  "notes_texte": [
+    { "n": 1, "terme": "un mille", "definition": "unité de mesure ancienne (environ 1850 mètres)." }
+  ],
+  "image": {
+    "type": "image_numerique",
+    "auteur": "Stefano Boeri",
+    "titre": "Liuzhou Forest City",
+    "annee": null,
+    "description_visuelle": "Vue aérienne en images de synthèse d'un projet de ville-forêt chinoise. On y voit des immeubles modernes entièrement recouverts de végétation, arbres et plantes grimpantes sur toutes les façades et les balcons, au milieu de forêts denses et de collines. Une autoroute à plusieurs voies traverse le paysage au premier plan, avec une ligne de train et une gare intégrée aux bâtiments verts. En arrière-plan, des tours plus classiques de la ville traditionnelle contrastent avec ces constructions végétalisées."
+  },
+  "questions": [
+    {
+      "numero": "1",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "Quel titre donneriez-vous à ce passage ? Justifiez votre réponse à l'aide de deux éléments tirés du texte.",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [],
+      "points": 5.0,
+      "competence": "interpretation",
+      "necessite_image": false
+    },
+    {
+      "numero": "2",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "« Pour arriver à bout de cette résistance » (ligne 14)\nDe quelle résistance est-il question ? Vous justifierez votre réponse en vous appuyant sur trois citations que vous expliquerez.",
+      "citation": "Pour arriver à bout de cette résistance",
+      "mots_soulignes": [],
+      "lignes_ciblees": [{ "start": 14, "end": 14 }],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [],
+      "points": 5.0,
+      "competence": "selection_pertinente",
+      "necessite_image": false
+    },
+    {
+      "numero": "3",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "Ligne 30 : Selon vous, pourquoi la ville est-elle désignée comme « ville insolente » ? Développez et justifiez votre point de vue en vous appuyant sur deux éléments.",
+      "citation": "ville insolente",
+      "mots_soulignes": [],
+      "lignes_ciblees": [{ "start": 30, "end": 30 }],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [],
+      "points": 6.0,
+      "competence": "interpretation",
+      "necessite_image": false
+    },
+    {
+      "numero": "4",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "Le texte propose un portrait de la forêt.",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        { "lettre": "a", "enonce": "Qu'est-ce qui caractérise ce portrait ?", "points": 2.0, "competence": "interpretation" },
+        { "lettre": "b", "enonce": "Relevez et expliquez deux procédés littéraires utilisés pour l'élaborer.", "points": 2.0, "competence": "interpretation" }
+      ],
+      "points": 4.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "5",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "Comment comprenez-vous les relations entre les hommes et la nature dans ce texte ? Appuyez-vous sur le texte pour justifier votre réponse.",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [],
+      "points": 5.0,
+      "competence": "interpretation",
+      "necessite_image": false
+    },
+    {
+      "numero": "6",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "Quels liens pouvez-vous établir entre le texte et l'image ? Votre réponse devra être développée et s'appuyer sur une description de l'image.",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [],
+      "points": 7.0,
+      "competence": "texte_image",
+      "necessite_image": true
+    },
+    {
+      "numero": "7",
+      "partie": "grammaire",
+      "type": "standard",
+      "enonce": "« Elle regardait cette ville insolente qui lui avait pris sa place au bord du fleuve, et trois mille arbres gigantesques. » (lignes 30-31)",
+      "citation": "Elle regardait cette ville insolente qui lui avait pris sa place au bord du fleuve, et trois mille arbres gigantesques.",
+      "mots_soulignes": [],
+      "lignes_ciblees": [{ "start": 30, "end": 31 }],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        { "lettre": "a", "enonce": "Relevez les verbes de cette phrase. Indiquez le temps de chacun.", "points": 2.0, "competence": "conjugaison" },
+        { "lettre": "b", "enonce": "Précisez la valeur de chacun de ces temps.", "points": 1.0, "competence": "conjugaison" }
+      ],
+      "points": 3.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "8",
+      "partie": "grammaire",
+      "type": "standard",
+      "enonce": "« Jour et nuit une fumée étouffante emplit l'épaisseur des fourrés [...] » (lignes 15-16)",
+      "citation": "Jour et nuit une fumée étouffante emplit l'épaisseur des fourrés",
+      "mots_soulignes": ["Jour et nuit"],
+      "lignes_ciblees": [{ "start": 15, "end": 16 }],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        { "lettre": "a", "enonce": "Quelle est la fonction du groupe de mots souligné ?", "points": 1.0, "competence": "fonctions_grammaticales" },
+        { "lettre": "b", "enonce": "Justifiez votre réponse en précisant la manipulation que vous avez utilisée.", "points": 1.0, "competence": "fonctions_grammaticales" }
+      ],
+      "points": 2.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "9",
+      "partie": "grammaire",
+      "type": "standard",
+      "enonce": "Ligne 1 : « emplacement »",
+      "citation": "emplacement",
+      "mots_soulignes": [],
+      "lignes_ciblees": [{ "start": 1, "end": 1 }],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        { "lettre": "a", "enonce": "Expliquez la formation de ce mot.", "points": 1.5, "competence": "lexique_etymologie" },
+        { "lettre": "b", "enonce": "Indiquez sa nature (classe grammaticale).", "points": 0.5, "competence": "classes_grammaticales" },
+        { "lettre": "c", "enonce": "Donnez deux mots de la même famille.", "points": 1.0, "competence": "lexique_etymologie" }
+      ],
+      "points": 3.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "10",
+      "partie": "grammaire",
+      "type": "reecriture",
+      "enonce": "Réécrivez ce passage en conjuguant les verbes au futur de l'indicatif.",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [{ "start": 6, "end": 13 }],
+      "passage_a_reecrire": "Dès que le gouvernement de Washington eut accordé la concession, charpentiers et bûcherons se mirent à l'œuvre ; mais vous n'avez jamais vu une forêt pareille. Cramponnée au sol de toutes ses lianes, de toutes ses racines, quand on l'abattait par un bout elle repoussait d'un autre, se rajeunissait de ses blessures, et chaque coup de hache faisait sortir des bourgeons verts. Les rues, les places de la ville à peine tracées étaient envahies par la végétation. Les murailles grandissaient moins vite que les arbres et, sitôt élevées, croulaient sous l'effort des racines toujours vivantes.",
+      "contraintes": [
+        "Conjuguer les verbes au futur de l'indicatif"
+      ],
+      "sous_questions": [],
+      "points": 10.0,
+      "competence": "reecriture",
+      "necessite_image": false
+    }
+  ],
+  "source_file": "2024_Amerique-Nord_francais_questions-grammaire-comp.pdf"
+}

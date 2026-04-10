@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}Bilan de la séance — Français{% endblock %}
+
+{% block content %}
+<div class="space-y-6">
+  <header>
+    <p class="text-sm text-slate-500">
+      <a href="/francais/comprehension/" class="hover:text-brand-700">Compréhension</a>
+      <span class="mx-1">·</span>
+      Bilan
+    </p>
+    <h1 class="mt-2 font-display text-3xl font-bold text-brand-900">
+      Séance terminée
+    </h1>
+    <p class="mt-1 text-sm text-slate-500">
+      {{ exercise.source.annee }} — {{ exercise.source.centre }} ·
+      {{ exercise.texte_support.auteur }}, <em>{{ exercise.texte_support.oeuvre }}</em>
+    </p>
+  </header>
+
+  <section class="rounded-2xl bg-white border border-slate-200 p-6 shadow-sm">
+    <h2 class="font-display text-lg font-bold text-brand-800 mb-3">Ton bilan</h2>
+    <div class="prose-eval text-slate-700">{{ synthese }}</div>
+  </section>
+
+  <section class="rounded-2xl bg-white border border-slate-200 p-6 shadow-sm">
+    <h2 class="font-display text-lg font-bold text-brand-800 mb-3">Détail question par question</h2>
+    <ul class="space-y-2">
+      {% for item, reponse, trouvee_seul in items_resolved %}
+      <li class="flex items-start gap-3 text-sm">
+        <span class="shrink-0 w-10 text-slate-500">Q{{ item.label }}</span>
+        <span class="shrink-0 text-xs px-2 py-0.5 rounded-full
+          {% if trouvee_seul %}bg-emerald-100 text-emerald-800{% else %}bg-amber-100 text-amber-800{% endif %}">
+          {% if trouvee_seul %}trouvée{% else %}révélée{% endif %}
+        </span>
+        <span class="text-slate-600">{{ item.competence or '—' }}</span>
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
+
+  <div class="flex flex-wrap gap-2">
+    <a href="/francais/comprehension/" class="btn-primary">Nouveau sujet</a>
+    <a href="/" class="btn-secondary">Retour à l'accueil</a>
+  </div>
+</div>
+{% endblock %}

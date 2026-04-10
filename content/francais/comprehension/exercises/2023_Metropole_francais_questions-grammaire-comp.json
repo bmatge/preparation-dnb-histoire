@@ -1,0 +1,475 @@
+{
+  "id": "2023_metropole",
+  "source": {
+    "annee": 2023,
+    "session": "juin",
+    "centre": "Métropole",
+    "code_sujet": "23GENFRQGCME1"
+  },
+  "epreuve": {
+    "intitule": "Grammaire et compétences linguistiques – Compréhension et compétences d'interprétation",
+    "duree_minutes": 70,
+    "points_total": 50,
+    "points_comprehension": 32,
+    "points_grammaire": 18
+  },
+  "paratexte": "Dans son autobiographie, Aurore Dupin (qui écrit sous le nom de George Sand) raconte son enfance. Elle est élevée par sa mère et grandit entourée d'Hippolyte, son demi-frère, et d'Ursule, la fille d'une servante.",
+  "texte_support": {
+    "auteur": "George Sand",
+    "auteur_note": "[pseudonyme d'Aurore Dupin]",
+    "oeuvre": "Histoire de ma vie",
+    "partie": "2e partie, chapitre 15",
+    "annee_publication": 1855,
+    "genre": "autobiographie",
+    "lignes": [
+      {
+        "n": 1,
+        "texte": "Nous avions trouvé un jeu qui passionnait nos imaginations. Il s'agissait de passer"
+      },
+      {
+        "n": 2,
+        "texte": "la rivière. La rivière était dessinée sur le carreau avec de la craie et faisait mille détours"
+      },
+      {
+        "n": 3,
+        "texte": "dans cette grande chambre. En de certains endroits elle était fort profonde, il fallait"
+      },
+      {
+        "n": 4,
+        "texte": "trouver l'endroit guéable et ne pas se tromper. Hippolyte s'était déjà noyé plusieurs"
+      },
+      {
+        "n": 5,
+        "texte": "fois, nous l'aidions à se retirer des grands trous où il tombait toujours, car il faisait le"
+      },
+      {
+        "n": 6,
+        "texte": "rôle du maladroit ou de l'homme ivre, et il nageait à sec sur le carreau en se débattant"
+      },
+      {
+        "n": 7,
+        "texte": "et en se lamentant. Pour les enfants ces jeux-là sont tout un drame, toute une fiction"
+      },
+      {
+        "n": 8,
+        "texte": "scénique, parfois tout un roman, tout un poème, tout un voyage, qu'ils miment et rêvent"
+      },
+      {
+        "n": 9,
+        "texte": "durant des heures entières, et dont l'illusion les gagne et les saisit véritablement. Pour"
+      },
+      {
+        "n": 10,
+        "texte": "mon compte, il ne me fallait pas cinq minutes pour m'y plonger de si bonne foi, que je"
+      },
+      {
+        "n": 11,
+        "texte": "perdais la notion de la réalité, et je croyais voir les arbres, les eaux, les rochers, une"
+      },
+      {
+        "n": 12,
+        "texte": "vaste campagne, et le ciel tantôt clair, tantôt chargé de nuages qui allaient crever et"
+      },
+      {
+        "n": 13,
+        "texte": "augmenter le danger de passer la rivière. Dans quel vaste espace les enfants croient"
+      },
+      {
+        "n": 14,
+        "texte": "agir, quand ils vont ainsi de la table au lit et de la cheminée à la porte !"
+      },
+      {
+        "n": 15,
+        "texte": "Nous arrivâmes, Ursule et moi, au bord de notre rivière, dans un endroit où l'herbe"
+      },
+      {
+        "n": 16,
+        "texte": "était fine et le sable doux. Elle le tâta d'abord, et puis elle m'appela en me disant :"
+      },
+      {
+        "n": 17,
+        "texte": "« Vous pouvez vous y risquer, vous n'en aurez guère plus haut que les genoux. » Les"
+      },
+      {
+        "n": 18,
+        "texte": "enfants s'appellent vous dans ces sortes de mimodrames. Ils ne croiraient pas jouer"
+      },
+      {
+        "n": 19,
+        "texte": "une scène s'ils se tutoyaient comme à l'ordinaire. Ils représentent toujours certains"
+      },
+      {
+        "n": 20,
+        "texte": "personnages qui expriment des caractères, et ils suivent très bien la première donnée."
+      },
+      {
+        "n": 21,
+        "texte": "Ils ont même des dialogues très vrais et que des acteurs de profession seraient bien"
+      },
+      {
+        "n": 22,
+        "texte": "embarrassés d'improviser sur la scène avec tant d'à-propos et de fécondité."
+      },
+      {
+        "n": 23,
+        "texte": "Sur l'invitation d'Ursule, je lui observai que, puisque l'eau était basse, nous"
+      },
+      {
+        "n": 24,
+        "texte": "pouvions bien passer sans nous mouiller ; il ne s'agissait que de relever un peu nos"
+      },
+      {
+        "n": 25,
+        "texte": "jupes et d'ôter nos chaussures. « Mais, dit-elle, si nous rencontrons des écrevisses,"
+      },
+      {
+        "n": 26,
+        "texte": "elles nous mangeront les pieds. — C'est égal, lui dis-je ; il ne faut pas mouiller nos"
+      },
+      {
+        "n": 27,
+        "texte": "souliers, nous devons les ménager, car nous avons encore bien du chemin à faire. »"
+      },
+      {
+        "n": 28,
+        "texte": "À peine fus-je déchaussée, que le froid du carreau me fit l'effet de l'eau véritable, et"
+      },
+      {
+        "n": 29,
+        "texte": "nous voilà, Ursule et moi, pataugeant dans le ruisseau. Pour ajouter à l'illusion"
+      },
+      {
+        "n": 30,
+        "texte": "générale, Hippolyte imagina de prendre le pot à l'eau et de le verser par terre, imitant"
+      },
+      {
+        "n": 31,
+        "texte": "ainsi un torrent et une cascade. Cela nous sembla délirant d'invention. Nos rires et nos"
+      },
+      {
+        "n": 32,
+        "texte": "cris attirèrent enfin l'attention de ma mère. Elle nous regarda, et nous vit tous les trois,"
+      },
+      {
+        "n": 33,
+        "texte": "pieds et jambes nus, barbotant dans un cloaque, car le carreau avait déteint, et notre"
+      },
+      {
+        "n": 34,
+        "texte": "fleuve était fort peu limpide. Alors elle se fâcha tout de bon, surtout contre moi, qui"
+      },
+      {
+        "n": 35,
+        "texte": "étais déjà enrhumée ; elle me prit par le bras, m'appliqua une correction manuelle"
+      },
+      {
+        "n": 36,
+        "texte": "assez accentuée, et, m'ayant rechaussée elle-même, en me grondant beaucoup, elle"
+      },
+      {
+        "n": 37,
+        "texte": "chassa Hippolyte dans sa chambre, et nous mit en pénitence, Ursule et moi, chacune"
+      },
+      {
+        "n": 38,
+        "texte": "dans un coin. Tel fut le dénouement imprévu et dramatique de notre représentation, et"
+      },
+      {
+        "n": 39,
+        "texte": "la toile tomba sur des larmes et des cris véritables."
+      }
+    ]
+  },
+  "notes_texte": [
+    {
+      "n": 1,
+      "terme": "sur le carreau",
+      "definition": "sur le carrelage"
+    },
+    {
+      "n": 2,
+      "terme": "guéable",
+      "definition": "que l'on peut traverser sans perdre pied"
+    },
+    {
+      "n": 3,
+      "terme": "mimodrame",
+      "definition": "pièce de théâtre sans paroles"
+    },
+    {
+      "n": 4,
+      "terme": "fécondité",
+      "definition": "inventivité ; créativité"
+    },
+    {
+      "n": 5,
+      "terme": "je lui observai que",
+      "definition": "je lui fis remarquer que"
+    },
+    {
+      "n": 6,
+      "terme": "nous devons les ménager",
+      "definition": "nous devons en prendre soin"
+    },
+    {
+      "n": 7,
+      "terme": "un cloaque",
+      "definition": "un égout"
+    },
+    {
+      "n": 8,
+      "terme": "elle nous mit en pénitence",
+      "definition": "elle nous punit"
+    }
+  ],
+  "image": {
+    "type": "photographie",
+    "auteur": "Robert Doisneau",
+    "titre": "La ronde des pompons",
+    "annee": 1955,
+    "description_visuelle": "Photographie en noir et blanc prise en plongée montrant un groupe d'enfants formant une ronde sur une chaussée. Les enfants portent des bérets de marin à pompon blanc et se tiennent par la main. Au centre de la ronde, un dessin à la craie représentant un voilier et des vagues est tracé sur le sol. En arrière-plan, on distingue un trottoir, un muret et un banc."
+  },
+  "questions": [
+    {
+      "numero": "1",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "À la ligne 1, qui désigne le pronom « nous » ?",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [
+        {
+          "start": 1,
+          "end": 1
+        }
+      ],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [],
+      "points": 2.0,
+      "competence": "reperage_explicite",
+      "necessite_image": false
+    },
+    {
+      "numero": "2",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "Où se passe la scène ? Comment expliquez-vous la présence d'une rivière dans ce lieu ? Justifiez votre réponse en citant le texte.",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [],
+      "points": 5.0,
+      "competence": "comprehension_implicite",
+      "necessite_image": false
+    },
+    {
+      "numero": "3",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "« l'illusion les gagne et les saisit véritablement. » (ligne 9)\nCherchez dans le texte trois éléments qui montrent que l'illusion « gagne » et « saisit véritablement » les enfants.",
+      "citation": "l'illusion les gagne et les saisit véritablement.",
+      "mots_soulignes": [],
+      "lignes_ciblees": [
+        {
+          "start": 9,
+          "end": 9
+        }
+      ],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [],
+      "points": 6.0,
+      "competence": "selection_pertinente",
+      "necessite_image": false
+    },
+    {
+      "numero": "4",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "À quoi le jeu des enfants est-il comparé tout au long du texte ?",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        {
+          "lettre": "a",
+          "enonce": "À quoi le jeu des enfants est-il comparé tout au long du texte ? Pour justifier votre réponse, relevez au moins quatre mots d'un champ lexical qui le prouve.",
+          "points": 3.0,
+          "competence": "champ_lexical"
+        },
+        {
+          "lettre": "b",
+          "enonce": "Identifiez au moins trois moments dans le récit, qui montrent que cette comparaison organise le jeu des enfants.",
+          "points": 3.0,
+          "competence": "structure_narrative"
+        }
+      ],
+      "points": 6.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "5",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "Quelles réflexions sur l'enfance le récit de cet épisode inspire-t-il à la narratrice ? Deux éléments sont attendus. Vous justifierez votre réponse en citant des passages précis du texte.",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [],
+      "points": 5.0,
+      "competence": "interpretation",
+      "necessite_image": false
+    },
+    {
+      "numero": "6",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "Pourquoi cette photographie pourrait-elle illustrer le texte ? Vous développerez votre réponse en vous appuyant sur deux arguments. Chaque argument doit être justifié par une citation du texte.",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [],
+      "points": 8.0,
+      "competence": "texte_image",
+      "necessite_image": true
+    },
+    {
+      "numero": "7",
+      "partie": "grammaire",
+      "type": "standard",
+      "enonce": "« En de certains endroits, elle était fort profonde. » (ligne 3)",
+      "citation": "En de certains endroits, elle était fort profonde.",
+      "mots_soulignes": [
+        "En de certains endroits",
+        "fort profonde"
+      ],
+      "lignes_ciblees": [
+        {
+          "start": 3,
+          "end": 3
+        }
+      ],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        {
+          "lettre": "a",
+          "enonce": "Quelle est la fonction grammaticale de chaque groupe de mots souligné ?",
+          "points": 1.0,
+          "competence": "fonctions_grammaticales"
+        },
+        {
+          "lettre": "b",
+          "enonce": "Justifiez votre analyse du premier groupe souligné en précisant les manipulations que vous avez utilisées pour identifier sa fonction grammaticale.",
+          "points": 2.0,
+          "competence": "fonctions_grammaticales"
+        }
+      ],
+      "points": 3.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "8",
+      "partie": "grammaire",
+      "type": "standard",
+      "enonce": "« Si nous rencontrons des écrevisses, elles nous mangeront les pieds. » (lignes 25-26)",
+      "citation": "Si nous rencontrons des écrevisses, elles nous mangeront les pieds.",
+      "mots_soulignes": [],
+      "lignes_ciblees": [
+        {
+          "start": 25,
+          "end": 26
+        }
+      ],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        {
+          "lettre": "a",
+          "enonce": "Recopiez cette phrase en mettant la proposition subordonnée entre crochets et en entourant le mot subordonnant.",
+          "points": 1.0,
+          "competence": "propositions_subordonnees"
+        },
+        {
+          "lettre": "b",
+          "enonce": "Précisez la fonction grammaticale de cette proposition subordonnée.",
+          "points": 1.0,
+          "competence": "propositions_subordonnees"
+        }
+      ],
+      "points": 2.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "9",
+      "partie": "grammaire",
+      "type": "standard",
+      "enonce": "« Tel fut le dénouement imprévu et dramatique de notre représentation ». (ligne 38)",
+      "citation": "Tel fut le dénouement imprévu et dramatique de notre représentation.",
+      "mots_soulignes": [
+        "dénouement"
+      ],
+      "lignes_ciblees": [
+        {
+          "start": 38,
+          "end": 38
+        }
+      ],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        {
+          "lettre": "a",
+          "enonce": "Observez le mot souligné : identifiez et nommez les trois éléments qui le composent.",
+          "points": 1.5,
+          "competence": "lexique_etymologie"
+        },
+        {
+          "lettre": "b",
+          "enonce": "Expliquez le sens de ce mot en vous appuyant sur la signification des éléments qui le composent et en vous aidant du texte.",
+          "points": 1.5,
+          "competence": "lexique_etymologie"
+        }
+      ],
+      "points": 3.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "10",
+      "partie": "grammaire",
+      "type": "reecriture",
+      "enonce": "Réécrivez le passage suivant en remplaçant « Hippolyte » par « ils ».\nLe groupe nominal « le rôle du maladroit ou de l'homme ivre » ne doit pas être modifié.",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [
+        {
+          "start": 4,
+          "end": 7
+        }
+      ],
+      "passage_a_reecrire": "Hippolyte s'était déjà noyé plusieurs fois, nous l'aidions à se retirer des grands trous où il tombait toujours, car il faisait le rôle du maladroit ou de l'homme ivre, et il nageait à sec sur le carreau en se débattant et en se lamentant.",
+      "contraintes": [
+        "Remplacer « Hippolyte » par « ils »",
+        "Le groupe nominal « le rôle du maladroit ou de l'homme ivre » ne doit pas être modifié"
+      ],
+      "sous_questions": [],
+      "points": 10.0,
+      "competence": "reecriture",
+      "necessite_image": false
+    }
+  ],
+  "source_file": "2023_Metropole_francais_questions-grammaire-comp.pdf"
+}

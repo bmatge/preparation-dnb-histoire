@@ -1,0 +1,210 @@
+{
+  "id": "2019_metropole",
+  "source": {
+    "annee": 2019,
+    "session": "juin",
+    "centre": "Métropole",
+    "code_sujet": "19GENFRQGCME1"
+  },
+  "epreuve": {
+    "intitule": "Grammaire et compétences linguistiques – Compréhension et compétences d'interprétation",
+    "duree_minutes": 70,
+    "points_total": 50,
+    "points_comprehension": 32,
+    "points_grammaire": 18
+  },
+  "paratexte": "Dans son roman Le Premier Homme, Albert Camus raconte son enfance en Algérie dans les années 1920. Il s'est représenté dans le personnage de Jacques et évoque ici les jeux qu'il partage avec ses camarades.",
+  "texte_support": {
+    "auteur": "Albert Camus",
+    "auteur_note": null,
+    "oeuvre": "Le Premier Homme",
+    "partie": null,
+    "annee_publication": 1994,
+    "genre": "roman",
+    "lignes": [
+      {"n": 1, "texte": "Tous les jours, à la saison, un marchand de frites activait son fourneau. La plupart du"},
+      {"n": 2, "texte": "temps, le petit groupe n'avait même pas l'argent d'un cornet. Si par hasard l'un d'entre eux"},
+      {"n": 3, "texte": "avait la pièce nécessaire, il achetait son cornet, avançait gravement vers la plage, suivi du"},
+      {"n": 4, "texte": "cortège respectueux des camarades et, devant la mer, à l'ombre d'une vieille barque"},
+      {"n": 5, "texte": "démantibulée, plantant ses pieds dans le sable, il se laissait tomber sur les fesses, portant"},
+      {"n": 6, "texte": "d'une main son cornet bien vertical et le couvrant de l'autre pour ne perdre aucun des gros"},
+      {"n": 7, "texte": "flocons croustillants. L'usage était alors qu'il offrît une frite à chacun des camarades, qui"},
+      {"n": 8, "texte": "savourait religieusement l'unique friandise chaude et parfumée d'huile forte qu'il leur laissait."},
+      {"n": 9, "texte": "Puis ils regardaient le favorisé qui, gravement, savourait une à une le restant des frites. Au"},
+      {"n": 10, "texte": "fond du paquet, restaient toujours des débris de frites. On suppliait le repu de bien vouloir les"},
+      {"n": 11, "texte": "partager. Et la plupart du temps, sauf s'il s'agissait de Jean, il dépliait le papier gras, étalait les"},
+      {"n": 12, "texte": "miettes de frites et autorisait chacun à se servir, tour à tour, d'une miette. […] Le festin terminé,"},
+      {"n": 13, "texte": "plaisir et frustration aussitôt oubliés, c'était la course vers l'extrémité ouest de la plage, sous"},
+      {"n": 14, "texte": "le dur soleil, jusqu'à une maçonnerie à demi détruite qui avait dû servir de fondation à un"},
+      {"n": 15, "texte": "cabanon disparu et derrière laquelle on pouvait se déshabiller. En quelques secondes, ils"},
+      {"n": 16, "texte": "étaient nus, l'instant d'après dans l'eau, nageant vigoureusement et maladroitement,"},
+      {"n": 17, "texte": "s'exclamant, bavant et recrachant, se défiant à des plongeons ou à qui resterait le plus"},
+      {"n": 18, "texte": "longtemps sous l'eau. La mer était douce, tiède, le soleil léger maintenant sur les têtes"},
+      {"n": 19, "texte": "mouillées, et la gloire de la lumière emplissait ces jeunes corps d'une joie qui les faisait crier"},
+      {"n": 20, "texte": "sans arrêt. Ils régnaient sur la vie et sur la mer, et ce que le monde peut donner de plus"},
+      {"n": 21, "texte": "fastueux, ils le recevaient et en usaient sans mesure, comme des seigneurs assurés de leurs"},
+      {"n": 22, "texte": "richesses irremplaçables."},
+      {"n": 23, "texte": "Ils en oubliaient même l'heure, courant de la plage à la mer, séchant sur le sable l'eau"},
+      {"n": 24, "texte": "salée qui les faisait visqueux, puis lavant dans la mer le sable qui les habillait de gris. Ils"},
+      {"n": 25, "texte": "couraient, et les martinets avec des cris rapides commençaient de voler plus bas au-dessus"},
+      {"n": 26, "texte": "des fabriques et de la plage. Le ciel, vidé de la touffeur du jour, devenait plus pur puis"},
+      {"n": 27, "texte": "verdissait, la lumière se détendait et, de l'autre côté du golfe, la courbe des maisons et de la"},
+      {"n": 28, "texte": "ville, noyée jusque-là dans une sorte de brume, devenait plus distincte. Il faisait encore jour,"},
+      {"n": 29, "texte": "mais des lampes s'allumaient déjà en prévision du rapide crépuscule d'Afrique. Pierre,"},
+      {"n": 30, "texte": "généralement, était le premier à donner le signal : « Il est tard », et aussitôt, c'était la"},
+      {"n": 31, "texte": "débandade, l'adieu rapide. Jacques avec Joseph et Jean couraient vers leurs maisons sans"},
+      {"n": 32, "texte": "se soucier des autres. Ils galopaient hors de souffle. La mère de Joseph avait la main leste."},
+      {"n": 33, "texte": "Quant à la grand-mère de Jacques…"}
+    ]
+  },
+  "notes_texte": [
+    {"n": 1, "terme": "le repu", "definition": "celui qui n'a plus faim."},
+    {"n": 2, "terme": "fastueux", "definition": "très luxueux."},
+    {"n": 3, "terme": "martinets", "definition": "oiseaux au vol rapide, qui ressemblent aux hirondelles."},
+    {"n": 4, "terme": "touffeur", "definition": "chaleur étouffante."},
+    {"n": 5, "terme": "avoir la main leste", "definition": "donner facilement des gifles, des coups, en guise de réprimande."}
+  ],
+  "image": {
+    "type": "photographie",
+    "auteur": "Robert Doisneau",
+    "titre": "La voiture fondue",
+    "annee": 1944,
+    "description_visuelle": "Photographie en noir et blanc montrant un groupe de jeunes garçons jouant sur l'épave d'une vieille voiture abandonnée et démantibulée dans un terrain vague. Un garçon est perché sur le toit de la cabine, un fouet ou un morceau de métal à la main, comme à cheval. Deux autres garçons sont assis à l'avant du véhicule, à la place du conducteur et du passager. Au fond, un autre enfant plus petit. Autour, des gravats et des pierres. En arrière-plan, on distingue la silhouette d'immeubles parisiens."
+  },
+  "questions": [
+    {
+      "numero": "1",
+      "partie": "grammaire",
+      "type": "standard",
+      "enonce": "Lignes 7-8 : « L'usage était alors qu'il offrît une frite à chacun des camarades, qui savourait religieusement l'unique friandise chaude et parfumée d'huile forte qu'il leur laissait. »",
+      "citation": "L'usage était alors qu'il offrît une frite à chacun des camarades, qui savourait religieusement l'unique friandise chaude et parfumée d'huile forte qu'il leur laissait.",
+      "mots_soulignes": [],
+      "lignes_ciblees": [{"start": 7, "end": 8}],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        {"lettre": "a", "enonce": "Quel est le groupe complément d'objet de « savourait » ?", "points": 1.0, "competence": "fonctions_grammaticales"},
+        {"lettre": "b", "enonce": "Pour vérifier la délimitation de ce groupe complément d'objet, réécrivez la phrase en le remplaçant par un pronom.", "points": 1.0, "competence": "fonctions_grammaticales"},
+        {"lettre": "c", "enonce": "Relevez deux expansions du nom « friandise » de nature (ou classe) grammaticale différente. Précisez la nature (ou classe) grammaticale de chacune d'elles.", "points": 4.0, "competence": "classes_grammaticales"}
+      ],
+      "points": 6.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "2",
+      "partie": "grammaire",
+      "type": "standard",
+      "enonce": "Lignes 12-13 : « Le festin terminé, plaisir et frustration aussitôt oubliés, c'était la course vers l'extrémité ouest de la plage ».\nRemplacez les deux groupes soulignés par deux propositions subordonnées conjonctives compléments circonstanciels de temps.",
+      "citation": "Le festin terminé, plaisir et frustration aussitôt oubliés, c'était la course vers l'extrémité ouest de la plage",
+      "mots_soulignes": ["Le festin terminé", "plaisir et frustration aussitôt oubliés"],
+      "lignes_ciblees": [{"start": 12, "end": 13}],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [],
+      "points": 2.0,
+      "competence": "propositions_subordonnees",
+      "necessite_image": false
+    },
+    {
+      "numero": "3",
+      "partie": "grammaire",
+      "type": "reecriture",
+      "enonce": "« Si par hasard l'un d'entre eux avait la pièce nécessaire, il achetait un cornet, avançait gravement vers la plage, suivi du cortège respectueux des camarades et, […], plantant ses pieds dans le sable, il se laissait tomber sur les fesses, portant d'une main son cornet bien vertical et le couvrant de l'autre. »\nRéécrivez ce passage en remplaçant « l'un d'entre eux » par « deux d'entre eux ». Faites toutes les modifications nécessaires.",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [{"start": 2, "end": 7}],
+      "passage_a_reecrire": "Si par hasard l'un d'entre eux avait la pièce nécessaire, il achetait un cornet, avançait gravement vers la plage, suivi du cortège respectueux des camarades et, […], plantant ses pieds dans le sable, il se laissait tomber sur les fesses, portant d'une main son cornet bien vertical et le couvrant de l'autre.",
+      "contraintes": [
+        "Remplacer « l'un d'entre eux » par « deux d'entre eux »",
+        "Faire toutes les modifications nécessaires"
+      ],
+      "sous_questions": [],
+      "points": 10.0,
+      "competence": "reecriture",
+      "necessite_image": false
+    },
+    {
+      "numero": "4",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "Lignes 1 à 12 :",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [{"start": 1, "end": 12}],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        {"lettre": "a", "enonce": "La scène évoquée se répète plusieurs fois. Qu'est-ce qui l'indique précisément ? Deux éléments de réponse sont attendus.", "points": 2.0, "competence": "reperage_explicite"},
+        {"lettre": "b", "enonce": "Pourquoi ce moment est-il particulièrement important pour les enfants ? Vous justifierez votre réponse en vous appuyant sur le texte. Deux éléments de réponse sont attendus.", "points": 4.0, "competence": "interpretation"}
+      ],
+      "points": 6.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "5",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "Lignes 12 à 24 :",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [{"start": 12, "end": 24}],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        {"lettre": "a", "enonce": "Comment l'écrivain montre-t-il que les enfants sont heureux au moment de la baignade ? Vous justifierez votre réponse en vous appuyant sur le texte. Deux éléments de réponse sont attendus.", "points": 4.0, "competence": "selection_pertinente"},
+        {"lettre": "b", "enonce": "Pourquoi peut-on dire qu'ils sont transformés par la baignade ? Vous justifierez votre réponse en vous appuyant sur le texte. Deux éléments de réponse sont attendus.", "points": 4.0, "competence": "interpretation"}
+      ],
+      "points": 8.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "6",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "Lignes 24 à 33 : quels changements apparaissent à la fin du texte ? Développez trois éléments de réponse en vous appuyant sur des passages précis.",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [{"start": 24, "end": 33}],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [],
+      "points": 6.0,
+      "competence": "selection_pertinente",
+      "necessite_image": false
+    },
+    {
+      "numero": "7",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "En vous aidant de vos réponses aux questions précédentes, donnez un titre significatif à chacun des trois moments de la journée évoqués dans le texte (lignes 1 à 12, lignes 12 à 24 et lignes 24 à 33).",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [],
+      "points": 6.0,
+      "competence": "structure_narrative",
+      "necessite_image": false
+    },
+    {
+      "numero": "8",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "Quels liens pouvez-vous établir entre la photographie de Robert Doisneau et le texte d'Albert Camus ? Développez votre réponse en vous appuyant sur des éléments précis.",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [],
+      "points": 6.0,
+      "competence": "texte_image",
+      "necessite_image": true
+    }
+  ],
+  "source_file": "2019_Metropole_francais_questions-grammaire-comp.pdf"
+}

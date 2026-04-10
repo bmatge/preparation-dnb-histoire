@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Français — Révise ton DNB{% endblock %}
+
+{% block content %}
+<div class="space-y-8">
+  <header>
+    <h1 class="font-display text-3xl font-bold text-brand-900">Français</h1>
+    <p class="mt-2 text-slate-600">
+      Choisis une sous-épreuve pour t'entraîner.
+    </p>
+  </header>
+
+  <div class="grid gap-4 sm:grid-cols-2">
+    <a href="/francais/comprehension/"
+       class="group block rounded-2xl bg-white border border-slate-200 p-6 shadow-sm hover:shadow-glow hover:border-brand-300 transition">
+      <h2 class="font-display text-xl font-bold text-brand-800 group-hover:text-brand-900">
+        Compréhension et compétences d'interprétation
+      </h2>
+      <p class="mt-2 text-sm text-slate-600">
+        Travaille question par question sur un texte littéraire.
+        L'IA te donne des indices mais jamais la réponse — tu cherches d'abord par toi-même.
+      </p>
+      <p class="mt-4 text-xs text-slate-500">50 points · durée 1 h 10</p>
+    </a>
+
+    <div class="rounded-2xl bg-slate-50 border border-dashed border-slate-300 p-6 text-slate-400">
+      <h2 class="font-display text-xl font-bold">Dictée</h2>
+      <p class="mt-2 text-sm">À venir.</p>
+    </div>
+
+    <div class="rounded-2xl bg-slate-50 border border-dashed border-slate-300 p-6 text-slate-400">
+      <h2 class="font-display text-xl font-bold">Rédaction</h2>
+      <p class="mt-2 text-sm">À venir.</p>
+    </div>
+  </div>
+</div>
+{% endblock %}

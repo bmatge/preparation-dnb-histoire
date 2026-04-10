@@ -1,0 +1,20 @@
+{# Fragment HTMX renvoyé quand la réponse est révélée. #}
+<div class="rounded-2xl border bg-purple-50 border-purple-200 p-4 shadow-sm animate-reveal">
+  <div class="flex items-center gap-2 mb-2">
+    <span class="text-xs font-semibold uppercase tracking-wide text-purple-700">
+      Réponse et raisonnement
+    </span>
+  </div>
+
+  <div class="prose-eval text-sm text-slate-700">{{ reveal }}</div>
+
+  <div class="mt-4 flex flex-wrap gap-2">
+    {% if is_last %}
+    <a href="/francais/comprehension/session/{{ session_id }}/synthese"
+       class="btn-primary">Voir le bilan</a>
+    {% else %}
+    <a href="/francais/comprehension/session/{{ session_id }}/item/{{ next_order }}"
+       class="btn-primary">Question suivante →</a>
+    {% endif %}
+  </div>
+</div>

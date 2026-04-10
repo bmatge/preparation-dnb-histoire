@@ -1,0 +1,454 @@
+{
+  "id": "2019_amerique-nord",
+  "source": {
+    "annee": 2019,
+    "session": "juin",
+    "centre": "Amérique du Nord",
+    "code_sujet": "19GENFRQGCAN1"
+  },
+  "epreuve": {
+    "intitule": "Grammaire et compétences linguistiques – Compréhension et compétences d'interprétation",
+    "duree_minutes": 70,
+    "points_total": 50,
+    "points_comprehension": 30,
+    "points_grammaire": 20
+  },
+  "paratexte": null,
+  "texte_support": {
+    "auteur": "Victor Hugo",
+    "auteur_note": null,
+    "oeuvre": "Toute la Lyre",
+    "partie": "III, XXI",
+    "annee_publication": 1888,
+    "genre": "poésie",
+    "lignes": [
+      {
+        "n": 1,
+        "texte": "Jeunes gens, prenez garde aux choses que vous dites."
+      },
+      {
+        "n": 2,
+        "texte": "Tout peut sortir d'un mot qu'en passant vous perdîtes."
+      },
+      {
+        "n": 3,
+        "texte": "Tout, la haine et le deuil ! – Et ne m'objectez pas"
+      },
+      {
+        "n": 4,
+        "texte": "Que vos amis sont sûrs et que vous parlez bas… –"
+      },
+      {
+        "n": 5,
+        "texte": "Écoutez bien ceci :"
+      },
+      {
+        "n": 6,
+        "texte": "Tête-à-tête, en pantoufle,"
+      },
+      {
+        "n": 7,
+        "texte": "Portes closes, chez vous, sans un témoin qui souffle,"
+      },
+      {
+        "n": 8,
+        "texte": "Vous dites à l'oreille au plus mystérieux"
+      },
+      {
+        "n": 9,
+        "texte": "De vos amis de cœur, ou, si vous l'aimez mieux,"
+      },
+      {
+        "n": 10,
+        "texte": "Vous murmurez tout seul, croyant presque vous taire,"
+      },
+      {
+        "n": 11,
+        "texte": "Dans le fond d'une cave à trente pieds sous terre,"
+      },
+      {
+        "n": 12,
+        "texte": "Un mot désagréable à quelque individu ;"
+      },
+      {
+        "n": 13,
+        "texte": "Ce mot que vous croyez qu'on n'a pas entendu,"
+      },
+      {
+        "n": 14,
+        "texte": "Que vous disiez si bas dans un lieu sourd et sombre,"
+      },
+      {
+        "n": 15,
+        "texte": "Court à peine lâché, part, bondit, sort de l'ombre !"
+      },
+      {
+        "n": 16,
+        "texte": "Tenez, il est dehors ! Il connaît son chemin."
+      },
+      {
+        "n": 17,
+        "texte": "Il marche, il a deux pieds, un bâton à la main,"
+      },
+      {
+        "n": 18,
+        "texte": "De bons souliers ferrés, un passeport en règle ;"
+      },
+      {
+        "n": 19,
+        "texte": "– Au besoin, il prendrait des ailes comme l'aigle ! –"
+      },
+      {
+        "n": 20,
+        "texte": "Il vous échappe, il fuit, rien ne l'arrêtera."
+      },
+      {
+        "n": 21,
+        "texte": "Il suit le quai, franchit la place, et cætera,"
+      },
+      {
+        "n": 22,
+        "texte": "Passe l'eau sans bateau dans la saison des crues,"
+      },
+      {
+        "n": 23,
+        "texte": "Et va, tout à travers un dédale de rues,"
+      },
+      {
+        "n": 24,
+        "texte": "Droit chez l'individu dont vous avez parlé."
+      },
+      {
+        "n": 25,
+        "texte": "Il sait le numéro, l'étage ; il a la clé,"
+      },
+      {
+        "n": 26,
+        "texte": "Il monte l'escalier, ouvre la porte, passe,"
+      },
+      {
+        "n": 27,
+        "texte": "Entre, arrive, et, railleur, regardant l'homme en face,"
+      },
+      {
+        "n": 28,
+        "texte": "Dit : – Me voilà ! je sors de la bouche d'un tel. –"
+      },
+      {
+        "n": 29,
+        "texte": "Et c'est fait. Vous avez un ennemi mortel."
+      }
+    ]
+  },
+  "notes_texte": [
+    {
+      "n": 1,
+      "terme": "objecter",
+      "definition": "formuler une objection, opposer un argument."
+    },
+    {
+      "n": 2,
+      "terme": "un mot désagréable à quelque individu",
+      "definition": "un mot désagréable à propos de quelque individu."
+    },
+    {
+      "n": 3,
+      "terme": "et cætera",
+      "definition": "locution latine abrégée généralement en français par etc., qu'on emploie au terme d'une énumération et qui signifie « et ainsi de suite »."
+    },
+    {
+      "n": 4,
+      "terme": "railleur",
+      "definition": "moqueur, ironique."
+    },
+    {
+      "n": 5,
+      "terme": "un tel",
+      "definition": "désigne ici la personne qui a parlé."
+    }
+  ],
+  "image": {
+    "type": "tableau",
+    "auteur": "Norman Rockwell",
+    "titre": "The Gossips (Les Commérages)",
+    "annee": 1948,
+    "description_visuelle": "Huile sur toile présentant, sur un fond clair, plusieurs rangées de portraits en buste, côte à côte, d'hommes et de femmes de tous âges représentés de profil. Chaque personnage est représenté deux fois : une première en train de parler à l'oreille d'un autre, puis de l'autre côté en train d'écouter et de transmettre le propos au suivant. La chaîne se propage ainsi de visage en visage, illustrant la rumeur. Les expressions sont vives et caricaturales (bouches ouvertes, doigts pointés, mines étonnées ou scandalisées). Certaines femmes téléphonent. Le dernier visage de la chaîne est celui de l'homme dont on avait commencé à parler, désormais furieux."
+  },
+  "questions": [
+    {
+      "numero": "1",
+      "partie": "grammaire",
+      "type": "standard",
+      "enonce": "« prenez » (vers 1), « objectez » (vers 3), « Écoutez » (vers 5).",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [
+        {
+          "start": 1,
+          "end": 1
+        },
+        {
+          "start": 3,
+          "end": 3
+        },
+        {
+          "start": 5,
+          "end": 5
+        }
+      ],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        {
+          "lettre": "a",
+          "enonce": "Donnez le mode et le temps de : « prenez » (vers 1), « objectez » (vers 3), « Écoutez » (vers 5).",
+          "points": 2.0,
+          "competence": "conjugaison"
+        },
+        {
+          "lettre": "b",
+          "enonce": "Pourquoi ce mode est-il utilisé ?",
+          "points": 2.0,
+          "competence": "conjugaison"
+        }
+      ],
+      "points": 4.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "2",
+      "partie": "grammaire",
+      "type": "standard",
+      "enonce": "Vers 1 à 3 : relevez les déterminants contenus dans les trois premières phrases du texte.",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [
+        {
+          "start": 1,
+          "end": 3
+        }
+      ],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [],
+      "points": 2.0,
+      "competence": "classes_grammaticales",
+      "necessite_image": false
+    },
+    {
+      "numero": "3",
+      "partie": "grammaire",
+      "type": "reecriture",
+      "enonce": "Réécrivez le passage suivant en remplaçant « il » par « ils ». Faites toutes les modifications nécessaires.\n« Il vous échappe, il fuit, rien ne l'arrêtera.\nIl suit le quai, franchit la place, et cætera,\nPasse l'eau sans bateau dans la saison des crues,\nEt va, tout à travers un dédale de rues,\nDroit chez l'individu dont vous avez parlé. »",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [
+        {
+          "start": 20,
+          "end": 24
+        }
+      ],
+      "passage_a_reecrire": "Il vous échappe, il fuit, rien ne l'arrêtera.\nIl suit le quai, franchit la place, et cætera,\nPasse l'eau sans bateau dans la saison des crues,\nEt va, tout à travers un dédale de rues,\nDroit chez l'individu dont vous avez parlé.",
+      "contraintes": [
+        "Remplacer « il » par « ils »",
+        "Faire toutes les modifications nécessaires"
+      ],
+      "sous_questions": [],
+      "points": 10.0,
+      "competence": "reecriture",
+      "necessite_image": false
+    },
+    {
+      "numero": "4",
+      "partie": "grammaire",
+      "type": "standard",
+      "enonce": "« Et ne m'objectez pas / Que vos amis sont sûrs […] » (vers 3 et 4).",
+      "citation": "Et ne m'objectez pas / Que vos amis sont sûrs",
+      "mots_soulignes": [
+        "Que"
+      ],
+      "lignes_ciblees": [
+        {
+          "start": 3,
+          "end": 4
+        }
+      ],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        {
+          "lettre": "a",
+          "enonce": "Quelle est la nature de « que » ?",
+          "points": 2.0,
+          "competence": "propositions_subordonnees"
+        },
+        {
+          "lettre": "b",
+          "enonce": "Justifiez votre réponse.",
+          "points": 2.0,
+          "competence": "propositions_subordonnees"
+        }
+      ],
+      "points": 4.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "5",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "Expliquez les conséquences qu'entraîne, selon ce texte, le fait de prononcer un « mot désagréable » (vers 11). Justifiez votre réponse en vous appuyant sur deux éléments du texte.",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [
+        {
+          "start": 11,
+          "end": 11
+        }
+      ],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [],
+      "points": 4.0,
+      "competence": "comprehension_implicite",
+      "necessite_image": false
+    },
+    {
+      "numero": "6",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "Vers 3 à 11 : quelles sont les précautions que les « jeunes gens » peuvent estimer avoir prises pour éviter que leurs paroles ne soient rapportées ? Citez au moins deux éléments en prenant appui sur le texte.",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [
+        {
+          "start": 3,
+          "end": 11
+        }
+      ],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [],
+      "points": 4.0,
+      "competence": "selection_pertinente",
+      "necessite_image": false
+    },
+    {
+      "numero": "7",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "Vers 12 à 27.",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [
+        {
+          "start": 12,
+          "end": 27
+        }
+      ],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        {
+          "lettre": "a",
+          "enonce": "À quel terme renvoie le pronom « il » ?",
+          "points": 2.0,
+          "competence": "reperage_explicite"
+        },
+        {
+          "lettre": "b",
+          "enonce": "Quelle figure de style est ici utilisée ?",
+          "points": 2.0,
+          "competence": "interpretation"
+        },
+        {
+          "lettre": "c",
+          "enonce": "Quel effet cette figure de style produit-elle ?",
+          "points": 2.0,
+          "competence": "interpretation"
+        }
+      ],
+      "points": 6.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "8",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "Vers 13 : « Que vous disiez si bas dans un lieu sourd et sombre ».",
+      "citation": "Que vous disiez si bas dans un lieu sourd et sombre",
+      "mots_soulignes": [],
+      "lignes_ciblees": [
+        {
+          "start": 13,
+          "end": 13
+        }
+      ],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        {
+          "lettre": "a",
+          "enonce": "Quel effet sonore remarquez-vous dans ce vers ?",
+          "points": 2.0,
+          "competence": "interpretation"
+        },
+        {
+          "lettre": "b",
+          "enonce": "Pourquoi le poète l'emploie-t-il ?",
+          "points": 3.0,
+          "competence": "interpretation"
+        }
+      ],
+      "points": 5.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "9",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "Quel conseil le poète souhaite-t-il adresser aux « jeunes gens » dans ce texte ? Selon vous, quel passage l'illustre avec le plus de force ? Expliquez pourquoi.",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [],
+      "points": 5.0,
+      "competence": "interpretation",
+      "necessite_image": false
+    },
+    {
+      "numero": "10",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "Questions sur l'image et comparaison avec le texte.",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        {
+          "lettre": "a",
+          "enonce": "Dans le tableau de Norman Rockwell, pourquoi chaque personnage est-il représenté deux fois ?",
+          "points": 2.0,
+          "competence": "texte_image"
+        },
+        {
+          "lettre": "b",
+          "enonce": "Comparez le texte et le tableau de Norman Rockwell. Dans les deux documents, comment la parole prononcée se retourne-t-elle contre son locuteur ?",
+          "points": 4.0,
+          "competence": "texte_image"
+        }
+      ],
+      "points": 6.0,
+      "competence": null,
+      "necessite_image": true
+    }
+  ],
+  "source_file": "2019_Amerique-Nord_francais_questions-grammaire-comp.pdf"
+}

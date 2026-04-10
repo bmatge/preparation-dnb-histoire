@@ -1,0 +1,266 @@
+{
+  "id": "2020_antilles-guyane",
+  "source": {
+    "annee": 2020,
+    "session": "juin",
+    "centre": "Antilles-Guyane",
+    "code_sujet": "20GENFRQGCAG1"
+  },
+  "epreuve": {
+    "intitule": "Grammaire et compétences linguistiques – Compréhension et compétences d'interprétation",
+    "duree_minutes": 70,
+    "points_total": 50,
+    "points_comprehension": 30,
+    "points_grammaire": 20
+  },
+  "paratexte": "Comme chaque matin, le narrateur s'apprête à prendre les transports en commun pour rejoindre son lieu de travail. Mais ce matin-là, il ne monte pas dans son train et déambule dans les rues de Paris.",
+  "texte_support": {
+    "auteur": "Yannick Haenel",
+    "auteur_note": null,
+    "oeuvre": "Cercle",
+    "partie": null,
+    "annee_publication": 2007,
+    "genre": "roman",
+    "lignes": [
+      {"n": 1, "texte": "Sors-toi de là, disaient les voix, prends le large : la beauté s'ouvre ailleurs, le temps s'ouvre"},
+      {"n": 2, "texte": "ailleurs, le cœur s'ouvre ailleurs. Ça commence ici, sur ce pont, dans une rafale de lumières,"},
+      {"n": 3, "texte": "mais ne t'attarde pas : attrape le vent, laisse-toi conduire. Personne ne te demandera rien, et toi"},
+      {"n": 4, "texte": "ne demande rien non plus. Attrape le vent. D'une seule poussée, avec la Seine qui ondulera dans"},
+      {"n": 5, "texte": "ton corps, tu seras loin."},
+      {"n": 6, "texte": "J'ai ouvert ma sacoche, et par-dessus la rambarde, très haut, là-bas, vers les tours de"},
+      {"n": 7, "texte": "Notre-Dame, vers la pointe de la Sainte-Chapelle, vers les îles de Paris, sous le regard"},
+      {"n": 8, "texte": "goguenard de la tour Eiffel, j'ai commencé à lancer ma paperasse. Par petites liasses, les"},
+      {"n": 9, "texte": "documents, un à un, je les ai envoyés tourner dans l'air. À chaque liasse de papiers, le geste"},
+      {"n": 10, "texte": "mûrissait. Délié vers le ciel, l'avant-bras replié d'abord vers ma poitrine, puis la détente brusque"},
+      {"n": 11, "texte": "et la main qui lâche sa flèche : une liasse, puis une autre, dispersées en éventail au-dessus du"},
+      {"n": 12, "texte": "fleuve, c'était très beau. Car avec le vent léger qui rôde aux alentours du pont, les feuilles se sont"},
+      {"n": 13, "texte": "mises à planer très doucement. Un groupe de touristes chinois, avec le tee-shirt des jeux"},
+      {"n": 14, "texte": "Olympiques de Pékin, a applaudi ; il y en avait même un qui filmait. […] À chaque liasse"},
+      {"n": 15, "texte": "disparaissait un embarras. À chaque liasse jetée au vent, je me disais : ce sont les rendez-vous"},
+      {"n": 16, "texte": "qui s'envolent. Une autre liasse : les horaires qui s'éparpillent. À un moment, les liasses, portées"},
+      {"n": 17, "texte": "par la brise, ont voltigé très haut ; j'ai levé brusquement les yeux et avec le soleil qui lançait des"},
+      {"n": 18, "texte": "reflets blancs vers les grandes baies vitrées des tours sur le front de Seine, j'ai eu un"},
+      {"n": 19, "texte": "éblouissement. Le lilas enveloppait ma gorge, trois secondes de fièvre, la tête qui tourne et"},
+      {"n": 20, "texte": "brusquement j'ai tout vu en clairières : un univers de rosée, avec des feuillages qui me bruissaient"},
+      {"n": 21, "texte": "les jambes, puis le changement des saisons dans mes bras, une humidité de mousse entre les"},
+      {"n": 22, "texte": "doigts, et mon corps tout entier lanciné en style d'ombre et de lumière. Un arbre ! Oui, nous ferons"},
+      {"n": 23, "texte": "des merveilles, rien qu'avec nos mains. Donnez-moi de l'encre et du papier. Donnez-moi les"},
+      {"n": 24, "texte": "après-midi, les matins, les soirs. Un point vide se formera, une silhouette, le cheminement de"},
+      {"n": 25, "texte": "l'eau. Je ne serai plus un homme, ni une femme, mais l'un et l'autre éclaboussés dans un sang"},
+      {"n": 26, "texte": "nouveau irrigué de sève : feuillage, écorce, bourgeon, fleur, éternellement penché vers la Seine,"},
+      {"n": 27, "texte": "et buvant les couleurs du brouillard, étreignant chaque vague dans un grondement silencieux de"},
+      {"n": 28, "texte": "caresses. Au diable la vie bien remplie des hommes, me disais-je. […]"},
+      {"n": 29, "texte": "Lorsque enfin je me suis penché avec les Chinois au-dessus de l'eau, j'ai vu toutes ces"},
+      {"n": 30, "texte": "pages qui flottaient à la surface, ces feuillets noircis de tableaux et de chiffres dont l'encre se"},
+      {"n": 31, "texte": "noyait doucement. Les feuillets ondulaient comme des nymphéas : pétales blancs, fleurs noires,"},
+      {"n": 32, "texte": "une éclosion luisante."}
+    ]
+  },
+  "notes_texte": [
+    {"n": 1, "terme": "Le regard goguenard", "definition": "le regard moqueur."},
+    {"n": 2, "terme": "Nymphéas", "definition": "fleurs qui poussent à la surface de l'eau."}
+  ],
+  "image": {
+    "type": "tableau",
+    "auteur": "René Magritte",
+    "titre": "Golconde",
+    "annee": 1953,
+    "description_visuelle": "Huile sur toile montrant, dans un ciel bleu-gris au-dessus de toits rouges et d'immeubles gris à façades régulières, une multitude d'hommes identiques vêtus de longs manteaux sombres, portant un chapeau melon noir, flottant dans l'air. Chaque silhouette est figée, de face, répartie à intervalles réguliers comme des gouttes d'une pluie surréaliste. L'atmosphère est étrange : les hommes semblent à la fois tomber et stationner immobiles. Peinture surréaliste emblématique de Magritte."
+  },
+  "questions": [
+    {
+      "numero": "1",
+      "partie": "grammaire",
+      "type": "standard",
+      "enonce": "Ligne 1 : « Sors-toi de là, disaient les voix, prends le large […] ».",
+      "citation": "Sors-toi de là, disaient les voix, prends le large",
+      "mots_soulignes": ["Sors-toi", "prends"],
+      "lignes_ciblees": [{"start": 1, "end": 1}],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        {"lettre": "a", "enonce": "À quel mode les verbes soulignés sont-ils conjugués ?", "points": 1.0, "competence": "conjugaison"},
+        {"lettre": "b", "enonce": "Quelle est la valeur de ce mode ?", "points": 1.0, "competence": "conjugaison"}
+      ],
+      "points": 2.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "2",
+      "partie": "grammaire",
+      "type": "standard",
+      "enonce": "Lignes 1-2 : « Sors-toi de là, disaient les voix, prends le large : la beauté s'ouvre ailleurs, le temps s'ouvre ailleurs, le cœur s'ouvre ailleurs ».",
+      "citation": "Sors-toi de là, disaient les voix, prends le large : la beauté s'ouvre ailleurs, le temps s'ouvre ailleurs, le cœur s'ouvre ailleurs",
+      "mots_soulignes": [],
+      "lignes_ciblees": [{"start": 1, "end": 2}],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        {"lettre": "a", "enonce": "Quel est le rapport logique exprimé par les deux points ?", "points": 1.0, "competence": "propositions_subordonnees"},
+        {"lettre": "b", "enonce": "Réécrivez cette phrase en remplaçant les deux points par une conjonction de coordination ou de subordination de même sens.", "points": 1.0, "competence": "propositions_subordonnees"}
+      ],
+      "points": 2.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "3",
+      "partie": "grammaire",
+      "type": "standard",
+      "enonce": "Ligne 8 : « […] j'ai commencé à lancer ma paperasse ».",
+      "citation": "j'ai commencé à lancer ma paperasse",
+      "mots_soulignes": ["paperasse"],
+      "lignes_ciblees": [{"start": 8, "end": 8}],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        {"lettre": "a", "enonce": "Quel est le niveau de langue du mot souligné ?", "points": 1.0, "competence": "lexique_etymologie"},
+        {"lettre": "b", "enonce": "Expliquez le sens de ce mot en tenant compte du contexte.", "points": 1.0, "competence": "lexique_etymologie"}
+      ],
+      "points": 2.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "4",
+      "partie": "grammaire",
+      "type": "standard",
+      "enonce": "Lignes 18-19 : « un éblouissement »",
+      "citation": "un éblouissement",
+      "mots_soulignes": [],
+      "lignes_ciblees": [{"start": 18, "end": 19}],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        {"lettre": "a", "enonce": "Quelle est la classe grammaticale du mot « éblouissement » ?", "points": 1.0, "competence": "classes_grammaticales"},
+        {"lettre": "b", "enonce": "Relisez la phrase des lignes 16 à 19 « À un moment, les liasses […] un éblouissement ». Dans cette phrase, le mot « éblouissement » peut avoir deux sens différents. Lesquels ?", "points": 2.0, "competence": "lexique_etymologie"},
+        {"lettre": "c", "enonce": "Relevez dans la suite du paragraphe un mot appartenant à la même classe grammaticale et construit de la même manière.", "points": 2.0, "competence": "lexique_etymologie"}
+      ],
+      "points": 5.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "5",
+      "partie": "grammaire",
+      "type": "reecriture",
+      "enonce": "Lignes 2 à 4 : « Ça commence ici, sur ce pont, dans une rafale de lumières, mais ne t'attarde pas : attrape le vent, laisse-toi conduire. Personne ne te demandera rien, et toi ne demande rien non plus. »\nRéécrivez ce passage en remplaçant « tu » par « vous » et « Personne » par « Les gens ».",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [{"start": 2, "end": 4}],
+      "passage_a_reecrire": "Ça commence ici, sur ce pont, dans une rafale de lumières, mais ne t'attarde pas : attrape le vent, laisse-toi conduire. Personne ne te demandera rien, et toi ne demande rien non plus.",
+      "contraintes": [
+        "Remplacer « tu » par « vous »",
+        "Remplacer « Personne » par « Les gens »"
+      ],
+      "sous_questions": [],
+      "points": 9.0,
+      "competence": "reecriture",
+      "necessite_image": false
+    },
+    {
+      "numero": "1",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "Lignes 1-5 :",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [{"start": 1, "end": 5}],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        {"lettre": "a", "enonce": "Quels conseils les « voix » donnent-elles au narrateur ? Vous justifierez votre réponse en citant le texte. Deux éléments de réponse sont attendus.", "points": 3.0, "competence": "selection_pertinente"},
+        {"lettre": "b", "enonce": "En prenant appui sur la suite du texte, dites si le narrateur tient compte ou non de ces conseils ? Deux éléments de réponse sont attendus.", "points": 3.0, "competence": "interpretation"}
+      ],
+      "points": 6.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "2",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "Lignes 22-28 :",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [{"start": 22, "end": 28}],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        {"lettre": "a", "enonce": "« Au diable la vie bien remplie des hommes, me disais-je. » (ligne 28). À quoi le narrateur fait-il allusion lorsqu'il parle de « la vie bien remplie des hommes » ?", "points": 3.0, "competence": "interpretation"},
+        {"lettre": "b", "enonce": "Quelle vie souhaite-t-il mener désormais ? Deux éléments de réponse sont attendus.", "points": 4.0, "competence": "interpretation"}
+      ],
+      "points": 7.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "3",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "Lignes 31-32 : « Les feuillets ondulaient comme des nymphéas : pétales blancs, fleurs noires, une éclosion luisante. »",
+      "citation": "Les feuillets ondulaient comme des nymphéas : pétales blancs, fleurs noires, une éclosion luisante.",
+      "mots_soulignes": [],
+      "lignes_ciblees": [{"start": 31, "end": 32}],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        {"lettre": "a", "enonce": "Nommez la figure de style dans cette phrase.", "points": 1.0, "competence": "interpretation"},
+        {"lettre": "b", "enonce": "Comment expliquez-vous la transformation de la « paperasse » (ligne 8) en « nymphéas » (ligne 31) ?", "points": 3.0, "competence": "interpretation"}
+      ],
+      "points": 4.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "4",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "Dans le roman de Yannick HAENEL, le chapitre qui suit cet extrait s'intitule « Corps de printemps ».",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        {"lettre": "a", "enonce": "Relevez le champ lexical qui fait référence à cette saison. Quatre éléments de réponse sont attendus.", "points": 2.0, "competence": "champ_lexical"},
+        {"lettre": "b", "enonce": "Quel lien pouvez-vous faire entre cette saison et ce que vit le narrateur ?", "points": 3.0, "competence": "interpretation"}
+      ],
+      "points": 5.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "5",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "En quoi ce texte est-il poétique ? Vous développerez deux éléments de réponse.",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [],
+      "points": 4.0,
+      "competence": "interpretation",
+      "necessite_image": false
+    },
+    {
+      "numero": "6",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "Quel moment de la vie du narrateur ce tableau de René MAGRITTE pourrait-il représenter ? Vous justifierez votre point de vue en faisant référence aux deux documents.",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [],
+      "points": 4.0,
+      "competence": "texte_image",
+      "necessite_image": true
+    }
+  ],
+  "source_file": "2020_Antilles-Guyane_francais_questions-grammaire-comp.pdf"
+}

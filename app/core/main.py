@@ -44,6 +44,8 @@ from fastapi.templating import Jinja2Templates
 from starlette.middleware.sessions import SessionMiddleware
 
 from app.core import db as core_db
+from app.francais.comprehension.loader import init_french_comprehension
+from app.francais.routes import router as francais_router
 from app.histoire_geo_emc.developpement_construit.models import init_hgemc_subjects
 from app.histoire_geo_emc.reperes.models import init_reperes
 from app.histoire_geo_emc.routes import router as hgemc_router, PREFIX as HGEMC_PREFIX
@@ -88,6 +90,7 @@ templates = Jinja2Templates(directory=str(CORE_TEMPLATES))
 # ============================================================================
 
 app.include_router(hgemc_router)
+app.include_router(francais_router)
 
 
 # ============================================================================
@@ -100,11 +103,13 @@ def on_startup() -> None:
     core_db.init_db()
     n_hgemc = init_hgemc_subjects()
     n_reperes = init_reperes()
+    n_francais = init_french_comprehension()
     logger.info(
-        "DB prête (%s) — %d sujets DC chargés, %d repères chargés",
+        "DB prête (%s) — %d sujets DC, %d repères, %d exos français compréhension chargés",
         core_db.DB_PATH,
         n_hgemc,
         n_reperes,
+        n_francais,
     )
 
 

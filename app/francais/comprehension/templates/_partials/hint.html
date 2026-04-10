@@ -1,0 +1,31 @@
+{# Fragment HTMX renvoyé après demande d'indice. #}
+<div class="rounded-2xl border bg-brand-50 border-brand-200 p-4 shadow-sm animate-reveal">
+  <div class="flex items-center gap-2 mb-2">
+    <span class="text-xs font-semibold uppercase tracking-wide text-brand-700">
+      Indice {{ level }} / 3
+    </span>
+  </div>
+
+  <p class="text-sm text-slate-700 whitespace-pre-line">{{ hint }}</p>
+
+  <div class="mt-4 flex flex-wrap gap-2">
+    <span class="text-xs text-slate-500 self-center">
+      Retente ta réponse dans le formulaire ci-dessus.
+    </span>
+    {% if can_request_another %}
+      <button hx-post="/francais/comprehension/session/{{ session_id }}/item/{{ order }}/hint"
+              hx-target="#feedback-zone"
+              hx-swap="innerHTML"
+              class="btn-secondary">
+        Indice suivant ({{ hints_used }}/3)
+      </button>
+    {% else %}
+      <button hx-post="/francais/comprehension/session/{{ session_id }}/item/{{ order }}/reveal"
+              hx-target="#feedback-zone"
+              hx-swap="innerHTML"
+              class="btn-secondary">
+        Voir la réponse
+      </button>
+    {% endif %}
+  </div>
+</div>

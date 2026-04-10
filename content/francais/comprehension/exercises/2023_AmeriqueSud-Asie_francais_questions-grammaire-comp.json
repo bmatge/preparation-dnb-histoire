@@ -1,0 +1,293 @@
+{
+  "id": "2023_ameriquesud-asie",
+  "source": {
+    "annee": 2023,
+    "session": "juin",
+    "centre": "Amérique du Sud / Asie",
+    "code_sujet": "23GENFRQCGAA1"
+  },
+  "epreuve": {
+    "intitule": "Grammaire et compétences linguistiques – Compréhension et compétences d'interprétation",
+    "duree_minutes": 70,
+    "points_total": 50,
+    "points_comprehension": 30,
+    "points_grammaire": 20
+  },
+  "paratexte": "L'écrivain Jean-Philippe Toussaint décrit le travail de Claude Monet (1840-1926) durant les dix dernières années de sa vie, que le peintre impressionniste consacre à son cycle de peintures intitulées Les Nymphéas, représentant le bassin de nénuphars du jardin de sa maison de Giverny, en Normandie.",
+  "texte_support": {
+    "auteur": "Jean-Philippe Toussaint",
+    "auteur_note": null,
+    "oeuvre": "L'instant précis où Monet entre dans l'atelier",
+    "partie": null,
+    "annee_publication": 2022,
+    "genre": "récit",
+    "lignes": [
+      { "n": 1, "texte": "Je veux saisir Monet là, à cet instant précis où il pousse la porte de l'atelier dans le" },
+      { "n": 2, "texte": "jour naissant encore gris. C'est le moment du jour que je préfère, c'est l'heure bénie" },
+      { "n": 3, "texte": "où l'œuvre nous attend. L'aube est fraîche, l'air vif picore les joues. Il est un peu plus" },
+      { "n": 4, "texte": "de six heures et demie du matin, pas un bruit au loin dans la maison endormie qu'on" },
+      { "n": 5, "texte": "vient de quitter, quelques pépiements d'oiseaux dans le jardin où les arbres sont" },
+      { "n": 6, "texte": "immobiles comme le silence. C'est un de ces matins du monde comme il y en a tous" },
+      { "n": 7, "texte": "les jours en Normandie dans les villages que bordent l'Eure et la Seine. Nous sommes" },
+      { "n": 8, "texte": "à l'été 1916. Depuis quelques mois, Monet a pris possession du grand atelier qu'il s'est" },
+      { "n": 9, "texte": "fait construire en haut de son jardin pour pouvoir travailler sur les vastes formats des" },
+      { "n": 10, "texte": "panneaux des Nymphéas." },
+      { "n": 11, "texte": "Je veux saisir Monet là, à cet instant précis où il entre dans l'atelier, où il passe la" },
+      { "n": 12, "texte": "frontière entre la vie, qu'il laisse derrière lui, et l'art, qu'il va rejoindre. Derrière lui," },
+      { "n": 13, "texte": "derrière son corps massif qui s'apprête à pénétrer dans l'atelier des Nymphéas, c'est" },
+      { "n": 14, "texte": "la vie qu'il laisse dans son sillage, la vie et ses misères, du corps, de l'âme, la vie qui," },
+      { "n": 15, "texte": "depuis quelques mois, a pris le visage terrible de la guerre. C'est la Première Guerre" },
+      { "n": 16, "texte": "mondiale qui gronde aux portes de Giverny, mais qu'importe le conflit, cela aurait pu" },
+      { "n": 17, "texte": "être la Seconde Guerre mondiale, cela aurait pu être la guerre d'Algérie ou la guerre" },
+      { "n": 18, "texte": "du Golfe. Que sont les événements du monde pour l'artiste quand il crée ? Un" },
+      { "n": 19, "texte": "tourment lointain et invisible. Une rumeur angoissante, entêtante, importune. Pendant" },
+      { "n": 20, "texte": "la guerre, plus que jamais, c'est dans l'art que Monet va se réfugier pour se tenir à" },
+      { "n": 21, "texte": "l'écart du boucan du monde. L'atelier des Nymphéas sera le havre de paix qu'il élira" },
+      { "n": 22, "texte": "pour ne plus penser aux tristesses de l'heure. Mais comment ne pas éprouver de la" },
+      { "n": 23, "texte": "honte de penser à de petites recherches de formes et de couleurs pendant que tant" },
+      { "n": 24, "texte": "de gens souffrent et meurent sur le champ de bataille ? Car ce sont exclusivement des" },
+      { "n": 25, "texte": "questions picturales qui occupent l'esprit de Monet pendant les années de guerre," },
+      { "n": 26, "texte": "minuscules, complexes, torturantes, impénétrables au commun des mortels, mais" },
+      { "n": 27, "texte": "essentielles, vitales pour l'artiste qu'il est. Tous les matins, lorsqu'il entre dans l'atelier," },
+      { "n": 28, "texte": "Monet prend congé du monde. Il passe le seuil, et, devant lui, de l'autre côté de la" },
+      { "n": 29, "texte": "porte, encore invisible, immatériel, c'est l'art qui l'attend." },
+      { "n": 30, "texte": "Je veux saisir Monet là, à cet instant précis où il entre dans l'atelier. Le bâtiment est" },
+      { "n": 31, "texte": "encore dans la pénombre. Il y règne une odeur de plâtre, de colle humide, de tabac" },
+      { "n": 32, "texte": "froid et d'huile de lin. La lumière, zénithale, descend du ciel et traverse l'immense" },
+      { "n": 33, "texte": "verrière. Dans la brume grise et matineuse du grand atelier silencieux, un canapé trône" },
+      { "n": 34, "texte": "dans le demi-jour, volumineux, sur lequel sont jetés une robe de chambre, un chapeau," },
+      { "n": 35, "texte": "une vaste cape noire informe. Dans quelques jarres, en bouquet, des éclosions de" },
+      { "n": 36, "texte": "pinceaux. D'autres brosses, plus petites, éparpillées dans des pots. Des dizaines de" },
+      { "n": 37, "texte": "toiles sont posées à terre, en cercle, les unes à côté des autres." }
+    ]
+  },
+  "notes_texte": [
+    { "n": 1, "terme": "nénuphars", "definition": "plante aquatique à grandes feuilles rondes étalées sur l'eau." },
+    { "n": 2, "terme": "dans son sillage", "definition": "derrière lui" },
+    { "n": 3, "terme": "la guerre d'Algérie ; la guerre du Golfe", "definition": "la guerre d'Algérie (1954-1962) ; la guerre du Golfe (1990-1991)." },
+    { "n": 4, "terme": "picturales", "definition": "qui concernent la peinture" },
+    { "n": 5, "terme": "zénithale", "definition": "qui vient du Zénith, du sommet du ciel" },
+    { "n": 6, "terme": "jarres", "definition": "grands vases" }
+  ],
+  "image": {
+    "type": "photographie",
+    "auteur": "Agence Meurisse",
+    "titre": "Claude Monet dans son atelier",
+    "annee": null,
+    "description_visuelle": "Photographie en noir et blanc montrant Claude Monet, un homme âgé à la longue barbe blanche, debout de profil dans son vaste atelier. Il porte un costume sombre et tient une palette de peintre dans une main et des pinceaux dans l'autre. Devant lui et derrière lui s'étendent d'immenses toiles des Nymphéas, aux motifs de nénuphars et de reflets, montées sur des supports à roulettes. Le sol est nu et l'atmosphère semble recueillie."
+  },
+  "questions": [
+    {
+      "numero": "1",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "« Je veux saisir Monet là, à cet instant précis… »",
+      "citation": "Je veux saisir Monet là, à cet instant précis…",
+      "mots_soulignes": [],
+      "lignes_ciblees": [],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        { "lettre": "a", "enonce": "Expliquez le projet de l'écrivain.", "points": 2.0, "competence": "interpretation" },
+        { "lettre": "b", "enonce": "Comment met-il en valeur ce projet tout le long du texte ?", "points": 2.0, "competence": "structure_narrative" }
+      ],
+      "points": 4.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "2",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "Dans quel contexte historique Claude Monet peint-il ses Nymphéas ?",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [],
+      "points": 2.0,
+      "competence": "reperage_explicite",
+      "necessite_image": false
+    },
+    {
+      "numero": "3",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "« c'est dans l'art que Monet va se réfugier pour se tenir à l'écart du boucan du monde. » (l. 20-21)",
+      "citation": "c'est dans l'art que Monet va se réfugier pour se tenir à l'écart du boucan du monde.",
+      "mots_soulignes": [],
+      "lignes_ciblees": [{ "start": 20, "end": 21 }],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        { "lettre": "a", "enonce": "Comment comprenez-vous l'expression « c'est dans l'art que Monet va se réfugier pour se tenir à l'écart du boucan du monde. » l. 20-21 ? Justifiez votre réponse en vous appuyant sur des citations précises.", "points": 4.0, "competence": "interpretation" },
+        { "lettre": "b", "enonce": "Selon vous, pourquoi l'auteur évoque-t-il des guerres qui n'ont pas encore eu lieu à l'époque de Monet (« Seconde Guerre mondiale », « Guerre d'Algérie », « Guerre du Golfe ») l.17-18 ?", "points": 1.0, "competence": "interpretation" }
+      ],
+      "points": 5.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "4",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "« C'est le moment du jour que je préfère, c'est l'heure bénie où l'œuvre nous attend ». (lignes 2 à 3)",
+      "citation": "C'est le moment du jour que je préfère, c'est l'heure bénie où l'œuvre nous attend.",
+      "mots_soulignes": [],
+      "lignes_ciblees": [{ "start": 2, "end": 3 }],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        { "lettre": "a", "enonce": "Qui est désigné par le pronom personnel « je » ?", "points": 1.0, "competence": "reperage_explicite" },
+        { "lettre": "b", "enonce": "Qui est désigné par le pronom personnel « nous » selon vous ?", "points": 2.0, "competence": "comprehension_implicite" }
+      ],
+      "points": 3.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "5",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "« Dans quelques jarres, en bouquet, des éclosions de pinceaux. » (lignes 35 à 36)",
+      "citation": "Dans quelques jarres, en bouquet, des éclosions de pinceaux.",
+      "mots_soulignes": [],
+      "lignes_ciblees": [{ "start": 35, "end": 36 }],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        { "lettre": "a", "enonce": "Quelle figure de style identifiez-vous dans cette phrase ?", "points": 2.0, "competence": "interpretation" },
+        { "lettre": "b", "enonce": "Comment comprenez-vous ici cette figure de style ?", "points": 2.0, "competence": "interpretation" }
+      ],
+      "points": 4.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "6",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "« Je veux saisir Monet là, à cet instant précis »\nSelon vous, l'auteur a-t-il réussi ce projet ? Justifiez votre point de vue en vous appuyant sur l'ensemble de vos précédentes réponses.",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [],
+      "points": 4.0,
+      "competence": "interpretation",
+      "necessite_image": false
+    },
+    {
+      "numero": "7",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "Image :",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        { "lettre": "a", "enonce": "Comment le peintre est-il représenté sur la photographie ? Appuyez-vous sur des éléments précis.", "points": 4.0, "competence": "texte_image" },
+        { "lettre": "b", "enonce": "L'écrivain et le photographe offrent-ils la même représentation de Monet dans son atelier ?", "points": 4.0, "competence": "texte_image" }
+      ],
+      "points": 8.0,
+      "competence": null,
+      "necessite_image": true
+    },
+    {
+      "numero": "8",
+      "partie": "grammaire",
+      "type": "standard",
+      "enonce": "Ligne 19 : « importune »",
+      "citation": "importune",
+      "mots_soulignes": [],
+      "lignes_ciblees": [{ "start": 19, "end": 19 }],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        { "lettre": "a", "enonce": "Donnez un verbe de la même famille qu'« importune ».", "points": 1.0, "competence": "lexique_etymologie" },
+        { "lettre": "b", "enonce": "Que signifie une « rumeur (…) importune » ?", "points": 1.0, "competence": "lexique_etymologie" }
+      ],
+      "points": 2.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "9",
+      "partie": "grammaire",
+      "type": "standard",
+      "enonce": "« Que sont les événements du monde pour l'artiste quand il crée ? Un tourment lointain et invisible. » (lignes 18 à 19)",
+      "citation": "Que sont les événements du monde pour l'artiste quand il crée ? Un tourment lointain et invisible.",
+      "mots_soulignes": [],
+      "lignes_ciblees": [{ "start": 18, "end": 19 }],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        { "lettre": "a", "enonce": "Quelle est la particularité grammaticale de la deuxième phrase ?", "points": 1.0, "competence": "classes_grammaticales" },
+        { "lettre": "b", "enonce": "Transformez ces deux phrases en une seule phrase.", "points": 1.0, "competence": "propositions_subordonnees" }
+      ],
+      "points": 2.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "10",
+      "partie": "grammaire",
+      "type": "standard",
+      "enonce": "« un canapé trône dans le demi-jour, volumineux, sur lequel sont jetés une robe de chambre, un chapeau, une vaste cape noire informe. » (lignes 33 à 35)",
+      "citation": "un canapé trône dans le demi-jour, volumineux, sur lequel sont jetés une robe de chambre, un chapeau, une vaste cape noire informe.",
+      "mots_soulignes": [],
+      "lignes_ciblees": [{ "start": 33, "end": 35 }],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        { "lettre": "a", "enonce": "Quel est le sujet du verbe \"sont jetés\".", "points": 1.0, "competence": "fonctions_grammaticales" },
+        { "lettre": "b", "enonce": "Justifiez l'accord du participe passé « jetés ».", "points": 1.0, "competence": "conjugaison" },
+        { "lettre": "c", "enonce": "Réécrivez la phrase en remplaçant « un chapeau » par « une casquette ».", "points": 1.0, "competence": "reecriture" }
+      ],
+      "points": 3.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "11",
+      "partie": "grammaire",
+      "type": "standard",
+      "enonce": "« Je veux saisir Monet là… »",
+      "citation": "Je veux saisir Monet là…",
+      "mots_soulignes": [],
+      "lignes_ciblees": [],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        { "lettre": "a", "enonce": "Justifiez la valeur du présent de l'indicatif dans cette proposition.", "points": 1.0, "competence": "conjugaison" },
+        { "lettre": "b", "enonce": "Relevez dans le texte un verbe au présent qui a une autre valeur et précisez-la.", "points": 2.0, "competence": "conjugaison" }
+      ],
+      "points": 3.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "12",
+      "partie": "grammaire",
+      "type": "reecriture",
+      "enonce": "Réécrivez le passage suivant en commençant par « C'était un de ces matins... » et faites toutes les modifications nécessaires.",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [{ "start": 6, "end": 10 }],
+      "passage_a_reecrire": "C'est un de ces matins du monde comme il y en a tous les jours en Normandie dans les villages que bordent l'Eure et la Seine. Nous sommes à l'été 1916. Depuis quelques mois, Monet a pris possession du grand atelier qu'il s'est fait construire en haut de son jardin pour pouvoir travailler sur les vastes formats des panneaux des Nymphéas.",
+      "contraintes": [
+        "Commencer par « C'était un de ces matins... »",
+        "Faire toutes les modifications nécessaires"
+      ],
+      "sous_questions": [],
+      "points": 10.0,
+      "competence": "reecriture",
+      "necessite_image": false
+    }
+  ],
+  "source_file": "2023_AmeriqueSud-Asie_francais_questions-grammaire-comp.pdf"
+}
