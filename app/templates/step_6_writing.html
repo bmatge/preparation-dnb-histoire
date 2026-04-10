@@ -13,7 +13,7 @@
 
 {% if previous_proposal %}
 <details class="mb-4 bg-white/70 rounded-2xl border border-slate-100 p-4 text-sm text-slate-700">
-  <summary class="cursor-pointer font-semibold text-brand-700 hover:text-brand-800">📌 Mémo : ma proposition retravaillée</summary>
+  <summary class="cursor-pointer font-semibold text-brand-700 hover:text-brand-800">Mémo : ma proposition retravaillée</summary>
   <pre class="mt-3 whitespace-pre-wrap bg-slate-50 rounded-xl p-3 text-xs leading-relaxed">{{ previous_proposal }}</pre>
 </details>
 {% endif %}
@@ -23,7 +23,7 @@
       class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 space-y-4 animate-reveal">
   <label class="block">
     <span class="text-sm font-semibold text-slate-700 flex items-center gap-2 mb-2">
-      ✒️ Ton développement construit
+      Ton développement construit
     </span>
     <textarea name="redaction" rows="18" required minlength="200"
               placeholder="Introduction…&#10;&#10;Première partie…&#10;&#10;Deuxième partie…&#10;&#10;Conclusion…"

@@ -12,9 +12,37 @@
 {% include "_partials/subject_card.html" %}
 
 <div class="bg-amber-50 border border-amber-200 rounded-2xl p-4 mb-6 text-sm text-amber-900 animate-reveal">
-  <strong>💡 Avant de te lancer :</strong> repère le verbe de la consigne (décris ? explique ? montre ?),
+  <strong>Avant de te lancer :</strong> repère le verbe de la consigne (décris ? explique ? montre ?),
   les bornes (dates, lieux), et demande-toi : <em>« qu'est-ce qu'on me demande exactement ? »</em>
 </div>
+
+<div class="bg-white border border-slate-200 rounded-2xl p-5 mb-6 animate-reveal">
+  <div class="flex items-start gap-3">
+    <div class="flex-1">
+      <p class="text-sm text-slate-700">
+        <strong>Tu n'es pas sûr·e de ce qu'on te demande ?</strong>
+        Je peux te poser quelques questions ciblées pour t'aider à comprendre le sujet
+        et éviter de partir hors sujet.
+      </p>
+      <div class="mt-3 flex items-center gap-3 flex-wrap">
+        <button type="button"
+                hx-post="/step/1/help"
+                hx-target="#help-area"
+                hx-swap="innerHTML"
+                hx-indicator="#help-loading"
+                class="btn-secondary hover:wiggle text-sm">
+          Aide-moi à décrypter le sujet
+        </button>
+        <span id="help-loading" class="htmx-indicator text-sm text-brand-700 items-center gap-2">
+          <span class="inline-block h-2.5 w-2.5 rounded-full bg-brand-500 animate-ping"></span>
+          Je lis ton sujet…
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="help-area" class="mb-6"></div>
 
 <div class="text-center">
   <a href="/step/2" class="btn-primary hover:wiggle text-base">

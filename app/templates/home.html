@@ -2,10 +2,6 @@
 
 {% block content %}
 <section class="text-center mb-10 animate-reveal">
-  <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-slate-200 text-xs font-semibold text-brand-700 mb-6">
-    <span class="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
-    Prêt à t'entraîner pour le DNB
-  </div>
   <h1 class="font-display text-4xl sm:text-5xl font-black text-slate-900 leading-tight mb-4">
     Le développement construit,<br>
     <span class="bg-gradient-to-r from-brand-600 to-purple-600 bg-clip-text text-transparent">on l'apprivoise ensemble.</span>
@@ -20,30 +16,30 @@
   <form method="post" action="/session/new" class="space-y-5">
     <div>
       <label class="block text-sm font-semibold text-slate-700 mb-2">
-        🎯 Sur quoi tu veux t'entraîner ?
+        Sur quoi tu veux t'entraîner ?
       </label>
       <div class="grid grid-cols-2 gap-2">
         <label class="cursor-pointer">
           <input type="radio" name="discipline" value="histoire" checked class="peer sr-only">
           <div class="text-center px-3 py-3 rounded-xl border-2 border-slate-200 peer-checked:border-brand-500 peer-checked:bg-brand-50 peer-checked:text-brand-700 font-medium text-sm transition">
-            🏛️ Histoire
+            Histoire
           </div>
         </label>
         <label class="cursor-pointer">
           <input type="radio" name="discipline" value="geographie" class="peer sr-only">
           <div class="text-center px-3 py-3 rounded-xl border-2 border-slate-200 peer-checked:border-brand-500 peer-checked:bg-brand-50 peer-checked:text-brand-700 font-medium text-sm transition">
-            🌍 Géo
+            Géographie
           </div>
         </label>
       </div>
     </div>
     <div class="grid sm:grid-cols-2 gap-3">
       <button type="submit" name="source" value="annales" class="btn-primary hover:wiggle w-full justify-center text-base">
-        📚 Tirer un sujet des annales
+        Tirer un sujet des annales
         <span>→</span>
       </button>
       <button type="submit" name="source" value="variation" class="btn-primary hover:wiggle w-full justify-center text-base bg-gradient-to-r from-purple-600 to-brand-600">
-        ✨ Générer un nouveau sujet
+        Générer un nouveau sujet
         <span>→</span>
       </button>
     </div>
@@ -52,24 +48,16 @@
 
 <section class="grid sm:grid-cols-2 gap-3 text-sm">
   <div class="bg-white/70 backdrop-blur rounded-2xl border border-slate-100 p-4">
-    <div class="text-2xl mb-1">📝</div>
     <div class="font-semibold text-slate-800 mb-1">7 étapes guidées</div>
     <div class="text-slate-600">Du sujet à la correction finale, sans sauter d'étape.</div>
   </div>
   <div class="bg-white/70 backdrop-blur rounded-2xl border border-slate-100 p-4">
-    <div class="text-2xl mb-1">🤔</div>
     <div class="font-semibold text-slate-800 mb-1">Questions, pas de triche</div>
     <div class="text-slate-600">Je te pose des questions pour creuser, jamais le plan tout fait.</div>
   </div>
   <div class="bg-white/70 backdrop-blur rounded-2xl border border-slate-100 p-4">
-    <div class="text-2xl mb-1">📚</div>
     <div class="font-semibold text-slate-800 mb-1">Sujets réels</div>
     <div class="text-slate-600">23 sujets tirés d'annales DNB officielles 2018-2022.</div>
-  </div>
-  <div class="bg-white/70 backdrop-blur rounded-2xl border border-slate-100 p-4">
-    <div class="text-2xl mb-1">🇫🇷</div>
-    <div class="font-semibold text-slate-800 mb-1">100% souverain</div>
-    <div class="text-slate-600">Propulsé par Albert, l'IA publique de l'État français.</div>
   </div>
 </section>
 {% endblock %}
