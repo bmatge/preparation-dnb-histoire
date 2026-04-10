@@ -37,6 +37,11 @@ d'erreur, niveau 3 = orientation sur un mot précis.
 
 from __future__ import annotations
 
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from app.core.rag import RagPassage
+
 from dataclasses import dataclass
 
 from app.francais.comprehension.models import ExerciseItem, Ligne, NoteTexte
@@ -127,11 +132,41 @@ class ExerciseContext:
         return "\n".join(parts)
 
 
-def build_first_eval(ctx: ExerciseContext, reponse_eleve: str) -> str:
+def _passages_balise(passages: "list[RagPassage] | None") -> str:
+    """Rend les passages RAG en un bloc balisé pour injection dans le prompt.
+
+    Chaque passage est préfixé par son étiquette de source entre crochets
+    (`[méthodo]`, `[programme]`), ce qui permet au modèle de citer la source
+    dans son verdict sans avoir à connaître les noms techniques des
+    collections Albert.
+
+    Si `passages` est vide ou None, retourne une balise <context> vide —
+    le modèle saura qu'il n'y a pas de source externe à exploiter.
+    """
+    if not passages:
+        return "(aucun extrait de méthodologie ou de programme disponible)"
+    parts = []
+    for p in passages:
+        content = p.content.strip().replace("\n\n\n", "\n\n")
+        parts.append(f"[{p.source}]\n{content}")
+    return "\n\n---\n\n".join(parts)
+
+
+def build_first_eval(
+    ctx: ExerciseContext,
+    reponse_eleve: str,
+    passages: "list[RagPassage] | None" = None,
+) -> str:
     """Évalue la première tentative de l'élève.
 
     Retour attendu du LLM : verdict structuré (correcte / partielle /
     insuffisante) + commentaire court. PAS d'indice, PAS de réponse.
+
+    Si `passages` est fourni, les extraits des fiches méthodo et du programme
+    officiel sont injectés dans une balise `<context>` séparée de la réponse
+    élève. Le modèle est invité à s'y appuyer pour justifier son verdict,
+    mais la séparation stricte via les balises XML garantit qu'il ne
+    confondra pas les sources externes avec ce que l'élève a écrit.
     """
     return f"""\
 Un·e élève de 3e tente de répondre à une question de compréhension d'un texte \
@@ -144,6 +179,10 @@ littéraire. Voici le contexte.
 <notes_du_texte>
 {ctx.notes_balise()}
 </notes_du_texte>
+
+<context>
+{_passages_balise(passages)}
+</context>
 
 <question>
 {ctx.question_balise()}
@@ -183,11 +222,21 @@ Contraintes strictes :
 - Quand tu cites « tu as dit X », vérifie que X se trouve LITTÉRALEMENT dans \
 <reponse_eleve>. Jamais dans <texte_litteraire>.
 - Ne cite jamais plus de 5 mots consécutifs du texte littéraire.
+- Si tu t'appuies sur un extrait de <context> (fiche méthodologique ou \
+programme), tu peux indiquer la règle en quelques mots mais tu ne recopies \
+pas le passage complet. Tu peux signaler l'origine entre crochets, ex : \
+« la fiche [méthodo] rappelle que... ». Ne jamais copier un extrait du \
+<context> dans une phrase qui ressemble à une réponse.
 - Pas de liste à puces, pas de titres markdown, juste les trois sections.
 """
 
 
-def build_hint(ctx: ExerciseContext, reponse_eleve: str, level: int) -> str:
+def build_hint(
+    ctx: ExerciseContext,
+    reponse_eleve: str,
+    level: int,
+    passages: "list[RagPassage] | None" = None,
+) -> str:
     """Construit un indice gradué (1, 2 ou 3).
 
     Niveau 1 : reformulation / recentrage sur la question.
@@ -238,6 +287,10 @@ fournir un indice de niveau {level}.
 {ctx.notes_balise()}
 </notes_du_texte>
 
+<context>
+{_passages_balise(passages)}
+</context>
+
 <question>
 {ctx.question_balise()}
 </question>
@@ -252,6 +305,9 @@ Contraintes strictes, valables à tous les niveaux d'indice :
 - Tu ne donnes JAMAIS la réponse, même partielle.
 - Tu ne cites jamais plus de 5 mots consécutifs du texte littéraire.
 - Tu ne rédiges jamais une phrase que l'élève pourrait recopier comme réponse.
+- Si tu t'appuies sur une fiche méthodologique du <context>, tu peux nommer \
+la règle en 3-4 mots mais tu ne recopies pas le passage complet. L'indice \
+doit rester un coup de pouce, pas un cours magistral.
 - Tu t'adresses directement à l'élève en le tutoyant.
 - Maximum 4 phrases. Court, net, pédagogique.
 - Pas de titre, pas de liste à puces, pas de balises markdown. Juste le texte \
@@ -259,11 +315,18 @@ de l'indice.
 """
 
 
-def build_reveal_answer(ctx: ExerciseContext, reponse_eleve: str) -> str:
+def build_reveal_answer(
+    ctx: ExerciseContext,
+    reponse_eleve: str,
+    passages: "list[RagPassage] | None" = None,
+) -> str:
     """Révélation de la réponse après l'épuisement des 3 indices.
 
     C'est le SEUL cas où l'IA donne la bonne réponse, et elle le fait sous
-    forme pédagogique : raisonnement complet, et non simple énoncé.
+    forme pédagogique : raisonnement complet, et non simple énoncé. Quand
+    des passages RAG sont injectés, l'IA peut citer « la fiche [méthodo] »
+    ou « le programme officiel [programme] » pour ancrer le raisonnement
+    dans une source d'autorité.
     """
     return f"""\
 Un·e élève de 3e a épuisé ses 3 indices sans trouver la réponse. Il est \
@@ -279,6 +342,10 @@ pour qu'il comprenne comment faire la prochaine fois.
 {ctx.notes_balise()}
 </notes_du_texte>
 
+<context>
+{_passages_balise(passages)}
+</context>
+
 <question>
 {ctx.question_balise()}
 </question>
@@ -291,7 +358,9 @@ Ta réponse doit comporter trois parties courtes, dans cet ordre :
 
 RAISONNEMENT : deux à quatre phrases qui expliquent comment on trouve la \
 réponse à partir du texte. Montre le chemin : où chercher, quoi repérer, \
-quoi en déduire.
+quoi en déduire. Tu peux t'appuyer sur une règle de la fiche [méthodo] ou \
+sur un attendu du [programme] si c'est utile, en le citant explicitement \
+(« la fiche méthodo rappelle que... »), sans recopier plus de 2 lignes.
 
 REPONSE : une ou deux phrases qui formulent la bonne réponse de manière \
 claire et complète, comme l'attendrait un correcteur du DNB.
@@ -309,11 +378,17 @@ en les mettant entre guillemets français « » et en indiquant la ligne.
 
 
 def build_session_synthese(
-    items_resolved: list[tuple[ExerciseItem, str, bool]]
+    items_resolved: list[tuple[ExerciseItem, str, bool]],
+    passages: "list[RagPassage] | None" = None,
 ) -> str:
     """Bilan de fin de session.
 
     `items_resolved` : liste de (item, réponse finale élève, trouvée_seul).
+
+    Quand des passages RAG sont fournis (programme cycle 4 + fiches méthodo),
+    la synthèse peut pointer vers une fiche concrète à relire ou vers un
+    attendu officiel du programme à retravailler, plutôt qu'une suggestion
+    vague.
     """
     lignes_items = []
     for item, rep, seul in items_resolved:
@@ -332,6 +407,10 @@ compréhension. Voici le bilan question par question :
 {items_block}
 </bilan_session>
 
+<context>
+{_passages_balise(passages)}
+</context>
+
 Rédige pour l'élève une synthèse courte (8 phrases maximum) qui comprend, \
 dans cet ordre :
 
@@ -344,7 +423,11 @@ compétence en mots simples (ex : « l'interprétation des intentions du \
 narrateur »).
 
 3. Une suggestion concrète d'entraînement : quoi relire, quel type de \
-question refaire la prochaine fois. Une seule suggestion, courte.
+question refaire la prochaine fois. Si le <context> contient une fiche \
+[méthodo] ou un attendu [programme] qui correspond à la compétence faible, \
+tu peux nommer la fiche (« la fiche sur les classes grammaticales ») ou \
+l'attendu officiel — c'est plus concret qu'une suggestion vague. Une seule \
+suggestion, courte.
 
 4. Une dernière phrase d'encouragement.
 
@@ -368,7 +451,11 @@ def _format_contraintes(contraintes: list[str]) -> str:
     return "\n".join(f"- {c}" for c in contraintes)
 
 
-def build_reecriture_eval(ctx: ExerciseContext, reponse_eleve: str) -> str:
+def build_reecriture_eval(
+    ctx: ExerciseContext,
+    reponse_eleve: str,
+    passages: "list[RagPassage] | None" = None,
+) -> str:
     """Évalue une réécriture : le passage transformé par l'élève.
 
     Contrairement à une question de compréhension, on ne juge pas une
@@ -389,6 +476,10 @@ donner la version corrigée.
 <texte_litteraire>
 {ctx.texte_balise()}
 </texte_litteraire>
+
+<context>
+{_passages_balise(passages)}
+</context>
 
 <consigne_reecriture>
 {item.enonce_complet}
@@ -444,7 +535,10 @@ Contraintes strictes :
 
 
 def build_reecriture_hint(
-    ctx: ExerciseContext, reponse_eleve: str, level: int
+    ctx: ExerciseContext,
+    reponse_eleve: str,
+    level: int,
+    passages: "list[RagPassage] | None" = None,
 ) -> str:
     """Indice gradué pour une question de réécriture.
 
@@ -490,6 +584,10 @@ def build_reecriture_hint(
 Un·e élève de 3e a réécrit un passage mais sa réécriture contient des \
 erreurs. Tu dois lui donner un indice de niveau {level}.
 
+<context>
+{_passages_balise(passages)}
+</context>
+
 <consigne_reecriture>
 {item.enonce_complet}
 
@@ -516,8 +614,18 @@ Contraintes strictes :
 """
 
 
-def build_reecriture_reveal(ctx: ExerciseContext, reponse_eleve: str) -> str:
-    """Révélation de la réécriture corrigée après épuisement des 3 indices."""
+def build_reecriture_reveal(
+    ctx: ExerciseContext,
+    reponse_eleve: str,
+    passages: "list[RagPassage] | None" = None,
+) -> str:
+    """Révélation de la réécriture corrigée après épuisement des 3 indices.
+
+    Quand des passages RAG sont fournis (fiches méthodo + programme), le
+    raisonnement grammatical peut s'appuyer sur une règle officielle en
+    citant la fiche [méthodo], plutôt que de poser les choses comme si
+    elles tombaient du ciel.
+    """
     item = ctx.item
     passage = item.passage_a_reecrire or ""
     contraintes = _format_contraintes(item.contraintes)
@@ -527,6 +635,10 @@ Un·e élève de 3e a épuisé ses 3 indices sans réussir à corriger sa \
 réécriture. Il est temps de lui montrer la version corrigée, mais de \
 manière pédagogique pour qu'il comprenne pourquoi c'est comme ça et \
 pas autrement.
+
+<context>
+{_passages_balise(passages)}
+</context>
 
 <consigne_reecriture>
 {item.enonce_complet}

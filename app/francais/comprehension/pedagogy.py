@@ -31,7 +31,9 @@ from sqlmodel import Session as DBSession
 
 from app.core.albert_client import AlbertClient, AlbertError, Task
 from app.core.db import add_turn, get_turns_by_step, update_session_step
+from app.core.rag import RagPassage, get_default_rag_client
 from app.francais.comprehension.models import (
+    SUBJECT_KIND,
     ComprehensionExercise,
     ExerciseItem,
 )
@@ -169,6 +171,52 @@ def _chat(task: Task, prompt: str) -> str:
     return result.content
 
 
+def _build_rag_query(item: ExerciseItem) -> str:
+    """Construit la requête RAG pour un item.
+
+    On concatène la compétence évaluée (champ lexical fort pour le
+    semantic search des fiches méthodo) et l'énoncé complet. La
+    compétence est mise en premier parce que les fiches méthodo sont
+    organisées thématiquement : une recherche sur « propositions_subordonnees
+    [...énoncé] » ramènera la fiche 2 en priorité, pas la fiche 1.
+    """
+    parts: list[str] = []
+    if item.competence:
+        # Remplace les underscores par des espaces pour améliorer le match
+        # sémantique (le programme et les fiches n'utilisent pas les clés
+        # internes `propositions_subordonnees` mais des formes libres).
+        parts.append(item.competence.replace("_", " "))
+    parts.append(item.enonce_complet)
+    return " — ".join(parts)
+
+
+def _search_rag(task: Task, item: ExerciseItem) -> list[RagPassage]:
+    """Interroge Albert pour récupérer les passages RAG pertinents à la tâche.
+
+    Retourne une liste vide en cas d'échec (réseau, API, collection
+    manquante…) — le builder accepte une liste vide et injecte alors un
+    placeholder neutre dans la balise `<context>`. L'IA reste fonctionnelle
+    sans RAG, juste moins ancrée dans les sources officielles.
+    """
+    try:
+        rag = get_default_rag_client()
+        return rag.search_for_task(
+            subject_kind=SUBJECT_KIND,
+            task=task,
+            query=_build_rag_query(item),
+            limit=4,
+            score_threshold=0.4,
+        )
+    except Exception as e:  # noqa: BLE001 — on veut vraiment tout capter
+        logger.warning(
+            "Recherche RAG échouée pour task=%s, item=%s : %s",
+            task.value,
+            item.label,
+            e,
+        )
+        return []
+
+
 def count_attempts_at_step(
     db: DBSession, session_id: int, step: int
 ) -> int:
@@ -212,10 +260,11 @@ def evaluate_answer(
     add_turn(db, session_id, step=item.order, role="user", content=reponse_eleve)
 
     ctx = _build_context(exo, item)
+    passages = _search_rag(Task.FR_COMP_EVAL, item)
     if item.type == "reecriture":
-        prompt = build_reecriture_eval(ctx, reponse_eleve)
+        prompt = build_reecriture_eval(ctx, reponse_eleve, passages=passages)
     else:
-        prompt = build_first_eval(ctx, reponse_eleve)
+        prompt = build_first_eval(ctx, reponse_eleve, passages=passages)
 
     try:
         raw = _chat(Task.FR_COMP_EVAL, prompt)
@@ -252,10 +301,11 @@ def generate_hint(
         raise ValueError(f"level must be 1, 2 or 3, got {level}")
 
     ctx = _build_context(exo, item)
+    passages = _search_rag(Task.FR_COMP_HINT, item)
     if item.type == "reecriture":
-        prompt = build_reecriture_hint(ctx, reponse_eleve, level)
+        prompt = build_reecriture_hint(ctx, reponse_eleve, level, passages=passages)
     else:
-        prompt = build_hint(ctx, reponse_eleve, level)
+        prompt = build_hint(ctx, reponse_eleve, level, passages=passages)
 
     try:
         raw = _chat(Task.FR_COMP_HINT, prompt)
@@ -277,10 +327,11 @@ def reveal_answer(
 ) -> str:
     """Révèle la bonne réponse avec raisonnement. À appeler APRÈS les 3 indices."""
     ctx = _build_context(exo, item)
+    passages = _search_rag(Task.FR_COMP_REVEAL, item)
     if item.type == "reecriture":
-        prompt = build_reecriture_reveal(ctx, reponse_eleve)
+        prompt = build_reecriture_reveal(ctx, reponse_eleve, passages=passages)
     else:
-        prompt = build_reveal_answer(ctx, reponse_eleve)
+        prompt = build_reveal_answer(ctx, reponse_eleve, passages=passages)
 
     try:
         raw = _chat(Task.FR_COMP_REVEAL, prompt)
@@ -299,8 +350,39 @@ def build_synthese(
     session_id: int,
     items_resolved: list[tuple[ExerciseItem, str, bool]],
 ) -> str:
-    """Bilan pédagogique de fin de session."""
-    prompt = build_session_synthese(items_resolved)
+    """Bilan pédagogique de fin de session.
+
+    Pour le RAG de la synthèse, on prend comme requête la liste des
+    compétences faibles (items révélés après indices). Ça permet à
+    Albert de remonter une fiche méthodo ou un attendu du programme
+    directement lié à ce que l'élève doit retravailler.
+    """
+    competences_faibles = [
+        it.competence or "compétence non précisée"
+        for it, _, trouve_seul in items_resolved
+        if not trouve_seul and it.competence
+    ]
+    passages: list[RagPassage] = []
+    if competences_faibles:
+        # Item-stub juste pour faire un appel _search_rag uniforme. On le
+        # construit avec une compétence = la première compétence faible et
+        # un énoncé = la concaténation de toutes les compétences faibles,
+        # pour que la requête semantic search tape dans les bonnes fiches.
+        fake_item = ExerciseItem(
+            order=0,
+            question_numero="",
+            sous_question_lettre=None,
+            partie="comprehension",
+            type="standard",
+            enonce_complet=" ; ".join(competences_faibles),
+            citation=None,
+            lignes_ciblees=[],
+            points=0.0,
+            competence=competences_faibles[0],
+            necessite_image=False,
+        )
+        passages = _search_rag(Task.FR_COMP_SYNTHESE, fake_item)
+    prompt = build_session_synthese(items_resolved, passages=passages)
     try:
         raw = _chat(Task.FR_COMP_SYNTHESE, prompt)
     except AlbertError as e:
