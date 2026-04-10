@@ -1,20 +1,21 @@
 """
-Routes FastAPI spécifiques à la matière histoire-géographie-EMC (DNB).
+Routes FastAPI de l'épreuve « développement construit » (DNB histoire-géo-EMC).
 
-Ce router est monté par `app.core.main` sous le préfixe `/histoire-geo-emc`.
-Il expose l'intégralité du parcours « développement construit » (7 étapes) :
+Ce router est inclus par `app.histoire_geo_emc.routes` (router racine de la
+matière) sous le préfixe `/developpement-construit`. Les URLs finales
+commencent donc toutes par `/histoire-geo-emc/developpement-construit`.
 
-  POST /histoire-geo-emc/session/new      crée une session + redirect vers /step/1
-  GET  /histoire-geo-emc/restart          efface la session courante
-  GET  /histoire-geo-emc/                 accueil de la matière (tirage de sujet)
-  GET  /histoire-geo-emc/step/1           affichage du sujet
-  POST /histoire-geo-emc/step/1/help      coup de pouce socratique
-  GET  /histoire-geo-emc/step/2           formulaire 1ʳᵉ proposition
-  POST /histoire-geo-emc/step/2/submit    → 1ʳᵉ évaluation (partial HTMX)
-  GET  /histoire-geo-emc/step/4           formulaire 2ᵉ proposition
-  POST /histoire-geo-emc/step/4/submit    → 2ᵉ évaluation (partial HTMX)
-  GET  /histoire-geo-emc/step/6           formulaire rédaction complète
-  POST /histoire-geo-emc/step/6/submit    → correction finale (partial HTMX)
+  POST .../session/new      crée une session + redirect vers /step/1
+  GET  .../restart          efface la session courante
+  GET  .../                 accueil de l'épreuve (tirage de sujet)
+  GET  .../step/1           affichage du sujet
+  POST .../step/1/help      coup de pouce socratique
+  GET  .../step/2           formulaire 1ʳᵉ proposition
+  POST .../step/2/submit    → 1ʳᵉ évaluation (partial HTMX)
+  GET  .../step/4           formulaire 2ᵉ proposition
+  POST .../step/4/submit    → 2ᵉ évaluation (partial HTMX)
+  GET  .../step/6           formulaire rédaction complète
+  POST .../step/6/submit    → correction finale (partial HTMX)
 
 Le MVP est en mode `SEMI_ASSISTE` uniquement.
 """
@@ -33,14 +34,14 @@ from sqlmodel import Session as DBSession
 from app.core import db as core_db
 from app.core.db import db_session
 from app.core.formatting import render_eval_markdown
-from app.histoire_geo_emc import models as hgemc_models
-from app.histoire_geo_emc.pedagogy import (
+from app.histoire_geo_emc.developpement_construit import models as hgemc_models
+from app.histoire_geo_emc.developpement_construit.pedagogy import (
     run_step_1_help,
     run_step_3,
     run_step_5,
     run_step_7,
 )
-from app.histoire_geo_emc.prompts import Mode
+from app.histoire_geo_emc.developpement_construit.prompts import Mode
 
 logger = logging.getLogger(__name__)
 
@@ -48,20 +49,25 @@ logger = logging.getLogger(__name__)
 # Router + templates
 # ============================================================================
 
-PREFIX = "/histoire-geo-emc"
+# Préfixe complet de l'épreuve une fois montée par le router racine matière :
+# `/histoire-geo-emc` (root matière) + `/developpement-construit` (cette épreuve).
+PREFIX = "/histoire-geo-emc/developpement-construit"
 
-router = APIRouter(prefix=PREFIX, tags=["histoire-geo-emc"])
+# Ce router n'a pas de prefix propre : le prefix `/developpement-construit`
+# est appliqué par `include_router` côté `app.histoire_geo_emc.routes`.
+router = APIRouter(tags=["histoire-geo-emc / développement construit"])
 
-# Templates : hgemc/templates en priorité (les pages spécifiques à la matière),
-# core/templates en fallback (notamment pour base.html dont tous les templates
-# héritent). L'ordre compte : core/templates contient aussi un home.html qui
-# est le sélecteur de matière — si on le mettait en premier, il shadowerait
-# le home.html de la matière et on tournerait en boucle sur le sélecteur.
-_APP_DIR = Path(__file__).resolve().parent.parent
+# Templates : templates de l'épreuve DC en priorité, core/templates en
+# fallback (notamment pour base.html dont tous les templates héritent).
+# L'ordre compte : core/templates contient aussi un home.html qui est le
+# sélecteur de matière — si on le mettait en premier, il shadowerait le
+# home.html de l'épreuve et on tournerait en boucle sur le sélecteur.
+_HERE = Path(__file__).resolve().parent
+_APP_DIR = _HERE.parent.parent
 _CORE_TEMPLATES = _APP_DIR / "core" / "templates"
-_HGEMC_TEMPLATES = _APP_DIR / "histoire_geo_emc" / "templates"
+_DC_TEMPLATES = _HERE / "templates"
 
-templates = Jinja2Templates(directory=[str(_HGEMC_TEMPLATES), str(_CORE_TEMPLATES)])
+templates = Jinja2Templates(directory=[str(_DC_TEMPLATES), str(_CORE_TEMPLATES)])
 templates.env.filters["eval_md"] = lambda txt: Markup(render_eval_markdown(txt or ""))
 
 
@@ -139,7 +145,10 @@ def session_new(
         err = "aucune_variation" if is_variation else "aucun_sujet"
         return RedirectResponse(url=f"{PREFIX}/?erreur={err}", status_code=303)
     new_sess = core_db.create_session(
-        s, subject_id=subj.id, mode=Mode.SEMI_ASSISTE.value
+        s,
+        subject_kind="hgemc_dc",
+        subject_id=subj.id,
+        mode=Mode.SEMI_ASSISTE.value,
     )
     request.session["session_id"] = new_sess.id
     return RedirectResponse(url=f"{PREFIX}/step/1", status_code=303)
