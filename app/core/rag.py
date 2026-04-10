@@ -49,35 +49,74 @@ class RagPassage:
 
 
 # ============================================================================
-# Étiquettes "courtes" pour les citations dans les prompts/évals
+# Collections Albert — dicts indexés par matière
 # ============================================================================
 #
-# Les prompts demandent au modèle de citer ses sources entre crochets sous la
-# forme [programme], [corrigé], [méthodo]. Pour rendre cette citation possible,
-# chaque collection est associée à une étiquette courte qu'on injecte dans le
-# `source` du RagPassage. Le modèle voit donc « [programme] ... », ce qui
-# correspond exactement à la regex de post-filtre côté albert_client.
+# La plateforme est multi-matières : chaque matière (histoire-géo-EMC, maths…)
+# possède son propre jeu de collections côté Albert, avec un nommage préfixé
+# `dnb_<matière>_*`. Tous les dicts qui décrivent les collections sont donc
+# indexés par une clé de matière (`subject_kind`) qui correspond au nom du
+# package Python — p. ex. `"histoire_geo_emc"` (cf. `app/histoire_geo_emc/
+# __init__.py::SUBJECT_KIND`).
+#
+# Convention de nommage : `dnb_<matière>_<type>` où <type> ∈ {programmes,
+# corriges, methodo, sujets}.
+#
+# Étiquettes courtes : les prompts demandent au modèle de citer ses sources
+# entre crochets sous la forme [programme], [corrigé], [méthodo], [sujet].
+# `COLLECTION_LABELS[subject_kind][collection_name]` donne l'étiquette courte
+# à injecter dans le `source` du RagPassage.
 # ============================================================================
 
-COLLECTION_LABELS: dict[str, str] = {
-    "dnb_programmes": "programme",
-    "dnb_corriges": "corrigé",
-    "dnb_methodo": "méthodo",
-    "dnb_sujets": "sujet",
+# Nouveau nommage (cible post-refacto 2b).
+COLLECTION_LABELS: dict[str, dict[str, str]] = {
+    "histoire_geo_emc": {
+        "dnb_hgemc_programmes": "programme",
+        "dnb_hgemc_corriges": "corrigé",
+        "dnb_hgemc_methodo": "méthodo",
+        "dnb_hgemc_sujets": "sujet",
+        # Anciens noms gardés dans le dict pour étiqueter correctement les
+        # chunks qui remonteraient des anciennes collections pendant la
+        # fenêtre de bascule (cf. LEGACY_COLLECTION_ALIASES ci-dessous).
+        # À retirer une fois que les anciennes collections sont supprimées
+        # côté Albert.
+        "dnb_programmes": "programme",
+        "dnb_corriges": "corrigé",
+        "dnb_methodo": "méthodo",
+        "dnb_sujets": "sujet",
+    },
+}
+
+# Fenêtre de bascule : si un nouveau nom de collection ne résout pas côté
+# Albert (parce que le re-ingest n'a pas encore été fait), on retente avec
+# l'ancien nom. À vider une fois que `scripts.ingest --force` a été lancé
+# contre les nouveaux noms et que les anciennes collections sont supprimées.
+LEGACY_COLLECTION_ALIASES: dict[str, dict[str, str]] = {
+    "histoire_geo_emc": {
+        "dnb_hgemc_programmes": "dnb_programmes",
+        "dnb_hgemc_corriges": "dnb_corriges",
+        "dnb_hgemc_methodo": "dnb_methodo",
+        "dnb_hgemc_sujets": "dnb_sujets",
+    },
 }
 
 # Fallback si /v1/collections ne répond pas — IDs créés par scripts/ingest.py
-# (cf HANDOFF.md §4.5). Mis à jour lors du dernier ingest 2026-04.
-FALLBACK_COLLECTION_IDS: dict[str, int] = {
-    "dnb_methodo": 184792,
-    "dnb_corriges": 184795,
-    "dnb_programmes": 184797,
-    "dnb_sujets": 184809,
+# (cf HANDOFF.md §4.5). Les IDs listés ici sont ceux du dernier ingest
+# 2026-04 (anciens noms). Ils resteront valides via LEGACY_COLLECTION_ALIASES
+# tant que le re-ingest sous les nouveaux noms n'est pas fait. Après re-ingest,
+# remplacer par les nouveaux IDs.
+FALLBACK_COLLECTION_IDS: dict[str, dict[str, int]] = {
+    "histoire_geo_emc": {
+        "dnb_methodo": 184792,
+        "dnb_corriges": 184795,
+        "dnb_programmes": 184797,
+        "dnb_sujets": 184809,
+    },
 }
 
 
 # ============================================================================
-# Sélection des collections par étape pédagogique
+# Sélection des collections par étape pédagogique (par matière)
 # ============================================================================
 #
 # Toutes les étapes interrogent en priorité le programme (anti-hallucination),
@@ -85,17 +124,34 @@ FALLBACK_COLLECTION_IDS: dict[str, int] = {
 # sujets pour pouvoir comparer avec d'autres consignes proches.
 # ============================================================================
 
-TASK_COLLECTIONS: dict[Task, tuple[str, ...]] = {
-    Task.DECRYPT_SUBJECT: ("dnb_programmes", "dnb_methodo", "dnb_corriges"),
-    Task.HELP_UNDERSTAND: ("dnb_programmes", "dnb_methodo"),
-    Task.FIRST_EVAL: ("dnb_programmes", "dnb_corriges", "dnb_methodo"),
-    Task.SECOND_EVAL: ("dnb_programmes", "dnb_corriges", "dnb_methodo"),
-    Task.FINAL_CORRECTION: (
-        "dnb_programmes",
-        "dnb_corriges",
-        "dnb_methodo",
-        "dnb_sujets",
-    ),
+TASK_COLLECTIONS: dict[str, dict[Task, tuple[str, ...]]] = {
+    "histoire_geo_emc": {
+        Task.DECRYPT_SUBJECT: (
+            "dnb_hgemc_programmes",
+            "dnb_hgemc_methodo",
+            "dnb_hgemc_corriges",
+        ),
+        Task.HELP_UNDERSTAND: (
+            "dnb_hgemc_programmes",
+            "dnb_hgemc_methodo",
+        ),
+        Task.FIRST_EVAL: (
+            "dnb_hgemc_programmes",
+            "dnb_hgemc_corriges",
+            "dnb_hgemc_methodo",
+        ),
+        Task.SECOND_EVAL: (
+            "dnb_hgemc_programmes",
+            "dnb_hgemc_corriges",
+            "dnb_hgemc_methodo",
+        ),
+        Task.FINAL_CORRECTION: (
+            "dnb_hgemc_programmes",
+            "dnb_hgemc_corriges",
+            "dnb_hgemc_methodo",
+            "dnb_hgemc_sujets",
+        ),
+    },
 }
 
 
@@ -174,32 +230,71 @@ class AlbertRagClient:
     # Résolution des IDs de collections
     # ------------------------------------------------------------------
 
-    def _resolve_collection_ids(self, names: Iterable[str]) -> list[int]:
-        """Résout les noms de collections en IDs. Cache mémoire + fallback."""
-        missing = [n for n in names if n not in self._collection_ids]
-        if missing:
-            try:
-                r = self._http.get(
-                    f"{self._base}/collections", params={"limit": 100}
-                )
-                r.raise_for_status()
-                for c in r.json().get("data", []):
-                    name = c.get("name")
-                    if name:
-                        self._collection_ids[name] = int(c["id"])
-            except (httpx.HTTPError, ValueError, KeyError) as e:
-                logger.warning(
-                    "Impossible de résoudre les collections via /v1/collections (%s) — fallback hardcodé",
-                    e,
-                )
-                for name, cid in FALLBACK_COLLECTION_IDS.items():
-                    self._collection_ids.setdefault(name, cid)
+    def _ensure_collections_loaded(self, subject_kind: str) -> None:
+        """Charge en cache les IDs de collections depuis Albert (une fois).
+
+        Fallback hardcodé (FALLBACK_COLLECTION_IDS[subject_kind]) si
+        /v1/collections échoue. Tous les noms retournés par Albert sont
+        cachés, pas seulement ceux de la matière — ça limite les appels
+        redondants si plusieurs matières tapent dans des collections
+        différentes sur le même process.
+        """
+        if self._collection_ids:
+            return  # déjà peuplé par un appel précédent
+        try:
+            r = self._http.get(
+                f"{self._base}/collections", params={"limit": 100}
+            )
+            r.raise_for_status()
+            for c in r.json().get("data", []):
+                name = c.get("name")
+                if name:
+                    self._collection_ids[name] = int(c["id"])
+        except (httpx.HTTPError, ValueError, KeyError) as e:
+            logger.warning(
+                "Impossible de résoudre les collections via /v1/collections (%s) "
+                "— fallback hardcodé pour %s",
+                e,
+                subject_kind,
+            )
+            for name, cid in FALLBACK_COLLECTION_IDS.get(subject_kind, {}).items():
+                self._collection_ids.setdefault(name, cid)
+
+    def _resolve_collection_ids(
+        self, subject_kind: str, names: Iterable[str]
+    ) -> list[int]:
+        """Résout les noms de collections en IDs pour une matière donnée.
+
+        Pendant la fenêtre de bascule 2b, si un nouveau nom (p. ex.
+        `dnb_hgemc_programmes`) n'existe pas encore côté Albert, on retombe
+        sur l'ancien nom via `LEGACY_COLLECTION_ALIASES`. Ça permet de
+        déployer le code avant d'avoir re-ingéré les collections sous leur
+        nouveau nom.
+        """
+        self._ensure_collections_loaded(subject_kind)
+        aliases = LEGACY_COLLECTION_ALIASES.get(subject_kind, {})
 
         ids: list[int] = []
         for name in names:
             cid = self._collection_ids.get(name)
             if cid is None:
-                logger.warning("Collection inconnue côté Albert : %s", name)
+                legacy_name = aliases.get(name)
+                if legacy_name and legacy_name in self._collection_ids:
+                    logger.info(
+                        "Collection %r introuvable côté Albert, fallback sur "
+                        "l'ancien nom %r. Lance `scripts.ingest --force` pour "
+                        "créer les nouvelles collections et supprimer les "
+                        "anciennes.",
+                        name,
+                        legacy_name,
+                    )
+                    cid = self._collection_ids[legacy_name]
+            if cid is None:
+                logger.warning(
+                    "Collection inconnue côté Albert : %s (matière=%s)",
+                    name,
+                    subject_kind,
+                )
                 continue
             ids.append(cid)
         return ids
@@ -210,6 +305,7 @@ class AlbertRagClient:
 
     def search(
         self,
+        subject_kind: str,
         query: str,
         collections: list[str],
         limit: int = 5,
@@ -222,12 +318,12 @@ class AlbertRagClient:
         source est l'étiquette courte de la collection (programme, corrigé…),
         ce qui permet aux post-filtres de citation de matcher.
         """
-        cache_key = (query.strip().lower(), tuple(sorted(collections)), limit)
+        cache_key = (subject_kind, query.strip().lower(), tuple(sorted(collections)), limit)
         with self._lock:
             if cache_key in self._cache:
                 return self._cache[cache_key]
 
-        collection_ids = self._resolve_collection_ids(collections)
+        collection_ids = self._resolve_collection_ids(subject_kind, collections)
         if not collection_ids:
             return []
 
@@ -248,6 +344,7 @@ class AlbertRagClient:
 
         # Mapping inverse id → nom pour étiqueter les passages
         id_to_name = {cid: name for name, cid in self._collection_ids.items()}
+        labels = COLLECTION_LABELS.get(subject_kind, {})
 
         passages: list[RagPassage] = []
         for item in r.json().get("data", []):
@@ -260,7 +357,7 @@ class AlbertRagClient:
                 continue
             cid = chunk.get("collection_id")
             name = id_to_name.get(cid, "?")
-            label = COLLECTION_LABELS.get(name, name)
+            label = labels.get(name, name)
             passages.append(RagPassage(source=label, content=content))
 
         with self._lock:
@@ -273,16 +370,20 @@ class AlbertRagClient:
 
     def search_for_task(
         self,
+        subject_kind: str,
         task: Task,
         query: str,
         limit: int = 5,
         score_threshold: float = 0.5,
     ) -> list[RagPassage]:
-        """Recherche en sélectionnant automatiquement les bonnes collections."""
-        collections = list(TASK_COLLECTIONS.get(task, ()))
+        """Recherche en sélectionnant automatiquement les bonnes collections
+        pour la matière et la tâche données."""
+        task_map = TASK_COLLECTIONS.get(subject_kind, {})
+        collections = list(task_map.get(task, ()))
         if not collections:
             return []
         return self.search(
+            subject_kind=subject_kind,
             query=query,
             collections=collections,
             limit=limit,
@@ -313,7 +414,10 @@ def get_default_rag_client() -> AlbertRagClient:
 
 __all__ = [
     "AlbertRagClient",
+    "RagPassage",
     "COLLECTION_LABELS",
+    "LEGACY_COLLECTION_ALIASES",
+    "FALLBACK_COLLECTION_IDS",
     "TASK_COLLECTIONS",
     "get_default_rag_client",
 ]

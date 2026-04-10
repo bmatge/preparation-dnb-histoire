@@ -138,10 +138,15 @@ revise-ton-dnb/
 
 | Collection Albert | ID | Docs | Source |
 |---|---:|---:|---|
-| `dnb_methodo` | 184792 | 7 | content/histoire-geo-emc/methodologie/ |
-| `dnb_corriges` | 184795 | 3 | content/histoire-geo-emc/corriges/ |
-| `dnb_programmes` | 184797 | 9 | content/histoire-geo-emc/programme/ |
-| `dnb_sujets` | 184809 | 23 | content/histoire-geo-emc/subjects/*.json → md |
+| `dnb_hgemc_methodo` | *tbd* | 7 | content/histoire-geo-emc/methodologie/ |
+| `dnb_hgemc_corriges` | *tbd* | 3 | content/histoire-geo-emc/corriges/ |
+| `dnb_hgemc_programmes` | *tbd* | 9 | content/histoire-geo-emc/programme/ |
+| `dnb_hgemc_sujets` | *tbd* | 23 | content/histoire-geo-emc/subjects/*.json → md |
+
+*tbd* : les IDs seront attribués au prochain run de `scripts/ingest.py` sous
+le nouveau nommage. Pendant la fenêtre de bascule, `app/core/rag.py`
+retombe sur les anciens noms via `LEGACY_COLLECTION_ALIASES` (anciens IDs :
+methodo=184792, corriges=184795, programmes=184797, sujets=184809).
 
 - Idempotence via SHA256 dans `data/ingest_state.db`
 - **JSON → Markdown à la volée** pour `dnb_sujets` (Albert rejette le .json)
