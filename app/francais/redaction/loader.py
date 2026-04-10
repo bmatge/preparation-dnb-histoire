@@ -15,6 +15,7 @@ from __future__ import annotations
 import json
 import logging
 import random
+import unicodedata
 from pathlib import Path
 
 from sqlmodel import Session as DBSession, select
@@ -33,6 +34,23 @@ REPO_ROOT = _HERE.parent.parent.parent.parent
 SUBJECTS_DIR = REPO_ROOT / "content" / "francais" / "redaction" / "subjects"
 
 
+def _slugify_centre(centre: str) -> str:
+    """Normalise un nom de centre en slug ASCII minuscules tirets.
+
+    Doit être cohérent avec la fonction ``FilenameMeta.make_id`` de
+    ``scripts/extract_french_exercises.py`` qui produit les slugs des
+    ``FrenchExercise`` à partir des noms de fichier d'annales (où les
+    centres sont déjà sans accents : ``Metropole``, ``Antilles-Guyane``…).
+    Côté rédaction, le label en DB est en revanche le centre humain
+    (``Métropole``, ``Antilles-Guyane``) — d'où l'étape de désaccentuation.
+    """
+    # NFD décompose ``é`` en ``e`` + accent combinant ; on retire les
+    # accents combinants puis on lowercase et on remplace les espaces.
+    nfd = unicodedata.normalize("NFD", centre)
+    no_accent = "".join(c for c in nfd if unicodedata.category(c) != "Mn")
+    return no_accent.lower().replace(" ", "-")
+
+
 def _best_effort_comprehension_slug(
     session: DBSession, annee: int, centre: str
 ) -> str | None:
@@ -41,10 +59,10 @@ def _best_effort_comprehension_slug(
 
     Les slugs de ``FrenchExercise`` suivent le pattern ``{annee}_{centre-slug}``
     ou ``{annee}_{centre-slug}_{variant}``. On normalise le centre (minuscules,
-    tirets) et on teste le slug canonique. Si on ne trouve rien, on renvoie
-    ``None`` — la feature fonctionne sans lien.
+    tirets, sans accents) et on teste le slug canonique. Si on ne trouve
+    rien, on renvoie ``None`` — la feature fonctionne sans lien.
     """
-    slug_base = f"{annee}_{centre.lower().replace(' ', '-')}"
+    slug_base = f"{annee}_{_slugify_centre(centre)}"
     row = get_exercise_by_slug(session, slug_base)
     if row is not None:
         return row.slug

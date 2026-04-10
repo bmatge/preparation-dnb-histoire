@@ -1,0 +1,13 @@
+# Dépendances de développement (tests, outils locaux). Ne pas installer en
+# prod : la prod tourne sur l'image Docker construite depuis requirements.txt.
+#
+# Installation locale :
+#     python3 -m venv .venv
+#     .venv/bin/pip install -r requirements.txt -r requirements-dev.txt
+#
+# Tests :
+#     .venv/bin/python -m pytest
+
+-r requirements.txt
+
+pytest==9.0.3
