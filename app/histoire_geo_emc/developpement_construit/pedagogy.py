@@ -2,10 +2,10 @@
 Orchestration des étapes du parcours élève.
 
 Ce module est la "glue" entre :
-- les prompts pédagogiques (`app/histoire_geo_emc/prompts.py`)
+- les prompts pédagogiques (`app/histoire_geo_emc/developpement_construit/prompts.py`)
 - le client Albert avec routage modèle + post-filtres (`app/core/albert_client.py`)
 - le client RAG (`app/core/rag.py`)
-- la persistance SQLite (`app/core/db.py` + `app/histoire_geo_emc/models.py`)
+- la persistance SQLite (`app/core/db.py` + `app/histoire_geo_emc/developpement_construit/models.py`)
 
 Chaque fonction `run_step_*` :
 1. Charge le sujet et l'historique de la session.
@@ -41,8 +41,8 @@ from app.core.db import (
 )
 from app.core.rag import get_default_rag_client
 from app.histoire_geo_emc import SUBJECT_KIND
-from app.histoire_geo_emc.models import Subject, get_subject
-from app.histoire_geo_emc.prompts import (
+from app.histoire_geo_emc.developpement_construit.models import Subject, get_subject
+from app.histoire_geo_emc.developpement_construit.prompts import (
     Mode,
     SubjectContext,
     build_final_correction,
