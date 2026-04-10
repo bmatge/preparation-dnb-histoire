@@ -57,6 +57,32 @@ if [[ ! -f .env ]]; then
   exit 1
 fi
 
+# 1bis. UID/GID du user hôte → injectés dans le build du conteneur pour
+# que le user runtime du conteneur puisse écrire dans le bind-mount data/.
+# Cf. Dockerfile (ARG UID / GID) et docker-compose.yml (build.args).
+export APP_UID="$(id -u)"
+export APP_GID="$(id -g)"
+
+# 1ter. data/ writable par l'utilisateur courant ?
+# Sans ça, le git pull ci-dessous peut échouer ("Permission denied") si data/
+# a été créé en root par un ancien conteneur sans Dockerfile USER.
+if [[ -d data ]] && [[ ! -w data ]]; then
+  warn "data/ n'est pas writable par $(id -un)"
+  if command -v sudo >/dev/null 2>&1; then
+    log "tentative de chown -R $(id -un):$(id -gn) data/"
+    sudo chown -R "$(id -u):$(id -g)" data || {
+      err "chown a échoué. Lance manuellement :"
+      err "  sudo chown -R \$(id -u):\$(id -g) data/"
+      exit 1
+    }
+    ok "data/ rebasculé sur $(id -un):$(id -gn)"
+  else
+    err "sudo indisponible. Corrige les droits manuellement :"
+    err "  chown -R \$(id -u):\$(id -g) data/"
+    exit 1
+  fi
+fi
+
 # 2. Pull
 if [[ $PULL -eq 1 ]]; then
   log "git fetch + pull"

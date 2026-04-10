@@ -1,6 +1,14 @@
 services:
   app:
-    build: .
+    build:
+      context: .
+      args:
+        # UID/GID du user runtime — repris depuis l'env de l'hôte si dispo,
+        # sinon fallback 1000/1000 (typique ubuntu cloud). deploy.sh exporte
+        # automatiquement APP_UID/APP_GID via id -u / id -g pour matcher
+        # l'utilisateur qui possède le bind-mount data/.
+        UID: "${APP_UID:-1000}"
+        GID: "${APP_GID:-1000}"
     container_name: revise-ton-dnb
     env_file: .env
     expose:
