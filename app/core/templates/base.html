@@ -173,11 +173,23 @@
         <span class="inline-flex items-center justify-center h-9 w-9 rounded-xl bg-gradient-to-br from-brand-500 to-purple-500 text-white shadow-glow">📚</span>
         <span>Révise ton DNB</span>
       </a>
-      <nav class="text-sm flex items-center gap-4">
-        {# Menu matières : une seule entrée pour l'instant. Les sous-modules
-           matière (hgemc, maths…) s'ajouteront ici. #}
-        <a href="/histoire-geo-emc/" class="text-slate-600 hover:text-brand-700 font-medium">Histoire-Géo-EMC</a>
-        <a href="/histoire-geo-emc/restart" class="text-slate-500 hover:text-brand-700">Nouveau sujet</a>
+      <nav class="text-sm flex items-center gap-2 sm:gap-3">
+        {# ============================================================
+           Menu matières — une entrée par matière disponible.
+
+           Chaque lien pointe vers la **page d'index** de la matière
+           (pas vers une épreuve précise) : c'est là que l'élève choisit
+           son épreuve. Ajouter une nouvelle entrée ici quand un
+           nouveau router matière est monté dans `app/core/main.py`.
+           ============================================================ #}
+        <a href="/histoire-geo-emc/"
+           class="text-slate-600 hover:text-brand-700 hover:bg-brand-50 font-medium px-2.5 py-1.5 rounded-lg transition">
+          Histoire-Géo-EMC
+        </a>
+        {# Futures matières, dans le même style :
+           <a href="/francais/" class="…">Français</a>
+           <a href="/maths/"    class="…">Maths</a>
+        #}
       </nav>
     </div>
     {% block progress %}{% endblock %}
