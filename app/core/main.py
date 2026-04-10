@@ -44,7 +44,7 @@ from fastapi.templating import Jinja2Templates
 from starlette.middleware.sessions import SessionMiddleware
 
 from app.core import db as core_db
-from app.histoire_geo_emc.models import init_hgemc_subjects
+from app.histoire_geo_emc.developpement_construit.models import init_hgemc_subjects
 from app.histoire_geo_emc.routes import router as hgemc_router, PREFIX as HGEMC_PREFIX
 
 logger = logging.getLogger(__name__)

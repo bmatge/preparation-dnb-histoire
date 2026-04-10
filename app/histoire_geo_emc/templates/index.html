@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}Histoire-Géo-EMC — Choisis ton épreuve{% endblock %}
+
+{% block content %}
+<section class="text-center mb-10 animate-reveal">
+  <h1 class="font-display text-4xl sm:text-5xl font-black text-slate-900 leading-tight mb-4">
+    Histoire-Géo-EMC
+  </h1>
+  <p class="text-slate-600 max-w-xl mx-auto text-lg">
+    Deux épreuves au DNB, deux entraînements différents.
+    Choisis celle que tu veux travailler aujourd'hui.
+  </p>
+</section>
+
+<section class="grid sm:grid-cols-2 gap-4 animate-reveal">
+  <a href="/histoire-geo-emc/developpement-construit/"
+     class="block bg-white rounded-3xl shadow-glow border border-slate-100 p-6 hover:scale-[1.01] transition">
+    <div class="text-3xl mb-2">📝</div>
+    <div class="font-display font-bold text-xl text-slate-900 mb-1">
+      Développement construit
+    </div>
+    <div class="text-sm text-slate-600 mb-3">
+      Un sujet tiré des annales, en 7 étapes guidées : plan, rédaction,
+      correction finale.
+    </div>
+    <div class="inline-flex items-center gap-1 text-sm font-semibold text-brand-700">
+      Commencer <span>→</span>
+    </div>
+  </a>
+
+  <a href="/histoire-geo-emc/reperes/"
+     class="block bg-white rounded-3xl shadow-glow border border-slate-100 p-6 hover:scale-[1.01] transition">
+    <div class="text-3xl mb-2">🗓️</div>
+    <div class="font-display font-bold text-xl text-slate-900 mb-1">
+      Repères chronologiques et spatiaux
+    </div>
+    <div class="text-sm text-slate-600 mb-3">
+      15 questions tirées au sort, avec indices gradués si tu bloques.
+      Dates, lieux, notions, personnages.
+    </div>
+    <div class="inline-flex items-center gap-1 text-sm font-semibold text-brand-700">
+      Commencer <span>→</span>
+    </div>
+  </a>
+</section>
+{% endblock %}
