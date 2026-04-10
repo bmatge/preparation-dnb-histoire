@@ -75,17 +75,11 @@ class Subject(SQLModel, table=True):
 
 
 def init_hgemc_subjects() -> int:
-    """Charge les sujets DC si la table est vide. Idempotent.
-
-    À appeler depuis `app.core.main.on_startup` après `core.db.init_db()`.
-    Retourne le nombre de sujets insérés (0 si la table était déjà peuplée).
-    """
+    """Charge les sujets DC à chaque startup. Idempotent via `(source_file, dc_index)`."""
     with DBSession(get_engine()) as s:
-        existing = s.exec(select(Subject).limit(1)).first()
-        if existing is not None:
-            return 0
         n = load_subjects_from_jsons(s)
-        logger.info("Chargé %d sujets DC depuis %s", n, SUBJECTS_DIR)
+        if n > 0:
+            logger.info("Chargé %d nouveaux sujets DC depuis %s", n, SUBJECTS_DIR)
         return n
 
 
