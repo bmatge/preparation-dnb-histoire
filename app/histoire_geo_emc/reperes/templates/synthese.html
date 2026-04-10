@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block title %}Repères — Bilan du quiz{% endblock %}
+
+{% block content %}
+<div class="text-center mb-8 animate-reveal">
+  <div class="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-500 to-purple-600 text-white text-2xl shadow-glow mb-3">🏁</div>
+  <h1 class="font-display text-3xl font-bold text-slate-900">Bilan du quiz</h1>
+  <p class="text-slate-600 mt-2">
+    Tu as trouvé <strong class="text-brand-700">{{ score }}</strong> repère(s) du premier coup sur {{ total }}.
+  </p>
+</div>
+
+{% if has_missed %}
+<div class="bg-white border border-slate-200 rounded-2xl shadow-sm p-6 mb-6 animate-reveal">
+  <h2 class="font-display text-xl font-bold text-slate-900 mb-3">
+    Repères à revoir ({{ missed_reperes|length }})
+  </h2>
+  <ul class="divide-y divide-slate-100">
+    {% for r in missed_reperes %}
+    <li class="py-3">
+      <div class="flex items-start justify-between gap-3">
+        <div class="flex-1">
+          <div class="text-xs uppercase tracking-wider text-slate-400 mb-0.5">
+            {{ r.discipline }} · {{ r.type }}
+          </div>
+          <div class="font-semibold text-slate-900">{{ r.libelle }}</div>
+          {% if r.annee is not none %}
+          <div class="text-sm text-slate-600">
+            {% if r.annee_fin is not none %}
+              {{ r.annee }}-{{ r.annee_fin }}
+            {% else %}
+              {{ r.annee }}
+            {% endif %}
+          </div>
+          {% endif %}
+          <div class="text-xs text-slate-500 mt-1">{{ r.theme }}</div>
+        </div>
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+
+  <form method="post" action="/histoire-geo-emc/reperes/quiz/revoir" class="mt-5 text-right">
+    <button type="submit" class="btn-primary hover:wiggle">
+      Refaire un quiz sur ces repères <span>→</span>
+    </button>
+  </form>
+</div>
+{% else %}
+<div class="bg-emerald-50 border border-emerald-200 rounded-2xl p-6 mb-6 text-center animate-reveal">
+  <p class="text-emerald-900 font-semibold">Sans faute — bravo !</p>
+  <p class="text-sm text-emerald-800 mt-1">Tu peux enchaîner avec un autre quiz pour varier.</p>
+</div>
+{% endif %}
+
+<div class="flex items-center justify-between gap-3 flex-wrap">
+  <a href="/histoire-geo-emc/" class="text-sm text-slate-500 hover:text-brand-700">
+    ← Retour aux épreuves
+  </a>
+  <a href="/histoire-geo-emc/reperes/" class="btn-secondary hover:wiggle">
+    Nouveau quiz
+  </a>
+</div>
+{% endblock %}
