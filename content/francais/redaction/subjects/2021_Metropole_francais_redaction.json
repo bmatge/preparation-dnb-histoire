@@ -1,0 +1,41 @@
+{
+  "id": "2021_metropole",
+  "source": {
+    "annee": 2021,
+    "session": "inconnu",
+    "centre": "Métropole",
+    "code_sujet": "21GENFRRME1"
+  },
+  "epreuve": {
+    "intitule": "Rédaction",
+    "duree_minutes": 90,
+    "points_total": 40
+  },
+  "texte_support_ref": "Théophile Gautier, Le Capitaine Fracasse",
+  "sujet_imagination": {
+    "type": "imagination",
+    "numero": "Sujet d’imagination",
+    "amorce": null,
+    "consigne": "Décrivez la promenade du Baron de Sigognac à la tombée de la nuit dans le sinistre jardin du château. Vous conserverez l’atmosphère du texte de Théophile Gautier.\nVous préciserez les éléments du paysage qui contribuent à cette atmosphère.",
+    "contraintes": [
+      "décrire une promenade",
+      "conserver l’atmosphère du texte de Théophile Gautier",
+      "préciser les éléments du paysage qui contribuent à l’atmosphère"
+    ],
+    "longueur_min_lignes": null,
+    "reference_texte_support": "Vous conserverez l’atmosphère du texte de Théophile Gautier."
+  },
+  "sujet_reflexion": {
+    "type": "reflexion",
+    "numero": "Sujet de réflexion",
+    "amorce": null,
+    "consigne": "Aimez-vous découvrir des œuvres littéraires et artistiques dans lesquelles interviennent le surnaturel ou l’étrange ?\nVous répondrez à cette question par un développement argumenté en vous appuyant sur les œuvres étudiées en classe, vos lectures personnelles et les œuvres cinématographiques et artistiques que vous connaissez.",
+    "contraintes": [
+      "développement argumenté",
+      "s’appuyer sur les œuvres étudiées, les lectures personnelles et les œuvres cinématographiques et artistiques"
+    ],
+    "longueur_min_lignes": null,
+    "reference_texte_support": null
+  },
+  "source_file": "2021_Metropole_francais_redaction.pdf"
+}

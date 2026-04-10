@@ -1,0 +1,41 @@
+{
+  "id": "2025_metropole_2",
+  "source": {
+    "annee": 2025,
+    "session": "inconnu",
+    "centre": "Métropole",
+    "code_sujet": "25GENFRRME3"
+  },
+  "epreuve": {
+    "intitule": "Rédaction",
+    "duree_minutes": 90,
+    "points_total": 40
+  },
+  "texte_support_ref": "texte de Gérald Asmussen",
+  "sujet_imagination": {
+    "type": "imagination",
+    "numero": "Sujet d’imagination",
+    "amorce": null,
+    "consigne": "Comme Gérald Asmussen, vous avez découvert un paysage naturel qui vous a fasciné et vous avez décidé de le défendre.\nDans un texte à la première personne, vous décrirez la beauté de ce lieu et vos réactions, puis vous dénoncerez l’activité humaine qui le met en danger.",
+    "contraintes": [
+      "texte à la première personne",
+      "décrire la beauté du lieu et les réactions",
+      "dénoncer l’activité humaine qui met le lieu en danger"
+    ],
+    "longueur_min_lignes": null,
+    "reference_texte_support": "Comme Gérald Asmussen, vous avez découvert un paysage naturel qui vous a fasciné et vous avez décidé de le défendre."
+  },
+  "sujet_reflexion": {
+    "type": "reflexion",
+    "numero": "Sujet de réflexion",
+    "amorce": null,
+    "consigne": "Pourquoi peut-on dire que la littérature et les arts en général peuvent nous pousser à changer de comportement ?\nVous présenterez votre réflexion dans un développement argumenté et organisé. Vous illustrerez votre propos à l’aide d’exemples issus de vos lectures et de votre culture artistique (cinéma, peinture, photographie, bande dessinée…).",
+    "contraintes": [
+      "développement argumenté et organisé",
+      "illustrer avec des exemples issus des lectures et de la culture artistique"
+    ],
+    "longueur_min_lignes": null,
+    "reference_texte_support": null
+  },
+  "source_file": "2025_Metropole_francais_redaction_2.pdf"
+}

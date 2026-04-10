@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block progress %}{% with step=6, step_label="La rédaction finale" %}{% include "_partials/progress.html" %}{% endwith %}{% endblock %}
+
+{% block content %}
+<div class="text-center mb-6 animate-reveal">
+  <div class="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-500 to-purple-600 text-white text-2xl shadow-glow mb-3">📜</div>
+  <h1 class="font-display text-3xl font-bold text-slate-900">À toi de rédiger</h1>
+  <p class="text-slate-600 mt-1">
+    {% if option == 'imagination' %}
+    Raconte ton récit en entier. 30 à 50 lignes : ouverture, péripéties, dénouement. Soigne la langue et les descriptions.
+    {% else %}
+    Rédige ton développement argumenté en entier. 30 à 50 lignes : intro, arguments illustrés, conclusion. Soigne la langue.
+    {% endif %}
+  </p>
+</div>
+
+{% include "_partials/option_card.html" %}
+
+{% if previous_proposal %}
+<details class="mb-4 bg-white/70 rounded-2xl border border-slate-100 p-4 text-sm text-slate-700">
+  <summary class="cursor-pointer font-semibold text-brand-700 hover:text-brand-800">Mémo : mon brouillon retravaillé</summary>
+  <pre class="mt-3 whitespace-pre-wrap bg-slate-50 rounded-xl p-3 text-xs leading-relaxed">{{ previous_proposal }}</pre>
+</details>
+{% endif %}
+
+<form hx-post="/francais/redaction/step/6/submit" hx-target="#response-area" hx-swap="innerHTML"
+      hx-indicator="#loading"
+      class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 space-y-4 animate-reveal">
+  <label class="block">
+    <span class="text-sm font-semibold text-slate-700 flex items-center gap-2 mb-2">
+      Ta rédaction
+    </span>
+    <textarea name="redaction" rows="22" required minlength="400"
+              placeholder="{% if option == 'imagination' %}Ouverture…&#10;&#10;Péripéties…&#10;&#10;Dénouement…{% else %}Introduction…&#10;&#10;Premier argument…&#10;&#10;Second argument…&#10;&#10;Conclusion…{% endif %}"
+              class="w-full border border-slate-200 rounded-xl px-4 py-3 text-[15px] leading-relaxed focus:ring-2 focus:ring-brand-400 focus:border-brand-400 outline-none transition"></textarea>
+  </label>
+
+  <div class="flex items-center justify-between gap-3 flex-wrap">
+    <span id="loading" class="htmx-indicator text-sm text-brand-700 items-center gap-2">
+      <span class="inline-block h-2.5 w-2.5 rounded-full bg-brand-500 animate-ping"></span>
+      Je relis ta rédaction attentivement…
+    </span>
+    <button type="submit" class="btn-primary hover:wiggle ml-auto">
+      Envoyer pour correction
+      <span>→</span>
+    </button>
+  </div>
+</form>
+
+<div id="response-area" class="mt-8"></div>
+{% endblock %}

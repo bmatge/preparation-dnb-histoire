@@ -1,0 +1,40 @@
+{
+  "id": "2023_polynesie",
+  "source": {
+    "annee": 2023,
+    "session": "inconnu",
+    "centre": "Polynésie",
+    "code_sujet": "23GENFRRPO1"
+  },
+  "epreuve": {
+    "intitule": "Rédaction",
+    "duree_minutes": 90,
+    "points_total": 40
+  },
+  "texte_support_ref": "poème mettant en scène un oiseau",
+  "sujet_imagination": {
+    "type": "imagination",
+    "numero": "Sujet d’imagination",
+    "amorce": "Vers 18-19 :\n« Vite, je titube, vite, un perchoir de fortune, je m’installe, j’échappe au chien de la maison,\nMais j’attire l’attention. »",
+    "consigne": "Vers 18-19 :\n« Vite, je titube, vite, un perchoir de fortune, je m’installe, j’échappe au chien de la maison,\nMais j’attire l’attention. »\nImaginez ce qui pourrait arriver à l’oiseau à partir de ce moment précis. C’est lui qui raconte.\nVous pourrez écrire en vers ou en prose.",
+    "contraintes": [
+      "raconter du point de vue de l’oiseau",
+      "écrire en vers ou en prose"
+    ],
+    "longueur_min_lignes": null,
+    "reference_texte_support": "Vers 18-19 : « Vite, je titube, vite, un perchoir de fortune, je m’installe, j’échappe au chien de la maison, Mais j’attire l’attention. »"
+  },
+  "sujet_reflexion": {
+    "type": "reflexion",
+    "numero": "Sujet de réflexion",
+    "amorce": "« Je m’envole, je crie, je pousse le chant de mon exploit, je me libère\nDe mon angoisse, à tire d’aile vers l’horizon » (v.27 à 28).",
+    "consigne": "« Je m’envole, je crie, je pousse le chant de mon exploit, je me libère\nDe mon angoisse, à tire d’aile vers l’horizon » (v.27 à 28).\nPour atteindre ce que l’on désire, faut-il avoir surmonté des difficultés ?\nDans un développement argumenté, vous pourrez vous appuyer sur votre expérience personnelle et familiale, vos lectures, le visionnage de films.",
+    "contraintes": [
+      "développement argumenté",
+      "s’appuyer sur l’expérience personnelle et familiale, les lectures, le visionnage de films"
+    ],
+    "longueur_min_lignes": null,
+    "reference_texte_support": "« Je m’envole, je crie, je pousse le chant de mon exploit, je me libère De mon angoisse, à tire d’aile vers l’horizon » (v.27 à 28)."
+  },
+  "source_file": "2023_Polynesie_francais_redaction.pdf"
+}

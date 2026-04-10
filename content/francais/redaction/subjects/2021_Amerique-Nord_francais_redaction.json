@@ -1,0 +1,43 @@
+{
+  "id": "2021_amerique-nord",
+  "source": {
+    "annee": 2021,
+    "session": "inconnu",
+    "centre": "Amérique du Nord",
+    "code_sujet": "21GENFRRAN1"
+  },
+  "epreuve": {
+    "intitule": "Rédaction",
+    "duree_minutes": 90,
+    "points_total": 40
+  },
+  "texte_support_ref": "poème d’Aragon",
+  "sujet_imagination": {
+    "type": "imagination",
+    "numero": "Sujet d’imagination",
+    "amorce": "« Sur l’asphalte on a mis des fleurs sous les affiches ».",
+    "consigne": "« Sur l’asphalte on a mis des fleurs sous les affiches ».\nParmi ces fleurs, la sœur de l’homme fusillé dépose une lettre d’hommage adressée à son frère.\nRédigez cette lettre, qui contiendra un portrait physique et moral du jeune homme, exprimera les sentiments de sa sœur et insistera sur son héroïsme.\nVous signerez la lettre du prénom Gabrielle.",
+    "contraintes": [
+      "rédiger une lettre",
+      "contenir un portrait physique et moral du jeune homme",
+      "exprimer les sentiments de la sœur",
+      "insister sur l’héroïsme du jeune homme",
+      "signer du prénom Gabrielle"
+    ],
+    "longueur_min_lignes": null,
+    "reference_texte_support": "« Sur l’asphalte on a mis des fleurs sous les affiches »."
+  },
+  "sujet_reflexion": {
+    "type": "reflexion",
+    "numero": "Sujet de réflexion",
+    "amorce": null,
+    "consigne": "Dans son poème, Aragon évoque la figure d’un héros ordinaire. Selon vous, un comportement héroïque est-il à la portée de tous ?\nVous répondrez à cette question dans un texte organisé, en vous appuyant sur vos connaissances, vos lectures et votre culture personnelle.",
+    "contraintes": [
+      "texte organisé",
+      "s’appuyer sur ses connaissances, lectures et culture personnelle"
+    ],
+    "longueur_min_lignes": null,
+    "reference_texte_support": "Dans son poème, Aragon évoque la figure d’un héros ordinaire."
+  },
+  "source_file": "2021_Amerique-Nord_francais_redaction.pdf"
+}

@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% block title %}Rédaction — Français — Révise ton DNB{% endblock %}
+
+{% block content %}
+<section class="text-center mb-10 animate-reveal">
+  <p class="text-sm text-slate-500 mb-3">
+    <a href="/francais/" class="hover:text-brand-700">← Français</a>
+  </p>
+  <h1 class="font-display text-4xl sm:text-5xl font-black text-slate-900 leading-tight mb-4">
+    La rédaction du brevet,<br>
+    <span class="bg-gradient-to-r from-brand-600 to-purple-600 bg-clip-text text-transparent">on s'entraîne pour de vrai.</span>
+  </h1>
+  <p class="text-slate-600 max-w-xl mx-auto text-lg">
+    Tire un sujet d'annale, choisis entre <strong>imagination</strong> et <strong>réflexion</strong>,
+    et laisse-moi t'aider à progresser, étape par étape.
+    Pas de triche : <strong>tu rédiges, je guide</strong>.
+  </p>
+  <p class="mt-3 text-xs text-slate-500">40 points · durée 1 h 30 · 2 sujets au choix</p>
+</section>
+
+<section class="bg-white rounded-3xl shadow-glow border border-slate-100 p-8 mb-8 animate-reveal">
+  <form method="post" action="/francais/redaction/session/new" class="space-y-5">
+    <div>
+      <label class="block text-sm font-semibold text-slate-700 mb-2">
+        Choisis une année (optionnel)
+      </label>
+      <select name="annee"
+              class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-brand-400 focus:border-brand-400 outline-none transition">
+        <option value="">N'importe quelle année (tirage aléatoire)</option>
+        {% set years = subjects | map(attribute='annee') | unique | list | sort(reverse=True) %}
+        {% for y in years %}
+        <option value="{{ y }}">DNB {{ y }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <button type="submit" class="btn-primary hover:wiggle w-full justify-center text-base">
+      Tirer un sujet de rédaction
+      <span>→</span>
+    </button>
+  </form>
+</section>
+
+<section class="grid sm:grid-cols-2 gap-3 text-sm mb-8">
+  <div class="bg-white/70 backdrop-blur rounded-2xl border border-slate-100 p-4">
+    <div class="font-semibold text-slate-800 mb-1">7 étapes guidées</div>
+    <div class="text-slate-600">Du choix du sujet à la correction finale, sans sauter d'étape.</div>
+  </div>
+  <div class="bg-white/70 backdrop-blur rounded-2xl border border-slate-100 p-4">
+    <div class="font-semibold text-slate-800 mb-1">Questions, pas de triche</div>
+    <div class="text-slate-600">Je te pose des questions pour creuser, jamais le passage tout fait.</div>
+  </div>
+  <div class="bg-white/70 backdrop-blur rounded-2xl border border-slate-100 p-4">
+    <div class="font-semibold text-slate-800 mb-1">Sujets réels</div>
+    <div class="text-slate-600">{{ subjects|length }} sujets tirés d'annales DNB officielles 2018-2025.</div>
+  </div>
+  <div class="bg-white/70 backdrop-blur rounded-2xl border border-slate-100 p-4">
+    <div class="font-semibold text-slate-800 mb-1">Correction fond + forme</div>
+    <div class="text-slate-600">Adéquation, organisation, expression, langue : je passe tout en revue.</div>
+  </div>
+</section>
+
+{% if not subjects %}
+<div class="rounded-2xl border border-dashed border-slate-300 bg-slate-50 p-6 text-slate-500">
+  <p class="font-bold">Aucun sujet chargé pour l'instant.</p>
+  <p class="mt-2 text-sm">
+    Les sujets seront disponibles une fois l'extraction Opus lancée
+    (cf. <code>scripts/extract_french_redactions.py</code>).
+  </p>
+</div>
+{% endif %}
+{% endblock %}

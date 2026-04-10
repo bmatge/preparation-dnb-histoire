@@ -1,0 +1,38 @@
+{
+  "id": "2025_ameriquesud-asie",
+  "source": {
+    "annee": 2025,
+    "session": "inconnu",
+    "centre": "Amérique du Sud - Asie",
+    "code_sujet": "25GENFRRAA1"
+  },
+  "epreuve": {
+    "intitule": "Rédaction",
+    "duree_minutes": 90,
+    "points_total": 40
+  },
+  "texte_support_ref": null,
+  "sujet_imagination": {
+    "type": "imagination",
+    "numero": "Sujet d’imagination",
+    "amorce": null,
+    "consigne": "Un jour, vous retrouvez un objet qui évoque pour vous un souvenir. Racontez l’histoire qui vous lie à cet objet.",
+    "contraintes": [
+      "raconter l’histoire qui lie l’auteur à un objet évocateur"
+    ],
+    "longueur_min_lignes": null,
+    "reference_texte_support": null
+  },
+  "sujet_reflexion": {
+    "type": "reflexion",
+    "numero": "Sujet de réflexion",
+    "amorce": null,
+    "consigne": "Pourquoi les œuvres d’art qui évoquent des souvenirs personnels peuvent-elles nous plaire ? Vous répondrez à cette question en vous appuyant sur des exemples variés issus de vos lectures et de vos expériences personnelles, artistiques et culturelles.",
+    "contraintes": [
+      "s’appuyer sur des exemples variés issus des lectures et des expériences personnelles, artistiques et culturelles"
+    ],
+    "longueur_min_lignes": null,
+    "reference_texte_support": null
+  },
+  "source_file": "2025_AmeriqueSud-Asie_francais_redaction.pdf"
+}

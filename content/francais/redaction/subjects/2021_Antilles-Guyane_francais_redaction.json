@@ -1,0 +1,42 @@
+{
+  "id": "2021_antilles-guyane",
+  "source": {
+    "annee": 2021,
+    "session": "inconnu",
+    "centre": "Antilles-Guyane",
+    "code_sujet": "21GENFRRAG1"
+  },
+  "epreuve": {
+    "intitule": "Rédaction",
+    "duree_minutes": 90,
+    "points_total": 40
+  },
+  "texte_support_ref": null,
+  "sujet_imagination": {
+    "type": "imagination",
+    "numero": "Sujet d’imagination",
+    "amorce": null,
+    "consigne": "Ecrivez un texte poétique dans lequel vous décrirez un lieu marquant qui a provoqué en vous un sentiment fort (émerveillement, attachement, tristesse…).\nVous veillerez à exprimer le sentiment éprouvé et à utiliser des figures de style de votre choix. Vous l’écrirez en vers si vous le souhaitez.",
+    "contraintes": [
+      "écrire un texte poétique",
+      "décrire un lieu marquant",
+      "exprimer un sentiment fort",
+      "utiliser des figures de style"
+    ],
+    "longueur_min_lignes": null,
+    "reference_texte_support": null
+  },
+  "sujet_reflexion": {
+    "type": "reflexion",
+    "numero": "Sujet de réflexion",
+    "amorce": null,
+    "consigne": "L’appartenance à un groupe est-elle nécessairement source de bonheur et d’épanouissement ?\nVous développerez votre point de vue en prenant appui sur des exemples variés issus de votre expérience personnelle, de votre culture ou des œuvres étudiées lors de votre scolarité.",
+    "contraintes": [
+      "développer un point de vue",
+      "prendre appui sur des exemples variés issus de l’expérience personnelle, de la culture ou des œuvres étudiées"
+    ],
+    "longueur_min_lignes": null,
+    "reference_texte_support": null
+  },
+  "source_file": "2021_Antilles-Guyane_francais_redaction.pdf"
+}

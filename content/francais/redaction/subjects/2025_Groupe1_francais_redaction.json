@@ -1,0 +1,42 @@
+{
+  "id": "2025_groupe1",
+  "source": {
+    "annee": 2025,
+    "session": "inconnu",
+    "centre": "Groupe 1",
+    "code_sujet": "25GENFRRG11"
+  },
+  "epreuve": {
+    "intitule": "Rédaction",
+    "duree_minutes": 90,
+    "points_total": 40
+  },
+  "texte_support_ref": "Molière, Tartuffe",
+  "sujet_imagination": {
+    "type": "imagination",
+    "numero": "Sujet d’imagination",
+    "amorce": null,
+    "consigne": "Après le départ de Tartuffe et d’Elmire, Orgon sort de sa cachette et se retrouve seul sur scène. Rédigez son monologue théâtral. Il comprend progressivement ce qu’il vient de se passer sous ses yeux, fait part de ses sentiments et de ses doutes à travers ses mots et son attitude. Enfin, il prend une décision sur sa manière de réagir.",
+    "contraintes": [
+      "rédiger un monologue théâtral",
+      "montrer la compréhension progressive d’Orgon",
+      "faire part de ses sentiments et de ses doutes",
+      "prendre une décision sur la manière de réagir"
+    ],
+    "longueur_min_lignes": null,
+    "reference_texte_support": "Après le départ de Tartuffe et d’Elmire, Orgon sort de sa cachette et se retrouve seul sur scène."
+  },
+  "sujet_reflexion": {
+    "type": "reflexion",
+    "numero": "Sujet de réflexion",
+    "amorce": null,
+    "consigne": "Pour dénoncer les travers de la société, est-il efficace, pour un artiste, de chercher à faire rire ?\nVous répondrez à cette question dans un développement organisé, en vous appuyant sur des exemples pris dans les œuvres littéraires et artistiques que vous connaissez.",
+    "contraintes": [
+      "développement organisé",
+      "s’appuyer sur des exemples pris dans les œuvres littéraires et artistiques"
+    ],
+    "longueur_min_lignes": null,
+    "reference_texte_support": null
+  },
+  "source_file": "2025_Groupe1_francais_redaction.pdf"
+}

@@ -1,0 +1,38 @@
+{
+  "id": "2018_antilles-guyane",
+  "source": {
+    "annee": 2018,
+    "session": "inconnu",
+    "centre": "Antilles-Guyane",
+    "code_sujet": "18GENFRRAG1"
+  },
+  "epreuve": {
+    "intitule": "Rédaction",
+    "duree_minutes": 90,
+    "points_total": 40
+  },
+  "texte_support_ref": null,
+  "sujet_imagination": {
+    "type": "imagination",
+    "numero": "Sujet d'imagination",
+    "amorce": "Coup de théâtre ! Serge, caché derrière la porte, a tout entendu. Il entre sur scène pour se défendre et justifier son achat.",
+    "consigne": "Coup de théâtre ! Serge, caché derrière la porte, a tout entendu. Il entre sur scène pour se défendre et justifier son achat.\nÉcrivez cette nouvelle scène entre les trois personnages. Vous respecterez les contraintes du genre théâtral.",
+    "contraintes": [
+      "écrire une scène de théâtre",
+      "respecter les contraintes du genre théâtral",
+      "mettre en scène les trois personnages"
+    ],
+    "longueur_min_lignes": null,
+    "reference_texte_support": "Coup de théâtre ! Serge, caché derrière la porte, a tout entendu."
+  },
+  "sujet_reflexion": {
+    "type": "reflexion",
+    "numero": "Sujet de réflexion",
+    "amorce": null,
+    "consigne": "Posséder toujours plus de choses permet-il d'être heureux ? Quelle est votre conception du bonheur et d'une vie réussie ?",
+    "contraintes": [],
+    "longueur_min_lignes": null,
+    "reference_texte_support": null
+  },
+  "source_file": "2018_Antilles-Guyane_francais_redaction.pdf"
+}

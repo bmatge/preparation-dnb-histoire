@@ -1,0 +1,39 @@
+{
+  "id": "2018_inde",
+  "source": {
+    "annee": 2018,
+    "session": "inconnu",
+    "centre": "Inde",
+    "code_sujet": "18GENFRRIN1"
+  },
+  "epreuve": {
+    "intitule": "Rédaction",
+    "duree_minutes": 90,
+    "points_total": 40
+  },
+  "texte_support_ref": null,
+  "sujet_imagination": {
+    "type": "imagination",
+    "numero": "Sujet d’imagination",
+    "amorce": null,
+    "consigne": "Évoquez un lieu de votre enfance qui a représenté pour vous un espace de jeux et de découvertes.\nVotre texte mêlera description et narration et cherchera à faire partager les sensations et les sentiments que vous avez alors éprouvés.",
+    "contraintes": [
+      "mêler description et narration",
+      "faire partager les sensations et les sentiments éprouvés"
+    ],
+    "longueur_min_lignes": null,
+    "reference_texte_support": null
+  },
+  "sujet_reflexion": {
+    "type": "reflexion",
+    "numero": "Sujet de réflexion",
+    "amorce": null,
+    "consigne": "Vivre à la campagne ou vivre en ville : selon vous, où un enfant trouve-t-il le plus de possibilité de jeux et d’aventures ?\nVous répondrez à cette question en vous appuyant sur votre expérience, sur les textes étudiés en classe ainsi que sur votre culture personnelle.",
+    "contraintes": [
+      "s’appuyer sur son expérience, les textes étudiés en classe et sa culture personnelle"
+    ],
+    "longueur_min_lignes": null,
+    "reference_texte_support": null
+  },
+  "source_file": "2018_Inde_francais_redaction.pdf"
+}

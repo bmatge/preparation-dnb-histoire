@@ -1,0 +1,41 @@
+{
+  "id": "2025_antilles-guyane_2",
+  "source": {
+    "annee": 2025,
+    "session": "inconnu",
+    "centre": "Antilles-Guyane",
+    "code_sujet": "25GENFRRAG3"
+  },
+  "epreuve": {
+    "intitule": "Rédaction",
+    "duree_minutes": 90,
+    "points_total": 40
+  },
+  "texte_support_ref": "texte d’Alain Mabanckou",
+  "sujet_imagination": {
+    "type": "imagination",
+    "numero": "Sujet d’imagination",
+    "amorce": "« Je me souviens encore de ma stupéfaction devant ces légendes du Congo peuplées d'êtres macrocéphales, de grenouilles géantes qui amusaient les bambins, de créatures nanties d'une seule patte et qui avançaient plus vite que les humains » (lignes 21 à 23).",
+    "consigne": "« Je me souviens encore de ma stupéfaction devant ces légendes du Congo peuplées d'êtres macrocéphales, de grenouilles géantes qui amusaient les bambins, de créatures nanties d'une seule patte et qui avançaient plus vite que les humains » (lignes 21 à 23).\nImaginez un conte en vous inspirant d’une des créatures dont parle Mabanckou dans les lignes citées ci-dessus.\nVotre conte mêlera le récit et la description.",
+    "contraintes": [
+      "imaginer un conte",
+      "s’inspirer d’une des créatures évoquées par Mabanckou",
+      "mêler récit et description"
+    ],
+    "longueur_min_lignes": null,
+    "reference_texte_support": "« Je me souviens encore de ma stupéfaction devant ces légendes du Congo peuplées d'êtres macrocéphales, de grenouilles géantes qui amusaient les bambins, de créatures nanties d'une seule patte et qui avançaient plus vite que les humains » (lignes 21 à 23)."
+  },
+  "sujet_reflexion": {
+    "type": "reflexion",
+    "numero": "Sujet de réflexion",
+    "amorce": null,
+    "consigne": "Attendez-vous d’un artiste qu’il vous embarque loin de la vie réelle ?\nVous répondrez à cette question dans un développement organisé, en vous appuyant sur des exemples pris dans les œuvres littéraires et artistiques que vous connaissez.",
+    "contraintes": [
+      "développement organisé",
+      "s’appuyer sur des exemples pris dans les œuvres littéraires et artistiques"
+    ],
+    "longueur_min_lignes": null,
+    "reference_texte_support": null
+  },
+  "source_file": "2025_Antilles-Guyane_francais_redaction_2.pdf"
+}

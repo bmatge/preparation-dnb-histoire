@@ -1,0 +1,42 @@
+{
+  "id": "2020_amerique-nord",
+  "source": {
+    "annee": 2020,
+    "session": "inconnu",
+    "centre": "Amérique du Nord",
+    "code_sujet": "20GENFRRAN1"
+  },
+  "epreuve": {
+    "intitule": "Rédaction",
+    "duree_minutes": 90,
+    "points_total": 40
+  },
+  "texte_support_ref": null,
+  "sujet_imagination": {
+    "type": "imagination",
+    "numero": "Sujet d’imagination",
+    "amorce": null,
+    "consigne": "Quelques jours plus tard, Gabriel retrouve à la « planque » un de ses amis, Gino, qui lui reproche de s’éloigner d’eux. Gabriel tente de lui expliquer la place toute particulière que tient madame Economopoulos dans sa vie.\nVous écrirez le dialogue entre les deux garçons en développant le point de vue de Gabriel et en insistant sur les réactions de chacun.\nVous veillerez à insérer des passages narratifs et/ou descriptifs.",
+    "contraintes": [
+      "écrire un dialogue entre Gabriel et Gino",
+      "développer le point de vue de Gabriel",
+      "insister sur les réactions de chacun",
+      "insérer des passages narratifs et/ou descriptifs"
+    ],
+    "longueur_min_lignes": null,
+    "reference_texte_support": "Quelques jours plus tard, Gabriel retrouve à la « planque » un de ses amis, Gino, qui lui reproche de s’éloigner d’eux."
+  },
+  "sujet_reflexion": {
+    "type": "reflexion",
+    "numero": "Sujet de réflexion",
+    "amorce": "Grâce à la lecture, Gabriel apprend « à identifier [s]es goûts, [s]es envies, [s]a manière de voir et de ressentir l’univers. »",
+    "consigne": "Grâce à la lecture, Gabriel apprend « à identifier [s]es goûts, [s]es envies, [s]a manière de voir et de ressentir l’univers. »\nPour vous, la rencontre avec des œuvres d’art (livres, musique, films, tableaux, …) permet-elle de mieux se connaître et de découvrir le monde ?\nVous répondrez à cette question dans un développement organisé en vous appuyant sur vos lectures et votre culture personnelle.",
+    "contraintes": [
+      "développement organisé",
+      "s’appuyer sur ses lectures et sa culture personnelle"
+    ],
+    "longueur_min_lignes": null,
+    "reference_texte_support": "Grâce à la lecture, Gabriel apprend « à identifier [s]es goûts, [s]es envies, [s]a manière de voir et de ressentir l’univers. »"
+  },
+  "source_file": "2020_Amerique-Nord_francais_redaction.pdf"
+}

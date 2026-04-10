@@ -1,0 +1,39 @@
+{
+  "id": "2024_polynesie",
+  "source": {
+    "annee": 2024,
+    "session": "inconnu",
+    "centre": "Polynésie",
+    "code_sujet": "24GENFRRPO1"
+  },
+  "epreuve": {
+    "intitule": "Rédaction",
+    "duree_minutes": 90,
+    "points_total": 40
+  },
+  "texte_support_ref": null,
+  "sujet_imagination": {
+    "type": "imagination",
+    "numero": "Sujet d’imagination",
+    "amorce": null,
+    "consigne": "La narratrice est arrivée à Hiva Oa, aux îles Marquises. Elle raconte ses premières heures sur la terre ferme.",
+    "contraintes": [
+      "raconter du point de vue de la narratrice"
+    ],
+    "longueur_min_lignes": null,
+    "reference_texte_support": "La narratrice est arrivée à Hiva Oa, aux îles Marquises."
+  },
+  "sujet_reflexion": {
+    "type": "reflexion",
+    "numero": "Sujet de réflexion",
+    "amorce": null,
+    "consigne": "Nos rêves et nos ambitions peuvent-ils nous motiver à nous surpasser ?\nDans un développement argumenté, vous pourrez vous appuyer sur vos lectures, des films vus, sur votre expérience personnelle ou familiale.",
+    "contraintes": [
+      "développement argumenté",
+      "s’appuyer sur les lectures, les films, l’expérience personnelle ou familiale"
+    ],
+    "longueur_min_lignes": null,
+    "reference_texte_support": null
+  },
+  "source_file": "2024_Polynesie_francais_redaction.pdf"
+}

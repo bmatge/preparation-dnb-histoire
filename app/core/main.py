@@ -45,6 +45,7 @@ from starlette.middleware.sessions import SessionMiddleware
 
 from app.core import db as core_db
 from app.francais.comprehension.loader import init_french_comprehension
+from app.francais.redaction.loader import init_french_redaction
 from app.francais.routes import router as francais_router
 from app.histoire_geo_emc.developpement_construit.models import init_hgemc_subjects
 from app.histoire_geo_emc.reperes.models import init_reperes
@@ -114,12 +115,14 @@ def on_startup() -> None:
     n_hgemc = init_hgemc_subjects()
     n_reperes = init_reperes()
     n_francais = init_french_comprehension()
+    n_redaction = init_french_redaction()
     logger.info(
-        "DB prête (%s) — %d sujets DC, %d repères, %d exos français compréhension chargés",
+        "DB prête (%s) — %d sujets DC, %d repères, %d exos français compréhension, %d sujets rédaction chargés",
         core_db.DB_PATH,
         n_hgemc,
         n_reperes,
         n_francais,
+        n_redaction,
     )
 
 

@@ -1,0 +1,40 @@
+{
+  "id": "2025_nouvelle-caledonie",
+  "source": {
+    "annee": 2025,
+    "session": "inconnu",
+    "centre": "Nouvelle-Calédonie",
+    "code_sujet": "25GENFRRNC1"
+  },
+  "epreuve": {
+    "intitule": "Rédaction",
+    "duree_minutes": 90,
+    "points_total": 40
+  },
+  "texte_support_ref": "Molière, Les Femmes savantes",
+  "sujet_imagination": {
+    "type": "imagination",
+    "numero": "Sujet d’imagination",
+    "amorce": null,
+    "consigne": "Dans une lettre adressée à Chrysale, Bélise lui répond. Imaginez les arguments qu’elle lui oppose.",
+    "contraintes": [
+      "écrire une lettre du point de vue de Bélise",
+      "imaginer les arguments opposés à Chrysale"
+    ],
+    "longueur_min_lignes": null,
+    "reference_texte_support": "Dans une lettre adressée à Chrysale, Bélise lui répond."
+  },
+  "sujet_reflexion": {
+    "type": "reflexion",
+    "numero": "Sujet de réflexion",
+    "amorce": "Dans ce texte, Molière aborde la question de la condition féminine.",
+    "consigne": "Dans ce texte, Molière aborde la question de la condition féminine. Pensez-vous que l’art (littérature, peinture, cinéma…) puisse être utilisé pour dénoncer les travers de la société ?\nVous développerez votre point de vue de façon organisée et en prenant appui sur des exemples précis, issus de votre culture personnelle et des œuvres étudiées lors de votre scolarité.",
+    "contraintes": [
+      "développement organisé",
+      "s’appuyer sur des exemples précis issus de la culture personnelle et des œuvres étudiées"
+    ],
+    "longueur_min_lignes": null,
+    "reference_texte_support": "Dans ce texte, Molière aborde la question de la condition féminine."
+  },
+  "source_file": "2025_Nouvelle-Caledonie_francais_redaction.pdf"
+}

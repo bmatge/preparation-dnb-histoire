@@ -1,0 +1,40 @@
+{
+  "id": "2025_amerique-nord",
+  "source": {
+    "annee": 2025,
+    "session": "inconnu",
+    "centre": "Amérique du Nord",
+    "code_sujet": "25GENFRRAN1"
+  },
+  "epreuve": {
+    "intitule": "Rédaction",
+    "duree_minutes": 90,
+    "points_total": 40
+  },
+  "texte_support_ref": null,
+  "sujet_imagination": {
+    "type": "imagination",
+    "numero": "Sujet d’imagination",
+    "amorce": null,
+    "consigne": "Un soir, après avoir vu des images du Rwanda à la télévision, le narrateur, seul, enfermé dans sa chambre, éprouve le besoin d’écrire à sa mère. Rédigez cette lettre.",
+    "contraintes": [
+      "rédiger une lettre",
+      "se placer du point de vue du narrateur"
+    ],
+    "longueur_min_lignes": null,
+    "reference_texte_support": "Un soir, après avoir vu des images du Rwanda à la télévision, le narrateur, seul, enfermé dans sa chambre, éprouve le besoin d’écrire à sa mère."
+  },
+  "sujet_reflexion": {
+    "type": "reflexion",
+    "numero": "Sujet de réflexion",
+    "amorce": null,
+    "consigne": "Les œuvres d’art doivent-elles montrer la réalité, même lorsque celle-ci est violente ?\nVous répondrez à cette question dans un développement organisé, en vous appuyant sur des exemples précis et variés inspirés des œuvres littéraires et artistiques que vous connaissez.",
+    "contraintes": [
+      "développement organisé",
+      "s’appuyer sur des exemples précis et variés issus d’œuvres littéraires et artistiques"
+    ],
+    "longueur_min_lignes": null,
+    "reference_texte_support": null
+  },
+  "source_file": "2025_Amerique-Nord_francais_redaction.pdf"
+}

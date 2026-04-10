@@ -1,0 +1,42 @@
+{
+  "id": "2023_amerique-nord",
+  "source": {
+    "annee": 2023,
+    "session": "inconnu",
+    "centre": "Amérique du Nord",
+    "code_sujet": "23GENFRRAN1"
+  },
+  "epreuve": {
+    "intitule": "Rédaction",
+    "duree_minutes": 90,
+    "points_total": 40
+  },
+  "texte_support_ref": null,
+  "sujet_imagination": {
+    "type": "imagination",
+    "numero": "Sujet d’imagination",
+    "amorce": null,
+    "consigne": "Comme le narrateur, vous avez pu vous sentir incompris dans l’expression de vos goûts.\nRacontez cet événement en précisant les circonstances et en insistant sur les sentiments que vous avez éprouvés et les réflexions que ce moment a déclenchées.",
+    "contraintes": [
+      "raconter un événement personnel",
+      "préciser les circonstances",
+      "insister sur les sentiments éprouvés",
+      "insister sur les réflexions déclenchées"
+    ],
+    "longueur_min_lignes": null,
+    "reference_texte_support": "Comme le narrateur, vous avez pu vous sentir incompris dans l’expression de vos goûts."
+  },
+  "sujet_reflexion": {
+    "type": "reflexion",
+    "numero": "Sujet de réflexion",
+    "amorce": null,
+    "consigne": "Aimez-vous lire ou voir des œuvres dont des adolescents sont les personnages principaux ? Pourquoi ?\nVous répondrez à cette question dans un développement organisé, en vous appuyant sur des exemples précis dans les œuvres littéraires et artistiques que vous connaissez.",
+    "contraintes": [
+      "développement organisé",
+      "s’appuyer sur des exemples précis dans les œuvres littéraires et artistiques"
+    ],
+    "longueur_min_lignes": null,
+    "reference_texte_support": null
+  },
+  "source_file": "2023_Amerique-Nord_francais_redaction.pdf"
+}

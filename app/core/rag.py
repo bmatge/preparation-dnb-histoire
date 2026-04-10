@@ -95,6 +95,16 @@ COLLECTION_LABELS: dict[str, dict[str, str]] = {
         "dnb_francais_programme": "programme",
         "dnb_francais_methodo": "méthodo",
     },
+    # Français rédaction : on cible les fiches méthodo français (qui
+    # contiennent les attendus rédactionnels) et le programme. On ajoute la
+    # collection dédiée `dnb_francais_redaction_sujets` pour pouvoir comparer
+    # avec d'autres consignes proches lors de la correction finale (gérée
+    # par scripts/ingest.py côté offline).
+    "francais_redaction": {
+        "dnb_francais_programme": "programme",
+        "dnb_francais_methodo": "méthodo",
+        "dnb_francais_redaction_sujets": "sujet",
+    },
 }
 
 # Fenêtre de bascule : si un nouveau nom de collection ne résout pas côté
@@ -183,6 +193,30 @@ TASK_COLLECTIONS: dict[str, dict[Task, tuple[str, ...]]] = {
         Task.FR_COMP_SYNTHESE: (
             "dnb_francais_programme",
             "dnb_francais_methodo",
+        ),
+    },
+    # Français rédaction : la méthodo français contient les attendus de
+    # rédaction (intro/conclusion, paragraphes argumentés, registres). Le
+    # programme est ajouté pour la première éval et la correction finale.
+    # La collection des sujets de rédaction est interrogée seulement à la
+    # correction finale, pour pouvoir comparer avec d'autres consignes
+    # proches.
+    "francais_redaction": {
+        Task.FR_REDACTION_HELP: (
+            "dnb_francais_methodo",
+        ),
+        Task.FR_REDACTION_FIRST_EVAL: (
+            "dnb_francais_methodo",
+            "dnb_francais_programme",
+        ),
+        Task.FR_REDACTION_SECOND_EVAL: (
+            "dnb_francais_methodo",
+            "dnb_francais_programme",
+        ),
+        Task.FR_REDACTION_FINAL_CORRECTION: (
+            "dnb_francais_methodo",
+            "dnb_francais_programme",
+            "dnb_francais_redaction_sujets",
         ),
     },
 }

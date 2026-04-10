@@ -1,0 +1,41 @@
+{
+  "id": "2020_antilles-guyane",
+  "source": {
+    "annee": 2020,
+    "session": "inconnu",
+    "centre": "Antilles-Guyane",
+    "code_sujet": "20GENFRRAG1"
+  },
+  "epreuve": {
+    "intitule": "Rédaction",
+    "duree_minutes": 90,
+    "points_total": 40
+  },
+  "texte_support_ref": null,
+  "sujet_imagination": {
+    "type": "imagination",
+    "numero": "Sujet d’imagination",
+    "amorce": null,
+    "consigne": "Le narrateur décide d’écrire un texte poétique.\nRédigez ce poème ou ce slam. Votre texte pourra être en vers ou en prose et avoir ou non des rimes.\nIl commencera par : « C’est maintenant qu’il faut reprendre vie ».",
+    "contraintes": [
+      "rédiger un poème ou un slam",
+      "texte en vers ou en prose, avec ou sans rimes",
+      "commencer par « C’est maintenant qu’il faut reprendre vie »"
+    ],
+    "longueur_min_lignes": null,
+    "reference_texte_support": "Le narrateur décide d’écrire un texte poétique."
+  },
+  "sujet_reflexion": {
+    "type": "reflexion",
+    "numero": "Sujet de réflexion",
+    "amorce": null,
+    "consigne": "A-t-on besoin de s’évader du quotidien pour s’épanouir ?\nVous présenterez votre réflexion dans un développement argumenté et organisé. Vous illustrerez votre propos à l'aide d'exemples issus de votre expérience, de vos lectures et de votre culture personnelle.",
+    "contraintes": [
+      "développement argumenté et organisé",
+      "illustrer avec des exemples issus de l’expérience, des lectures et de la culture personnelle"
+    ],
+    "longueur_min_lignes": null,
+    "reference_texte_support": null
+  },
+  "source_file": "2020_Antilles-Guyane_francais_redaction.pdf"
+}

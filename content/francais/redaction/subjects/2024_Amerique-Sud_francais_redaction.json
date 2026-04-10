@@ -1,0 +1,39 @@
+{
+  "id": "2024_amerique-sud",
+  "source": {
+    "annee": 2024,
+    "session": "inconnu",
+    "centre": "Amérique du Sud",
+    "code_sujet": "24GENFRRAS1"
+  },
+  "epreuve": {
+    "intitule": "Rédaction",
+    "duree_minutes": 90,
+    "points_total": 40
+  },
+  "texte_support_ref": null,
+  "sujet_imagination": {
+    "type": "imagination",
+    "numero": "Sujet d’imagination",
+    "amorce": null,
+    "consigne": "Racontez cette scène de rencontre du point de vue de la fillette. Votre texte insistera sur les pensées et les sentiments éprouvés par cette dernière.",
+    "contraintes": [
+      "raconter du point de vue de la fillette",
+      "insister sur les pensées et les sentiments éprouvés"
+    ],
+    "longueur_min_lignes": null,
+    "reference_texte_support": "Racontez cette scène de rencontre du point de vue de la fillette."
+  },
+  "sujet_reflexion": {
+    "type": "reflexion",
+    "numero": "Sujet de réflexion",
+    "amorce": null,
+    "consigne": "Selon vous, pourquoi de nombreux écrivains racontent-ils la période de l’enfance ?\nVous développerez votre réponse en vous appuyant sur vos lectures et vos connaissances personnelles.",
+    "contraintes": [
+      "s’appuyer sur ses lectures et ses connaissances personnelles"
+    ],
+    "longueur_min_lignes": null,
+    "reference_texte_support": null
+  },
+  "source_file": "2024_Amerique-Sud_francais_redaction.pdf"
+}

@@ -1,0 +1,39 @@
+{
+  "id": "2022_polynesie",
+  "source": {
+    "annee": 2022,
+    "session": "inconnu",
+    "centre": "Polynésie",
+    "code_sujet": "22GENFRRPO1"
+  },
+  "epreuve": {
+    "intitule": "Rédaction",
+    "duree_minutes": 90,
+    "points_total": 40
+  },
+  "texte_support_ref": null,
+  "sujet_imagination": {
+    "type": "imagination",
+    "numero": "Sujet d’imagination",
+    "amorce": null,
+    "consigne": "Hina est témoin de l’attitude irrespectueuse d’un individu envers l’environnement. Imaginez leur échange dans le cadre d’une scène théâtrale.",
+    "contraintes": [
+      "imaginer un échange dans le cadre d’une scène théâtrale"
+    ],
+    "longueur_min_lignes": null,
+    "reference_texte_support": null
+  },
+  "sujet_reflexion": {
+    "type": "reflexion",
+    "numero": "Sujet de réflexion",
+    "amorce": null,
+    "consigne": "L’être humain est-il selon vous un adversaire de la nature ?\nVous répondrez à cette question dans un développement argumenté. Vous pourrez vous appuyer sur vos lectures, votre culture personnelle et les connaissances acquises dans l’ensemble des disciplines.",
+    "contraintes": [
+      "développement argumenté",
+      "s’appuyer sur les lectures, la culture personnelle et les connaissances acquises dans l’ensemble des disciplines"
+    ],
+    "longueur_min_lignes": null,
+    "reference_texte_support": null
+  },
+  "source_file": "2022_Polynesie_francais_redaction.pdf"
+}

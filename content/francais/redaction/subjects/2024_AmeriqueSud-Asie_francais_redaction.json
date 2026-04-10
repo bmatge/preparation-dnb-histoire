@@ -1,0 +1,41 @@
+{
+  "id": "2024_ameriquesud-asie",
+  "source": {
+    "annee": 2024,
+    "session": "inconnu",
+    "centre": "Amérique du Sud - Asie",
+    "code_sujet": "24GENFRRAA1"
+  },
+  "epreuve": {
+    "intitule": "Rédaction",
+    "duree_minutes": 90,
+    "points_total": 40
+  },
+  "texte_support_ref": null,
+  "sujet_imagination": {
+    "type": "imagination",
+    "numero": "Sujet d’imagination",
+    "amorce": null,
+    "consigne": "Écrivez une lettre dans laquelle vous vous adressez à une personne que vous n’avez pas vue depuis longtemps.\nVous lui expliquerez ce qu’elle représentait pour vous et vous lui exprimerez vos sentiments.",
+    "contraintes": [
+      "écrire une lettre",
+      "expliquer ce que la personne représentait",
+      "exprimer ses sentiments"
+    ],
+    "longueur_min_lignes": null,
+    "reference_texte_support": null
+  },
+  "sujet_reflexion": {
+    "type": "reflexion",
+    "numero": "Sujet de réflexion",
+    "amorce": null,
+    "consigne": "Les œuvres d’art nous aident-elles à mieux comprendre ce qu’est l’amour ?\nVous répondrez à cette question dans un développement organisé, en vous appuyant sur des exemples précis tirés de votre expérience personnelle, mais aussi d’œuvres littéraires que vous connaissez.",
+    "contraintes": [
+      "développement organisé",
+      "s’appuyer sur des exemples précis tirés de l’expérience personnelle et d’œuvres littéraires"
+    ],
+    "longueur_min_lignes": null,
+    "reference_texte_support": null
+  },
+  "source_file": "2024_AmeriqueSud-Asie_francais_redaction.pdf"
+}

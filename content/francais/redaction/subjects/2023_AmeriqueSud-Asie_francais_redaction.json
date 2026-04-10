@@ -1,0 +1,39 @@
+{
+  "id": "2023_ameriquesud-asie",
+  "source": {
+    "annee": 2023,
+    "session": "inconnu",
+    "centre": "Amérique du Sud - Asie",
+    "code_sujet": "23GENFRRAA1"
+  },
+  "epreuve": {
+    "intitule": "Rédaction",
+    "duree_minutes": 90,
+    "points_total": 40
+  },
+  "texte_support_ref": "texte évoquant Monet pendant la guerre",
+  "sujet_imagination": {
+    "type": "imagination",
+    "numero": "Sujet d’imagination",
+    "amorce": null,
+    "consigne": "Revenu du front, lors d'une permission, le petit-fils de Monet reproche à son grand-père de s’enfermer dans son atelier et de ne pas se sentir concerné par la guerre.\nImaginez le dialogue entre le peintre et le jeune soldat.",
+    "contraintes": [
+      "imaginer un dialogue entre le peintre et le jeune soldat"
+    ],
+    "longueur_min_lignes": null,
+    "reference_texte_support": "Revenu du front, lors d'une permission, le petit-fils de Monet reproche à son grand-père de s’enfermer dans son atelier et de ne pas se sentir concerné par la guerre."
+  },
+  "sujet_reflexion": {
+    "type": "reflexion",
+    "numero": "Sujet de réflexion",
+    "amorce": "« Pendant la guerre, plus que jamais, c’est dans l’art que Monet va se réfugier pour se tenir à l’écart du boucan du monde »",
+    "consigne": "« Pendant la guerre, plus que jamais, c’est dans l’art que Monet va se réfugier pour se tenir à l’écart du boucan du monde »\nSelon vous, l’art doit-il être un refuge contre « le boucan du monde » ou les artistes doivent-ils affronter les problèmes de leur époque dans leurs œuvres ?\nVous répondrez à cette question dans un développement organisé, en vous appuyant sur des exemples pris dans les œuvres littéraires et artistiques que vous connaissez.",
+    "contraintes": [
+      "développement organisé",
+      "s’appuyer sur des exemples pris dans les œuvres littéraires et artistiques"
+    ],
+    "longueur_min_lignes": null,
+    "reference_texte_support": "« Pendant la guerre, plus que jamais, c’est dans l’art que Monet va se réfugier pour se tenir à l’écart du boucan du monde »"
+  },
+  "source_file": "2023_AmeriqueSud-Asie_francais_redaction.pdf"
+}

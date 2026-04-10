@@ -1,0 +1,42 @@
+{
+  "id": "2018_metropole",
+  "source": {
+    "annee": 2018,
+    "session": "inconnu",
+    "centre": "Métropole",
+    "code_sujet": "18GENFRRME1"
+  },
+  "epreuve": {
+    "intitule": "Rédaction",
+    "duree_minutes": 90,
+    "points_total": 40
+  },
+  "texte_support_ref": null,
+  "sujet_imagination": {
+    "type": "imagination",
+    "numero": "Sujet d’imagination",
+    "amorce": "« - Laisse-moi, murmura Léopold. Tu peux pas comprendre. »",
+    "consigne": "« - Laisse-moi, murmura Léopold. Tu peux pas comprendre. »\nÀ la fin du cours, c’est à M. Didier, le professeur de français, que Léopold se confie sur son grand regret de n’avoir pu poursuivre ses études et découvrir des œuvres littéraires.\nRacontez la scène et imaginez leur conversation en insistant sur les raisons que donne Léopold et sur les émotions qu’il éprouve.",
+    "contraintes": [
+      "raconter la scène",
+      "imaginer la conversation entre Léopold et M. Didier",
+      "insister sur les raisons données par Léopold",
+      "insister sur les émotions éprouvées par Léopold"
+    ],
+    "longueur_min_lignes": null,
+    "reference_texte_support": "« - Laisse-moi, murmura Léopold. Tu peux pas comprendre. »"
+  },
+  "sujet_reflexion": {
+    "type": "reflexion",
+    "numero": "Sujet de réflexion",
+    "amorce": null,
+    "consigne": "Vous avez lu en classe ou par vous-même de nombreuses œuvres littéraires dans leur intégralité ou par extraits. Vous expliquerez ce que vous ont apporté ces lectures et vous direz pour quelles raisons il est toujours important de lire aujourd’hui.",
+    "contraintes": [
+      "expliquer ce que les lectures ont apporté",
+      "dire pourquoi il est important de lire aujourd’hui"
+    ],
+    "longueur_min_lignes": null,
+    "reference_texte_support": null
+  },
+  "source_file": "2018_Metropole_francais_redaction.pdf"
+}

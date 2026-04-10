@@ -1,0 +1,41 @@
+{
+  "id": "2019_metropole",
+  "source": {
+    "annee": 2019,
+    "session": "inconnu",
+    "centre": "Métropole",
+    "code_sujet": "19GENFRRME1"
+  },
+  "epreuve": {
+    "intitule": "Rédaction",
+    "duree_minutes": 90,
+    "points_total": 40
+  },
+  "texte_support_ref": "texte d’Albert Camus et photographie de Robert Doisneau",
+  "sujet_imagination": {
+    "type": "imagination",
+    "numero": "Sujet d’imagination",
+    "amorce": null,
+    "consigne": "Devenu adulte, un des enfants de la photographie de Robert Doisneau raconte, comme Albert Camus, les jeux de son enfance. Il évoque la scène représentée sur la photographie.\nVous imaginerez son récit en montrant comment le jeu permet aux enfants, dans un moment de joie partagée, de transformer la réalité qui les entoure.\nVous choisirez d’écrire votre récit à la première ou à la troisième personne.",
+    "contraintes": [
+      "imaginer le récit d’un des enfants de la photographie devenu adulte",
+      "montrer comment le jeu transforme la réalité dans un moment de joie partagée",
+      "écrire à la première ou à la troisième personne"
+    ],
+    "longueur_min_lignes": null,
+    "reference_texte_support": "Devenu adulte, un des enfants de la photographie de Robert Doisneau raconte, comme Albert Camus, les jeux de son enfance."
+  },
+  "sujet_reflexion": {
+    "type": "reflexion",
+    "numero": "Sujet de réflexion",
+    "amorce": null,
+    "consigne": "La littérature, le cinéma et les autres arts permettent de découvrir la vie de personnages fictifs ou réels. Que peut vous apporter cette découverte ?\nVous développerez votre point de vue en prenant appui sur des exemples précis, issus de votre culture personnelle et des œuvres étudiées lors de votre scolarité.",
+    "contraintes": [
+      "développer un point de vue",
+      "prendre appui sur des exemples précis issus de la culture personnelle et des œuvres étudiées"
+    ],
+    "longueur_min_lignes": null,
+    "reference_texte_support": null
+  },
+  "source_file": "2019_Metropole_francais_redaction.pdf"
+}

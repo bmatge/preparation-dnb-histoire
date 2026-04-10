@@ -1,0 +1,42 @@
+{
+  "id": "2018_amerique-nord",
+  "source": {
+    "annee": 2018,
+    "session": "inconnu",
+    "centre": "Amérique du Nord",
+    "code_sujet": "18GENFRRAN1"
+  },
+  "epreuve": {
+    "intitule": "Rédaction",
+    "duree_minutes": 90,
+    "points_total": 40
+  },
+  "texte_support_ref": "texte de Benoît Duteurtre",
+  "sujet_imagination": {
+    "type": "imagination",
+    "numero": "Sujet d’imagination",
+    "amorce": null,
+    "consigne": "Comme Benoît Duteurtre, vous retournez dans un lieu qui a marqué votre enfance.\nVous décrirez les transformations qui ont modifié cet endroit et les souvenirs qui surgissent alors. Vous insisterez sur les sentiments et les sensations associés à ces souvenirs.\nVotre texte mêlera récit et description.",
+    "contraintes": [
+      "mêler récit et description",
+      "décrire les transformations du lieu",
+      "évoquer les souvenirs qui surgissent",
+      "insister sur les sentiments et les sensations"
+    ],
+    "longueur_min_lignes": null,
+    "reference_texte_support": "Comme Benoît Duteurtre, vous retournez dans un lieu qui a marqué votre enfance."
+  },
+  "sujet_reflexion": {
+    "type": "reflexion",
+    "numero": "Sujet de réflexion",
+    "amorce": "Aux yeux du narrateur, rien « n’égale la poésie du grenier à foin ».",
+    "consigne": "Aux yeux du narrateur, rien « n’égale la poésie du grenier à foin ».\nPensez-vous que l’on puisse trouver aussi de la poésie et du mystère dans les grandes villes modernes ?\nVous répondrez à cette question en vous appuyant sur vos connaissances, vos lectures et votre culture personnelle.",
+    "contraintes": [
+      "répondre à la question de manière argumentée",
+      "s’appuyer sur ses connaissances, lectures et culture personnelle"
+    ],
+    "longueur_min_lignes": null,
+    "reference_texte_support": "Aux yeux du narrateur, rien « n’égale la poésie du grenier à foin »."
+  },
+  "source_file": "2018_Amerique-Nord_francais_redaction.pdf"
+}
