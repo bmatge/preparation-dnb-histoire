@@ -55,8 +55,10 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name
 
 
 APP_DIR = Path(__file__).resolve().parent.parent  # = app/
+REPO_ROOT = APP_DIR.parent
 CORE_TEMPLATES = APP_DIR / "core" / "templates"
 STATIC_DIR = APP_DIR / "static"
+FRANCAIS_IMAGES_DIR = REPO_ROOT / "content" / "francais" / "comprehension" / "images"
 
 
 # ============================================================================
@@ -80,6 +82,14 @@ app.add_middleware(
 # Static (contient les vendors tailwind/htmx).
 STATIC_DIR.mkdir(parents=True, exist_ok=True)
 app.mount("/static", StaticFiles(directory=str(STATIC_DIR)), name="static")
+
+# Illustrations français compréhension servies directement depuis content/.
+if FRANCAIS_IMAGES_DIR.exists():
+    app.mount(
+        "/francais-images",
+        StaticFiles(directory=str(FRANCAIS_IMAGES_DIR)),
+        name="francais-images",
+    )
 
 # Templates core : uniquement pour l'accueil global et base.html.
 templates = Jinja2Templates(directory=str(CORE_TEMPLATES))

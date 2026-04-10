@@ -44,7 +44,7 @@ if TYPE_CHECKING:
 
 from dataclasses import dataclass
 
-from app.francais.comprehension.models import ExerciseItem, Ligne, NoteTexte
+from app.francais.comprehension.models import ExerciseItem, Image, Ligne, NoteTexte
 
 
 # ============================================================================
@@ -99,6 +99,37 @@ class ExerciseContext:
     notes: list[NoteTexte]
     paratexte: str | None
     item: ExerciseItem
+    image: Image | None = None
+
+    def image_balise(self) -> str:
+        """Description objective de l'image quand la question l'exige.
+
+        Retourne une chaîne vide si la question ne nécessite pas l'image ou
+        si aucune description n'est disponible. Le modèle d'éval est text-only
+        (gpt-oss-120b) donc on lui sert une description textuelle qu'il
+        considère comme une source externe au même titre que le texte littéraire.
+        """
+        if not self.item.necessite_image or self.image is None:
+            return ""
+        parts = [
+            "L'élève voit à l'écran une image à côté du texte. Voici sa",
+            "description objective (celle dont tu dois te servir pour évaluer",
+            "la réponse, sans la recopier à l'élève) :",
+            "",
+        ]
+        meta = []
+        if self.image.type:
+            meta.append(self.image.type)
+        if self.image.titre:
+            meta.append(f"« {self.image.titre} »")
+        if self.image.auteur:
+            meta.append(self.image.auteur)
+        if self.image.annee:
+            meta.append(str(self.image.annee))
+        if meta:
+            parts.append(f"Nature : {', '.join(meta)}.")
+        parts.append(self.image.description_visuelle.strip())
+        return "\n".join(parts)
 
     def texte_balise(self) -> str:
         """Rend le texte littéraire numéroté ligne par ligne dans une balise XML."""
@@ -130,6 +161,18 @@ class ExerciseContext:
         parts.append("")
         parts.append(f"Énoncé :\n{self.item.enonce_complet}")
         return "\n".join(parts)
+
+
+def _image_block(ctx: "ExerciseContext") -> str:
+    """Bloc `<image>...</image>` inséré dans les prompts quand la question en a besoin.
+
+    Retourne une chaîne vide (avec newline final pour garder le prompt net)
+    sinon, ce qui évite de polluer le contexte des questions purement textuelles.
+    """
+    content = ctx.image_balise()
+    if not content:
+        return ""
+    return f"\n<image>\n{content}\n</image>\n"
 
 
 def _passages_balise(passages: "list[RagPassage] | None") -> str:
@@ -179,7 +222,7 @@ littéraire. Voici le contexte.
 <notes_du_texte>
 {ctx.notes_balise()}
 </notes_du_texte>
-
+{_image_block(ctx)}
 <context>
 {_passages_balise(passages)}
 </context>
@@ -286,7 +329,7 @@ fournir un indice de niveau {level}.
 <notes_du_texte>
 {ctx.notes_balise()}
 </notes_du_texte>
-
+{_image_block(ctx)}
 <context>
 {_passages_balise(passages)}
 </context>
@@ -341,7 +384,7 @@ pour qu'il comprenne comment faire la prochaine fois.
 <notes_du_texte>
 {ctx.notes_balise()}
 </notes_du_texte>
-
+{_image_block(ctx)}
 <context>
 {_passages_balise(passages)}
 </context>
