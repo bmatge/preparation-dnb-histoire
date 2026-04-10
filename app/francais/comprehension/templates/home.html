@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block title %}Compréhension — Français DNB{% endblock %}
+
+{% block content %}
+<div class="space-y-8">
+  <header>
+    <p class="text-sm text-slate-500">
+      <a href="/francais/" class="hover:text-brand-700">Français</a>
+      <span class="mx-1">·</span>
+      Compréhension et compétences d'interprétation
+    </p>
+    <h1 class="mt-2 font-display text-3xl font-bold text-brand-900">
+      Compréhension de texte
+    </h1>
+    <p class="mt-2 text-slate-600">
+      {{ total }} sujets d'annales officielles disponibles. Tu lis un texte,
+      puis tu réponds question par question. Tu peux demander jusqu'à 3
+      indices si tu bloques — la réponse ne te sera donnée qu'en tout
+      dernier recours.
+    </p>
+  </header>
+
+  <section class="rounded-2xl bg-white border border-slate-200 p-6 shadow-sm">
+    <h2 class="font-display text-lg font-bold text-brand-800 mb-3">Démarrer</h2>
+    <form method="post" action="/francais/comprehension/session/new" class="flex flex-wrap items-center gap-3">
+      <button type="submit" class="btn-primary hover:wiggle">
+        Tirer un sujet au hasard
+      </button>
+      <span class="text-sm text-slate-500">
+        ou choisis un sujet précis ci-dessous
+      </span>
+    </form>
+  </section>
+
+  <section>
+    <h2 class="font-display text-lg font-bold text-brand-800 mb-3">
+      Tous les sujets
+    </h2>
+    <ul class="grid gap-2 sm:grid-cols-2">
+      {% for exo in exercises %}
+      <li>
+        <form method="post" action="/francais/comprehension/session/new" class="contents">
+          <input type="hidden" name="exercise_id" value="{{ exo.id }}">
+          <button type="submit"
+                  class="w-full text-left rounded-xl bg-white border border-slate-200 px-4 py-3 hover:border-brand-300 hover:shadow-sm transition">
+            <div class="font-medium text-brand-900">{{ exo.annee }} — {{ exo.centre }}</div>
+            <div class="text-xs text-slate-500 mt-0.5">{{ exo.slug }}</div>
+          </button>
+        </form>
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
+</div>
+{% endblock %}

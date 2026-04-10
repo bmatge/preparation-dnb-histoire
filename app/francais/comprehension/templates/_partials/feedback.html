@@ -1,0 +1,49 @@
+{# Fragment HTMX renvoyé après soumission d'une réponse. #}
+<div class="rounded-2xl border p-4 shadow-sm animate-reveal
+  {% if result.is_correct %}bg-emerald-50 border-emerald-200
+  {% elif result.verdict == 'PARTIELLE' %}bg-amber-50 border-amber-200
+  {% else %}bg-rose-50 border-rose-200{% endif %}">
+
+  <div class="flex items-center gap-2 mb-2">
+    {% if result.is_correct %}
+      <span class="text-xs font-semibold uppercase tracking-wide text-emerald-700">Réponse validée</span>
+    {% elif result.verdict == 'PARTIELLE' %}
+      <span class="text-xs font-semibold uppercase tracking-wide text-amber-700">Tu es sur la bonne voie</span>
+    {% else %}
+      <span class="text-xs font-semibold uppercase tracking-wide text-rose-700">À retravailler</span>
+    {% endif %}
+  </div>
+
+  <p class="text-sm text-slate-700 whitespace-pre-line">{{ result.commentaire }}</p>
+
+  <div class="mt-4 flex flex-wrap gap-2">
+    {% if result.is_correct %}
+      {% if is_last %}
+      <a href="/francais/comprehension/session/{{ session_id }}/synthese"
+         class="btn-primary">Voir le bilan</a>
+      {% else %}
+      <a href="/francais/comprehension/session/{{ session_id }}/item/{{ next_order }}"
+         class="btn-primary">Question suivante →</a>
+      {% endif %}
+    {% else %}
+      {% if hints_used < 3 %}
+        <button hx-post="/francais/comprehension/session/{{ session_id }}/item/{{ order }}/hint"
+                hx-target="#feedback-zone"
+                hx-swap="innerHTML"
+                class="btn-secondary">
+          Indice ({{ hints_used }}/3 utilisés)
+        </button>
+      {% else %}
+        <button hx-post="/francais/comprehension/session/{{ session_id }}/item/{{ order }}/reveal"
+                hx-target="#feedback-zone"
+                hx-swap="innerHTML"
+                class="btn-secondary">
+          Voir la réponse
+        </button>
+      {% endif %}
+      <span class="text-xs text-slate-500 self-center">
+        Tu peux aussi réécrire ta réponse et la soumettre à nouveau.
+      </span>
+    {% endif %}
+  </div>
+</div>
