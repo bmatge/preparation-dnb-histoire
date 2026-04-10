@@ -1,0 +1,40 @@
+{
+  "id": "2020_metropole",
+  "source": {
+    "annee": 2020,
+    "session": "inconnu",
+    "centre": "Métropole",
+    "code_sujet": "20GENFRRME1"
+  },
+  "epreuve": {
+    "intitule": "Rédaction",
+    "duree_minutes": 90,
+    "points_total": 40
+  },
+  "texte_support_ref": "Molière, Monsieur de Pourceaugnac (Acte I, scène 1)",
+  "sujet_imagination": {
+    "type": "imagination",
+    "numero": "Sujet d’imagination",
+    "amorce": null,
+    "consigne": "Julie et Éraste quittent la scène. Oronte, le père de Julie, entre à son tour. Nérine tente de le convaincre de renoncer à son projet de mariage entre sa fille et Monsieur de Pourceaugnac.\nÉcrivez leur échange sous la forme d’un dialogue théâtral. Vous tiendrez compte de votre lecture de la scène 1 de l’Acte I.",
+    "contraintes": [
+      "écrire un dialogue théâtral",
+      "mettre en scène Oronte et Nérine",
+      "tenir compte de la scène 1 de l’Acte I"
+    ],
+    "longueur_min_lignes": null,
+    "reference_texte_support": "Vous tiendrez compte de votre lecture de la scène 1 de l’Acte I."
+  },
+  "sujet_reflexion": {
+    "type": "reflexion",
+    "numero": "Sujet de réflexion",
+    "amorce": null,
+    "consigne": "Attendez-vous des œuvres littéraires et artistiques qu’elles vous procurent « le plaisir de la surprise » ?\nVous vous appuierez sur vos expériences de lecteur et de spectateur (roman, nouvelle, conte, poésie, théâtre, cinéma, peinture…) pour répondre à cette question.",
+    "contraintes": [
+      "s’appuyer sur ses expériences de lecteur et de spectateur"
+    ],
+    "longueur_min_lignes": null,
+    "reference_texte_support": null
+  },
+  "source_file": "2020_Metropole_francais_redaction.pdf"
+}

@@ -42,3 +42,6 @@ content/histoire-geo-emc/subjects/_all.json
 
 # Consolidé des exercices français (régénéré par scripts/extract_french_exercises.py)
 content/francais/comprehension/exercises/_all.json
+
+# Consolidé des sujets de rédaction (régénéré par scripts/extract_french_redactions.py)
+content/francais/redaction/subjects/_all.json

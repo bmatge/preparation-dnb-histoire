@@ -1,0 +1,40 @@
+{
+  "id": "2022_amerique-sud",
+  "source": {
+    "annee": 2022,
+    "session": "inconnu",
+    "centre": "Amérique du Sud",
+    "code_sujet": "22GENFRRAS1"
+  },
+  "epreuve": {
+    "intitule": "Rédaction",
+    "duree_minutes": 90,
+    "points_total": 40
+  },
+  "texte_support_ref": null,
+  "sujet_imagination": {
+    "type": "imagination",
+    "numero": "Sujet d’imagination",
+    "amorce": null,
+    "consigne": "Le chevalier en armure, envoyé par Auguste, retrouve Ondine dans la forêt. Il lui demande pourquoi elle tarde tant à regagner la maison.\nImaginez le dialogue qui s’ensuit. Vous respecterez les codes du genre théâtral.",
+    "contraintes": [
+      "imaginer un dialogue théâtral",
+      "respecter les codes du genre théâtral"
+    ],
+    "longueur_min_lignes": null,
+    "reference_texte_support": "Le chevalier en armure, envoyé par Auguste, retrouve Ondine dans la forêt."
+  },
+  "sujet_reflexion": {
+    "type": "reflexion",
+    "numero": "Sujet de réflexion",
+    "amorce": null,
+    "consigne": "Pensez-vous que s’opposer au monde des adultes soit le seul moyen de sortir de l’enfance ?\nVous répondrez à cette question de façon argumentée dans un développement organisé. Vous vous appuierez sur vos lectures, votre expérience personnelle ainsi que sur votre culture générale.",
+    "contraintes": [
+      "développement argumenté et organisé",
+      "s’appuyer sur les lectures, l’expérience personnelle et la culture générale"
+    ],
+    "longueur_min_lignes": null,
+    "reference_texte_support": null
+  },
+  "source_file": "2022_Amerique-Sud_francais_redaction.pdf"
+}

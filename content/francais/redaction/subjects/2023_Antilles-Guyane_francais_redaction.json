@@ -1,0 +1,39 @@
+{
+  "id": "2023_antilles-guyane",
+  "source": {
+    "annee": 2023,
+    "session": "inconnu",
+    "centre": "Antilles-Guyane",
+    "code_sujet": "23GENFRRAG1"
+  },
+  "epreuve": {
+    "intitule": "Rédaction",
+    "duree_minutes": 90,
+    "points_total": 40
+  },
+  "texte_support_ref": null,
+  "sujet_imagination": {
+    "type": "imagination",
+    "numero": "Sujet d’imagination",
+    "amorce": "Les camarades partent « sans grands adieux ».",
+    "consigne": "Les camarades partent « sans grands adieux ». Imaginez le discours d’adieux qu’aurait pu leur adresser le narrateur à ce moment-là.",
+    "contraintes": [
+      "imaginer un discours d’adieux adressé aux camarades"
+    ],
+    "longueur_min_lignes": null,
+    "reference_texte_support": "Les camarades partent « sans grands adieux »."
+  },
+  "sujet_reflexion": {
+    "type": "reflexion",
+    "numero": "Sujet de réflexion",
+    "amorce": null,
+    "consigne": "Dans quelle mesure l’école prépare-t-elle à la vie ?\nVous répondrez à cette question dans un développement organisé et en vous appuyant sur des exemples tirés de vos expériences personnelles ou pris dans des œuvres littéraires et artistiques que vous connaissez.",
+    "contraintes": [
+      "développement organisé",
+      "s’appuyer sur des exemples tirés des expériences personnelles ou d’œuvres littéraires et artistiques"
+    ],
+    "longueur_min_lignes": null,
+    "reference_texte_support": null
+  },
+  "source_file": "2023_Antilles-Guyane_francais_redaction.pdf"
+}

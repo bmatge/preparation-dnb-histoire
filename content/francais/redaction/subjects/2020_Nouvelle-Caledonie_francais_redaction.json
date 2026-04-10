@@ -1,0 +1,39 @@
+{
+  "id": "2020_nouvelle-caledonie",
+  "source": {
+    "annee": 2020,
+    "session": "inconnu",
+    "centre": "Nouvelle-Calédonie",
+    "code_sujet": "20FRGENRNC1"
+  },
+  "epreuve": {
+    "intitule": "Rédaction",
+    "duree_minutes": 90,
+    "points_total": 40
+  },
+  "texte_support_ref": null,
+  "sujet_imagination": {
+    "type": "imagination",
+    "numero": "Sujet d’imagination",
+    "amorce": null,
+    "consigne": "Comme le narrateur du texte, racontez un épisode de votre vie d’écolier qui vous a marqué.",
+    "contraintes": [
+      "raconter un épisode marquant de sa vie d’écolier"
+    ],
+    "longueur_min_lignes": null,
+    "reference_texte_support": "Comme le narrateur du texte, racontez un épisode de votre vie d’écolier qui vous a marqué."
+  },
+  "sujet_reflexion": {
+    "type": "reflexion",
+    "numero": "Sujet de réflexion",
+    "amorce": "Dans ce texte, le Maître refuse de reconnaitre les aptitudes de celui qu’il considère comme « l’inapte irrémédiable de la classe ».",
+    "consigne": "Dans ce texte, le Maître refuse de reconnaitre les aptitudes de celui qu’il considère comme « l’inapte irrémédiable de la classe ».\nEn quoi les préjugés peuvent-ils gêner l’épanouissement personnel ou empêcher les talents, les projets de s’exprimer ?\nVous développerez ce point de vue de façon organisée et en prenant appui sur des exemples précis, issus de votre culture personnelle et des œuvres étudiées lors de votre scolarité.",
+    "contraintes": [
+      "développement organisé",
+      "s’appuyer sur des exemples précis issus de la culture personnelle et des œuvres étudiées"
+    ],
+    "longueur_min_lignes": null,
+    "reference_texte_support": "Dans ce texte, le Maître refuse de reconnaitre les aptitudes de celui qu’il considère comme « l’inapte irrémédiable de la classe »."
+  },
+  "source_file": "2020_Nouvelle-Caledonie_francais_redaction.pdf"
+}

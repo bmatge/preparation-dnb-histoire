@@ -1,0 +1,39 @@
+{
+  "id": "2025_polynesie",
+  "source": {
+    "annee": 2025,
+    "session": "inconnu",
+    "centre": "Polynésie",
+    "code_sujet": "25GENFRRPO1"
+  },
+  "epreuve": {
+    "intitule": "Rédaction",
+    "duree_minutes": 90,
+    "points_total": 40
+  },
+  "texte_support_ref": null,
+  "sujet_imagination": {
+    "type": "imagination",
+    "numero": "Sujet d’imagination",
+    "amorce": null,
+    "consigne": "La vague va-t-elle accepter ou rejeter Hiro ? Racontez la suite du texte.",
+    "contraintes": [
+      "raconter la suite du texte"
+    ],
+    "longueur_min_lignes": null,
+    "reference_texte_support": "La vague va-t-elle accepter ou rejeter Hiro ? Racontez la suite du texte."
+  },
+  "sujet_reflexion": {
+    "type": "reflexion",
+    "numero": "Sujet de réflexion",
+    "amorce": null,
+    "consigne": "Selon vous, est-il important d’attendre le bon moment pour savourer pleinement une expérience ?\nVous présenterez votre réflexion dans un développement argumenté et organisé. Vous illustrerez votre propos à l'aide d'exemples issus de vos lectures et de votre culture ou de votre expérience personnelle.",
+    "contraintes": [
+      "développement argumenté et organisé",
+      "illustrer avec des exemples issus des lectures, de la culture ou de l’expérience personnelle"
+    ],
+    "longueur_min_lignes": null,
+    "reference_texte_support": null
+  },
+  "source_file": "2025_Polynesie_francais_redaction.pdf"
+}

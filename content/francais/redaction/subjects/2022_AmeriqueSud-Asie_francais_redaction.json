@@ -1,0 +1,41 @@
+{
+  "id": "2022_ameriquesud-asie",
+  "source": {
+    "annee": 2022,
+    "session": "inconnu",
+    "centre": "Amérique du Sud - Asie",
+    "code_sujet": "22GENFRRAA1"
+  },
+  "epreuve": {
+    "intitule": "Rédaction",
+    "duree_minutes": 90,
+    "points_total": 40
+  },
+  "texte_support_ref": "Alexandre Dumas",
+  "sujet_imagination": {
+    "type": "imagination",
+    "numero": "Sujet d’imagination",
+    "amorce": null,
+    "consigne": "À la manière d’Alexandre Dumas, imaginez le portrait du Duc fait par la Reine au moment où elle entre dans la pièce.\nDans un premier temps, vous le décrirez physiquement, puis vous préciserez les sentiments suscités chez la Reine à la vue de Buckingham.",
+    "contraintes": [
+      "écrire à la manière d’Alexandre Dumas",
+      "décrire physiquement le Duc",
+      "préciser les sentiments suscités chez la Reine"
+    ],
+    "longueur_min_lignes": null,
+    "reference_texte_support": "À la manière d’Alexandre Dumas, imaginez le portrait du Duc fait par la Reine au moment où elle entre dans la pièce."
+  },
+  "sujet_reflexion": {
+    "type": "reflexion",
+    "numero": "Sujet de réflexion",
+    "amorce": "La Reine apparaît comme une déesse aux yeux de Buckingham :",
+    "consigne": "La Reine apparaît comme une déesse aux yeux de Buckingham : peut-on rester objectif et raisonnable quand on est amoureux ?\nVous répondrez à cette question par un développement argumenté en vous appuyant sur les œuvres étudiées en classe, vos lectures et votre culture personnelles.",
+    "contraintes": [
+      "développement argumenté",
+      "s’appuyer sur les œuvres étudiées en classe, les lectures et la culture personnelles"
+    ],
+    "longueur_min_lignes": null,
+    "reference_texte_support": "La Reine apparaît comme une déesse aux yeux de Buckingham"
+  },
+  "source_file": "2022_AmeriqueSud-Asie_francais_redaction.pdf"
+}

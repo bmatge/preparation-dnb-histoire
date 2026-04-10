@@ -1,0 +1,41 @@
+{
+  "id": "2022_amerique-nord",
+  "source": {
+    "annee": 2022,
+    "session": "inconnu",
+    "centre": "Amérique du Nord",
+    "code_sujet": "22GENFRRAN1"
+  },
+  "epreuve": {
+    "intitule": "Rédaction",
+    "duree_minutes": 90,
+    "points_total": 40
+  },
+  "texte_support_ref": null,
+  "sujet_imagination": {
+    "type": "imagination",
+    "numero": "Sujet d’imagination",
+    "amorce": null,
+    "consigne": "À la fin de la scène XII, Arlequin entre en scène. Interrogé par Frédéric, il raconte à ce dernier la vie de son maître Lélio.\nÉcrivez le dialogue entre les deux personnages en vous attachant à montrer qui est vraiment Lélio. Vous respecterez les codes du genre théâtral.",
+    "contraintes": [
+      "écrire un dialogue théâtral",
+      "montrer qui est vraiment Lélio",
+      "respecter les codes du genre théâtral"
+    ],
+    "longueur_min_lignes": null,
+    "reference_texte_support": "À la fin de la scène XII, Arlequin entre en scène."
+  },
+  "sujet_reflexion": {
+    "type": "reflexion",
+    "numero": "Sujet de réflexion",
+    "amorce": null,
+    "consigne": "Pour être apprécié par les autres, pensez-vous qu’il soit important de garder une part de mystère comme le personnage de Lélio ?\nVous répondrez à cette question par un développement argumenté en vous appuyant sur les œuvres étudiées en classe, vos lectures et votre culture personnelles.",
+    "contraintes": [
+      "développement argumenté",
+      "s’appuyer sur les œuvres étudiées en classe, les lectures et la culture personnelles"
+    ],
+    "longueur_min_lignes": null,
+    "reference_texte_support": "comme le personnage de Lélio"
+  },
+  "source_file": "2022_Amerique-Nord_francais_redaction.pdf"
+}

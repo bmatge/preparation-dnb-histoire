@@ -1,0 +1,42 @@
+{
+  "id": "2025_antilles-guyane",
+  "source": {
+    "annee": 2025,
+    "session": "inconnu",
+    "centre": "Antilles-Guyane",
+    "code_sujet": "25GENFRRAG1"
+  },
+  "epreuve": {
+    "intitule": "Rédaction",
+    "duree_minutes": 90,
+    "points_total": 40
+  },
+  "texte_support_ref": "Flaubert, Madame Bovary",
+  "sujet_imagination": {
+    "type": "imagination",
+    "numero": "Sujet d’imagination",
+    "amorce": null,
+    "consigne": "Imaginez un récit qui raconte l’arrivée d’un nouvel élève dans la classe de Charles Bovary. Contrairement au texte de Flaubert, cette arrivée se passe bien.\nCommencez par : « Voici un élève que je vous recommande, il entre en cinquième. »\nVotre récit doit comporter une description du nouvel élève et les réactions des personnages.",
+    "contraintes": [
+      "imaginer un récit",
+      "commencer par « Voici un élève que je vous recommande, il entre en cinquième. »",
+      "comporter une description du nouvel élève",
+      "comporter les réactions des personnages"
+    ],
+    "longueur_min_lignes": null,
+    "reference_texte_support": "Contrairement au texte de Flaubert, cette arrivée se passe bien."
+  },
+  "sujet_reflexion": {
+    "type": "reflexion",
+    "numero": "Sujet de réflexion",
+    "amorce": null,
+    "consigne": "Selon vous, les artistes préfèrent-ils évoquer les moments douloureux ou heureux de l’enfance et de l’adolescence ?\nVous expliquerez votre avis dans un développement argumenté, en vous appuyant sur des exemples pris dans les œuvres littéraires et artistiques que vous connaissez.",
+    "contraintes": [
+      "développement argumenté",
+      "s’appuyer sur des exemples pris dans les œuvres littéraires et artistiques"
+    ],
+    "longueur_min_lignes": null,
+    "reference_texte_support": null
+  },
+  "source_file": "2025_Antilles-Guyane_francais_redaction.pdf"
+}

@@ -1,0 +1,41 @@
+{
+  "id": "2023_nouvelle-caledonie",
+  "source": {
+    "annee": 2023,
+    "session": "inconnu",
+    "centre": "Nouvelle-Calédonie",
+    "code_sujet": "23GENFRRNC1"
+  },
+  "epreuve": {
+    "intitule": "Rédaction",
+    "duree_minutes": 90,
+    "points_total": 40
+  },
+  "texte_support_ref": "texte de Victor Hugo",
+  "sujet_imagination": {
+    "type": "imagination",
+    "numero": "Sujet d’imagination",
+    "amorce": null,
+    "consigne": "À la manière de Victor Hugo, vous vous apprêtez à prononcer un discours pour convaincre et persuader votre auditoire sur un sujet qui vous tient à cœur. Rédigez ce discours.",
+    "contraintes": [
+      "rédiger un discours",
+      "chercher à convaincre et persuader",
+      "écrire à la manière de Victor Hugo"
+    ],
+    "longueur_min_lignes": null,
+    "reference_texte_support": "À la manière de Victor Hugo, vous vous apprêtez à prononcer un discours pour convaincre et persuader votre auditoire sur un sujet qui vous tient à cœur."
+  },
+  "sujet_reflexion": {
+    "type": "reflexion",
+    "numero": "Sujet de réflexion",
+    "amorce": null,
+    "consigne": "Selon vous, des œuvres littéraires, ou plus généralement artistiques, peuvent-elles faire évoluer la société ?\nVous développerez votre point de vue de façon organisée et en prenant appui sur des exemples précis, issus de votre culture personnelle et des œuvres étudiées lors de votre scolarité.",
+    "contraintes": [
+      "développement organisé",
+      "s’appuyer sur des exemples précis issus de la culture personnelle et des œuvres étudiées"
+    ],
+    "longueur_min_lignes": null,
+    "reference_texte_support": null
+  },
+  "source_file": "2023_Nouvelle-Caledonie_francais_redaction.pdf"
+}

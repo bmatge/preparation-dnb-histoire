@@ -1,0 +1,41 @@
+{
+  "id": "2025_metropole",
+  "source": {
+    "annee": 2025,
+    "session": "inconnu",
+    "centre": "Métropole",
+    "code_sujet": "25GENFRRME1"
+  },
+  "epreuve": {
+    "intitule": "Rédaction",
+    "duree_minutes": 90,
+    "points_total": 40
+  },
+  "texte_support_ref": null,
+  "sujet_imagination": {
+    "type": "imagination",
+    "numero": "Sujet d’imagination",
+    "amorce": null,
+    "consigne": "Quelque temps plus tard, la narratrice écrit une lettre à ses parents dans laquelle elle raconte les jours qui ont suivi son arrivée dans la ville.\nVous décrirez les expériences vécues, les lieux explorés, les personnes rencontrées et exprimerez les impressions que lui procurent ces découvertes.",
+    "contraintes": [
+      "écrire une lettre",
+      "décrire les expériences vécues, les lieux explorés, les personnes rencontrées",
+      "exprimer les impressions de la narratrice"
+    ],
+    "longueur_min_lignes": null,
+    "reference_texte_support": "Quelque temps plus tard, la narratrice écrit une lettre à ses parents dans laquelle elle raconte les jours qui ont suivi son arrivée dans la ville."
+  },
+  "sujet_reflexion": {
+    "type": "reflexion",
+    "numero": "Sujet de réflexion",
+    "amorce": null,
+    "consigne": "Pensez-vous que la littérature et les arts en général permettent aux lecteurs et aux spectateurs de découvrir des lieux, réels ou fictifs, comme s’ils y étaient ?\nVous présenterez votre réflexion dans un développement argumenté et organisé. Vous illustrerez votre propos à l'aide d'exemples issus de vos lectures et de votre culture artistique personnelle (cinéma, peinture, bande dessinée…).",
+    "contraintes": [
+      "développement argumenté et organisé",
+      "illustrer avec des exemples issus des lectures et de la culture artistique personnelle"
+    ],
+    "longueur_min_lignes": null,
+    "reference_texte_support": null
+  },
+  "source_file": "2025_Metropole_francais_redaction.pdf"
+}

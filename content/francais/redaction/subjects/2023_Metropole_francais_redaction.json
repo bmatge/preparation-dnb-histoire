@@ -1,0 +1,42 @@
+{
+  "id": "2023_metropole",
+  "source": {
+    "annee": 2023,
+    "session": "inconnu",
+    "centre": "Métropole",
+    "code_sujet": "23GENFRRME1"
+  },
+  "epreuve": {
+    "intitule": "Rédaction",
+    "duree_minutes": 90,
+    "points_total": 40
+  },
+  "texte_support_ref": null,
+  "sujet_imagination": {
+    "type": "imagination",
+    "numero": "Sujet d’imagination",
+    "amorce": "Il vous est arrivé d’être pris dans un jeu qui vous a entraîné progressivement dans une aventure imaginaire intense.",
+    "consigne": "Il vous est arrivé d’être pris dans un jeu qui vous a entraîné progressivement dans une aventure imaginaire intense.\nVous raconterez cet épisode à la première personne.\nVous pourrez enrichir votre récit par des descriptions, l’expression des sentiments et des sensations.",
+    "contraintes": [
+      "récit à la première personne",
+      "raconter un épisode où un jeu a entraîné le narrateur dans une aventure imaginaire intense",
+      "possibilité d’enrichir le récit par des descriptions",
+      "possibilité d’exprimer des sentiments et des sensations"
+    ],
+    "longueur_min_lignes": null,
+    "reference_texte_support": null
+  },
+  "sujet_reflexion": {
+    "type": "reflexion",
+    "numero": "Sujet de réflexion",
+    "amorce": null,
+    "consigne": "Pourquoi parle-t-on de soi et raconte-t-on sa vie dans des œuvres autobiographiques ?\nVous répondrez à cette question dans un développement argumenté.\nPour illustrer vos arguments, vous vous appuierez sur des exemples précis tirés d’œuvres littéraires et artistiques.",
+    "contraintes": [
+      "développement argumenté",
+      "illustrer les arguments par des exemples précis tirés d’œuvres littéraires et artistiques"
+    ],
+    "longueur_min_lignes": null,
+    "reference_texte_support": null
+  },
+  "source_file": "2023_Metropole_francais_redaction.pdf"
+}

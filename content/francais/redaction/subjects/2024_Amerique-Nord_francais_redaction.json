@@ -1,0 +1,42 @@
+{
+  "id": "2024_amerique-nord",
+  "source": {
+    "annee": 2024,
+    "session": "inconnu",
+    "centre": "Amérique du Nord",
+    "code_sujet": "24GENFRRAN1"
+  },
+  "epreuve": {
+    "intitule": "Rédaction",
+    "duree_minutes": 90,
+    "points_total": 40
+  },
+  "texte_support_ref": "texte d’Alphonse Daudet",
+  "sujet_imagination": {
+    "type": "imagination",
+    "numero": "Sujet d’imagination",
+    "amorce": null,
+    "consigne": "Imaginez une suite à ce texte, en mettant en valeur le rôle de la forêt.\nComme Alphonse Daudet, vous écrirez votre texte à la troisième personne du singulier et aux temps du passé.",
+    "contraintes": [
+      "imaginer une suite au texte",
+      "mettre en valeur le rôle de la forêt",
+      "écrire à la troisième personne du singulier",
+      "écrire aux temps du passé"
+    ],
+    "longueur_min_lignes": null,
+    "reference_texte_support": "Imaginez une suite à ce texte, en mettant en valeur le rôle de la forêt."
+  },
+  "sujet_reflexion": {
+    "type": "reflexion",
+    "numero": "Sujet de réflexion",
+    "amorce": null,
+    "consigne": "L’art peut-il nous rapprocher de la nature ?\nVous répondrez à cette question dans un développement organisé, en vous appuyant sur des exemples précis issus de votre expérience personnelle et sur des œuvres littéraires ou artistiques de votre choix.",
+    "contraintes": [
+      "développement organisé",
+      "s’appuyer sur des exemples précis issus de l’expérience personnelle et d’œuvres littéraires ou artistiques"
+    ],
+    "longueur_min_lignes": null,
+    "reference_texte_support": null
+  },
+  "source_file": "2024_Amerique-Nord_francais_redaction.pdf"
+}
