@@ -44,7 +44,7 @@ set -a && . ./.env && set +a
 .venv/bin/python -m scripts.ingest
 
 # 4. Lancement serveur
-.venv/bin/uvicorn app.main:app --reload --port 8000
+.venv/bin/uvicorn app.core.main:app --reload --port 8000
 # → ouvrir http://127.0.0.1:8000
 ```
 
@@ -82,13 +82,19 @@ sans valeur stable, chaque restart du conteneur invalide les sessions des
 
 ```
 app/
-├── main.py            # FastAPI + routes + templates Jinja
-├── prompts.py         # Templates pédagogiques (cœur du tuteur)
-├── albert_client.py   # Wrapper OpenAI-compat + routage tâches + post-filtres
-├── rag.py             # Recherche dans les collections Albert + nettoyage
-├── pedagogy.py        # Orchestration des étapes (RAG + prompts + persist.)
-├── db.py              # SQLModel : Subject, Session, Turn
-└── templates/         # Jinja + HTMX
+├── core/
+│   ├── main.py            # FastAPI root : home + healthz + mount sub-routers
+│   ├── db.py              # SQLModel partagé : Session, Turn (+ engine)
+│   ├── albert_client.py   # Wrapper OpenAI-compat + routage tâches + post-filtres
+│   ├── rag.py             # Recherche dans les collections Albert + RagPassage
+│   ├── formatting.py      # Rendu markdown des évaluations
+│   └── templates/         # base.html + home.html (sélecteur de matière)
+└── histoire_geo_emc/      # Package spécifique à la matière DNB histoire-géo-EMC
+    ├── routes.py          # APIRouter préfixé /histoire-geo-emc
+    ├── pedagogy.py        # Orchestration du parcours élève (7 étapes DC)
+    ├── prompts.py         # Templates pédagogiques (cœur du tuteur)
+    ├── models.py          # SQLModel Subject + chargement des sujets DC
+    └── templates/         # home + step_*.html + _partials (Jinja + HTMX)
 scripts/
 ├── extract_subjects.py  # Opus offline → JSON structuré
 └── ingest.py            # Push du corpus vers les collections Albert

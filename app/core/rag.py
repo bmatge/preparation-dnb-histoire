@@ -22,15 +22,30 @@ import logging
 import os
 import re
 import threading
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from typing import Iterable
 
 import httpx
 
-from app.albert_client import DEFAULT_BASE_URL
-from app.prompts import RagPassage
+from app.core.albert_client import DEFAULT_BASE_URL, Task
 
 logger = logging.getLogger(__name__)
+
+
+# ============================================================================
+# RagPassage — unité de passage retrouvé dans une collection Albert
+# ============================================================================
+#
+# Défini ici (côté core) parce que rag.py est le producteur. Les prompts des
+# sous-modules de matière le consomment via `from app.core.rag import RagPassage`.
+
+
+@dataclass
+class RagPassage:
+    """Un extrait retrouvé par Albert dans une collection."""
+
+    source: str  # ex: "corrigé 2021 Berlin", "programme cycle 4", "méthodo MrDarras"
+    content: str
 
 
 # ============================================================================
@@ -69,8 +84,6 @@ FALLBACK_COLLECTION_IDS: dict[str, int] = {
 # les corrigés modèles et la méthodologie. La correction finale ajoute les
 # sujets pour pouvoir comparer avec d'autres consignes proches.
 # ============================================================================
-
-from app.albert_client import Task  # noqa: E402  (cycle volontaire mineur)
 
 TASK_COLLECTIONS: dict[Task, tuple[str, ...]] = {
     Task.DECRYPT_SUBJECT: ("dnb_programmes", "dnb_methodo", "dnb_corriges"),

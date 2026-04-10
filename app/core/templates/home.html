@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="text-center mb-10 animate-reveal">
+  <h1 class="font-display text-4xl sm:text-5xl font-black text-slate-900 leading-tight mb-4">
+    Choisis ta matière
+  </h1>
+  <p class="text-slate-600 max-w-xl mx-auto text-lg">
+    Chaque matière a son propre exercice et son propre tuteur.
+    Pour l'instant, une seule est disponible&nbsp;:
+    <strong>histoire-géographie-EMC</strong>.
+  </p>
+</section>
+
+<section class="grid sm:grid-cols-2 gap-4 animate-reveal">
+  <a href="/histoire-geo-emc/" class="block bg-white rounded-3xl shadow-glow border border-slate-100 p-6 hover:scale-[1.01] transition">
+    <div class="text-3xl mb-2">🗺️</div>
+    <div class="font-display font-bold text-xl text-slate-900 mb-1">Histoire-Géo-EMC</div>
+    <div class="text-sm text-slate-600 mb-3">
+      Le développement construit du DNB, en 7 étapes guidées.
+    </div>
+    <div class="inline-flex items-center gap-1 text-sm font-semibold text-brand-700">
+      Commencer <span>→</span>
+    </div>
+  </a>
+
+  <div class="block bg-white/60 rounded-3xl border border-dashed border-slate-200 p-6 text-slate-400">
+    <div class="text-3xl mb-2 grayscale">➕</div>
+    <div class="font-display font-bold text-xl mb-1">Bientôt&nbsp;: maths, français…</div>
+    <div class="text-sm">
+      D'autres matières arriveront quand on aura validé la formule.
+    </div>
+  </div>
+</section>
+{% endblock %}

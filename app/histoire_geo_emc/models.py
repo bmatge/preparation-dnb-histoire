@@ -1,21 +1,16 @@
 """
-Persistance locale — sessions élèves, tours de conversation, sujets DC.
+Modèle et chargement des sujets « développement construit » (histoire-géo-EMC).
 
-Stack : SQLModel sur SQLite (data/app.db). Une seule base, gérée en mémoire
-côté FastAPI via un engine global. On ne fait PAS de migrations Alembic à ce
-stade : l'app est jeune, les schémas évoluent, on assume les drops manuels.
+Ce module est spécifique à la matière histoire-géo-EMC — il définit :
+- le modèle SQLModel `Subject` (un DC extrait d'une annale ou une variation) ;
+- le chargement idempotent depuis `content/histoire-geo-emc/subjects/*.json`
+  au démarrage de l'app ;
+- les helpers de tirage (`random_subject`, `get_subject`).
 
-Modèle :
-- `Subject` : un développement construit extrait des annales (un sujet par
-  ligne, plusieurs sujets par fichier d'annale possible). Chargé au démarrage
-  depuis `content/histoire-geo-emc/subjects/*.json` (voir `load_subjects_from_jsons`). Idempotent.
-- `Session` : une session élève (mode + sujet tiré + état d'avancement).
-- `Turn` : un échange dans la session (étape + rôle + contenu).
-
-Helpers principaux :
-- `init_db()` : crée les tables et charge les sujets si nécessaire.
-- `random_subject(discipline=None)` : tire un sujet au hasard.
-- `create_session(subject_id, mode)` / `add_turn(...)` / `get_turns(session_id)`.
+Côté persistance, on partage la même base SQLite que les autres matières
+(cf. `app/core/db.py`). La table est actuellement nommée `subject` (comportement
+par défaut de SQLModel sur la classe `Subject`). Une éventuelle évolution vers
+`SubjectHGEMC` est repoussée à une étape ultérieure du refacto.
 """
 
 from __future__ import annotations
@@ -23,16 +18,16 @@ from __future__ import annotations
 import json
 import logging
 import random
-from datetime import datetime
 from pathlib import Path
-from typing import Iterator
 
-from sqlmodel import Field, Session as DBSession, SQLModel, create_engine, select
+from sqlmodel import Field, Session as DBSession, SQLModel, select
+
+from app.core.db import get_engine
 
 logger = logging.getLogger(__name__)
 
-REPO_ROOT = Path(__file__).resolve().parent.parent
-DB_PATH = REPO_ROOT / "data" / "app.db"
+# app/histoire_geo_emc/models.py → racine du repo = 3 niveaux plus haut.
+REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 SUBJECTS_DIR = REPO_ROOT / "content" / "histoire-geo-emc" / "subjects"
 # Sujets générés offline par scripts/generate_variations.py — format JSON
 # identique mais marqués is_variation=True en base.
@@ -40,12 +35,12 @@ VARIATIONS_DIR = SUBJECTS_DIR / "variations"
 
 
 # ============================================================================
-# Modèles
+# Modèle
 # ============================================================================
 
 
 class Subject(SQLModel, table=True):
-    """Un développement construit extrait d'une annale DNB."""
+    """Un développement construit extrait d'une annale DNB histoire-géo-EMC."""
 
     id: int | None = Field(default=None, primary_key=True)
     source_file: str  # ex: "18genhgemcan1pdf-80388.pdf"
@@ -74,73 +69,37 @@ class Subject(SQLModel, table=True):
             return []
 
 
-class Session(SQLModel, table=True):
-    """Une session de travail d'un·e élève."""
-
-    id: int | None = Field(default=None, primary_key=True)
-    subject_id: int = Field(foreign_key="subject.id")
-    mode: str  # "semi_assiste" pour le MVP
-    current_step: int = 1  # 1..7
-    created_at: datetime = Field(default_factory=datetime.utcnow)
-
-
-class Turn(SQLModel, table=True):
-    """Un message dans une session (input élève ou réponse Albert)."""
-
-    id: int | None = Field(default=None, primary_key=True)
-    session_id: int = Field(foreign_key="session.id", index=True)
-    step: int  # 1..7
-    role: str  # "user" | "assistant"
-    content: str
-    created_at: datetime = Field(default_factory=datetime.utcnow)
-
-
-# ============================================================================
-# Engine + init
-# ============================================================================
-
-DB_PATH.parent.mkdir(parents=True, exist_ok=True)
-_engine = create_engine(
-    f"sqlite:///{DB_PATH}",
-    echo=False,
-    connect_args={"check_same_thread": False},
-)
-
-
-def get_engine():
-    return _engine
-
-
-def db_session() -> Iterator[DBSession]:
-    """Dependency FastAPI : ouvre/ferme une session SQLModel par requête."""
-    with DBSession(_engine) as session:
-        yield session
-
-
-def init_db() -> None:
-    """Crée les tables et charge les sujets s'il n'y en a pas encore."""
-    SQLModel.metadata.create_all(_engine)
-    with DBSession(_engine) as s:
-        existing = s.exec(select(Subject).limit(1)).first()
-        if existing is None:
-            n = load_subjects_from_jsons(s)
-            logger.info("Chargé %d sujets DC depuis %s", n, SUBJECTS_DIR)
-
-
 # ============================================================================
 # Chargement des sujets depuis content/histoire-geo-emc/subjects/*.json
 # ============================================================================
 
 
+def init_hgemc_subjects() -> int:
+    """Charge les sujets DC si la table est vide. Idempotent.
+
+    À appeler depuis `app.core.main.on_startup` après `core.db.init_db()`.
+    Retourne le nombre de sujets insérés (0 si la table était déjà peuplée).
+    """
+    with DBSession(get_engine()) as s:
+        existing = s.exec(select(Subject).limit(1)).first()
+        if existing is not None:
+            return 0
+        n = load_subjects_from_jsons(s)
+        logger.info("Chargé %d sujets DC depuis %s", n, SUBJECTS_DIR)
+        return n
+
+
 def load_subjects_from_jsons(s: DBSession) -> int:
-    """Insère tous les DC présents dans content/histoire-geo-emc/subjects/*.json. Idempotent.
+    """Insère tous les DC présents dans content/histoire-geo-emc/subjects/*.json.
+    Idempotent.
 
     Le format des JSON est celui produit par scripts/extract_subjects.py :
     chaque fichier contient une liste `developpements_construits` avec un ou
     plusieurs DC. On en fait un Subject par entrée.
 
-    Les fichiers situés dans `content/histoire-geo-emc/subjects/variations/` sont chargés avec le
-    flag `is_variation=True` (générés offline par scripts/generate_variations.py).
+    Les fichiers situés dans `content/histoire-geo-emc/subjects/variations/`
+    sont chargés avec le flag `is_variation=True` (générés offline par
+    scripts/generate_variations.py).
     """
     inserted = 0
     # 1. Sujets réels d'annales
@@ -216,7 +175,7 @@ def _load_subject_file(
 
 
 # ============================================================================
-# Helpers métier
+# Helpers de tirage
 # ============================================================================
 
 
@@ -246,86 +205,12 @@ def get_subject(s: DBSession, subject_id: int) -> Subject | None:
     return s.get(Subject, subject_id)
 
 
-def create_session(
-    s: DBSession, subject_id: int, mode: str = "semi_assiste"
-) -> Session:
-    sess = Session(subject_id=subject_id, mode=mode)
-    s.add(sess)
-    s.commit()
-    s.refresh(sess)
-    return sess
-
-
-def get_session(s: DBSession, session_id: int) -> Session | None:
-    return s.get(Session, session_id)
-
-
-def update_session_step(s: DBSession, session_id: int, step: int) -> None:
-    sess = s.get(Session, session_id)
-    if sess is None:
-        return
-    sess.current_step = step
-    s.add(sess)
-    s.commit()
-
-
-def add_turn(
-    s: DBSession, session_id: int, step: int, role: str, content: str
-) -> Turn:
-    turn = Turn(session_id=session_id, step=step, role=role, content=content)
-    s.add(turn)
-    s.commit()
-    s.refresh(turn)
-    return turn
-
-
-def get_turns(s: DBSession, session_id: int) -> list[Turn]:
-    rows = s.exec(
-        select(Turn).where(Turn.session_id == session_id).order_by(Turn.id)
-    ).all()
-    return list(rows)
-
-
-def get_turns_by_step(s: DBSession, session_id: int, step: int) -> list[Turn]:
-    rows = s.exec(
-        select(Turn)
-        .where(Turn.session_id == session_id, Turn.step == step)
-        .order_by(Turn.id)
-    ).all()
-    return list(rows)
-
-
-def get_last_user_turn(
-    s: DBSession, session_id: int, step: int
-) -> Turn | None:
-    """Renvoie la dernière contribution élève pour une étape donnée."""
-    rows = s.exec(
-        select(Turn)
-        .where(
-            Turn.session_id == session_id,
-            Turn.step == step,
-            Turn.role == "user",
-        )
-        .order_by(Turn.id.desc())
-    ).all()
-    return rows[0] if rows else None
-
-
 __all__ = [
     "Subject",
-    "Session",
-    "Turn",
-    "init_db",
-    "get_engine",
-    "db_session",
+    "SUBJECTS_DIR",
+    "VARIATIONS_DIR",
+    "init_hgemc_subjects",
     "load_subjects_from_jsons",
     "random_subject",
     "get_subject",
-    "create_session",
-    "get_session",
-    "update_session_step",
-    "add_turn",
-    "get_turns",
-    "get_turns_by_step",
-    "get_last_user_turn",
 ]
