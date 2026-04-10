@@ -73,6 +73,16 @@ class Task(str, Enum):
     # Reformulation courte, accueil, micro-messages d'UI
     UI_TEXT = "ui_text"
 
+    # --- Français : compréhension et compétences d'interprétation ---
+    # Évaluation d'une réponse élève à une question de compréhension
+    FR_COMP_EVAL = "fr_comp_eval"
+    # Génération d'un indice gradué (niveau 1, 2 ou 3)
+    FR_COMP_HINT = "fr_comp_hint"
+    # Révélation pédagogique de la réponse après épuisement des indices
+    FR_COMP_REVEAL = "fr_comp_reveal"
+    # Synthèse de fin de session
+    FR_COMP_SYNTHESE = "fr_comp_synthese"
+
 
 @dataclass(frozen=True)
 class TaskProfile:
@@ -133,6 +143,35 @@ TASK_PROFILES: dict[Task, TaskProfile] = {
         model=MODEL_FAST,
         temperature=0.5,
         max_tokens=300,
+        check_no_ghostwriting=False,
+    ),
+    # --- Français : compréhension et compétences d'interprétation ---
+    # Pas de `require_citations` (on ne cite pas les collections Albert au
+    # MVP français), ni de `check_no_ghostwriting` (le filtre
+    # `_looks_like_ghostwritten_dc` est calibré pour le DC histoire-géo, il
+    # génère des faux positifs sur des évaluations courtes en prose).
+    Task.FR_COMP_EVAL: TaskProfile(
+        model=MODEL_HEAVY,
+        temperature=0.2,
+        max_tokens=1200,
+        check_no_ghostwriting=False,
+    ),
+    Task.FR_COMP_HINT: TaskProfile(
+        model=MODEL_FAST,
+        temperature=0.5,
+        max_tokens=500,
+        check_no_ghostwriting=False,
+    ),
+    Task.FR_COMP_REVEAL: TaskProfile(
+        model=MODEL_HEAVY,
+        temperature=0.3,
+        max_tokens=1000,
+        check_no_ghostwriting=False,
+    ),
+    Task.FR_COMP_SYNTHESE: TaskProfile(
+        model=MODEL_HEAVY,
+        temperature=0.4,
+        max_tokens=800,
         check_no_ghostwriting=False,
     ),
 }
