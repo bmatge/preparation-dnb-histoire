@@ -1,0 +1,419 @@
+{
+  "id": "2021_antilles-guyane",
+  "source": {
+    "annee": 2021,
+    "session": "juin",
+    "centre": "Antilles-Guyane",
+    "code_sujet": "21GENFRQGCAG1"
+  },
+  "epreuve": {
+    "intitule": "Grammaire et compétences linguistiques – Compréhension et compétences d'interprétation",
+    "duree_minutes": 70,
+    "points_total": 50,
+    "points_comprehension": 26,
+    "points_grammaire": 24
+  },
+  "paratexte": null,
+  "texte_support": {
+    "auteur": "Charles Baudelaire",
+    "auteur_note": null,
+    "oeuvre": "Le Spleen de Paris",
+    "partie": "XXXIV – Déjà !",
+    "annee_publication": 1869,
+    "genre": "poème en prose",
+    "lignes": [
+      {
+        "n": 1,
+        "texte": "Cent fois déjà le soleil avait jailli, radieux ou attristé, de cette cuve immense de la mer"
+      },
+      {
+        "n": 2,
+        "texte": "dont les bords ne se laissent qu'à peine apercevoir ; cent fois il s'était replongé, étincelant"
+      },
+      {
+        "n": 3,
+        "texte": "ou morose, dans son immense bain du soir. Depuis nombre de jours, nous pouvions"
+      },
+      {
+        "n": 4,
+        "texte": "contempler l'autre côté du firmament et déchiffrer l'alphabet céleste des antipodes. Et"
+      },
+      {
+        "n": 5,
+        "texte": "chacun des passagers gémissait et grognait. On eût dit que l'approche de la terre exaspérait"
+      },
+      {
+        "n": 6,
+        "texte": "leur souffrance. « Quand donc », disaient-ils, « cesserons-nous de dormir un sommeil"
+      },
+      {
+        "n": 7,
+        "texte": "secoué par la lame, troublé par un vent qui ronfle plus haut que nous ? Quand pourrons-"
+      },
+      {
+        "n": 8,
+        "texte": "nous manger de la viande qui ne soit pas salée comme l'élément infâme qui nous porte ?"
+      },
+      {
+        "n": 9,
+        "texte": "Quand pourrons-nous digérer dans un fauteuil immobile ? »"
+      },
+      {
+        "n": 10,
+        "texte": "Il y en avait qui pensaient à leur foyer, qui regrettaient leurs femmes infidèles et"
+      },
+      {
+        "n": 11,
+        "texte": "maussades, et leur progéniture criarde. Tous étaient si affolés par l'image de la terre"
+      },
+      {
+        "n": 12,
+        "texte": "absente, qu'ils auraient, je crois, mangé de l'herbe avec plus d'enthousiasme que les bêtes."
+      },
+      {
+        "n": 13,
+        "texte": "Enfin un rivage fut signalé ; et nous vîmes, en approchant, que c'était une terre"
+      },
+      {
+        "n": 14,
+        "texte": "magnifique, éblouissante. Il semblait que les musiques de la vie s'en détachaient en un"
+      },
+      {
+        "n": 15,
+        "texte": "vague murmure, et que de ces côtes, riches en verdures de toute sorte, s'exhalait, jusqu'à"
+      },
+      {
+        "n": 16,
+        "texte": "plusieurs lieues, une délicieuse odeur de fleurs et de fruits."
+      },
+      {
+        "n": 17,
+        "texte": "Aussitôt chacun fut joyeux, chacun abdiqua sa mauvaise humeur. Toutes les querelles"
+      },
+      {
+        "n": 18,
+        "texte": "furent oubliées, tous les torts réciproques pardonnés ; les duels convenus furent rayés de"
+      },
+      {
+        "n": 19,
+        "texte": "la mémoire, et les rancunes s'envolèrent comme des fumées."
+      },
+      {
+        "n": 20,
+        "texte": "Moi seul j'étais triste, inconcevablement triste. Semblable à un prêtre à qui on"
+      },
+      {
+        "n": 21,
+        "texte": "arracherait sa divinité, je ne pouvais, sans une navrante amertume, me détacher de cette"
+      },
+      {
+        "n": 22,
+        "texte": "mer si monstrueusement séduisante, de cette mer si infiniment variée dans son effrayante"
+      },
+      {
+        "n": 23,
+        "texte": "simplicité, et qui semble contenir en elle et représenter par ses jeux, ses allures, ses colères"
+      },
+      {
+        "n": 24,
+        "texte": "et ses sourires, les humeurs, les agonies et les extases de toutes les âmes qui ont vécu,"
+      },
+      {
+        "n": 25,
+        "texte": "qui vivent et qui vivront !"
+      },
+      {
+        "n": 26,
+        "texte": "En disant adieu à cette incomparable beauté, je me sentais abattu jusqu'à la mort ; et"
+      },
+      {
+        "n": 27,
+        "texte": "c'est pourquoi, quand chacun de mes compagnons dit : « Enfin ! » je ne pus crier que :"
+      },
+      {
+        "n": 28,
+        "texte": "« Déjà ! »"
+      },
+      {
+        "n": 29,
+        "texte": "Cependant c'était la terre, la terre avec ses bruits, ses passions, ses commodités, ses"
+      },
+      {
+        "n": 30,
+        "texte": "fêtes ; c'était une terre riche et magnifique, pleine de promesses, qui nous envoyait un"
+      },
+      {
+        "n": 31,
+        "texte": "mystérieux parfum de rose et de musc, et d'où les musiques de la vie nous arrivaient en un"
+      },
+      {
+        "n": 32,
+        "texte": "amoureux murmure."
+      }
+    ]
+  },
+  "notes_texte": [
+    {
+      "n": 1,
+      "terme": "contempler l'autre côté du firmament et déchiffrer l'alphabet céleste des antipodes",
+      "definition": "les passagers contemplent le ciel de l'hémisphère sud qu'ils ne connaissent pas."
+    },
+    {
+      "n": 2,
+      "terme": "Lame",
+      "definition": "grosse vague."
+    },
+    {
+      "n": 3,
+      "terme": "Infâme",
+      "definition": "ignoble, détestable."
+    },
+    {
+      "n": 4,
+      "terme": "Progéniture",
+      "definition": "enfants."
+    }
+  ],
+  "image": {
+    "type": "photographie",
+    "auteur": "Willy Ronis",
+    "titre": "Semaine de Noël devant les grands magasins à Paris",
+    "annee": 1954,
+    "description_visuelle": "Photographie en noir et blanc représentant une foule dense, composée majoritairement de femmes portant chapeaux et manteaux, massées devant la vitrine d'un grand magasin à Paris. Au centre, un homme seul en pardessus clair, le regard au loin, semble se tenir à l'écart de la joyeuse animation générale. Les visages des personnes autour de lui expriment la curiosité ou l'émerveillement tournés vers la vitrine, tandis que son attitude contraste avec leur enthousiasme. En haut, on devine des décorations de Noël."
+  },
+  "questions": [
+    {
+      "numero": "1",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "Lignes 1 à 16 : montrez que ce voyage est particulièrement difficile à supporter pour les passagers. Vous justifierez votre réponse en citant le texte. Deux éléments de réponse sont attendus.",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [
+        {
+          "start": 1,
+          "end": 16
+        }
+      ],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [],
+      "points": 6.0,
+      "competence": "selection_pertinente",
+      "necessite_image": false
+    },
+    {
+      "numero": "2",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "Que pense le poète des autres passagers ? Justifiez votre réponse à l'aide d'une citation.",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [],
+      "points": 4.0,
+      "competence": "interpretation",
+      "necessite_image": false
+    },
+    {
+      "numero": "3",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "Lignes 26 à 28 : « En disant adieu à cette incomparable beauté, je me sentais abattu jusqu'à la mort ; et c'est pourquoi, quand chacun de mes compagnons dit : « Enfin ! » je ne pus crier que : « Déjà ! » »\nComment comprenez-vous l'exclamation « Déjà ! » ? Vous développerez votre réponse.",
+      "citation": "En disant adieu à cette incomparable beauté, je me sentais abattu jusqu'à la mort ; et c'est pourquoi, quand chacun de mes compagnons dit : « Enfin ! » je ne pus crier que : « Déjà ! »",
+      "mots_soulignes": [],
+      "lignes_ciblees": [
+        {
+          "start": 26,
+          "end": 28
+        }
+      ],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [],
+      "points": 4.0,
+      "competence": "interpretation",
+      "necessite_image": false
+    },
+    {
+      "numero": "4",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "Expliquez en quoi ce texte est poétique. Trois éléments de réponse sont attendus.",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [],
+      "points": 6.0,
+      "competence": "interpretation",
+      "necessite_image": false
+    },
+    {
+      "numero": "5",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "Quels liens pouvez-vous établir entre le texte de Charles Baudelaire et la photographie de Willy Ronis ? Deux éléments de réponse sont attendus.",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [],
+      "points": 6.0,
+      "competence": "texte_image",
+      "necessite_image": true
+    },
+    {
+      "numero": "6",
+      "partie": "grammaire",
+      "type": "standard",
+      "enonce": "Lignes 6 à 9 : à propos du discours des passagers.",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [
+        {
+          "start": 6,
+          "end": 9
+        }
+      ],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        {
+          "lettre": "a",
+          "enonce": "À quel discours les paroles des passagers sont-elles rapportées ?",
+          "points": 2.0,
+          "competence": "discours_rapporte"
+        },
+        {
+          "lettre": "b",
+          "enonce": "Indiquez deux éléments caractéristiques de ce discours rapporté.",
+          "points": 2.0,
+          "competence": "discours_rapporte"
+        }
+      ],
+      "points": 4.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "7",
+      "partie": "grammaire",
+      "type": "standard",
+      "enonce": "Ligne 17 : « Aussitôt chacun fut joyeux, chacun abdiqua sa mauvaise humeur »",
+      "citation": "Aussitôt chacun fut joyeux, chacun abdiqua sa mauvaise humeur",
+      "mots_soulignes": [
+        "fut",
+        "abdiqua"
+      ],
+      "lignes_ciblees": [
+        {
+          "start": 17,
+          "end": 17
+        }
+      ],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        {
+          "lettre": "a",
+          "enonce": "Indiquez le mode et le temps des verbes soulignés.",
+          "points": 3.0,
+          "competence": "conjugaison"
+        },
+        {
+          "lettre": "b",
+          "enonce": "Précisez la valeur de ce temps.",
+          "points": 2.0,
+          "competence": "conjugaison"
+        }
+      ],
+      "points": 5.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "8",
+      "partie": "grammaire",
+      "type": "standard",
+      "enonce": "Ligne 20 : « inconcevablement ». Expliquez la formation de ce mot en nommant chacun des éléments qui le constituent.",
+      "citation": "inconcevablement",
+      "mots_soulignes": [],
+      "lignes_ciblees": [
+        {
+          "start": 20,
+          "end": 20
+        }
+      ],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [],
+      "points": 3.0,
+      "competence": "lexique_etymologie",
+      "necessite_image": false
+    },
+    {
+      "numero": "9",
+      "partie": "grammaire",
+      "type": "standard",
+      "enonce": "Lignes 30 à 32 : « c'était une terre riche et magnifique, pleine de promesses, qui nous envoyait un mystérieux parfum de rose et de musc, et d'où les musiques de la vie nous arrivaient en un amoureux murmure. »",
+      "citation": "c'était une terre riche et magnifique, pleine de promesses, qui nous envoyait un mystérieux parfum de rose et de musc, et d'où les musiques de la vie nous arrivaient en un amoureux murmure.",
+      "mots_soulignes": [
+        "terre"
+      ],
+      "lignes_ciblees": [
+        {
+          "start": 30,
+          "end": 32
+        }
+      ],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        {
+          "lettre": "a",
+          "enonce": "Relevez deux expansions du nom « terre » de classe grammaticale différente.",
+          "points": 3.0,
+          "competence": "classes_grammaticales"
+        },
+        {
+          "lettre": "b",
+          "enonce": "Indiquez la classe grammaticale des deux expansions que vous avez relevées.",
+          "points": 3.0,
+          "competence": "classes_grammaticales"
+        }
+      ],
+      "points": 6.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "10",
+      "partie": "grammaire",
+      "type": "reecriture",
+      "enonce": "Lignes 26 à 28 : Remplacez « je » par « nous » et faites toutes les modifications nécessaires.",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [
+        {
+          "start": 26,
+          "end": 28
+        }
+      ],
+      "passage_a_reecrire": "je me sentais abattu jusqu'à la mort ; et c'est pourquoi, quand chacun de mes compagnons dit : « Enfin ! » je ne pus crier que : « Déjà ! »",
+      "contraintes": [
+        "Remplacer « je » par « nous »",
+        "Faire toutes les modifications nécessaires"
+      ],
+      "sous_questions": [],
+      "points": 6.0,
+      "competence": "reecriture",
+      "necessite_image": false
+    }
+  ],
+  "source_file": "2021_Antilles-Guyane_francais_questions-grammaire-comp.pdf"
+}

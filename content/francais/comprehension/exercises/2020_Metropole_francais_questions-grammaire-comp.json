@@ -1,0 +1,229 @@
+{
+  "id": "2020_metropole",
+  "source": {
+    "annee": 2020,
+    "session": "juin",
+    "centre": "Métropole",
+    "code_sujet": "20GENFRQGCME1"
+  },
+  "epreuve": {
+    "intitule": "Grammaire et compétences linguistiques – Compréhension et compétences d'interprétation",
+    "duree_minutes": 70,
+    "points_total": 50,
+    "points_comprehension": 32,
+    "points_grammaire": 18
+  },
+  "paratexte": "Extrait de la liste des personnages : MONSIEUR DE POURCEAUGNAC ; ORONTE ; JULIE, fille d'Oronte ; NÉRINE, femme d'intrigue ; ÉRASTE, amant de Julie ; SBRIGANI, Napolitain, homme d'intrigue. La scène est à Paris. ACTE I, SCÈNE PREMIÈRE — JULIE, ÉRASTE, NÉRINE.",
+  "texte_support": {
+    "auteur": "Molière",
+    "auteur_note": null,
+    "oeuvre": "Monsieur de Pourceaugnac",
+    "partie": "Acte I, scène 1",
+    "annee_publication": 1670,
+    "genre": "comédie-ballet",
+    "lignes": [
+      {"n": 1, "texte": "JULIE.– Mon Dieu, Éraste, gardons d'être surpris ; je tremble qu'on ne nous voie"},
+      {"n": 2, "texte": "ensemble ; et tout serait perdu, après la défense que l'on m'a faite."},
+      {"n": 3, "texte": "ÉRASTE.– Je regarde de tous côtés, et je n'aperçois rien."},
+      {"n": 4, "texte": "JULIE.– Aie aussi l'œil au guet, Nérine, et prends bien garde qu'il ne vienne personne."},
+      {"n": 5, "texte": "NÉRINE.– Reposez-vous sur moi, et dites hardiment ce que vous avez à vous dire."},
+      {"n": 6, "texte": "JULIE.– Avez-vous imaginé pour notre affaire quelque chose de favorable ? et croyez-"},
+      {"n": 7, "texte": "vous, Éraste, pouvoir venir à bout de détourner ce fâcheux mariage que mon père"},
+      {"n": 8, "texte": "s'est mis en tête ?"},
+      {"n": 9, "texte": "ÉRASTE.– Au moins y travaillons-nous fortement ; et déjà nous avons préparé un bon"},
+      {"n": 10, "texte": "nombre de batteries pour renverser ce dessein ridicule."},
+      {"n": 11, "texte": "NÉRINE.– Par ma foi, voilà votre père."},
+      {"n": 12, "texte": "JULIE.– Ah séparons-nous vite."},
+      {"n": 13, "texte": "NÉRINE.– Non, non, non, ne bougez, je m'étais trompée."},
+      {"n": 14, "texte": "JULIE.– Mon Dieu, Nérine, que tu es sotte, de nous donner de ces frayeurs !"},
+      {"n": 15, "texte": "ÉRASTE.– Oui, belle Julie, nous avons dressé pour cela quantité de machines, et"},
+      {"n": 16, "texte": "nous ne feignons point de mettre tout en usage, sur la permission que vous m'avez"},
+      {"n": 17, "texte": "donnée. Ne nous demandez point tous les ressorts que nous ferons jouer, vous en"},
+      {"n": 18, "texte": "aurez le divertissement ; et comme aux comédies, il est bon de vous laisser le plaisir"},
+      {"n": 19, "texte": "de la surprise, et de ne vous avertir point de tout ce qu'on vous fera voir ; c'est assez"},
+      {"n": 20, "texte": "de vous dire que nous avons en main divers stratagèmes tous prêts à produire dans"},
+      {"n": 21, "texte": "l'occasion, et que l'ingénieuse Nérine et l'adroit Sbrigani entreprennent l'affaire."},
+      {"n": 22, "texte": "NÉRINE.– Assurément. Votre père se moque-t-il de vouloir vous anger de son avocat"},
+      {"n": 23, "texte": "de Limoges, Monsieur de Pourceaugnac, qu'il n'a vu de sa vie, et qui vient par le"},
+      {"n": 24, "texte": "coche vous enlever à notre barbe ? Faut-il que trois ou quatre mille écus de plus, sur"},
+      {"n": 25, "texte": "la parole de votre oncle, lui fassent rejeter un amant qui vous agrée ? Et une personne"},
+      {"n": 26, "texte": "comme vous, est-elle faite pour un Limosin ? S'il a envie de se marier, que ne prend-"},
+      {"n": 27, "texte": "il une Limosine, et ne laisse-t-il en repos les chrétiens ? Le seul nom de Monsieur de"},
+      {"n": 28, "texte": "Pourceaugnac m'a mis dans une colère effroyable. J'enrage de Monsieur de"},
+      {"n": 29, "texte": "Pourceaugnac. Quand il n'y aurait que ce nom-là, Monsieur de Pourceaugnac, j'y"},
+      {"n": 30, "texte": "brûlerai mes livres, ou je romprai ce mariage, et vous ne serez point Madame de"},
+      {"n": 31, "texte": "Pourceaugnac. Pourceaugnac ! Cela se peut-il souffrir ? Non, Pourceaugnac est une"},
+      {"n": 32, "texte": "chose que je ne saurais supporter, et nous lui jouerons tant de pièces, nous lui ferons"},
+      {"n": 33, "texte": "tant de niches sur niches, que nous renverrons à Limoges Monsieur de Pourceaugnac."}
+    ]
+  },
+  "notes_texte": [
+    {"n": 1, "terme": "femme/homme d'intrigue", "definition": "personne qui imagine en secret des stratagèmes, des ruses afin d'en tirer profit, pour elle-même ou pour d'autres."},
+    {"n": 2, "terme": "amant de Julie", "definition": "qui est amoureux de Julie et aimé d'elle en retour."},
+    {"n": 3, "terme": "machines", "definition": "stratagèmes, ruses."},
+    {"n": 4, "terme": "nous ne feignons point de", "definition": "nous ne craignons point de, nous n'hésitons pas à..."},
+    {"n": 5, "terme": "vous anger de", "definition": "vous encombrer de."},
+    {"n": 6, "terme": "coche", "definition": "grande voiture tirée par des chevaux qui servait à transporter les voyageurs."},
+    {"n": 7, "terme": "sur la parole de votre oncle", "definition": "d'après ce que dit votre oncle."},
+    {"n": 8, "terme": "Limosin", "definition": "habitant de Limoges. Ville choisie par Molière pour signifier un lieu éloigné de Paris."},
+    {"n": 9, "terme": "chrétiens", "definition": "La France du XVIIe siècle est entièrement chrétienne. Pour Nérine, Limoges est si éloignée de Paris qu'elle fait semblant de croire que les Limousins ne sont pas des chrétiens, c'est-à-dire qu'ils ne sont pas comme tout le monde."},
+    {"n": 10, "terme": "Pourceaugnac", "definition": "Dans Pourceaugnac, on reconnaît le mot « pourceau » qui signifie cochon ou porc."},
+    {"n": 11, "terme": "j'y brûlerai mes livres ou je romprai ce mariage", "definition": "je ferai tout mon possible pour rompre ce mariage."},
+    {"n": 12, "terme": "tant de pièces", "definition": "tant de farces, tant de tours."}
+  ],
+  "image": {
+    "type": "affiche",
+    "auteur": "Opéra de Rennes",
+    "titre": "Affiche pour la comédie-ballet Monsieur de Pourceaugnac",
+    "annee": 2012,
+    "description_visuelle": "Affiche sur fond rose orné d'un motif floral baroque en camaïeu. Au centre, la silhouette noire d'un homme en costume d'époque (manteau, jabot) tenant une canne, mais dont la tête est celle d'un cochon/sanglier : oreilles dressées, groin rose bien visible au centre du visage. En bas, en grandes lettres blanches : « MOLIÈRE – LULLY – MONSIEUR DE POURCEAUGNAC – DU 30 MARS AU 1ER AVRIL ». En haut à gauche, le logo « Opéra de Rennes »."
+  },
+  "questions": [
+    {
+      "numero": "1",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "Lignes 1 à 14 :",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [{"start": 1, "end": 14}],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        {"lettre": "a", "enonce": "Qu'apprend-on au début de la scène sur la situation de Julie ? Quel est le sujet de sa discussion avec Éraste et Nérine ?", "points": 4.0, "competence": "reperage_explicite"},
+        {"lettre": "b", "enonce": "Comment le lecteur-spectateur comprend-il que cette entrevue doit rester secrète ? Appuyez-vous sur quatre éléments précis.", "points": 4.0, "competence": "selection_pertinente"}
+      ],
+      "points": 8.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "2",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "Lignes 9 à 21.",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [{"start": 9, "end": 21}],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        {"lettre": "a", "enonce": "À quoi Éraste travaille-t-il avec Nérine et Sbrigani ? Relevez deux expressions qui expliquent la nature de ce travail.", "points": 3.0, "competence": "selection_pertinente"},
+        {"lettre": "b", "enonce": "Lignes 15 à 21 : Expliquez la comparaison « comme aux comédies » (ligne 18). En vous appuyant sur deux expressions au moins utilisées dans la réplique d'Éraste, précisez le rôle de celui-ci dans cette « affaire » (ligne 6).", "points": 4.0, "competence": "interpretation"}
+      ],
+      "points": 7.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "3",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "Lignes 22 à 33 :",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [{"start": 22, "end": 33}],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        {"lettre": "a", "enonce": "Qu'apprend-on sur Monsieur de Pourceaugnac dans la réplique de Nérine ? Au moins quatre éléments de réponse sont attendus.", "points": 4.0, "competence": "reperage_explicite"},
+        {"lettre": "b", "enonce": "Quels sont les deux reproches principaux que fait Nérine à Monsieur de Pourceaugnac ?", "points": 2.0, "competence": "selection_pertinente"},
+        {"lettre": "c", "enonce": "Comment prennent-ils une dimension comique dans la bouche de Nérine ?", "points": 5.0, "competence": "interpretation"}
+      ],
+      "points": 11.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "4",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "Questions sur l'affiche.",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        {"lettre": "a", "enonce": "Décrivez ce que vous voyez sur cette affiche.", "points": 3.0, "competence": "texte_image"},
+        {"lettre": "b", "enonce": "Après avoir lu cette scène d'exposition, dites si cette affiche vous paraît un bon choix.", "points": 3.0, "competence": "texte_image"}
+      ],
+      "points": 6.0,
+      "competence": null,
+      "necessite_image": true
+    },
+    {
+      "numero": "5",
+      "partie": "grammaire",
+      "type": "standard",
+      "enonce": "« une chose que je ne saurais supporter » (lignes 31-32).",
+      "citation": "une chose que je ne saurais supporter",
+      "mots_soulignes": ["que je ne saurais supporter"],
+      "lignes_ciblees": [{"start": 31, "end": 32}],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        {"lettre": "a", "enonce": "Remplacez la proposition subordonnée relative soulignée par un adjectif de sens équivalent.", "points": 1.0, "competence": "propositions_subordonnees"},
+        {"lettre": "b", "enonce": "Analysez la composition de cet adjectif.", "points": 1.0, "competence": "lexique_etymologie"}
+      ],
+      "points": 2.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "6",
+      "partie": "grammaire",
+      "type": "standard",
+      "enonce": "« Au moins y travaillons-nous fortement » (ligne 9) :",
+      "citation": "Au moins y travaillons-nous fortement",
+      "mots_soulignes": [],
+      "lignes_ciblees": [{"start": 9, "end": 9}],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        {"lettre": "a", "enonce": "Réécrivez cette proposition en remplaçant le pronom « y » par le groupe auquel il renvoie.", "points": 1.0, "competence": "fonctions_grammaticales"},
+        {"lettre": "b", "enonce": "Donnez la fonction grammaticale de ce pronom.", "points": 1.0, "competence": "fonctions_grammaticales"}
+      ],
+      "points": 2.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "7",
+      "partie": "grammaire",
+      "type": "standard",
+      "enonce": "« Oui, belle Julie, nous avons dressé pour cela quantité de machines, et nous ne feignons point de mettre tout en usage, sur la permission que vous m'avez donnée. » (lignes 15 à 17)",
+      "citation": "Oui, belle Julie, nous avons dressé pour cela quantité de machines, et nous ne feignons point de mettre tout en usage, sur la permission que vous m'avez donnée.",
+      "mots_soulignes": [],
+      "lignes_ciblees": [{"start": 15, "end": 17}],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        {"lettre": "a", "enonce": "Recopiez la phrase suivante et soulignez tous les verbes conjugués.", "points": 3.0, "competence": "classes_grammaticales"},
+        {"lettre": "b", "enonce": "En fonction du nombre de verbes, que peut-on dire sur cette phrase ?", "points": 1.0, "competence": "propositions_subordonnees"}
+      ],
+      "points": 4.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "8",
+      "partie": "grammaire",
+      "type": "reecriture",
+      "enonce": "Réécrivez au discours indirect le passage suivant en commençant par « Julie demanda à Éraste… » :\n« Avez-vous imaginé pour notre affaire quelque chose de favorable ? et croyez-vous, Éraste, pouvoir venir à bout de détourner ce fâcheux mariage que mon père s'est mis en tête ? » (lignes 6 à 8)",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [{"start": 6, "end": 8}],
+      "passage_a_reecrire": "Avez-vous imaginé pour notre affaire quelque chose de favorable ? et croyez-vous, Éraste, pouvoir venir à bout de détourner ce fâcheux mariage que mon père s'est mis en tête ?",
+      "contraintes": [
+        "Passer au discours indirect",
+        "Commencer par « Julie demanda à Éraste… »"
+      ],
+      "sous_questions": [],
+      "points": 10.0,
+      "competence": "discours_rapporte",
+      "necessite_image": false
+    }
+  ],
+  "source_file": "2020_Metropole_francais_questions-grammaire-comp.pdf"
+}

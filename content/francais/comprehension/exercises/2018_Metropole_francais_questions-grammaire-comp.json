@@ -1,0 +1,450 @@
+{
+  "id": "2018_metropole",
+  "source": {
+    "annee": 2018,
+    "session": "juin",
+    "centre": "Métropole",
+    "code_sujet": "18GENFRQGCME1"
+  },
+  "epreuve": {
+    "intitule": "Grammaire et compétences linguistiques – Compréhension et compétences d'interprétation",
+    "duree_minutes": 70,
+    "points_total": 50,
+    "points_comprehension": 32,
+    "points_grammaire": 18
+  },
+  "paratexte": "La scène se déroule, après la seconde guerre mondiale, dans la ville de Blémont qui a subi d'importantes destructions.",
+  "texte_support": {
+    "auteur": "Marcel Aymé",
+    "auteur_note": null,
+    "oeuvre": "Uranus",
+    "partie": null,
+    "annee_publication": 1948,
+    "genre": "roman",
+    "lignes": [
+      {
+        "n": 1,
+        "texte": "Léopold s'assura que la troisième était au complet. Ils étaient douze élèves, quatre"
+      },
+      {
+        "n": 2,
+        "texte": "filles et huit garçons qui tournaient le dos au comptoir. Tandis que le professeur gagnait sa"
+      },
+      {
+        "n": 3,
+        "texte": "place au fond de la salle, le patron alla retirer le bec de cane à la porte d'entrée afin de"
+      },
+      {
+        "n": 4,
+        "texte": "s'assurer contre toute intrusion. Revenu à son zinc, il but encore un coup de vin blanc et"
+      },
+      {
+        "n": 5,
+        "texte": "s'assit sur un tabouret. En face de lui le professeur Didier s'était installé à sa table sous une"
+      },
+      {
+        "n": 6,
+        "texte": "réclame d'apéritif accrochée au mur. Il ouvrit un cahier, jeta un coup d'œil sur la classe de"
+      },
+      {
+        "n": 7,
+        "texte": "troisième et dit :"
+      },
+      {
+        "n": 8,
+        "texte": "– Hautemain, récitez."
+      },
+      {
+        "n": 9,
+        "texte": "Léopold se pencha sur son siège pour voir l'élève Hautemain que lui dissimulait la poutre"
+      },
+      {
+        "n": 10,
+        "texte": "étayant le plafond. La voix un peu hésitante, Hautemain commença :"
+      },
+      {
+        "n": 11,
+        "texte": "Seigneur, que faites-vous, et que dira la Grèce ?"
+      },
+      {
+        "n": 12,
+        "texte": "Faut-il qu'un si grand cœur montre tant de faiblesse ?"
+      },
+      {
+        "n": 13,
+        "texte": "– Asseyez-vous, dit le professeur lorsque Hautemain eut fini. Quinze."
+      },
+      {
+        "n": 14,
+        "texte": "Il notait avec indulgence. Estimant que la plupart de ces enfants vivaient et travaillaient dans"
+      },
+      {
+        "n": 15,
+        "texte": "des conditions pénibles, il voulait les encourager et souhaitait que l'école, autant que"
+      },
+      {
+        "n": 16,
+        "texte": "possible, leur offrît les sourires que leur refusait trop souvent une existence troublée."
+      },
+      {
+        "n": 17,
+        "texte": "À son zinc, Léopold suivait la récitation des écoliers en remuant les lèvres et avalait"
+      },
+      {
+        "n": 18,
+        "texte": "anxieusement sa salive lorsqu'il sentait hésiter ou trébucher la mémoire du récitant. Son"
+      },
+      {
+        "n": 19,
+        "texte": "grand regret, qu'il n'oserait jamais confier à M. Didier, était de ne participer à ces exercices"
+      },
+      {
+        "n": 20,
+        "texte": "qu'en simple témoin. Léopold eût aimé réciter, lui aussi :"
+      },
+      {
+        "n": 21,
+        "texte": "Captive, toujours triste, importune à moi-même,"
+      },
+      {
+        "n": 22,
+        "texte": "Pouvez-vous souhaiter qu'Andromaque vous aime ?"
+      },
+      {
+        "n": 23,
+        "texte": "Malgré la timidité et le respect que lui inspirait Andromaque, il lui semblait qu'il eût trouvé les"
+      },
+      {
+        "n": 24,
+        "texte": "accents propres à émouvoir le jeune guerrier. Il se plaisait à imaginer sa voix, tout"
+      },
+      {
+        "n": 25,
+        "texte": "amenuisée par la mélancolie et s'échappant du zinc comme une vapeur de deuil et de"
+      },
+      {
+        "n": 26,
+        "texte": "tendresse."
+      },
+      {
+        "n": 27,
+        "texte": "– Les cahiers de préparation, dit le professeur Didier."
+      },
+      {
+        "n": 28,
+        "texte": "Les élèves ayant étalé leurs cahiers, il alla de table en table s'assurer qu'ils avaient exécuté"
+      },
+      {
+        "n": 29,
+        "texte": "le travail portant sur un autre passage d'Andromaque. Pendant qu'il regagnait sa place,"
+      },
+      {
+        "n": 30,
+        "texte": "Léopold se versa un verre de blanc."
+      },
+      {
+        "n": 31,
+        "texte": "– Mademoiselle Odette Lepreux, lisez le texte. [...]"
+      },
+      {
+        "n": 32,
+        "texte": "Odette se mit à lire d'une voix claire, encore enfantine, où tremblaient des perles d'eau"
+      },
+      {
+        "n": 33,
+        "texte": "fraîche :"
+      },
+      {
+        "n": 34,
+        "texte": "Où fuyez-vous, Madame ?"
+      },
+      {
+        "n": 35,
+        "texte": "N'est-ce point à vos yeux un spectacle assez doux"
+      },
+      {
+        "n": 36,
+        "texte": "Que la veuve d'Hector pleurante à vos genoux ?"
+      },
+      {
+        "n": 37,
+        "texte": "Sur ces paroles d'Andromaque, la patronne, venant de sa cuisine, pénétra discrètement"
+      },
+      {
+        "n": 38,
+        "texte": "dans l'enceinte du zinc. Comme elle s'approchait du cafetier, elle eut la stupéfaction de voir"
+      },
+      {
+        "n": 39,
+        "texte": "les larmes ruisseler sur ses joues cramoisies et interrogea :"
+      },
+      {
+        "n": 40,
+        "texte": "– Qu'est-ce que t'as ?"
+      },
+      {
+        "n": 41,
+        "texte": "– Laisse-moi, murmura Léopold. Tu peux pas comprendre. [...]"
+      },
+      {
+        "n": 42,
+        "texte": "Odette Lepreux poursuivait sa lecture :"
+      },
+      {
+        "n": 43,
+        "texte": "Par une main cruelle hélas ! J'ai vu percer"
+      },
+      {
+        "n": 44,
+        "texte": "Le seul où mes regards prétendaient s'adresser."
+      },
+      {
+        "n": 45,
+        "texte": "La patronne considérait cet homme étrange, son mari, auquel ses reproches et ses prières"
+      },
+      {
+        "n": 46,
+        "texte": "n'avaient jamais réussi, en trente ans de vie commune, à tirer seulement une larme. Ne"
+      },
+      {
+        "n": 47,
+        "texte": "revenant pas de son étonnement, elle oublia une minute ce qu'elle était venue lui dire."
+      }
+    ]
+  },
+  "notes_texte": [
+    {
+      "n": 1,
+      "terme": "bec de cane",
+      "definition": "élément de serrurerie qui permet de fermer une porte de l'intérieur sans utiliser de clé."
+    },
+    {
+      "n": 2,
+      "terme": "zinc",
+      "definition": "comptoir de bar."
+    },
+    {
+      "n": 3,
+      "terme": "Le texte en italique",
+      "definition": "renvoie à des extraits de la tragédie Andromaque de Jean Racine (1667). Après la prise de Troie, Andromaque, veuve d'Hector, devient la prisonnière de Pyrrhus, qui tombe amoureux d'elle. Dans ces deux passages, Andromaque s'adresse à Pyrrhus pour le convaincre de renoncer à cet amour."
+    },
+    {
+      "n": 4,
+      "terme": "Dans ces extraits",
+      "definition": "Andromaque s'adresse à Hermione qui devait épouser Pyrrhus. Hermione considère donc Andromaque comme une rivale. Andromaque lui déclare qu'elle n'aime que son mari, Hector, mort transpercé par une épée."
+    }
+  ],
+  "image": {
+    "type": "photogramme",
+    "auteur": "Claude Berri",
+    "titre": "Uranus",
+    "annee": 1990,
+    "description_visuelle": "Le photogramme montre deux personnages dans ce qui semble être l'intérieur d'un café ou d'un bar. À gauche, une femme aux cheveux bruns, vêtue d'un haut sombre, se tient debout derrière le comptoir avec une expression interrogative ou surprise. À droite, un homme moustachu, portant une chemise claire et des bretelles, se tient également derrière le comptoir, le visage tourné légèrement, les yeux levés, avec une expression émue ou exaltée. En arrière-plan, on distingue des étagères avec des bouteilles."
+  },
+  "questions": [
+    {
+      "numero": "1",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "Où se déroule la scène ? Qui est Léopold ? Pourquoi la situation présentée peut-elle surprendre ? Justifiez votre réponse.",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [],
+      "points": 4.0,
+      "competence": "reperage_explicite",
+      "necessite_image": false
+    },
+    {
+      "numero": "2",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "Lignes 9 à 20 : Comment se manifeste l'intérêt de Léopold pour le cours du professeur Didier ? Développez votre réponse en vous appuyant sur trois éléments significatifs.",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [
+        {
+          "start": 9,
+          "end": 20
+        }
+      ],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [],
+      "points": 6.0,
+      "competence": "selection_pertinente",
+      "necessite_image": false
+    },
+    {
+      "numero": "3",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "Lignes 20 à 26 : Quels liens Léopold établit-il avec le personnage tragique d'Andromaque ? Comment l'expliquez-vous ? Développez votre réponse.",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [
+        {
+          "start": 20,
+          "end": 26
+        }
+      ],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [],
+      "points": 6.0,
+      "competence": "interpretation",
+      "necessite_image": false
+    },
+    {
+      "numero": "4",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "Lignes 32 à 39 : Que ressent Léopold quand Odette lit l'extrait d'Andromaque ? Justifiez votre réponse en vous appuyant sur une image que vous analyserez.",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [
+        {
+          "start": 32,
+          "end": 39
+        }
+      ],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [],
+      "points": 6.0,
+      "competence": "interpretation",
+      "necessite_image": false
+    },
+    {
+      "numero": "5",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "Par quelles oppositions la scène du film reproduite ci-dessus cherche-t-elle à faire rire le spectateur ? Qu'est-ce qui peut relever également du comique dans la fin du texte (lignes 37 à 47) ?",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [
+        {
+          "start": 37,
+          "end": 47
+        }
+      ],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        {
+          "lettre": "a",
+          "enonce": "Par quelles oppositions la scène du film reproduite ci-dessus cherche-t-elle à faire rire le spectateur ? Donnez trois éléments de réponse.",
+          "points": 6.0,
+          "competence": "texte_image"
+        },
+        {
+          "lettre": "b",
+          "enonce": "Qu'est-ce qui peut relever également du comique dans la fin du texte (lignes 37 à 47) ?",
+          "points": 4.0,
+          "competence": "interpretation"
+        }
+      ],
+      "points": 10.0,
+      "competence": null,
+      "necessite_image": true
+    },
+    {
+      "numero": "6",
+      "partie": "grammaire",
+      "type": "standard",
+      "enonce": "L'une des phrases suivantes contient une proposition subordonnée relative et l'autre une proposition subordonnée complétive :\n« Léopold s'assura que la troisième était au complet. » (ligne 1)\n« Léopold se pencha sur son siège pour voir l'élève Hautemain que lui dissimulait la poutre étayant le plafond. » (lignes 9-10)",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [
+        {
+          "start": 1,
+          "end": 1
+        },
+        {
+          "start": 9,
+          "end": 10
+        }
+      ],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        {
+          "lettre": "a",
+          "enonce": "Trouvez dans quelle phrase se trouve la proposition subordonnée relative. Recopiez-la sur votre copie.",
+          "points": 1.0,
+          "competence": "propositions_subordonnees"
+        },
+        {
+          "lettre": "b",
+          "enonce": "Trouvez dans quelle phrase se trouve la proposition subordonnée complétive. Recopiez-la sur votre copie.",
+          "points": 1.0,
+          "competence": "propositions_subordonnees"
+        },
+        {
+          "lettre": "c",
+          "enonce": "Expliquez comment vous avez pu différencier chacune de ces deux propositions.",
+          "points": 3.0,
+          "competence": "propositions_subordonnees"
+        }
+      ],
+      "points": 5.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "7",
+      "partie": "grammaire",
+      "type": "reecriture",
+      "enonce": "Voici deux phrases au discours direct dont le verbe introducteur est au présent :\nAndromaque demande à Pyrrhus : « Seigneur, que faites-vous, et que dira la Grèce ? »\nAndromaque déclare à Hermione : « J'ai vu percer le seul où mes regards prétendaient s'adresser. »\nSur votre copie, réécrivez ces deux phrases au discours indirect en mettant le verbe introducteur au passé simple. Vous ferez toutes les modifications nécessaires.",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [],
+      "passage_a_reecrire": "Andromaque demande à Pyrrhus : « Seigneur, que faites-vous, et que dira la Grèce ? »\nAndromaque déclare à Hermione : « J'ai vu percer le seul où mes regards prétendaient s'adresser. »",
+      "contraintes": [
+        "Réécrire au discours indirect",
+        "Mettre le verbe introducteur au passé simple",
+        "Faire toutes les modifications nécessaires"
+      ],
+      "sous_questions": [],
+      "points": 10.0,
+      "competence": "discours_rapporte",
+      "necessite_image": false
+    },
+    {
+      "numero": "8",
+      "partie": "grammaire",
+      "type": "standard",
+      "enonce": "« La patronne considérait cet homme étrange, son mari, auquel ses reproches et ses prières n'avaient jamais réussi, en trente ans de vie commune, à tirer seulement une larme. » (lignes 45-46)",
+      "citation": "« La patronne considérait cet homme étrange, son mari, auquel ses reproches et ses prières n'avaient jamais réussi, en trente ans de vie commune, à tirer seulement une larme. »",
+      "mots_soulignes": [],
+      "lignes_ciblees": [
+        {
+          "start": 45,
+          "end": 46
+        }
+      ],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        {
+          "lettre": "a",
+          "enonce": "Donnez un synonyme de l'adjectif « étrange ».",
+          "points": 1.0,
+          "competence": "lexique_etymologie"
+        },
+        {
+          "lettre": "b",
+          "enonce": "L'adjectif « étrange » vient du latin « extraneus » qui signifiait « qui n'est pas de la famille, étranger ». Comment ce sens premier peut-il enrichir le sens de cet adjectif dans le texte ?",
+          "points": 2.0,
+          "competence": "lexique_etymologie"
+        }
+      ],
+      "points": 3.0,
+      "competence": null,
+      "necessite_image": false
+    }
+  ],
+  "source_file": "2018_Metropole_francais_questions-grammaire-comp.pdf"
+}

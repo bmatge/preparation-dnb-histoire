@@ -1,0 +1,189 @@
+{
+  "id": "2020_nouvelle-caledonie",
+  "source": {
+    "annee": 2020,
+    "session": "décembre",
+    "centre": "Nouvelle-Calédonie",
+    "code_sujet": "20GENFRQGCNC1"
+  },
+  "epreuve": {
+    "intitule": "Grammaire et compétences linguistiques – Compréhension et compétences d'interprétation",
+    "duree_minutes": 70,
+    "points_total": 50,
+    "points_comprehension": 32,
+    "points_grammaire": 18
+  },
+  "paratexte": "Le narrateur-auteur-personnage, qui se désigne par le surnom « le négrillon », relate avec humour sa première année d'école en Martinique dans les années 1960 et évoque son camarade de classe, Gros-Lombric.",
+  "texte_support": {
+    "auteur": "Patrick Chamoiseau",
+    "auteur_note": null,
+    "oeuvre": "Une Enfance créole II, Chemin-d'école",
+    "partie": null,
+    "annee_publication": 1994,
+    "genre": "récit autobiographique",
+    "lignes": [
+      {"n": 1, "texte": "Gros-Lombric, lui, n'était pas un songeur. Il avait besoin de ses mains, il triturait la table, se grattait les"},
+      {"n": 2, "texte": "pieds, puis le nez, se tordait sur une fesse, puis sur l'autre, comme si son corps contraint exigeait un"},
+      {"n": 3, "texte": "toucher fourmillant pour entrer dans le monde. Il adorait manipuler craie, ardoise, porte-plume, ouvrir-fermer"},
+      {"n": 4, "texte": "un cahier. C'est un petit-bougre d'un noir-bleuté, aux cheveux rougis-roussis-grainés par le soleil, aux yeux"},
+      {"n": 5, "texte": "aigus, au corps déjà raide et musclé. L'ayant catalogué, dès le premier jour, comme l'inapte irrémédiable de"},
+      {"n": 6, "texte": "la classe, le Maître avait tendance à se rabattre sur lui pour illustrer les méfaits de l'ignorance. Il lui posait à"},
+      {"n": 7, "texte": "loisir les pires colles, les questions les mieux impossibles, et ne retenait jamais son doigt quand d'aventure"},
+      {"n": 8, "texte": "une réponse le visitait. […]"},
+      {"n": 9, "texte": "De fait, Gros-Lombric surprit son monde quand le Maître se lança dans des affaires de calcul et de chiffres."},
+      {"n": 10, "texte": "D'abord, il fut le premier à pouvoir compter jusqu'à dix même s'il lui fut de tout temps difficile d'en écrire les"},
+      {"n": 11, "texte": "chiffres sur son ardoise. Mais là où il fut tranchant, c'est dans le calcul mental…"},
+      {"n": 12, "texte": "Le Maître avait ramené quelques pommes en plastique avec lesquelles il entreprit de nous dévoiler la joie"},
+      {"n": 13, "texte": "des chiffres. De un à dix, puis de dix en dix, puis de cinq en cinq, de deux en deux, de un à cent…etc."},
+      {"n": 14, "texte": "Additionner, soustraire, diviser…quand ces notions nous furent après moult douleurs un peu moins"},
+      {"n": 15, "texte": "étrangères, les fulgurances de Gros-Lombric surgirent, d'abord en vaguelettes, puis en houle souveraine."},
+      {"n": 16, "texte": "Les manipulations de pommes achetées vendues données partagées, de poires perdues une à une puis"},
+      {"n": 17, "texte": "récupérées par trois, de trains qui perdent des voyageurs de gare en gare, ne lui posaient que peu de"},
+      {"n": 18, "texte": "soucis. Les mains de Gros-Lombric circulaient sur le pupitre, se nattaient les genoux, se trituraient le"},
+      {"n": 19, "texte": "ventre, sa peau frissonnait comme une antenne de sauterelle, ses yeux brillaient d'une fougue stellaire, et,"},
+      {"n": 20, "texte": "au bout de cet arcane charnel, il trouvait flap la solution alors que le négrillon se demandait encore ce que"},
+      {"n": 21, "texte": "pouvait être un train de voyageurs et à quoi ressemblait une poire. Quand le Maître lança des opérations"},
+      {"n": 22, "texte": "sans le support du tableau, le phénomène Gros-Lombric fut encore plus spectaculaire. J'ajoute celle-là à"},
+      {"n": 23, "texte": "celle-là, cela me fait combien, vite, vite ? Puis je retranche celle-là, allons allons vite, qui peut répondre ?"},
+      {"n": 24, "texte": "Puis, j'ai tout ça, j'en donne la moitié, que me reste-t-il ?"},
+      {"n": 25, "texte": "- Trois, mêssié…"},
+      {"n": 26, "texte": "Le Maître crut d'abord qu'il s'agissait d'un hasard heureux, de ceux qui transforment les chenilles"},
+      {"n": 27, "texte": "chafouines en papillons. Voulant renvoyer Gros-Lombric à sa place de failli, il compliqua l'affaire :"},
+      {"n": 28, "texte": "- Bien. J'ai dix fraises, j'en ajoute quatre et j'en donne sept à la chèvre de monsieur Seguin, et sur le"},
+      {"n": 29, "texte": "chemin aux abords du moulin de maître Cornille j'en perds deux, que diable reste-t-il ?"},
+      {"n": 30, "texte": "Et Gros-Lombric, flap :"},
+      {"n": 31, "texte": "- Cinq !"},
+      {"n": 32, "texte": "Sautée bleue."},
+      {"n": 33, "texte": "Le Maître demeura estébécoué. Gros-Lombric effaré de sa propre audace reprit son air charbonneux, et,"},
+      {"n": 34, "texte": "comprimant la totalité de son corps, disparut à moitié dans son casier."},
+      {"n": 35, "texte": "Même les préférés-à-belles-paroles du Maître se voyaient doublés par la mécanique qui se trouvait dans la"},
+      {"n": 36, "texte": "tête de Gros-Lombric. Le Maître le regardait d'un air soupçonneux car cette excellence ne collait pas avec"},
+      {"n": 37, "texte": "le reste, avec son allure-la-campagne, sa peau noire-noire-noire, ses cheveux grainés, son nez plat, son"},
+      {"n": 38, "texte": "accent créole, son ignorance totale du vocabulaire français, ses retards permanents, ses sueurs, rien rien"},
+      {"n": 39, "texte": "ne collait. Il prit le parti de ne pas le solliciter, et, sous prétexte de laisser parler un peu les autres (Pas"},
+      {"n": 40, "texte": "toujours les mêmes tout de même… !), lui imposait un silence que Gros-Lombric compensait en se livrant"},
+      {"n": 41, "texte": "éperdu à son corps-à-corps silencieux."}
+    ]
+  },
+  "notes_texte": [
+    {"n": 1, "terme": "Les fulgurances", "definition": "caractère de ce qui ressemble à l'éclair par son éclat et sa brillance."},
+    {"n": 2, "terme": "Arcane", "definition": "opération secrète, secret de fabrication, chose mystérieuse."},
+    {"n": 3, "terme": "Chafouine", "definition": "qui est maigre, de petite taille, avec une mine basse et sournoise."},
+    {"n": 4, "terme": "Estébécoué", "definition": "terme créole signifiant ahuri, étonné, abasourdi."}
+  ],
+  "image": {
+    "type": "photogramme",
+    "auteur": "François Truffaut",
+    "titre": "Les Quatre Cents Coups",
+    "annee": 1959,
+    "description_visuelle": "Photogramme en noir et blanc tiré d'un film de François Truffaut. Au premier plan, dans une salle de classe, un jeune garçon brun portant un pull à col roulé sombre se tient debout, près d'un tableau noir, la tête légèrement penchée, le regard résigné ou boudeur. À côté de lui, un instituteur adulte en longue blouse grise appuie fermement sa main sur la tête de l'élève, comme pour le punir ou le présenter aux autres. L'ambiance est austère. Au fond, on devine la salle de classe."
+  },
+  "questions": [
+    {
+      "numero": "1",
+      "partie": "grammaire",
+      "type": "standard",
+      "enonce": "« Le Maître avait ramené quelques pommes en plastique avec lesquelles il entreprit de nous dévoiler la joie des chiffres » (lignes 12-13).",
+      "citation": "Le Maître avait ramené quelques pommes en plastique avec lesquelles il entreprit de nous dévoiler la joie des chiffres",
+      "mots_soulignes": ["lesquelles", "il", "nous"],
+      "lignes_ciblees": [{"start": 12, "end": 13}],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        {"lettre": "a", "enonce": "Identifiez la classe grammaticale de chacun des mots soulignés et indiquez à qui ou à quoi ils renvoient.", "points": 3.0, "competence": "classes_grammaticales"},
+        {"lettre": "b", "enonce": "Relevez les deux verbes conjugués. À quels temps sont-ils ?", "points": 2.0, "competence": "conjugaison"},
+        {"lettre": "c", "enonce": "Décomposez le mot « dévoiler » puis expliquez son sens.", "points": 3.0, "competence": "lexique_etymologie"}
+      ],
+      "points": 8.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "2",
+      "partie": "grammaire",
+      "type": "reecriture",
+      "enonce": "Réécrivez le passage suivant en remplaçant Gros-Lombric par « les élèves » :\n« Gros-Lombric, lui, n'était pas un songeur. Il avait besoin de ses mains, il triturait la table, se grattait les pieds, puis le nez. » (lignes 1-2).",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [{"start": 1, "end": 2}],
+      "passage_a_reecrire": "Gros-Lombric, lui, n'était pas un songeur. Il avait besoin de ses mains, il triturait la table, se grattait les pieds, puis le nez.",
+      "contraintes": ["Remplacer « Gros-Lombric » par « les élèves »"],
+      "sous_questions": [],
+      "points": 10.0,
+      "competence": "reecriture",
+      "necessite_image": false
+    },
+    {
+      "numero": "1",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "Qui est Gros-Lombric ?",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        {"lettre": "a", "enonce": "Qui est Gros-Lombric ? Dressez un rapide portrait physique du personnage en vous appuyant sur l'ensemble du texte.", "points": 4.0, "competence": "selection_pertinente"},
+        {"lettre": "b", "enonce": "Quelle opinion le Maître a-t-il de lui ? Justifiez votre réponse.", "points": 2.0, "competence": "comprehension_implicite"},
+        {"lettre": "c", "enonce": "« Gros-Lombric surprit son monde » (ligne 9) ? Expliquez pourquoi et justifiez.", "points": 3.0, "competence": "interpretation"}
+      ],
+      "points": 9.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "2",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "Dans le troisième paragraphe (lignes 12 à 34).",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [{"start": 12, "end": 34}],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        {"lettre": "a", "enonce": "Relevez quatre termes appartenant au champ lexical des mathématiques.", "points": 2.0, "competence": "champ_lexical"},
+        {"lettre": "b", "enonce": "Relevez un indice de la présence du narrateur. Quelle opinion porte-t-il sur le cours de mathématiques ? Justifiez par un élément du texte.", "points": 4.0, "competence": "interpretation"},
+        {"lettre": "c", "enonce": "Par quels procédés d'écriture (lexique, figure de style, rythme…) l'auteur manifeste-t-il le génie mathématique de Gros-Lombric ? Nommez-les et commentez-les.", "points": 4.0, "competence": "interpretation"}
+      ],
+      "points": 10.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "3",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "Que pensez-vous de la réaction du Maître face à Gros-Lombric ? Vous développerez votre réponse dans un paragraphe argumenté et structuré. Vous veillerez à vous appuyer sur le texte.",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [],
+      "points": 6.0,
+      "competence": "interpretation",
+      "necessite_image": false
+    },
+    {
+      "numero": "4",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "Questions sur le photogramme.",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        {"lettre": "a", "enonce": "Décrivez le photogramme du film de Truffaut, Les Quatre Cents Coups.", "points": 3.0, "competence": "texte_image"},
+        {"lettre": "b", "enonce": "Ce photogramme suscite-t-il chez vous les mêmes émotions que le texte de Chamoiseau ? Justifiez votre réponse.", "points": 4.0, "competence": "texte_image"}
+      ],
+      "points": 7.0,
+      "competence": null,
+      "necessite_image": true
+    }
+  ],
+  "source_file": "2020_Nouvelle-Caledonie_francais_questions-grammaire-comp.pdf"
+}

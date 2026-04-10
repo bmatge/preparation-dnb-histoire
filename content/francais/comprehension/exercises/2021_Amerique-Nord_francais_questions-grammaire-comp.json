@@ -1,0 +1,242 @@
+{
+  "id": "2021_amerique-nord",
+  "source": {
+    "annee": 2021,
+    "session": "juin",
+    "centre": "Amérique du Nord",
+    "code_sujet": "21GENFRQGCAN1"
+  },
+  "epreuve": {
+    "intitule": "Grammaire et compétences linguistiques – Compréhension et compétences d'interprétation",
+    "duree_minutes": 70,
+    "points_total": 50,
+    "points_comprehension": 32,
+    "points_grammaire": 18
+  },
+  "paratexte": "En décembre 1940, un homme est mêlé involontairement à une bousculade au cours de laquelle un soldat allemand est frappé. Arrêté, refusant de dénoncer ses camarades, il est le premier fusillé à Paris pendant l'Occupation allemande. Le poète Aragon évoque cet homme, sans savoir de qui il s'agit précisément, et les personnes qui lui ont rendu hommage.",
+  "texte_support": {
+    "auteur": "Louis Aragon",
+    "auteur_note": null,
+    "oeuvre": "En étrange pays dans mon pays lui-même",
+    "partie": "« X... Français »",
+    "annee_publication": 1943,
+    "genre": "poésie",
+    "lignes": [
+      { "n": 1, "texte": "Un nom comme le sang banal d'une coupure" },
+      { "n": 2, "texte": "Un nom trop simple pour qu'on s'en soit souvenu" },
+      { "n": 3, "texte": "Un nom dit sans penser comme un verre d'eau pure" },
+      { "n": 4, "texte": "Un nom tout fait qu'on peut donner aux inconnus" },
+      { "n": 5, "texte": "Un nom comme le cœur qui bat l'heure qui sonne" },
+      { "n": 6, "texte": "La mémoire du temps qu'un ricochet rida" },
+      { "n": 7, "texte": "Un nom qui ne ferait se retourner personne" },
+      { "n": 8, "texte": "Un nom comme au poignet le portent les soldats" },
+      { "n": 9, "texte": "Un nom comme on en lit dans le vent des enseignes" },
+      { "n": 10, "texte": "Sur les actes civils la pierre des tombeaux" },
+      { "n": 11, "texte": "Un nom qui fait échoppe et dont le prénom saigne" },
+      { "n": 12, "texte": "Comme les pieds meurtris d'un enfant en sabots" },
+      { "n": 13, "texte": "Car il fut un enfant comme nous tous hier" },
+      { "n": 14, "texte": "Celui qui regarda dans l'aube ses bourreaux" },
+      { "n": 15, "texte": "Et les femmes aussi ce nom balbutièrent" },
+      { "n": 16, "texte": "Sans savoir que ce serait celui d'un héros" },
+      { "n": 17, "texte": "Ce nom banal ce nom comme une terre en friche" },
+      { "n": 18, "texte": "Est aujourd'hui sacré pour les gens de chez nous" },
+      { "n": 19, "texte": "Sur l'asphalte on a mis des fleurs sous les affiches" },
+      { "n": 20, "texte": "Et les dames en noir y priaient à genoux" },
+      { "n": 21, "texte": "Un beau nom sans couleur comme on en fait en France" },
+      { "n": 22, "texte": "Pour traverser la foule et mourir sans ennui" },
+      { "n": 23, "texte": "Un nom silencieux comme l'indifférence" },
+      { "n": 24, "texte": "Un nom comme les feux d'un village la nuit" }
+    ]
+  },
+  "notes_texte": [
+    { "n": 1, "terme": "Échoppe", "definition": "que l'on pourrait trouver sur l'enseigne d'un magasin." },
+    { "n": 2, "terme": "En friche", "definition": "non cultivée." },
+    { "n": 3, "terme": "Asphalte", "definition": "revêtement d'une route." }
+  ],
+  "image": {
+    "type": "photographie",
+    "auteur": null,
+    "titre": "Le Visage inconnu",
+    "annee": 2018,
+    "description_visuelle": "Portrait sépia, légèrement flou, d'un visage d'homme élaboré par la superposition de dizaines de milliers de photographies d'hommes et de femmes ayant participé à la Première Guerre mondiale. L'homme porte une moustache et une coiffe militaire (képi). Les contours des traits sont diffus, comme fondus les uns dans les autres, ce qui donne au visage un aspect indéterminé et universel. En bas à droite figure la mention « LE VISAGE INCONNU ». Image produite par l'Historial de la Grande Guerre à l'occasion du centenaire de l'armistice."
+  },
+  "questions": [
+    {
+      "numero": "1",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "Quel procédé structure la première strophe de ce poème ? Que veut montrer l'auteur par l'utilisation de ce procédé ?",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [{ "start": 1, "end": 4 }],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        { "lettre": "a", "enonce": "Quel procédé structure la première strophe de ce poème ?", "points": 1.5, "competence": "structure_narrative" },
+        { "lettre": "b", "enonce": "Que veut montrer l'auteur par l'utilisation de ce procédé ?", "points": 2.0, "competence": "interpretation" }
+      ],
+      "points": 3.5,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "2",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "Le mot « banal » est répété aux vers 1 et 17.",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [{ "start": 1, "end": 17 }],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        { "lettre": "a", "enonce": "Relevez deux éléments qui soulignent la banalité du nom évoqué dans les trois premières strophes.", "points": 2.0, "competence": "selection_pertinente" },
+        { "lettre": "b", "enonce": "Pourquoi Aragon insiste-t-il sur cette banalité ?", "points": 2.0, "competence": "interpretation" }
+      ],
+      "points": 4.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "3",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "À propos du pronom « il » au vers 13 et de la quatrième strophe.",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [{ "start": 13, "end": 16 }],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        { "lettre": "a", "enonce": "Qui est désigné par le pronom « il » au vers 13 ?", "points": 2.0, "competence": "reperage_explicite" },
+        { "lettre": "b", "enonce": "Relevez dans la quatrième strophe les trois groupes de mots qui désignent le personnage évoqué.", "points": 1.5, "competence": "selection_pertinente" },
+        { "lettre": "c", "enonce": "Quelles étapes de la vie du personnage sont ainsi retracées ?", "points": 3.0, "competence": "interpretation" }
+      ],
+      "points": 6.5,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "4",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "« Ce nom banal […] est aujourd'hui sacré pour les gens de chez nous » (vers 17-18).\nPour quelles raisons l'adjectif sacré est-il employé ici ? Vous justifierez votre réponse en vous appuyant sur deux passages précis du texte.",
+      "citation": "Ce nom banal […] est aujourd'hui sacré pour les gens de chez nous",
+      "mots_soulignes": ["sacré"],
+      "lignes_ciblees": [{ "start": 17, "end": 18 }],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [],
+      "points": 4.0,
+      "competence": "interpretation",
+      "necessite_image": false
+    },
+    {
+      "numero": "5",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "En vous appuyant sur le titre du poème « X… Français » et l'ensemble de vos réponses, expliquez pour quelles raisons le personnage est qualifié de « héros ». Organisez votre réponse en deux courts paragraphes qui reprendront chacun des éléments évoqués dans les questions précédentes.",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [],
+      "points": 6.0,
+      "competence": "interpretation",
+      "necessite_image": false
+    },
+    {
+      "numero": "6",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "À propos de l'image.",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        { "lettre": "a", "enonce": "Selon vous, que vise à susciter le flou de l'image ?", "points": 3.0, "competence": "texte_image" },
+        { "lettre": "b", "enonce": "Quels liens pouvez-vous établir entre l'image et le poème ? Développez votre réponse en vous appuyant sur des éléments précis extraits du texte et de l'image.", "points": 5.0, "competence": "texte_image" }
+      ],
+      "points": 8.0,
+      "competence": null,
+      "necessite_image": true
+    },
+    {
+      "numero": "7",
+      "partie": "grammaire",
+      "type": "standard",
+      "enonce": "« Un nom qui fait échoppe et dont le prénom saigne ». (vers 11)",
+      "citation": "Un nom qui fait échoppe et dont le prénom saigne",
+      "mots_soulignes": ["nom"],
+      "lignes_ciblees": [{ "start": 11, "end": 11 }],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        { "lettre": "a", "enonce": "Relevez les deux expansions du mot « nom ».", "points": 1.0, "competence": "classes_grammaticales" },
+        { "lettre": "b", "enonce": "À quelles classes grammaticales appartiennent ces deux expansions du nom ?", "points": 1.0, "competence": "classes_grammaticales" }
+      ],
+      "points": 2.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "8",
+      "partie": "grammaire",
+      "type": "standard",
+      "enonce": "À propos de la 5e strophe (vers 17 à 20).",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [{ "start": 17, "end": 20 }],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        { "lettre": "a", "enonce": "Relevez et identifiez les différents temps de la 5e strophe (vers 17 à 20).", "points": 3.0, "competence": "conjugaison" },
+        { "lettre": "b", "enonce": "Indiquez la valeur du temps du dernier de ces verbes.", "points": 1.0, "competence": "conjugaison" }
+      ],
+      "points": 4.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "9",
+      "partie": "grammaire",
+      "type": "standard",
+      "enonce": "« inconnus ». (vers 4)",
+      "citation": "inconnus",
+      "mots_soulignes": [],
+      "lignes_ciblees": [{ "start": 4, "end": 4 }],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        { "lettre": "a", "enonce": "Expliquez la formation de ce mot.", "points": 1.0, "competence": "lexique_etymologie" },
+        { "lettre": "b", "enonce": "Quel est le sens de ce mot ?", "points": 1.0, "competence": "lexique_etymologie" }
+      ],
+      "points": 2.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "10",
+      "partie": "grammaire",
+      "type": "reecriture",
+      "enonce": "Réécrivez cette strophe en remplaçant « il » par « ils » et en mettant le mot « nom » au pluriel. Vous ferez toutes les modifications nécessaires.",
+      "citation": null,
+      "mots_soulignes": ["il", "nom"],
+      "lignes_ciblees": [{ "start": 13, "end": 16 }],
+      "passage_a_reecrire": "Car il fut un enfant comme nous tous hier\nCelui qui regarda dans l'aube ses bourreaux\nEt les femmes aussi ce nom balbutièrent\nSans savoir que ce serait celui d'un héros",
+      "contraintes": [
+        "Remplacer « il » par « ils »",
+        "Mettre le mot « nom » au pluriel",
+        "Faire toutes les modifications nécessaires"
+      ],
+      "sous_questions": [],
+      "points": 10.0,
+      "competence": "reecriture",
+      "necessite_image": false
+    }
+  ],
+  "source_file": "2021_Amerique-Nord_francais_questions-grammaire-comp.pdf"
+}

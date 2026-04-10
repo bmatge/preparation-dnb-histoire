@@ -1,0 +1,263 @@
+{
+  "id": "2022_ameriquesud-asie",
+  "source": {
+    "annee": 2022,
+    "session": "septembre",
+    "centre": "Amérique du Sud / Asie",
+    "code_sujet": "22GENFRQGCAA1"
+  },
+  "epreuve": {
+    "intitule": "Grammaire et compétences linguistiques – Compréhension et compétences d'interprétation",
+    "duree_minutes": 70,
+    "points_total": 50,
+    "points_comprehension": 32,
+    "points_grammaire": 18
+  },
+  "paratexte": "Le cardinal de Richelieu a découvert que la Reine de France, Anne d'Autriche, était sensible aux charmes d'un admirateur secret : le Duc de Buckingham. Pour la piéger, il fait envoyer une fausse lettre dans laquelle la Reine invite le Duc à un rendez-vous. Buckingham a appris qu'il s'agissait d'un piège, mais il décide de se rendre tout de même à cette invitation pour rencontrer celle qu'il aime.",
+  "texte_support": {
+    "auteur": "Alexandre Dumas",
+    "auteur_note": null,
+    "oeuvre": "Les Trois Mousquetaires",
+    "partie": "chapitre XII",
+    "annee_publication": 1844,
+    "genre": "roman",
+    "lignes": [
+      { "n": 1, "texte": "En ce moment, une porte cachée dans la tapisserie s'ouvrit et une femme apparut." },
+      { "n": 2, "texte": "Buckingham vit cette apparition dans la glace ; il jeta un cri, c'était la reine !" },
+      { "n": 3, "texte": "Anne d'Autriche avait alors vingt-six ou vingt-sept ans, c'est-à-dire qu'elle se trouvait" },
+      { "n": 4, "texte": "dans tout l'éclat de sa beauté." },
+      { "n": 5, "texte": "Sa démarche était celle d'une reine ou d'une déesse ; ses yeux qui jetaient des reflets" },
+      { "n": 6, "texte": "d'émeraude, étaient parfaitement beaux, et tout à la fois pleins de douceur et de majesté." },
+      { "n": 7, "texte": "Sa bouche était petite et vermeille, et quoique sa lèvre inférieure, comme celle des" },
+      { "n": 8, "texte": "princes de la maison d'Autriche, avançât légèrement sur l'autre, elle était éminemment" },
+      { "n": 9, "texte": "gracieuse dans le sourire, mais aussi profondément dédaigneuse dans le mépris." },
+      { "n": 10, "texte": "Sa peau était citée pour sa douceur et son velouté, sa main et ses bras étaient d'une" },
+      { "n": 11, "texte": "beauté surprenante, et tous les poètes du temps les chantaient comme incomparables." },
+      { "n": 12, "texte": "Enfin ses cheveux, qui, de blonds qu'ils étaient dans sa jeunesse, étaient devenus" },
+      { "n": 13, "texte": "châtains, et qu'elle portait frisés très clair et avec beaucoup de poudre, encadraient" },
+      { "n": 14, "texte": "admirablement son visage, auquel le censeur le plus rigide n'eût pu souhaiter qu'un peu" },
+      { "n": 15, "texte": "moins de rouge, et le statuaire le plus exigeant qu'un peu plus de finesse dans le nez." },
+      { "n": 16, "texte": "Buckingham resta un instant ébloui ; jamais Anne d'Autriche ne lui était apparue aussi" },
+      { "n": 17, "texte": "belle, au milieu des bals, des fêtes, des carrousels, qu'elle lui apparut en ce moment, vêtue" },
+      { "n": 18, "texte": "d'une simple robe de satin blanc et accompagnée de doña Estefania, la seule de ses femmes" },
+      { "n": 19, "texte": "espagnoles qui n'eût pas été chassée par la jalousie du roi et par les persécutions de" },
+      { "n": 20, "texte": "Richelieu." },
+      { "n": 21, "texte": "Anne d'Autriche fit deux pas en avant ; Buckingham se précipita à ses genoux, et avant" },
+      { "n": 22, "texte": "que la reine eût pu l'en empêcher, il baisa le bas de sa robe." },
+      { "n": 23, "texte": "« Duc, vous savez déjà que ce n'est pas moi qui vous ai fait écrire." },
+      { "n": 24, "texte": "- Oh ! Oui, Madame, oui, Votre Majesté, s'écria le duc ; je sais que j'ai été un fou, un" },
+      { "n": 25, "texte": "insensé de croire que la neige s'animerait, que le marbre s'échaufferait ; mais, que voulez-vous, quand on aime, on croit facilement à l'amour ; d'ailleurs je n'ai pas tout perdu à ce" },
+      { "n": 26, "texte": "voyage, puisque je vous vois." },
+      { "n": 27, "texte": "- Oui, répondit Anne, mais vous savez pourquoi et comment je vous vois, Milord. Je" },
+      { "n": 28, "texte": "vous vois par pitié pour vous-même ; je vous vois parce qu'insensible à toutes mes peines," },
+      { "n": 29, "texte": "vous vous êtes obstiné à rester dans une ville, où, en restant, vous courez risque de la vie et" },
+      { "n": 30, "texte": "me faites courir risque de mon honneur ; je vous vois pour vous dire que tout nous sépare," },
+      { "n": 31, "texte": "les profondeurs de la mer, l'inimitié des royaumes, la sainteté des serments. Il est sacrilège" },
+      { "n": 32, "texte": "de lutter contre tant de choses, Milord. Je vous vois enfin pour vous dire qu'il ne faut plus" },
+      { "n": 33, "texte": "nous voir. »" }
+    ]
+  },
+  "notes_texte": [
+    { "n": 1, "terme": "Éminemment", "definition": "extrêmement." },
+    { "n": 2, "terme": "Censeur", "definition": "personne chargée de veiller à ce que le comportement des autres respecte la morale publique." },
+    { "n": 3, "terme": "Statuaire", "definition": "sculpteur qui réalise des statues." },
+    { "n": 4, "terme": "Carrousel", "definition": "spectacle équestre." }
+  ],
+  "image": {
+    "type": "photogramme",
+    "auteur": "Rouben Mamoulian",
+    "titre": "La Reine Christine",
+    "annee": 1933,
+    "description_visuelle": "Photogramme en noir et blanc issu du film. Une femme vêtue d'une longue robe blanche est assise sur un imposant trône sculpté, richement orné, surmonté d'une couronne royale et flanqué de statuettes. Son visage, éclairé délicatement, exprime la mélancolie et la distance : elle pose la tête en arrière, le regard dirigé vers le haut. À sa gauche, un chandelier à trois bougies allumées apporte une lumière intime. En arrière-plan, une tenture sombre parsemée de motifs en forme de couronnes souligne l'environnement royal et solennel."
+  },
+  "questions": [
+    {
+      "numero": "1",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "Lignes 1-2 : à propos des termes qui désignent Anne d'Autriche.",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [{ "start": 1, "end": 2 }],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        { "lettre": "a", "enonce": "Relevez les trois termes qui désignent Anne d'Autriche. Que remarquez-vous ?", "points": 2.0, "competence": "reperage_explicite" },
+        { "lettre": "b", "enonce": "Pourquoi pensez-vous que Buckingham jette un cri lorsqu'il la voit ?", "points": 1.0, "competence": "interpretation" }
+      ],
+      "points": 3.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "2",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "Lignes 5 à 15 : à propos du portrait d'Anne d'Autriche.",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [{ "start": 5, "end": 15 }],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        { "lettre": "a", "enonce": "En vous appuyant sur le texte, montrez que la description d'Anne d'Autriche met en avant la dimension exceptionnelle du personnage et de sa beauté.", "points": 4.0, "competence": "selection_pertinente" },
+        { "lettre": "b", "enonce": "Montrez que quelques réserves apparaissent cependant dans ce portrait.", "points": 2.0, "competence": "interpretation" }
+      ],
+      "points": 6.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "3",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "Lignes 16 à 20 : à propos de Buckingham et de ses sentiments.",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [{ "start": 16, "end": 20 }],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        { "lettre": "a", "enonce": "À quelles occasions le Duc a-t-il déjà rencontré la Reine et en quoi cela explique-t-il qu'il soit surpris ici par ce qu'il voit ?", "points": 3.0, "competence": "interpretation" },
+        { "lettre": "b", "enonce": "Que nous apprend alors ce passage sur ce que ressent le Duc à l'égard d'Anne d'Autriche ? Vous vous appuierez sur le texte pour justifier votre réponse.", "points": 2.0, "competence": "interpretation" }
+      ],
+      "points": 5.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "4",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "« Je sais que j'ai été un fou, un insensé de croire que la neige s'animerait, que le marbre s'échaufferait » (lignes 24-25).",
+      "citation": "Je sais que j'ai été un fou, un insensé de croire que la neige s'animerait, que le marbre s'échaufferait",
+      "mots_soulignes": [],
+      "lignes_ciblees": [{ "start": 24, "end": 27 }],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        { "lettre": "a", "enonce": "Que désignent les mots « neige » et « marbre » ici ? Expliquez leur emploi et identifiez la figure de style utilisée.", "points": 3.0, "competence": "interpretation" },
+        { "lettre": "b", "enonce": "Lignes 24 à 27 : que nous dévoile alors la réplique du Duc sur son état d'esprit ? Justifiez votre analyse par des éléments précis du texte.", "points": 3.0, "competence": "interpretation" }
+      ],
+      "points": 6.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "5",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "En vous appuyant sur le texte et plus particulièrement sur la ligne 28 montrez que, malgré la distance qu'elle met entre eux deux, la Reine a en réalité des sentiments pour le Duc.",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [{ "start": 28, "end": 28 }],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [],
+      "points": 4.0,
+      "competence": "comprehension_implicite",
+      "necessite_image": false
+    },
+    {
+      "numero": "6",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "En vous appuyant sur la position du personnage, les éléments de décor et les effets de lumière, vous vous demanderez quel sentiment est mis en scène.",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [],
+      "points": 4.0,
+      "competence": "texte_image",
+      "necessite_image": true
+    },
+    {
+      "numero": "7",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "Qu'est-ce qui rapproche ce personnage de celui d'Anne d'Autriche dans le texte de Dumas ? Appuyez-vous sur des éléments du texte et de l'image pour répondre à cette question.",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [],
+      "points": 4.0,
+      "competence": "texte_image",
+      "necessite_image": true
+    },
+    {
+      "numero": "8",
+      "partie": "grammaire",
+      "type": "standard",
+      "enonce": "Expliquez la formation du mot « éminemment » (ligne 8). Donnez sa nature.",
+      "citation": "éminemment",
+      "mots_soulignes": [],
+      "lignes_ciblees": [{ "start": 8, "end": 8 }],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [],
+      "points": 2.0,
+      "competence": "lexique_etymologie",
+      "necessite_image": false
+    },
+    {
+      "numero": "9",
+      "partie": "grammaire",
+      "type": "standard",
+      "enonce": "« […] jamais Anne d'Autriche ne lui était apparue aussi belle, au milieu des bals, des fêtes, des carrousels […]. »",
+      "citation": "jamais Anne d'Autriche ne lui était apparue aussi belle, au milieu des bals, des fêtes, des carrousels",
+      "mots_soulignes": ["lui"],
+      "lignes_ciblees": [{ "start": 16, "end": 17 }],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        { "lettre": "a", "enonce": "Récrivez la phrase en remplaçant « lui » par ce à quoi il renvoie.", "points": 1.0, "competence": "classes_grammaticales" },
+        { "lettre": "b", "enonce": "Quelle est la classe grammaticale (nature) de « lui » ?", "points": 1.0, "competence": "classes_grammaticales" }
+      ],
+      "points": 2.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "10",
+      "partie": "grammaire",
+      "type": "standard",
+      "enonce": "« […] ses yeux qui jetaient des reflets d'émeraude, étaient parfaitement beaux »",
+      "citation": "ses yeux qui jetaient des reflets d'émeraude, étaient parfaitement beaux",
+      "mots_soulignes": [],
+      "lignes_ciblees": [{ "start": 5, "end": 6 }],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        { "lettre": "a", "enonce": "Relevez les verbes conjugués puis délimitez les propositions de cette partie de phrase.", "points": 2.0, "competence": "propositions_subordonnees" },
+        { "lettre": "b", "enonce": "Quelle proposition pouvez-vous supprimer ? Donnez sa nature.", "points": 2.0, "competence": "propositions_subordonnees" }
+      ],
+      "points": 4.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "11",
+      "partie": "grammaire",
+      "type": "reecriture",
+      "enonce": "Récrivez ce passage en remplaçant « Buckingham » par « Buckingham et son ami » et « Anne d'Autriche » par « les reines ».",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [{ "start": 16, "end": 18 }],
+      "passage_a_reecrire": "Buckingham resta un instant ébloui ; jamais Anne d'Autriche ne lui était apparue aussi belle, au milieu des bals, des fêtes, des carrousels, qu'elle lui apparut en ce moment, vêtue […] de satin blanc […].",
+      "contraintes": [
+        "Remplacer « Buckingham » par « Buckingham et son ami »",
+        "Remplacer « Anne d'Autriche » par « les reines »",
+        "Faire toutes les modifications nécessaires"
+      ],
+      "sous_questions": [],
+      "points": 10.0,
+      "competence": "reecriture",
+      "necessite_image": false
+    }
+  ],
+  "source_file": "2022_AmeriqueSud-Asie_francais_questions-grammaire-comp.pdf"
+}

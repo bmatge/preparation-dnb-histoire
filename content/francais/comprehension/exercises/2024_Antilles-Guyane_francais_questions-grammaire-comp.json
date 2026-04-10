@@ -1,0 +1,233 @@
+{
+  "id": "2024_antilles-guyane",
+  "source": {
+    "annee": 2024,
+    "session": "juin",
+    "centre": "Antilles-Guyane",
+    "code_sujet": "24GENFRQGCAG1"
+  },
+  "epreuve": {
+    "intitule": "Compréhension et compétences d'interprétation – Grammaire et compétences linguistiques",
+    "duree_minutes": 70,
+    "points_total": 50,
+    "points_comprehension": 32,
+    "points_grammaire": 18
+  },
+  "paratexte": "La fille de Sibylle, Violette, apprend à lire seule. Léo, leur voisin, jeune homme illettré à qui Sibylle donne des cours, observe la scène.",
+  "texte_support": {
+    "auteur": "Cécile Ladjali",
+    "auteur_note": null,
+    "oeuvre": "Illettré",
+    "partie": null,
+    "annee_publication": 2016,
+    "genre": "roman",
+    "lignes": [
+      { "n": 1, "texte": "Léo est descendu chez Sibylle pour sa leçon. La petite, qui a emporté son album" },
+      { "n": 2, "texte": "préféré au salon, le lit à haute voix. Quand elle entend sa fille, au début, Sibylle ne" },
+      { "n": 3, "texte": "prête guère attention à l'exercice. Elle pense qu'en suivant les lignes du bout du doigt," },
+      { "n": 4, "texte": "la gamine récite de mémoire un texte qu'elle lui a déjà conté des dizaines de fois." },
+      { "n": 5, "texte": "Intriguée néanmoins par le caractère à la fois lancinant et mécanique de la voix, elle" },
+      { "n": 6, "texte": "observe l'enfant et, tout en avalant de petites gorgées de bière, elle trouve que le joli" },
+      { "n": 7, "texte": "cou tendu sur la page, les yeux emplis d'un sérieux ébloui, indiquent une autre vérité :" },
+      { "n": 8, "texte": "Violette lit vraiment. La chose est advenue d'un coup, sans crier gare. Un perce-neige." },
+      { "n": 9, "texte": "Une fleur minuscule parmi le gel. Un tout premier soleil. À la graphie maîtrisée s'est" },
+      { "n": 10, "texte": "superposée la lecture qui n'est venue qu'après l'écriture. Le processus inverse eût été" },
+      { "n": 11, "texte": "impossible. Les mots dans le livre aimé sont ceux que Violette a apprivoisés par le" },
+      { "n": 12, "texte": "dessin, comprend Sibylle pleine de stupeur. Quand elle lit, la petite a l'impression" },
+      { "n": 13, "texte": "tenace d'avoir elle-même tracé les lettres qui lui racontent une histoire. Auteur de sa" },
+      { "n": 14, "texte": "lecture, le lecteur est ce puissant démiurge qui met au monde un sens, tandis que ce" },
+      { "n": 15, "texte": "sens intègre sa voix à l'univers. Sa narration ajoute un chapitre au grand livre des" },
+      { "n": 16, "texte": "hommes, à leur mémoire, leur dignité." },
+      { "n": 17, "texte": "Sibylle prend sa fille dans les bras. Violette est fière. Elle dit à sa mère qu'elle" },
+      { "n": 18, "texte": "sait lire depuis longtemps. Qu'elle a toujours su comment on faisait. – Quand je suis" },
+      { "n": 19, "texte": "née, je savais lire, pérore-t-elle. Elle est devenue l'héroïne magnifique du livre préféré" },
+      { "n": 20, "texte": "lu mille fois. Sa propre voix a remplacé celle de sa mère. Mais comme il lui a été" },
+      { "n": 21, "texte": "longtemps difficile de distinguer son corps de celui qui l'enfanta, le chant du livre" },
+      { "n": 22, "texte": "conserve ces accents maternels qui indiquent que le sens et sa magie sont" },
+      { "n": 23, "texte": "indéfectiblement liés à l'amour. Léo pressent toutes ces choses, en observant" },
+      { "n": 24, "texte": "Violette. Violette, fille aimée de Sibylle, Violette qui sait lire, tandis que son cœur à lui" },
+      { "n": 25, "texte": "est troué. La bière est amère et la lumière triste. Son état oscille entre vertige et" },
+      { "n": 26, "texte": "nausée." }
+    ]
+  },
+  "notes_texte": [
+    { "n": 1, "terme": "démiurge", "definition": "créateur" },
+    { "n": 2, "terme": "pérore-t-elle", "definition": "dit-elle fièrement" },
+    { "n": 3, "terme": "indéfectiblement", "definition": "nécessairement" }
+  ],
+  "image": {
+    "type": "affiche",
+    "auteur": "Les cyclistes.fr",
+    "titre": "Face à l'illettrisme, vous n'êtes pas seuls",
+    "annee": 2018,
+    "description_visuelle": "Photographie en noir et blanc d'un homme d'âge mûr, cheveux et barbe grisonnants, portant des lunettes et une veste en cuir sombre, qui regarde droit vers le spectateur au milieu d'une foule floue. Les autres personnes autour de lui sont volontairement floutées, ne laissant voir que leurs silhouettes. En haut à droite, en lettres blanches, le slogan « Il y a des solitudes qui ne se voient pas. ». En bas, l'accroche « Face à l'illettrisme, vous n'êtes pas seuls » et la mention « Journées nationales d'action contre l'illettrisme du 8 au 15 septembre 2018 » avec le logo ANLCI."
+  },
+  "questions": [
+    {
+      "numero": "1",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "Parmi les titres suivants, choisissez le titre qui convient le mieux au texte et justifiez votre choix. Deux justifications sont attendues.\nTitre 1 : Magie de la première lecture.\nTitre 2 : La leçon de lecture.\nTitre 3 : Sibylle raconte…",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [],
+      "points": 5.0,
+      "competence": "interpretation",
+      "necessite_image": false
+    },
+    {
+      "numero": "2",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "« Violette » n'est nommée qu'à la ligne 8. Dans les lignes 1 à 7 :",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [{ "start": 1, "end": 7 }],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        { "lettre": "a", "enonce": "Quels sont les groupes nominaux qui la désignent ? Citez-en au moins trois.", "points": 3.0, "competence": "selection_pertinente" },
+        { "lettre": "b", "enonce": "Sibylle perçoit-elle Violette comme son enfant, une élève ou les deux ? Justifiez votre réponse à l'aide de deux relevés précis.", "points": 4.0, "competence": "interpretation" }
+      ],
+      "points": 7.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "3",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "« Un perce-neige. Une fleur minuscule parmi le gel. Un tout premier soleil. » (lignes 8 et 9) Identifiez la figure de style présente dans cet extrait et proposez-en une interprétation.",
+      "citation": "Un perce-neige. Une fleur minuscule parmi le gel. Un tout premier soleil.",
+      "mots_soulignes": [],
+      "lignes_ciblees": [{ "start": 8, "end": 9 }],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [],
+      "points": 2.0,
+      "competence": "interpretation",
+      "necessite_image": false
+    },
+    {
+      "numero": "4",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "« son cœur à lui est troué. » (lignes 24 et 25) Comment pouvez-vous expliquer cette phrase ? Deux éléments de réponse sont attendus.",
+      "citation": "son cœur à lui est troué.",
+      "mots_soulignes": [],
+      "lignes_ciblees": [{ "start": 24, "end": 25 }],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [],
+      "points": 4.0,
+      "competence": "interpretation",
+      "necessite_image": false
+    },
+    {
+      "numero": "5",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "En prenant appui sur l'expérience de Violette, expliquez quels sont les pouvoirs du lecteur. Vous développerez votre réponse à l'aide d'au moins quatre éléments du texte.",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [],
+      "points": 8.0,
+      "competence": "interpretation",
+      "necessite_image": false
+    },
+    {
+      "numero": "6",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "L'affiche proposée illustre-t-elle le texte ? Vous pourrez nuancer votre propos en vous appuyant particulièrement sur le slogan et sur une analyse précise de l'image. Dans un développement organisé, vous analyserez précisément cette affiche en établissant au moins trois liens avec le texte.",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [],
+      "points": 6.0,
+      "competence": "texte_image",
+      "necessite_image": true
+    },
+    {
+      "numero": "7",
+      "partie": "grammaire",
+      "type": "standard",
+      "enonce": "« Les mots dans le livre aimé sont ceux que Violette a apprivoisés par le dessin, comprend Sibylle pleine de stupeur. » (Ligne 11)",
+      "citation": "Les mots dans le livre aimé sont ceux que Violette a apprivoisés par le dessin",
+      "mots_soulignes": ["apprivoisés"],
+      "lignes_ciblees": [{ "start": 11, "end": 11 }],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        { "lettre": "a", "enonce": "Quelle est la nature grammaticale du mot « apprivoisés » dans cette phrase ?", "points": 1.0, "competence": "classes_grammaticales" },
+        { "lettre": "b", "enonce": "Identifiez et justifiez son accord en vous appuyant sur la règle grammaticale qui l'explique.", "points": 1.0, "competence": "conjugaison" }
+      ],
+      "points": 2.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "8",
+      "partie": "grammaire",
+      "type": "standard",
+      "enonce": "« Quand elle lit, la petite a l'impression tenace d'avoir elle-même tracé les lettres qui lui racontent une histoire. » (Lignes 12-13)",
+      "citation": "Quand elle lit, la petite a l'impression tenace d'avoir elle-même tracé les lettres qui lui racontent une histoire.",
+      "mots_soulignes": [],
+      "lignes_ciblees": [{ "start": 12, "end": 13 }],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        { "lettre": "a", "enonce": "Recopiez les deux propositions subordonnées de cette phrase et précisez leur nature et leur fonction grammaticales.", "points": 5.0, "competence": "propositions_subordonnees" },
+        { "lettre": "b", "enonce": "Quelles manipulations vous permettent de les identifier ? Deux éléments de réponse sont attendus pour chaque proposition.", "points": 2.0, "competence": "propositions_subordonnees" }
+      ],
+      "points": 7.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "9",
+      "partie": "grammaire",
+      "type": "standard",
+      "enonce": "Le mot « illettré », titre du livre.",
+      "citation": "illettré",
+      "mots_soulignes": [],
+      "lignes_ciblees": [],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        { "lettre": "a", "enonce": "Comment le mot « illettré », titre du livre, est-il construit ?", "points": 1.5, "competence": "lexique_etymologie" },
+        { "lettre": "b", "enonce": "Expliquez son sens à l'aide des éléments formant ce mot.", "points": 0.5, "competence": "lexique_etymologie" }
+      ],
+      "points": 2.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "10",
+      "partie": "grammaire",
+      "type": "reecriture",
+      "enonce": "Réécrivez le passage suivant en considérant que Violette a un frère. Vous commencerez par « Sibylle prend ses enfants dans les bras ».",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [{ "start": 17, "end": 18 }],
+      "passage_a_reecrire": "Sibylle prend sa fille dans les bras. Violette est fière. Elle dit à sa mère qu'elle sait lire depuis longtemps. Qu'elle a toujours su comment on faisait.",
+      "contraintes": [
+        "Considérer que Violette a un frère",
+        "Commencer par « Sibylle prend ses enfants dans les bras »"
+      ],
+      "sous_questions": [],
+      "points": 7.0,
+      "competence": "reecriture",
+      "necessite_image": false
+    }
+  ],
+  "source_file": "2024_Antilles-Guyane_francais_questions-grammaire-comp.pdf"
+}

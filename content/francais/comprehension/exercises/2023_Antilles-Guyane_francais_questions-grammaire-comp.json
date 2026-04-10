@@ -1,0 +1,262 @@
+{
+  "id": "2023_antilles-guyane",
+  "source": {
+    "annee": 2023,
+    "session": "juin",
+    "centre": "Antilles-Guyane",
+    "code_sujet": "23GENFRQGCAG1"
+  },
+  "epreuve": {
+    "intitule": "Grammaire et compétences linguistiques – Compréhension et compétences d'interprétation",
+    "duree_minutes": 70,
+    "points_total": 50,
+    "points_comprehension": 26,
+    "points_grammaire": 24
+  },
+  "paratexte": "En 1942, Saint-Exupéry est pilote de guerre. Alors qu'il s'apprête à décoller sans garantie de revenir vivant, il se souvient de sa jeunesse.",
+  "texte_support": {
+    "auteur": "Antoine de Saint-Exupéry",
+    "auteur_note": null,
+    "oeuvre": "Pilote de guerre",
+    "partie": null,
+    "annee_publication": 1942,
+    "genre": "récit",
+    "lignes": [
+      { "n": 1, "texte": "Sans doute je rêve. Je suis au collège. J'ai quinze ans. Je résous avec patience mon problème" },
+      { "n": 2, "texte": "de géométrie. Accoudé sur ce bureau noir, je me sers sagement du compas, de la règle, du" },
+      { "n": 3, "texte": "rapporteur. Je suis studieux et tranquille. Des camarades, auprès de moi, parlent à voix basse." },
+      { "n": 4, "texte": "L'un d'eux aligne des chiffres sur un tableau noir. Quelques-uns, moins sérieux, jouent au bridge." },
+      { "n": 5, "texte": "De temps à autre je m'enfonce plus loin dans le rêve et jette un coup d'œil par la fenêtre. Une" },
+      { "n": 6, "texte": "branche d'arbre oscille doucement dans le soleil. Je regarde longtemps. Je suis un élève" },
+      { "n": 7, "texte": "dissipé… J'éprouve du plaisir à goûter ce soleil, comme à savourer cette odeur enfantine de" },
+      { "n": 8, "texte": "pupitre, de craie, de tableau noir. Je m'enferme avec tant de joie dans cette enfance bien" },
+      { "n": 9, "texte": "protégée ! Je le sais bien : il y a d'abord l'enfance, le collège, les camarades, puis vient le jour où" },
+      { "n": 10, "texte": "l'on subit des examens. Où l'on reçoit quelque diplôme. Où l'on franchit, avec un serrement de" },
+      { "n": 11, "texte": "cœur, un certain porche, au-delà duquel, d'emblée, on est un homme. Alors le pas pèse plus" },
+      { "n": 12, "texte": "lourd sur la terre. On fait déjà son chemin dans la vie. Les premiers pas de son chemin. On" },
+      { "n": 13, "texte": "essaiera enfin ses armes sur de véritables adversaires. La règle, l'équerre, le compas, on en" },
+      { "n": 14, "texte": "usera pour bâtir le monde, ou pour triompher des ennemis. Finis, les jeux !" },
+      { "n": 15, "texte": "Je sais que d'ordinaire un collégien ne craint pas d'affronter la vie. Un collégien piétine" },
+      { "n": 16, "texte": "d'impatience. Les tourments, les dangers, les amertumes d'une vie d'homme n'intimident pas un" },
+      { "n": 17, "texte": "collégien." },
+      { "n": 18, "texte": "Mais voici que je suis un drôle de collégien. Je suis un collégien qui connaît son bonheur et qui" },
+      { "n": 19, "texte": "n'est pas tellement pressé d'affronter la vie…" },
+      { "n": 20, "texte": "Dutertre passe. Je l'invite." },
+      { "n": 21, "texte": "- Assieds-toi là, je vais faire un tour de cartes…" },
+      { "n": 22, "texte": "Et je suis heureux de lui trouver son as de pique." },
+      { "n": 23, "texte": "En face de moi, sur un bureau noir comme le mien, Dutertre est assis, les jambes pendantes. Il" },
+      { "n": 24, "texte": "rit. Je souris avec modestie. Pénicot nous rejoint et pose son bras sur mon épaule :" },
+      { "n": 25, "texte": "- Alors, vieux camarade ?" },
+      { "n": 26, "texte": "Mon Dieu, que tout cela est tendre !" },
+      { "n": 27, "texte": "Un surveillant (est-ce un surveillant ?...) ouvre la porte pour convoquer deux camarades. Ils" },
+      { "n": 28, "texte": "lâchent leur règle, leur compas, se lèvent et sortent. Nous les suivons des yeux. Le collège est" },
+      { "n": 29, "texte": "fini pour eux. On les lâche dans la vie. Leur science va servir. Ils vont, comme des hommes," },
+      { "n": 30, "texte": "essayer sur leurs adversaires les recettes de leurs calculs. Drôle de collège, d'où l'on s'en va" },
+      { "n": 31, "texte": "chacun son tour. Et sans grands adieux. Ces deux camarades-là ne nous ont même pas" },
+      { "n": 32, "texte": "regardés. Cependant, les hasards de la vie, peut-être bien, les emporteront plus loin qu'en Chine." },
+      { "n": 33, "texte": "Tellement plus loin ! Quand la vie, après le collège, disperse les hommes, peuvent-ils jurer de se" },
+      { "n": 34, "texte": "revoir ?" }
+    ]
+  },
+  "notes_texte": [],
+  "image": {
+    "type": "affiche",
+    "auteur": "Marie-Castille Mention-Schaar",
+    "titre": "Les Héritiers",
+    "annee": 2014,
+    "description_visuelle": "Affiche du film Les Héritiers. Au centre, un groupe d'adolescents issus de différentes origines est réuni autour d'une table de classe, très concentrés. À droite, une enseignante aux cheveux bruns les observe avec bienveillance. Au premier plan à gauche, un élève est debout, penché vers ses camarades. En arrière-plan, un mur est couvert de photographies documentaires. En haut de l'affiche, le titre « LES HÉRITIERS » et le sous-titre « D'après une histoire vraie », puis l'accroche « En comprenant l'Histoire, ils vont forger la leur. »"
+  },
+  "questions": [
+    {
+      "numero": "1",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "Où se déroule précisément cet extrait ? Pour justifier votre réponse, identifiez et relevez un champ lexical.",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [],
+      "points": 2.0,
+      "competence": "champ_lexical",
+      "necessite_image": false
+    },
+    {
+      "numero": "2",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "Le sérieux et l'évasion du narrateur.",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        { "lettre": "a", "enonce": "Quels sont les trois indices qui montrent le sérieux du narrateur ?", "points": 3.0, "competence": "selection_pertinente" },
+        { "lettre": "b", "enonce": "Trouvez deux attitudes qui montrent que le narrateur cherche aussi à s'échapper de sa classe. Justifiez votre réponse en relevant pour chaque raison une expression dans le texte.", "points": 4.0, "competence": "selection_pertinente" }
+      ],
+      "points": 7.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "3",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "« Je suis un drôle de collégien » (ligne 18).",
+      "citation": "Je suis un drôle de collégien",
+      "mots_soulignes": [],
+      "lignes_ciblees": [{ "start": 18, "end": 18 }],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        { "lettre": "a", "enonce": "Expliquez pourquoi le narrateur écrit « Je suis un drôle de collégien » (ligne 18).", "points": 1.0, "competence": "interpretation" },
+        { "lettre": "b", "enonce": "Quel est le sentiment principal éprouvé par le narrateur en évoquant son passé ? Appuyez-vous sur des citations du texte pour justifier votre réponse.", "points": 3.0, "competence": "interpretation" }
+      ],
+      "points": 4.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "4",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "« […] je me sers sagement du compas, de la règle, du rapporteur. » (lignes 2-3)\nIdentifiez une autre phrase dont le sens fait écho à celle-ci dans le même paragraphe et expliquez-la.",
+      "citation": "je me sers sagement du compas, de la règle, du rapporteur.",
+      "mots_soulignes": [],
+      "lignes_ciblees": [{ "start": 2, "end": 3 }],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [],
+      "points": 3.0,
+      "competence": "interpretation",
+      "necessite_image": false
+    },
+    {
+      "numero": "5",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "Le dernier paragraphe du texte.",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [{ "start": 27, "end": 34 }],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        { "lettre": "a", "enonce": "Quel évènement intervient dans le dernier paragraphe du texte ?", "points": 1.0, "competence": "reperage_explicite" },
+        { "lettre": "b", "enonce": "Comment le narrateur suggère-t-il à ce moment-là son émotion ? Pour justifier votre réponse vous vous appuierez notamment sur le lexique et la construction des phrases.", "points": 4.0, "competence": "interpretation" }
+      ],
+      "points": 5.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "6",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "Image.",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        { "lettre": "a", "enonce": "En vous aidant de ce que vous voyez sur l'affiche, expliquez le sous-titre « En comprenant l'Histoire, ils vont forger la leur ».", "points": 2.0, "competence": "texte_image" },
+        { "lettre": "b", "enonce": "Comparez la représentation qui est donnée du collège dans le texte et dans cette image. Vous appuierez sur au moins deux éléments.", "points": 3.0, "competence": "texte_image" }
+      ],
+      "points": 5.0,
+      "competence": null,
+      "necessite_image": true
+    },
+    {
+      "numero": "7",
+      "partie": "grammaire",
+      "type": "standard",
+      "enonce": "« Pénicot nous rejoint. » (ligne 24)",
+      "citation": "Pénicot nous rejoint.",
+      "mots_soulignes": ["nous"],
+      "lignes_ciblees": [{ "start": 24, "end": 24 }],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        { "lettre": "a", "enonce": "À qui renvoie le mot « nous » ?", "points": 1.0, "competence": "reperage_explicite" },
+        { "lettre": "b", "enonce": "Donnez la classe grammaticale du mot « nous ».", "points": 1.0, "competence": "classes_grammaticales" }
+      ],
+      "points": 2.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "8",
+      "partie": "grammaire",
+      "type": "standard",
+      "enonce": "« Je sais que d'ordinaire un collégien ne craint pas d'affronter la vie. » (ligne 15)",
+      "citation": "Je sais que d'ordinaire un collégien ne craint pas d'affronter la vie.",
+      "mots_soulignes": [],
+      "lignes_ciblees": [{ "start": 15, "end": 15 }],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        { "lettre": "a", "enonce": "Identifiez le temps et le mode des verbes dans la citation.", "points": 1.0, "competence": "conjugaison" },
+        { "lettre": "b", "enonce": "Précisez quelle est la valeur du temps de chaque verbe.", "points": 2.0, "competence": "conjugaison" }
+      ],
+      "points": 3.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "9",
+      "partie": "grammaire",
+      "type": "standard",
+      "enonce": "« Je suis un collégien qui connaît son bonheur, et qui n'est pas tellement pressé d'affronter la vie… » (lignes 18-19)",
+      "citation": "Je suis un collégien qui connaît son bonheur, et qui n'est pas tellement pressé d'affronter la vie…",
+      "mots_soulignes": [],
+      "lignes_ciblees": [{ "start": 18, "end": 19 }],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        { "lettre": "a", "enonce": "Recopiez la phrase en délimitant les propositions.", "points": 3.0, "competence": "propositions_subordonnees" },
+        { "lettre": "b", "enonce": "Précisez la nature et la fonction des propositions subordonnées.", "points": 2.0, "competence": "propositions_subordonnees" },
+        { "lettre": "c", "enonce": "Expliquez deux manipulations que vous avez effectuées pour justifier votre réponse.", "points": 2.0, "competence": "propositions_subordonnees" }
+      ],
+      "points": 7.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "10",
+      "partie": "grammaire",
+      "type": "standard",
+      "enonce": "« Un collégien piétine d'impatience ». (lignes 15-16) Expliquez comment est formé le mot « impatience » et donnez son sens.",
+      "citation": "Un collégien piétine d'impatience",
+      "mots_soulignes": ["impatience"],
+      "lignes_ciblees": [{ "start": 15, "end": 16 }],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [],
+      "points": 2.0,
+      "competence": "lexique_etymologie",
+      "necessite_image": false
+    },
+    {
+      "numero": "11",
+      "partie": "grammaire",
+      "type": "reecriture",
+      "enonce": "Réécrivez le passage suivant en remplaçant la première personne du singulier par la première personne du pluriel et en conjuguant les verbes à l'imparfait de l'indicatif :",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [{ "start": 1, "end": 3 }],
+      "passage_a_reecrire": "Je résous avec patience mon problème de géométrie. Accoudé sur ce bureau noir, je me sers sagement du compas, de la règle, du rapporteur. Je suis studieux et tranquille.",
+      "contraintes": [
+        "Remplacer la première personne du singulier par la première personne du pluriel",
+        "Conjuguer les verbes à l'imparfait de l'indicatif"
+      ],
+      "sous_questions": [],
+      "points": 10.0,
+      "competence": "reecriture",
+      "necessite_image": false
+    }
+  ],
+  "source_file": "2023_Antilles-Guyane_francais_questions-grammaire-comp.pdf"
+}

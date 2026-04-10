@@ -1,0 +1,244 @@
+{
+  "id": "2022_amerique-nord",
+  "source": {
+    "annee": 2022,
+    "session": "juin",
+    "centre": "Amérique du Nord",
+    "code_sujet": "22GENFRQGCAN1"
+  },
+  "epreuve": {
+    "intitule": "Grammaire et compétences linguistiques – Compréhension et compétences d'interprétation",
+    "duree_minutes": 70,
+    "points_total": 50,
+    "points_comprehension": 32,
+    "points_grammaire": 18
+  },
+  "paratexte": "La scène se déroule en Espagne. La Princesse de Barcelone s'est attachée les services de Lélio, un jeune homme dont on ignore tout. Frédéric est le ministre de la Princesse. L'extrait ci-dessous se situe à l'acte I de la pièce.",
+  "texte_support": {
+    "auteur": "Marivaux",
+    "auteur_note": null,
+    "oeuvre": "Le Prince travesti",
+    "partie": "acte I, scènes XI et XII",
+    "annee_publication": 1724,
+    "genre": "théâtre",
+    "lignes": [
+      { "n": 1, "texte": "LA PRINCESSE" },
+      { "n": 2, "texte": "Je vous cherchais, Lélio. Vous êtes de ces personnages que les souverains doivent" },
+      { "n": 3, "texte": "s'attacher ; il ne tiendra pas à moi que vous ne vous fixiez ici, et j'espère que vous accepterez" },
+      { "n": 4, "texte": "l'emploi de mon premier secrétaire d'État, que je vous offre." },
+      { "n": 5, "texte": "LÉLIO" },
+      { "n": 6, "texte": "Vos bontés sont infinies, madame, mais mon métier est la guerre." },
+      { "n": 7, "texte": "LA PRINCESSE" },
+      { "n": 8, "texte": "Vous faites mieux qu'un autre tout ce que vous voulez faire, et quand votre présence sera" },
+      { "n": 9, "texte": "nécessaire à l'armée, vous choisirez pour exercer vos fonctions ici ceux que vous en jugerez" },
+      { "n": 10, "texte": "les plus capables, ce que vous ferez n'est pas sans exemple dans cet État." },
+      { "n": 11, "texte": "LÉLIO" },
+      { "n": 12, "texte": "Madame, vous avez d'habiles gens ici, d'anciens serviteurs, à qui cet emploi convient mieux" },
+      { "n": 13, "texte": "qu'à moi." },
+      { "n": 14, "texte": "LA PRINCESSE" },
+      { "n": 15, "texte": "La supériorité de mérite doit l'emporter en pareil cas sur l'ancienneté des services, et" },
+      { "n": 16, "texte": "d'ailleurs Frédéric est le seul que cette fonction pouvait regarder, si vous n'y étiez pas, mais" },
+      { "n": 17, "texte": "il m'est affectionné, et je suis sûre qu'il se soumet de bon cœur au choix qui m'a paru le" },
+      { "n": 18, "texte": "meilleur. Frédéric, soyez ami de Lélio, je vous le recommande. Frédéric fait une profonde" },
+      { "n": 19, "texte": "révérence. La Princesse continue. C'est aujourd'hui le jour de ma naissance, et ma Cour," },
+      { "n": 20, "texte": "suivant l'usage, me donne aujourd'hui une fête que je vais voir. Lélio, donnez-moi la main" },
+      { "n": 21, "texte": "pour m'y conduire, vous y verra-t-on, Frédéric ?" },
+      { "n": 22, "texte": "FRÉDÉRIC" },
+      { "n": 23, "texte": "Madame, les fêtes ne me conviennent plus." },
+      { "n": 24, "texte": "FRÉDÉRIC, seul." },
+      { "n": 25, "texte": "Si je ne viens à bout de perdre cet homme-là, ma chute est sûre. Un homme sans nom, sans" },
+      { "n": 26, "texte": "parents, sans patrie, car on ne sait pas d'où il vient, m'arrache le ministère, le fruit de trente" },
+      { "n": 27, "texte": "années de travail. Quel coup de malheur ! je ne puis digérer une aussi bizarre aventure, et" },
+      { "n": 28, "texte": "je n'en saurais douter : c'est l'amour qui a nommé ce ministre-là ; oui, la Princesse a du" },
+      { "n": 29, "texte": "penchant pour lui. Ne pourrait-on savoir l'histoire de sa vie errante, et prendre ensuite" },
+      { "n": 30, "texte": "quelques mesures avec l'ambassadeur du Roi de Castille, dont j'ai la confiance ? Voici le" },
+      { "n": 31, "texte": "valet de cet aventurier, tâchons à quelque prix que ce soit de le mettre dans mes intérêts, il" },
+      { "n": 32, "texte": "pourra m'être utile. Bonjour Arlequin." }
+    ]
+  },
+  "notes_texte": [
+    { "n": 1, "terme": "errante", "definition": "sans lieu fixe." }
+  ],
+  "image": {
+    "type": "photographie de mise en scène",
+    "auteur": "Daniel Mesguisch",
+    "titre": "Le Prince travesti, Acte I, scène XIII, Frédéric et Arlequin",
+    "annee": 2016,
+    "description_visuelle": "Photographie en noir et blanc d'une mise en scène théâtrale. Debout au centre, un personnage masculin au visage blanchi, à l'air sévère et hautain, porte un costume gris sombre à motifs. À ses pieds, assis par terre dans une posture recroquevillée, se trouve Arlequin reconnaissable à son costume rayé (bas rayés, chemise claire) : il semble jouer distraitement avec un objet, la tête baissée, dans une attitude enfantine et nonchalante. L'arrière-plan est sombre, suggérant les coulisses ou un décor minimaliste."
+  },
+  "questions": [
+    {
+      "numero": "1",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "À propos des deux premières répliques de la Princesse et des répliques de Lélio dans la scène XI.",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [{ "start": 1, "end": 13 }],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        { "lettre": "a", "enonce": "Reformulez la demande que la Princesse fait à Lélio dans ses deux premières répliques scène XI.", "points": 1.0, "competence": "reperage_explicite" },
+        { "lettre": "b", "enonce": "Relevez deux arguments de la Princesse pour appuyer cette demande.", "points": 2.0, "competence": "selection_pertinente" },
+        { "lettre": "c", "enonce": "Quels arguments Lélio oppose-t-il à cela ? Justifiez votre réponse en vous appuyant sur les deux répliques de Lélio.", "points": 2.0, "competence": "selection_pertinente" }
+      ],
+      "points": 5.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "2",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "Comment la Princesse manifeste-t-elle ici son autorité ? Vous analyserez les procédés du discours de la Princesse (usage des temps, vocabulaire…) qui témoignent de la fermeté de ses choix.",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [],
+      "points": 3.0,
+      "competence": "interpretation",
+      "necessite_image": false
+    },
+    {
+      "numero": "3",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "« Scène XII. Frédéric, seul » : à quelle forme de discours théâtral cette didascalie introduit-elle ? Quel est l'intérêt de ce choix ?",
+      "citation": "Scène XII. Frédéric, seul",
+      "mots_soulignes": [],
+      "lignes_ciblees": [{ "start": 24, "end": 24 }],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [],
+      "points": 2.0,
+      "competence": "interpretation",
+      "necessite_image": false
+    },
+    {
+      "numero": "4",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "À propos de la scène XII et du portrait de Lélio fait par Frédéric.",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [{ "start": 24, "end": 32 }],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        { "lettre": "a", "enonce": "Quel portrait de Lélio fait Frédéric dans cette scène ? Vous relèverez et analyserez les éléments qui désignent le jeune homme.", "points": 3.0, "competence": "champ_lexical" },
+        { "lettre": "b", "enonce": "Comment Frédéric explique-t-il le choix de la Princesse ?", "points": 2.0, "competence": "interpretation" },
+        { "lettre": "c", "enonce": "Qui est Arlequin et pourquoi Frédéric pense-t-il que ce personnage peut lui permettre de s'opposer à ce choix ?", "points": 2.0, "competence": "interpretation" }
+      ],
+      "points": 7.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "5",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "À propos du silence et de la réplique de Frédéric dans la scène XI, et des conseils de mise en scène.",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        { "lettre": "a", "enonce": "À la lumière de la scène XII, expliquez pourquoi Frédéric reste silencieux au cours de l'échange entre la Princesse et Lélio dans la scène XI.", "points": 2.0, "competence": "interpretation" },
+        { "lettre": "b", "enonce": "Comment comprenez-vous alors la réplique de Frédéric : « Madame, les fêtes ne me conviennent plus » ?", "points": 2.0, "competence": "interpretation" },
+        { "lettre": "c", "enonce": "Vous êtes metteur en scène. Quels conseils de posture et d'intention de jeu donnez-vous à un acteur pour jouer Frédéric dans la scène XI, première scène de l'extrait ?", "points": 5.0, "competence": "interpretation" }
+      ],
+      "points": 9.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "6",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "Le personnage de Frédéric correspond-il à l'image que vous vous faisiez de lui d'après le texte ? Justifiez votre point de vue.",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [],
+      "points": 3.0,
+      "competence": "texte_image",
+      "necessite_image": true
+    },
+    {
+      "numero": "7",
+      "partie": "comprehension",
+      "type": "standard",
+      "enonce": "Commentez l'apparence et l'attitude du personnage d'Arlequin. Pensez-vous que Frédéric pourra aisément en obtenir ce qu'il veut ? Pourquoi ?",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [],
+      "points": 3.0,
+      "competence": "texte_image",
+      "necessite_image": true
+    },
+    {
+      "numero": "8",
+      "partie": "grammaire",
+      "type": "reecriture",
+      "enonce": "Réécrivez les trois passages suivants au discours indirect en commençant par « Frédéric dit que ». Vous ferez toutes les modifications nécessaires.",
+      "citation": null,
+      "mots_soulignes": [],
+      "lignes_ciblees": [{ "start": 23, "end": 28 }],
+      "passage_a_reecrire": "a. « les fêtes ne me conviennent plus. »\nb. « Si je ne viens à bout de perdre cet homme-là, ma chute est sûre. Un homme sans nom, sans parents, sans patrie, car on ne sait pas d'où il vient, m'arrache le ministère, le fruit de trente années de travail. »\nc. « je ne puis digérer une aussi bizarre aventure, et je n'en saurais douter : c'est l'amour qui a nommé ce ministre-là ».",
+      "contraintes": [
+        "Passer au discours indirect",
+        "Commencer par « Frédéric dit que »",
+        "Faire toutes les modifications nécessaires"
+      ],
+      "sous_questions": [],
+      "points": 10.0,
+      "competence": "reecriture",
+      "necessite_image": false
+    },
+    {
+      "numero": "9",
+      "partie": "grammaire",
+      "type": "standard",
+      "enonce": "« C'est aujourd'hui le jour de ma naissance, et ma Cour, suivant l'usage, me donne aujourd'hui une fête que je vais voir. Lélio, donnez-moi la main pour m'y conduire, vous y verra-t-on, Frédéric ? »",
+      "citation": "C'est aujourd'hui le jour de ma naissance, et ma Cour, suivant l'usage, me donne aujourd'hui une fête que je vais voir. Lélio, donnez-moi la main pour m'y conduire, vous y verra-t-on, Frédéric ?",
+      "mots_soulignes": ["y", "y"],
+      "lignes_ciblees": [{ "start": 19, "end": 21 }],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        { "lettre": "a", "enonce": "Remplacez les « y » par ce à quoi ils renvoient.", "points": 2.0, "competence": "classes_grammaticales" },
+        { "lettre": "b", "enonce": "Donnez la nature et la fonction de y.", "points": 2.0, "competence": "classes_grammaticales" }
+      ],
+      "points": 4.0,
+      "competence": null,
+      "necessite_image": false
+    },
+    {
+      "numero": "10",
+      "partie": "grammaire",
+      "type": "standard",
+      "enonce": "« Quel coup de malheur ! »",
+      "citation": "Quel coup de malheur !",
+      "mots_soulignes": [],
+      "lignes_ciblees": [{ "start": 27, "end": 27 }],
+      "passage_a_reecrire": null,
+      "contraintes": [],
+      "sous_questions": [
+        { "lettre": "a", "enonce": "Quel est le type de cette phrase ?", "points": 2.0, "competence": "classes_grammaticales" },
+        { "lettre": "b", "enonce": "Quelle remarque pouvez-vous faire sur la construction de cette phrase ?", "points": 2.0, "competence": "classes_grammaticales" }
+      ],
+      "points": 4.0,
+      "competence": null,
+      "necessite_image": false
+    }
+  ],
+  "source_file": "2022_Amerique-Nord_francais_questions-grammaire-comp.pdf"
+}
