@@ -142,12 +142,28 @@ def home(request: Request):
 def session_new(
     request: Request,
     discipline: str = Form(default=""),
+    source: str = Form(default="annales"),
     s: DBSession = Depends(db_session),
 ):
-    """Crée une session avec un sujet aléatoire (filtrable par discipline)."""
-    subj = db.random_subject(s, discipline=discipline or None)
+    """Crée une session avec un sujet aléatoire.
+
+    `source` vaut :
+    - "annales"   → tirage dans les sujets réels extraits des PDF d'annales.
+    - "variation" → tirage dans les variations générées offline par
+                    scripts/generate_variations.py (Opus).
+    """
+    is_variation = source == "variation"
+    subj = db.random_subject(
+        s,
+        discipline=discipline or None,
+        is_variation=is_variation,
+    )
     if subj is None:
-        return RedirectResponse(url="/?erreur=aucun_sujet", status_code=303)
+        # Pas de variation disponible → on redirige vers l'accueil avec un
+        # message plutôt que de retomber silencieusement sur une annale, sinon
+        # l'élève ne comprend pas ce qui s'est passé.
+        err = "aucune_variation" if is_variation else "aucun_sujet"
+        return RedirectResponse(url=f"/?erreur={err}", status_code=303)
     new_sess = db.create_session(s, subject_id=subj.id, mode=Mode.SEMI_ASSISTE.value)
     request.session["session_id"] = new_sess.id
     return RedirectResponse(url="/step/1", status_code=303)
