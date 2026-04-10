@@ -85,6 +85,16 @@ COLLECTION_LABELS: dict[str, dict[str, str]] = {
         "dnb_methodo": "méthodo",
         "dnb_sujets": "sujet",
     },
+    # Français compréhension : les collections sont partagées par toutes les
+    # sous-épreuves françaises (compréhension, grammaire, réécriture et à
+    # terme dictée, rédaction), mais indexées par subject_kind pour coller à
+    # l'API `search_for_task(subject_kind=...)`. Si d'autres sous-épreuves
+    # françaises sont ajoutées, ajouter une clé `francais_<sous_epreuve>` qui
+    # pointe vers les mêmes noms de collections.
+    "francais_comprehension": {
+        "dnb_francais_programme": "programme",
+        "dnb_francais_methodo": "méthodo",
+    },
 }
 
 # Fenêtre de bascule : si un nouveau nom de collection ne résout pas côté
@@ -150,6 +160,29 @@ TASK_COLLECTIONS: dict[str, dict[Task, tuple[str, ...]]] = {
             "dnb_hgemc_corriges",
             "dnb_hgemc_methodo",
             "dnb_hgemc_sujets",
+        ),
+    },
+    # Français compréhension : la méthodo (fiches par thème grammatical) est
+    # la source principale pour l'eval, les indices et la révélation — c'est
+    # là que vivent les règles concrètes (« un adjectif de couleur dérivé
+    # d'un nom reste invariable »). Le programme est ajouté pour la
+    # révélation (pour renforcer l'autorité en citant les attendus) et pour
+    # la synthèse de fin de session (pour renvoyer l'élève à un thème du
+    # programme qu'il doit retravailler).
+    "francais_comprehension": {
+        Task.FR_COMP_EVAL: (
+            "dnb_francais_methodo",
+        ),
+        Task.FR_COMP_HINT: (
+            "dnb_francais_methodo",
+        ),
+        Task.FR_COMP_REVEAL: (
+            "dnb_francais_methodo",
+            "dnb_francais_programme",
+        ),
+        Task.FR_COMP_SYNTHESE: (
+            "dnb_francais_programme",
+            "dnb_francais_methodo",
         ),
     },
 }

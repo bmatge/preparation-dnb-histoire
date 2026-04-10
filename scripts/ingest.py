@@ -1,8 +1,12 @@
 """
 Ingestion du corpus DNB dans les collections RAG d'Albert.
 
-Ce script pousse les PDF du dépôt vers les 4 collections Albert qui servent
-de base de connaissances au tuteur :
+Ce script pousse les PDF du dépôt vers les collections Albert qui servent
+de base de connaissances au tuteur. Les collections sont préfixées par
+matière (`dnb_<matière>_<type>`) pour isoler les contextes et éviter qu'une
+recherche en français ne remonte un corrigé d'histoire.
+
+Collections histoire-géo-EMC :
 
   - dnb_hgemc_sujets      : sujets "développement construit" extraits des
                             annales (JSON produits par extract_subjects.py)
@@ -11,9 +15,12 @@ de base de connaissances au tuteur :
   - dnb_hgemc_programmes  : programmes officiels cycle 4 (garde-fou
                             anti-hallucination)
 
-Le préfixe `dnb_hgemc_` identifie la matière (histoire-géo-EMC) — les
-futures matières (maths, français…) auront leurs propres collections avec
-leur propre préfixe.
+Collections français :
+
+  - dnb_francais_programme : programme cycle 4 + attendus fin de 3e/4e/5e
+                             + repères de progression
+  - dnb_francais_methodo   : fiches méthodologiques (classes grammaticales,
+                             propositions, conjugaison, compréhension…)
 
 Principe :
 - On laisse Albert faire le chunking (RecursiveCharacterTextSplitter côté serveur)
@@ -22,20 +29,25 @@ Principe :
   d'embedding configuré pour la collection (bge-m3).
 - Idempotence : on stocke un hash sha256 du fichier dans une petite table locale
   SQLite (data/ingest_state.db). Un re-run ne re-pousse que les fichiers modifiés.
-- Les 4 collections sont créées à la demande si elles n'existent pas.
+- Les collections sont créées à la demande si elles n'existent pas.
 
 Usage :
     source .env
-    .venv/bin/python -m scripts.ingest                    # ingère tout le corpus
-    .venv/bin/python -m scripts.ingest --only corriges    # une seule collection
-    .venv/bin/python -m scripts.ingest --force            # re-pousse tout
-    .venv/bin/python -m scripts.ingest --dry-run          # simule sans appels réseau
+    .venv/bin/python -m scripts.ingest                          # ingère tout
+    .venv/bin/python -m scripts.ingest --only corriges          # une seule collection
+    .venv/bin/python -m scripts.ingest --only fr_programme --only fr_methodo
+    .venv/bin/python -m scripts.ingest --matiere francais       # toutes les français
+    .venv/bin/python -m scripts.ingest --matiere hgemc          # toutes les HG-EMC
+    .venv/bin/python -m scripts.ingest --force                  # re-pousse tout
+    .venv/bin/python -m scripts.ingest --dry-run                # simule
 
 Corpus attendu (depuis la racine du repo) :
-    content/histoire-geo-emc/annales/*.pdf          →  dnb_hgemc_sujets (via .../subjects/*.json)
-    content/histoire-geo-emc/corriges/*.pdf         →  dnb_hgemc_corriges
+    content/histoire-geo-emc/annales/*.pdf           →  dnb_hgemc_sujets (via .../subjects/*.json)
+    content/histoire-geo-emc/corriges/*.pdf          →  dnb_hgemc_corriges
     content/histoire-geo-emc/methodologie/*.pdf,*.md →  dnb_hgemc_methodo
-    content/histoire-geo-emc/programme/*.pdf        →  dnb_hgemc_programmes
+    content/histoire-geo-emc/programme/*.pdf         →  dnb_hgemc_programmes
+    content/francais/programme/*.pdf                 →  dnb_francais_programme
+    content/francais/methodologie/*.pdf,*.md         →  dnb_francais_methodo
 """
 
 from __future__ import annotations
@@ -65,6 +77,7 @@ STATE_DB = Path("data/ingest_state.db")
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 HGEMC_CONTENT = REPO_ROOT / "content" / "histoire-geo-emc"
+FRANCAIS_CONTENT = REPO_ROOT / "content" / "francais"
 
 
 @dataclass(frozen=True)
@@ -76,6 +89,15 @@ class CollectionSpec:
     description: str
     sources: list[Path]  # dossiers/fichiers à ingérer
     file_patterns: tuple[str, ...] = ("*.pdf",)
+
+
+# Correspondance matière → liste des clés de collections. Sert au CLI
+# `--matiere <nom>` pour sélectionner d'un coup toutes les collections d'une
+# matière.
+MATIERE_COLLECTIONS: dict[str, tuple[str, ...]] = {
+    "hgemc": ("corriges", "methodo", "programmes", "sujets"),
+    "francais": ("fr_programme", "fr_methodo"),
+}
 
 
 COLLECTIONS: dict[str, CollectionSpec] = {
@@ -104,6 +126,28 @@ COLLECTIONS: dict[str, CollectionSpec] = {
         description="Consignes de développement construit extraites des annales DNB.",
         sources=[HGEMC_CONTENT / "subjects"],
         file_patterns=("*.json",),
+    ),
+    "fr_programme": CollectionSpec(
+        key="fr_programme",
+        name="dnb_francais_programme",
+        description=(
+            "Programme officiel français cycle 4 + attendus fin de 3e/4e/5e + "
+            "repères annuels de progression. Source d'autorité anti-hallucination "
+            "pour les questions de compréhension, grammaire et réécriture."
+        ),
+        sources=[FRANCAIS_CONTENT / "programme"],
+    ),
+    "fr_methodo": CollectionSpec(
+        key="fr_methodo",
+        name="dnb_francais_methodo",
+        description=(
+            "Fiches méthodologiques français DNB : classes grammaticales, "
+            "propositions et groupes de mots, liens logiques, fabrication des "
+            "mots, conjugaison (modes et temps), poésie/théâtre et figures de "
+            "style, compréhension du texte littéraire, orthographe."
+        ),
+        sources=[FRANCAIS_CONTENT / "methodologie"],
+        file_patterns=("*.pdf", "*.md"),
     ),
 }
 
@@ -458,6 +502,16 @@ def main():
         help="Ne traiter que cette/ces collection(s) (répétable). Défaut: toutes.",
     )
     parser.add_argument(
+        "--matiere",
+        choices=sorted(MATIERE_COLLECTIONS.keys()),
+        action="append",
+        help=(
+            "Sélectionne toutes les collections d'une matière (répétable). "
+            "Équivalent à `--only <key>` pour chaque clé de la matière. "
+            "Compose avec `--only` : les deux sélections sont unionnées."
+        ),
+    )
+    parser.add_argument(
         "--force",
         action="store_true",
         help="Re-pousser même les fichiers déjà ingérés (sha inchangé).",
@@ -474,8 +528,22 @@ def main():
         sys.exit("ALBERT_API_KEY manquant. Source ton .env avant de lancer.")
     base_url = os.environ.get("ALBERT_BASE_URL") or DEFAULT_BASE_URL
 
-    selected_keys = args.only or list(COLLECTIONS.keys())
-    specs = [COLLECTIONS[k] for k in selected_keys]
+    # Union des clés sélectionnées via --only et/ou --matiere. Si rien n'est
+    # spécifié, on prend toutes les collections.
+    selected: list[str] = []
+    if args.matiere:
+        for m in args.matiere:
+            for k in MATIERE_COLLECTIONS[m]:
+                if k not in selected:
+                    selected.append(k)
+    if args.only:
+        for k in args.only:
+            if k not in selected:
+                selected.append(k)
+    if not selected:
+        selected = list(COLLECTIONS.keys())
+    specs = [COLLECTIONS[k] for k in selected]
+    selected_keys = selected
 
     logger.info("Cible Albert : %s", base_url)
     logger.info("Collections sélectionnées : %s", ", ".join(selected_keys))
