@@ -1,0 +1,168 @@
+{
+  "id": "2025_amerique-nord",
+  "source": {
+    "annee": 2025,
+    "session": "juin",
+    "centre": "Métropole",
+    "code_sujet": "25GENFRDAN1"
+  },
+  "titre": null,
+  "reference": {
+    "auteur": "Gaël Faye",
+    "oeuvre": "Jacaranda",
+    "annee_publication": 2024
+  },
+  "texte_complet": "C'est ce printemps-là que le Rwanda s'est invité dans nos vies pour la première fois. Ma mère n'en avait jamais parlé. Pour elle, son existence avait commencé en 1973, lors de son arrivée en France. Elle ne faisait pas d'allusions à sa famille, ne disait rien de son enfance, ne possédait aucune photo de sa jeunesse là-bas. Petit, j'avais certainement dû lui demander où se trouvaient son pays, ses parents – mes grands-parents, que je ne connaissais pas. Je ne me souviens plus de ses réponses. Le passé de ma mère était porte close. D'ailleurs, elle n'écoutait pas de musique rwandaise, ne cuisinait pas de plats de là-bas et ne m'avait pas chanté de berceuse dans sa langue maternelle.",
+  "phrases": [
+    {
+      "ordre": 1,
+      "texte": "C'est ce printemps-là que le Rwanda s'est invité dans nos vies pour la première fois.",
+      "difficultes": [
+        {
+          "type": "trait_union",
+          "mot": "printemps-là",
+          "explication": "Le trait d'union entre « printemps » et « là » est obligatoire avec le démonstratif renforcé."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "s'est invité",
+          "explication": "Accord du participe passé avec un verbe pronominal : le sujet « le Rwanda » est masculin singulier."
+        }
+      ]
+    },
+    {
+      "ordre": 2,
+      "texte": "Ma mère n'en avait jamais parlé.",
+      "difficultes": [
+        {
+          "type": "accord",
+          "mot": "parlé",
+          "explication": "Le participe passé conjugué avec « avoir » ne s'accorde pas ici car le COD « en » ne commande pas l'accord."
+        }
+      ]
+    },
+    {
+      "ordre": 3,
+      "texte": "Pour elle, son existence avait commencé en 1973, lors de son arrivée en France.",
+      "difficultes": [
+        {
+          "type": "accord",
+          "mot": "commencé",
+          "explication": "Participe passé avec « avoir » sans COD placé avant : il reste invariable."
+        },
+        {
+          "type": "lexicale",
+          "mot": "existence",
+          "explication": "Attention à l'orthographe du mot : « existence » avec un « e » final."
+        },
+        {
+          "type": "accord",
+          "mot": "arrivée",
+          "explication": "Nom féminin singulier dérivé du verbe « arriver » : deux « r » et terminaison en « -ée »."
+        }
+      ]
+    },
+    {
+      "ordre": 4,
+      "texte": "Elle ne faisait pas d'allusions à sa famille, ne disait rien de son enfance, ne possédait aucune photo de sa jeunesse là-bas.",
+      "difficultes": [
+        {
+          "type": "accord",
+          "mot": "allusions",
+          "explication": "Le nom « allusions » est au pluriel après « pas d' » car il désigne plusieurs allusions possibles."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "possédait",
+          "explication": "Imparfait de l'indicatif, 3e personne du singulier : terminaison en « -ait »."
+        },
+        {
+          "type": "trait_union",
+          "mot": "là-bas",
+          "explication": "Adverbe composé avec un trait d'union obligatoire et un accent grave sur « là »."
+        }
+      ]
+    },
+    {
+      "ordre": 5,
+      "texte": "Petit, j'avais certainement dû lui demander où se trouvaient son pays, ses parents – mes grands-parents, que je ne connaissais pas.",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "dû",
+          "explication": "Participe passé de « devoir » : accent circonflexe au masculin singulier pour le distinguer de l'article « du »."
+        },
+        {
+          "type": "homophone",
+          "mot": "où",
+          "explication": "Adverbe interrogatif indirect avec accent grave, à ne pas confondre avec « ou » conjonction."
+        },
+        {
+          "type": "accord",
+          "mot": "se trouvaient",
+          "explication": "Le verbe s'accorde au pluriel avec le sujet composé « son pays, ses parents »."
+        },
+        {
+          "type": "trait_union",
+          "mot": "grands-parents",
+          "explication": "Nom composé avec trait d'union ; « grands » prend un « s » au pluriel."
+        }
+      ]
+    },
+    {
+      "ordre": 6,
+      "texte": "Je ne me souviens plus de ses réponses.",
+      "difficultes": [
+        {
+          "type": "homophone",
+          "mot": "ses",
+          "explication": "Déterminant possessif pluriel, à ne pas confondre avec « ces » (démonstratif) ou « c'est »."
+        }
+      ]
+    },
+    {
+      "ordre": 7,
+      "texte": "Le passé de ma mère était porte close.",
+      "difficultes": [
+        {
+          "type": "lexicale",
+          "mot": "porte close",
+          "explication": "Expression figée signifiant « fermé, inaccessible » : « close » s'accorde au féminin avec « porte »."
+        }
+      ]
+    },
+    {
+      "ordre": 8,
+      "texte": "D'ailleurs, elle n'écoutait pas de musique rwandaise, ne cuisinait pas de plats de là-bas et ne m'avait pas chanté de berceuse dans sa langue maternelle.",
+      "difficultes": [
+        {
+          "type": "lexicale",
+          "mot": "rwandaise",
+          "explication": "Adjectif dérivé de « Rwanda » : attention à l'orthographe avec « rw » et la terminaison féminine « -aise »."
+        },
+        {
+          "type": "accord",
+          "mot": "chanté",
+          "explication": "Participe passé avec « avoir » : le COD « de berceuse » est placé après, donc pas d'accord."
+        },
+        {
+          "type": "lexicale",
+          "mot": "berceuse",
+          "explication": "Nom féminin dérivé de « bercer » : attention au « c » qui devient « ce » pour garder le son [s]."
+        },
+        {
+          "type": "accord",
+          "mot": "maternelle",
+          "explication": "Adjectif qui s'accorde au féminin singulier avec « langue » : double « l » et terminaison « -elle »."
+        }
+      ]
+    }
+  ],
+  "notes_examinateur": [
+    "On fera faire la dictée les vingt dernières minutes de la première partie.",
+    "On demandera aux candidats d'écrire une ligne sur deux.",
+    "Avant de commencer la dictée, on indiquera qu'il convient d'écrire les dates en chiffres.",
+    "On inscrira au tableau de manière lisible : Rwanda ; Gaël Faye, Jacaranda, 2024."
+  ],
+  "source_file": "2025_Amerique-Nord_francais_dictee.pdf"
+}

@@ -1,0 +1,74 @@
+{
+  "id": "2025_groupe1",
+  "source": {
+    "annee": 2025,
+    "session": "juin",
+    "centre": "Métropole",
+    "code_sujet": "25GENFRDG11"
+  },
+  "titre": null,
+  "reference": {
+    "auteur": "Molière",
+    "oeuvre": "Premier placet au roi, sur la comédie du Tartuffe",
+    "annee_publication": null
+  },
+  "texte_complet": "Le devoir de la comédie étant de corriger les hommes en les divertissant, j'ai cru que, dans l'emploi où je me trouve, je n'avais rien de mieux à faire que d'attaquer par des peintures ridicules les vices de mon siècle. Comme l'hypocrisie, sans doute, en est un des plus en usage, des plus incommodes et des plus dangereux, j'avais eu, Sire, la pensée que je ne rendrais pas un petit service à tous les honnêtes gens de votre royaume, si je faisais une comédie qui décrie les hypocrites, et mette en vue, comme il faut, toutes les grimaces étudiées de ces gens de bien à outrance, toutes les friponneries.",
+  "phrases": [
+    {
+      "ordre": 1,
+      "texte": "Le devoir de la comédie étant de corriger les hommes en les divertissant, j'ai cru que, dans l'emploi où je me trouve, je n'avais rien de mieux à faire que d'attaquer par des peintures ridicules les vices de mon siècle.",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "divertissant",
+          "explication": "Participe présent en -issant du verbe divertir (2e groupe), à ne pas confondre avec une terminaison en -ant simple."
+        },
+        {
+          "type": "homophone",
+          "mot": "où",
+          "explication": "Pronom relatif de lieu avec accent grave, à ne pas confondre avec la conjonction « ou »."
+        },
+        {
+          "type": "lexicale",
+          "mot": "peintures ridicules",
+          "explication": "« Peintures » au sens figuré de descriptions, à accorder au pluriel, et « ridicules » s'accorde avec « peintures »."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "n'avais",
+          "explication": "Imparfait de l'indicatif, 1re personne du singulier, à ne pas confondre avec « n'avait » (3e personne)."
+        }
+      ]
+    },
+    {
+      "ordre": 2,
+      "texte": "Comme l'hypocrisie, sans doute, en est un des plus en usage, des plus incommodes et des plus dangereux, j'avais eu, Sire, la pensée que je ne rendrais pas un petit service à tous les honnêtes gens de votre royaume, si je faisais une comédie qui décrie les hypocrites, et mette en vue, comme il faut, toutes les grimaces étudiées de ces gens de bien à outrance, toutes les friponneries.",
+      "difficultes": [
+        {
+          "type": "lexicale",
+          "mot": "incommodes",
+          "explication": "Mot avec double « m », adjectif au pluriel accordé avec le sens de « des plus incommodes »."
+        },
+        {
+          "type": "accord",
+          "mot": "honnêtes gens",
+          "explication": "« Honnêtes » avec accent circonflexe sur le « e » et accord au pluriel avec « gens »."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "décrie",
+          "explication": "Subjonctif présent du verbe « décrier » (3e personne du singulier), à ne pas confondre avec l'indicatif « décrit »."
+        },
+        {
+          "type": "accord",
+          "mot": "étudiées",
+          "explication": "Participe passé employé comme adjectif, accordé au féminin pluriel avec « grimaces »."
+        }
+      ]
+    }
+  ],
+  "notes_examinateur": [
+    "Avant la dictée, on écrit au tableau : Hypocrisie ; décrie ; friponneries ; D'après Molière, Premier placet au roi, sur la comédie du Tartuffe."
+  ],
+  "source_file": "2025_Groupe1_francais_dictee.pdf"
+}

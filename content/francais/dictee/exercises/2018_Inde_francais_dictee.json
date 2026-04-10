@@ -1,0 +1,136 @@
+{
+  "id": "2018_inde",
+  "source": {
+    "annee": 2018,
+    "session": "juin",
+    "centre": "Métropole",
+    "code_sujet": "18GENFRDIN1"
+  },
+  "titre": null,
+  "reference": {
+    "auteur": "Colette",
+    "oeuvre": "Claudine à l'école",
+    "annee_publication": 1900
+  },
+  "texte_complet": "Ah ! les bois, les chers bois de Montigny ! À cette heure-ci, je le sais bien, comme ils bourdonnent ! Les guêpes et les mouches qui pompent dans les fleurs des tilleuls et des sureaux font vibrer toute la forêt comme un orgue ; et les oiseaux ne chantent pas, car à midi ils se tiennent debout sur les branches, cherchent l'ombre, lissent leurs plumes, et regardent le sous-bois avec des yeux mobiles et brillants. Je serais couchée, au bord de la Sapinière d'où l'on voit toute la ville, en bas au-dessous de soi, avec le vent chaud sur ma figure, à moitié morte d'aise et de paresse…",
+  "phrases": [
+    {
+      "ordre": 1,
+      "texte": "Ah ! les bois, les chers bois de Montigny !",
+      "difficultes": [
+        {
+          "type": "majuscule",
+          "mot": "Montigny",
+          "explication": "Nom propre donné au tableau, mais il faut penser à la majuscule."
+        }
+      ]
+    },
+    {
+      "ordre": 2,
+      "texte": "À cette heure-ci, je le sais bien, comme ils bourdonnent !",
+      "difficultes": [
+        {
+          "type": "trait_union",
+          "mot": "heure-ci",
+          "explication": "Le trait d'union est obligatoire entre le nom et le démonstratif « ci »."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "bourdonnent",
+          "explication": "Verbe au présent, 3e personne du pluriel : ne pas oublier le double « n » et la terminaison « -ent »."
+        },
+        {
+          "type": "majuscule",
+          "mot": "À",
+          "explication": "Le « À » en début de phrase porte un accent grave, à ne pas confondre avec « A » (verbe avoir)."
+        }
+      ]
+    },
+    {
+      "ordre": 3,
+      "texte": "Les guêpes et les mouches qui pompent dans les fleurs des tilleuls et des sureaux font vibrer toute la forêt comme un orgue ;",
+      "difficultes": [
+        {
+          "type": "lexicale",
+          "mot": "guêpes",
+          "explication": "Mot avec un accent circonflexe sur le « ê », souvent oublié."
+        },
+        {
+          "type": "lexicale",
+          "mot": "sureaux",
+          "explication": "Nom d'arbre peu courant ; attention au pluriel en « -eaux »."
+        },
+        {
+          "type": "lexicale",
+          "mot": "tilleuls",
+          "explication": "Mot avec double « l » et diphtongue « eul », orthographe à connaître."
+        },
+        {
+          "type": "accord",
+          "mot": "toute la forêt",
+          "explication": "« Toute » s'accorde au féminin singulier avec « la forêt » ; accent circonflexe sur « forêt »."
+        }
+      ]
+    },
+    {
+      "ordre": 4,
+      "texte": "et les oiseaux ne chantent pas, car à midi ils se tiennent debout sur les branches, cherchent l'ombre, lissent leurs plumes, et regardent le sous-bois avec des yeux mobiles et brillants.",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "tiennent",
+          "explication": "Verbe « se tenir » au présent, 3e personne du pluriel : double « n » et terminaison « -ent »."
+        },
+        {
+          "type": "trait_union",
+          "mot": "sous-bois",
+          "explication": "Nom composé avec un trait d'union, à ne pas écrire en un seul mot."
+        },
+        {
+          "type": "accord",
+          "mot": "brillants",
+          "explication": "Adjectif qui s'accorde au masculin pluriel avec « yeux »."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "lissent",
+          "explication": "Verbe « lisser » au présent, 3e personne du pluriel : ne pas confondre avec « lisent » (lire)."
+        }
+      ]
+    },
+    {
+      "ordre": 5,
+      "texte": "Je serais couchée, au bord de la Sapinière d'où l'on voit toute la ville, en bas au-dessous de soi, avec le vent chaud sur ma figure, à moitié morte d'aise et de paresse…",
+      "difficultes": [
+        {
+          "type": "accord",
+          "mot": "couchée",
+          "explication": "Participe passé accordé au féminin singulier car le « je » est un personnage féminin."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "serais",
+          "explication": "Conditionnel présent, 1re personne du singulier : ne pas confondre avec « serai » (futur) ni « serait » (3e personne)."
+        },
+        {
+          "type": "trait_union",
+          "mot": "au-dessous",
+          "explication": "Adverbe composé avec un trait d'union, à ne pas écrire en deux mots séparés."
+        },
+        {
+          "type": "accord",
+          "mot": "morte",
+          "explication": "Adjectif accordé au féminin singulier avec le « je » féminin."
+        }
+      ]
+    }
+  ],
+  "notes_examinateur": [
+    "On inscrira au tableau de manière lisible pour l'ensemble des candidats le titre de l'œuvre et le nom de l'auteur.",
+    "On écrira au tableau les mots Montigny et Sapinière.",
+    "On précisera que le je est un personnage féminin.",
+    "On demandera aux candidats d'écrire une ligne sur deux.",
+    "On ne répondra pas aux questions éventuelles des candidats après la relecture du texte ; ils en seront avertis avant cette relecture."
+  ],
+  "source_file": "2018_Inde_francais_dictee.pdf"
+}

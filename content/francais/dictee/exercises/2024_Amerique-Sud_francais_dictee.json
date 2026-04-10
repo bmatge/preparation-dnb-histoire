@@ -1,0 +1,123 @@
+{
+  "id": "2024_amerique-sud",
+  "source": {
+    "annee": 2024,
+    "session": "juin",
+    "centre": "Métropole",
+    "code_sujet": "24GENFRDAS1"
+  },
+  "titre": null,
+  "reference": {
+    "auteur": "Elsa Triolet",
+    "oeuvre": "Le Cheval blanc",
+    "annee_publication": 1943
+  },
+  "texte_complet": "La musique, avec un chef d'orchestre souriant, entama le premier morceau. Les enfants, les tout-petits et les plus grands, buvaient de la limonade et tournaient, chacun d'après son idée et son inspiration. Le monsieur très gai qui ordonnait la fête annonça un quadrille, et c'est là qu'après quelques figures il engagea les petites filles à inviter les garçons. L'orchestre joua une valse. Michel vit la belle, celle qui avait les cheveux d'un blond différent de celui des autres filles, de longues jambes minces sous une étroite robe en piqué blanc qui ne lui couvrait pas les genoux, et des escarpins vernis avec une bride à la cheville, s'avancer vers lui.",
+  "phrases": [
+    {
+      "ordre": 1,
+      "texte": "La musique, avec un chef d'orchestre souriant, entama le premier morceau.",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "entama",
+          "explication": "Passé simple du 1er groupe en -a, à ne pas confondre avec l'imparfait « entamait »."
+        },
+        {
+          "type": "lexicale",
+          "mot": "orchestre",
+          "explication": "Le groupe « ch » suivi de « estre » peut poser problème à l'élève."
+        }
+      ]
+    },
+    {
+      "ordre": 2,
+      "texte": "Les enfants, les tout-petits et les plus grands, buvaient de la limonade et tournaient, chacun d'après son idée et son inspiration.",
+      "difficultes": [
+        {
+          "type": "trait_union",
+          "mot": "tout-petits",
+          "explication": "Nom composé avec trait d'union, « tout » invariable ici car il fait partie du nom composé."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "buvaient",
+          "explication": "Imparfait du verbe « boire » avec la base « buv- », forme irrégulière à connaître."
+        },
+        {
+          "type": "accord",
+          "mot": "tournaient",
+          "explication": "Accord au pluriel avec le sujet « Les enfants », à ne pas confondre avec « tournait »."
+        }
+      ]
+    },
+    {
+      "ordre": 3,
+      "texte": "Le monsieur très gai qui ordonnait la fête annonça un quadrille, et c'est là qu'après quelques figures il engagea les petites filles à inviter les garçons.",
+      "difficultes": [
+        {
+          "type": "homophone",
+          "mot": "gai",
+          "explication": "Adjectif « gai » à ne pas confondre avec « guet » ou « gué »."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "annonça",
+          "explication": "Passé simple avec cédille devant le -a pour conserver le son [s]."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "engagea",
+          "explication": "Passé simple du 1er groupe, le -e- est conservé devant le -a pour garder le son [ʒ]."
+        },
+        {
+          "type": "lexicale",
+          "mot": "quadrille",
+          "explication": "Mot donné au tableau, mais attention au double -l- et au -e final."
+        }
+      ]
+    },
+    {
+      "ordre": 4,
+      "texte": "L'orchestre joua une valse.",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "joua",
+          "explication": "Passé simple du 1er groupe en -a, à ne pas confondre avec d'autres temps."
+        }
+      ]
+    },
+    {
+      "ordre": 5,
+      "texte": "Michel vit la belle, celle qui avait les cheveux d'un blond différent de celui des autres filles, de longues jambes minces sous une étroite robe en piqué blanc qui ne lui couvrait pas les genoux, et des escarpins vernis avec une bride à la cheville, s'avancer vers lui.",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "vit",
+          "explication": "Passé simple du verbe « voir » (3e personne), à ne pas confondre avec l'homophone « vie » ou « vis »."
+        },
+        {
+          "type": "accord",
+          "mot": "différent",
+          "explication": "Adjectif masculin singulier qui s'accorde avec « blond », à ne pas confondre avec le participe présent « différant »."
+        },
+        {
+          "type": "lexicale",
+          "mot": "escarpins",
+          "explication": "Mot de vocabulaire peu courant pour un élève de 3e, attention au -s final du pluriel et au groupe « sc »."
+        },
+        {
+          "type": "accord",
+          "mot": "vernis",
+          "explication": "Adjectif au masculin pluriel accordé avec « escarpins », le -s est déjà présent au singulier (« verni/vernis »)."
+        }
+      ]
+    }
+  ],
+  "notes_examinateur": [
+    "On inscrira au tableau de manière lisible par l'ensemble des candidats : Michel – quadrille – piqué.",
+    "On demande aux candidats d'écrire une ligne sur deux."
+  ],
+  "source_file": "2024_Amerique-Sud_francais_dictee.pdf"
+}

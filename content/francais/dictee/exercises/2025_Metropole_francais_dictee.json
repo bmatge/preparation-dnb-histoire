@@ -1,0 +1,172 @@
+{
+  "id": "2025_metropole",
+  "source": {
+    "annee": 2025,
+    "session": "juin",
+    "centre": "Métropole",
+    "code_sujet": "25GENFRDME1"
+  },
+  "titre": null,
+  "reference": {
+    "auteur": "Simone de Beauvoir",
+    "oeuvre": "La Force de l'âge",
+    "annee_publication": 1960
+  },
+  "texte_complet": "Jamais je ne m'ennuyais : Marseille ne s'épuisait pas. Je suivais la jetée battue par l'eau et le vent, je regardais les pêcheurs, debout entre les blocs de pierre où se brisaient les lames ; je me perdais dans la tristesse des docks. Dans les vieux escaliers et les vieilles ruelles, sur les marchés aux poissons, une vie toujours neuve me remplissait les yeux et les oreilles. J'étais contente de moi ; au jour le jour, je construisais sans secours mon bonheur. Il y avait des fins d'après-midi un peu mélancoliques, quand, au sortir du lycée, je revenais, à travers le crépuscule, vers ma chambre où rien ne m'attendait : mais je trouvais de la douceur à cette nostalgie que je n'avais jamais connue dans le brouhaha de Paris.",
+  "phrases": [
+    {
+      "ordre": 1,
+      "texte": "Jamais je ne m'ennuyais : Marseille ne s'épuisait pas.",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "m'ennuyais",
+          "explication": "Le verbe « s'ennuyer » à l'imparfait conserve le « y » devant le « a » de la terminaison, ce qui peut surprendre."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "s'épuisait",
+          "explication": "Imparfait en -ait à la 3e personne du singulier, à ne pas confondre avec le passé simple."
+        }
+      ]
+    },
+    {
+      "ordre": 2,
+      "texte": "Je suivais la jetée battue par l'eau et le vent, je regardais les pêcheurs, debout entre les blocs de pierre où se brisaient les lames ;",
+      "difficultes": [
+        {
+          "type": "accord",
+          "mot": "battue",
+          "explication": "Participe passé employé comme adjectif, accordé au féminin singulier avec « la jetée »."
+        },
+        {
+          "type": "lexicale",
+          "mot": "pêcheurs",
+          "explication": "Ne pas confondre « pêcheurs » (qui pêchent) et « pécheurs » (qui pèchent), attention à l'accent circonflexe."
+        },
+        {
+          "type": "homophone",
+          "mot": "où",
+          "explication": "Pronom relatif de lieu avec accent grave, à ne pas confondre avec « ou » conjonction de coordination."
+        },
+        {
+          "type": "accord",
+          "mot": "brisaient",
+          "explication": "Le sujet « les lames » est au pluriel, le verbe doit s'accorder en conséquence."
+        }
+      ]
+    },
+    {
+      "ordre": 3,
+      "texte": "je me perdais dans la tristesse des docks.",
+      "difficultes": [
+        {
+          "type": "lexicale",
+          "mot": "docks",
+          "explication": "Mot d'origine anglaise donné au tableau, attention au « ck » et au « s » du pluriel."
+        }
+      ]
+    },
+    {
+      "ordre": 4,
+      "texte": "Dans les vieux escaliers et les vieilles ruelles, sur les marchés aux poissons, une vie toujours neuve me remplissait les yeux et les oreilles.",
+      "difficultes": [
+        {
+          "type": "accord",
+          "mot": "vieux",
+          "explication": "Adjectif masculin pluriel invariable en forme (pas de « s » supplémentaire)."
+        },
+        {
+          "type": "accord",
+          "mot": "vieilles",
+          "explication": "Adjectif au féminin pluriel accordé avec « ruelles »."
+        },
+        {
+          "type": "lexicale",
+          "mot": "neuve",
+          "explication": "Féminin de « neuf », le « f » se transforme en « v » au féminin."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "remplissait",
+          "explication": "Verbe du 2e groupe à l'imparfait avec le suffixe -iss-, à ne pas oublier."
+        }
+      ]
+    },
+    {
+      "ordre": 5,
+      "texte": "J'étais contente de moi ; au jour le jour, je construisais sans secours mon bonheur.",
+      "difficultes": [
+        {
+          "type": "accord",
+          "mot": "contente",
+          "explication": "Adjectif accordé au féminin singulier car la narratrice est une femme (Simone de Beauvoir)."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "construisais",
+          "explication": "Imparfait du verbe « construire », attention au « s » après le « i » radical."
+        },
+        {
+          "type": "lexicale",
+          "mot": "secours",
+          "explication": "Le « s » final est toujours présent, même au singulier."
+        }
+      ]
+    },
+    {
+      "ordre": 6,
+      "texte": "Il y avait des fins d'après-midi un peu mélancoliques, quand, au sortir du lycée, je revenais, à travers le crépuscule, vers ma chambre où rien ne m'attendait :",
+      "difficultes": [
+        {
+          "type": "trait_union",
+          "mot": "après-midi",
+          "explication": "Nom composé avec trait d'union, invariable en nombre."
+        },
+        {
+          "type": "lexicale",
+          "mot": "mélancoliques",
+          "explication": "Mot long avec le groupe « anc » au milieu, souvent source d'erreur."
+        },
+        {
+          "type": "lexicale",
+          "mot": "crépuscule",
+          "explication": "Mot avec accent aigu sur le « e » et terminaison en « -ule », souvent mal orthographié."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "m'attendait",
+          "explication": "Imparfait à la 3e personne du singulier, le sujet est « rien »."
+        }
+      ]
+    },
+    {
+      "ordre": 7,
+      "texte": "mais je trouvais de la douceur à cette nostalgie que je n'avais jamais connue dans le brouhaha de Paris.",
+      "difficultes": [
+        {
+          "type": "lexicale",
+          "mot": "nostalgie",
+          "explication": "Mot d'origine grecque, attention à ne pas oublier le « l » avant le « g »."
+        },
+        {
+          "type": "accord",
+          "mot": "connue",
+          "explication": "Participe passé employé avec « avoir » et accordé au féminin singulier avec le COD « que » (reprenant « nostalgie ») placé avant le verbe."
+        },
+        {
+          "type": "lexicale",
+          "mot": "brouhaha",
+          "explication": "Mot donné au tableau, attention aux deux « h » intercalés."
+        }
+      ]
+    }
+  ],
+  "notes_examinateur": [
+    "Avant de commencer la dictée, on inscrira au tableau de manière lisible : docks, brouhaha, D'après Simone de Beauvoir, La Force de l'âge, 1960.",
+    "Lors de la dictée, on procédera successivement : 1. à une lecture préalable, lente et bien articulée du texte ; 2. à la dictée effective du texte, en précisant la ponctuation et en marquant nettement les liaisons ; 3. à la relecture, sans préciser cette fois-ci la ponctuation mais en marquant toujours les liaisons.",
+    "On demandera aux candidats d'écrire une ligne sur deux.",
+    "On ne répondra pas aux questions éventuelles des candidats après la relecture du texte ; ils en seront avertis avant cette relecture."
+  ],
+  "source_file": "2025_Metropole_francais_dictee.pdf"
+}

@@ -1,0 +1,102 @@
+{
+  "id": "2019_metropole",
+  "source": {
+    "annee": 2019,
+    "session": "juin",
+    "centre": "Métropole",
+    "code_sujet": "19GENFRDME1"
+  },
+  "titre": null,
+  "reference": {
+    "auteur": "Albert Camus",
+    "oeuvre": "Le Premier Homme",
+    "annee_publication": 1994
+  },
+  "texte_complet": "Dès qu'ils étaient au complet, ils partaient, promenant la raquette le long des grilles rouillées des jardins devant les maisons, avec un grand bruit qui réveillait le quartier et faisait bondir les chats endormis sous les glycines poussiéreuses. Ils couraient, traversant la rue, essayant de s'attraper, couverts déjà d'une bonne sueur, mais toujours dans la même direction, vers le champ, non loin de leur école, à quatre ou cinq rues de là. Mais il y avait une station obligatoire, à ce qu'on appelait le jet d'eau, sur une place assez grande, une énorme fontaine ronde à deux étages, où l'eau ne coulait pas, mais dont le bassin, depuis longtemps bouché, était rempli jusqu'à ras bord, de loin en loin, par les énormes pluies du pays.",
+  "phrases": [
+    {
+      "ordre": 1,
+      "texte": "Dès qu'ils étaient au complet, ils partaient, promenant la raquette le long des grilles rouillées des jardins devant les maisons, avec un grand bruit qui réveillait le quartier et faisait bondir les chats endormis sous les glycines poussiéreuses.",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "étaient",
+          "explication": "Imparfait du verbe être à la 3e personne du pluriel, ne pas confondre avec « étais » ou « était »."
+        },
+        {
+          "type": "accord",
+          "mot": "rouillées",
+          "explication": "Participe passé employé comme adjectif, accordé au féminin pluriel avec « grilles »."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "réveillait",
+          "explication": "Imparfait à la 3e personne du singulier avec le sujet « qui » (= un grand bruit), attention à la terminaison -ait."
+        },
+        {
+          "type": "lexicale",
+          "mot": "poussiéreuses",
+          "explication": "Mot long avec le suffixe -euses, à accorder au féminin pluriel avec « glycines »."
+        }
+      ]
+    },
+    {
+      "ordre": 2,
+      "texte": "Ils couraient, traversant la rue, essayant de s'attraper, couverts déjà d'une bonne sueur, mais toujours dans la même direction, vers le champ, non loin de leur école, à quatre ou cinq rues de là.",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "couraient",
+          "explication": "Imparfait du verbe courir à la 3e personne du pluriel, ne pas oublier le -ai- de l'imparfait."
+        },
+        {
+          "type": "accord",
+          "mot": "couverts",
+          "explication": "Participe passé adjectif accordé au masculin pluriel avec « ils » (Jacques et ses camarades)."
+        },
+        {
+          "type": "homophone",
+          "mot": "leur",
+          "explication": "Déterminant possessif devant « école », invariable ici (pas de -s car un seul nom singulier suit)."
+        },
+        {
+          "type": "homophone",
+          "mot": "là",
+          "explication": "Adverbe de lieu avec accent grave, à ne pas confondre avec « la » article ou pronom."
+        }
+      ]
+    },
+    {
+      "ordre": 3,
+      "texte": "Mais il y avait une station obligatoire, à ce qu'on appelait le jet d'eau, sur une place assez grande, une énorme fontaine ronde à deux étages, où l'eau ne coulait pas, mais dont le bassin, depuis longtemps bouché, était rempli jusqu'à ras bord, de loin en loin, par les énormes pluies du pays.",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "appelait",
+          "explication": "Imparfait du verbe appeler à la 3e personne du singulier, avec deux « p » et un seul « l » à l'imparfait."
+        },
+        {
+          "type": "accord",
+          "mot": "bouché",
+          "explication": "Participe passé adjectif accordé au masculin singulier avec « bassin »."
+        },
+        {
+          "type": "accord",
+          "mot": "rempli",
+          "explication": "Participe passé accordé au masculin singulier avec « bassin » (sujet de « était rempli »)."
+        },
+        {
+          "type": "lexicale",
+          "mot": "jusqu'à ras bord",
+          "explication": "Expression figée : « ras bord » s'écrit en deux mots sans trait d'union, attention à ne pas écrire « ra » ou « raz »."
+        }
+      ]
+    }
+  ],
+  "notes_examinateur": [
+    "On indiquera aux candidats que le « ils » utilisé dans le texte de la dictée désigne Jacques et ses camarades.",
+    "On indiquera que les chiffres doivent être écrits en lettres.",
+    "On inscrira au tableau de manière lisible par l'ensemble des candidats : les glycines ; D'après Albert Camus, Le Premier Homme, 1994."
+  ],
+  "source_file": "2019_Metropole_francais_dictee.pdf"
+}

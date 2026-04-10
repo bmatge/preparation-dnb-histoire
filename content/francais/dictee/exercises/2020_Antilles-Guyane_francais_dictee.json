@@ -1,0 +1,184 @@
+{
+  "id": "2020_antilles-guyane",
+  "source": {
+    "annee": 2020,
+    "session": "juin",
+    "centre": "Métropole",
+    "code_sujet": "20GENFRDAG1"
+  },
+  "titre": null,
+  "reference": {
+    "auteur": "Yannick HAENEL",
+    "oeuvre": "Cercle",
+    "annee_publication": 2007
+  },
+  "texte_complet": "« C'est maintenant qu'il faut reprendre vie. » Aussitôt, il y a eu une série d'étincelles autour de ma tête, puis la phrase s'est enroulée autour de mes épaules en y traçant des lignes rouges, orange, jaunes ; elle a cheminé le long de mon bras, lentement, jusqu'à ma main qui s'est gorgée d'un sang bleu-noir. C'est ainsi que ce livre a commencé à s'écrire. La Seine, les arbres et mon corps se sont mis à tourner dans un instant de vide. Je n'ai pas eu le vertige. Au contraire : tout était affecté de vertige, sauf moi. Je brûlais, mon corps n'était plus mon corps, mais un buisson de flammes d'où sortaient des phrases. Ces phrases tourbillonnaient dans la lumière, au-dessus de l'eau, comme des tapis volants.",
+  "phrases": [
+    {
+      "ordre": 1,
+      "texte": "« C'est maintenant qu'il faut reprendre vie. »",
+      "difficultes": [
+        {
+          "type": "homophone",
+          "mot": "C'est",
+          "explication": "Ne pas confondre « c'est » (présentatif) avec « s'est » (pronom réfléchi + être)."
+        },
+        {
+          "type": "homophone",
+          "mot": "qu'il faut",
+          "explication": "Ne pas confondre « qu'il » avec « qui il » ou « qu'ils »."
+        }
+      ]
+    },
+    {
+      "ordre": 2,
+      "texte": "Aussitôt, il y a eu une série d'étincelles autour de ma tête, puis la phrase s'est enroulée autour de mes épaules en y traçant des lignes rouges, orange, jaunes ;",
+      "difficultes": [
+        {
+          "type": "lexicale",
+          "mot": "Aussitôt",
+          "explication": "Mot en un seul mot avec accent circonflexe sur le « o », à ne pas confondre avec « aussi tôt » en deux mots."
+        },
+        {
+          "type": "lexicale",
+          "mot": "étincelles",
+          "explication": "Mot avec un seul « t » et deux « l », orthographe à mémoriser."
+        },
+        {
+          "type": "accord",
+          "mot": "enroulée",
+          "explication": "Participe passé avec « s'est » : accord avec le sujet « la phrase » (féminin singulier)."
+        },
+        {
+          "type": "accord",
+          "mot": "orange",
+          "explication": "Adjectif de couleur dérivé d'un nom : « orange » est invariable."
+        }
+      ]
+    },
+    {
+      "ordre": 3,
+      "texte": "elle a cheminé le long de mon bras, lentement, jusqu'à ma main qui s'est gorgée d'un sang bleu-noir.",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "cheminé",
+          "explication": "Participe passé en -é, ne pas confondre avec l'infinitif en -er."
+        },
+        {
+          "type": "accord",
+          "mot": "gorgée",
+          "explication": "Participe passé avec « s'est » : accord avec le sujet « ma main » (féminin singulier)."
+        },
+        {
+          "type": "trait_union",
+          "mot": "bleu-noir",
+          "explication": "Adjectif de couleur composé : les deux éléments sont reliés par un trait d'union et restent invariables."
+        }
+      ]
+    },
+    {
+      "ordre": 4,
+      "texte": "C'est ainsi que ce livre a commencé à s'écrire.",
+      "difficultes": [
+        {
+          "type": "homophone",
+          "mot": "a commencé",
+          "explication": "Ne pas confondre « a » (auxiliaire avoir) avec « à » (préposition)."
+        },
+        {
+          "type": "homophone",
+          "mot": "à s'écrire",
+          "explication": "Ici « à » est une préposition suivie de l'infinitif, ne pas écrire « a »."
+        }
+      ]
+    },
+    {
+      "ordre": 5,
+      "texte": "La Seine, les arbres et mon corps se sont mis à tourner dans un instant de vide.",
+      "difficultes": [
+        {
+          "type": "majuscule",
+          "mot": "Seine",
+          "explication": "Nom propre de fleuve, prend une majuscule."
+        },
+        {
+          "type": "accord",
+          "mot": "se sont mis",
+          "explication": "Participe passé « mis » avec sujet composé pluriel ; « mis » ne prend pas de -e car le sujet inclut « mon corps » (masculin)."
+        }
+      ]
+    },
+    {
+      "ordre": 6,
+      "texte": "Je n'ai pas eu le vertige.",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "eu",
+          "explication": "Participe passé du verbe « avoir » : orthographe courte à ne pas confondre avec « eut »."
+        }
+      ]
+    },
+    {
+      "ordre": 7,
+      "texte": "Au contraire : tout était affecté de vertige, sauf moi.",
+      "difficultes": [
+        {
+          "type": "accord",
+          "mot": "affecté",
+          "explication": "Participe passé employé avec « était » : accord avec « tout » (masculin singulier)."
+        }
+      ]
+    },
+    {
+      "ordre": 8,
+      "texte": "Je brûlais, mon corps n'était plus mon corps, mais un buisson de flammes d'où sortaient des phrases.",
+      "difficultes": [
+        {
+          "type": "lexicale",
+          "mot": "brûlais",
+          "explication": "Accent circonflexe sur le « u » de « brûler », à ne pas oublier."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "sortaient",
+          "explication": "Verbe conjugué à l'imparfait, 3e personne du pluriel, accord avec « des phrases » (sujet inversé)."
+        },
+        {
+          "type": "lexicale",
+          "mot": "buisson",
+          "explication": "Orthographe avec « ui » et double « s », à ne pas confondre avec « boisson »."
+        }
+      ]
+    },
+    {
+      "ordre": 9,
+      "texte": "Ces phrases tourbillonnaient dans la lumière, au-dessus de l'eau, comme des tapis volants.",
+      "difficultes": [
+        {
+          "type": "lexicale",
+          "mot": "tourbillonnaient",
+          "explication": "Double « l » et double « n » dans ce verbe dérivé de « tourbillon »."
+        },
+        {
+          "type": "trait_union",
+          "mot": "au-dessus",
+          "explication": "Locution adverbiale avec trait d'union, à ne pas écrire en un seul mot."
+        },
+        {
+          "type": "accord",
+          "mot": "volants",
+          "explication": "Adjectif qui s'accorde au masculin pluriel avec « tapis »."
+        }
+      ]
+    }
+  ],
+  "notes_examinateur": [
+    "On fera faire la dictée les vingt dernières minutes de la première partie.",
+    "On demandera aux candidats d'écrire une ligne sur deux.",
+    "On ne répondra pas aux questions éventuelles des candidats après la relecture du texte ; ils en seront avertis avant cette relecture.",
+    "À l'issue de la relecture, on transcrira lisiblement au tableau le nom de l'auteur, le titre et la date : Yannick HAENEL, Cercle, 2007"
+  ],
+  "source_file": "2020_Antilles-Guyane_francais_dictee.pdf"
+}

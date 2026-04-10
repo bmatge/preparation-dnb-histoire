@@ -1,0 +1,183 @@
+{
+  "id": "2025_polynesie",
+  "source": {
+    "annee": 2025,
+    "session": "juin",
+    "centre": "Métropole",
+    "code_sujet": "25GENFRDPO1"
+  },
+  "titre": null,
+  "reference": {
+    "auteur": "Ben Thouard",
+    "oeuvre": "Turbulences",
+    "annee_publication": 2021
+  },
+  "texte_complet": "Je suis surfeur depuis tout petit. Je suis originaire du sud-est de la France, c'est là-bas que j'ai appris à surfer. Je suis passionné par la mer, les vagues. Ça a été ma première passion. La photo est venue plus tard, à l'adolescence. J'ai commencé à faire de la photo avec un vieil appareil et quelques films. Je shootais de la plage sans avoir la possibilité d'aller dans l'eau et ça a tout de suite été une frustration de ne pas pouvoir être au contact des surfeurs, des vagues. J'avais envie d'être au plus près de l'élément, d'être immergé dans ce milieu. J'avais du mal à shooter le surf ou les vagues de l'extérieur. Depuis le début j'ai eu envie de faire des photos dans l'eau et c'est resté quelque chose de primordial pour moi, de faire partie de cet élément et de montrer cet univers depuis l'intérieur.",
+  "phrases": [
+    {
+      "ordre": 1,
+      "texte": "Je suis surfeur depuis tout petit.",
+      "difficultes": [
+        {
+          "type": "lexicale",
+          "mot": "surfeur",
+          "explication": "Mot emprunté à l'anglais dont l'orthographe française peut hésiter avec « surfer » (nom)."
+        }
+      ]
+    },
+    {
+      "ordre": 2,
+      "texte": "Je suis originaire du sud-est de la France, c'est là-bas que j'ai appris à surfer.",
+      "difficultes": [
+        {
+          "type": "trait_union",
+          "mot": "sud-est",
+          "explication": "Point cardinal composé qui s'écrit avec un trait d'union."
+        },
+        {
+          "type": "trait_union",
+          "mot": "là-bas",
+          "explication": "Adverbe composé qui s'écrit avec un trait d'union et un accent grave sur le « a »."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "appris",
+          "explication": "Participe passé du verbe « apprendre » au passé composé, terminaison en -is souvent oubliée."
+        }
+      ]
+    },
+    {
+      "ordre": 3,
+      "texte": "Je suis passionné par la mer, les vagues.",
+      "difficultes": [
+        {
+          "type": "accord",
+          "mot": "passionné",
+          "explication": "Participe passé employé comme attribut du sujet « je » (masculin singulier), accord à surveiller."
+        }
+      ]
+    },
+    {
+      "ordre": 4,
+      "texte": "Ça a été ma première passion.",
+      "difficultes": [
+        {
+          "type": "homophone",
+          "mot": "Ça",
+          "explication": "Pronom démonstratif avec cédille, à ne pas confondre avec « sa » (déterminant possessif)."
+        },
+        {
+          "type": "homophone",
+          "mot": "a été",
+          "explication": "Auxiliaire « avoir » au présent suivi du participe passé, à ne pas confondre avec « à »."
+        }
+      ]
+    },
+    {
+      "ordre": 5,
+      "texte": "La photo est venue plus tard, à l'adolescence.",
+      "difficultes": [
+        {
+          "type": "accord",
+          "mot": "venue",
+          "explication": "Participe passé conjugué avec « être », s'accorde avec le sujet féminin « la photo »."
+        }
+      ]
+    },
+    {
+      "ordre": 6,
+      "texte": "J'ai commencé à faire de la photo avec un vieil appareil et quelques films.",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "commencé",
+          "explication": "Participe passé en -é, à ne pas confondre avec l'infinitif « commencer »."
+        },
+        {
+          "type": "lexicale",
+          "mot": "vieil",
+          "explication": "Forme de l'adjectif « vieux » devant un nom masculin commençant par une voyelle."
+        }
+      ]
+    },
+    {
+      "ordre": 7,
+      "texte": "Je shootais de la plage sans avoir la possibilité d'aller dans l'eau et ça a tout de suite été une frustration de ne pas pouvoir être au contact des surfeurs, des vagues.",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "shootais",
+          "explication": "Verbe à l'imparfait, première personne du singulier, terminaison en -ais."
+        },
+        {
+          "type": "lexicale",
+          "mot": "frustration",
+          "explication": "Mot dont l'orthographe peut poser problème (groupe consonantique « fr » et suffixe -tion)."
+        },
+        {
+          "type": "accord",
+          "mot": "des surfeurs",
+          "explication": "Nom au pluriel après « des », ne pas oublier le -s final."
+        }
+      ]
+    },
+    {
+      "ordre": 8,
+      "texte": "J'avais envie d'être au plus près de l'élément, d'être immergé dans ce milieu.",
+      "difficultes": [
+        {
+          "type": "lexicale",
+          "mot": "immergé",
+          "explication": "Mot avec double « m » et accent aigu, orthographe à bien mémoriser."
+        },
+        {
+          "type": "homophone",
+          "mot": "près",
+          "explication": "Adverbe avec accent grave, à ne pas confondre avec « prêt » (adjectif)."
+        }
+      ]
+    },
+    {
+      "ordre": 9,
+      "texte": "J'avais du mal à shooter le surf ou les vagues de l'extérieur.",
+      "difficultes": [
+        {
+          "type": "homophone",
+          "mot": "à",
+          "explication": "Préposition « à » avec accent, à ne pas confondre avec « a » (verbe avoir)."
+        },
+        {
+          "type": "lexicale",
+          "mot": "l'extérieur",
+          "explication": "Mot avec accent aigu sur les deux « e », élision avec l'article défini."
+        }
+      ]
+    },
+    {
+      "ordre": 10,
+      "texte": "Depuis le début j'ai eu envie de faire des photos dans l'eau et c'est resté quelque chose de primordial pour moi, de faire partie de cet élément et de montrer cet univers depuis l'intérieur.",
+      "difficultes": [
+        {
+          "type": "accord",
+          "mot": "resté",
+          "explication": "Participe passé avec « être » mais le sujet réel est « quelque chose » (masculin singulier), pas d'accord au féminin/pluriel."
+        },
+        {
+          "type": "lexicale",
+          "mot": "primordial",
+          "explication": "Mot savant dont l'orthographe peut poser problème aux élèves."
+        },
+        {
+          "type": "homophone",
+          "mot": "cet",
+          "explication": "Déterminant démonstratif masculin devant voyelle, à ne pas confondre avec « cette » ou « sept »."
+        }
+      ]
+    }
+  ],
+  "notes_examinateur": [
+    "Avant de commencer la dictée, on inscrira au tableau de manière lisible : Les références : Extrait de l'interview de Ben Thouard sur son livre Turbulences, dans Surf Session, n° 393, 2021.",
+    "Les mots shootais et shooter."
+  ],
+  "source_file": "2025_Polynesie_francais_dictee.pdf"
+}

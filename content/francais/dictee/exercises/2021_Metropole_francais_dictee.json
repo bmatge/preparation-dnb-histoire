@@ -1,0 +1,165 @@
+{
+  "id": "2021_metropole",
+  "source": {
+    "annee": 2021,
+    "session": "juin",
+    "centre": "Métropole",
+    "code_sujet": "21GENFRDME1"
+  },
+  "titre": null,
+  "reference": {
+    "auteur": "François-René de Chateaubriand",
+    "oeuvre": "Mémoires d'outre-tombe",
+    "annee_publication": 1850
+  },
+  "texte_complet": "La nuit, je n'apercevais qu'un petit morceau du ciel et quelques étoiles. Lorsque la lune brillait et qu'elle s'abaissait à l'occident, j'en étais averti par ses rayons, qui venaient à mon lit au travers des carreaux losangés de la fenêtre. Des chouettes, voletant d'une tour à l'autre, passant et repassant entre la lune et moi, dessinaient sur mes rideaux l'ombre mobile de leurs ailes. Relégué dans l'endroit le plus désert, à l'ouverture des galeries, je ne perdais pas un murmure des ténèbres. Quelquefois, le vent semblait courir à pas légers ; quelquefois il laissait échapper des plaintes ; tout à coup, ma porte était ébranlée avec violence, les souterrains poussaient des mugissements, puis ces bruits expiraient pour recommencer encore.",
+  "phrases": [
+    {
+      "ordre": 1,
+      "texte": "La nuit, je n'apercevais qu'un petit morceau du ciel et quelques étoiles.",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "apercevais",
+          "explication": "Un seul « p » dans « apercevoir » : erreur fréquente par analogie avec « apparaître »."
+        },
+        {
+          "type": "lexicale",
+          "mot": "quelques",
+          "explication": "Ne pas oublier le « s » final, déterminant indéfini pluriel."
+        }
+      ]
+    },
+    {
+      "ordre": 2,
+      "texte": "Lorsque la lune brillait et qu'elle s'abaissait à l'occident, j'en étais averti par ses rayons, qui venaient à mon lit au travers des carreaux losangés de la fenêtre.",
+      "difficultes": [
+        {
+          "type": "lexicale",
+          "mot": "occident",
+          "explication": "Deux « c » dans « occident » ; mot donné au tableau mais l'orthographe reste un piège."
+        },
+        {
+          "type": "accord",
+          "mot": "averti",
+          "explication": "Participe passé employé avec « être » : s'accorde avec le sujet « j' » (masculin singulier, car le narrateur est un homme)."
+        },
+        {
+          "type": "accord",
+          "mot": "losangés",
+          "explication": "Adjectif qui s'accorde au masculin pluriel avec « carreaux »."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "venaient",
+          "explication": "Imparfait, 3e personne du pluriel : le sujet est « ses rayons »."
+        }
+      ]
+    },
+    {
+      "ordre": 3,
+      "texte": "Des chouettes, voletant d'une tour à l'autre, passant et repassant entre la lune et moi, dessinaient sur mes rideaux l'ombre mobile de leurs ailes.",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "dessinaient",
+          "explication": "Imparfait, 3e personne du pluriel : le sujet « des chouettes » est éloigné du verbe par les participes présents en apposition."
+        },
+        {
+          "type": "lexicale",
+          "mot": "voletant",
+          "explication": "Participe présent de « voleter » : un seul « t »."
+        },
+        {
+          "type": "homophone",
+          "mot": "leurs ailes",
+          "explication": "« leurs » au pluriel car il y a plusieurs chouettes possédant chacune des ailes."
+        }
+      ]
+    },
+    {
+      "ordre": 4,
+      "texte": "Relégué dans l'endroit le plus désert, à l'ouverture des galeries, je ne perdais pas un murmure des ténèbres.",
+      "difficultes": [
+        {
+          "type": "accord",
+          "mot": "Relégué",
+          "explication": "Participe passé en apposition au sujet « je » (masculin singulier) : pas de « e » final."
+        },
+        {
+          "type": "lexicale",
+          "mot": "ténèbres",
+          "explication": "Mot toujours féminin pluriel ; attention aux accents (è)."
+        },
+        {
+          "type": "lexicale",
+          "mot": "murmure",
+          "explication": "Ne pas doubler le « r » : un seul « r » à chaque occurrence."
+        }
+      ]
+    },
+    {
+      "ordre": 5,
+      "texte": "Quelquefois, le vent semblait courir à pas légers ;",
+      "difficultes": [
+        {
+          "type": "lexicale",
+          "mot": "Quelquefois",
+          "explication": "S'écrit en un seul mot, à ne pas confondre avec « quelques fois » (en deux mots)."
+        },
+        {
+          "type": "homophone",
+          "mot": "à",
+          "explication": "Préposition « à » avec accent grave, à ne pas confondre avec le verbe « a »."
+        }
+      ]
+    },
+    {
+      "ordre": 6,
+      "texte": "quelquefois il laissait échapper des plaintes ;",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "laissait",
+          "explication": "Imparfait 3e personne du singulier : terminaison « -ait » et double « s » dans le radical."
+        },
+        {
+          "type": "lexicale",
+          "mot": "échapper",
+          "explication": "Un seul « p » : piège courant."
+        }
+      ]
+    },
+    {
+      "ordre": 7,
+      "texte": "tout à coup, ma porte était ébranlée avec violence, les souterrains poussaient des mugissements, puis ces bruits expiraient pour recommencer encore.",
+      "difficultes": [
+        {
+          "type": "accord",
+          "mot": "ébranlée",
+          "explication": "Participe passé avec « être » : s'accorde avec « porte » (féminin singulier)."
+        },
+        {
+          "type": "lexicale",
+          "mot": "souterrains",
+          "explication": "Deux « r » dans « souterrains » ; ne pas oublier le « s » du pluriel."
+        },
+        {
+          "type": "lexicale",
+          "mot": "mugissements",
+          "explication": "Mot rare pour un élève de 3e ; attention au suffixe « -ments »."
+        },
+        {
+          "type": "homophone",
+          "mot": "ces",
+          "explication": "Déterminant démonstratif « ces » à ne pas confondre avec « ses » (possessif)."
+        }
+      ]
+    }
+  ],
+  "notes_examinateur": [
+    "Avant de commencer la dictée, on inscrira au tableau de manière lisible : François-René de Chateaubriand, Mémoires d'outre-tombe, 1848-1850",
+    "On précise que le narrateur est un homme."
+  ],
+  "source_file": "2021_Metropole_francais_dictee.pdf"
+}

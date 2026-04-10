@@ -1,0 +1,127 @@
+{
+  "id": "2024_antilles-guyane",
+  "source": {
+    "annee": 2024,
+    "session": "juin",
+    "centre": "Métropole",
+    "code_sujet": "24GENFRDAG3"
+  },
+  "titre": null,
+  "reference": {
+    "auteur": "Charlie Chaplin",
+    "oeuvre": "Le dictateur",
+    "annee_publication": 1940
+  },
+  "texte_complet": "« Ne désespérez pas ! Le malheur qui est sur nous n'est que le produit éphémère de l'avidité, de l'amertume de ceux qui ont peur des progrès qu'accomplit l'humanité. Mais la haine finira par disparaître et les dictateurs mourront, et le pouvoir qu'ils avaient pris aux peuples va retourner aux peuples. Et tant que les hommes mourront pour elle, la liberté ne pourra périr. Soldats, ne vous donnez pas à ces brutes, à une minorité qui vous méprise et qui fait de vous des esclaves, enrégimente toute votre vie et vous dit ce qu'il faut faire, penser et ressentir, qui vous dirige, vous manœuvre, se sert de vous comme chair à canon et vous traite comme du bétail. »",
+  "phrases": [
+    {
+      "ordre": 1,
+      "texte": "« Ne désespérez pas !",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "désespérez",
+          "explication": "Impératif 2e personne du pluriel : ne pas oublier le accent aigu sur les « e » et la terminaison en -ez."
+        }
+      ]
+    },
+    {
+      "ordre": 2,
+      "texte": "Le malheur qui est sur nous n'est que le produit éphémère de l'avidité, de l'amertume de ceux qui ont peur des progrès qu'accomplit l'humanité.",
+      "difficultes": [
+        {
+          "type": "lexicale",
+          "mot": "éphémère",
+          "explication": "Mot donné au tableau mais attention à l'accent aigu sur le premier « e » et à l'accent grave sur le second."
+        },
+        {
+          "type": "lexicale",
+          "mot": "l'avidité",
+          "explication": "Mot peu courant pour un élève de 3e, attention à ne pas confondre avec d'autres graphies."
+        },
+        {
+          "type": "lexicale",
+          "mot": "l'amertume",
+          "explication": "Ne pas oublier le « e » final ; mot féminin parfois mal orthographié."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "qu'accomplit",
+          "explication": "Verbe accomplir au présent, 3e personne du singulier (sujet : l'humanité) : terminaison en -t."
+        }
+      ]
+    },
+    {
+      "ordre": 3,
+      "texte": "Mais la haine finira par disparaître et les dictateurs mourront, et le pouvoir qu'ils avaient pris aux peuples va retourner aux peuples.",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "mourront",
+          "explication": "Futur simple de « mourir » : deux « r » au futur, à ne pas confondre avec le présent « meurent »."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "avaient pris",
+          "explication": "Plus-que-parfait : accord du participe passé « pris » avec le COD « pouvoir » placé avant (masculin singulier, pas de marque visible)."
+        },
+        {
+          "type": "lexicale",
+          "mot": "disparaître",
+          "explication": "Attention à l'accent circonflexe sur le « î » (orthographe traditionnelle)."
+        }
+      ]
+    },
+    {
+      "ordre": 4,
+      "texte": "Et tant que les hommes mourront pour elle, la liberté ne pourra périr.",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "mourront",
+          "explication": "Futur simple de « mourir » avec deux « r », piège récurrent."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "pourra",
+          "explication": "Futur simple de « pouvoir » : deux « r » au futur, terminaison en -a (3e personne du singulier)."
+        },
+        {
+          "type": "lexicale",
+          "mot": "périr",
+          "explication": "Attention à l'accent aigu sur le « e » ; ne pas confondre avec « pourrir »."
+        }
+      ]
+    },
+    {
+      "ordre": 5,
+      "texte": "Soldats, ne vous donnez pas à ces brutes, à une minorité qui vous méprise et qui fait de vous des esclaves, enrégimente toute votre vie et vous dit ce qu'il faut faire, penser et ressentir, qui vous dirige, vous manœuvre, se sert de vous comme chair à canon et vous traite comme du bétail. »",
+      "difficultes": [
+        {
+          "type": "lexicale",
+          "mot": "enrégimente",
+          "explication": "Mot donné au tableau ; verbe rare signifiant « embrigader », attention aux accents."
+        },
+        {
+          "type": "lexicale",
+          "mot": "manœuvre",
+          "explication": "Attention à la ligature « œ » et à l'orthographe complète du mot."
+        },
+        {
+          "type": "lexicale",
+          "mot": "bétail",
+          "explication": "Ne pas oublier l'accent aigu sur le « e » ; terminaison en -ail."
+        },
+        {
+          "type": "accord",
+          "mot": "esclaves",
+          "explication": "Nom commun au pluriel, accord avec « des » : ne pas oublier le « s » final."
+        }
+      ]
+    }
+  ],
+  "notes_examinateur": [
+    "Avant de commencer la dictée, on inscrira au tableau de manière lisible : enrégimente ; éphémère ; Le dictateur, Charlie Chaplin, 1940"
+  ],
+  "source_file": "2024_Antilles-Guyane_francais_dictee.pdf"
+}

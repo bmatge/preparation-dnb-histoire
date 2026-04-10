@@ -1,0 +1,171 @@
+{
+  "id": "2023_polynesie",
+  "source": {
+    "annee": 2023,
+    "session": "juin",
+    "centre": "Métropole",
+    "code_sujet": "23GENFRDPO1"
+  },
+  "titre": null,
+  "reference": {
+    "auteur": "J-M.G. Le Clézio",
+    "oeuvre": "Le chercheur d'or",
+    "annee_publication": 1985
+  },
+  "texte_complet": "Dans les collines, l'air est humide, comme si la brume du matin restait accrochée longtemps aux feuillages des arbustes. Laure et moi, nous aimons bien nous asseoir dans une clairière, quand les arbres sortent à peine de l'ombre de la nuit, et nous guettons le passage des oiseaux de mer. Quelquefois nous voyons passer un couple de pailles-en-queue. Les beaux oiseaux blancs sortent des gorges de la Rivière Noire, du côté de Mananava, et ils planent longuement au-dessus de nous, leurs ailes ouvertes, pareils à des croix d'écume, leurs longues queues traînant derrière eux. Laure dit qu'ils sont les esprits des marins morts en mer, et des femmes qui attendent leur retour, en vain. Ils sont silencieux, légers. Ils vivent à Mananava, là où la montagne est sombre et où le ciel se couvre. Nous croyons que c'est là que naît la pluie.",
+  "phrases": [
+    {
+      "ordre": 1,
+      "texte": "Dans les collines, l'air est humide, comme si la brume du matin restait accrochée longtemps aux feuillages des arbustes.",
+      "difficultes": [
+        {
+          "type": "accord",
+          "mot": "accrochée",
+          "explication": "Le participe passé s'accorde avec le sujet « la brume » (féminin singulier) car il est attribut du sujet."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "restait",
+          "explication": "Imparfait de l'indicatif, 3e personne du singulier, à ne pas confondre avec le passé simple « resta »."
+        },
+        {
+          "type": "lexicale",
+          "mot": "feuillages",
+          "explication": "Mot contenant le groupe -euill- souvent source d'erreur orthographique."
+        }
+      ]
+    },
+    {
+      "ordre": 2,
+      "texte": "Laure et moi, nous aimons bien nous asseoir dans une clairière, quand les arbres sortent à peine de l'ombre de la nuit, et nous guettons le passage des oiseaux de mer.",
+      "difficultes": [
+        {
+          "type": "lexicale",
+          "mot": "asseoir",
+          "explication": "Infinitif irrégulier dont l'orthographe (avec -eo-) est souvent mal maîtrisée."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "guettons",
+          "explication": "Verbe « guetter » au présent, 1re personne du pluriel : ne pas oublier les deux « t »."
+        },
+        {
+          "type": "homophone",
+          "mot": "à",
+          "explication": "Préposition « à » avec accent grave, à ne pas confondre avec le verbe « a »."
+        }
+      ]
+    },
+    {
+      "ordre": 3,
+      "texte": "Quelquefois nous voyons passer un couple de pailles-en-queue.",
+      "difficultes": [
+        {
+          "type": "lexicale",
+          "mot": "Quelquefois",
+          "explication": "Adverbe en un seul mot, à ne pas confondre avec « quelques fois » (en deux mots)."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "voyons",
+          "explication": "Présent de l'indicatif du verbe « voir », 1re personne du pluriel, attention au « y »."
+        }
+      ]
+    },
+    {
+      "ordre": 4,
+      "texte": "Les beaux oiseaux blancs sortent des gorges de la Rivière Noire, du côté de Mananava, et ils planent longuement au-dessus de nous, leurs ailes ouvertes, pareils à des croix d'écume, leurs longues queues traînant derrière eux.",
+      "difficultes": [
+        {
+          "type": "accord",
+          "mot": "pareils",
+          "explication": "Adjectif qui s'accorde au masculin pluriel avec « oiseaux »."
+        },
+        {
+          "type": "accord",
+          "mot": "ouvertes",
+          "explication": "Participe passé adjectif accordé au féminin pluriel avec « ailes »."
+        },
+        {
+          "type": "lexicale",
+          "mot": "traînant",
+          "explication": "Participe présent du verbe « traîner » avec un accent circonflexe sur le « î »."
+        },
+        {
+          "type": "trait_union",
+          "mot": "au-dessus",
+          "explication": "Locution adverbiale avec trait d'union, à ne pas écrire en un seul mot."
+        }
+      ]
+    },
+    {
+      "ordre": 5,
+      "texte": "Laure dit qu'ils sont les esprits des marins morts en mer, et des femmes qui attendent leur retour, en vain.",
+      "difficultes": [
+        {
+          "type": "accord",
+          "mot": "morts",
+          "explication": "Participe passé adjectif accordé au masculin pluriel avec « marins »."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "attendent",
+          "explication": "Verbe « attendre » au présent, 3e personne du pluriel, ne pas oublier le « -ent »."
+        },
+        {
+          "type": "homophone",
+          "mot": "leur",
+          "explication": "Déterminant possessif singulier devant « retour », à ne pas écrire « leurs »."
+        }
+      ]
+    },
+    {
+      "ordre": 6,
+      "texte": "Ils sont silencieux, légers.",
+      "difficultes": [
+        {
+          "type": "accord",
+          "mot": "silencieux",
+          "explication": "Adjectif au masculin pluriel, la terminaison en -eux ne change pas au pluriel."
+        }
+      ]
+    },
+    {
+      "ordre": 7,
+      "texte": "Ils vivent à Mananava, là où la montagne est sombre et où le ciel se couvre.",
+      "difficultes": [
+        {
+          "type": "homophone",
+          "mot": "là",
+          "explication": "Adverbe de lieu avec accent grave, à ne pas confondre avec l'article « la »."
+        },
+        {
+          "type": "homophone",
+          "mot": "où",
+          "explication": "Pronom relatif de lieu avec accent grave, à ne pas confondre avec « ou » (conjonction)."
+        }
+      ]
+    },
+    {
+      "ordre": 8,
+      "texte": "Nous croyons que c'est là que naît la pluie.",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "naît",
+          "explication": "Verbe « naître » au présent, 3e personne du singulier, avec accent circonflexe sur le « î »."
+        },
+        {
+          "type": "homophone",
+          "mot": "c'est",
+          "explication": "Forme contractée de « ce est », à ne pas confondre avec « s'est » ou « ses »."
+        }
+      ]
+    }
+  ],
+  "notes_examinateur": [
+    "Écrire au tableau les mots suivants : clairière, pailles-en-queue, Mananava.",
+    "Préciser les majuscules de « Rivière Noire »."
+  ],
+  "source_file": "2023_Polynesie_francais_dictee.pdf"
+}

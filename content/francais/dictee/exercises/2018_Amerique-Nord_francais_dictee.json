@@ -1,0 +1,143 @@
+{
+  "id": "2018_amerique-nord",
+  "source": {
+    "annee": 2018,
+    "session": "juin",
+    "centre": "Métropole",
+    "code_sujet": "18GENFRDAN1"
+  },
+  "titre": null,
+  "reference": {
+    "auteur": "Benoît Duteurtre",
+    "oeuvre": "Livre pour adultes",
+    "annee_publication": 2016
+  },
+  "texte_complet": "Au temps de ma petite enfance, dans les années 1960, les villageois de mon âge avaient encore un air farouche et sauvage. Ils vivaient dans ces fermes perdues et fréquentaient la classe unique de l'école communale où, l'hiver, ils se rendaient à pied dans la neige. Au cours des années suivantes, en pleine période de « croissance », les routes se sont élargies, les supermarchés se sont implantés, le téléphone et la télévision sont arrivés dans la vallée. Les enfants ont grandi et trouvé des emplois en ville. Certains sont devenus ouvriers, d'autres ingénieurs. Les exploitations agricoles ont dépéri avec leurs vieux parents.",
+  "phrases": [
+    {
+      "ordre": 1,
+      "texte": "Au temps de ma petite enfance, dans les années 1960, les villageois de mon âge avaient encore un air farouche et sauvage.",
+      "difficultes": [
+        {
+          "type": "lexicale",
+          "mot": "farouche",
+          "explication": "Mot dont l'orthographe peut hésiter avec « farrouche » ou « pharouche »."
+        },
+        {
+          "type": "accord",
+          "mot": "villageois",
+          "explication": "Le pluriel en -ois ne prend pas de -x mais un -s, à ne pas confondre."
+        }
+      ]
+    },
+    {
+      "ordre": 2,
+      "texte": "Ils vivaient dans ces fermes perdues et fréquentaient la classe unique de l'école communale où, l'hiver, ils se rendaient à pied dans la neige.",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "fréquentaient",
+          "explication": "Imparfait à la 3e personne du pluriel, ne pas oublier le -ent et l'accent aigu sur le premier « e »."
+        },
+        {
+          "type": "accord",
+          "mot": "perdues",
+          "explication": "Participe passé employé comme adjectif, accordé au féminin pluriel avec « fermes »."
+        },
+        {
+          "type": "homophone",
+          "mot": "où",
+          "explication": "Pronom relatif de lieu avec accent grave, à ne pas confondre avec « ou » conjonction."
+        },
+        {
+          "type": "accord",
+          "mot": "communale",
+          "explication": "Adjectif accordé au féminin singulier avec « école »."
+        }
+      ]
+    },
+    {
+      "ordre": 3,
+      "texte": "Au cours des années suivantes, en pleine période de « croissance », les routes se sont élargies, les supermarchés se sont implantés, le téléphone et la télévision sont arrivés dans la vallée.",
+      "difficultes": [
+        {
+          "type": "accord",
+          "mot": "élargies",
+          "explication": "Participe passé d'un verbe pronominal à sens réfléchi, accordé au féminin pluriel avec « routes »."
+        },
+        {
+          "type": "accord",
+          "mot": "implantés",
+          "explication": "Participe passé d'un verbe pronominal, accordé au masculin pluriel avec « supermarchés »."
+        },
+        {
+          "type": "accord",
+          "mot": "arrivés",
+          "explication": "Participe passé avec « sont », accordé au masculin pluriel car il se rapporte à « le téléphone et la télévision » (le masculin l'emporte)."
+        },
+        {
+          "type": "lexicale",
+          "mot": "supermarchés",
+          "explication": "Mot composé sans trait d'union, avec l'accent aigu sur le « e » final au pluriel."
+        }
+      ]
+    },
+    {
+      "ordre": 4,
+      "texte": "Les enfants ont grandi et trouvé des emplois en ville.",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "grandi",
+          "explication": "Participe passé du 2e groupe invariable ici car employé avec « avoir » sans COD antéposé."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "trouvé",
+          "explication": "Participe passé avec « avoir », invariable car le COD « des emplois » est placé après."
+        }
+      ]
+    },
+    {
+      "ordre": 5,
+      "texte": "Certains sont devenus ouvriers, d'autres ingénieurs.",
+      "difficultes": [
+        {
+          "type": "accord",
+          "mot": "devenus",
+          "explication": "Participe passé avec « sont », accordé au masculin pluriel avec « certains »."
+        },
+        {
+          "type": "lexicale",
+          "mot": "ingénieurs",
+          "explication": "Attention à l'accent aigu sur le « e » et au pluriel en -s."
+        }
+      ]
+    },
+    {
+      "ordre": 6,
+      "texte": "Les exploitations agricoles ont dépéri avec leurs vieux parents.",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "dépéri",
+          "explication": "Participe passé du verbe « dépérir » (2e groupe), invariable avec « avoir » sans COD antéposé ; attention à l'accent aigu."
+        },
+        {
+          "type": "accord",
+          "mot": "agricoles",
+          "explication": "Adjectif accordé au féminin pluriel avec « exploitations »."
+        },
+        {
+          "type": "homophone",
+          "mot": "leurs",
+          "explication": "Déterminant possessif pluriel, à ne pas confondre avec « leur » pronom invariable."
+        }
+      ]
+    }
+  ],
+  "notes_examinateur": [
+    "On inscrira au tableau de manière lisible pour l'ensemble des candidats le titre de l'œuvre et le nom de l'auteur, ainsi que « 1960 »."
+  ],
+  "source_file": "2018_Amerique-Nord_francais_dictee.pdf"
+}

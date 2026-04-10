@@ -1,0 +1,158 @@
+{
+  "id": "2025_nouvelle-caledonie",
+  "source": {
+    "annee": 2025,
+    "session": "juin",
+    "centre": "Métropole",
+    "code_sujet": "25GENFRDNC1"
+  },
+  "titre": null,
+  "reference": {
+    "auteur": "A. Ernaux",
+    "oeuvre": "La Femme gelée",
+    "annee_publication": 1981
+  },
+  "texte_complet": "Un mois, trois mois que nous sommes mariés, nous retournons à la fac, je donne des cours de latin. Le soir descend plus tôt, on travaille ensemble dans la grande salle. […]. La cocotte-minute, cadeau de mariage si utile vous verrez, chantonne sur le gaz. Unis, pareils. Sonnerie stridente du compte-minutes, autre cadeau. Finie la ressemblance. L'un des deux se lève, arrête la flamme sous la cocotte, attend que la toupie folle ralentisse, ouvre la cocotte, passe le potage et revient à ses bouquins en se demandant où il en était resté. Moi.",
+  "phrases": [
+    {
+      "ordre": 1,
+      "texte": "Un mois, trois mois que nous sommes mariés, nous retournons à la fac, je donne des cours de latin.",
+      "difficultes": [
+        {
+          "type": "accord",
+          "mot": "mariés",
+          "explication": "Le participe passé s'accorde avec le sujet « nous » masculin pluriel (emploi avec « sommes »)."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "retournons",
+          "explication": "Conjugaison du présent à la 1re personne du pluriel, ne pas oublier le -ons."
+        }
+      ]
+    },
+    {
+      "ordre": 2,
+      "texte": "Le soir descend plus tôt, on travaille ensemble dans la grande salle.",
+      "difficultes": [
+        {
+          "type": "homophone",
+          "mot": "tôt",
+          "explication": "Ne pas confondre « tôt » (adverbe de temps, avec accent circonflexe) et « taux » ou « taux »."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "travaille",
+          "explication": "Verbe du 1er groupe conjugué avec « on » (3e personne du singulier), ne pas mettre -ent."
+        }
+      ]
+    },
+    {
+      "ordre": 3,
+      "texte": "[…].",
+      "difficultes": []
+    },
+    {
+      "ordre": 4,
+      "texte": "La cocotte-minute, cadeau de mariage si utile vous verrez, chantonne sur le gaz.",
+      "difficultes": [
+        {
+          "type": "trait_union",
+          "mot": "cocotte-minute",
+          "explication": "Nom composé avec trait d'union, à ne pas oublier."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "verrez",
+          "explication": "Futur simple du verbe « voir » à la 2e personne du pluriel, avec deux -r."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "chantonne",
+          "explication": "Verbe « chantonner » au présent, 3e personne du singulier, avec deux -n."
+        }
+      ]
+    },
+    {
+      "ordre": 5,
+      "texte": "Unis, pareils.",
+      "difficultes": [
+        {
+          "type": "accord",
+          "mot": "pareils",
+          "explication": "Adjectif au masculin pluriel, ne pas oublier le -s."
+        }
+      ]
+    },
+    {
+      "ordre": 6,
+      "texte": "Sonnerie stridente du compte-minutes, autre cadeau.",
+      "difficultes": [
+        {
+          "type": "lexicale",
+          "mot": "stridente",
+          "explication": "Adjectif féminin s'accordant avec « sonnerie », attention à la terminaison -ente."
+        },
+        {
+          "type": "trait_union",
+          "mot": "compte-minutes",
+          "explication": "Nom composé avec trait d'union, « minutes » prend un -s car il compte les minutes."
+        }
+      ]
+    },
+    {
+      "ordre": 7,
+      "texte": "Finie la ressemblance.",
+      "difficultes": [
+        {
+          "type": "accord",
+          "mot": "Finie",
+          "explication": "Participe passé/adjectif accordé au féminin singulier avec « la ressemblance »."
+        },
+        {
+          "type": "lexicale",
+          "mot": "ressemblance",
+          "explication": "Attention au double -s et au groupe -embl- dans ce mot."
+        }
+      ]
+    },
+    {
+      "ordre": 8,
+      "texte": "L'un des deux se lève, arrête la flamme sous la cocotte, attend que la toupie folle ralentisse, ouvre la cocotte, passe le potage et revient à ses bouquins en se demandant où il en était resté.",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "arrête",
+          "explication": "Verbe « arrêter » au présent, 3e personne du singulier, avec accent circonflexe sur le -ê-."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "ralentisse",
+          "explication": "Subjonctif présent du verbe « ralentir », 3e personne du singulier, après « que »."
+        },
+        {
+          "type": "homophone",
+          "mot": "où",
+          "explication": "Pronom relatif/adverbe interrogatif avec accent grave, à ne pas confondre avec « ou » (conjonction)."
+        },
+        {
+          "type": "accord",
+          "mot": "resté",
+          "explication": "Participe passé employé avec « était » (auxiliaire être), accordé au masculin singulier avec « il »."
+        }
+      ]
+    },
+    {
+      "ordre": 9,
+      "texte": "Moi.",
+      "difficultes": []
+    }
+  ],
+  "notes_examinateur": [
+    "Indiquer aux candidats qu'ils doivent écrire une ligne sur deux.",
+    "Écrire au tableau les références de l'extrait ainsi que « Bovary » et « reines-Claude ».",
+    "Faire une première lecture du texte expressive et bien articulée.",
+    "Procéder ensuite à la dictée effective du texte : d'une voix forte, en articulant clairement ; en précisant la ponctuation et en scindant les phrases et les groupes de sens ; en adoptant son débit à la vitesse d'écriture de tous les candidats observés ; en faisant les liaisons nécessaires.",
+    "Relire tout le texte, sans préciser cette fois-ci la ponctuation, mais en marquant toujours les liaisons."
+  ],
+  "source_file": "2025_Nouvelle-Caledonie_francais_dictee.pdf"
+}

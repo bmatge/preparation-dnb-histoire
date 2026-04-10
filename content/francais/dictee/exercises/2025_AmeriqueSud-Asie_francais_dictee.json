@@ -1,0 +1,167 @@
+{
+  "id": "2025_ameriquesud-asie",
+  "source": {
+    "annee": 2025,
+    "session": "juin",
+    "centre": "Métropole",
+    "code_sujet": "25GENFRDAA1"
+  },
+  "titre": null,
+  "reference": {
+    "auteur": "Laurent Gaudé",
+    "oeuvre": "Eldorado",
+    "annee_publication": 2006
+  },
+  "texte_complet": "Tout commençait à Beyrouth. Une fois son voyage payé, il avait fallu attendre que le bateau soit prêt. Les passeurs lui avaient dit qu'ils la recontacteraient et l'avaient laissée à la ville. Elle avait erré dans ces rues inconnues, des journées entières, pour tuer le temps. La faim et la fatigue la tenaient mais elle se concentrait sur son départ imminent et sur son fils – un petit garçon de onze mois qui pleurait dans la chaleur de ces jours sans fin. Combien de temps avait duré cette attente ? Elle ne s'en souvenait plus. Il lui semblait que les heures passaient avec la lenteur des montagnes qui s'étirent.",
+  "phrases": [
+    {
+      "ordre": 1,
+      "texte": "Tout commençait à Beyrouth.",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "commençait",
+          "explication": "La cédille est nécessaire devant le « a » pour conserver le son [s]."
+        },
+        {
+          "type": "majuscule",
+          "mot": "Beyrouth",
+          "explication": "Nom propre de ville donné au tableau, à orthographier avec une majuscule."
+        }
+      ]
+    },
+    {
+      "ordre": 2,
+      "texte": "Une fois son voyage payé, il avait fallu attendre que le bateau soit prêt.",
+      "difficultes": [
+        {
+          "type": "accord",
+          "mot": "payé",
+          "explication": "Participe passé employé sans auxiliaire, s'accorde avec « voyage » (masculin singulier)."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "soit",
+          "explication": "Subjonctif présent du verbe « être » après « attendre que », à ne pas confondre avec l'indicatif « est »."
+        },
+        {
+          "type": "lexicale",
+          "mot": "prêt",
+          "explication": "Adjectif avec accent circonflexe, à ne pas confondre avec la préposition « près »."
+        }
+      ]
+    },
+    {
+      "ordre": 3,
+      "texte": "Les passeurs lui avaient dit qu'ils la recontacteraient et l'avaient laissée à la ville.",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "recontacteraient",
+          "explication": "Conditionnel présent (futur dans le passé), ne pas oublier le « e » muet du radical ni la terminaison « -aient »."
+        },
+        {
+          "type": "accord",
+          "mot": "laissée",
+          "explication": "Participe passé employé avec « avoir » ; le COD « l' » (= elle, féminin singulier) est placé avant, donc accord au féminin singulier."
+        }
+      ]
+    },
+    {
+      "ordre": 4,
+      "texte": "Elle avait erré dans ces rues inconnues, des journées entières, pour tuer le temps.",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "erré",
+          "explication": "Participe passé du verbe « errer » avec deux « r », à ne pas confondre avec « éré »."
+        },
+        {
+          "type": "homophone",
+          "mot": "ces",
+          "explication": "Déterminant démonstratif pluriel, à ne pas confondre avec « ses » (possessif) ou « c'est »."
+        },
+        {
+          "type": "accord",
+          "mot": "entières",
+          "explication": "Adjectif qui s'accorde au féminin pluriel avec « journées »."
+        }
+      ]
+    },
+    {
+      "ordre": 5,
+      "texte": "La faim et la fatigue la tenaient mais elle se concentrait sur son départ imminent et sur son fils – un petit garçon de onze mois qui pleurait dans la chaleur de ces jours sans fin.",
+      "difficultes": [
+        {
+          "type": "accord",
+          "mot": "tenaient",
+          "explication": "Le sujet est « la faim et la fatigue » (deux sujets = pluriel), donc terminaison « -aient »."
+        },
+        {
+          "type": "lexicale",
+          "mot": "imminent",
+          "explication": "Mot souvent confondu avec « éminent » ; signifie « qui va se produire très bientôt »."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "se concentrait",
+          "explication": "Imparfait, 3e personne du singulier (sujet « elle »), terminaison « -ait »."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "pleurait",
+          "explication": "Imparfait, 3e personne du singulier (sujet « qui » reprenant « garçon »), terminaison « -ait »."
+        }
+      ]
+    },
+    {
+      "ordre": 6,
+      "texte": "Combien de temps avait duré cette attente ?",
+      "difficultes": [
+        {
+          "type": "accord",
+          "mot": "duré",
+          "explication": "Participe passé du verbe intransitif « durer » employé avec « avoir » : il reste invariable car « combien de temps » est un complément circonstanciel, pas un COD."
+        }
+      ]
+    },
+    {
+      "ordre": 7,
+      "texte": "Elle ne s'en souvenait plus.",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "souvenait",
+          "explication": "Imparfait du verbe pronominal « se souvenir », ne pas oublier le « e » avant « -nait »."
+        }
+      ]
+    },
+    {
+      "ordre": 8,
+      "texte": "Il lui semblait que les heures passaient avec la lenteur des montagnes qui s'étirent.",
+      "difficultes": [
+        {
+          "type": "lexicale",
+          "mot": "lenteur",
+          "explication": "Nom féminin dérivé de « lent », ne pas oublier le « e » après « l »."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "s'étirent",
+          "explication": "Présent de l'indicatif (vérité générale dans une comparaison), 3e personne du pluriel, à ne pas confondre avec l'imparfait « s'étiraient »."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "passaient",
+          "explication": "Imparfait, 3e personne du pluriel (sujet « les heures »), terminaison « -aient »."
+        }
+      ]
+    }
+  ],
+  "notes_examinateur": [
+    "On fera faire la dictée les vingt dernières minutes de la première partie.",
+    "On demandera aux candidats d'écrire une ligne sur deux.",
+    "Avant de commencer la dictée, on inscrira au tableau de manière lisible : Laurent Gaudé, Eldorado, 2006 ; Beyrouth"
+  ],
+  "source_file": "2025_AmeriqueSud-Asie_francais_dictee.pdf"
+}

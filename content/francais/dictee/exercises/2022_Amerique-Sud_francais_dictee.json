@@ -1,0 +1,162 @@
+{
+  "id": "2022_amerique-sud",
+  "source": {
+    "annee": 2022,
+    "session": "juin",
+    "centre": "Métropole",
+    "code_sujet": "22GENFRDAS1"
+  },
+  "titre": null,
+  "reference": {
+    "auteur": "Jean Giraudoux",
+    "oeuvre": "Ondine",
+    "annee_publication": 1939
+  },
+  "texte_complet": "LE CHEVALIER : Tu soupçonnes quels sont ses parents ? AUGUSTE : Il ne s'agit pas de parents. C'est justement qu'avec Ondine, la question des parents est vaine. Si nous n'avions pas adopté Ondine, elle aurait trouvé sans nous le moyen de grandir, de vivre. Elle n'a jamais eu besoin de nos caresses, Ondine, mais dès qu'il pleut, impossible de la retenir à la maison. Elle n'a jamais eu besoin de lit, mais combien de fois l'avons-nous surprise endormie sur le lac. Est-ce que parce que les enfants devinent instinctivement la nature, est-ce que parce que la nature d'Ondine est la nature même : il y a de grandes forces autour d'Ondine ! LE CHEVALIER : C'est qu'elle est la jeunesse !",
+  "phrases": [
+    {
+      "ordre": 1,
+      "texte": "LE CHEVALIER : Tu soupçonnes quels sont ses parents ?",
+      "difficultes": [
+        {
+          "type": "lexicale",
+          "mot": "soupçonnes",
+          "explication": "Le ç devant le o est nécessaire pour obtenir le son [s], et la terminaison -es correspond à la 2e personne du singulier."
+        }
+      ]
+    },
+    {
+      "ordre": 2,
+      "texte": "AUGUSTE : Il ne s'agit pas de parents.",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "s'agit",
+          "explication": "Verbe impersonnel toujours conjugué à la 3e personne du singulier, ne pas oublier le t final."
+        }
+      ]
+    },
+    {
+      "ordre": 3,
+      "texte": "C'est justement qu'avec Ondine, la question des parents est vaine.",
+      "difficultes": [
+        {
+          "type": "homophone",
+          "mot": "C'est",
+          "explication": "Ne pas confondre c'est (cela est) avec s'est (pronom réfléchi + être)."
+        },
+        {
+          "type": "lexicale",
+          "mot": "vaine",
+          "explication": "Adjectif féminin signifiant « inutile », à ne pas confondre avec « veine » (vaisseau sanguin)."
+        }
+      ]
+    },
+    {
+      "ordre": 4,
+      "texte": "Si nous n'avions pas adopté Ondine, elle aurait trouvé sans nous le moyen de grandir, de vivre.",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "n'avions pas adopté",
+          "explication": "Plus-que-parfait dans une subordonnée conditionnelle introduite par « si », à ne pas confondre avec le conditionnel."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "aurait trouvé",
+          "explication": "Conditionnel passé dans la principale d'une hypothèse irréelle au passé."
+        },
+        {
+          "type": "accord",
+          "mot": "adopté",
+          "explication": "Le participe passé employé avec avoir ne s'accorde pas ici car le COD (Ondine) est placé après le verbe."
+        }
+      ]
+    },
+    {
+      "ordre": 5,
+      "texte": "Elle n'a jamais eu besoin de nos caresses, Ondine, mais dès qu'il pleut, impossible de la retenir à la maison.",
+      "difficultes": [
+        {
+          "type": "homophone",
+          "mot": "dès qu'",
+          "explication": "Ne pas confondre « dès » (préposition/conjonction temporelle, avec accent grave) avec « des » (article)."
+        },
+        {
+          "type": "homophone",
+          "mot": "à",
+          "explication": "Préposition « à » avec accent grave, à ne pas confondre avec « a » (verbe avoir)."
+        },
+        {
+          "type": "lexicale",
+          "mot": "caresses",
+          "explication": "Deux s entre les deux e pour obtenir le son [s], piège fréquent."
+        }
+      ]
+    },
+    {
+      "ordre": 6,
+      "texte": "Elle n'a jamais eu besoin de lit, mais combien de fois l'avons-nous surprise endormie sur le lac.",
+      "difficultes": [
+        {
+          "type": "trait_union",
+          "mot": "l'avons-nous",
+          "explication": "Inversion sujet-verbe dans une tournure exclamative : le trait d'union est obligatoire entre le verbe et le pronom sujet inversé."
+        },
+        {
+          "type": "accord",
+          "mot": "surprise",
+          "explication": "Participe passé employé avec avoir, accordé au féminin singulier car le COD « l' » (Ondine) est placé avant le verbe."
+        },
+        {
+          "type": "accord",
+          "mot": "endormie",
+          "explication": "Adjectif attribut du COD « l' » (Ondine), accordé au féminin singulier."
+        }
+      ]
+    },
+    {
+      "ordre": 7,
+      "texte": "Est-ce que parce que les enfants devinent instinctivement la nature, est-ce que parce que la nature d'Ondine est la nature même : il y a de grandes forces autour d'Ondine !",
+      "difficultes": [
+        {
+          "type": "lexicale",
+          "mot": "instinctivement",
+          "explication": "Mot long et complexe avec le groupe -nct- au milieu, piège orthographique fréquent."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "devinent",
+          "explication": "Verbe « deviner » au présent, 3e personne du pluriel : ne pas oublier le -ent final."
+        },
+        {
+          "type": "accord",
+          "mot": "grandes forces",
+          "explication": "L'adjectif « grandes » s'accorde au féminin pluriel avec le nom « forces »."
+        },
+        {
+          "type": "trait_union",
+          "mot": "Est-ce que",
+          "explication": "Locution interrogative avec trait d'union entre « Est » et « ce »."
+        }
+      ]
+    },
+    {
+      "ordre": 8,
+      "texte": "LE CHEVALIER : C'est qu'elle est la jeunesse !",
+      "difficultes": [
+        {
+          "type": "homophone",
+          "mot": "qu'elle",
+          "explication": "Ne pas confondre « qu'elle » (que + elle) avec « quelle » (adjectif interrogatif/exclamatif)."
+        }
+      ]
+    }
+  ],
+  "notes_examinateur": [
+    "On inscrira au tableau de manière lisible : Jean Giraudoux, Ondine.",
+    "On donnera aux candidats les explications suivantes : Auguste, le père d'Ondine évoque la jeune fille avec un chevalier qui vient d'entrer chez lui.",
+    "On écrira au tableau le mot : Auguste."
+  ],
+  "source_file": "2022_Amerique-Sud_francais_dictee.pdf"
+}

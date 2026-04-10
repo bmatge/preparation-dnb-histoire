@@ -1,0 +1,129 @@
+{
+  "id": "2024_ameriquesud-asie",
+  "source": {
+    "annee": 2024,
+    "session": "juin",
+    "centre": "Métropole",
+    "code_sujet": "24GENFRDAA1"
+  },
+  "titre": null,
+  "reference": {
+    "auteur": "Louis Aragon",
+    "oeuvre": "Aurélien",
+    "annee_publication": 1944
+  },
+  "texte_complet": "Il n'aimait que les brunes et Bérénice était blonde, d'un blond éteint. Il aimait les femmes longues à sa semblance, elle était petite sans avoir cet air enfant que cela donne parfois. Ses cheveux coupés étaient raides, son teint pâle, comme si le sang n'eût pas circulé sous la peau. Sans avoir le front bas, cette frange qu'elle portait le diminuait trop. Ce qui déconcertait dans ce visage aux pommettes saillantes, c'étaient les yeux, les yeux noirs derrière les cils sans couleur, qui ne tiraient pas tant leur étrangeté de leur noirceur que de ce caractère bombé, comme chez les biches.",
+  "phrases": [
+    {
+      "ordre": 1,
+      "texte": "Il n'aimait que les brunes et Bérénice était blonde, d'un blond éteint.",
+      "difficultes": [
+        {
+          "type": "lexicale",
+          "mot": "éteint",
+          "explication": "Adjectif qualifiant « blond » qui peut être confondu avec le participe passé « éteint » et mal accordé."
+        },
+        {
+          "type": "accord",
+          "mot": "brunes",
+          "explication": "Adjectif substantivé au féminin pluriel, à ne pas oublier d'accorder."
+        }
+      ]
+    },
+    {
+      "ordre": 2,
+      "texte": "Il aimait les femmes longues à sa semblance, elle était petite sans avoir cet air enfant que cela donne parfois.",
+      "difficultes": [
+        {
+          "type": "lexicale",
+          "mot": "semblance",
+          "explication": "Mot rare et littéraire que les élèves risquent de mal orthographier (confusion avec « semblence » ou « ressemblance »)."
+        },
+        {
+          "type": "accord",
+          "mot": "longues",
+          "explication": "Adjectif au féminin pluriel accordé avec « femmes », à ne pas oublier."
+        },
+        {
+          "type": "homophone",
+          "mot": "cet",
+          "explication": "Déterminant démonstratif masculin singulier devant « air » (commençant par une voyelle), à ne pas confondre avec « cette » ou « ces »."
+        }
+      ]
+    },
+    {
+      "ordre": 3,
+      "texte": "Ses cheveux coupés étaient raides, son teint pâle, comme si le sang n'eût pas circulé sous la peau.",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "n'eût pas circulé",
+          "explication": "Subjonctif plus-que-parfait (« eût ») avec accent circonflexe, forme littéraire difficile à identifier pour un élève de 3e."
+        },
+        {
+          "type": "accord",
+          "mot": "coupés",
+          "explication": "Participe passé employé comme adjectif, accordé au masculin pluriel avec « cheveux »."
+        },
+        {
+          "type": "homophone",
+          "mot": "teint",
+          "explication": "Nom masculin à ne pas confondre avec « tint » (passé simple de tenir) ou « tin »."
+        },
+        {
+          "type": "lexicale",
+          "mot": "pâle",
+          "explication": "Ne pas oublier l'accent circonflexe sur le « â »."
+        }
+      ]
+    },
+    {
+      "ordre": 4,
+      "texte": "Sans avoir le front bas, cette frange qu'elle portait le diminuait trop.",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "diminuait",
+          "explication": "Imparfait de l'indicatif, 3e personne du singulier, à ne pas confondre avec le passé simple « diminua »."
+        },
+        {
+          "type": "homophone",
+          "mot": "qu'elle",
+          "explication": "Pronom relatif + pronom personnel, à ne pas confondre avec « quelle »."
+        }
+      ]
+    },
+    {
+      "ordre": 5,
+      "texte": "Ce qui déconcertait dans ce visage aux pommettes saillantes, c'étaient les yeux, les yeux noirs derrière les cils sans couleur, qui ne tiraient pas tant leur étrangeté de leur noirceur que de ce caractère bombé, comme chez les biches.",
+      "difficultes": [
+        {
+          "type": "lexicale",
+          "mot": "déconcertait",
+          "explication": "Verbe pouvant poser problème d'orthographe (le « c » avant le « e » et la terminaison en -ait)."
+        },
+        {
+          "type": "accord",
+          "mot": "saillantes",
+          "explication": "Adjectif au féminin pluriel accordé avec « pommettes »."
+        },
+        {
+          "type": "lexicale",
+          "mot": "étrangeté",
+          "explication": "Nom féminin avec accent aigu, à ne pas confondre avec « étrangetée » ou « étrangeter »."
+        },
+        {
+          "type": "lexicale",
+          "mot": "noirceur",
+          "explication": "Nom féminin dérivé de « noir », à ne pas confondre avec « noirceure »."
+        }
+      ]
+    }
+  ],
+  "notes_examinateur": [
+    "On écrit au tableau : Bérénice",
+    "On demande aux candidats d'écrire une ligne sur deux.",
+    "À l'issue de la relecture, on transcrira lisiblement au tableau le nom de l'auteur, le titre du roman et la date de parution : Louis Aragon, Aurélien, 1944"
+  ],
+  "source_file": "2024_AmeriqueSud-Asie_francais_dictee.pdf"
+}

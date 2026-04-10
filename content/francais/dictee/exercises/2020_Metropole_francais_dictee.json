@@ -1,0 +1,165 @@
+{
+  "id": "2020_metropole",
+  "source": {
+    "annee": 2020,
+    "session": "juin",
+    "centre": "Métropole",
+    "code_sujet": "20GENFRDME1"
+  },
+  "titre": null,
+  "reference": {
+    "auteur": "Théophile Gautier",
+    "oeuvre": "Le Capitaine Fracasse",
+    "annee_publication": 1863
+  },
+  "texte_complet": "Les rideaux se séparèrent lentement, et laissèrent voir une décoration représentant une place publique, lieu vague, commode aux intrigues et aux rencontres de la comédie. C'était un carrefour, avec des maisons aux pignons pointus. Une des deux coulisses avait un balcon où l'on pouvait monter au moyen d'une échelle invisible pour le spectateur, arrangement propice aux conversations, escalades et enlèvements. Vous le voyez, le théâtre de notre petite troupe était assez bien machiné pour l'époque. Un rang de vingt-quatre chandelles jetait une forte clarté sur cette honnête décoration peu habituée à pareille fête. Cet aspect magnifique fit courir une rumeur de satisfaction parmi l'auditoire.",
+  "phrases": [
+    {
+      "ordre": 1,
+      "texte": "Les rideaux se séparèrent lentement, et laissèrent voir une décoration représentant une place publique, lieu vague, commode aux intrigues et aux rencontres de la comédie.",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "séparèrent",
+          "explication": "Passé simple du 1er groupe à la 3e personne du pluriel, à ne pas confondre avec l'imparfait."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "laissèrent",
+          "explication": "Passé simple du 1er groupe à la 3e personne du pluriel, attention à l'accent grave et au double 's'."
+        },
+        {
+          "type": "lexicale",
+          "mot": "commode",
+          "explication": "Adjectif avec deux 'm', à ne pas confondre avec le nom féminin désignant un meuble."
+        },
+        {
+          "type": "accord",
+          "mot": "représentant",
+          "explication": "Participe présent invariable, à ne pas accorder avec 'décoration'."
+        }
+      ]
+    },
+    {
+      "ordre": 2,
+      "texte": "C'était un carrefour, avec des maisons aux pignons pointus.",
+      "difficultes": [
+        {
+          "type": "homophone",
+          "mot": "C'était",
+          "explication": "Ne pas confondre 'c'était' (pronom démonstratif + verbe être) avec 's'était'."
+        },
+        {
+          "type": "lexicale",
+          "mot": "carrefour",
+          "explication": "Mot avec deux 'r' et la terminaison en '-our', orthographe à mémoriser."
+        },
+        {
+          "type": "lexicale",
+          "mot": "pignons",
+          "explication": "Mot peu courant désignant la partie supérieure triangulaire d'un mur, attention au 'gn'."
+        }
+      ]
+    },
+    {
+      "ordre": 3,
+      "texte": "Une des deux coulisses avait un balcon où l'on pouvait monter au moyen d'une échelle invisible pour le spectateur, arrangement propice aux conversations, escalades et enlèvements.",
+      "difficultes": [
+        {
+          "type": "lexicale",
+          "mot": "coulisses",
+          "explication": "Nom féminin pluriel avec un seul 'l' et deux 's'."
+        },
+        {
+          "type": "homophone",
+          "mot": "où",
+          "explication": "Pronom relatif de lieu avec accent grave, à ne pas confondre avec 'ou' conjonction de coordination."
+        },
+        {
+          "type": "lexicale",
+          "mot": "propice",
+          "explication": "Adjectif se terminant par '-ice', à ne pas écrire '-isse'."
+        },
+        {
+          "type": "accord",
+          "mot": "invisible",
+          "explication": "Adjectif qui s'accorde avec 'échelle' (féminin singulier), mais la forme est identique au masculin."
+        }
+      ]
+    },
+    {
+      "ordre": 4,
+      "texte": "Vous le voyez, le théâtre de notre petite troupe était assez bien machiné pour l'époque.",
+      "difficultes": [
+        {
+          "type": "lexicale",
+          "mot": "théâtre",
+          "explication": "Attention à l'accent circonflexe sur le 'â' et à la terminaison '-tre'."
+        },
+        {
+          "type": "lexicale",
+          "mot": "machiné",
+          "explication": "Participe passé signifiant 'équipé de machines', mot peu courant pour un élève de 3e."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "voyez",
+          "explication": "Présent de l'indicatif, 2e personne du pluriel, ne pas oublier le 'y'."
+        }
+      ]
+    },
+    {
+      "ordre": 5,
+      "texte": "Un rang de vingt-quatre chandelles jetait une forte clarté sur cette honnête décoration peu habituée à pareille fête.",
+      "difficultes": [
+        {
+          "type": "trait_union",
+          "mot": "vingt-quatre",
+          "explication": "Nombre composé inférieur à cent, relié par un trait d'union."
+        },
+        {
+          "type": "accord",
+          "mot": "jetait",
+          "explication": "Le sujet est 'un rang' (singulier), et non 'chandelles' : le verbe reste au singulier."
+        },
+        {
+          "type": "lexicale",
+          "mot": "honnête",
+          "explication": "Attention au double 'n' et à l'accent circonflexe sur le 'ê'."
+        },
+        {
+          "type": "accord",
+          "mot": "habituée",
+          "explication": "Participe passé attribut qui s'accorde avec 'décoration' (féminin singulier)."
+        }
+      ]
+    },
+    {
+      "ordre": 6,
+      "texte": "Cet aspect magnifique fit courir une rumeur de satisfaction parmi l'auditoire.",
+      "difficultes": [
+        {
+          "type": "homophone",
+          "mot": "Cet",
+          "explication": "Déterminant démonstratif masculin devant un mot commençant par une voyelle, à ne pas confondre avec 'cette' ou 'ces'."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "fit",
+          "explication": "Passé simple du verbe 'faire' à la 3e personne du singulier, ne pas écrire 'fît' (subjonctif)."
+        },
+        {
+          "type": "lexicale",
+          "mot": "auditoire",
+          "explication": "Nom masculin désignant l'ensemble des spectateurs, à ne pas confondre avec 'auditorium'."
+        }
+      ]
+    }
+  ],
+  "notes_examinateur": [
+    "On inscrira au tableau de manière lisible : D'après Théophile Gautier, Le Capitaine Fracasse, 1863",
+    "On demandera aux candidats d'écrire les chiffres en toutes lettres",
+    "On donnera aux candidats les explications suivantes : Une troupe de comédiens s'est installée dans un château pour y donner une représentation. L'action se déroule au XVIIème siècle."
+  ],
+  "source_file": "2020_Metropole_francais_dictee.pdf"
+}
