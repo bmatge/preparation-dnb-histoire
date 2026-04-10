@@ -83,6 +83,17 @@ class Task(str, Enum):
     # Synthèse de fin de session
     FR_COMP_SYNTHESE = "fr_comp_synthese"
 
+    # --- Français : rédaction ---
+    # Coup de pouce socratique pour aider l'élève à choisir entre
+    # imagination et réflexion (étape 1)
+    FR_REDACTION_HELP = "fr_redaction_help"
+    # Première évaluation du brouillon / plan (étape 3)
+    FR_REDACTION_FIRST_EVAL = "fr_redaction_first_eval"
+    # Seconde évaluation après re-proposition (étape 5)
+    FR_REDACTION_SECOND_EVAL = "fr_redaction_second_eval"
+    # Correction finale fond + forme de la copie (étape 7)
+    FR_REDACTION_FINAL_CORRECTION = "fr_redaction_final_correction"
+
 
 @dataclass(frozen=True)
 class TaskProfile:
@@ -172,6 +183,38 @@ TASK_PROFILES: dict[Task, TaskProfile] = {
         model=MODEL_HEAVY,
         temperature=0.4,
         max_tokens=800,
+        check_no_ghostwriting=False,
+    ),
+    # --- Français : rédaction ---
+    # Mêmes choix que pour le DC histoire-géo : on garde les filtres de
+    # citations pour les évaluations / corrections (le RAG injecte de la
+    # méthodo et du programme), et on désactive le filtre ghostwriting sur
+    # la correction finale (faux positifs sur les corrections longues, le
+    # garde-fou est déjà imposé par le prompt).
+    Task.FR_REDACTION_HELP: TaskProfile(
+        model=MODEL_HEAVY,
+        temperature=0.4,
+        max_tokens=900,
+        check_no_ghostwriting=False,
+        require_citations=False,
+    ),
+    Task.FR_REDACTION_FIRST_EVAL: TaskProfile(
+        model=MODEL_HEAVY,
+        temperature=0.3,
+        max_tokens=1200,
+        require_citations=True,
+    ),
+    Task.FR_REDACTION_SECOND_EVAL: TaskProfile(
+        model=MODEL_HEAVY,
+        temperature=0.3,
+        max_tokens=1200,
+        require_citations=True,
+    ),
+    Task.FR_REDACTION_FINAL_CORRECTION: TaskProfile(
+        model=MODEL_HEAVY,
+        temperature=0.2,
+        max_tokens=2000,
+        require_citations=True,
         check_no_ghostwriting=False,
     ),
 }

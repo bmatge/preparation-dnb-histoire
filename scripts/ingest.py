@@ -17,10 +17,14 @@ Collections histoire-géo-EMC :
 
 Collections français :
 
-  - dnb_francais_programme : programme cycle 4 + attendus fin de 3e/4e/5e
-                             + repères de progression
-  - dnb_francais_methodo   : fiches méthodologiques (classes grammaticales,
-                             propositions, conjugaison, compréhension…)
+  - dnb_francais_programme        : programme cycle 4 + attendus fin de
+                                    3e/4e/5e + repères de progression
+  - dnb_francais_methodo          : fiches méthodologiques (classes
+                                    grammaticales, propositions,
+                                    conjugaison, compréhension…)
+  - dnb_francais_redaction_sujets : consignes de rédaction (imagination /
+                                    réflexion) extraites des annales DNB
+                                    (JSON → markdown à la volée)
 
 Principe :
 - On laisse Albert faire le chunking (RecursiveCharacterTextSplitter côté serveur)
@@ -48,6 +52,7 @@ Corpus attendu (depuis la racine du repo) :
     content/histoire-geo-emc/programme/*.pdf         →  dnb_hgemc_programmes
     content/francais/programme/*.pdf                 →  dnb_francais_programme
     content/francais/methodologie/*.pdf,*.md         →  dnb_francais_methodo
+    content/francais/redaction/subjects/*.json       →  dnb_francais_redaction_sujets
 """
 
 from __future__ import annotations
@@ -96,7 +101,7 @@ class CollectionSpec:
 # matière.
 MATIERE_COLLECTIONS: dict[str, tuple[str, ...]] = {
     "hgemc": ("corriges", "methodo", "programmes", "sujets"),
-    "francais": ("fr_programme", "fr_methodo"),
+    "francais": ("fr_programme", "fr_methodo", "fr_redaction_sujets"),
 }
 
 
@@ -148,6 +153,19 @@ COLLECTIONS: dict[str, CollectionSpec] = {
         ),
         sources=[FRANCAIS_CONTENT / "methodologie"],
         file_patterns=("*.pdf", "*.md"),
+    ),
+    "fr_redaction_sujets": CollectionSpec(
+        key="fr_redaction_sujets",
+        name="dnb_francais_redaction_sujets",
+        description=(
+            "Sujets de rédaction DNB français (2018-2025) : pour chaque "
+            "annale, les deux options proposées (imagination / réflexion) "
+            "avec leur consigne, leurs contraintes et leur éventuelle "
+            "référence au texte support de compréhension. Sert au RAG de "
+            "la sous-épreuve rédaction (correction finale)."
+        ),
+        sources=[FRANCAIS_CONTENT / "redaction" / "subjects"],
+        file_patterns=("*.json",),
     ),
 }
 
@@ -379,6 +397,73 @@ def _subject_json_to_markdown(json_path: Path) -> tuple[bytes, str]:
     return md, md_name
 
 
+def _redaction_subject_json_to_markdown(json_path: Path) -> tuple[bytes, str]:
+    """Transforme un JSON de sujet de rédaction (français) en markdown.
+
+    Le format JSON est celui produit par scripts/extract_french_redactions.py :
+    deux options ``sujet_imagination`` / ``sujet_reflexion`` avec leurs
+    consignes et contraintes, plus une éventuelle référence au texte support
+    de compréhension.
+
+    Retourne (contenu_markdown_utf8, nom_virtuel_md).
+    """
+    data = json.loads(json_path.read_text())
+    annee = data.get("source", {}).get("annee", "?")
+    centre = data.get("source", {}).get("centre", "?")
+    code = data.get("source", {}).get("code_sujet")
+    source = data.get("source_file") or json_path.stem
+    texte_ref = data.get("texte_support_ref")
+
+    lines: list[str] = []
+    lines.append(f"# Sujet de rédaction — DNB {annee} {centre}")
+    lines.append("")
+    lines.append(f"Source : {source}")
+    if code:
+        lines.append(f"Code sujet : {code}")
+    if texte_ref:
+        lines.append(f"Texte support : {texte_ref}")
+    lines.append("")
+    lines.append("**Épreuve** : Rédaction (40 points, 1 h 30)")
+    lines.append("")
+
+    for key, label in (
+        ("sujet_imagination", "Sujet d'imagination"),
+        ("sujet_reflexion", "Sujet de réflexion"),
+    ):
+        opt = data.get(key) or {}
+        lines.append(f"## {label}")
+        lines.append("")
+        if opt.get("numero"):
+            lines.append(f"**Étiquette** : {opt['numero']}")
+            lines.append("")
+        if opt.get("amorce"):
+            lines.append(f"**Amorce** : {opt['amorce']}")
+            lines.append("")
+        if opt.get("consigne"):
+            lines.append(f"**Consigne** : {opt['consigne']}")
+            lines.append("")
+        contraintes = opt.get("contraintes") or []
+        if contraintes:
+            lines.append("**Contraintes** :")
+            for c in contraintes:
+                lines.append(f"- {c}")
+            lines.append("")
+        if opt.get("longueur_min_lignes"):
+            lines.append(
+                f"**Longueur indicative** : ~{opt['longueur_min_lignes']} lignes minimum"
+            )
+            lines.append("")
+        if opt.get("reference_texte_support"):
+            lines.append(
+                f"**Renvoi au texte support** : {opt['reference_texte_support']}"
+            )
+            lines.append("")
+
+    md = "\n".join(lines).encode("utf-8")
+    md_name = json_path.stem + ".md"
+    return md, md_name
+
+
 # ============================================================================
 # Itération sur les fichiers d'une collection
 # ============================================================================
@@ -446,9 +531,22 @@ def ingest_collection(
             continue
 
         try:
-            # Spécial sujets : JSON → markdown avant upload (Albert ne parse pas JSON)
+            # Spécial sujets : JSON → markdown avant upload (Albert ne parse
+            # pas JSON). Deux convertisseurs distincts selon la collection :
+            # - "sujets"               → DC histoire-géo
+            # - "fr_redaction_sujets"  → rédaction française
             if spec.key == "sujets" and file_path.suffix.lower() == ".json":
                 md_bytes, md_name = _subject_json_to_markdown(file_path)
+                resp = client.upload_document(
+                    collection_id=collection_id,
+                    file_path=file_path,
+                    display_name=str(rel.with_suffix(".md")),
+                    content_override=md_bytes,
+                    virtual_filename=md_name,
+                    mime_override="text/markdown",
+                )
+            elif spec.key == "fr_redaction_sujets" and file_path.suffix.lower() == ".json":
+                md_bytes, md_name = _redaction_subject_json_to_markdown(file_path)
                 resp = client.upload_document(
                     collection_id=collection_id,
                     file_path=file_path,

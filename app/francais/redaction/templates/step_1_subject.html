@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+
+{% block progress %}{% with step=1, step_label="Choisis ton sujet" %}{% include "_partials/progress.html" %}{% endwith %}{% endblock %}
+
+{% block content %}
+<div class="text-center mb-6 animate-reveal">
+  <div class="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-500 to-purple-600 text-white text-2xl shadow-glow mb-3">🎯</div>
+  <h1 class="font-display text-3xl font-bold text-slate-900">Deux sujets, un choix</h1>
+  <p class="text-slate-600 mt-1">DNB {{ subject.annee }} — {{ subject.centre }}. Lis les deux options calmement, puis choisis celle qui t'inspire le plus.</p>
+</div>
+
+<div class="grid lg:grid-cols-2 gap-4 mb-6">
+  {# ─── Sujet d'imagination ─── #}
+  <div class="relative bg-white rounded-2xl border-2 border-slate-200 shadow-sm p-5 overflow-hidden animate-reveal">
+    <div class="absolute -top-10 -right-10 h-28 w-28 rounded-full bg-gradient-to-br from-brand-100 to-purple-100 opacity-70"></div>
+    <div class="relative">
+      <div class="flex items-center gap-2 mb-3">
+        <span class="px-2.5 py-0.5 rounded-full bg-purple-100 text-purple-700 text-xs font-semibold uppercase tracking-wide">Imagination</span>
+        <span class="text-xs text-slate-500">{{ subject.imagination.numero }}</span>
+      </div>
+      {% if subject.imagination.amorce %}
+      <p class="text-sm text-slate-700 italic mb-3">{{ subject.imagination.amorce }}</p>
+      {% endif %}
+      <p class="font-display text-[15px] leading-snug text-slate-900 whitespace-pre-line">{{ subject.imagination.consigne }}</p>
+      {% if subject.imagination.contraintes %}
+      <div class="mt-3 pt-3 border-t border-slate-100">
+        <div class="text-[11px] uppercase tracking-wider text-slate-500 mb-1">Contraintes</div>
+        <ul class="list-disc list-inside text-xs text-slate-700 space-y-0.5">
+          {% for c in subject.imagination.contraintes %}<li>{{ c }}</li>{% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+
+  {# ─── Sujet de réflexion ─── #}
+  <div class="relative bg-white rounded-2xl border-2 border-slate-200 shadow-sm p-5 overflow-hidden animate-reveal">
+    <div class="absolute -top-10 -right-10 h-28 w-28 rounded-full bg-gradient-to-br from-brand-100 to-amber-100 opacity-70"></div>
+    <div class="relative">
+      <div class="flex items-center gap-2 mb-3">
+        <span class="px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-700 text-xs font-semibold uppercase tracking-wide">Réflexion</span>
+        <span class="text-xs text-slate-500">{{ subject.reflexion.numero }}</span>
+      </div>
+      {% if subject.reflexion.amorce %}
+      <p class="text-sm text-slate-700 italic mb-3">{{ subject.reflexion.amorce }}</p>
+      {% endif %}
+      <p class="font-display text-[15px] leading-snug text-slate-900 whitespace-pre-line">{{ subject.reflexion.consigne }}</p>
+      {% if subject.reflexion.contraintes %}
+      <div class="mt-3 pt-3 border-t border-slate-100">
+        <div class="text-[11px] uppercase tracking-wider text-slate-500 mb-1">Contraintes</div>
+        <ul class="list-disc list-inside text-xs text-slate-700 space-y-0.5">
+          {% for c in subject.reflexion.contraintes %}<li>{{ c }}</li>{% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% if subject.texte_support_ref %}
+<div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 mb-6 text-sm text-slate-700 animate-reveal">
+  <strong>Texte support :</strong> {{ subject.texte_support_ref }}
+  <span class="text-slate-500"> — l'un des deux sujets renvoie à ce texte de l'épreuve de compréhension.</span>
+</div>
+{% endif %}
+
+<div class="bg-white border border-slate-200 rounded-2xl p-5 mb-6 animate-reveal">
+  <p class="text-sm text-slate-700">
+    <strong>Tu hésites ?</strong>
+    Je peux te poser quelques questions ciblées pour t'aider à comprendre chaque option et choisir celle qui te correspond le mieux.
+  </p>
+  <div class="mt-3 flex items-center gap-3 flex-wrap">
+    <button type="button"
+            hx-post="/francais/redaction/step/1/help"
+            hx-target="#help-area"
+            hx-swap="innerHTML"
+            hx-indicator="#help-loading"
+            class="btn-secondary hover:wiggle text-sm">
+      Aide-moi à choisir
+    </button>
+    <span id="help-loading" class="htmx-indicator text-sm text-brand-700 items-center gap-2">
+      <span class="inline-block h-2.5 w-2.5 rounded-full bg-brand-500 animate-ping"></span>
+      Je lis les deux sujets…
+    </span>
+  </div>
+</div>
+
+<div id="help-area" class="mb-6"></div>
+
+<form method="post" action="/francais/redaction/step/1/choose" class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 space-y-4 animate-reveal">
+  <div class="text-sm font-semibold text-slate-700 mb-2">Mon choix :</div>
+  <div class="grid sm:grid-cols-2 gap-2">
+    <label class="cursor-pointer">
+      <input type="radio" name="option" value="imagination" required class="peer sr-only">
+      <div class="text-center px-4 py-4 rounded-xl border-2 border-slate-200 peer-checked:border-purple-500 peer-checked:bg-purple-50 peer-checked:text-purple-700 font-medium text-sm transition">
+        Je choisis l'imagination
+      </div>
+    </label>
+    <label class="cursor-pointer">
+      <input type="radio" name="option" value="reflexion" required class="peer sr-only">
+      <div class="text-center px-4 py-4 rounded-xl border-2 border-slate-200 peer-checked:border-amber-500 peer-checked:bg-amber-50 peer-checked:text-amber-700 font-medium text-sm transition">
+        Je choisis la réflexion
+      </div>
+    </label>
+  </div>
+  <div class="flex justify-end">
+    <button type="submit" class="btn-primary hover:wiggle">
+      Valider et passer au plan
+      <span>→</span>
+    </button>
+  </div>
+</form>
+{% endblock %}

@@ -1,0 +1,40 @@
+{# Carte récapitulant un sujet (option choisie) — partagée par les étapes 2/4/6.
+   Variables attendues : `subject` (dict), `option` ("imagination" | "reflexion"). #}
+{% set opt = subject.imagination if option == 'imagination' else subject.reflexion %}
+<div class="relative bg-white rounded-2xl border border-slate-200 shadow-sm p-6 mb-6 overflow-hidden animate-reveal">
+  <div class="absolute -top-12 -right-12 h-32 w-32 rounded-full bg-gradient-to-br from-brand-100 to-purple-100 opacity-70"></div>
+  <div class="relative">
+    <div class="flex flex-wrap items-center gap-2 mb-3">
+      <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-brand-100 text-brand-700 text-xs font-semibold uppercase tracking-wide">
+        {% if option == 'imagination' %}Imagination{% else %}Réflexion{% endif %}
+      </span>
+      <span class="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 text-xs font-medium">DNB {{ subject.annee }}</span>
+      <span class="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 text-xs font-medium">{{ subject.centre }}</span>
+      <span class="px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-800 text-xs font-semibold">40 pts</span>
+    </div>
+
+    {% if opt.amorce %}
+    <div class="text-xs text-slate-500 mb-1 font-medium uppercase tracking-wider">Amorce</div>
+    <p class="text-sm text-slate-700 italic mb-4">{{ opt.amorce }}</p>
+    {% endif %}
+
+    <div class="text-xs text-slate-500 mb-1 font-medium uppercase tracking-wider">Consigne</div>
+    <p class="font-display text-base leading-snug text-slate-900 whitespace-pre-line">{{ opt.consigne }}</p>
+
+    {% if opt.contraintes %}
+    <div class="mt-4 pt-4 border-t border-slate-100">
+      <div class="text-xs text-slate-500 mb-2 font-medium uppercase tracking-wider">Contraintes du sujet</div>
+      <ul class="list-disc list-inside text-sm text-slate-700 space-y-0.5">
+        {% for c in opt.contraintes %}<li>{{ c }}</li>{% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+
+    {% if subject.texte_support_ref %}
+    <div class="mt-4 pt-4 border-t border-slate-100 text-xs text-slate-600">
+      <strong>Texte support :</strong> {{ subject.texte_support_ref }}
+      <span class="text-slate-400"> (à relire dans l'épreuve de compréhension si besoin)</span>
+    </div>
+    {% endif %}
+  </div>
+</div>
