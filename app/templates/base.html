@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Révise ton DNB{% endblock %}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/htmx.org@1.9.12" defer></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            display: ['Fraunces', 'Georgia', 'serif'],
+          },
+          colors: {
+            brand: {
+              50:  '#f0f4ff',
+              100: '#dde7ff',
+              200: '#c0d1ff',
+              300: '#94afff',
+              400: '#6483ff',
+              500: '#405bff',
+              600: '#2a3ef5',
+              700: '#222ed1',
+              800: '#1f29a6',
+              900: '#1f2982',
+            },
+          },
+          boxShadow: {
+            'glow': '0 8px 32px -8px rgba(64, 91, 255, 0.35)',
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background:
+        radial-gradient(1100px 600px at 85% -10%, #dde7ff 0%, transparent 60%),
+        radial-gradient(900px 500px at -10% 110%, #ffe4f0 0%, transparent 55%),
+        #fafbff;
+      min-height: 100vh;
+    }
+    .font-display { font-family: 'Fraunces', Georgia, serif; }
+    .prose-eval { white-space: pre-wrap; line-height: 1.7; }
+    .prose-eval strong { color: #1f29a6; font-weight: 600; }
+
+    /* Rendu des évaluations Albert (markdown → HTML) */
+    .eval-md { line-height: 1.65; }
+    .eval-md > * + * { margin-top: 0.85em; }
+    .eval-md h2 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #1f29a6;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding-bottom: 0.35em;
+      border-bottom: 2px solid #dde7ff;
+      margin-top: 1.6em;
+    }
+    .eval-md h2:first-child { margin-top: 0; }
+    .eval-md h3 {
+      font-weight: 600;
+      color: #2a3ef5;
+      font-size: 0.95rem;
+      margin-top: 1.2em;
+    }
+    .eval-md p { margin: 0; }
+    .eval-md strong { color: #1f29a6; font-weight: 600; }
+    .eval-md em { color: #6f3aff; }
+    .eval-md ul, .eval-md ol { padding-left: 1.4em; margin: 0.4em 0; }
+    .eval-md ul { list-style: none; }
+    .eval-md ul li { position: relative; padding-left: 0.25em; margin: 0.35em 0; }
+    .eval-md ul li::before {
+      content: '';
+      position: absolute;
+      left: -1em; top: 0.65em;
+      width: 6px; height: 6px;
+      border-radius: 9999px;
+      background: linear-gradient(135deg, #405bff, #6f3aff);
+    }
+    .eval-md ol { list-style: decimal; }
+    .eval-md ol li { margin: 0.35em 0; padding-left: 0.25em; }
+    .eval-md ol li::marker { color: #2a3ef5; font-weight: 600; }
+    .eval-md hr {
+      border: none;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #c0d1ff, transparent);
+      margin: 1.2em 0;
+    }
+    .eval-md code {
+      background: #f0f4ff;
+      color: #1f29a6;
+      padding: 0.1em 0.4em;
+      border-radius: 0.35em;
+      font-size: 0.9em;
+    }
+
+    /* HTMX loading indicator */
+    .htmx-indicator { display: none; }
+    .htmx-request .htmx-indicator,
+    .htmx-request.htmx-indicator { display: inline-flex; }
+
+    /* Reveal animation */
+    @keyframes reveal {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .animate-reveal { animation: reveal 0.5s ease-out both; }
+
+    /* Wiggle (bouton CTA) */
+    @keyframes wiggle {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(-2deg); }
+      75% { transform: rotate(2deg); }
+    }
+    .hover\:wiggle:hover { animation: wiggle 0.3s ease-in-out; }
+
+    /* Bouton CTA principal */
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: linear-gradient(135deg, #405bff 0%, #6f3aff 100%);
+      color: white;
+      font-weight: 600;
+      padding: 0.75rem 1.5rem;
+      border-radius: 9999px;
+      box-shadow: 0 8px 24px -8px rgba(64, 91, 255, 0.5);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px -8px rgba(64, 91, 255, 0.6);
+    }
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: white;
+      color: #2a3ef5;
+      font-weight: 600;
+      padding: 0.6rem 1.25rem;
+      border-radius: 9999px;
+      border: 1px solid #dde7ff;
+      transition: background 0.15s ease;
+    }
+    .btn-secondary:hover { background: #f0f4ff; }
+
+    /* Progress bar shimmer */
+    @keyframes shimmer {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+    .progress-active {
+      background: linear-gradient(90deg, #405bff 0%, #6f3aff 50%, #405bff 100%);
+      background-size: 200% 100%;
+      animation: shimmer 2.5s linear infinite;
+    }
+  </style>
+</head>
+<body class="text-slate-900">
+
+  <header class="sticky top-0 z-20 backdrop-blur bg-white/70 border-b border-slate-200/60">
+    <div class="max-w-3xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2 font-display font-bold text-lg text-brand-700">
+        <span class="inline-flex items-center justify-center h-9 w-9 rounded-xl bg-gradient-to-br from-brand-500 to-purple-500 text-white shadow-glow">📚</span>
+        <span>Révise ton DNB</span>
+      </a>
+      <nav class="text-sm">
+        <a href="/restart" class="text-slate-600 hover:text-brand-700 font-medium">Nouveau sujet</a>
+      </nav>
+    </div>
+    {% block progress %}{% endblock %}
+  </header>
+
+  <main class="max-w-3xl mx-auto px-4 py-10">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="max-w-3xl mx-auto px-4 py-10 text-xs text-slate-500 text-center">
+    Aide-toi mais ne triche pas — l'objectif, c'est de progresser, pas que je rédige à ta place.<br>
+    Propulsé par <strong>Albert</strong>, le LLM souverain de l'État français 🇫🇷
+  </footer>
+</body>
+</html>

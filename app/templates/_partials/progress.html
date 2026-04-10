@@ -1,0 +1,16 @@
+{# Barre de progression du parcours élève. Variable attendue : `step` (1..7). #}
+<div class="max-w-3xl mx-auto px-4 pb-3">
+  <div class="flex items-center gap-1.5">
+    {% for i in range(1, 8) %}
+      {% set state = 'done' if i < step else ('current' if i == step else 'todo') %}
+      <div class="flex-1 h-2 rounded-full
+                  {% if state == 'done' %}bg-brand-500{% endif %}
+                  {% if state == 'current' %}progress-active{% endif %}
+                  {% if state == 'todo' %}bg-slate-200{% endif %}"></div>
+    {% endfor %}
+  </div>
+  <div class="mt-1.5 text-[11px] uppercase tracking-wider text-slate-500 flex justify-between">
+    <span>Étape {{ step }} / 7</span>
+    <span>{{ step_label }}</span>
+  </div>
+</div>

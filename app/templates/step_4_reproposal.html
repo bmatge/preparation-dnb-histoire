@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block progress %}{% with step=4, step_label="Tu retravailles" %}{% include "_partials/progress.html" %}{% endwith %}{% endblock %}
+
+{% block content %}
+<div class="text-center mb-6 animate-reveal">
+  <div class="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-500 to-purple-600 text-white text-2xl shadow-glow mb-3">🔁</div>
+  <h1 class="font-display text-3xl font-bold text-slate-900">Reprends ta proposition</h1>
+  <p class="text-slate-600 mt-1">Tu peux partir de ta version précédente et la modifier en t'appuyant sur mes questions.</p>
+</div>
+
+{% include "_partials/subject_card.html" %}
+
+<form hx-post="/step/4/submit" hx-target="#response-area" hx-swap="innerHTML"
+      hx-indicator="#loading"
+      class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 space-y-4 animate-reveal">
+  <label class="block">
+    <span class="text-sm font-semibold text-slate-700 flex items-center gap-2 mb-2">
+      📝 Ta nouvelle proposition (version 2)
+    </span>
+    <textarea name="proposition" rows="12" required minlength="20"
+              class="w-full border border-slate-200 rounded-xl px-4 py-3 font-mono text-sm focus:ring-2 focus:ring-brand-400 focus:border-brand-400 outline-none transition">{{ previous_proposal }}</textarea>
+  </label>
+
+  <div class="flex items-center justify-between gap-3 flex-wrap">
+    <span id="loading" class="htmx-indicator text-sm text-brand-700 items-center gap-2">
+      <span class="inline-block h-2.5 w-2.5 rounded-full bg-brand-500 animate-ping"></span>
+      Je compare avec ta première version…
+    </span>
+    <button type="submit" class="btn-primary hover:wiggle ml-auto">
+      Envoyer ma version 2
+      <span>→</span>
+    </button>
+  </div>
+</form>
+
+<div id="response-area" class="mt-8"></div>
+{% endblock %}

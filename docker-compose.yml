@@ -1,0 +1,30 @@
+services:
+  app:
+    build: .
+    container_name: revise-ton-dnb
+    env_file: .env
+    expose:
+      - "8000"
+    volumes:
+      - ./data:/app/data
+      - ./Anales:/app/corpus/Anales:ro
+      - ./Corrigés:/app/corpus/Corriges:ro
+      - ./Methodologie:/app/corpus/Methodologie:ro
+      - ./Programme:/app/corpus/Programme:ro
+    restart: unless-stopped
+    networks:
+      - ecosystem-network
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=ecosystem-network"
+      - "traefik.http.routers.revise-ton-dnb.rule=Host(`revise-ton-brevet.matge.com`)"
+      - "traefik.http.routers.revise-ton-dnb.entrypoints=websecure"
+      - "traefik.http.routers.revise-ton-dnb.tls=true"
+      - "traefik.http.routers.revise-ton-dnb.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.revise-ton-dnb.tls.options=anssi-strict@file"
+      - "traefik.http.routers.revise-ton-dnb.middlewares=security-headers@file"
+      - "traefik.http.services.revise-ton-dnb.loadbalancer.server.port=8000"
+
+networks:
+  ecosystem-network:
+    external: true
