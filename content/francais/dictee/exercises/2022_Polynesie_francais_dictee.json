@@ -1,0 +1,118 @@
+{
+  "id": "2022_polynesie",
+  "source": {
+    "annee": 2022,
+    "session": "juin",
+    "centre": "Métropole",
+    "code_sujet": "22GENFRDPO1"
+  },
+  "titre": null,
+  "reference": {
+    "auteur": "Titaua Porcher",
+    "oeuvre": "Hina, Maui et compagnie",
+    "annee_publication": 2018
+  },
+  "texte_complet": "Oui, vous connaissez tout de l'histoire de sa vie, tout de la première fois qu'elle a dit « maman, papa », tout de ses premières dents de lait et de sa première fois à vélo sans les petites roues. Mais de la personne qu'elle est aujourd'hui, de ses rêves, de ses peurs profondes, de ses désirs, c'est moi qui ai la clé parce qu'elle m'en a fait cadeau un jour en me disant que je serais le seul être au monde à connaître ses pensées les plus intimes. C'est pour ça que je ne peux pas croire qu'elle ait décidé de simplement tourner les talons et de partir vivre avec le premier venu. Et puis, pour tomber amoureux, il faut qu'une porte soit ouverte, qu'il y ait même une toute petite place pour quelqu'un d'autre.",
+  "phrases": [
+    {
+      "ordre": 1,
+      "texte": "Oui, vous connaissez tout de l'histoire de sa vie, tout de la première fois qu'elle a dit « maman, papa », tout de ses premières dents de lait et de sa première fois à vélo sans les petites roues.",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "connaissez",
+          "explication": "Verbe « connaître » au présent, 2e personne du pluriel : ne pas oublier le double « s »."
+        },
+        {
+          "type": "accord",
+          "mot": "premières dents de lait",
+          "explication": "L'adjectif « premières » s'accorde au féminin pluriel avec « dents »."
+        },
+        {
+          "type": "accord",
+          "mot": "petites roues",
+          "explication": "L'adjectif « petites » s'accorde au féminin pluriel avec « roues »."
+        }
+      ]
+    },
+    {
+      "ordre": 2,
+      "texte": "Mais de la personne qu'elle est aujourd'hui, de ses rêves, de ses peurs profondes, de ses désirs, c'est moi qui ai la clé parce qu'elle m'en a fait cadeau un jour en me disant que je serais le seul être au monde à connaître ses pensées les plus intimes.",
+      "difficultes": [
+        {
+          "type": "homophone",
+          "mot": "ai",
+          "explication": "Homophone a/ai : ici c'est le verbe « avoir » à la 1re personne du singulier (c'est moi qui ai)."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "serais",
+          "explication": "Conditionnel présent du verbe « être », 1re personne du singulier : ne pas confondre avec le futur « serai »."
+        },
+        {
+          "type": "lexicale",
+          "mot": "connaître",
+          "explication": "Ne pas oublier l'accent circonflexe sur le « î » de « connaître »."
+        },
+        {
+          "type": "accord",
+          "mot": "intimes",
+          "explication": "L'adjectif « intimes » s'accorde au féminin pluriel avec « pensées »."
+        }
+      ]
+    },
+    {
+      "ordre": 3,
+      "texte": "C'est pour ça que je ne peux pas croire qu'elle ait décidé de simplement tourner les talons et de partir vivre avec le premier venu.",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "ait décidé",
+          "explication": "Subjonctif passé : « ait » est le subjonctif présent de « avoir », ne pas écrire « est » ou « ai »."
+        },
+        {
+          "type": "lexicale",
+          "mot": "simplement",
+          "explication": "Adverbe formé sur « simple » : ne pas oublier le « e » entre « simpl- » et « -ment »."
+        },
+        {
+          "type": "lexicale",
+          "mot": "talons",
+          "explication": "Ne pas confondre avec « talon » au singulier : ici l'expression figée « tourner les talons » impose le pluriel."
+        }
+      ]
+    },
+    {
+      "ordre": 4,
+      "texte": "Et puis, pour tomber amoureux, il faut qu'une porte soit ouverte, qu'il y ait même une toute petite place pour quelqu'un d'autre.",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "soit",
+          "explication": "Subjonctif présent du verbe « être » : ne pas confondre avec « soi » ou « soie »."
+        },
+        {
+          "type": "homophone",
+          "mot": "ait",
+          "explication": "Subjonctif présent de « avoir » : ne pas confondre avec « est » (être) ou « ai » (indicatif)."
+        },
+        {
+          "type": "accord",
+          "mot": "ouverte",
+          "explication": "Le participe passé « ouverte » s'accorde au féminin singulier avec « porte »."
+        },
+        {
+          "type": "apostrophe",
+          "mot": "quelqu'un",
+          "explication": "Mot composé avec apostrophe : ne pas oublier l'élision « quelqu'un »."
+        }
+      ]
+    }
+  ],
+  "notes_examinateur": [
+    "On inscrira au tableau de manière lisible : Titaua Porcher, Hina, Maui et compagnie, 2018.",
+    "On écrira au tableau les mots suivants : Maui, Hina.",
+    "Le texte est précédé de l'indication « Maui : » qui identifie le personnage qui parle ; cette indication n'est pas dictée."
+  ],
+  "source_file": "2022_Polynesie_francais_dictee.pdf"
+}

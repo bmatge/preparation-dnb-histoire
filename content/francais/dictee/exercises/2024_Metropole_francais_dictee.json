@@ -1,0 +1,170 @@
+{
+  "id": "2024_metropole",
+  "source": {
+    "annee": 2024,
+    "session": "juin",
+    "centre": "Métropole",
+    "code_sujet": "24GENFRDME1"
+  },
+  "titre": null,
+  "reference": {
+    "auteur": "Marc Dugain",
+    "oeuvre": "La chambre des officiers",
+    "annee_publication": 1999
+  },
+  "texte_complet": "Marguerite devint naturellement le centre de nos préoccupations. Pour lui parler, nous nous adressions d'abord à Penanster, qui lui répétait nos propos par une lente décomposition des syllabes. Comme souvent chez ceux qui sont atteints de surdité, elle redoutait de parler trop fort, et nous ne nous lassions pas de cette voix douce qui contrastait singulièrement avec nos grognements. Elle s'intégra très rapidement à notre clan, même si nos rencontres quotidiennes étaient toujours de courte durée. Elle n'avait pas informé de son état les membres de sa famille. Elle ne leur écrivait pas. Ils finirent par retrouver sa trace, mais elle refusa de se montrer. Penanster fut dépêché au-devant d'eux pour leur signifier le refus de Marguerite de les recevoir.",
+  "phrases": [
+    {
+      "ordre": 1,
+      "texte": "Marguerite devint naturellement le centre de nos préoccupations.",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "devint",
+          "explication": "Passé simple du verbe « devenir » (3e groupe), à ne pas confondre avec « deviens » ou « devient » au présent."
+        },
+        {
+          "type": "lexicale",
+          "mot": "naturellement",
+          "explication": "Adverbe formé sur « naturelle » + -ment, avec deux « l »."
+        },
+        {
+          "type": "lexicale",
+          "mot": "préoccupations",
+          "explication": "Mot avec le préfixe « pré- » et deux « c », souvent source d'erreur."
+        }
+      ]
+    },
+    {
+      "ordre": 2,
+      "texte": "Pour lui parler, nous nous adressions d'abord à Penanster, qui lui répétait nos propos par une lente décomposition des syllabes.",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "adressions",
+          "explication": "Imparfait de l'indicatif, 1re personne du pluriel : ne pas oublier le double « s » de « adresser » ni la terminaison « -ions »."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "répétait",
+          "explication": "Imparfait du verbe « répéter », 3e personne du singulier, avec accent aigu sur le premier « é » et accent grave sur le second dans certaines graphies, ici « é » partout."
+        },
+        {
+          "type": "lexicale",
+          "mot": "décomposition",
+          "explication": "Mot long avec le préfixe « dé- » et le radical « composition », à orthographier soigneusement."
+        }
+      ]
+    },
+    {
+      "ordre": 3,
+      "texte": "Comme souvent chez ceux qui sont atteints de surdité, elle redoutait de parler trop fort, et nous ne nous lassions pas de cette voix douce qui contrastait singulièrement avec nos grognements.",
+      "difficultes": [
+        {
+          "type": "accord",
+          "mot": "atteints",
+          "explication": "Participe passé « atteint » accordé au masculin pluriel avec « ceux »."
+        },
+        {
+          "type": "lexicale",
+          "mot": "surdité",
+          "explication": "Nom féminin dérivé de « sourd », avec un « d » muet dans le radical à ne pas oublier."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "lassions",
+          "explication": "Imparfait du verbe « lasser » à la 1re personne du pluriel, avec deux « s »."
+        },
+        {
+          "type": "lexicale",
+          "mot": "singulièrement",
+          "explication": "Adverbe long formé sur « singulière » + -ment, à ne pas confondre avec « singulaire »."
+        }
+      ]
+    },
+    {
+      "ordre": 4,
+      "texte": "Elle s'intégra très rapidement à notre clan, même si nos rencontres quotidiennes étaient toujours de courte durée.",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "s'intégra",
+          "explication": "Passé simple du verbe pronominal « s'intégrer », 3e personne du singulier, avec accent aigu."
+        },
+        {
+          "type": "accord",
+          "mot": "quotidiennes",
+          "explication": "Adjectif accordé au féminin pluriel avec « rencontres », double « n »."
+        }
+      ]
+    },
+    {
+      "ordre": 5,
+      "texte": "Elle n'avait pas informé de son état les membres de sa famille.",
+      "difficultes": [
+        {
+          "type": "accord",
+          "mot": "informé",
+          "explication": "Participe passé employé avec « avoir » sans COD placé avant : il reste invariable."
+        },
+        {
+          "type": "homophone",
+          "mot": "son",
+          "explication": "Déterminant possessif à ne pas confondre avec « sont » (verbe être)."
+        }
+      ]
+    },
+    {
+      "ordre": 6,
+      "texte": "Elle ne leur écrivait pas.",
+      "difficultes": [
+        {
+          "type": "homophone",
+          "mot": "leur",
+          "explication": "Pronom personnel COI invariable ici, à ne pas confondre avec « leurs » (déterminant possessif pluriel)."
+        }
+      ]
+    },
+    {
+      "ordre": 7,
+      "texte": "Ils finirent par retrouver sa trace, mais elle refusa de se montrer.",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "finirent",
+          "explication": "Passé simple du verbe « finir », 3e personne du pluriel, terminaison « -irent »."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "refusa",
+          "explication": "Passé simple du verbe « refuser », 3e personne du singulier, à ne pas confondre avec le présent « refuse »."
+        }
+      ]
+    },
+    {
+      "ordre": 8,
+      "texte": "Penanster fut dépêché au-devant d'eux pour leur signifier le refus de Marguerite de les recevoir.",
+      "difficultes": [
+        {
+          "type": "accord",
+          "mot": "dépêché",
+          "explication": "Participe passé employé avec « être » : accordé au masculin singulier avec le sujet « Penanster »."
+        },
+        {
+          "type": "trait_union",
+          "mot": "au-devant",
+          "explication": "Locution prépositionnelle qui s'écrit avec un trait d'union."
+        },
+        {
+          "type": "lexicale",
+          "mot": "signifier",
+          "explication": "Verbe à ne pas confondre avec « sinifier » ; bien écrire le « g » et le « n »."
+        }
+      ]
+    }
+  ],
+  "notes_examinateur": [
+    "Avant de commencer la dictée, on inscrira au tableau de manière lisible : Penanster ; Marc Dugain, La chambre des officiers, 1999."
+  ],
+  "source_file": "2024_Metropole_francais_dictee.pdf"
+}

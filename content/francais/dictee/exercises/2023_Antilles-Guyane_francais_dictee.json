@@ -1,0 +1,162 @@
+{
+  "id": "2023_antilles-guyane",
+  "source": {
+    "annee": 2023,
+    "session": "juin",
+    "centre": "Métropole",
+    "code_sujet": "23GENFRDAG1"
+  },
+  "titre": null,
+  "reference": {
+    "auteur": "Antoine de Saint-Exupéry",
+    "oeuvre": "Terre des Hommes",
+    "annee_publication": 1939
+  },
+  "texte_complet": "Rien, jamais, en effet, ne remplacera le compagnon perdu. On ne se crée point de vieux camarades. Rien ne vaut le trésor de tant de souvenirs communs, de tant de mauvaises heures vécues ensemble, de tant de brouilles, de réconciliations, de mouvements du cœur. On ne reconstruit pas ces amitiés-là. Il est vain, si l'on plante un chêne, d'espérer s'abriter bientôt sous son feuillage. Ainsi va la vie. Nous nous sommes enrichis d'abord, nous avons planté pendant des années, mais viennent les années où le temps défait ce travail et déboise. Les camarades, un à un, nous retirent leur ombre.",
+  "phrases": [
+    {
+      "ordre": 1,
+      "texte": "Rien, jamais, en effet, ne remplacera le compagnon perdu.",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "remplacera",
+          "explication": "Futur simple du verbe « remplacer » à la 3e personne du singulier, à ne pas confondre avec le conditionnel « remplacerait »."
+        },
+        {
+          "type": "lexicale",
+          "mot": "compagnon",
+          "explication": "Attention à l'orthographe : « compagnon » avec un « a » et deux « n » à la fin."
+        }
+      ]
+    },
+    {
+      "ordre": 2,
+      "texte": "On ne se crée point de vieux camarades.",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "crée",
+          "explication": "Présent de l'indicatif du verbe « créer » à la 3e personne du singulier : deux « é » suivis d'un « e » muet."
+        },
+        {
+          "type": "homophone",
+          "mot": "point",
+          "explication": "Ici « point » est un adverbe de négation synonyme de « pas », à ne pas confondre avec le nom commun."
+        }
+      ]
+    },
+    {
+      "ordre": 3,
+      "texte": "Rien ne vaut le trésor de tant de souvenirs communs, de tant de mauvaises heures vécues ensemble, de tant de brouilles, de réconciliations, de mouvements du cœur.",
+      "difficultes": [
+        {
+          "type": "accord",
+          "mot": "vécues",
+          "explication": "Participe passé employé comme adjectif, accordé au féminin pluriel avec « heures »."
+        },
+        {
+          "type": "lexicale",
+          "mot": "réconciliations",
+          "explication": "Mot long dont l'orthographe peut poser problème : attention au « é » initial et au « c » avant « i »."
+        },
+        {
+          "type": "lexicale",
+          "mot": "cœur",
+          "explication": "Attention à la ligature « œ » et à l'absence d'accent sur le « u »."
+        },
+        {
+          "type": "accord",
+          "mot": "communs",
+          "explication": "Adjectif accordé au masculin pluriel avec « souvenirs »."
+        }
+      ]
+    },
+    {
+      "ordre": 4,
+      "texte": "On ne reconstruit pas ces amitiés-là.",
+      "difficultes": [
+        {
+          "type": "trait_union",
+          "mot": "amitiés-là",
+          "explication": "Le démonstratif « -là » est relié au nom par un trait d'union."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "reconstruit",
+          "explication": "Présent de l'indicatif du verbe « reconstruire » à la 3e personne du singulier, terminaison en « -t »."
+        }
+      ]
+    },
+    {
+      "ordre": 5,
+      "texte": "Il est vain, si l'on plante un chêne, d'espérer s'abriter bientôt sous son feuillage.",
+      "difficultes": [
+        {
+          "type": "lexicale",
+          "mot": "vain",
+          "explication": "Homophone de « vin » et « vingt » ; ici adjectif signifiant « inutile »."
+        },
+        {
+          "type": "lexicale",
+          "mot": "chêne",
+          "explication": "Attention à l'accent circonflexe sur le « ê »."
+        },
+        {
+          "type": "lexicale",
+          "mot": "feuillage",
+          "explication": "Attention au groupe « euill » qui peut être source d'erreur."
+        }
+      ]
+    },
+    {
+      "ordre": 6,
+      "texte": "Ainsi va la vie.",
+      "difficultes": []
+    },
+    {
+      "ordre": 7,
+      "texte": "Nous nous sommes enrichis d'abord, nous avons planté pendant des années, mais viennent les années où le temps défait ce travail et déboise.",
+      "difficultes": [
+        {
+          "type": "accord",
+          "mot": "enrichis",
+          "explication": "Participe passé avec « être » accordé au masculin pluriel avec le sujet « nous »."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "viennent",
+          "explication": "Verbe « venir » au présent, 3e personne du pluriel, avec inversion du sujet « les années » ; attention au double « n »."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "défait",
+          "explication": "Verbe « défaire » au présent de l'indicatif, 3e personne du singulier, à ne pas confondre avec le participe passé « défait »."
+        },
+        {
+          "type": "lexicale",
+          "mot": "déboise",
+          "explication": "Verbe « déboiser » au présent, mot peu courant qui peut poser un problème d'orthographe lexicale."
+        }
+      ]
+    },
+    {
+      "ordre": 8,
+      "texte": "Les camarades, un à un, nous retirent leur ombre.",
+      "difficultes": [
+        {
+          "type": "homophone",
+          "mot": "à",
+          "explication": "Préposition « à » avec accent grave dans l'expression « un à un », à ne pas confondre avec le verbe « a »."
+        },
+        {
+          "type": "accord",
+          "mot": "retirent",
+          "explication": "Verbe conjugué à la 3e personne du pluriel, accordé avec le sujet « les camarades »."
+        }
+      ]
+    }
+  ],
+  "notes_examinateur": [],
+  "source_file": "2023_Antilles-Guyane_francais_dictee.pdf"
+}

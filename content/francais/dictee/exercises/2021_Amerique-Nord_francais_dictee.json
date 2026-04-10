@@ -1,0 +1,163 @@
+{
+  "id": "2021_amerique-nord",
+  "source": {
+    "annee": 2021,
+    "session": "juin",
+    "centre": "Métropole",
+    "code_sujet": "21GENFRDAN1"
+  },
+  "titre": null,
+  "reference": {
+    "auteur": "Roger Frison-Roche",
+    "oeuvre": "Les Montagnards de la nuit",
+    "annee_publication": 1968
+  },
+  "texte_complet": "Il fallait maintenant agir. Les maquisards extériorisaient leur joie, couraient en brassant la neige jusqu'aux points de chute. Certains riaient, d'autres pleuraient, mais ils avaient tout oublié, les longues heures d'attente dans le froid, le danger latent pouvant venir d'en bas ; ce soir ils se sentaient des hommes libres et leur condition de hors-la-loi leur paraissait magnifique. — Vous rêvez, Laurent, fit Marceau. L'officier restait figé, tout droit dans la neige, et son regard se perdait dans le ciel comme s'il s'attendait à voir revenir l'avion. L'émotion crispait ses traits. — Oui, je rêve. Je rêve au pilote qui rejoint la France libre.",
+  "phrases": [
+    {
+      "ordre": 1,
+      "texte": "Il fallait maintenant agir.",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "fallait",
+          "explication": "Imparfait du verbe « falloir » : ne pas oublier le double « l »."
+        }
+      ]
+    },
+    {
+      "ordre": 2,
+      "texte": "Les maquisards extériorisaient leur joie, couraient en brassant la neige jusqu'aux points de chute.",
+      "difficultes": [
+        {
+          "type": "lexicale",
+          "mot": "maquisards",
+          "explication": "Mot désignant les résistants cachés dans le maquis, à ne pas confondre avec d'autres graphies."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "extériorisaient",
+          "explication": "Imparfait à la 3e personne du pluriel, terminaison en -aient, et orthographe du préfixe « extérior- »."
+        },
+        {
+          "type": "homophone",
+          "mot": "leur",
+          "explication": "« Leur » devant un nom singulier (joie) reste invariable en tant que déterminant possessif."
+        }
+      ]
+    },
+    {
+      "ordre": 3,
+      "texte": "Certains riaient, d'autres pleuraient, mais ils avaient tout oublié, les longues heures d'attente dans le froid, le danger latent pouvant venir d'en bas ;",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "riaient",
+          "explication": "Imparfait du verbe « rire » à la 3e personne du pluriel : attention au « i » suivi de « aient »."
+        },
+        {
+          "type": "accord",
+          "mot": "oublié",
+          "explication": "Participe passé employé avec « avoir » sans COD antéposé : il reste invariable."
+        },
+        {
+          "type": "lexicale",
+          "mot": "latent",
+          "explication": "Adjectif signifiant « caché, non visible » : ne pas oublier le « t » final."
+        }
+      ]
+    },
+    {
+      "ordre": 4,
+      "texte": "ce soir ils se sentaient des hommes libres et leur condition de hors-la-loi leur paraissait magnifique.",
+      "difficultes": [
+        {
+          "type": "trait_union",
+          "mot": "hors-la-loi",
+          "explication": "Nom composé invariable avec deux traits d'union."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "paraissait",
+          "explication": "Imparfait du verbe « paraître » à la 3e personne du singulier, avec l'accent circonflexe sur le « î » (orthographe traditionnelle)."
+        },
+        {
+          "type": "lexicale",
+          "mot": "magnifique",
+          "explication": "Attention à la graphie : « gn » et terminaison en « -ique »."
+        }
+      ]
+    },
+    {
+      "ordre": 5,
+      "texte": "— Vous rêvez, Laurent, fit Marceau.",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "rêvez",
+          "explication": "Présent de l'indicatif, 2e personne du pluriel : terminaison en « -ez »."
+        }
+      ]
+    },
+    {
+      "ordre": 6,
+      "texte": "L'officier restait figé, tout droit dans la neige, et son regard se perdait dans le ciel comme s'il s'attendait à voir revenir l'avion.",
+      "difficultes": [
+        {
+          "type": "accord",
+          "mot": "figé",
+          "explication": "Participe passé attribut du sujet « l'officier » (masculin singulier) : pas de « e » final."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "s'attendait",
+          "explication": "Imparfait du verbe pronominal « s'attendre » à la 3e personne du singulier."
+        },
+        {
+          "type": "homophone",
+          "mot": "à",
+          "explication": "Préposition « à » avec accent grave, à ne pas confondre avec le verbe « a »."
+        }
+      ]
+    },
+    {
+      "ordre": 7,
+      "texte": "L'émotion crispait ses traits.",
+      "difficultes": [
+        {
+          "type": "lexicale",
+          "mot": "crispait",
+          "explication": "Verbe « crisper » à l'imparfait : ne pas oublier le « s » avant le « p »."
+        }
+      ]
+    },
+    {
+      "ordre": 8,
+      "texte": "— Oui, je rêve.",
+      "difficultes": []
+    },
+    {
+      "ordre": 9,
+      "texte": "Je rêve au pilote qui rejoint la France libre.",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "rejoint",
+          "explication": "Présent de l'indicatif du verbe « rejoindre » à la 3e personne du singulier : terminaison en « -t »."
+        },
+        {
+          "type": "majuscule",
+          "mot": "France libre",
+          "explication": "Expression historique désignant le mouvement de résistance : majuscule à « France » et « libre » peut rester en minuscule selon les usages, mais ici « libre » est en minuscule dans le texte original."
+        }
+      ]
+    }
+  ],
+  "notes_examinateur": [
+    "On inscrira au tableau de manière lisible pour l'ensemble des candidats le titre de l'œuvre et le nom de l'auteur.",
+    "On inscrira les noms propres : « Laurent », « Marceau ».",
+    "On inscrira aussi le nom commun : « hors-la-loi ».",
+    "On précisera que les nombres doivent être écrits en lettres."
+  ],
+  "source_file": "2021_Amerique-Nord_francais_dictee.pdf"
+}

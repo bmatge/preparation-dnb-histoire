@@ -1,0 +1,183 @@
+{
+  "id": "2019_amerique-nord",
+  "source": {
+    "annee": 2019,
+    "session": "juin",
+    "centre": "Métropole",
+    "code_sujet": "19GENFRDAN1"
+  },
+  "titre": null,
+  "reference": {
+    "auteur": "Victor Hugo",
+    "oeuvre": "Les Misérables",
+    "annee_publication": 1862
+  },
+  "texte_complet": "L'homme baissa la tête, ramassa le sac qu'il avait déposé à terre, et s'en alla. Il prit la grande rue. Il marchait devant lui au hasard, rasant de près les maisons comme un homme humilié et triste. Il ne se retourna pas une seule fois. S'il s'était retourné, il aurait vu l'aubergiste de la Croix-de-Colbas sur le seuil de sa porte, entouré de tous les voyageurs de son auberge et de tous les passants de la rue, parlant vivement et le désignant du doigt ; et, aux regards de défiance et d'effroi du groupe, il aurait deviné qu'avant peu son arrivée serait l'événement de toute la ville. Il ne vit rien de tout cela. Les gens accablés ne regardent pas derrière eux. Ils ne savent que trop que le mauvais sort les suit.",
+  "phrases": [
+    {
+      "ordre": 1,
+      "texte": "L'homme baissa la tête, ramassa le sac qu'il avait déposé à terre, et s'en alla.",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "baissa",
+          "explication": "Passé simple du 1er groupe, ne pas confondre avec l'imparfait « baissait »."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "avait déposé",
+          "explication": "Plus-que-parfait : accord du participe passé avec l'auxiliaire avoir (pas d'accord car le COD « le sac » est placé après le verbe dans la subordonnée, mais « qu' » reprend « le sac » placé avant → en réalité le COD « qu' » est avant, donc accord masculin singulier)."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "s'en alla",
+          "explication": "Passé simple irrégulier du verbe « s'en aller », ne pas écrire « s'en allat » ou « s'en alла »."
+        }
+      ]
+    },
+    {
+      "ordre": 2,
+      "texte": "Il prit la grande rue.",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "prit",
+          "explication": "Passé simple du verbe « prendre » (3e groupe), ne pas écrire « pris » (1re personne) ni « prie »."
+        }
+      ]
+    },
+    {
+      "ordre": 3,
+      "texte": "Il marchait devant lui au hasard, rasant de près les maisons comme un homme humilié et triste.",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "marchait",
+          "explication": "Imparfait de l'indicatif, ne pas confondre avec le passé simple « marcha »."
+        },
+        {
+          "type": "lexicale",
+          "mot": "hasard",
+          "explication": "Mot courant mais dont l'orthographe avec un « d » final muet peut être oubliée."
+        },
+        {
+          "type": "accord",
+          "mot": "humilié",
+          "explication": "Participe passé employé comme adjectif, s'accorde au masculin singulier avec « homme »."
+        }
+      ]
+    },
+    {
+      "ordre": 4,
+      "texte": "Il ne se retourna pas une seule fois.",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "retourna",
+          "explication": "Passé simple du 1er groupe, ne pas confondre avec l'imparfait « retournait »."
+        }
+      ]
+    },
+    {
+      "ordre": 5,
+      "texte": "S'il s'était retourné, il aurait vu l'aubergiste de la Croix-de-Colbas sur le seuil de sa porte, entouré de tous les voyageurs de son auberge et de tous les passants de la rue, parlant vivement et le désignant du doigt ;",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "s'était retourné",
+          "explication": "Plus-que-parfait du verbe pronominal « se retourner », le participe passé s'accorde avec le sujet « il »."
+        },
+        {
+          "type": "lexicale",
+          "mot": "seuil",
+          "explication": "Orthographe difficile avec le groupe « euil », ne pas écrire « seuille » ou « seul »."
+        },
+        {
+          "type": "accord",
+          "mot": "entouré",
+          "explication": "Participe passé en apposition, s'accorde avec « l'aubergiste » (masculin singulier)."
+        },
+        {
+          "type": "accord",
+          "mot": "passants",
+          "explication": "Nom au pluriel après « tous les », ne pas oublier le « s »."
+        }
+      ]
+    },
+    {
+      "ordre": 6,
+      "texte": "et, aux regards de défiance et d'effroi du groupe, il aurait deviné qu'avant peu son arrivée serait l'événement de toute la ville.",
+      "difficultes": [
+        {
+          "type": "lexicale",
+          "mot": "défiance",
+          "explication": "Mot littéraire signifiant « méfiance », ne pas confondre avec « défaillance »."
+        },
+        {
+          "type": "lexicale",
+          "mot": "effroi",
+          "explication": "Mot avec deux « f », ne pas écrire « éfroi »."
+        },
+        {
+          "type": "lexicale",
+          "mot": "l'événement",
+          "explication": "Orthographe avec accent aigu ou grave sur le deuxième « e » (les deux graphies sont acceptées), ne pas oublier le accent."
+        },
+        {
+          "type": "accord",
+          "mot": "arrivée",
+          "explication": "Nom féminin, ne pas oublier le « e » final ni le double « r » (un seul « r » en réalité : « arrivée »)."
+        }
+      ]
+    },
+    {
+      "ordre": 7,
+      "texte": "Il ne vit rien de tout cela.",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "vit",
+          "explication": "Passé simple du verbe « voir », ne pas confondre avec « vit » de « vivre » ou écrire « vis »."
+        }
+      ]
+    },
+    {
+      "ordre": 8,
+      "texte": "Les gens accablés ne regardent pas derrière eux.",
+      "difficultes": [
+        {
+          "type": "accord",
+          "mot": "accablés",
+          "explication": "Adjectif au masculin pluriel, s'accorde avec « gens »."
+        },
+        {
+          "type": "lexicale",
+          "mot": "derrière",
+          "explication": "Ne pas oublier l'accent grave sur le « e » ni le double « r »."
+        }
+      ]
+    },
+    {
+      "ordre": 9,
+      "texte": "Ils ne savent que trop que le mauvais sort les suit.",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "savent",
+          "explication": "Présent de l'indicatif du verbe « savoir » à la 3e personne du pluriel, ne pas écrire « saves » ou « save »."
+        },
+        {
+          "type": "homophone",
+          "mot": "suit",
+          "explication": "Verbe « suivre » au présent (3e personne du singulier), ne pas confondre avec « suis » (1re personne) ou le nom « suie »."
+        }
+      ]
+    }
+  ],
+  "notes_examinateur": [
+    "On inscrira au tableau de manière lisible pour l'ensemble des candidats le titre de l'œuvre et le nom de l'auteur.",
+    "On écrira au tableau les mots : la Croix-de-Colbas.",
+    "On précisera que les nombres doivent être écrits en lettres."
+  ],
+  "source_file": "2019_Amerique-Nord_francais_dictee.pdf"
+}

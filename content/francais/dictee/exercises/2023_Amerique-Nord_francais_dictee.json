@@ -1,0 +1,125 @@
+{
+  "id": "2023_amerique-nord",
+  "source": {
+    "annee": 2023,
+    "session": "juin",
+    "centre": "Métropole",
+    "code_sujet": "23GENFRDAN1"
+  },
+  "titre": null,
+  "reference": {
+    "auteur": "Elsa Triolet",
+    "oeuvre": "Roses à crédit",
+    "annee_publication": 1959
+  },
+  "texte_complet": "Cécile avait raison lorsqu'elle disait à Mme Donzert qu'il fallait laisser Martine tranquille, qu'elle savait ce qu'elle voulait. C'était vrai, il y avait chez Martine une détermination presque sinistre, tant on la sentait irrévocable. En toute chose. Si après de longues réflexions qui l'empêchaient de dormir, elle se décidait pour un tailleur classique bleu marine, des escarpins de la même couleur et un chapeau blanc, il les lui fallait exactement tels qu'elle les avait imaginés, le tailleur et les escarpins et le chapeau... Un bleu marine franc, ne tirant pas sur le gris et le violet.",
+  "phrases": [
+    {
+      "ordre": 1,
+      "texte": "Cécile avait raison lorsqu'elle disait à Mme Donzert qu'il fallait laisser Martine tranquille, qu'elle savait ce qu'elle voulait.",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "disait",
+          "explication": "Imparfait de l'indicatif, 3e personne du singulier, à ne pas confondre avec le passé simple « dit »."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "fallait",
+          "explication": "Imparfait du verbe impersonnel « falloir », à ne pas confondre avec le conditionnel « faudrait »."
+        },
+        {
+          "type": "homophone",
+          "mot": "qu'elle",
+          "explication": "Ne pas confondre « qu'elle » (pronom) avec « quelle » (déterminant interrogatif/exclamatif)."
+        }
+      ]
+    },
+    {
+      "ordre": 2,
+      "texte": "C'était vrai, il y avait chez Martine une détermination presque sinistre, tant on la sentait irrévocable.",
+      "difficultes": [
+        {
+          "type": "homophone",
+          "mot": "C'était",
+          "explication": "Ne pas confondre « c'était » (ce + était) avec « s'était » (pronom réfléchi + était)."
+        },
+        {
+          "type": "lexicale",
+          "mot": "détermination",
+          "explication": "Mot long avec un accent aigu sur le premier « e » et la terminaison en -tion."
+        },
+        {
+          "type": "lexicale",
+          "mot": "irrévocable",
+          "explication": "Double « r » et accent aigu sur le « e », mot peu courant pour un élève de 3e."
+        },
+        {
+          "type": "lexicale",
+          "mot": "sinistre",
+          "explication": "Ne pas oublier le « e » final ni doubler de lettres."
+        }
+      ]
+    },
+    {
+      "ordre": 3,
+      "texte": "En toute chose.",
+      "difficultes": [
+        {
+          "type": "accord",
+          "mot": "toute",
+          "explication": "« Toute » s'accorde au féminin singulier avec « chose »."
+        }
+      ]
+    },
+    {
+      "ordre": 4,
+      "texte": "Si après de longues réflexions qui l'empêchaient de dormir, elle se décidait pour un tailleur classique bleu marine, des escarpins de la même couleur et un chapeau blanc, il les lui fallait exactement tels qu'elle les avait imaginés, le tailleur et les escarpins et le chapeau...",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "empêchaient",
+          "explication": "Imparfait, 3e personne du pluriel (sujet « qui » reprenant « réflexions »), ne pas oublier le accent circonflexe sur le « ê »."
+        },
+        {
+          "type": "lexicale",
+          "mot": "escarpins",
+          "explication": "Mot peu courant pour un élève de 3e, attention à l'orthographe (pas de « s » après le « e »)."
+        },
+        {
+          "type": "accord",
+          "mot": "imaginés",
+          "explication": "Participe passé employé avec « avoir » : il s'accorde avec le COD « les » (mis pour tailleur, escarpins, chapeau = masculin pluriel)."
+        },
+        {
+          "type": "accord",
+          "mot": "tels",
+          "explication": "Adjectif attribut du COD « les », accordé au masculin pluriel."
+        }
+      ]
+    },
+    {
+      "ordre": 5,
+      "texte": "Un bleu marine franc, ne tirant pas sur le gris et le violet.",
+      "difficultes": [
+        {
+          "type": "accord",
+          "mot": "franc",
+          "explication": "Adjectif qualifiant « bleu marine » (masculin singulier), à ne pas accorder au féminin."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "tirant",
+          "explication": "Participe présent invariable, ne pas confondre avec d'autres formes verbales."
+        }
+      ]
+    }
+  ],
+  "notes_examinateur": [
+    "Avant la dictée, on écrit au tableau : Cécile, Martine, Mme Donzert",
+    "On demandera aux candidats d'écrire une ligne sur deux.",
+    "On ne répondra pas aux questions éventuelles des candidats après la relecture du texte ; ils en seront avertis avant cette relecture.",
+    "À l'issue de la relecture, on transcrira lisiblement au tableau le nom de l'auteur, le titre du roman : Elsa TRIOLET, Roses à crédit, 1959."
+  ],
+  "source_file": "2023_Amerique-Nord_francais_dictee.pdf"
+}

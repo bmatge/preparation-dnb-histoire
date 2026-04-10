@@ -1,0 +1,161 @@
+{
+  "id": "2022_amerique-nord",
+  "source": {
+    "annee": 2022,
+    "session": "juin",
+    "centre": "Métropole",
+    "code_sujet": "22GENFRDAN1"
+  },
+  "titre": null,
+  "reference": {
+    "auteur": "Marivaux",
+    "oeuvre": "Le Prince travesti",
+    "annee_publication": 1724
+  },
+  "texte_complet": "La Princesse cherche à me connaître, et me confirme dans mes soupçons ; les services que je lui ai rendus ont disposé son cœur à me vouloir du bien et mes respects empressés l'ont persuadée que je l'aimais sans oser le dire. Depuis que j'ai quitté les États de mon père, et que je voyage sous ce déguisement pour hâter l'expérience dont j'aurai besoin si je règne un jour, je n'ai fait nulle part un séjour si long qu'ici ; à quoi donc aboutira-t-il ? mon père souhaite que je me marie et me laisse le choix d'une épouse. Ne dois-je pas m'en tenir à cette Princesse ? Elle est aimable, et si je lui plais, rien n'est plus flatteur pour moi que son inclination, car elle ne me connaît pas.",
+  "phrases": [
+    {
+      "ordre": 1,
+      "texte": "La Princesse cherche à me connaître, et me confirme dans mes soupçons ;",
+      "difficultes": [
+        {
+          "type": "majuscule",
+          "mot": "Princesse",
+          "explication": "Le mot « Princesse » prend une majuscule car il désigne ici un personnage précis, utilisé comme un nom propre."
+        },
+        {
+          "type": "lexicale",
+          "mot": "soupçons",
+          "explication": "Le ç devant le o est nécessaire pour obtenir le son [s] ; oubli fréquent de la cédille."
+        },
+        {
+          "type": "homophone",
+          "mot": "à",
+          "explication": "Préposition « à » avec accent grave, à ne pas confondre avec le verbe « a » sans accent."
+        }
+      ]
+    },
+    {
+      "ordre": 2,
+      "texte": "les services que je lui ai rendus ont disposé son cœur à me vouloir du bien et mes respects empressés l'ont persuadée que je l'aimais sans oser le dire.",
+      "difficultes": [
+        {
+          "type": "accord",
+          "mot": "rendus",
+          "explication": "Participe passé employé avec « avoir » : il s'accorde avec le COD « que » (mis pour « les services », masculin pluriel) placé avant le verbe."
+        },
+        {
+          "type": "accord",
+          "mot": "persuadée",
+          "explication": "Participe passé employé avec « avoir » : il s'accorde avec le COD « l' » (mis pour « la Princesse », féminin singulier) placé avant le verbe."
+        },
+        {
+          "type": "accord",
+          "mot": "empressés",
+          "explication": "Adjectif qui s'accorde avec « respects », masculin pluriel."
+        },
+        {
+          "type": "lexicale",
+          "mot": "cœur",
+          "explication": "Attention à la ligature « œ » et à l'absence de « u » après le « œ »."
+        }
+      ]
+    },
+    {
+      "ordre": 3,
+      "texte": "Depuis que j'ai quitté les États de mon père, et que je voyage sous ce déguisement pour hâter l'expérience dont j'aurai besoin si je règne un jour, je n'ai fait nulle part un séjour si long qu'ici ;",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "j'aurai",
+          "explication": "Futur simple de l'indicatif (et non conditionnel « j'aurais ») : l'action est envisagée comme possible dans le futur."
+        },
+        {
+          "type": "lexicale",
+          "mot": "déguisement",
+          "explication": "Ne pas oublier le « e » muet entre « gu » et « ment »."
+        },
+        {
+          "type": "lexicale",
+          "mot": "hâter",
+          "explication": "Accent circonflexe sur le « â », souvent oublié."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "règne",
+          "explication": "Subjonctif présent après « si » dans une hypothèse, même forme que l'indicatif présent ; attention à l'accent grave sur le « è »."
+        }
+      ]
+    },
+    {
+      "ordre": 4,
+      "texte": "à quoi donc aboutira-t-il ?",
+      "difficultes": [
+        {
+          "type": "trait_union",
+          "mot": "aboutira-t-il",
+          "explication": "Le « t » euphonique est encadré de deux traits d'union dans l'inversion sujet-verbe."
+        }
+      ]
+    },
+    {
+      "ordre": 5,
+      "texte": "mon père souhaite que je me marie et me laisse le choix d'une épouse.",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "marie",
+          "explication": "Subjonctif présent (après « souhaite que »), 1re personne du singulier : même forme que l'indicatif présent, sans « s »."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "laisse",
+          "explication": "Subjonctif présent coordonné à « marie » (sujet « mon père ») : 3e personne du singulier, attention à ne pas écrire « laisser »."
+        }
+      ]
+    },
+    {
+      "ordre": 6,
+      "texte": "Ne dois-je pas m'en tenir à cette Princesse ?",
+      "difficultes": [
+        {
+          "type": "trait_union",
+          "mot": "dois-je",
+          "explication": "Inversion sujet-verbe dans une phrase interrogative : le trait d'union est obligatoire."
+        },
+        {
+          "type": "majuscule",
+          "mot": "Princesse",
+          "explication": "Majuscule conservée car le mot désigne un personnage précis, comme un titre."
+        }
+      ]
+    },
+    {
+      "ordre": 7,
+      "texte": "Elle est aimable, et si je lui plais, rien n'est plus flatteur pour moi que son inclination, car elle ne me connaît pas.",
+      "difficultes": [
+        {
+          "type": "lexicale",
+          "mot": "flatteur",
+          "explication": "Deux « t » dans « flatteur », erreur fréquente de doublement de consonne."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "connaît",
+          "explication": "Accent circonflexe sur le « î » à la 3e personne du singulier du présent de l'indicatif de « connaître »."
+        },
+        {
+          "type": "lexicale",
+          "mot": "inclination",
+          "explication": "Mot donné au tableau mais attention à l'orthographe : « inclination » et non « inclinaison » (sens différent)."
+        }
+      ]
+    }
+  ],
+  "notes_examinateur": [
+    "On inscrira au tableau de manière lisible : Marivaux, Le Prince travesti.",
+    "On écrira au tableau les noms Lélio, Castille, États, inclination.",
+    "On donnera aux candidats les explications suivantes : Lélio pense que la Princesse est amoureuse de lui et il songe à l'épouser. On apprend aussi qu'il est le fils d'un roi."
+  ],
+  "source_file": "2022_Amerique-Nord_francais_dictee.pdf"
+}

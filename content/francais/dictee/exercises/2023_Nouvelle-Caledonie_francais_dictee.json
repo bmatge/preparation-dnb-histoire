@@ -1,0 +1,152 @@
+{
+  "id": "2023_nouvelle-caledonie",
+  "source": {
+    "annee": 2023,
+    "session": "juin",
+    "centre": "Métropole",
+    "code_sujet": "23GENFRDNC1"
+  },
+  "titre": null,
+  "reference": {
+    "auteur": "Abbé Pierre",
+    "oeuvre": "Appel de l'Abbé Pierre",
+    "annee_publication": 1954
+  },
+  "texte_complet": "Mes amis, au secours... Une femme vient de mourir gelée, cette nuit à trois heures, sur le trottoir du boulevard Sébastopol, serrant sur elle le papier par lequel, avant-hier, on l'avait expulsée... Chaque nuit, ils sont plus de deux mille recroquevillés sous le gel, sans toit, sans pain. […] Écoutez-moi [...]. Il faut que ce soir-même, dans toutes les villes de France, dans chaque quartier de Paris, des pancartes s'accrochent sous une lumière dans la nuit, à la porte de lieux où il y ait couvertures, paille, soupe, et où l'on lise sous ce titre « centre fraternel de dépannage », ces simples mots : « Toi qui souffres, qui que tu sois, entre, dors, mange, reprends espoir, ici on t'aime. »",
+  "phrases": [
+    {
+      "ordre": 1,
+      "texte": "Mes amis, au secours...",
+      "difficultes": [
+        {
+          "type": "lexicale",
+          "mot": "secours",
+          "explication": "Le -s final est muet mais obligatoire, même au singulier."
+        }
+      ]
+    },
+    {
+      "ordre": 2,
+      "texte": "Une femme vient de mourir gelée, cette nuit à trois heures, sur le trottoir du boulevard Sébastopol, serrant sur elle le papier par lequel, avant-hier, on l'avait expulsée...",
+      "difficultes": [
+        {
+          "type": "accord",
+          "mot": "gelée",
+          "explication": "Participe passé employé comme adjectif, accordé au féminin singulier avec « femme »."
+        },
+        {
+          "type": "accord",
+          "mot": "expulsée",
+          "explication": "Participe passé avec l'auxiliaire avoir, accordé avec le COD « l' » qui reprend « femme » (féminin singulier), placé avant le verbe."
+        },
+        {
+          "type": "trait_union",
+          "mot": "avant-hier",
+          "explication": "Mot composé avec un trait d'union obligatoire."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "serrant",
+          "explication": "Participe présent en -ant, à ne pas confondre avec d'autres terminaisons verbales."
+        }
+      ]
+    },
+    {
+      "ordre": 3,
+      "texte": "Chaque nuit, ils sont plus de deux mille recroquevillés sous le gel, sans toit, sans pain.",
+      "difficultes": [
+        {
+          "type": "lexicale",
+          "mot": "recroquevillés",
+          "explication": "Mot long et difficile à orthographier : attention au groupe -qu- et au double -ll-."
+        },
+        {
+          "type": "accord",
+          "mot": "recroquevillés",
+          "explication": "Participe passé accordé au masculin pluriel avec « ils »."
+        },
+        {
+          "type": "homophone",
+          "mot": "sans",
+          "explication": "Préposition « sans » à ne pas confondre avec « s'en » ou « sang »."
+        }
+      ]
+    },
+    {
+      "ordre": 4,
+      "texte": "Écoutez-moi [...].",
+      "difficultes": [
+        {
+          "type": "trait_union",
+          "mot": "Écoutez-moi",
+          "explication": "À l'impératif, le pronom complément est relié au verbe par un trait d'union."
+        },
+        {
+          "type": "majuscule",
+          "mot": "Écoutez-moi",
+          "explication": "Le É majuscule doit porter l'accent."
+        }
+      ]
+    },
+    {
+      "ordre": 5,
+      "texte": "Il faut que ce soir-même, dans toutes les villes de France, dans chaque quartier de Paris, des pancartes s'accrochent sous une lumière dans la nuit, à la porte de lieux où il y ait couvertures, paille, soupe, et où l'on lise sous ce titre « centre fraternel de dépannage », ces simples mots :",
+      "difficultes": [
+        {
+          "type": "trait_union",
+          "mot": "soir-même",
+          "explication": "Le mot « même » est relié par un trait d'union au nom qu'il renforce."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "s'accrochent",
+          "explication": "Subjonctif présent après « il faut que », 3e personne du pluriel."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "ait",
+          "explication": "Subjonctif présent du verbe « avoir », imposé par la subordonnée relative à valeur de souhait."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "lise",
+          "explication": "Subjonctif présent du verbe « lire », 3e personne du singulier, à ne pas confondre avec l'indicatif « lit »."
+        }
+      ]
+    },
+    {
+      "ordre": 6,
+      "texte": "« Toi qui souffres, qui que tu sois, entre, dors, mange, reprends espoir, ici on t'aime. »",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "souffres",
+          "explication": "Indicatif présent, 2e personne du singulier : ne pas oublier le -s final."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "sois",
+          "explication": "Subjonctif présent du verbe « être », 2e personne du singulier, dans la locution concessive « qui que tu sois »."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "reprends",
+          "explication": "Impératif présent, 2e personne du singulier : attention au -ds final propre au verbe « reprendre »."
+        },
+        {
+          "type": "homophone",
+          "mot": "t'aime",
+          "explication": "Pronom élidé « t' » suivi du verbe « aime », à ne pas confondre avec « t'aimes » (forme réfléchie)."
+        }
+      ]
+    }
+  ],
+  "notes_examinateur": [
+    "Indiquer aux candidats qu'ils doivent écrire une ligne sur deux et que les chiffres doivent être écrits en lettres (sauf la date).",
+    "Écrire au tableau les références de l'extrait ainsi que « Sébastopol » et « Paris ».",
+    "Faire une première lecture du texte expressive et bien articulée.",
+    "Procéder ensuite à la dictée effective du texte : d'une voix forte, en articulant clairement ; en précisant la ponctuation et en scindant les phrases et les groupes de sens ; en adoptant son débit à la vitesse d'écriture de tous les candidats observés ; en faisant les liaisons nécessaires.",
+    "Relire tout le texte, sans préciser cette fois-ci la ponctuation, mais en marquant toujours les liaisons."
+  ],
+  "source_file": "2023_Nouvelle-Caledonie_francais_dictee.pdf"
+}

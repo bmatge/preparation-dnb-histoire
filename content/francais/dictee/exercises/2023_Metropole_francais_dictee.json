@@ -1,0 +1,153 @@
+{
+  "id": "2023_metropole",
+  "source": {
+    "annee": 2023,
+    "session": "juin",
+    "centre": "Métropole",
+    "code_sujet": "23GENFRDME1"
+  },
+  "titre": null,
+  "reference": {
+    "auteur": "George Sand",
+    "oeuvre": "Histoire de ma vie",
+    "annee_publication": 1855
+  },
+  "texte_complet": "Je me souviens d'un jour d'automne où, le dîner étant servi, la nuit s'était faite dans la chambre. Ma cousine et moi nous poursuivions l'une l'autre à travers les arbres, c'est-à-dire sous les plis du rideau. L'appartement avait disparu à nos yeux et nous étions véritablement dans un sombre paysage à l'entrée de la nuit. On nous appelait pour dîner et nous n'entendions rien. Ma mère vint me prendre dans ses bras pour me porter à table et je me rappellerai toujours mon étonnement en voyant les objets réels qui m'environnaient. Je sortais d'une hallucination complète et il me coûtait d'en sortir si brusquement.",
+  "phrases": [
+    {
+      "ordre": 1,
+      "texte": "Je me souviens d'un jour d'automne où, le dîner étant servi, la nuit s'était faite dans la chambre.",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "souviens",
+          "explication": "Verbe « se souvenir » au présent, 1re personne : terminaison en -iens et non -ient."
+        },
+        {
+          "type": "homophone",
+          "mot": "où",
+          "explication": "Pronom relatif de lieu/temps avec accent grave, à ne pas confondre avec « ou » conjonction."
+        },
+        {
+          "type": "accord",
+          "mot": "faite",
+          "explication": "Participe passé « fait » accordé au féminin singulier avec le sujet « la nuit » (auxiliaire être)."
+        },
+        {
+          "type": "accord",
+          "mot": "servi",
+          "explication": "Participe passé employé avec « étant » : le sujet « le dîner » est masculin singulier, pas d'accord supplémentaire."
+        }
+      ]
+    },
+    {
+      "ordre": 2,
+      "texte": "Ma cousine et moi nous poursuivions l'une l'autre à travers les arbres, c'est-à-dire sous les plis du rideau.",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "poursuivions",
+          "explication": "Imparfait du verbe « poursuivre » à la 1re personne du pluriel : attention au radical « poursuiv- »."
+        },
+        {
+          "type": "trait_union",
+          "mot": "c'est-à-dire",
+          "explication": "Locution avec deux traits d'union, souvent oubliés par les élèves."
+        },
+        {
+          "type": "lexicale",
+          "mot": "plis",
+          "explication": "Nom masculin pluriel sans « e » final, à ne pas confondre avec « plie » (verbe)."
+        }
+      ]
+    },
+    {
+      "ordre": 3,
+      "texte": "L'appartement avait disparu à nos yeux et nous étions véritablement dans un sombre paysage à l'entrée de la nuit.",
+      "difficultes": [
+        {
+          "type": "lexicale",
+          "mot": "appartement",
+          "explication": "Deux « p » et un seul « t » : orthographe lexicale fréquemment erronée."
+        },
+        {
+          "type": "lexicale",
+          "mot": "véritablement",
+          "explication": "Adverbe long formé sur « véritable » + -ment, attention à ne pas oublier le « e » central."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "étions",
+          "explication": "Imparfait du verbe « être » à la 1re personne du pluriel, à ne pas confondre avec « étaient »."
+        }
+      ]
+    },
+    {
+      "ordre": 4,
+      "texte": "On nous appelait pour dîner et nous n'entendions rien.",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "appelait",
+          "explication": "Imparfait 3e personne du singulier (sujet « on ») : deux « p » et terminaison -ait."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "n'entendions",
+          "explication": "Imparfait 1re personne du pluriel avec la négation élidée « n' » devant voyelle."
+        }
+      ]
+    },
+    {
+      "ordre": 5,
+      "texte": "Ma mère vint me prendre dans ses bras pour me porter à table et je me rappellerai toujours mon étonnement en voyant les objets réels qui m'environnaient.",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "vint",
+          "explication": "Passé simple du verbe « venir » à la 3e personne du singulier, à ne pas confondre avec « vînt » (subjonctif) ou « vingt »."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "rappellerai",
+          "explication": "Futur simple du verbe « rappeler » avec deux « l » et terminaison -erai (1re personne)."
+        },
+        {
+          "type": "lexicale",
+          "mot": "étonnement",
+          "explication": "Deux « n » et terminaison en -ement, piège fréquent."
+        },
+        {
+          "type": "accord",
+          "mot": "réels",
+          "explication": "Adjectif accordé au masculin pluriel avec « objets » : attention au « é » et au « s » final."
+        }
+      ]
+    },
+    {
+      "ordre": 6,
+      "texte": "Je sortais d'une hallucination complète et il me coûtait d'en sortir si brusquement.",
+      "difficultes": [
+        {
+          "type": "lexicale",
+          "mot": "hallucination",
+          "explication": "Deux « l » et un seul « n » : orthographe lexicale difficile souvent source d'erreurs."
+        },
+        {
+          "type": "lexicale",
+          "mot": "coûtait",
+          "explication": "Accent circonflexe sur le « û » (orthographe traditionnelle) et terminaison d'imparfait -ait."
+        },
+        {
+          "type": "lexicale",
+          "mot": "brusquement",
+          "explication": "Adverbe formé sur « brusque » + -ment, attention au « qu » et au « e » muet."
+        }
+      ]
+    }
+  ],
+  "notes_examinateur": [
+    "Avant de commencer la dictée, on inscrira au tableau de manière lisible : D'après George Sand, Histoire de ma vie, 1855."
+  ],
+  "source_file": "2023_Metropole_francais_dictee.pdf"
+}

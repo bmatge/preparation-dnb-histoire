@@ -1,0 +1,143 @@
+{
+  "id": "2020_amerique-nord",
+  "source": {
+    "annee": 2020,
+    "session": "juin",
+    "centre": "Métropole",
+    "code_sujet": "20GENFRDAN1"
+  },
+  "titre": null,
+  "reference": {
+    "auteur": "Jean-Jacques Rousseau",
+    "oeuvre": "Les Confessions",
+    "annee_publication": 1782
+  },
+  "texte_complet": "Je ne sais comment j'appris à lire ; je ne me souviens que de mes premières lectures et de leur effet sur moi : c'est le temps d'où je date sans interruption la conscience de moi-même. Ma mère avait laissé des romans ; nous nous mîmes à les lire après souper, mon père et moi. Il n'était question d'abord que de m'exercer à la lecture par des livres amusants ; mais bientôt l'intérêt devint si vif que nous lisions tour à tour sans relâche, et passions les nuits à cette occupation. Nous ne pouvions jamais quitter qu'à la fin du volume. Quelquefois mon père, entendant le matin les hirondelles, disait tout honteux : « Allons nous coucher ; je suis plus enfant que toi. »",
+  "phrases": [
+    {
+      "ordre": 1,
+      "texte": "Je ne sais comment j'appris à lire ; je ne me souviens que de mes premières lectures et de leur effet sur moi :",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "appris",
+          "explication": "Passé simple du verbe « apprendre » à la 1re personne du singulier, à ne pas confondre avec le participe passé."
+        },
+        {
+          "type": "homophone",
+          "mot": "leur",
+          "explication": "Déterminant possessif invariable ici (leur effet), à ne pas confondre avec le pronom « leurs »."
+        }
+      ]
+    },
+    {
+      "ordre": 2,
+      "texte": "c'est le temps d'où je date sans interruption la conscience de moi-même.",
+      "difficultes": [
+        {
+          "type": "trait_union",
+          "mot": "moi-même",
+          "explication": "Le pronom renforcé « moi-même » s'écrit avec un trait d'union."
+        },
+        {
+          "type": "lexicale",
+          "mot": "interruption",
+          "explication": "Mot long dont l'orthographe peut poser problème (double r, -tion finale)."
+        }
+      ]
+    },
+    {
+      "ordre": 3,
+      "texte": "Ma mère avait laissé des romans ; nous nous mîmes à les lire après souper, mon père et moi.",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "mîmes",
+          "explication": "Passé simple du verbe « mettre » à la 1re personne du pluriel, avec accent circonflexe sur le î."
+        },
+        {
+          "type": "accord",
+          "mot": "laissé",
+          "explication": "Participe passé employé avec « avoir » sans COD placé avant, donc invariable."
+        }
+      ]
+    },
+    {
+      "ordre": 4,
+      "texte": "Il n'était question d'abord que de m'exercer à la lecture par des livres amusants ;",
+      "difficultes": [
+        {
+          "type": "homophone",
+          "mot": "m'exercer",
+          "explication": "Verbe à l'infinitif après « de », à ne pas confondre avec un participe passé en -é."
+        },
+        {
+          "type": "accord",
+          "mot": "amusants",
+          "explication": "Adjectif qualificatif qui s'accorde au masculin pluriel avec « livres »."
+        }
+      ]
+    },
+    {
+      "ordre": 5,
+      "texte": "mais bientôt l'intérêt devint si vif que nous lisions tour à tour sans relâche, et passions les nuits à cette occupation.",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "devint",
+          "explication": "Passé simple du verbe « devenir » à la 3e personne du singulier, à ne pas confondre avec « deviens » ou « devient » au présent."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "lisions",
+          "explication": "Imparfait du verbe « lire » à la 1re personne du pluriel, attention au -i- du radical."
+        },
+        {
+          "type": "lexicale",
+          "mot": "relâche",
+          "explication": "Mot avec un accent circonflexe sur le â, souvent oublié."
+        }
+      ]
+    },
+    {
+      "ordre": 6,
+      "texte": "Nous ne pouvions jamais quitter qu'à la fin du volume.",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "pouvions",
+          "explication": "Imparfait du verbe « pouvoir » à la 1re personne du pluriel, ne pas oublier le -i- de la terminaison."
+        }
+      ]
+    },
+    {
+      "ordre": 7,
+      "texte": "Quelquefois mon père, entendant le matin les hirondelles, disait tout honteux : « Allons nous coucher ; je suis plus enfant que toi. »",
+      "difficultes": [
+        {
+          "type": "lexicale",
+          "mot": "Quelquefois",
+          "explication": "Adverbe en un seul mot, à ne pas confondre avec « quelques fois » (en deux mots)."
+        },
+        {
+          "type": "lexicale",
+          "mot": "hirondelles",
+          "explication": "Nom féminin avec un seul r et deux l, orthographe à mémoriser."
+        },
+        {
+          "type": "accord",
+          "mot": "honteux",
+          "explication": "Adjectif attribut qui s'accorde au masculin singulier avec « mon père » ; la forme est identique au pluriel."
+        }
+      ]
+    }
+  ],
+  "notes_examinateur": [
+    "On dictera le texte à haute voix à plusieurs reprises, dans une durée totale de 20 minutes.",
+    "On inscrira au tableau de manière lisible pour l'ensemble des candidats le titre de l'œuvre et le nom de l'auteur.",
+    "Lors de la dictée, on procèdera successivement : 1) à une lecture préalable, lente et bien articulée du texte ; 2) à la dictée effective du texte, en précisant la ponctuation et en marquant nettement les liaisons ; 3) à la relecture, sans préciser cette fois-ci la ponctuation mais en marquant toujours les liaisons.",
+    "On demandera aux candidats d'écrire une ligne sur deux.",
+    "On ne répondra pas aux questions éventuelles des candidats après la relecture du texte ; ils en seront avertis avant cette relecture."
+  ],
+  "source_file": "2020_Amerique-Nord_francais_dictee.pdf"
+}

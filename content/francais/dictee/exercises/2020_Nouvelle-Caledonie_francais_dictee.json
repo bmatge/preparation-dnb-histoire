@@ -1,0 +1,117 @@
+{
+  "id": "2020_nouvelle-caledonie",
+  "source": {
+    "annee": 2020,
+    "session": "inconnu",
+    "centre": "Nouvelle-Calédonie",
+    "code_sujet": "20FRGENDNC1"
+  },
+  "titre": null,
+  "reference": {
+    "auteur": "Patrick CHAMOISEAU",
+    "oeuvre": "Une Enfance créole II, Chemin-d'école",
+    "annee_publication": 1994
+  },
+  "texte_complet": "De plus, le Maître sembla de tout temps mieux sensible aux affaires du français qu'à la science vulgaire des chiffres. Il semblait n'aborder cette partie de son programme que de manière incidente. La suprématie de Gros-Lombric en la matière renforça son dégoût. « Notre ami ne dispose visiblement pas de l'esprit de finesse ! » s'exclamait-il quand, en français, lecture, écriture, vocabulaire, il continuait à le traquer. Et à le vaincre.",
+  "phrases": [
+    {
+      "ordre": 1,
+      "texte": "De plus, le Maître sembla de tout temps mieux sensible aux affaires du français qu'à la science vulgaire des chiffres.",
+      "difficultes": [
+        {
+          "type": "majuscule",
+          "mot": "Maître",
+          "explication": "Le mot « Maître » porte une majuscule car il désigne ici un personnage particulier, et contient un accent circonflexe sur le « i »."
+        },
+        {
+          "type": "homophone",
+          "mot": "qu'à",
+          "explication": "Il ne faut pas confondre « qu'à » (que + à) avec « qua » ou « cas »."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "sembla",
+          "explication": "Passé simple du verbe « sembler » à la 3e personne du singulier, à ne pas confondre avec l'imparfait « semblait »."
+        }
+      ]
+    },
+    {
+      "ordre": 2,
+      "texte": "Il semblait n'aborder cette partie de son programme que de manière incidente.",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "semblait",
+          "explication": "Imparfait de l'indicatif, à ne pas confondre avec le passé simple « sembla » de la phrase précédente."
+        },
+        {
+          "type": "lexicale",
+          "mot": "incidente",
+          "explication": "Mot peu courant pour un élève de 3e, signifiant « accessoire, secondaire » ; attention à l'accord au féminin avec « manière »."
+        }
+      ]
+    },
+    {
+      "ordre": 3,
+      "texte": "La suprématie de Gros-Lombric en la matière renforça son dégoût.",
+      "difficultes": [
+        {
+          "type": "lexicale",
+          "mot": "suprématie",
+          "explication": "Mot savant dont l'orthographe peut poser problème (attention au « é » et au « tie » final)."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "renforça",
+          "explication": "Passé simple du verbe « renforcer » avec une cédille sous le « c » devant le « a »."
+        },
+        {
+          "type": "lexicale",
+          "mot": "dégoût",
+          "explication": "Attention à l'accent circonflexe sur le « û »."
+        }
+      ]
+    },
+    {
+      "ordre": 4,
+      "texte": "« Notre ami ne dispose visiblement pas de l'esprit de finesse ! » s'exclamait-il quand, en français, lecture, écriture, vocabulaire, il continuait à le traquer.",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "s'exclamait-il",
+          "explication": "Verbe pronominal à l'imparfait avec inversion du sujet et trait d'union obligatoire."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "continuait",
+          "explication": "Imparfait de l'indicatif, à ne pas confondre avec le passé simple « continua »."
+        },
+        {
+          "type": "lexicale",
+          "mot": "visiblement",
+          "explication": "Adverbe en -ment formé sur « visible » ; attention à ne pas oublier le « e » avant « -ment »."
+        }
+      ]
+    },
+    {
+      "ordre": 5,
+      "texte": "Et à le vaincre.",
+      "difficultes": [
+        {
+          "type": "lexicale",
+          "mot": "vaincre",
+          "explication": "Attention à l'orthographe du verbe « vaincre » avec le groupe « ainc »."
+        }
+      ]
+    }
+  ],
+  "notes_examinateur": [
+    "Indiquer aux candidats qu'ils doivent écrire une ligne sur deux.",
+    "Écrire au tableau les références de l'extrait.",
+    "Faire une première lecture du texte expressive et bien articulée.",
+    "Procéder ensuite à la dictée effective du texte : d'une voix forte, en articulant clairement ; en précisant la ponctuation et en scindant les phrases et les groupes de sens ; en adoptant son débit à la vitesse d'écriture de tous les candidats observés ; en faisant les liaisons nécessaires.",
+    "Relire tout le texte, sans préciser cette fois-ci la ponctuation, mais en marquant toujours les liaisons.",
+    "(Ponctuation modifiée)"
+  ],
+  "source_file": "2020_Nouvelle-Caledonie_francais_dictee.pdf"
+}

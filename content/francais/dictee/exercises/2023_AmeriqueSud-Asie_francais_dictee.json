@@ -1,0 +1,119 @@
+{
+  "id": "2023_ameriquesud-asie",
+  "source": {
+    "annee": 2023,
+    "session": "juin",
+    "centre": "Métropole",
+    "code_sujet": "23GENFRDAA1"
+  },
+  "titre": null,
+  "reference": {
+    "auteur": "Emile Zola",
+    "oeuvre": "L'Œuvre",
+    "annee_publication": 1886
+  },
+  "texte_complet": "Jamais il ne s'était senti une telle rage de travail ni un tel espoir, comme s'il lui avait suffi d'étendre la main, pour créer les chefs-d'œuvre qui le mettraient à son rang, au premier. Quand il traversait Paris, il découvrait des tableaux partout ; la ville entière, avec ses rues, ses carrefours, ses ponts, ses horizons vivants, se déroulait en fresques immenses, qu'il jugeait toujours trop petites, pris de l'ivresse des besognes colossales. Et il rentrait frémissant, le crâne bouillonnant de projets, jetant des croquis sur des bouts de papier, le soir, à la lampe, sans pouvoir décider par où il entamerait la série des grandes pages qu'il rêvait.",
+  "phrases": [
+    {
+      "ordre": 1,
+      "texte": "Jamais il ne s'était senti une telle rage de travail ni un tel espoir, comme s'il lui avait suffi d'étendre la main, pour créer les chefs-d'œuvre qui le mettraient à son rang, au premier.",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "s'était senti",
+          "explication": "Accord du participe passé avec un verbe pronominal : le sujet « il » est masculin singulier, donc « senti » sans -e."
+        },
+        {
+          "type": "trait_union",
+          "mot": "chefs-d'œuvre",
+          "explication": "Nom composé avec trait d'union et ligature œ, dont le pluriel porte sur « chefs » (chefs-d'œuvre)."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "mettraient",
+          "explication": "Conditionnel présent du verbe « mettre » à la 3e personne du pluriel, avec double « t »."
+        },
+        {
+          "type": "homophone",
+          "mot": "ni",
+          "explication": "Conjonction de coordination négative « ni » à ne pas confondre avec « n'y »."
+        }
+      ]
+    },
+    {
+      "ordre": 2,
+      "texte": "Quand il traversait Paris, il découvrait des tableaux partout ;",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "découvrait",
+          "explication": "Imparfait de l'indicatif du verbe « découvrir » à la 3e personne du singulier, terminaison en -ait."
+        },
+        {
+          "type": "majuscule",
+          "mot": "Paris",
+          "explication": "Nom propre de ville, majuscule obligatoire."
+        }
+      ]
+    },
+    {
+      "ordre": 3,
+      "texte": "la ville entière, avec ses rues, ses carrefours, ses ponts, ses horizons vivants, se déroulait en fresques immenses, qu'il jugeait toujours trop petites, pris de l'ivresse des besognes colossales.",
+      "difficultes": [
+        {
+          "type": "lexicale",
+          "mot": "carrefours",
+          "explication": "Mot avec double « r » souvent oublié par les élèves."
+        },
+        {
+          "type": "accord",
+          "mot": "petites",
+          "explication": "Adjectif attribut qui s'accorde avec « fresques » (féminin pluriel)."
+        },
+        {
+          "type": "lexicale",
+          "mot": "besognes colossales",
+          "explication": "« Besognes » est un mot peu courant pour un élève de 3e ; « colossales » prend deux « s » et non deux « l »."
+        },
+        {
+          "type": "lexicale",
+          "mot": "fresques",
+          "explication": "Mot de vocabulaire artistique pouvant poser un problème d'orthographe (le « s » final du pluriel et le « qu »)."
+        }
+      ]
+    },
+    {
+      "ordre": 4,
+      "texte": "Et il rentrait frémissant, le crâne bouillonnant de projets, jetant des croquis sur des bouts de papier, le soir, à la lampe, sans pouvoir décider par où il entamerait la série des grandes pages qu'il rêvait.",
+      "difficultes": [
+        {
+          "type": "lexicale",
+          "mot": "frémissant",
+          "explication": "Participe présent avec double « s » souvent oublié."
+        },
+        {
+          "type": "lexicale",
+          "mot": "bouillonnant",
+          "explication": "Participe présent avec double « l » et double « n », orthographe difficile."
+        },
+        {
+          "type": "lexicale",
+          "mot": "croquis",
+          "explication": "Le « s » final est muet et présent même au singulier ; mot de vocabulaire artistique."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "entamerait",
+          "explication": "Conditionnel présent du verbe « entamer » à la 3e personne du singulier, à ne pas confondre avec le futur « entamera »."
+        }
+      ]
+    }
+  ],
+  "notes_examinateur": [
+    "On précisera aux candidats avant la lecture du texte que le pronom personnel « Il » désigne un peintre qui est le héros du récit.",
+    "On demandera aux candidats d'écrire une ligne sur deux.",
+    "On ne répondra pas aux questions éventuelles des candidats après la relecture du texte ; ils en seront avertis avant cette relecture.",
+    "À l'issue de la relecture, on transcrira lisiblement au tableau le nom de l'auteur et le titre du roman : Emile Zola, L'Œuvre, Chapitre VIII, 1886"
+  ],
+  "source_file": "2023_AmeriqueSud-Asie_francais_dictee.pdf"
+}

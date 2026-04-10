@@ -1,0 +1,151 @@
+{
+  "id": "2018_antilles-guyane",
+  "source": {
+    "annee": 2018,
+    "session": "juin",
+    "centre": "Métropole",
+    "code_sujet": "18GENFRDAG1"
+  },
+  "titre": null,
+  "reference": {
+    "auteur": "Annie Ernaux",
+    "oeuvre": "Les Années",
+    "annee_publication": 2008
+  },
+  "texte_complet": "L'arrivée de plus en plus rapide des choses faisait reculer le passé. Les gens ne s'interrogeaient pas sur leur utilité, ils avaient simplement envie de les avoir et souffraient de ne pas gagner assez d'argent pour se les payer immédiatement. Ils s'habituaient à rédiger des chèques, découvraient les « facilités de paiement », le crédit Sofinco. Ils étaient à l'aise avec la nouveauté, tiraient fierté de se servir d'un aspirateur et d'un sèche-cheveux électrique. La curiosité l'emportait sur la défiance. On découvrait le cru et le flambé […]. On se sentait libre, on ne demandait rien à personne.",
+  "phrases": [
+    {
+      "ordre": 1,
+      "texte": "L'arrivée de plus en plus rapide des choses faisait reculer le passé.",
+      "difficultes": [
+        {
+          "type": "lexicale",
+          "mot": "arrivée",
+          "explication": "Nom féminin en -ée, à ne pas confondre avec le participe passé."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "faisait",
+          "explication": "Imparfait du verbe faire à la 3e personne du singulier, le sujet est « L'arrivée »."
+        }
+      ]
+    },
+    {
+      "ordre": 2,
+      "texte": "Les gens ne s'interrogeaient pas sur leur utilité, ils avaient simplement envie de les avoir et souffraient de ne pas gagner assez d'argent pour se les payer immédiatement.",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "s'interrogeaient",
+          "explication": "Imparfait du verbe s'interroger à la 3e personne du pluriel, attention au -ge- devant -aient."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "souffraient",
+          "explication": "Imparfait du verbe souffrir, attention aux deux « f »."
+        },
+        {
+          "type": "lexicale",
+          "mot": "immédiatement",
+          "explication": "Adverbe long avec deux « m » et un accent aigu, piège orthographique fréquent."
+        }
+      ]
+    },
+    {
+      "ordre": 3,
+      "texte": "Ils s'habituaient à rédiger des chèques, découvraient les « facilités de paiement », le crédit Sofinco.",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "s'habituaient",
+          "explication": "Imparfait du verbe s'habituer à la 3e personne du pluriel, ne pas oublier le -aient."
+        },
+        {
+          "type": "lexicale",
+          "mot": "chèques",
+          "explication": "Mot avec un accent grave et -ques final, orthographe à mémoriser."
+        },
+        {
+          "type": "homophone",
+          "mot": "à",
+          "explication": "Préposition « à » avec accent, à ne pas confondre avec le verbe « a »."
+        }
+      ]
+    },
+    {
+      "ordre": 4,
+      "texte": "Ils étaient à l'aise avec la nouveauté, tiraient fierté de se servir d'un aspirateur et d'un sèche-cheveux électrique.",
+      "difficultes": [
+        {
+          "type": "trait_union",
+          "mot": "sèche-cheveux",
+          "explication": "Nom composé avec trait d'union, « cheveux » prend toujours un « x » final."
+        },
+        {
+          "type": "lexicale",
+          "mot": "aspirateur",
+          "explication": "Mot courant mais dont l'orthographe peut poser problème (pas de double consonne)."
+        },
+        {
+          "type": "lexicale",
+          "mot": "nouveauté",
+          "explication": "Nom féminin dérivé de « nouveau », attention au -eau- et à l'accent aigu final."
+        }
+      ]
+    },
+    {
+      "ordre": 5,
+      "texte": "La curiosité l'emportait sur la défiance.",
+      "difficultes": [
+        {
+          "type": "lexicale",
+          "mot": "curiosité",
+          "explication": "Nom féminin en -ité, ne pas oublier l'accent aigu."
+        },
+        {
+          "type": "lexicale",
+          "mot": "défiance",
+          "explication": "Mot pouvant être confondu avec « méfiance », attention à l'accent aigu et au -ance."
+        }
+      ]
+    },
+    {
+      "ordre": 6,
+      "texte": "On découvrait le cru et le flambé […].",
+      "difficultes": [
+        {
+          "type": "homophone",
+          "mot": "cru",
+          "explication": "Adjectif substantivé signifiant « ce qui est cru », à ne pas confondre avec « crû » (participe passé de croître)."
+        },
+        {
+          "type": "accord",
+          "mot": "flambé",
+          "explication": "Adjectif substantivé masculin singulier, accord avec l'article « le »."
+        }
+      ]
+    },
+    {
+      "ordre": 7,
+      "texte": "On se sentait libre, on ne demandait rien à personne.",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "sentait",
+          "explication": "Imparfait du verbe sentir à la 3e personne du singulier, sujet « On »."
+        },
+        {
+          "type": "accord",
+          "mot": "libre",
+          "explication": "Attribut du sujet « On », reste au singulier."
+        }
+      ]
+    }
+  ],
+  "notes_examinateur": [
+    "On écrira au préalable au tableau le mot « Sofinco ».",
+    "On demandera aux candidats d'écrire une ligne sur deux.",
+    "On ne répondra pas aux questions éventuelles des candidats après la relecture du texte ; ils en seront avertis avant cette relecture."
+  ],
+  "source_file": "2018_Antilles-Guyane_francais_dictee.pdf"
+}

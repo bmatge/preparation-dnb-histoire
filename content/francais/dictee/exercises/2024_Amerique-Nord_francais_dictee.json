@@ -1,0 +1,154 @@
+{
+  "id": "2024_amerique-nord",
+  "source": {
+    "annee": 2024,
+    "session": "juin",
+    "centre": "Métropole",
+    "code_sujet": "24GENFRDAN1"
+  },
+  "titre": null,
+  "reference": {
+    "auteur": "Alphonse Daudet",
+    "oeuvre": "Wood'stown",
+    "annee_publication": 1873
+  },
+  "texte_complet": "Les toits rouges des monuments publics, les clochers des églises, le plancher des maisons et jusqu'au bois des lits, tout était saupoudré d'une teinte verte, mince comme une moisissure, légère comme une dentelle. De près, c'était une quantité de bourgeons microscopiques, où l'enroulement des feuilles se voyait déjà. Cette bizarrerie des pluies amusa sans inquiéter ; mais, avant le soir, des bouquets de verdure s'épanouissaient partout sur les meubles, sur les murailles. Les branches poussaient à vue d'œil ; légèrement retenues dans la main, on les sentait grandir et se débattre comme des ailes.",
+  "phrases": [
+    {
+      "ordre": 1,
+      "texte": "Les toits rouges des monuments publics, les clochers des églises, le plancher des maisons et jusqu'au bois des lits, tout était saupoudré d'une teinte verte, mince comme une moisissure, légère comme une dentelle.",
+      "difficultes": [
+        {
+          "type": "lexicale",
+          "mot": "saupoudré",
+          "explication": "Mot dont l'orthographe peut poser problème (le préfixe sau- est inhabituel)."
+        },
+        {
+          "type": "accord",
+          "mot": "saupoudré",
+          "explication": "Le participe passé s'accorde avec le sujet « tout » (masculin singulier), et non avec les noms féminins qui précèdent."
+        },
+        {
+          "type": "lexicale",
+          "mot": "moisissure",
+          "explication": "Mot avec double s et suffixe en -ure, souvent mal orthographié."
+        },
+        {
+          "type": "lexicale",
+          "mot": "dentelle",
+          "explication": "Attention au double l dans ce mot."
+        }
+      ]
+    },
+    {
+      "ordre": 2,
+      "texte": "De près, c'était une quantité de bourgeons microscopiques, où l'enroulement des feuilles se voyait déjà.",
+      "difficultes": [
+        {
+          "type": "homophone",
+          "mot": "c'était",
+          "explication": "Ne pas confondre « c'était » (cela était) avec « s'était » (pronom réfléchi)."
+        },
+        {
+          "type": "lexicale",
+          "mot": "microscopiques",
+          "explication": "Mot long et savant, attention au préfixe micro- et au suffixe -scopiques."
+        },
+        {
+          "type": "homophone",
+          "mot": "où",
+          "explication": "Pronom relatif de lieu avec accent grave, à ne pas confondre avec « ou » (conjonction de coordination)."
+        },
+        {
+          "type": "lexicale",
+          "mot": "enroulement",
+          "explication": "Mot dérivé de « enrouler », attention au suffixe -ement."
+        }
+      ]
+    },
+    {
+      "ordre": 3,
+      "texte": "Cette bizarrerie des pluies amusa sans inquiéter ;",
+      "difficultes": [
+        {
+          "type": "lexicale",
+          "mot": "bizarrerie",
+          "explication": "Mot avec un seul z et deux r, orthographe souvent confondue."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "amusa",
+          "explication": "Passé simple à la 3e personne du singulier, ne pas écrire -at ou -as."
+        }
+      ]
+    },
+    {
+      "ordre": 4,
+      "texte": "mais, avant le soir, des bouquets de verdure s'épanouissaient partout sur les meubles, sur les murailles.",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "s'épanouissaient",
+          "explication": "Imparfait à la 3e personne du pluriel avec double s, ne pas oublier le -aient."
+        },
+        {
+          "type": "accord",
+          "mot": "bouquets",
+          "explication": "Nom au pluriel introduit par « des », ne pas oublier le -s final."
+        },
+        {
+          "type": "lexicale",
+          "mot": "murailles",
+          "explication": "Attention au suffixe -ailles, souvent confondu avec -ails."
+        }
+      ]
+    },
+    {
+      "ordre": 5,
+      "texte": "Les branches poussaient à vue d'œil ;",
+      "difficultes": [
+        {
+          "type": "lexicale",
+          "mot": "d'œil",
+          "explication": "Attention à la ligature œ dans « œil »."
+        },
+        {
+          "type": "homophone",
+          "mot": "à",
+          "explication": "Préposition « à » avec accent grave, à ne pas confondre avec le verbe « a »."
+        }
+      ]
+    },
+    {
+      "ordre": 6,
+      "texte": "légèrement retenues dans la main, on les sentait grandir et se débattre comme des ailes.",
+      "difficultes": [
+        {
+          "type": "accord",
+          "mot": "retenues",
+          "explication": "Participe passé au féminin pluriel, s'accorde avec « les branches » (sujet implicite de la phrase précédente)."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "sentait",
+          "explication": "Imparfait à la 3e personne du singulier (sujet « on »), ne pas écrire -aient."
+        },
+        {
+          "type": "autre",
+          "mot": "se débattre",
+          "explication": "Infinitif après « sentait », ne pas écrire « se débattrent » ou « se débattent »."
+        }
+      ]
+    }
+  ],
+  "notes_examinateur": [
+    "On fera faire la dictée les vingt dernières minutes de la première partie.",
+    "On demandera aux candidats d'écrire une ligne sur deux.",
+    "1) à la lecture préalable, lente et bien articulée du texte ;",
+    "2) à la dictée effective du texte, en précisant la ponctuation et en marquant les liaisons ;",
+    "3) à la relecture, sans préciser cette fois-ci la ponctuation mais en marquant toujours les liaisons ;",
+    "4) à l'issue de cette relecture, on transcrira lisiblement au tableau le nom de l'auteur, le titre du roman, la date de publication : Alphonse Daudet, Wood'stown, 1873.",
+    "On ne répondra pas aux questions éventuelles des candidats après la relecture du texte ; ils en seront avertis avant cette relecture."
+  ],
+  "source_file": "2024_Amerique-Nord_francais_dictee.pdf"
+}

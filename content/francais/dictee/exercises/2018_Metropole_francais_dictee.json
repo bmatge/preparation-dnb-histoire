@@ -1,0 +1,138 @@
+{
+  "id": "2018_metropole",
+  "source": {
+    "annee": 2018,
+    "session": "juin",
+    "centre": "Métropole",
+    "code_sujet": "18GENFRDME1"
+  },
+  "titre": null,
+  "reference": {
+    "auteur": "Marcel Aymé",
+    "oeuvre": "Uranus",
+    "annee_publication": 1948
+  },
+  "texte_complet": "Le collège de Blémont étant détruit, la municipalité avait réquisitionné certains cafés pour les mettre à la disposition des élèves, le matin de huit à onze heures et l'après-midi de deux à quatre. Pour les cafetiers, ce n'étaient que des heures creuses et leurs affaires n'en souffraient pas. Néanmoins, Léopold avait vu d'un très mauvais œil qu'on disposât ainsi de son établissement et la place Saint-Euloge avait alors retenti du tonnerre de ses imprécations. Le jour où pour la première fois les élèves étaient venus s'asseoir au café du Progrès, il n'avait pas bougé de son zinc, le regard soupçonneux, et affectant de croire qu'on en voulait à ses bouteilles. Mais sa curiosité, trompant sa rancune, s'était rapidement éveillée et Léopold était devenu le plus attentif des élèves.",
+  "phrases": [
+    {
+      "ordre": 1,
+      "texte": "Le collège de Blémont étant détruit, la municipalité avait réquisitionné certains cafés pour les mettre à la disposition des élèves, le matin de huit à onze heures et l'après-midi de deux à quatre.",
+      "difficultes": [
+        {
+          "type": "lexicale",
+          "mot": "réquisitionné",
+          "explication": "Mot long avec un seul « n » dans le radical mais deux « n » au participe passé ; risque de doublement erroné du « s » ou oubli du accent."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "avait réquisitionné",
+          "explication": "Plus-que-parfait avec l'auxiliaire « avoir » au singulier, le sujet étant « la municipalité »."
+        },
+        {
+          "type": "trait_union",
+          "mot": "l'après-midi",
+          "explication": "Nom composé avec trait d'union et apostrophe à ne pas oublier."
+        }
+      ]
+    },
+    {
+      "ordre": 2,
+      "texte": "Pour les cafetiers, ce n'étaient que des heures creuses et leurs affaires n'en souffraient pas.",
+      "difficultes": [
+        {
+          "type": "accord",
+          "mot": "n'étaient",
+          "explication": "Le verbe « être » s'accorde au pluriel avec l'attribut « des heures creuses » (tournure présentative inversée)."
+        },
+        {
+          "type": "homophone",
+          "mot": "leurs",
+          "explication": "Déterminant possessif pluriel « leurs » (plusieurs cafetiers, plusieurs affaires), à ne pas confondre avec « leur » pronom."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "souffraient",
+          "explication": "Imparfait du verbe « souffrir » à la 3e personne du pluriel, avec deux « f »."
+        }
+      ]
+    },
+    {
+      "ordre": 3,
+      "texte": "Néanmoins, Léopold avait vu d'un très mauvais œil qu'on disposât ainsi de son établissement et la place Saint-Euloge avait alors retenti du tonnerre de ses imprécations.",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "disposât",
+          "explication": "Subjonctif imparfait du verbe « disposer » à la 3e personne du singulier, avec accent circonflexe sur le « â »."
+        },
+        {
+          "type": "lexicale",
+          "mot": "œil",
+          "explication": "Mot contenant la ligature « œ », souvent oubliée par les élèves."
+        },
+        {
+          "type": "lexicale",
+          "mot": "imprécations",
+          "explication": "Mot rare signifiant « malédictions », risque d'erreur sur le préfixe « im- » ou la terminaison « -ations »."
+        },
+        {
+          "type": "lexicale",
+          "mot": "établissement",
+          "explication": "Mot long avec deux « s » au milieu, souvent source d'erreur."
+        }
+      ]
+    },
+    {
+      "ordre": 4,
+      "texte": "Le jour où pour la première fois les élèves étaient venus s'asseoir au café du Progrès, il n'avait pas bougé de son zinc, le regard soupçonneux, et affectant de croire qu'on en voulait à ses bouteilles.",
+      "difficultes": [
+        {
+          "type": "homophone",
+          "mot": "où",
+          "explication": "Pronom relatif de lieu/temps avec accent grave, à ne pas confondre avec « ou » conjonction."
+        },
+        {
+          "type": "lexicale",
+          "mot": "soupçonneux",
+          "explication": "Mot avec une cédille sur le « ç » et deux « n », orthographe difficile."
+        },
+        {
+          "type": "accord",
+          "mot": "venus",
+          "explication": "Participe passé conjugué avec « être », s'accorde au masculin pluriel avec « les élèves »."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "affectant",
+          "explication": "Participe présent invariable, à ne pas confondre avec un adjectif verbal."
+        }
+      ]
+    },
+    {
+      "ordre": 5,
+      "texte": "Mais sa curiosité, trompant sa rancune, s'était rapidement éveillée et Léopold était devenu le plus attentif des élèves.",
+      "difficultes": [
+        {
+          "type": "accord",
+          "mot": "éveillée",
+          "explication": "Participe passé avec « s'être », s'accorde au féminin singulier avec le sujet « sa curiosité »."
+        },
+        {
+          "type": "lexicale",
+          "mot": "rancune",
+          "explication": "Mot sans accent, à ne pas confondre avec « rancœur » ; pas de « e » muet piège."
+        },
+        {
+          "type": "accord",
+          "mot": "attentif",
+          "explication": "Adjectif au masculin singulier car il se rapporte à « Léopold », dans un superlatif « le plus attentif »."
+        }
+      ]
+    }
+  ],
+  "notes_examinateur": [
+    "On indiquera qu'il convient d'écrire tous les chiffres en lettres.",
+    "On inscrira au tableau de manière lisible par l'ensemble des candidats : Blémont, Saint-Euloge, Progrès, D'après Marcel Aymé, Uranus, 1948."
+  ],
+  "source_file": "2018_Metropole_francais_dictee.pdf"
+}

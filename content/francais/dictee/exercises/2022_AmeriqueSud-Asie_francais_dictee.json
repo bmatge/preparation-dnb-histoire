@@ -1,0 +1,182 @@
+{
+  "id": "2022_ameriquesud-asie",
+  "source": {
+    "annee": 2022,
+    "session": "juin",
+    "centre": "Métropole",
+    "code_sujet": "22GENFRDAA1"
+  },
+  "titre": null,
+  "reference": {
+    "auteur": "Alexandre Dumas",
+    "oeuvre": "Les Trois Mousquetaires",
+    "annee_publication": 1844
+  },
+  "texte_complet": "Vous rappelez-vous la belle nuit qu'il faisait ? Comme l'air était doux et parfumé, comme le ciel était bleu et tout émaillé d'étoiles ! Ah ! Cette fois, Madame, j'avais pu être un instant seul avec vous ; cette fois, vous étiez prête à tout me dire, l'isolement de votre vie, les chagrins de votre cœur. Vous étiez appuyée à mon bras, tenez, à celui-ci. Je sentais, en inclinant ma tête à votre côté, vos beaux cheveux effleurer mon visage, et chaque fois qu'ils l'effleuraient je frissonnais de la tête aux pieds. Oh ! Reine, reine ! Oh ! Vous ne savez pas tout ce qu'il y a de félicités du ciel, de joies du paradis enfermées dans un moment pareil. Tenez, mes biens, ma fortune, ma gloire, tout ce qui me reste de jours à vivre, pour un pareil instant, et pour une semblable nuit ; car, cette nuit-là, Madame, cette nuit-là vous m'aimiez, je vous le jure.",
+  "phrases": [
+    {
+      "ordre": 1,
+      "texte": "Vous rappelez-vous la belle nuit qu'il faisait ?",
+      "difficultes": [
+        {
+          "type": "trait_union",
+          "mot": "rappelez-vous",
+          "explication": "Forme interrogative avec inversion sujet-verbe nécessitant un trait d'union."
+        }
+      ]
+    },
+    {
+      "ordre": 2,
+      "texte": "Comme l'air était doux et parfumé, comme le ciel était bleu et tout émaillé d'étoiles !",
+      "difficultes": [
+        {
+          "type": "lexicale",
+          "mot": "émaillé",
+          "explication": "Mot rare signifiant « parsemé », donné au tableau mais dont l'orthographe reste à retenir."
+        },
+        {
+          "type": "accord",
+          "mot": "parfumé",
+          "explication": "Attribut du sujet « l'air » (masculin singulier), pas d'accord au féminin ni au pluriel."
+        }
+      ]
+    },
+    {
+      "ordre": 3,
+      "texte": "Ah !",
+      "difficultes": [
+        {
+          "type": "lexicale",
+          "mot": "Ah",
+          "explication": "Interjection à ne pas confondre avec « a » (verbe avoir)."
+        }
+      ]
+    },
+    {
+      "ordre": 4,
+      "texte": "Cette fois, Madame, j'avais pu être un instant seul avec vous ; cette fois, vous étiez prête à tout me dire, l'isolement de votre vie, les chagrins de votre cœur.",
+      "difficultes": [
+        {
+          "type": "majuscule",
+          "mot": "Madame",
+          "explication": "Titre de civilité employé comme apostrophe, prend une majuscule."
+        },
+        {
+          "type": "accord",
+          "mot": "prête",
+          "explication": "Adjectif attribut du sujet « vous » désignant une femme, accord au féminin singulier."
+        },
+        {
+          "type": "lexicale",
+          "mot": "cœur",
+          "explication": "Ligature « œ » obligatoire, à ne pas écrire « coeur »."
+        },
+        {
+          "type": "lexicale",
+          "mot": "isolement",
+          "explication": "Mot à ne pas confondre avec « isolation » ; un seul « l »."
+        }
+      ]
+    },
+    {
+      "ordre": 5,
+      "texte": "Vous étiez appuyée à mon bras, tenez, à celui-ci.",
+      "difficultes": [
+        {
+          "type": "accord",
+          "mot": "appuyée",
+          "explication": "Participe passé attribut du sujet « vous » désignant une femme, accord au féminin singulier."
+        },
+        {
+          "type": "trait_union",
+          "mot": "celui-ci",
+          "explication": "Pronom démonstratif composé nécessitant un trait d'union."
+        }
+      ]
+    },
+    {
+      "ordre": 6,
+      "texte": "Je sentais, en inclinant ma tête à votre côté, vos beaux cheveux effleurer mon visage, et chaque fois qu'ils l'effleuraient je frissonnais de la tête aux pieds.",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "effleuraient",
+          "explication": "Imparfait, 3e personne du pluriel (sujet « ils ») : terminaison -aient."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "frissonnais",
+          "explication": "Imparfait, 1re personne du singulier : terminaison -ais, et double « n »."
+        },
+        {
+          "type": "homophone",
+          "mot": "à",
+          "explication": "Préposition « à » avec accent grave, à ne pas confondre avec « a » (verbe avoir)."
+        }
+      ]
+    },
+    {
+      "ordre": 7,
+      "texte": "Oh !",
+      "difficultes": []
+    },
+    {
+      "ordre": 8,
+      "texte": "Reine, reine !",
+      "difficultes": [
+        {
+          "type": "majuscule",
+          "mot": "Reine",
+          "explication": "La première occurrence prend une majuscule en début de phrase, la seconde est en minuscule."
+        }
+      ]
+    },
+    {
+      "ordre": 9,
+      "texte": "Oh !",
+      "difficultes": []
+    },
+    {
+      "ordre": 10,
+      "texte": "Vous ne savez pas tout ce qu'il y a de félicités du ciel, de joies du paradis enfermées dans un moment pareil.",
+      "difficultes": [
+        {
+          "type": "lexicale",
+          "mot": "félicités",
+          "explication": "Mot littéraire signifiant « bonheurs », pluriel en -és."
+        },
+        {
+          "type": "accord",
+          "mot": "enfermées",
+          "explication": "Participe passé adjectif accordé avec « félicités » et « joies » (féminin pluriel)."
+        }
+      ]
+    },
+    {
+      "ordre": 11,
+      "texte": "Tenez, mes biens, ma fortune, ma gloire, tout ce qui me reste de jours à vivre, pour un pareil instant, et pour une semblable nuit ; car, cette nuit-là, Madame, cette nuit-là vous m'aimiez, je vous le jure.",
+      "difficultes": [
+        {
+          "type": "trait_union",
+          "mot": "nuit-là",
+          "explication": "Le démonstratif renforcé par « -là » nécessite un trait d'union."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "m'aimiez",
+          "explication": "Imparfait, 2e personne du pluriel (sujet « vous ») : terminaison -iez."
+        },
+        {
+          "type": "homophone",
+          "mot": "à vivre",
+          "explication": "Préposition « à » avec accent grave devant l'infinitif, à ne pas confondre avec « a »."
+        }
+      ]
+    }
+  ],
+  "notes_examinateur": [
+    "Avant de commencer la dictée, on inscrira au tableau de manière lisible : Alexandre Dumas, Les Trois mousquetaires.",
+    "On écrira au tableau le mot suivant : émaillé."
+  ],
+  "source_file": "2022_AmeriqueSud-Asie_francais_dictee.pdf"
+}

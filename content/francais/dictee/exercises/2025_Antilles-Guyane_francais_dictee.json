@@ -1,0 +1,112 @@
+{
+  "id": "2025_antilles-guyane",
+  "source": {
+    "annee": 2025,
+    "session": "juin",
+    "centre": "Métropole",
+    "code_sujet": "25GENFRDAG1"
+  },
+  "titre": null,
+  "reference": {
+    "auteur": "Gustave Flaubert",
+    "oeuvre": "Les Mémoires d'un fou",
+    "annee_publication": 1839
+  },
+  "texte_complet": "Je me vois encore, assis sur les bancs de la classe, absorbé dans mes rêves d'avenir, pensant à ce que l'imagination d'un enfant peut rêver de plus sublime, tandis que le pédagogue se moquait de mes vers latins, que mes camarades me regardaient en ricanant. Les imbéciles ! eux, rire de moi ! eux, si faibles, si communs, au cerveau si étroit ; moi, dont l'esprit se noyait sur les limites de la création, qui étais perdu dans tous les mondes de la poésie, qui me sentais plus grand qu'eux tous, qui recevais des jouissances infinies et qui avais des extases célestes devant toutes les révélations intimes de mon âme !",
+  "phrases": [
+    {
+      "ordre": 1,
+      "texte": "Je me vois encore, assis sur les bancs de la classe, absorbé dans mes rêves d'avenir, pensant à ce que l'imagination d'un enfant peut rêver de plus sublime, tandis que le pédagogue se moquait de mes vers latins, que mes camarades me regardaient en ricanant.",
+      "difficultes": [
+        {
+          "type": "accord",
+          "mot": "absorbé",
+          "explication": "Participe passé apposé au sujet « je » masculin singulier, à ne pas accorder au pluriel."
+        },
+        {
+          "type": "lexicale",
+          "mot": "pédagogue",
+          "explication": "Mot savant dont l'orthographe avec le groupe « gogue » peut poser problème."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "se moquait",
+          "explication": "Imparfait de l'indicatif à la 3e personne du singulier, ne pas confondre avec le passé simple."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "regardaient",
+          "explication": "Imparfait à la 3e personne du pluriel, bien écrire la terminaison -aient."
+        }
+      ]
+    },
+    {
+      "ordre": 2,
+      "texte": "Les imbéciles !",
+      "difficultes": [
+        {
+          "type": "lexicale",
+          "mot": "imbéciles",
+          "explication": "Attention à l'accent aigu sur le « e » et au « c » avant le « i »."
+        }
+      ]
+    },
+    {
+      "ordre": 3,
+      "texte": "eux, rire de moi !",
+      "difficultes": [
+        {
+          "type": "majuscule",
+          "mot": "eux",
+          "explication": "La phrase commence par une minuscule car elle suit une exclamation et constitue une phrase nominale exclamative."
+        }
+      ]
+    },
+    {
+      "ordre": 4,
+      "texte": "eux, si faibles, si communs, au cerveau si étroit ;",
+      "difficultes": [
+        {
+          "type": "accord",
+          "mot": "communs",
+          "explication": "Adjectif au masculin pluriel accordé avec « eux », ne pas oublier le « s »."
+        },
+        {
+          "type": "lexicale",
+          "mot": "étroit",
+          "explication": "Ne pas oublier le « t » final muet."
+        }
+      ]
+    },
+    {
+      "ordre": 5,
+      "texte": "moi, dont l'esprit se noyait sur les limites de la création, qui étais perdu dans tous les mondes de la poésie, qui me sentais plus grand qu'eux tous, qui recevais des jouissances infinies et qui avais des extases célestes devant toutes les révélations intimes de mon âme !",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "étais",
+          "explication": "Imparfait à la 1re personne du singulier (le sujet est « moi, qui »), ne pas écrire « était »."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "recevais",
+          "explication": "Imparfait à la 1re personne du singulier avec le radical « recev- », attention au « c » qui devient « v »."
+        },
+        {
+          "type": "lexicale",
+          "mot": "jouissances",
+          "explication": "Double « s » et terminaison en « -ances », mot peu courant pour un élève de 3e."
+        },
+        {
+          "type": "accord",
+          "mot": "célestes",
+          "explication": "Adjectif au féminin pluriel accordé avec « extases », ne pas oublier le « s »."
+        }
+      ]
+    }
+  ],
+  "notes_examinateur": [
+    "Avant de commencer la dictée, on inscrira au tableau de manière lisible : Gustave Flaubert, Les Mémoires d'un fou, chapitre III, 1839."
+  ],
+  "source_file": "2025_Antilles-Guyane_francais_dictee.pdf"
+}

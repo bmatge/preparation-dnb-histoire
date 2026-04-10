@@ -1,0 +1,187 @@
+{
+  "id": "2024_polynesie",
+  "source": {
+    "annee": 2024,
+    "session": "juin",
+    "centre": "Métropole",
+    "code_sujet": "24GENFRDPO1"
+  },
+  "titre": null,
+  "reference": {
+    "auteur": "Maud Fontenoy",
+    "oeuvre": "Les raisons d'y croire",
+    "annee_publication": 2015
+  },
+  "texte_complet": "Charles Baudelaire l'avait si bien résumé : « Homme libre, toujours tu chériras la mer. La mer est ton miroir, tu contemples ton âme dans le déroulement infini de sa lame. »\nLa mer est un chef de rang, un professeur exigeant. Vous y êtes face à vous-même et seule l'abnégation vous ramènera à terre. La mer vous fait grandir parce qu'elle ne vous plaint pas. Elle vous élève car elle vous révèle. Elle vous contraint à vous regarder en face, vous met devant vos propres failles, vos défauts inavoués, vos intimes faiblesses. Elle vous apprend à vous accepter tel que vous êtes et non pas tel que vous voudriez être.\nOuvrons les yeux.",
+  "phrases": [
+    {
+      "ordre": 1,
+      "texte": "Charles Baudelaire l'avait si bien résumé : « Homme libre, toujours tu chériras la mer.",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "chériras",
+          "explication": "Futur simple du verbe « chérir » (2e groupe), à ne pas confondre avec le conditionnel « chérirais »."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "l'avait",
+          "explication": "Plus-que-parfait avec le pronom élidé « l' » (le/la), à ne pas confondre avec « lavait »."
+        }
+      ]
+    },
+    {
+      "ordre": 2,
+      "texte": "La mer est ton miroir, tu contemples ton âme dans le déroulement infini de sa lame. »",
+      "difficultes": [
+        {
+          "type": "lexicale",
+          "mot": "déroulement",
+          "explication": "Mot long dont l'orthographe peut poser problème (un seul « l »)."
+        },
+        {
+          "type": "lexicale",
+          "mot": "âme",
+          "explication": "Ne pas oublier l'accent circonflexe sur le « â »."
+        },
+        {
+          "type": "accord",
+          "mot": "infini",
+          "explication": "Adjectif masculin singulier qui s'accorde avec « déroulement », ne pas ajouter de -e."
+        }
+      ]
+    },
+    {
+      "ordre": 3,
+      "texte": "La mer est un chef de rang, un professeur exigeant.",
+      "difficultes": [
+        {
+          "type": "lexicale",
+          "mot": "exigeant",
+          "explication": "Adjectif avec « -geant » (conserver le « e » après le « g » pour le son [ʒ])."
+        }
+      ]
+    },
+    {
+      "ordre": 4,
+      "texte": "Vous y êtes face à vous-même et seule l'abnégation vous ramènera à terre.",
+      "difficultes": [
+        {
+          "type": "homophone",
+          "mot": "à",
+          "explication": "Préposition « à » avec accent, à ne pas confondre avec le verbe « a »."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "ramènera",
+          "explication": "Futur simple du verbe « ramener » avec accent grave sur le « è »."
+        },
+        {
+          "type": "trait_union",
+          "mot": "vous-même",
+          "explication": "Pronom renforcé avec trait d'union obligatoire."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "êtes",
+          "explication": "Verbe « être » au présent, 2e personne du pluriel, avec accent circonflexe."
+        }
+      ]
+    },
+    {
+      "ordre": 5,
+      "texte": "La mer vous fait grandir parce qu'elle ne vous plaint pas.",
+      "difficultes": [
+        {
+          "type": "homophone",
+          "mot": "plaint",
+          "explication": "Verbe « plaindre » au présent (3e pers. sing.), à ne pas confondre avec « plain » ou « plein »."
+        },
+        {
+          "type": "lexicale",
+          "mot": "parce qu'elle",
+          "explication": "« Parce que » en deux mots (locution conjonctive), avec élision devant « elle »."
+        }
+      ]
+    },
+    {
+      "ordre": 6,
+      "texte": "Elle vous élève car elle vous révèle.",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "élève",
+          "explication": "Verbe « élever » au présent, avec accent grave sur le deuxième « è », à ne pas confondre avec le nom « élève »."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "révèle",
+          "explication": "Verbe « révéler » au présent avec accent grave sur le « è »."
+        }
+      ]
+    },
+    {
+      "ordre": 7,
+      "texte": "Elle vous contraint à vous regarder en face, vous met devant vos propres failles, vos défauts inavoués, vos intimes faiblesses.",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "contraint",
+          "explication": "Verbe « contraindre » au présent (3e pers. sing.), terminaison en « -t »."
+        },
+        {
+          "type": "accord",
+          "mot": "inavoués",
+          "explication": "Participe passé adjectif accordé au masculin pluriel avec « défauts »."
+        },
+        {
+          "type": "accord",
+          "mot": "intimes",
+          "explication": "Adjectif au féminin pluriel accordé avec « faiblesses »."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "met",
+          "explication": "Verbe « mettre » au présent (3e pers. sing.), un seul « t » à la fin."
+        }
+      ]
+    },
+    {
+      "ordre": 8,
+      "texte": "Elle vous apprend à vous accepter tel que vous êtes et non pas tel que vous voudriez être.",
+      "difficultes": [
+        {
+          "type": "accord",
+          "mot": "tel",
+          "explication": "« Tel que » reste au masculin singulier car il se rapporte au pronom « vous » à valeur générale (ou accord possible au pluriel « tels »)."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "voudriez",
+          "explication": "Conditionnel présent du verbe « vouloir » (2e pers. plur.), ne pas oublier le « i » de la terminaison « -riez »."
+        },
+        {
+          "type": "conjugaison",
+          "mot": "apprend",
+          "explication": "Verbe « apprendre » au présent (3e pers. sing.), terminaison en « -d »."
+        }
+      ]
+    },
+    {
+      "ordre": 9,
+      "texte": "Ouvrons les yeux.",
+      "difficultes": [
+        {
+          "type": "conjugaison",
+          "mot": "Ouvrons",
+          "explication": "Impératif présent, 1re personne du pluriel du verbe « ouvrir »."
+        }
+      ]
+    }
+  ],
+  "notes_examinateur": [
+    "Écrire au tableau les mots suivants : Charles Baudelaire, l'abnégation.",
+    "Écrire aussi le nom de l'autrice et le titre."
+  ],
+  "source_file": "2024_Polynesie_francais_dictee.pdf"
+}
