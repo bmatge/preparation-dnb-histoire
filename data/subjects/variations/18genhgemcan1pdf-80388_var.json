@@ -1,0 +1,65 @@
+{
+  "source_file": "variation_18genhgemcan1pdf-80388.pdf",
+  "year": 2018,
+  "serie": "generale",
+  "session": "an",
+  "session_label": "Amérique du Nord",
+  "variant": "1",
+  "original_source": "18genhgemcan1pdf-80388.pdf",
+  "developpements_construits": [
+    {
+      "consigne": "Dans un développement construit d'une vingtaine de lignes, expliquez comment les territoires ultramarins français sont à la fois des atouts et des défis pour la France.",
+      "discipline": "geographie",
+      "theme": "Les territoires ultramarins français : une problématique spécifique",
+      "verbe_cle": "expliquer",
+      "bornes_chrono": null,
+      "bornes_spatiales": "territoires ultramarins français",
+      "notions_attendues": [
+        "Zone Économique Exclusive (ZEE)",
+        "biodiversité",
+        "éloignement et insularité",
+        "inégalités de développement",
+        "risques naturels",
+        "politiques d'aménagement"
+      ],
+      "bareme_points": null,
+      "variation_de": "verbe-clé passé de « présenter » à « expliquer » et angle recentré sur la tension atouts/défis"
+    },
+    {
+      "consigne": "Sous la forme d'un développement construit d'une vingtaine de lignes et en vous appuyant sur un exemple étudié en classe, décrivez la diversité des territoires ultramarins français et les formes d'intégration à la métropole.",
+      "discipline": "geographie",
+      "theme": "Les territoires ultramarins français : une problématique spécifique",
+      "verbe_cle": "décrire",
+      "bornes_chrono": null,
+      "bornes_spatiales": "territoires ultramarins français",
+      "notions_attendues": [
+        "DROM-COM",
+        "diversité géographique",
+        "intégration à la métropole",
+        "transports et désenclavement",
+        "populations ultramarines",
+        "rattachement administratif"
+      ],
+      "bareme_points": null,
+      "variation_de": "verbe-clé passé de « présenter » à « décrire » et angle recentré sur la diversité interne et les formes d'intégration"
+    },
+    {
+      "consigne": "Rédigez un développement construit d'environ vingt lignes qui montre que les territoires ultramarins français sont des interfaces entre la France et leur espace régional.",
+      "discipline": "geographie",
+      "theme": "Les territoires ultramarins français : une problématique spécifique",
+      "verbe_cle": "montrer",
+      "bornes_chrono": null,
+      "bornes_spatiales": "territoires ultramarins français",
+      "notions_attendues": [
+        "interface",
+        "intégration régionale",
+        "Zone Économique Exclusive (ZEE)",
+        "ouverture maritime",
+        "échanges commerciaux",
+        "influence française dans le monde"
+      ],
+      "bareme_points": null,
+      "variation_de": "verbe-clé passé de « présenter » à « montrer » et angle recentré sur la fonction d'interface régionale"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "source_file": "variation_21genhgemcme4pdf-94185.pdf",
+  "year": 2021,
+  "serie": "generale",
+  "session": "me",
+  "session_label": "Métropole",
+  "variant": "4",
+  "original_source": "21genhgemcme4pdf-94185.pdf",
+  "developpements_construits": [
+    {
+      "consigne": "Dans un développement construit d'une vingtaine de lignes, expliquez pourquoi la guerre froide n'est pas une guerre directe entre les deux grandes puissances.",
+      "discipline": "histoire",
+      "theme": "Un monde bipolaire au temps de la guerre froide",
+      "verbe_cle": "expliquer",
+      "bornes_chrono": null,
+      "bornes_spatiales": null,
+      "notions_attendues": [
+        "équilibre de la terreur",
+        "arme nucléaire",
+        "dissuasion",
+        "guerres par procuration",
+        "coexistence pacifique",
+        "crises indirectes"
+      ],
+      "bareme_points": null,
+      "variation_de": "verbe-clé passé de « montrer » à « expliquer » et angle recentré sur le caractère indirect de l'affrontement"
+    },
+    {
+      "consigne": "Sous la forme d'un développement construit d'environ vingt lignes, présentez les principales crises qui opposent les deux blocs pendant la guerre froide.",
+      "discipline": "histoire",
+      "theme": "Un monde bipolaire au temps de la guerre froide",
+      "verbe_cle": "présenter",
+      "bornes_chrono": "1947-1991",
+      "bornes_spatiales": null,
+      "notions_attendues": [
+        "blocus de Berlin",
+        "crise de Cuba",
+        "guerre de Corée",
+        "guerre du Vietnam",
+        "mur de Berlin",
+        "course aux armements"
+      ],
+      "bareme_points": null,
+      "variation_de": "verbe-clé passé de « montrer » à « présenter » et angle recentré sur l'enchaînement des crises"
+    },
+    {
+      "consigne": "Rédigez un développement construit d'une vingtaine de lignes dans lequel vous décrirez comment la guerre froide divise le monde et l'Europe.",
+      "discipline": "histoire",
+      "theme": "Un monde bipolaire au temps de la guerre froide",
+      "verbe_cle": "décrire",
+      "bornes_chrono": null,
+      "bornes_spatiales": "monde / Europe",
+      "notions_attendues": [
+        "rideau de fer",
+        "division de l'Allemagne",
+        "mur de Berlin",
+        "OTAN / Pacte de Varsovie",
+        "sphères d'influence",
+        "bipolarisation"
+      ],
+      "bareme_points": null,
+      "variation_de": "verbe-clé passé de « montrer » à « décrire » et angle recentré sur les divisions géographiques concrètes"
+    }
+  ]
+}

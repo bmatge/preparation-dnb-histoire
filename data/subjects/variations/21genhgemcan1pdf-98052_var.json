@@ -1,0 +1,65 @@
+{
+  "source_file": "variation_21genhgemcan1pdf-98052.pdf",
+  "year": 2021,
+  "serie": "generale",
+  "session": "an",
+  "session_label": "Amérique du Nord",
+  "variant": "1",
+  "original_source": "21genhgemcan1pdf-98052.pdf",
+  "developpements_construits": [
+    {
+      "consigne": "Dans un développement construit d'une vingtaine de lignes, expliquez pourquoi les populations civiles deviennent des cibles pendant la Première Guerre mondiale.",
+      "discipline": "histoire",
+      "theme": "Civils et militaires dans la Première Guerre mondiale.",
+      "verbe_cle": "expliquer",
+      "bornes_chrono": "Première Guerre mondiale",
+      "bornes_spatiales": null,
+      "notions_attendues": [
+        "guerre totale",
+        "implication des sociétés",
+        "propagande",
+        "déportation",
+        "bombardements de civils",
+        "blocus économique"
+      ],
+      "bareme_points": null,
+      "variation_de": "verbe-clé passé de « décrire » à « expliquer » et angle recentré sur la justification de la violence contre les civils"
+    },
+    {
+      "consigne": "Sous la forme d'un développement construit d'environ vingt lignes, présentez les différentes formes de mobilisation imposées aux populations pendant la Première Guerre mondiale.",
+      "discipline": "histoire",
+      "theme": "Civils et militaires dans la Première Guerre mondiale.",
+      "verbe_cle": "présenter",
+      "bornes_chrono": "Première Guerre mondiale",
+      "bornes_spatiales": null,
+      "notions_attendues": [
+        "mobilisation militaire",
+        "mobilisation économique",
+        "travail des femmes",
+        "emprunts de guerre",
+        "effort industriel",
+        "rationnement"
+      ],
+      "bareme_points": null,
+      "variation_de": "verbe-clé passé de « décrire » à « présenter » et angle élargi de la seule souffrance à la mobilisation générale"
+    },
+    {
+      "consigne": "Rédigez un développement construit d'une vingtaine de lignes dans lequel vous montrerez que la Première Guerre mondiale est une guerre totale qui implique l'ensemble des sociétés.",
+      "discipline": "histoire",
+      "theme": "Civils et militaires dans la Première Guerre mondiale.",
+      "verbe_cle": "montrer",
+      "bornes_chrono": "Première Guerre mondiale",
+      "bornes_spatiales": null,
+      "notions_attendues": [
+        "guerre totale",
+        "front et arrière",
+        "mobilisation économique",
+        "implication des civils",
+        "propagande",
+        "conséquences démographiques"
+      ],
+      "bareme_points": null,
+      "variation_de": "verbe-clé passé de « décrire » à « montrer » et angle recentré sur la thèse « guerre totale »"
+    }
+  ]
+}

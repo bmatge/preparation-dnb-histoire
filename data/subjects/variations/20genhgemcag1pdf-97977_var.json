@@ -1,0 +1,65 @@
+{
+  "source_file": "variation_20genhgemcag1pdf-97977.pdf",
+  "year": 2020,
+  "serie": "generale",
+  "session": "ag",
+  "session_label": "Antilles-Guyane",
+  "variant": "1",
+  "original_source": "20genhgemcag1pdf-97977.pdf",
+  "developpements_construits": [
+    {
+      "consigne": "Dans un développement construit d'une vingtaine de lignes, présentez les grandes étapes du processus de décolonisation dans le monde après 1945.",
+      "discipline": "histoire",
+      "theme": "Le monde depuis 1945.",
+      "verbe_cle": "présenter",
+      "bornes_chrono": "après 1945",
+      "bornes_spatiales": null,
+      "notions_attendues": [
+        "décolonisation",
+        "indépendance",
+        "Asie",
+        "Afrique",
+        "conférence de Bandoung",
+        "tiers-monde"
+      ],
+      "bareme_points": null,
+      "variation_de": "verbe-clé passé de « décrire » à « présenter » et angle recentré sur les grandes étapes chronologiques du processus"
+    },
+    {
+      "consigne": "Sous la forme d'un développement construit d'une vingtaine de lignes et en vous appuyant sur l'exemple étudié en classe, expliquez les causes et les conséquences de la décolonisation pour les anciennes colonies.",
+      "discipline": "histoire",
+      "theme": "Le monde depuis 1945.",
+      "verbe_cle": "expliquer",
+      "bornes_chrono": "après 1945",
+      "bornes_spatiales": null,
+      "notions_attendues": [
+        "mouvement nationaliste",
+        "affaiblissement des métropoles",
+        "principe des nationalités",
+        "nouvelle indépendance",
+        "non-alignement",
+        "difficultés post-coloniales"
+      ],
+      "bareme_points": null,
+      "variation_de": "verbe-clé passé de « décrire » à « expliquer » et angle recentré sur causes/conséquences"
+    },
+    {
+      "consigne": "Rédigez un développement construit d'une vingtaine de lignes dans lequel vous montrerez la diversité des formes que prend la décolonisation au XXᵉ siècle.",
+      "discipline": "histoire",
+      "theme": "Le monde depuis 1945.",
+      "verbe_cle": "montrer",
+      "bornes_chrono": "XXᵉ siècle",
+      "bornes_spatiales": null,
+      "notions_attendues": [
+        "décolonisation pacifique",
+        "décolonisation par la guerre",
+        "guerre d'Algérie",
+        "indépendance de l'Inde",
+        "indépendance négociée",
+        "rôle de l'ONU"
+      ],
+      "bareme_points": null,
+      "variation_de": "verbe-clé passé de « décrire » à « montrer » et angle recentré sur la diversité des formes (pacifiques vs violentes)"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "source_file": "variation_21genhgemcg11pdf-98079.pdf",
+  "year": 2021,
+  "serie": "generale",
+  "session": "g1",
+  "session_label": "Métropole (1er groupe)",
+  "variant": "1",
+  "original_source": "21genhgemcg11pdf-98079.pdf",
+  "developpements_construits": [
+    {
+      "consigne": "Dans un développement construit d'une vingtaine de lignes, expliquez en quoi la Première Guerre mondiale constitue une rupture dans l'histoire des conflits armés.",
+      "discipline": "histoire",
+      "theme": "L'Europe, un théâtre majeur des guerres totales (1914-1945)",
+      "verbe_cle": "expliquer",
+      "bornes_chrono": "1914-1918",
+      "bornes_spatiales": null,
+      "notions_attendues": [
+        "guerre industrielle",
+        "armes nouvelles",
+        "violence de masse",
+        "guerre totale",
+        "pertes humaines massives",
+        "guerre longue"
+      ],
+      "bareme_points": null,
+      "variation_de": "verbe-clé passé de « décrire » à « expliquer » et angle recentré sur la rupture historique qu'elle constitue"
+    },
+    {
+      "consigne": "Sous la forme d'un développement construit d'environ vingt lignes, montrez que les soldats de la Première Guerre mondiale subissent des violences inédites.",
+      "discipline": "histoire",
+      "theme": "L'Europe, un théâtre majeur des guerres totales (1914-1945)",
+      "verbe_cle": "montrer",
+      "bornes_chrono": "1914-1918",
+      "bornes_spatiales": null,
+      "notions_attendues": [
+        "guerre de tranchées",
+        "artillerie lourde",
+        "gaz de combat",
+        "bataille de Verdun",
+        "mutineries",
+        "gueules cassées"
+      ],
+      "bareme_points": null,
+      "variation_de": "verbe-clé passé de « décrire » à « montrer » et angle resserré sur le caractère inédit des violences"
+    },
+    {
+      "consigne": "Rédigez un développement construit d'une vingtaine de lignes dans lequel vous présenterez les grandes batailles et les conditions de vie des soldats pendant la Première Guerre mondiale.",
+      "discipline": "histoire",
+      "theme": "L'Europe, un théâtre majeur des guerres totales (1914-1945)",
+      "verbe_cle": "présenter",
+      "bornes_chrono": "1914-1918",
+      "bornes_spatiales": null,
+      "notions_attendues": [
+        "bataille de la Marne",
+        "bataille de Verdun",
+        "bataille de la Somme",
+        "guerre de position",
+        "tranchées",
+        "conditions de vie des poilus"
+      ],
+      "bareme_points": null,
+      "variation_de": "verbe-clé passé de « décrire » à « présenter » et angle structuré en « batailles + quotidien »"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "source_file": "variation_18genhgemcin1pdf-80364.pdf",
+  "year": 2018,
+  "serie": "generale",
+  "session": "in",
+  "session_label": "Inde / Pondichéry",
+  "variant": "1",
+  "original_source": "18genhgemcin1pdf-80364.pdf",
+  "developpements_construits": [
+    {
+      "consigne": "Dans un développement construit d'une vingtaine de lignes, décrivez la puissance économique et commerciale de l'Union européenne dans le monde.",
+      "discipline": "geographie",
+      "theme": "La France et l'Union européenne",
+      "verbe_cle": "décrire",
+      "bornes_chrono": null,
+      "bornes_spatiales": "Union européenne / monde",
+      "notions_attendues": [
+        "puissance économique",
+        "marché unique",
+        "euro",
+        "pôle de la Triade",
+        "exportations et importations",
+        "grandes entreprises européennes"
+      ],
+      "bareme_points": null,
+      "variation_de": "verbe-clé passé de « montrer » à « décrire » et angle recentré sur la seule dimension économique et commerciale"
+    },
+    {
+      "consigne": "Sous la forme d'un développement construit d'environ vingt lignes, expliquez comment l'Union européenne est un acteur majeur de la mondialisation.",
+      "discipline": "geographie",
+      "theme": "La France et l'Union européenne",
+      "verbe_cle": "expliquer",
+      "bornes_chrono": null,
+      "bornes_spatiales": "Union européenne / monde",
+      "notions_attendues": [
+        "mondialisation",
+        "marché unique européen",
+        "flux commerciaux",
+        "grandes métropoles européennes",
+        "influence culturelle",
+        "zone d'attraction migratoire"
+      ],
+      "bareme_points": null,
+      "variation_de": "verbe-clé passé de « montrer » à « expliquer » et angle recentré sur la place de l'UE dans la mondialisation"
+    },
+    {
+      "consigne": "Rédigez un développement construit d'une vingtaine de lignes dans lequel vous présenterez les forces et les faiblesses de l'Union européenne comme puissance dans le monde d'aujourd'hui.",
+      "discipline": "geographie",
+      "theme": "La France et l'Union européenne",
+      "verbe_cle": "présenter",
+      "bornes_chrono": null,
+      "bornes_spatiales": "Union européenne / monde",
+      "notions_attendues": [
+        "puissance économique",
+        "soft power",
+        "limites politiques de l'UE",
+        "absence d'armée commune",
+        "divisions entre États membres",
+        "concurrence internationale"
+      ],
+      "bareme_points": null,
+      "variation_de": "verbe-clé passé de « montrer » à « présenter » et angle plus explicitement structuré en forces/faiblesses"
+    }
+  ]
+}

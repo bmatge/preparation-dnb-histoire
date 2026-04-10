@@ -1,0 +1,65 @@
+{
+  "source_file": "variation_21genhgemcag1pdf-98040.pdf",
+  "year": 2021,
+  "serie": "generale",
+  "session": "ag",
+  "session_label": "Antilles-Guyane",
+  "variant": "1",
+  "original_source": "21genhgemcag1pdf-98040.pdf",
+  "developpements_construits": [
+    {
+      "consigne": "Dans un développement construit d'une vingtaine de lignes, expliquez comment les mobilités quotidiennes structurent les aires urbaines françaises.",
+      "discipline": "geographie",
+      "theme": "Dynamiques territoriales de la France contemporaine",
+      "verbe_cle": "expliquer",
+      "bornes_chrono": null,
+      "bornes_spatiales": "France",
+      "notions_attendues": [
+        "mobilités pendulaires",
+        "navettes domicile-travail",
+        "périurbanisation",
+        "transports collectifs",
+        "dépendance à l'automobile",
+        "étalement urbain"
+      ],
+      "bareme_points": null,
+      "variation_de": "verbe-clé passé de « décrire » à « expliquer » et angle recentré sur le rôle structurant des mobilités"
+    },
+    {
+      "consigne": "Sous la forme d'un développement construit d'environ vingt lignes et en vous appuyant sur un exemple étudié en classe, présentez les différents espaces qui composent une aire urbaine française.",
+      "discipline": "geographie",
+      "theme": "Dynamiques territoriales de la France contemporaine",
+      "verbe_cle": "présenter",
+      "bornes_chrono": null,
+      "bornes_spatiales": "France",
+      "notions_attendues": [
+        "pôle urbain",
+        "banlieue",
+        "couronne périurbaine",
+        "centre-ville",
+        "quartiers d'affaires",
+        "lotissements périurbains"
+      ],
+      "bareme_points": null,
+      "variation_de": "verbe-clé passé de « décrire » à « présenter » et angle resserré sur la seule composition spatiale"
+    },
+    {
+      "consigne": "Rédigez un développement construit d'une vingtaine de lignes dans lequel vous montrerez que la périurbanisation transforme l'organisation des aires urbaines françaises.",
+      "discipline": "geographie",
+      "theme": "Dynamiques territoriales de la France contemporaine",
+      "verbe_cle": "montrer",
+      "bornes_chrono": null,
+      "bornes_spatiales": "France",
+      "notions_attendues": [
+        "périurbanisation",
+        "étalement urbain",
+        "couronne périurbaine",
+        "rurbanisation",
+        "mitage",
+        "mobilités quotidiennes"
+      ],
+      "bareme_points": null,
+      "variation_de": "verbe-clé passé de « décrire » à « montrer » et angle recentré sur la transformation par la périurbanisation"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "source_file": "variation_20genhgemcme1pdf-94173.pdf",
+  "year": 2020,
+  "serie": "generale",
+  "session": "me",
+  "session_label": "Métropole",
+  "variant": "1",
+  "original_source": "20genhgemcme1pdf-94173.pdf",
+  "developpements_construits": [
+    {
+      "consigne": "Dans un développement construit d'une vingtaine de lignes, expliquez pourquoi la Première Guerre mondiale est qualifiée de guerre totale.",
+      "discipline": "histoire",
+      "theme": "L'Europe, un théâtre majeur des guerres totales",
+      "verbe_cle": "expliquer",
+      "bornes_chrono": "1914-1918",
+      "bornes_spatiales": null,
+      "notions_attendues": [
+        "guerre totale",
+        "mobilisation économique",
+        "mobilisation humaine",
+        "propagande",
+        "arrière et front",
+        "effort de guerre"
+      ],
+      "bareme_points": null,
+      "variation_de": "verbe-clé passé de « montrer » à « expliquer » et angle recentré sur la définition du concept de guerre totale"
+    },
+    {
+      "consigne": "Sous la forme d'un développement construit d'une vingtaine de lignes, décrivez les conditions de vie des soldats dans les tranchées pendant la Première Guerre mondiale.",
+      "discipline": "histoire",
+      "theme": "L'Europe, un théâtre majeur des guerres totales",
+      "verbe_cle": "décrire",
+      "bornes_chrono": "Première Guerre mondiale",
+      "bornes_spatiales": null,
+      "notions_attendues": [
+        "tranchées",
+        "guerre de position",
+        "violence de masse",
+        "poilus",
+        "mitrailleuses et artillerie",
+        "conditions sanitaires"
+      ],
+      "bareme_points": null,
+      "variation_de": "verbe-clé passé de « montrer » à « décrire » et angle resserré sur l'expérience des soldats"
+    },
+    {
+      "consigne": "Rédigez un développement construit d'environ vingt lignes dans lequel vous présenterez les différentes formes de violences subies par les populations civiles pendant la Première Guerre mondiale.",
+      "discipline": "histoire",
+      "theme": "L'Europe, un théâtre majeur des guerres totales",
+      "verbe_cle": "présenter",
+      "bornes_chrono": "Première Guerre mondiale",
+      "bornes_spatiales": null,
+      "notions_attendues": [
+        "génocide arménien",
+        "bombardements de civils",
+        "privations et rationnement",
+        "violences de guerre",
+        "propagande",
+        "travail forcé"
+      ],
+      "bareme_points": null,
+      "variation_de": "verbe-clé passé de « montrer » à « présenter » et angle recentré uniquement sur les populations civiles"
+    }
+  ]
+}

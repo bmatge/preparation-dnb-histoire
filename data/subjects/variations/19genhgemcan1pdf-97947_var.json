@@ -1,0 +1,65 @@
+{
+  "source_file": "variation_19genhgemcan1pdf-97947.pdf",
+  "year": 2019,
+  "serie": "generale",
+  "session": "an",
+  "session_label": "Amérique du Nord",
+  "variant": "1",
+  "original_source": "19genhgemcan1pdf-97947.pdf",
+  "developpements_construits": [
+    {
+      "consigne": "Dans un développement construit d'une vingtaine de lignes, décrivez les atouts des espaces ruraux français et les dynamiques qui les animent aujourd'hui.",
+      "discipline": "geographie",
+      "theme": "les espaces de faible densité (espaces ruraux, montagnes, secteurs touristiques peu urbanisés) et leurs atouts.",
+      "verbe_cle": "décrire",
+      "bornes_chrono": null,
+      "bornes_spatiales": "France",
+      "notions_attendues": [
+        "espaces ruraux",
+        "agriculture",
+        "tourisme vert",
+        "patrimoine naturel",
+        "néoruraux",
+        "dynamiques démographiques"
+      ],
+      "bareme_points": null,
+      "variation_de": "verbe-clé passé de « montrer » à « décrire » et angle recentré sur les dynamiques récentes qui animent ces espaces"
+    },
+    {
+      "consigne": "Sous la forme d'un développement construit d'une vingtaine de lignes et en vous appuyant sur un exemple étudié en classe, expliquez comment les espaces de faible densité surmontent leurs contraintes pour se développer.",
+      "discipline": "geographie",
+      "theme": "les espaces de faible densité (espaces ruraux, montagnes, secteurs touristiques peu urbanisés) et leurs atouts.",
+      "verbe_cle": "expliquer",
+      "bornes_chrono": null,
+      "bornes_spatiales": "France",
+      "notions_attendues": [
+        "contraintes naturelles",
+        "valorisation des ressources",
+        "tourisme",
+        "agriculture spécialisée",
+        "aménagement du territoire",
+        "politiques de soutien"
+      ],
+      "bareme_points": null,
+      "variation_de": "verbe-clé passé de « montrer » à « expliquer » et angle recentré sur le mécanisme de dépassement des contraintes"
+    },
+    {
+      "consigne": "Rédigez un développement construit d'environ vingt lignes dans lequel vous présenterez la diversité des espaces de faible densité en France et leurs évolutions récentes.",
+      "discipline": "geographie",
+      "theme": "les espaces de faible densité (espaces ruraux, montagnes, secteurs touristiques peu urbanisés) et leurs atouts.",
+      "verbe_cle": "présenter",
+      "bornes_chrono": null,
+      "bornes_spatiales": "France",
+      "notions_attendues": [
+        "diversité des espaces ruraux",
+        "espaces montagnards",
+        "littoraux peu urbanisés",
+        "déprise rurale",
+        "renouveau rural",
+        "tourisme et résidences secondaires"
+      ],
+      "bareme_points": null,
+      "variation_de": "verbe-clé passé de « montrer » à « présenter » et angle recentré sur la diversité interne et les évolutions"
+    }
+  ]
+}

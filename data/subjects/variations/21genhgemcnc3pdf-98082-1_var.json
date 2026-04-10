@@ -1,0 +1,65 @@
+{
+  "source_file": "variation_21genhgemcnc3pdf-98082-1.pdf",
+  "year": 2021,
+  "serie": "generale",
+  "session": "nc",
+  "session_label": "Nouvelle-Calédonie",
+  "variant": "3",
+  "original_source": "21genhgemcnc3pdf-98082-1.pdf",
+  "developpements_construits": [
+    {
+      "consigne": "Dans un développement construit d'une vingtaine de lignes et en vous appuyant sur un exemple étudié en classe, décrivez un espace de faible densité en France et les activités économiques qui s'y développent.",
+      "discipline": "geographie",
+      "theme": "Les espaces de faible densité et leurs atouts",
+      "verbe_cle": "décrire",
+      "bornes_chrono": null,
+      "bornes_spatiales": "France",
+      "notions_attendues": [
+        "espace rural",
+        "agriculture",
+        "tourisme",
+        "artisanat",
+        "valorisation du patrimoine",
+        "activités traditionnelles"
+      ],
+      "bareme_points": null,
+      "variation_de": "verbe-clé passé de « expliquer » à « décrire » et angle recentré sur les activités économiques locales"
+    },
+    {
+      "consigne": "Sous la forme d'un développement construit d'environ vingt lignes, montrez que les espaces de faible densité français connaissent des dynamiques variées.",
+      "discipline": "geographie",
+      "theme": "Les espaces de faible densité et leurs atouts",
+      "verbe_cle": "montrer",
+      "bornes_chrono": null,
+      "bornes_spatiales": "France",
+      "notions_attendues": [
+        "diversité des espaces ruraux",
+        "déprise rurale",
+        "renouveau rural",
+        "néoruraux",
+        "tourisme vert",
+        "agriculture spécialisée"
+      ],
+      "bareme_points": null,
+      "variation_de": "verbe-clé passé de « expliquer » à « montrer » et angle recentré sur la diversité des dynamiques"
+    },
+    {
+      "consigne": "Rédigez un développement construit d'une vingtaine de lignes dans lequel vous présenterez les atouts touristiques des espaces de faible densité en France.",
+      "discipline": "geographie",
+      "theme": "Les espaces de faible densité et leurs atouts",
+      "verbe_cle": "présenter",
+      "bornes_chrono": null,
+      "bornes_spatiales": "France",
+      "notions_attendues": [
+        "tourisme vert",
+        "patrimoine naturel",
+        "parcs naturels",
+        "résidences secondaires",
+        "tourisme de montagne",
+        "attractivité rurale"
+      ],
+      "bareme_points": null,
+      "variation_de": "verbe-clé passé de « expliquer » à « présenter » et angle resserré sur la seule dimension touristique"
+    }
+  ]
+}

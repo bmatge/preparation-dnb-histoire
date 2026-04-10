@@ -1,0 +1,65 @@
+{
+  "source_file": "variation_20genhgemcg11pdf-98013.pdf",
+  "year": 2020,
+  "serie": "generale",
+  "session": "g1",
+  "session_label": "Métropole (1er groupe)",
+  "variant": "1",
+  "original_source": "20genhgemcg11pdf-98013.pdf",
+  "developpements_construits": [
+    {
+      "consigne": "Dans un développement construit d'une vingtaine de lignes, expliquez les objectifs et les acteurs de l'aménagement du territoire en France.",
+      "discipline": "geographie",
+      "theme": "Pourquoi et comment aménager le territoire ?",
+      "verbe_cle": "expliquer",
+      "bornes_chrono": null,
+      "bornes_spatiales": "territoires français",
+      "notions_attendues": [
+        "aménagement du territoire",
+        "État",
+        "collectivités territoriales",
+        "Union européenne",
+        "équité territoriale",
+        "développement durable"
+      ],
+      "bareme_points": null,
+      "variation_de": "verbe-clé passé de « décrire » à « expliquer » et angle recentré sur objectifs et acteurs"
+    },
+    {
+      "consigne": "Sous la forme d'un développement construit d'environ vingt lignes et en vous appuyant sur un exemple étudié en classe, montrez que l'aménagement du territoire français vise à réduire les inégalités entre les espaces.",
+      "discipline": "geographie",
+      "theme": "Pourquoi et comment aménager le territoire ?",
+      "verbe_cle": "montrer",
+      "bornes_chrono": null,
+      "bornes_spatiales": "territoires français",
+      "notions_attendues": [
+        "inégalités territoriales",
+        "désenclavement",
+        "équité territoriale",
+        "politique de la ville",
+        "zones de revitalisation rurale",
+        "aides publiques"
+      ],
+      "bareme_points": null,
+      "variation_de": "verbe-clé passé de « décrire » à « montrer » et angle recentré sur la réduction des inégalités"
+    },
+    {
+      "consigne": "Rédigez un développement construit d'une vingtaine de lignes dans lequel vous présenterez les grands enjeux de l'aménagement des territoires français aujourd'hui.",
+      "discipline": "geographie",
+      "theme": "Pourquoi et comment aménager le territoire ?",
+      "verbe_cle": "présenter",
+      "bornes_chrono": null,
+      "bornes_spatiales": "territoires français",
+      "notions_attendues": [
+        "développement durable",
+        "compétitivité des territoires",
+        "transition écologique",
+        "mobilités",
+        "métropolisation",
+        "cohésion territoriale"
+      ],
+      "bareme_points": null,
+      "variation_de": "verbe-clé passé de « décrire » à « présenter » et angle recentré sur les enjeux contemporains"
+    }
+  ]
+}

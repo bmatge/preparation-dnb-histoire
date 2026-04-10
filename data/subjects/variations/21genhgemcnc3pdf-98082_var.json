@@ -1,0 +1,65 @@
+{
+  "source_file": "variation_21genhgemcnc3pdf-98082.pdf",
+  "year": 2021,
+  "serie": "generale",
+  "session": "nc",
+  "session_label": "Nouvelle-Calédonie",
+  "variant": "3",
+  "original_source": "21genhgemcnc3pdf-98082.pdf",
+  "developpements_construits": [
+    {
+      "consigne": "Dans un développement construit d'une vingtaine de lignes et en vous appuyant sur un exemple étudié en classe, décrivez les contraintes et les atouts d'un espace de faible densité en France.",
+      "discipline": "geographie",
+      "theme": "Les espaces de faible densité et leurs atouts",
+      "verbe_cle": "décrire",
+      "bornes_chrono": null,
+      "bornes_spatiales": "France",
+      "notions_attendues": [
+        "contraintes naturelles",
+        "enclavement",
+        "atouts paysagers",
+        "ressources locales",
+        "agriculture",
+        "tourisme"
+      ],
+      "bareme_points": null,
+      "variation_de": "verbe-clé passé de « expliquer » à « décrire » et angle équilibré contraintes + atouts"
+    },
+    {
+      "consigne": "Sous la forme d'un développement construit d'environ vingt lignes, expliquez les défis démographiques auxquels sont confrontés les espaces ruraux français.",
+      "discipline": "geographie",
+      "theme": "Les espaces de faible densité et leurs atouts",
+      "verbe_cle": "expliquer",
+      "bornes_chrono": null,
+      "bornes_spatiales": "France",
+      "notions_attendues": [
+        "déprise démographique",
+        "vieillissement",
+        "exode rural",
+        "néoruraux",
+        "renouvellement de population",
+        "solde migratoire"
+      ],
+      "bareme_points": null,
+      "variation_de": "angle recentré sur la dimension démographique plutôt que sur les atouts"
+    },
+    {
+      "consigne": "Rédigez un développement construit d'une vingtaine de lignes dans lequel vous montrerez que les espaces de faible densité ne sont pas des espaces vides en France.",
+      "discipline": "geographie",
+      "theme": "Les espaces de faible densité et leurs atouts",
+      "verbe_cle": "montrer",
+      "bornes_chrono": null,
+      "bornes_spatiales": "France",
+      "notions_attendues": [
+        "occupation humaine",
+        "activités économiques",
+        "densité de population",
+        "infrastructures",
+        "valorisation des territoires",
+        "dynamiques locales"
+      ],
+      "bareme_points": null,
+      "variation_de": "verbe-clé passé de « expliquer » à « montrer » et angle à contre-courant du cliché de « désert rural »"
+    }
+  ]
+}

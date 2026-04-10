@@ -1,0 +1,65 @@
+{
+  "source_file": "variation_19prohgemcme1pdf-80268.pdf",
+  "year": 2019,
+  "serie": "professionnelle",
+  "session": "me",
+  "session_label": "Métropole",
+  "variant": "1",
+  "original_source": "19prohgemcme1pdf-80268.pdf",
+  "developpements_construits": [
+    {
+      "consigne": "Dans un développement construit d'une quinzaine de lignes et en vous appuyant sur un exemple étudié en classe, décrivez les paysages et les activités économiques d'un espace de faible densité en France.",
+      "discipline": "geographie",
+      "theme": "Les espaces de faibles densités en France",
+      "verbe_cle": "décrire",
+      "bornes_chrono": null,
+      "bornes_spatiales": "France",
+      "notions_attendues": [
+        "paysage rural",
+        "agriculture",
+        "tourisme",
+        "artisanat",
+        "activités traditionnelles",
+        "ressources locales"
+      ],
+      "bareme_points": null,
+      "variation_de": "verbe-clé passé de « présenter » à « décrire » et angle recentré sur les paysages et les activités économiques"
+    },
+    {
+      "consigne": "Sous la forme d'un développement construit d'une quinzaine de lignes, expliquez les défis auxquels sont confrontés les espaces ruraux français aujourd'hui.",
+      "discipline": "geographie",
+      "theme": "Les espaces de faibles densités en France",
+      "verbe_cle": "expliquer",
+      "bornes_chrono": null,
+      "bornes_spatiales": "France",
+      "notions_attendues": [
+        "déprise rurale",
+        "vieillissement de la population",
+        "enclavement",
+        "fermeture des services publics",
+        "maintien de l'agriculture",
+        "arrivée de néoruraux"
+      ],
+      "bareme_points": null,
+      "variation_de": "verbe-clé passé de « présenter » à « expliquer » et angle recentré sur les défis actuels"
+    },
+    {
+      "consigne": "Rédigez un développement construit d'une quinzaine de lignes dans lequel vous montrerez que les espaces de faible densité français ne sont pas des espaces en déclin.",
+      "discipline": "geographie",
+      "theme": "Les espaces de faibles densités en France",
+      "verbe_cle": "montrer",
+      "bornes_chrono": null,
+      "bornes_spatiales": "France",
+      "notions_attendues": [
+        "renouveau rural",
+        "néoruraux",
+        "tourisme vert",
+        "agriculture de qualité",
+        "télétravail",
+        "dynamiques économiques locales"
+      ],
+      "bareme_points": null,
+      "variation_de": "verbe-clé passé de « présenter » à « montrer » et angle à contre-courant du cliché de déclin rural"
+    }
+  ]
+}

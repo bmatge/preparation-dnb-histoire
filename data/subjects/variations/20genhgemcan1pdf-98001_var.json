@@ -1,0 +1,65 @@
+{
+  "source_file": "variation_20genhgemcan1pdf-98001.pdf",
+  "year": 2020,
+  "serie": "generale",
+  "session": "an",
+  "session_label": "Amérique du Nord",
+  "variant": "1",
+  "original_source": "20genhgemcan1pdf-98001.pdf",
+  "developpements_construits": [
+    {
+      "consigne": "Dans un développement construit d'une vingtaine de lignes, décrivez les méthodes utilisées par le régime nazi pour contrôler la société allemande.",
+      "discipline": "histoire",
+      "theme": "démocraties fragilisées et expériences totalitaires dans l'Europe de l'entre-deux-guerres.",
+      "verbe_cle": "décrire",
+      "bornes_chrono": "entre-deux-guerres",
+      "bornes_spatiales": "Allemagne",
+      "notions_attendues": [
+        "propagande",
+        "Gestapo",
+        "embrigadement de la jeunesse (Jeunesses hitlériennes)",
+        "contrôle des médias",
+        "terreur policière",
+        "parti unique"
+      ],
+      "bareme_points": null,
+      "variation_de": "verbe-clé passé de « montrer » à « décrire » et angle recentré sur les méthodes concrètes de contrôle social"
+    },
+    {
+      "consigne": "Sous la forme d'un développement construit d'environ vingt lignes, expliquez comment la crise des années 1930 favorise l'arrivée au pouvoir d'Hitler en Allemagne.",
+      "discipline": "histoire",
+      "theme": "démocraties fragilisées et expériences totalitaires dans l'Europe de l'entre-deux-guerres.",
+      "verbe_cle": "expliquer",
+      "bornes_chrono": "années 1930",
+      "bornes_spatiales": "Allemagne",
+      "notions_attendues": [
+        "crise économique de 1929",
+        "chômage de masse",
+        "fragilité de la République de Weimar",
+        "traité de Versailles",
+        "NSDAP",
+        "nationalisme et revanchisme"
+      ],
+      "bareme_points": null,
+      "variation_de": "verbe-clé passé de « montrer » à « expliquer » et angle recentré sur le contexte d'accès au pouvoir"
+    },
+    {
+      "consigne": "Rédigez un développement construit d'une vingtaine de lignes dans lequel vous présenterez les principales étapes de la mise en place du régime totalitaire nazi entre 1933 et 1939.",
+      "discipline": "histoire",
+      "theme": "démocraties fragilisées et expériences totalitaires dans l'Europe de l'entre-deux-guerres.",
+      "verbe_cle": "présenter",
+      "bornes_chrono": "1933-1939",
+      "bornes_spatiales": "Allemagne",
+      "notions_attendues": [
+        "pleins pouvoirs accordés à Hitler",
+        "interdiction des partis politiques",
+        "Gleichschaltung",
+        "lois de Nuremberg",
+        "Nuit de Cristal",
+        "militarisation"
+      ],
+      "bareme_points": null,
+      "variation_de": "verbe-clé passé de « montrer » à « présenter » et bornes chrono resserrées à 1933-1939 (mise en place)"
+    }
+  ]
+}

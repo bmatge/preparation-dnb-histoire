@@ -1,0 +1,65 @@
+{
+  "source_file": "variation_20genhgemcnc1pdf-94266.pdf",
+  "year": 2020,
+  "serie": "generale",
+  "session": "nc",
+  "session_label": "Nouvelle-Calédonie",
+  "variant": "1",
+  "original_source": "20genhgemcnc1pdf-94266.pdf",
+  "developpements_construits": [
+    {
+      "consigne": "Dans un développement construit d'une vingtaine de lignes, expliquez les dynamiques qui transforment les aires urbaines françaises aujourd'hui.",
+      "discipline": "geographie",
+      "theme": "Les aires urbaines en France",
+      "verbe_cle": "expliquer",
+      "bornes_chrono": null,
+      "bornes_spatiales": "France",
+      "notions_attendues": [
+        "métropolisation",
+        "périurbanisation",
+        "étalement urbain",
+        "gentrification",
+        "rénovation urbaine",
+        "mobilités"
+      ],
+      "bareme_points": null,
+      "variation_de": "verbe-clé passé de « décrire » à « expliquer » et angle recentré sur les dynamiques récentes"
+    },
+    {
+      "consigne": "Sous la forme d'un développement construit d'une vingtaine de lignes et en vous appuyant sur un exemple étudié en classe, présentez l'organisation d'une aire urbaine française.",
+      "discipline": "geographie",
+      "theme": "Les aires urbaines en France",
+      "verbe_cle": "présenter",
+      "bornes_chrono": null,
+      "bornes_spatiales": "France",
+      "notions_attendues": [
+        "pôle urbain",
+        "couronne périurbaine",
+        "centre-ville",
+        "banlieue",
+        "mobilités pendulaires",
+        "espace périurbain"
+      ],
+      "bareme_points": null,
+      "variation_de": "verbe-clé passé de « décrire » à « présenter » et angle resserré sur la seule organisation spatiale"
+    },
+    {
+      "consigne": "Rédigez un développement construit d'environ vingt lignes qui montre que les aires urbaines concentrent les populations et les activités en France.",
+      "discipline": "geographie",
+      "theme": "Les aires urbaines en France",
+      "verbe_cle": "montrer",
+      "bornes_chrono": null,
+      "bornes_spatiales": "France",
+      "notions_attendues": [
+        "concentration urbaine",
+        "métropolisation",
+        "emplois et activités tertiaires",
+        "densité de population",
+        "attractivité",
+        "inégalités territoriales"
+      ],
+      "bareme_points": null,
+      "variation_de": "verbe-clé passé de « décrire » à « montrer » et angle recentré sur la concentration population/activités"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "source_file": "variation_18genhgemcag1pdf-80343.pdf",
+  "year": 2018,
+  "serie": "generale",
+  "session": "ag",
+  "session_label": "Antilles-Guyane",
+  "variant": "1",
+  "original_source": "18genhgemcag1pdf-80343.pdf",
+  "developpements_construits": [
+    {
+      "consigne": "Dans un développement construit d'une vingtaine de lignes et en vous appuyant sur des exemples précis, expliquez comment Hitler et le parti nazi mettent en place un régime totalitaire en Allemagne à partir de 1933.",
+      "discipline": "histoire",
+      "theme": "Démocraties fragilisées et expériences totalitaires dans l'Europe de l'entre-deux-guerres",
+      "verbe_cle": "expliquer",
+      "bornes_chrono": "à partir de 1933",
+      "bornes_spatiales": "Allemagne",
+      "notions_attendues": [
+        "nazisme",
+        "parti unique",
+        "culte du chef",
+        "propagande",
+        "embrigadement de la société",
+        "terreur et police politique"
+      ],
+      "bareme_points": null,
+      "variation_de": "verbe-clé passé de « montrer » à « expliquer » et angle recentré sur la mise en place du régime (1933) plutôt que sur ses traits généraux"
+    },
+    {
+      "consigne": "Sous la forme d'un développement construit d'une vingtaine de lignes, décrivez les principales caractéristiques politiques, économiques et sociales du régime nazi en Allemagne.",
+      "discipline": "histoire",
+      "theme": "Démocraties fragilisées et expériences totalitaires dans l'Europe de l'entre-deux-guerres",
+      "verbe_cle": "décrire",
+      "bornes_chrono": null,
+      "bornes_spatiales": "Allemagne",
+      "notions_attendues": [
+        "totalitarisme",
+        "dictature",
+        "économie dirigée",
+        "embrigadement de la jeunesse",
+        "propagande",
+        "antisémitisme"
+      ],
+      "bareme_points": null,
+      "variation_de": "verbe-clé passé de « montrer » à « décrire » et angle structuré en trois dimensions (politique / économique / sociale)"
+    },
+    {
+      "consigne": "En vous appuyant sur vos connaissances, rédigez un développement construit d'une vingtaine de lignes dans lequel vous présenterez la politique antisémite mise en œuvre par le régime nazi dans les années 1930.",
+      "discipline": "histoire",
+      "theme": "Démocraties fragilisées et expériences totalitaires dans l'Europe de l'entre-deux-guerres",
+      "verbe_cle": "présenter",
+      "bornes_chrono": "années 1930",
+      "bornes_spatiales": "Allemagne",
+      "notions_attendues": [
+        "antisémitisme",
+        "lois de Nuremberg",
+        "Nuit de Cristal",
+        "discrimination",
+        "exclusion des Juifs",
+        "propagande raciste"
+      ],
+      "bareme_points": null,
+      "variation_de": "verbe-clé passé de « montrer » à « présenter » et sujet recentré sur la seule dimension antisémite du régime nazi"
+    }
+  ]
+}

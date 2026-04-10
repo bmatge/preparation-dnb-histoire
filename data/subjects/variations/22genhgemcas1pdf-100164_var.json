@@ -1,0 +1,65 @@
+{
+  "source_file": "variation_22genhgemcas1pdf-100164.pdf",
+  "year": 2022,
+  "serie": "generale",
+  "session": "as",
+  "session_label": "Asie",
+  "variant": "1",
+  "original_source": "22genhgemcas1pdf-100164.pdf",
+  "developpements_construits": [
+    {
+      "consigne": "Dans un développement construit d'une vingtaine de lignes, expliquez pourquoi et comment le régime de Vichy collabore avec l'Allemagne nazie.",
+      "discipline": "histoire",
+      "theme": "La France défaite et occupée : Régime de Vichy, collaboration et Résistance.",
+      "verbe_cle": "expliquer",
+      "bornes_chrono": "1940-1944",
+      "bornes_spatiales": "France",
+      "notions_attendues": [
+        "armistice 1940",
+        "rencontre de Montoire",
+        "Service du travail obligatoire (STO)",
+        "collaboration d'État",
+        "rafle du Vél d'Hiv",
+        "Pétain et Laval"
+      ],
+      "bareme_points": null,
+      "variation_de": "verbe-clé passé de « décrire » à « expliquer » et angle recentré sur les causes et les formes de la collaboration"
+    },
+    {
+      "consigne": "Sous la forme d'un développement construit d'environ vingt lignes, présentez les principales caractéristiques de la Révolution nationale mise en place par le régime de Vichy.",
+      "discipline": "histoire",
+      "theme": "La France défaite et occupée : Régime de Vichy, collaboration et Résistance.",
+      "verbe_cle": "présenter",
+      "bornes_chrono": "1940-1944",
+      "bornes_spatiales": "France",
+      "notions_attendues": [
+        "Révolution nationale",
+        "devise « Travail, Famille, Patrie »",
+        "culte de Pétain",
+        "politique antisémite",
+        "autoritarisme",
+        "propagande"
+      ],
+      "bareme_points": null,
+      "variation_de": "verbe-clé passé de « décrire » à « présenter » et angle recentré sur la Révolution nationale (idéologie)"
+    },
+    {
+      "consigne": "Rédigez un développement construit d'une vingtaine de lignes dans lequel vous montrerez que le régime de Vichy rompt avec les valeurs de la République française.",
+      "discipline": "histoire",
+      "theme": "La France défaite et occupée : Régime de Vichy, collaboration et Résistance.",
+      "verbe_cle": "montrer",
+      "bornes_chrono": "1940-1944",
+      "bornes_spatiales": "France",
+      "notions_attendues": [
+        "fin de la Troisième République",
+        "État français",
+        "pleins pouvoirs à Pétain",
+        "abolition des libertés",
+        "lois antisémites",
+        "fin du suffrage universel"
+      ],
+      "bareme_points": null,
+      "variation_de": "verbe-clé passé de « décrire » à « montrer » et angle recentré sur la rupture avec les valeurs républicaines"
+    }
+  ]
+}

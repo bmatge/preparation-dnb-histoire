@@ -1,0 +1,65 @@
+{
+  "source_file": "variation_22genhgemcag1pdf-98106.pdf",
+  "year": 2022,
+  "serie": "generale",
+  "session": "ag",
+  "session_label": "Antilles-Guyane",
+  "variant": "1",
+  "original_source": "22genhgemcag1pdf-98106.pdf",
+  "developpements_construits": [
+    {
+      "consigne": "Dans un développement construit d'une vingtaine de lignes et en vous appuyant sur des exemples précis, décrivez les différentes formes prises par la Résistance française entre 1940 et 1944.",
+      "discipline": "histoire",
+      "theme": "L'Europe, un théâtre majeur des guerres totales (1914-1945)",
+      "verbe_cle": "décrire",
+      "bornes_chrono": "1940-1944",
+      "bornes_spatiales": "France",
+      "notions_attendues": [
+        "Résistance intérieure",
+        "maquis",
+        "presse clandestine",
+        "sabotage",
+        "renseignement",
+        "France libre"
+      ],
+      "bareme_points": null,
+      "variation_de": "verbe-clé passé de « présenter » à « décrire » et bornes chrono précisées à 1940-1944"
+    },
+    {
+      "consigne": "Sous la forme d'un développement construit d'environ vingt lignes, expliquez comment la Résistance française s'organise et se développe pendant l'Occupation.",
+      "discipline": "histoire",
+      "theme": "L'Europe, un théâtre majeur des guerres totales (1914-1945)",
+      "verbe_cle": "expliquer",
+      "bornes_chrono": "1940-1944",
+      "bornes_spatiales": "France",
+      "notions_attendues": [
+        "appel du 18 juin",
+        "Jean Moulin",
+        "Conseil National de la Résistance (CNR)",
+        "réseaux et mouvements",
+        "unification de la Résistance",
+        "Charles de Gaulle"
+      ],
+      "bareme_points": null,
+      "variation_de": "verbe-clé passé de « présenter » à « expliquer » et angle recentré sur le processus d'organisation"
+    },
+    {
+      "consigne": "Rédigez un développement construit d'une vingtaine de lignes dans lequel vous montrerez que la Résistance française rassemble des personnes aux motivations et aux profils variés.",
+      "discipline": "histoire",
+      "theme": "L'Europe, un théâtre majeur des guerres totales (1914-1945)",
+      "verbe_cle": "montrer",
+      "bornes_chrono": "1940-1944",
+      "bornes_spatiales": "France",
+      "notions_attendues": [
+        "diversité des résistants",
+        "motivations politiques et patriotiques",
+        "communistes dans la Résistance",
+        "femmes dans la Résistance",
+        "étrangers dans la Résistance",
+        "Justes parmi les Nations"
+      ],
+      "bareme_points": null,
+      "variation_de": "verbe-clé passé de « présenter » à « montrer » et angle recentré sur la diversité sociologique des résistants"
+    }
+  ]
+}

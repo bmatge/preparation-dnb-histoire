@@ -1,0 +1,65 @@
+{
+  "source_file": "variation_22genhgemcaa1pdf-98130.pdf",
+  "year": 2022,
+  "serie": "generale",
+  "session": "aa",
+  "session_label": "Afrique",
+  "variant": "1",
+  "original_source": "22genhgemcaa1pdf-98130.pdf",
+  "developpements_construits": [
+    {
+      "consigne": "Dans un développement construit d'une vingtaine de lignes, décrivez les principales mesures sociales prises par le Front populaire en France en 1936.",
+      "discipline": "histoire",
+      "theme": "Démocraties fragilisées et expériences totalitaires dans l'Europe de l'entre-deux-guerres",
+      "verbe_cle": "décrire",
+      "bornes_chrono": "1936",
+      "bornes_spatiales": "France",
+      "notions_attendues": [
+        "accords de Matignon",
+        "congés payés",
+        "semaine de 40 heures",
+        "hausse des salaires",
+        "conventions collectives",
+        "droit syndical"
+      ],
+      "bareme_points": null,
+      "variation_de": "verbe-clé passé de « expliquer » à « décrire » et angle resserré sur les mesures sociales concrètes"
+    },
+    {
+      "consigne": "Sous la forme d'un développement construit d'environ vingt lignes, montrez que le Front populaire marque une rupture dans la vie politique et sociale française.",
+      "discipline": "histoire",
+      "theme": "Démocraties fragilisées et expériences totalitaires dans l'Europe de l'entre-deux-guerres",
+      "verbe_cle": "montrer",
+      "bornes_chrono": "1936",
+      "bornes_spatiales": "France",
+      "notions_attendues": [
+        "coalition de gauche",
+        "victoire électorale de 1936",
+        "grèves et occupations d'usines",
+        "Léon Blum",
+        "accords de Matignon",
+        "congés payés"
+      ],
+      "bareme_points": null,
+      "variation_de": "verbe-clé passé de « expliquer » à « montrer » et angle recentré sur la thèse de la rupture"
+    },
+    {
+      "consigne": "Rédigez un développement construit d'une vingtaine de lignes dans lequel vous présenterez le contexte politique et social qui conduit à la victoire du Front populaire en France en 1936.",
+      "discipline": "histoire",
+      "theme": "Démocraties fragilisées et expériences totalitaires dans l'Europe de l'entre-deux-guerres",
+      "verbe_cle": "présenter",
+      "bornes_chrono": "années 1930",
+      "bornes_spatiales": "France",
+      "notions_attendues": [
+        "crise économique",
+        "montée des ligues d'extrême droite",
+        "6 février 1934",
+        "rassemblement des gauches",
+        "antifascisme",
+        "démocratie fragilisée"
+      ],
+      "bareme_points": null,
+      "variation_de": "verbe-clé passé de « expliquer » à « présenter » et angle recentré sur le contexte d'accession au pouvoir"
+    }
+  ]
+}

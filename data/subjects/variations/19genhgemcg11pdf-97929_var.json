@@ -1,0 +1,65 @@
+{
+  "source_file": "variation_19genhgemcg11pdf-97929.pdf",
+  "year": 2019,
+  "serie": "generale",
+  "session": "g1",
+  "session_label": "Métropole (1er groupe)",
+  "variant": "1",
+  "original_source": "19genhgemcg11pdf-97929.pdf",
+  "developpements_construits": [
+    {
+      "consigne": "Dans un développement construit d'une vingtaine de lignes, décrivez les principales crises de la guerre froide et leurs conséquences sur les relations internationales.",
+      "discipline": "histoire",
+      "theme": "Un monde bipolaire au temps de la guerre froide",
+      "verbe_cle": "décrire",
+      "bornes_chrono": "1947-1991",
+      "bornes_spatiales": null,
+      "notions_attendues": [
+        "blocus de Berlin",
+        "crise de Cuba",
+        "guerre de Corée",
+        "équilibre de la terreur",
+        "coexistence pacifique",
+        "course aux armements"
+      ],
+      "bareme_points": null,
+      "variation_de": "verbe-clé passé de « montrer » à « décrire » et angle recentré sur les crises comme points d'accroche"
+    },
+    {
+      "consigne": "Sous la forme d'un développement construit d'environ vingt lignes, expliquez comment le monde s'organise en deux blocs rivaux après 1945.",
+      "discipline": "histoire",
+      "theme": "Un monde bipolaire au temps de la guerre froide",
+      "verbe_cle": "expliquer",
+      "bornes_chrono": "après 1945",
+      "bornes_spatiales": null,
+      "notions_attendues": [
+        "bipolarisation",
+        "doctrine Truman / plan Marshall",
+        "rideau de fer",
+        "OTAN / Pacte de Varsovie",
+        "containment",
+        "sphères d'influence"
+      ],
+      "bareme_points": null,
+      "variation_de": "verbe-clé passé de « montrer » à « expliquer » et angle recentré sur la genèse de la bipolarisation"
+    },
+    {
+      "consigne": "Rédigez un développement construit d'une vingtaine de lignes dans lequel vous présenterez les modèles politiques, économiques et sociaux qui s'opposent pendant la guerre froide.",
+      "discipline": "histoire",
+      "theme": "Un monde bipolaire au temps de la guerre froide",
+      "verbe_cle": "présenter",
+      "bornes_chrono": null,
+      "bornes_spatiales": null,
+      "notions_attendues": [
+        "modèle capitaliste",
+        "modèle communiste",
+        "démocratie libérale",
+        "parti unique",
+        "économie de marché",
+        "économie planifiée"
+      ],
+      "bareme_points": null,
+      "variation_de": "verbe-clé passé de « montrer » à « présenter » et angle recentré sur l'opposition de modèles plutôt que de blocs militaires"
+    }
+  ]
+}
