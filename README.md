@@ -49,7 +49,7 @@ set -a && . ./.env && set +a
 ```
 
 Au premier démarrage, la base SQLite est créée et les 23 sujets d'annales
-sont chargés depuis `data/subjects/*.json` (générés par `extract_subjects.py`).
+sont chargés depuis `content/histoire-geo-emc/subjects/*.json` (générés par `extract_subjects.py`).
 
 ## Démarrage Docker / prod
 
@@ -73,7 +73,7 @@ sans valeur stable, chaque restart du conteneur invalide les sessions des
 
 | Script | Quand l'utiliser |
 |---|---|
-| `python -m scripts.extract_subjects Anales/` | Re-extraire les sujets DC depuis les PDF d'annales (Opus offline, coûte des tokens Anthropic) |
+| `python -m scripts.extract_subjects content/histoire-geo-emc/annales/` | Re-extraire les sujets DC depuis les PDF d'annales (Opus offline, coûte des tokens Anthropic) |
 | `python -m scripts.ingest` | Pousser le corpus dans Albert (idempotent, sha256) |
 | `python -m scripts.ingest --only methodo` | Re-pousser une seule collection |
 | `python -m scripts.ingest --force` | Re-pousser tout, même les fichiers inchangés |
@@ -92,8 +92,15 @@ app/
 scripts/
 ├── extract_subjects.py  # Opus offline → JSON structuré
 └── ingest.py            # Push du corpus vers les collections Albert
+content/
+└── histoire-geo-emc/
+    ├── programme/     # Programmes officiels cycle 4 (PDF)
+    ├── methodologie/  # Fiches méthodo DC
+    ├── annales/       # PDF DNB 2018-2022
+    ├── corriges/      # Corrigés modèles
+    └── subjects/      # JSON par annale (sortie d'extract_subjects)
+        └── variations/ # Variations générées offline par Opus
 data/
-├── subjects/          # JSON par annale (sortie d'extract_subjects)
 ├── ingest_state.db    # SHA256 des fichiers ingérés (idempotence)
 └── app.db             # SQLite runtime (sessions élèves)
 ```

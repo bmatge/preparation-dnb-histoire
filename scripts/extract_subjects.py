@@ -12,8 +12,8 @@ Pourquoi Claude Opus et pas Albert :
 - Albert n'a pas toujours un parser JSON strict fiable
 
 Ce que le script produit :
-1. Un fichier JSON par PDF : data/subjects/<stem>.json
-2. Un fichier consolidé : data/subjects/_all.json (array de tous les sujets)
+1. Un fichier JSON par PDF : content/histoire-geo-emc/subjects/<stem>.json
+2. Un fichier consolidé : content/histoire-geo-emc/subjects/_all.json (array de tous les sujets)
 
 Ces fichiers seront ensuite consommés par scripts/ingest.py pour :
 - Alimenter la table `subjects` de SQLite
@@ -21,8 +21,8 @@ Ces fichiers seront ensuite consommés par scripts/ingest.py pour :
 
 Usage :
     source .env
-    .venv/bin/python -m scripts.extract_subjects Anales/
-    .venv/bin/python -m scripts.extract_subjects Anales/18genhgemcan1pdf-80388.pdf
+    .venv/bin/python -m scripts.extract_subjects content/histoire-geo-emc/annales/
+    .venv/bin/python -m scripts.extract_subjects content/histoire-geo-emc/annales/18genhgemcan1pdf-80388.pdf
 
 Options :
     --force : retraite les PDF même si le JSON existe déjà
@@ -53,7 +53,7 @@ logger = logging.getLogger(__name__)
 OPUS_MODEL = "claude-opus-4-6"
 
 # Répertoire de sortie
-OUTPUT_DIR = Path("data/subjects")
+OUTPUT_DIR = Path("content/histoire-geo-emc/subjects")
 
 # Regex pour parser le nom de fichier type "22genhgemcan1pdf-98088.pdf"
 # (YY)(gen|pro)(hgemc)(XX)(1)(pdf)-(NNN).pdf
@@ -264,7 +264,7 @@ def main():
     parser.add_argument(
         "path",
         type=Path,
-        help="Chemin vers un PDF ou un dossier de PDF (ex: Anales/)",
+        help="Chemin vers un PDF ou un dossier de PDF (ex: content/histoire-geo-emc/annales/)",
     )
     parser.add_argument("--force", action="store_true", help="Retraiter même si JSON existant")
     parser.add_argument("--limit", type=int, default=None, help="Ne traiter que N PDF")

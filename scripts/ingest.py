@@ -4,7 +4,7 @@ Ingestion du corpus DNB dans les collections RAG d'Albert.
 Ce script pousse les PDF du dépôt vers les 4 collections Albert qui servent
 de base de connaissances au tuteur :
 
-  - dnb_sujets      : sujets "développement construit" extraits des Anales
+  - dnb_sujets      : sujets "développement construit" extraits des annales
                       (JSON produits par scripts/extract_subjects.py)
   - dnb_corriges    : corrigés modèles des DNB
   - dnb_methodo     : fiches méthodologiques
@@ -27,10 +27,10 @@ Usage :
     .venv/bin/python -m scripts.ingest --dry-run          # simule sans appels réseau
 
 Corpus attendu (depuis la racine du repo) :
-    Anales/*.pdf                   →  dnb_sujets (via data/subjects/*.json)
-    Corrigés/*.pdf                 →  dnb_corriges
-    Methodologie/*.pdf,*.md        →  dnb_methodo
-    Programme/*.pdf                →  dnb_programmes
+    content/histoire-geo-emc/annales/*.pdf          →  dnb_sujets (via .../subjects/*.json)
+    content/histoire-geo-emc/corriges/*.pdf         →  dnb_corriges
+    content/histoire-geo-emc/methodologie/*.pdf,*.md →  dnb_methodo
+    content/histoire-geo-emc/programme/*.pdf        →  dnb_programmes
 """
 
 from __future__ import annotations
@@ -59,6 +59,7 @@ DEFAULT_BASE_URL = "https://albert.api.etalab.gouv.fr/v1"
 STATE_DB = Path("data/ingest_state.db")
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
+HGEMC_CONTENT = REPO_ROOT / "content" / "histoire-geo-emc"
 
 
 @dataclass(frozen=True)
@@ -77,26 +78,26 @@ COLLECTIONS: dict[str, CollectionSpec] = {
         key="corriges",
         name="dnb_corriges",
         description="Corrigés officiels et modèles de DNB histoire-géo-EMC.",
-        sources=[REPO_ROOT / "Corrigés"],
+        sources=[HGEMC_CONTENT / "corriges"],
     ),
     "methodo": CollectionSpec(
         key="methodo",
         name="dnb_methodo",
         description="Fiches méthodologiques pour le développement construit au DNB.",
-        sources=[REPO_ROOT / "Methodologie"],
+        sources=[HGEMC_CONTENT / "methodologie"],
         file_patterns=("*.pdf", "*.md"),
     ),
     "programmes": CollectionSpec(
         key="programmes",
         name="dnb_programmes",
         description="Programmes officiels cycle 4 histoire-géo-EMC. Source d'autorité anti-hallucination.",
-        sources=[REPO_ROOT / "Programme"],
+        sources=[HGEMC_CONTENT / "programme"],
     ),
     "sujets": CollectionSpec(
         key="sujets",
         name="dnb_sujets",
         description="Consignes de développement construit extraites des annales DNB.",
-        sources=[REPO_ROOT / "data" / "subjects"],
+        sources=[HGEMC_CONTENT / "subjects"],
         file_patterns=("*.json",),
     ),
 }
