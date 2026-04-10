@@ -46,10 +46,19 @@ router = APIRouter(tags=["francais-comprehension"])
 
 _HERE = Path(__file__).resolve().parent
 _APP_DIR = _HERE.parent.parent
+_REPO_ROOT = _APP_DIR.parent
 _CORE_TEMPLATES = _APP_DIR / "core" / "templates"
 _COMP_TEMPLATES = _HERE / "templates"
+_IMAGES_DIR = _REPO_ROOT / "content" / "francais" / "comprehension" / "images"
 
 templates = Jinja2Templates(directory=[str(_COMP_TEMPLATES), str(_CORE_TEMPLATES)])
+
+
+def _image_url_for(slug: str) -> str | None:
+    """URL publique de l'illustration du sujet, ou None si le PNG n'existe pas."""
+    if (_IMAGES_DIR / f"{slug}.png").exists():
+        return f"/francais-images/{slug}.png"
+    return None
 
 
 # ============================================================================
@@ -68,7 +77,7 @@ def _load_session_exo(db: DBSession, session_id: int):
     if row is None:
         raise HTTPException(status_code=404, detail="Exercice introuvable.")
     exo = row.load()
-    items = exo.flatten_items()
+    items = exo.flatten_items(include_image_questions=True)
     return sess, row, exo, items
 
 
@@ -156,6 +165,7 @@ def show_item(
     turns = get_turns_by_step(db, session_id, order)
     hints_used = ped.count_hints_at_step(db, session_id, order)
     last_answer = _last_user_answer(db, session_id, order)
+    image_url = _image_url_for(row.slug)
 
     return templates.TemplateResponse(
         request,
@@ -169,6 +179,7 @@ def show_item(
             "hints_used": hints_used,
             "last_answer": last_answer,
             "total_items": len(items),
+            "image_url": image_url,
         },
     )
 

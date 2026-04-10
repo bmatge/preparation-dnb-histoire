@@ -155,6 +155,7 @@ def _build_context(
         notes=exo.notes_texte,
         paratexte=exo.paratexte,
         item=item,
+        image=exo.image,
     )
 
 

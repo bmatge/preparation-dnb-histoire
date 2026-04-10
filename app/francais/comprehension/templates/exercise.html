@@ -29,6 +29,22 @@
         </p>
         {% endif %}
 
+        {% if image_url and exercise.image %}
+        <figure class="mb-5 pb-5 border-b border-slate-100">
+          <img
+            src="{{ image_url }}"
+            alt="{{ exercise.image.description_visuelle }}"
+            class="w-full rounded-xl border border-slate-200 bg-slate-50"
+            loading="lazy"
+          />
+          <figcaption class="mt-2 text-xs text-slate-500">
+            {% if exercise.image.titre %}<em>{{ exercise.image.titre }}</em>{% endif %}
+            {% if exercise.image.auteur %}{% if exercise.image.titre %}, {% endif %}{{ exercise.image.auteur }}{% endif %}
+            {% if exercise.image.annee %} ({{ exercise.image.annee }}){% endif %}
+          </figcaption>
+        </figure>
+        {% endif %}
+
         <div class="font-display text-[1.02rem] leading-relaxed text-slate-800 space-y-0">
           {% for ligne in exercise.texte_support.lignes %}
           <div class="flex gap-3" id="ligne-{{ ligne.n }}">
