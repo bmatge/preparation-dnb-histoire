@@ -22,6 +22,8 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from enum import Enum
 
+from app.core.rag import RagPassage
+
 
 # ============================================================================
 # Persona système — constant dans toute l'app
@@ -99,14 +101,6 @@ class SubjectContext:
     bornes_chrono: str | None = None
     bornes_spatiales: str | None = None
     notions_attendues: list[str] = field(default_factory=list)
-
-
-@dataclass
-class RagPassage:
-    """Un extrait retrouvé par Albert dans une collection."""
-
-    source: str  # ex: "corrigé 2021 Berlin", "programme cycle 4", "méthodo MrDarras"
-    content: str
 
 
 def _format_context(passages: list[RagPassage]) -> str:
@@ -589,7 +583,6 @@ __all__ = [
     "SYSTEM_PERSONA",
     "Mode",
     "SubjectContext",
-    "RagPassage",
     "build_decrypt_subject",
     "build_help_understand_subject",
     "build_first_eval",

@@ -82,10 +82,10 @@ revise-ton-dnb/
 │   └── subjects/        # 23 JSON + variations/ (cf extract_subjects.py)
 ├── app/
 │   ├── __init__.py
-│   ├── prompts.py       ✅ 5 templates pédagogiques, testés en live
-│   ├── albert_client.py ✅ wrapper OpenAI + routage Task + post-filtres
-│   ├── templates/_partials/  (vides)
-│   └── static/               (vide)
+│   ├── core/              Plateforme mutualisée (FastAPI root, DB partagée,
+│   │                      Albert client, RAG, formatting, base.html)
+│   └── histoire_geo_emc/  Matière DNB histoire-géo-EMC : routes, pedagogy,
+│                          prompts, Subject, templates step_*.html
 ├── scripts/
 │   ├── __init__.py
 │   ├── extract_subjects.py ✅ Opus offline → JSON structuré
@@ -330,7 +330,7 @@ set -a && . ./.env && set +a
 
 # Test de connectivité Albert
 .venv/bin/python -c "
-from app.albert_client import AlbertClient
+from app.core.albert_client import AlbertClient
 print(AlbertClient().health_check())
 "
 
@@ -381,7 +381,7 @@ Commence par :
 2. Lire `/home/miweb/.claude/plans/cuddly-prancing-llama.md` pour le plan initial
 3. Lire `app/prompts.py` et `app/albert_client.py` pour comprendre l'API interne
 4. Vérifier que `.env` contient bien `ALBERT_API_KEY` et `ANTHROPIC_API_KEY`
-5. `source .env && .venv/bin/python -c "from app.albert_client import AlbertClient; print(AlbertClient().health_check())"` pour confirmer que l'API Albert marche
+5. `source .env && .venv/bin/python -c "from app.core.albert_client import AlbertClient; print(AlbertClient().health_check())"` pour confirmer que l'API Albert marche
 6. Enchaîner les tâches 1 → 6 dans l'ordre de §6
 
 

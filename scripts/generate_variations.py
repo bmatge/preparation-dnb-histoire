@@ -22,7 +22,7 @@ Sortie :
     content/histoire-geo-emc/subjects/variations/<stem>_var.json
 
 Format identique à celui produit par extract_subjects.py — ce qui permet à
-`app.db.load_subjects_from_jsons()` de les charger avec la même logique,
+`app.histoire_geo_emc.models.load_subjects_from_jsons()` de les charger avec la même logique,
 simplement marqués `is_variation=True` parce qu'ils sont dans le sous-dossier
 `variations/`.
 
