@@ -27,8 +27,8 @@ COPY scripts/ ./scripts/
 # User non-root + ownership de /app (cf. HANDOFF : data/ doit être writable
 # par le user du conteneur, sinon les fichiers créés par git pull / le runtime
 # se retrouvent en root sur l'hôte et bloquent les déploiements suivants).
-RUN groupadd --system --gid ${GID} app \
-    && useradd --system --uid ${UID} --gid ${GID} --home /app --shell /usr/sbin/nologin app \
+RUN groupadd --gid ${GID} app \
+    && useradd --uid ${UID} --gid ${GID} --home /app --shell /usr/sbin/nologin app \
     && mkdir -p /app/data \
     && chown -R app:app /app
 

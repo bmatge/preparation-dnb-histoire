@@ -63,23 +63,31 @@ fi
 export APP_UID="$(id -u)"
 export APP_GID="$(id -g)"
 
-# 1ter. data/ writable par l'utilisateur courant ?
-# Sans ça, le git pull ci-dessous peut échouer ("Permission denied") si data/
-# a été créé en root par un ancien conteneur sans Dockerfile USER.
-if [[ -d data ]] && [[ ! -w data ]]; then
-  warn "data/ n'est pas writable par $(id -un)"
-  if command -v sudo >/dev/null 2>&1; then
-    log "tentative de chown -R $(id -un):$(id -gn) data/"
-    sudo chown -R "$(id -u):$(id -g)" data || {
-      err "chown a échoué. Lance manuellement :"
-      err "  sudo chown -R \$(id -u):\$(id -g) data/"
+# 1ter. data/ et tout son contenu writable par l'utilisateur courant ?
+# Sans ça, le git pull ci-dessous peut échouer ("Permission denied") si des
+# fichiers ont été créés en root par un ancien conteneur sans Dockerfile USER.
+# On teste non seulement data/ mais aussi son contenu récursif : il arrive
+# que data/ soit writable (dossier owned par ubuntu) alors que data/subjects/*
+# appartient encore à root à cause d'anciens déploiements.
+if [[ -d data ]]; then
+  # -not -writable trouve tout fichier/dossier pour lequel l'utilisateur
+  # courant n'a pas le droit d'écriture. On s'arrête au premier match.
+  first_bad="$(find data -not -writable -print -quit 2>/dev/null || true)"
+  if [[ -n "$first_bad" ]]; then
+    warn "droits insuffisants sur data/ (ex: $first_bad)"
+    if command -v sudo >/dev/null 2>&1; then
+      log "tentative de chown -R $(id -un):$(id -gn) data/"
+      sudo chown -R "$(id -u):$(id -g)" data || {
+        err "chown a échoué. Lance manuellement :"
+        err "  sudo chown -R \$(id -u):\$(id -g) data/"
+        exit 1
+      }
+      ok "data/ rebasculé sur $(id -un):$(id -gn)"
+    else
+      err "sudo indisponible. Corrige les droits manuellement :"
+      err "  chown -R \$(id -u):\$(id -g) data/"
       exit 1
-    }
-    ok "data/ rebasculé sur $(id -un):$(id -gn)"
-  else
-    err "sudo indisponible. Corrige les droits manuellement :"
-    err "  chown -R \$(id -u):\$(id -g) data/"
-    exit 1
+    fi
   fi
 fi
 
