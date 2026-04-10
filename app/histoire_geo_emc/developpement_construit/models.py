@@ -26,8 +26,8 @@ from app.core.db import get_engine
 
 logger = logging.getLogger(__name__)
 
-# app/histoire_geo_emc/models.py → racine du repo = 3 niveaux plus haut.
-REPO_ROOT = Path(__file__).resolve().parent.parent.parent
+# app/histoire_geo_emc/developpement_construit/models.py → racine = 4 parents.
+REPO_ROOT = Path(__file__).resolve().parent.parent.parent.parent
 SUBJECTS_DIR = REPO_ROOT / "content" / "histoire-geo-emc" / "subjects"
 # Sujets générés offline par scripts/generate_variations.py — format JSON
 # identique mais marqués is_variation=True en base.

@@ -1,22 +1,24 @@
 """
-Routes FastAPI spécifiques à la matière histoire-géographie-EMC (DNB).
+Router racine de la matière histoire-géographie-EMC.
 
 Ce router est monté par `app.core.main` sous le préfixe `/histoire-geo-emc`.
-Il expose l'intégralité du parcours « développement construit » (7 étapes) :
+Son rôle est double :
 
-  POST /histoire-geo-emc/session/new      crée une session + redirect vers /step/1
-  GET  /histoire-geo-emc/restart          efface la session courante
-  GET  /histoire-geo-emc/                 accueil de la matière (tirage de sujet)
-  GET  /histoire-geo-emc/step/1           affichage du sujet
-  POST /histoire-geo-emc/step/1/help      coup de pouce socratique
-  GET  /histoire-geo-emc/step/2           formulaire 1ʳᵉ proposition
-  POST /histoire-geo-emc/step/2/submit    → 1ʳᵉ évaluation (partial HTMX)
-  GET  /histoire-geo-emc/step/4           formulaire 2ᵉ proposition
-  POST /histoire-geo-emc/step/4/submit    → 2ᵉ évaluation (partial HTMX)
-  GET  /histoire-geo-emc/step/6           formulaire rédaction complète
-  POST /histoire-geo-emc/step/6/submit    → correction finale (partial HTMX)
+1. Exposer une **page d'index matière** qui liste les épreuves disponibles
+   (aujourd'hui : développement construit + repères).
 
-Le MVP est en mode `SEMI_ASSISTE` uniquement.
+2. **Inclure les sous-routers** d'épreuve :
+   - `developpement-construit/*` → `app.histoire_geo_emc.developpement_construit.routes`
+   - `reperes/*`                 → `app.histoire_geo_emc.reperes.routes`
+
+3. Maintenir la **compatibilité des anciennes URLs** mono-épreuve (avant le
+   refacto par épreuve) en redirigeant :
+   - `GET|POST /histoire-geo-emc/step/{rest}` → `/histoire-geo-emc/developpement-construit/step/{rest}` (301)
+   - `POST /histoire-geo-emc/session/new`     → `/histoire-geo-emc/developpement-construit/session/new` (307, préserve le corps)
+   - `GET  /histoire-geo-emc/restart`         → `/histoire-geo-emc/developpement-construit/restart` (303)
+
+Ces redirects évitent de casser les sessions élèves en cours : le cookie
+Starlette reste valide, seule l'URL change.
 """
 
 from __future__ import annotations
@@ -24,312 +26,83 @@ from __future__ import annotations
 import logging
 from pathlib import Path
 
-from fastapi import APIRouter, Depends, Form, HTTPException, Request
+from fastapi import APIRouter, Request
 from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.templating import Jinja2Templates
-from markupsafe import Markup
-from sqlmodel import Session as DBSession
 
-from app.core import db as core_db
-from app.core.db import db_session
-from app.core.formatting import render_eval_markdown
-from app.histoire_geo_emc import models as hgemc_models
-from app.histoire_geo_emc.pedagogy import (
-    run_step_1_help,
-    run_step_3,
-    run_step_5,
-    run_step_7,
-)
-from app.histoire_geo_emc.prompts import Mode
+from app.histoire_geo_emc.developpement_construit.routes import router as dc_router
+from app.histoire_geo_emc.reperes.routes import router as reperes_router
 
 logger = logging.getLogger(__name__)
 
 # ============================================================================
-# Router + templates
+# Router + templates matière
 # ============================================================================
 
 PREFIX = "/histoire-geo-emc"
 
 router = APIRouter(prefix=PREFIX, tags=["histoire-geo-emc"])
 
-# Templates : hgemc/templates en priorité (les pages spécifiques à la matière),
-# core/templates en fallback (notamment pour base.html dont tous les templates
-# héritent). L'ordre compte : core/templates contient aussi un home.html qui
-# est le sélecteur de matière — si on le mettait en premier, il shadowerait
-# le home.html de la matière et on tournerait en boucle sur le sélecteur.
-_APP_DIR = Path(__file__).resolve().parent.parent
+_HERE = Path(__file__).resolve().parent
+_APP_DIR = _HERE.parent
 _CORE_TEMPLATES = _APP_DIR / "core" / "templates"
-_HGEMC_TEMPLATES = _APP_DIR / "histoire_geo_emc" / "templates"
+_HGEMC_TEMPLATES = _HERE / "templates"
 
+# Templates matière : index.html en priorité, core en fallback pour base.html.
 templates = Jinja2Templates(directory=[str(_HGEMC_TEMPLATES), str(_CORE_TEMPLATES)])
-templates.env.filters["eval_md"] = lambda txt: Markup(render_eval_markdown(txt or ""))
 
 
 # ============================================================================
-# Helpers
-# ============================================================================
-
-
-def _current_session_id(request: Request) -> int | None:
-    sid = request.session.get("session_id")
-    return int(sid) if sid is not None else None
-
-
-def _require_session(request: Request, s: DBSession) -> core_db.Session:
-    sid = _current_session_id(request)
-    if sid is None:
-        raise HTTPException(status_code=303, headers={"Location": "/"})
-    sess = core_db.get_session(s, sid)
-    if sess is None:
-        raise HTTPException(status_code=303, headers={"Location": "/"})
-    return sess
-
-
-def _subject_dict(subj: hgemc_models.Subject) -> dict:
-    return {
-        "id": subj.id,
-        "consigne": subj.consigne,
-        "discipline": subj.discipline,
-        "theme": subj.theme,
-        "year": subj.year,
-        "session_label": subj.session_label,
-        "verbe_cle": subj.verbe_cle,
-        "bornes_chrono": subj.bornes_chrono,
-        "bornes_spatiales": subj.bornes_spatiales,
-        "notions_attendues": subj.notions_attendues,
-        "bareme_points": subj.bareme_points,
-    }
-
-
-# ============================================================================
-# Routes transverses à la matière
+# Index matière
 # ============================================================================
 
 
 @router.get("/", response_class=HTMLResponse)
-def hgemc_home(request: Request):
-    """Accueil de la matière : formulaire de tirage de sujet."""
-    return templates.TemplateResponse(request, "home.html")
+def hgemc_index(request: Request):
+    """Page d'index de la matière : liste des épreuves disponibles."""
+    return templates.TemplateResponse(request, "index.html")
+
+
+# ============================================================================
+# Redirects de compat (anciennes URLs DC mono-épreuve → nouvelles)
+# ============================================================================
+
+
+@router.api_route("/step/{rest:path}", methods=["GET", "POST"])
+def _legacy_step(rest: str):
+    """Redirige les anciennes URLs `/histoire-geo-emc/step/{n}` vers le DC.
+
+    307 pour préserver le verbe HTTP et le corps de requête (utile si un
+    élève a un formulaire en vol au moment du déploiement).
+    """
+    return RedirectResponse(
+        url=f"{PREFIX}/developpement-construit/step/{rest}",
+        status_code=307,
+    )
 
 
 @router.post("/session/new")
-def session_new(
-    request: Request,
-    discipline: str = Form(default=""),
-    source: str = Form(default="annales"),
-    s: DBSession = Depends(db_session),
-):
-    """Crée une session avec un sujet aléatoire.
-
-    `source` vaut :
-    - "annales"   → tirage dans les sujets réels extraits des PDF d'annales.
-    - "variation" → tirage dans les variations générées offline par
-                    scripts/generate_variations.py (Opus).
-    """
-    is_variation = source == "variation"
-    subj = hgemc_models.random_subject(
-        s,
-        discipline=discipline or None,
-        is_variation=is_variation,
+def _legacy_session_new():
+    return RedirectResponse(
+        url=f"{PREFIX}/developpement-construit/session/new",
+        status_code=307,
     )
-    if subj is None:
-        # Pas de variation disponible → on redirige vers l'accueil matière avec
-        # un message plutôt que de retomber silencieusement sur une annale,
-        # sinon l'élève ne comprend pas ce qui s'est passé.
-        err = "aucune_variation" if is_variation else "aucun_sujet"
-        return RedirectResponse(url=f"{PREFIX}/?erreur={err}", status_code=303)
-    new_sess = core_db.create_session(
-        s, subject_id=subj.id, mode=Mode.SEMI_ASSISTE.value
-    )
-    request.session["session_id"] = new_sess.id
-    return RedirectResponse(url=f"{PREFIX}/step/1", status_code=303)
 
 
 @router.get("/restart")
-def restart(request: Request):
-    request.session.pop("session_id", None)
-    return RedirectResponse(url="/", status_code=303)
-
-
-# ---------------------------------------------------------------------------
-# Étape 1 — affichage du sujet
-# ---------------------------------------------------------------------------
-
-
-@router.get("/step/1", response_class=HTMLResponse)
-def step_1(request: Request, s: DBSession = Depends(db_session)):
-    sess = _require_session(request, s)
-    subj = hgemc_models.get_subject(s, sess.subject_id)
-    core_db.update_session_step(s, sess.id, step=1)
-    return templates.TemplateResponse(
-        request,
-        "step_1_subject.html",
-        {"subject": _subject_dict(subj)},
+def _legacy_restart():
+    return RedirectResponse(
+        url=f"{PREFIX}/developpement-construit/restart",
+        status_code=303,
     )
 
 
-@router.post("/step/1/help", response_class=HTMLResponse)
-def step_1_help(request: Request, s: DBSession = Depends(db_session)):
-    """Coup de pouce : questions ciblées pour décrypter le sujet.
+# ============================================================================
+# Inclusion des sous-routers d'épreuve
+# ============================================================================
 
-    Répond en partial HTMX, à injecter dans #help-area de step_1_subject.html.
-    """
-    sess = _require_session(request, s)
-    reply = run_step_1_help(s, sess.id)
-    return templates.TemplateResponse(
-        request,
-        "_partials/help_response.html",
-        {"content": reply},
-    )
-
-
-# ---------------------------------------------------------------------------
-# Étape 2 → 3 : proposition v1, puis première évaluation
-# ---------------------------------------------------------------------------
-
-
-@router.get("/step/2", response_class=HTMLResponse)
-def step_2(request: Request, s: DBSession = Depends(db_session)):
-    sess = _require_session(request, s)
-    subj = hgemc_models.get_subject(s, sess.subject_id)
-    core_db.update_session_step(s, sess.id, step=2)
-    return templates.TemplateResponse(
-        request,
-        "step_2_proposal.html",
-        {"subject": _subject_dict(subj)},
-    )
-
-
-@router.post("/step/2/submit", response_class=HTMLResponse)
-def step_2_submit(
-    request: Request,
-    proposition: str = Form(...),
-    s: DBSession = Depends(db_session),
-):
-    sess = _require_session(request, s)
-    proposition = (proposition or "").strip()
-    if len(proposition) < 20:
-        return templates.TemplateResponse(
-            request,
-            "_partials/error.html",
-            {
-                "message": "Écris au moins quelques phrases pour ta proposition (essaie d'expliquer ton plan et tes idées principales).",
-            },
-        )
-
-    reply = run_step_3(s, sess.id, first_proposal=proposition, mode=Mode.SEMI_ASSISTE)
-    return templates.TemplateResponse(
-        request,
-        "_partials/eval_response.html",
-        {
-            "title": "Première évaluation",
-            "content": reply,
-            "next_url": f"{PREFIX}/step/4",
-            "next_label": "Je retravaille ma proposition",
-        },
-    )
-
-
-# ---------------------------------------------------------------------------
-# Étape 4 → 5 : proposition v2, puis seconde évaluation
-# ---------------------------------------------------------------------------
-
-
-@router.get("/step/4", response_class=HTMLResponse)
-def step_4(request: Request, s: DBSession = Depends(db_session)):
-    sess = _require_session(request, s)
-    subj = hgemc_models.get_subject(s, sess.subject_id)
-    first = core_db.get_last_user_turn(s, sess.id, step=2)
-    core_db.update_session_step(s, sess.id, step=4)
-    return templates.TemplateResponse(
-        request,
-        "step_4_reproposal.html",
-        {
-            "subject": _subject_dict(subj),
-            "previous_proposal": first.content if first else "",
-        },
-    )
-
-
-@router.post("/step/4/submit", response_class=HTMLResponse)
-def step_4_submit(
-    request: Request,
-    proposition: str = Form(...),
-    s: DBSession = Depends(db_session),
-):
-    sess = _require_session(request, s)
-    proposition = (proposition or "").strip()
-    if len(proposition) < 20:
-        return templates.TemplateResponse(
-            request,
-            "_partials/error.html",
-            {
-                "message": "Ta nouvelle proposition est un peu courte — étoffe-la avant que je puisse t'aider à voir tes progrès.",
-            },
-        )
-
-    reply = run_step_5(s, sess.id, second_proposal=proposition, mode=Mode.SEMI_ASSISTE)
-    return templates.TemplateResponse(
-        request,
-        "_partials/eval_response.html",
-        {
-            "title": "Seconde évaluation",
-            "content": reply,
-            "next_url": f"{PREFIX}/step/6",
-            "next_label": "Je passe à la rédaction complète",
-        },
-    )
-
-
-# ---------------------------------------------------------------------------
-# Étape 6 → 7 : rédaction complète, puis correction finale
-# ---------------------------------------------------------------------------
-
-
-@router.get("/step/6", response_class=HTMLResponse)
-def step_6(request: Request, s: DBSession = Depends(db_session)):
-    sess = _require_session(request, s)
-    subj = hgemc_models.get_subject(s, sess.subject_id)
-    second = core_db.get_last_user_turn(s, sess.id, step=4)
-    core_db.update_session_step(s, sess.id, step=6)
-    return templates.TemplateResponse(
-        request,
-        "step_6_writing.html",
-        {
-            "subject": _subject_dict(subj),
-            "previous_proposal": second.content if second else "",
-        },
-    )
-
-
-@router.post("/step/6/submit", response_class=HTMLResponse)
-def step_6_submit(
-    request: Request,
-    redaction: str = Form(...),
-    s: DBSession = Depends(db_session),
-):
-    sess = _require_session(request, s)
-    redaction = (redaction or "").strip()
-    if len(redaction) < 200:
-        return templates.TemplateResponse(
-            request,
-            "_partials/error.html",
-            {
-                "message": "Un développement construit fait au moins une quinzaine de lignes — continue à rédiger avant de me l'envoyer.",
-            },
-        )
-
-    reply = run_step_7(s, sess.id, student_text=redaction, mode=Mode.SEMI_ASSISTE)
-    return templates.TemplateResponse(
-        request,
-        "_partials/eval_response.html",
-        {
-            "title": "Correction finale",
-            "content": reply,
-            "next_url": f"{PREFIX}/restart",
-            "next_label": "Recommencer avec un autre sujet",
-        },
-    )
+router.include_router(dc_router, prefix="/developpement-construit")
+router.include_router(reperes_router, prefix="/reperes")
 
 
 __all__ = ["router", "PREFIX"]

@@ -44,7 +44,8 @@ from fastapi.templating import Jinja2Templates
 from starlette.middleware.sessions import SessionMiddleware
 
 from app.core import db as core_db
-from app.histoire_geo_emc.models import init_hgemc_subjects
+from app.histoire_geo_emc.developpement_construit.models import init_hgemc_subjects
+from app.histoire_geo_emc.reperes.models import init_reperes
 from app.histoire_geo_emc.routes import router as hgemc_router, PREFIX as HGEMC_PREFIX
 
 logger = logging.getLogger(__name__)
@@ -98,10 +99,12 @@ app.include_router(hgemc_router)
 def on_startup() -> None:
     core_db.init_db()
     n_hgemc = init_hgemc_subjects()
+    n_reperes = init_reperes()
     logger.info(
-        "DB prête (%s) — %d sujets hgemc chargés",
+        "DB prête (%s) — %d sujets DC chargés, %d repères chargés",
         core_db.DB_PATH,
         n_hgemc,
+        n_reperes,
     )
 
 

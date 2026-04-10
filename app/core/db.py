@@ -43,12 +43,27 @@ DB_PATH = REPO_ROOT / "data" / "app.db"
 
 
 class Session(SQLModel, table=True):
-    """Une session de travail d'un·e élève."""
+    """Une session de travail d'un·e élève.
+
+    `subject_kind` identifie l'épreuve — plusieurs valeurs coexistent au
+    sein d'une même matière. Pour HG-EMC on a :
+      - "hgemc_dc"      : développement construit (7 étapes, pointe un
+                          `Subject` tiré des annales via `subject_id`).
+      - "hgemc_reperes" : quiz de repères chronologiques et spatiaux
+                          (pas de Subject — `subject_id` reste NULL).
+
+    Les autres matières (français, etc.) définissent leurs propres valeurs.
+    Pas d'enum : chaque sous-package matière est libre de sa nomenclature.
+
+    `subject_id` est donc nullable : certaines épreuves (comme les repères)
+    tirent leur contenu d'une banque dédiée sans passer par `Subject`.
+    """
 
     id: int | None = Field(default=None, primary_key=True)
-    subject_id: int = Field(foreign_key="subject.id")
-    mode: str  # "semi_assiste" pour le MVP
-    current_step: int = 1  # 1..7
+    subject_kind: str = Field(default="hgemc_dc", index=True)
+    subject_id: int | None = Field(default=None, foreign_key="subject.id")
+    mode: str = "semi_assiste"  # "semi_assiste" pour le MVP
+    current_step: int = 1  # signification propre à chaque épreuve
     created_at: datetime = Field(default_factory=datetime.utcnow)
 
 
@@ -101,9 +116,23 @@ def init_db() -> None:
 
 
 def create_session(
-    s: DBSession, subject_id: int, mode: str = "semi_assiste"
+    s: DBSession,
+    subject_id: int | None = None,
+    mode: str = "semi_assiste",
+    subject_kind: str = "hgemc_dc",
 ) -> Session:
-    sess = Session(subject_id=subject_id, mode=mode)
+    """Crée une nouvelle session élève.
+
+    `subject_kind` identifie l'épreuve (ex. "hgemc_dc", "hgemc_reperes").
+    `subject_id` est optionnel — il ne sert qu'aux épreuves qui pointent
+    vers une ligne `Subject` (cf. DC). Les épreuves type quiz le laissent
+    à None.
+    """
+    sess = Session(
+        subject_kind=subject_kind,
+        subject_id=subject_id,
+        mode=mode,
+    )
     s.add(sess)
     s.commit()
     s.refresh(sess)
