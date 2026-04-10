@@ -12,7 +12,7 @@
 **Albert** (LLM du gouvernement français, `albert.api.etalab.gouv.fr`). Il ne
 veut **pas** d'OpenAI/Anthropic en runtime.
 
-**Repo** : `/home/miweb/Documents/bertrand/Github/preparation-dnb-histoire/`
+**Repo** : `bmatge/revise-ton-dnb` (renommé le 2026-04-10, ex-`preparation-dnb-histoire`, cf. #8)
 
 **Plan initial validé** : `/home/miweb/.claude/plans/cuddly-prancing-llama.md`
 (à relire pour la vue complète).
