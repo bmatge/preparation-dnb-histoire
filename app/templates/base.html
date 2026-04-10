@@ -4,18 +4,18 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{% block title %}Révise ton DNB{% endblock %}</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://unpkg.com/htmx.org@1.9.12" defer></script>
+  <link rel="icon" href="data:,">
+  <!-- Assets vendored localement (cf. app/static/vendor/) pour respecter la
+       CSP de Traefik et garder l'app 100% souveraine — aucun appel CDN. -->
+  <script src="/static/vendor/tailwind.js"></script>
+  <script src="/static/vendor/htmx.min.js" defer></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           fontFamily: {
-            sans: ['Inter', 'system-ui', 'sans-serif'],
-            display: ['Fraunces', 'Georgia', 'serif'],
+            sans: ['ui-sans-serif', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Inter', 'sans-serif'],
+            display: ['ui-serif', 'Georgia', 'Cambria', '"Times New Roman"', 'serif'],
           },
           colors: {
             brand: {
@@ -40,14 +40,17 @@
   </script>
   <style>
     body {
-      font-family: 'Inter', system-ui, sans-serif;
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
       background:
         radial-gradient(1100px 600px at 85% -10%, #dde7ff 0%, transparent 60%),
         radial-gradient(900px 500px at -10% 110%, #ffe4f0 0%, transparent 55%),
         #fafbff;
       min-height: 100vh;
     }
-    .font-display { font-family: 'Fraunces', Georgia, serif; }
+    .font-display {
+      font-family: ui-serif, Georgia, Cambria, "Times New Roman", serif;
+      letter-spacing: -0.01em;
+    }
     .prose-eval { white-space: pre-wrap; line-height: 1.7; }
     .prose-eval strong { color: #1f29a6; font-weight: 600; }
 
@@ -55,7 +58,7 @@
     .eval-md { line-height: 1.65; }
     .eval-md > * + * { margin-top: 0.85em; }
     .eval-md h2 {
-      font-family: 'Fraunces', Georgia, serif;
+      font-family: ui-serif, Georgia, Cambria, "Times New Roman", serif;
       font-size: 1.05rem;
       font-weight: 700;
       color: #1f29a6;
