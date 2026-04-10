@@ -4,11 +4,16 @@ Ingestion du corpus DNB dans les collections RAG d'Albert.
 Ce script pousse les PDF du dépôt vers les 4 collections Albert qui servent
 de base de connaissances au tuteur :
 
-  - dnb_sujets      : sujets "développement construit" extraits des annales
-                      (JSON produits par scripts/extract_subjects.py)
-  - dnb_corriges    : corrigés modèles des DNB
-  - dnb_methodo     : fiches méthodologiques
-  - dnb_programmes  : programmes officiels cycle 4 (garde-fou anti-hallucination)
+  - dnb_hgemc_sujets      : sujets "développement construit" extraits des
+                            annales (JSON produits par extract_subjects.py)
+  - dnb_hgemc_corriges    : corrigés modèles des DNB
+  - dnb_hgemc_methodo     : fiches méthodologiques
+  - dnb_hgemc_programmes  : programmes officiels cycle 4 (garde-fou
+                            anti-hallucination)
+
+Le préfixe `dnb_hgemc_` identifie la matière (histoire-géo-EMC) — les
+futures matières (maths, français…) auront leurs propres collections avec
+leur propre préfixe.
 
 Principe :
 - On laisse Albert faire le chunking (RecursiveCharacterTextSplitter côté serveur)
@@ -27,10 +32,10 @@ Usage :
     .venv/bin/python -m scripts.ingest --dry-run          # simule sans appels réseau
 
 Corpus attendu (depuis la racine du repo) :
-    content/histoire-geo-emc/annales/*.pdf          →  dnb_sujets (via .../subjects/*.json)
-    content/histoire-geo-emc/corriges/*.pdf         →  dnb_corriges
-    content/histoire-geo-emc/methodologie/*.pdf,*.md →  dnb_methodo
-    content/histoire-geo-emc/programme/*.pdf        →  dnb_programmes
+    content/histoire-geo-emc/annales/*.pdf          →  dnb_hgemc_sujets (via .../subjects/*.json)
+    content/histoire-geo-emc/corriges/*.pdf         →  dnb_hgemc_corriges
+    content/histoire-geo-emc/methodologie/*.pdf,*.md →  dnb_hgemc_methodo
+    content/histoire-geo-emc/programme/*.pdf        →  dnb_hgemc_programmes
 """
 
 from __future__ import annotations
@@ -76,26 +81,26 @@ class CollectionSpec:
 COLLECTIONS: dict[str, CollectionSpec] = {
     "corriges": CollectionSpec(
         key="corriges",
-        name="dnb_corriges",
+        name="dnb_hgemc_corriges",
         description="Corrigés officiels et modèles de DNB histoire-géo-EMC.",
         sources=[HGEMC_CONTENT / "corriges"],
     ),
     "methodo": CollectionSpec(
         key="methodo",
-        name="dnb_methodo",
+        name="dnb_hgemc_methodo",
         description="Fiches méthodologiques pour le développement construit au DNB.",
         sources=[HGEMC_CONTENT / "methodologie"],
         file_patterns=("*.pdf", "*.md"),
     ),
     "programmes": CollectionSpec(
         key="programmes",
-        name="dnb_programmes",
+        name="dnb_hgemc_programmes",
         description="Programmes officiels cycle 4 histoire-géo-EMC. Source d'autorité anti-hallucination.",
         sources=[HGEMC_CONTENT / "programme"],
     ),
     "sujets": CollectionSpec(
         key="sujets",
-        name="dnb_sujets",
+        name="dnb_hgemc_sujets",
         description="Consignes de développement construit extraites des annales DNB.",
         sources=[HGEMC_CONTENT / "subjects"],
         file_patterns=("*.json",),

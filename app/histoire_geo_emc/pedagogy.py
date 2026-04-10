@@ -40,6 +40,7 @@ from app.core.db import (
     update_session_step,
 )
 from app.core.rag import get_default_rag_client
+from app.histoire_geo_emc import SUBJECT_KIND
 from app.histoire_geo_emc.models import Subject, get_subject
 from app.histoire_geo_emc.prompts import (
     Mode,
@@ -158,6 +159,7 @@ def run_step_1_help(
         return GENERIC_ERROR_MSG
 
     rag = get_default_rag_client().search_for_task(
+        SUBJECT_KIND,
         Task.HELP_UNDERSTAND,
         query=_build_rag_query(subj),
         limit=4,
@@ -194,6 +196,7 @@ def run_step_3(
     add_turn(s, session_id, step=2, role="user", content=first_proposal)
 
     rag = get_default_rag_client().search_for_task(
+        SUBJECT_KIND,
         Task.FIRST_EVAL,
         query=_build_rag_query(subj, first_proposal),
         limit=5,
@@ -235,6 +238,7 @@ def run_step_5(
     add_turn(s, session_id, step=4, role="user", content=second_proposal)
 
     rag = get_default_rag_client().search_for_task(
+        SUBJECT_KIND,
         Task.SECOND_EVAL,
         query=_build_rag_query(subj, second_proposal),
         limit=5,
@@ -274,6 +278,7 @@ def run_step_7(
     add_turn(s, session_id, step=6, role="user", content=student_text)
 
     rag = get_default_rag_client().search_for_task(
+        SUBJECT_KIND,
         Task.FINAL_CORRECTION,
         query=_build_rag_query(subj, student_text),
         limit=6,
