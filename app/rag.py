@@ -74,6 +74,7 @@ from app.albert_client import Task  # noqa: E402  (cycle volontaire mineur)
 
 TASK_COLLECTIONS: dict[Task, tuple[str, ...]] = {
     Task.DECRYPT_SUBJECT: ("dnb_programmes", "dnb_methodo", "dnb_corriges"),
+    Task.HELP_UNDERSTAND: ("dnb_programmes", "dnb_methodo"),
     Task.FIRST_EVAL: ("dnb_programmes", "dnb_corriges", "dnb_methodo"),
     Task.SECOND_EVAL: ("dnb_programmes", "dnb_corriges", "dnb_methodo"),
     Task.FINAL_CORRECTION: (

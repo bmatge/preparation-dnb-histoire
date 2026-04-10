@@ -58,6 +58,9 @@ class Task(str, Enum):
     # Décryptage du sujet en mode très assisté (JSON structuré, précision)
     DECRYPT_SUBJECT = "decrypt_subject"
 
+    # Aide au décryptage du sujet (étape 1) — questions socratiques en prose
+    HELP_UNDERSTAND = "help_understand"
+
     # Première évaluation de l'approche élève (étape 3)
     FIRST_EVAL = "first_eval"
 
@@ -94,6 +97,15 @@ TASK_PROFILES: dict[Task, TaskProfile] = {
         max_tokens=1200,
         expect_json=True,
         check_no_ghostwriting=False,  # sortie JSON, pas de prose à filtrer
+    ),
+    Task.HELP_UNDERSTAND: TaskProfile(
+        model=MODEL_HEAVY,
+        temperature=0.4,
+        max_tokens=900,
+        # Questions socratiques : pas de faits asserts → pas d'exigence de
+        # citations, et pas de risque de ghostwriting (sortie = questions).
+        require_citations=False,
+        check_no_ghostwriting=False,
     ),
     Task.FIRST_EVAL: TaskProfile(
         model=MODEL_HEAVY,

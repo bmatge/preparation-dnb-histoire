@@ -140,6 +140,71 @@ def _format_subject(s: SubjectContext) -> str:
 
 
 # ============================================================================
+# Étape 1 — Aide au décryptage du sujet (tous modes)
+# ============================================================================
+#
+# Déclenchée à la demande de l'élève depuis la page du sujet, via un bouton
+# "aide-moi à comprendre le sujet". La sortie est de la prose (pas de JSON) :
+# une courte reformulation du sujet, puis deux petits groupes de questions
+# ciblées pour l'aider à réfléchir et à ne pas partir hors sujet.
+# ============================================================================
+
+
+def build_help_understand_subject(
+    subject: SubjectContext,
+    rag: list[RagPassage],
+) -> list[dict]:
+    context_block = _format_context(rag)
+    subject_block = _format_subject(subject)
+
+    user = f"""{context_block}\
+Voici le sujet que l'élève doit traiter :
+
+{subject_block}
+
+Ta mission : aider l'élève à bien COMPRENDRE ce que le sujet demande, avant \
+qu'il ou elle ne commence à chercher son plan. Tu ne donnes aucune idée de \
+plan, aucune notion toute prête, aucun exemple historique. Tu poses des \
+questions ciblées qui l'aident à réfléchir par lui·elle-même.
+
+Structure EXACTE de ta réponse (en français, phrases courtes, niveau 3e) :
+
+1. Une phrase qui reformule simplement le sujet avec tes mots, en repérant le \
+verbe de la consigne (ex : « décris », « explique », « montre ») et ce qu'il \
+implique concrètement. Pas plus d'une phrase.
+
+2. Un petit bloc « Pour bien répondre, demande-toi : » suivi de 3 questions \
+ouvertes qui aident l'élève à se rappeler ce qui doit absolument être abordé \
+(grands thèmes attendus, notions-clés que le sujet met en jeu, type \
+d'informations à mobiliser). Ces questions doivent être SPÉCIFIQUES au sujet, \
+jamais des questions passe-partout.
+
+3. Un petit bloc « Attention à ne pas partir hors sujet : » suivi de 2 \
+questions qui aident l'élève à rester dans le cadre — notamment à vérifier \
+qu'il ou elle respecte les bornes chronologiques, les bornes spatiales, et \
+qu'il ou elle ne confond pas ce sujet avec un sujet voisin très proche.
+
+Règles strictes :
+- UNIQUEMENT des questions dans les blocs 2 et 3. Aucune affirmation qui \
+donnerait la réponse (ex : ne dis PAS « il faudra parler de l'ONU », mais \
+« quelle organisation internationale est née juste après cette période ? »).
+- Les questions doivent être précises et adaptées AU sujet exact, pas génériques.
+- Tu n'énumères pas de plan, tu ne proposes pas d'axes, tu ne suggères pas \
+de titres de parties.
+- Tu ne cites pas de dates, de noms propres ou de faits historiques que tu \
+ne serais pas sûr de trouver dans le contexte fourni. Dans le doute, reste \
+général et pose la question plutôt que d'affirmer.
+- Pas de citations entre crochets ici (ça casse le ton des questions). \
+Le contexte te sert à calibrer tes questions, pas à être cité.
+- Ton chaleureux, encourageant, tutoiement. Maximum ~150 mots au total.
+"""
+    return [
+        {"role": "system", "content": SYSTEM_PERSONA},
+        {"role": "user", "content": user},
+    ]
+
+
+# ============================================================================
 # Étape 2bis — Décryptage du sujet (mode TRÈS_ASSISTÉ uniquement)
 # ============================================================================
 #
@@ -526,6 +591,7 @@ __all__ = [
     "SubjectContext",
     "RagPassage",
     "build_decrypt_subject",
+    "build_help_understand_subject",
     "build_first_eval",
     "build_second_eval",
     "build_final_correction",

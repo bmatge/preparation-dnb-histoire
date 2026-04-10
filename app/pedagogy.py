@@ -46,6 +46,7 @@ from app.prompts import (
     SubjectContext,
     build_final_correction,
     build_first_eval,
+    build_help_understand_subject,
     build_second_eval,
 )
 from app.rag import AlbertRagClient, get_default_rag_client
@@ -133,6 +134,43 @@ def _safe_chat(task: Task, messages: list[dict]) -> str:
     except Exception as e:  # noqa: BLE001
         logger.exception("Erreur inattendue task=%s : %s", task, e)
         return GENERIC_ERROR_MSG
+
+
+# ============================================================================
+# Étape 1 — aide au décryptage du sujet
+# ============================================================================
+
+
+def run_step_1_help(
+    s: DBSession,
+    session_id: int,
+) -> str:
+    """Génère des questions ciblées pour aider l'élève à comprendre le sujet.
+
+    Pas de texte élève en entrée : on ne demande rien, on aide juste à
+    réfléchir avant l'étape 2. On persiste quand même la réponse dans la DB
+    (step=1, role=assistant) pour garder une trace du coup de pouce.
+    """
+    sess = get_session(s, session_id)
+    if sess is None:
+        return GENERIC_ERROR_MSG
+    subj = get_subject(s, sess.subject_id)
+    if subj is None:
+        return GENERIC_ERROR_MSG
+
+    rag = get_default_rag_client().search_for_task(
+        Task.HELP_UNDERSTAND,
+        query=_build_rag_query(subj),
+        limit=4,
+    )
+    messages = build_help_understand_subject(
+        subject=_subject_to_context(subj),
+        rag=rag,
+    )
+    reply = _safe_chat(Task.HELP_UNDERSTAND, messages)
+
+    add_turn(s, session_id, step=1, role="assistant", content=reply)
+    return reply
 
 
 # ============================================================================
@@ -255,6 +293,7 @@ def run_step_7(
 
 
 __all__ = [
+    "run_step_1_help",
     "run_step_3",
     "run_step_5",
     "run_step_7",

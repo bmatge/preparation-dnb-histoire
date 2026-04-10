@@ -50,7 +50,7 @@ from app.formatting import render_eval_markdown
 
 from app import db
 from app.db import db_session
-from app.pedagogy import run_step_3, run_step_5, run_step_7
+from app.pedagogy import run_step_1_help, run_step_3, run_step_5, run_step_7
 from app.prompts import Mode
 
 logger = logging.getLogger(__name__)
@@ -189,6 +189,21 @@ def step_1(request: Request, s: DBSession = Depends(db_session)):
         request,
         "step_1_subject.html",
         {"subject": _subject_dict(subj)},
+    )
+
+
+@app.post("/step/1/help", response_class=HTMLResponse)
+def step_1_help(request: Request, s: DBSession = Depends(db_session)):
+    """Coup de pouce : questions ciblées pour décrypter le sujet.
+
+    Répond en partial HTMX, à injecter dans #help-area de step_1_subject.html.
+    """
+    sess = _require_session(request, s)
+    reply = run_step_1_help(s, sess.id)
+    return templates.TemplateResponse(
+        request,
+        "_partials/help_response.html",
+        {"content": reply},
     )
 
 
