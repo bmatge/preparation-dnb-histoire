@@ -1,0 +1,1696 @@
+{
+  "_comment": "Automatismes extraits depuis les annales DNB maths via scripts/extract_math_automatismes.py le 2026-04-12T01:06:00. Sources : 2022_brevet_centres_etrangers_14_06_2022_dv.pdf, 2023_Brevet_Metropole_18_sept_2023_DV.pdf, 2023_Brevet_Metropole_26_juin_2023_FK.pdf, 2023_Metropole_maths.pdf, 2024_Brevet_19_09_2024_Metro_Ant__DV_3.pdf, 2024_Brevet_Centres_Etrangers_juin_2024_FK.pdf, 2024_Brevet_Metropole_1_07_2024_DV.pdf, 2024_Metropole_maths.pdf, 2025_Brevet_Metropole_sept_2025_DV.pdf, 2025_Metropole_maths.pdf. 64 extraits, 147 rejetés, 0 erreurs.",
+  "questions": [
+    {
+      "id": "auto_annale_2022_etrangers_q2",
+      "source": {
+        "type": "annale_dnb",
+        "document": "2022_brevet_centres_etrangers_14_06_2022_dv.pdf",
+        "numero_question": 2,
+        "item_liste": "nc_11"
+      },
+      "theme": "calcul_numerique",
+      "competence": "Calculer la valeur d'une expression algébrique (item nc_11)",
+      "enonce": "L'image de −2 par la fonction f est ... (f(x) = 2x + 3). Réponse A : −7 ; Réponse B : −1 ; Réponse C : 3",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "qcm",
+        "reponse_canonique": "B"
+      },
+      "options": [
+        {
+          "id": "A",
+          "texte": "−7"
+        },
+        {
+          "id": "B",
+          "texte": "−1"
+        },
+        {
+          "id": "C",
+          "texte": "3"
+        }
+      ]
+    },
+    {
+      "id": "auto_annale_2022_etrangers_q3",
+      "source": {
+        "type": "annale_dnb",
+        "document": "2022_brevet_centres_etrangers_14_06_2022_dv.pdf",
+        "numero_question": 3,
+        "item_liste": "dp_03"
+      },
+      "theme": "stats_probas",
+      "competence": "Exprimer une moyenne (item dp_03)",
+      "enonce": "On étudie la série des distances parcourues par étape. Calculer la distance moyenne parcourue par étape, arrondie au dixième de km. (Distances : 166 km, 188 km, 187,5 km, 200 km, 202,5 km, 119,5 km, 93 km)",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "165,2",
+        "unite": "km"
+      }
+    },
+    {
+      "id": "auto_annale_2022_etrangers_q4",
+      "source": {
+        "type": "annale_dnb",
+        "document": "2022_brevet_centres_etrangers_14_06_2022_dv.pdf",
+        "numero_question": 4,
+        "item_liste": "dp_04"
+      },
+      "theme": "stats_probas",
+      "competence": "Déterminer une médiane pour une série comportant un petit nombre de valeurs (item dp_04)",
+      "enonce": "Calculer la médiane des distances parcourues par étape. (Distances : 166 km, 188 km, 187,5 km, 200 km, 202,5 km, 119,5 km, 93 km)",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "187.5",
+        "unite": "km"
+      }
+    },
+    {
+      "id": "auto_annale_2022_etrangers_q5",
+      "source": {
+        "type": "annale_dnb",
+        "document": "2022_brevet_centres_etrangers_14_06_2022_dv.pdf",
+        "numero_question": 5,
+        "item_liste": "dp_02"
+      },
+      "theme": "stats_probas",
+      "competence": "Exprimer une fréquence simple (item dp_02)",
+      "enonce": "Un journaliste affirme : « Environ 57 % du nombre total d'étapes de cette édition se sont déroulées sur un parcours accidenté. » A-t-il raison ? Expliquer votre réponse. (4 étapes accidentées sur 7 étapes au total)",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "Oui, 4/7 ≈ 0,571 soit environ 57 %"
+      }
+    },
+    {
+      "id": "auto_annale_2023_metropole_sept_q1",
+      "source": {
+        "type": "annale_dnb",
+        "document": "2023_Brevet_Metropole_18_sept_2023_DV.pdf",
+        "numero_question": 1,
+        "item_liste": "nc_08"
+      },
+      "theme": "calcul_numerique",
+      "competence": "Appliquer les critères de divisibilité par 2, 3, 5, 9 (item nc_08)",
+      "enonce": "Citer trois diviseurs de 84.",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "qcm",
+        "reponse_canonique": "B"
+      },
+      "options": [
+        {
+          "id": "A",
+          "texte": "84, 168 et 252"
+        },
+        {
+          "id": "B",
+          "texte": "2, 3 et 4"
+        },
+        {
+          "id": "C",
+          "texte": "2, 5 et 7"
+        }
+      ]
+    },
+    {
+      "id": "auto_annale_2023_metropole_sept_q3",
+      "source": {
+        "type": "annale_dnb",
+        "document": "2023_Brevet_Metropole_18_sept_2023_DV.pdf",
+        "numero_question": 3,
+        "item_liste": "nc_11"
+      },
+      "theme": "calcul_litteral",
+      "competence": "Calculer la valeur d'une expression algébrique y compris avec des puissances (item nc_11)",
+      "enonce": "Quelle est la valeur de l'expression x² + 3x − 5 pour x = −2 ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "qcm",
+        "reponse_canonique": "C"
+      },
+      "options": [
+        {
+          "id": "A",
+          "texte": "−15"
+        },
+        {
+          "id": "B",
+          "texte": "5"
+        },
+        {
+          "id": "C",
+          "texte": "−7"
+        }
+      ]
+    },
+    {
+      "id": "auto_annale_2023_metropole_sept_q4",
+      "source": {
+        "type": "annale_dnb",
+        "document": "2023_Brevet_Metropole_18_sept_2023_DV.pdf",
+        "numero_question": 4,
+        "item_liste": "dp_01"
+      },
+      "theme": "stats_probas",
+      "competence": "Attribuer des probabilités dans des cas simples (équiprobabilité) (item dp_01)",
+      "enonce": "Dans un sac opaque, on dispose de huit boules numérotées de 1 à 8. On tire une boule au hasard. Quelle est la probabilité d'obtenir un multiple de 2 ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "qcm",
+        "reponse_canonique": "A"
+      },
+      "options": [
+        {
+          "id": "A",
+          "texte": "1/2"
+        },
+        {
+          "id": "B",
+          "texte": "1/8"
+        },
+        {
+          "id": "C",
+          "texte": "1/5"
+        }
+      ]
+    },
+    {
+      "id": "auto_annale_2023_metropole_sept_q5",
+      "source": {
+        "type": "annale_dnb",
+        "document": "2023_Brevet_Metropole_18_sept_2023_DV.pdf",
+        "numero_question": 5,
+        "item_liste": "eg_09"
+      },
+      "theme": "grandeurs_mesures",
+      "competence": "Connaître et utiliser les formules du volume d'un pavé droit (item eg_09)",
+      "enonce": "La piscine a la forme d'un pavé droit de longueur 50 m, de largeur 25 m et de profondeur 3 m. En admettant qu'elle soit entièrement remplie, déterminer en m³, le volume d'eau qui sera évacué pour réaliser la vidange.",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "entier",
+        "reponse_canonique": "3750",
+        "unite": "m³"
+      }
+    },
+    {
+      "id": "auto_annale_2023_metropole_sept_q6",
+      "source": {
+        "type": "annale_dnb",
+        "document": "2023_Brevet_Metropole_18_sept_2023_DV.pdf",
+        "numero_question": 6,
+        "item_liste": "dp_03"
+      },
+      "theme": "stats_probas",
+      "competence": "Exprimer une moyenne (item dp_03)",
+      "enonce": "Calculer le nombre moyen d'entrées par mois. (Données : Jan. 12 500, Fév. 13 700, Mars 10 400, Avril 13 600, Mai 12 300, Juin 11 700, Juillet 10 400, Août 11 600, Sept. 10 200, Oct. 13 800, Nov. 12 600, Déc. 11 800)",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "entier",
+        "reponse_canonique": "12050"
+      }
+    },
+    {
+      "id": "auto_annale_2023_metropole_juin_q1",
+      "source": {
+        "type": "annale_dnb",
+        "document": "2023_Brevet_Metropole_26_juin_2023_FK.pdf",
+        "numero_question": 1,
+        "item_liste": "nc_04"
+      },
+      "theme": "pourcentages_proportionnalite",
+      "competence": "Déterminer a % de c quand a vaut 100, 50, 25, 10, 1 (item nc_04)",
+      "enonce": "Dans une classe de 25 élèves, 60% des élèves sont des filles. Combien y a-t-il de filles dans cette classe ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "qcm",
+        "reponse_canonique": "B"
+      },
+      "options": [
+        {
+          "id": "A",
+          "texte": "10"
+        },
+        {
+          "id": "B",
+          "texte": "15"
+        },
+        {
+          "id": "C",
+          "texte": "20"
+        }
+      ]
+    },
+    {
+      "id": "auto_annale_2023_metropole_juin_q3",
+      "source": {
+        "type": "annale_dnb",
+        "document": "2023_Brevet_Metropole_26_juin_2023_FK.pdf",
+        "numero_question": 3,
+        "item_liste": "dp_01"
+      },
+      "theme": "stats_probas",
+      "competence": "Attribuer des probabilités dans des cas simples (équiprobabilité) (item dp_01)",
+      "enonce": "Dans un sac, il y a 17 jetons rouges, 23 jetons jaunes et 20 jetons bleus, tous indiscernables au toucher. On tire au hasard un jeton du sac. Quelle est la probabilité d'obtenir un jeton rouge ou un jeton jaune ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "qcm",
+        "reponse_canonique": "A"
+      },
+      "options": [
+        {
+          "id": "A",
+          "texte": "2/3"
+        },
+        {
+          "id": "B",
+          "texte": "0,6"
+        },
+        {
+          "id": "C",
+          "texte": "17/23"
+        }
+      ]
+    },
+    {
+      "id": "auto_annale_2023_metropole_juin_q5",
+      "source": {
+        "type": "annale_dnb",
+        "document": "2023_Brevet_Metropole_26_juin_2023_FK.pdf",
+        "numero_question": 5,
+        "item_liste": "eg_09"
+      },
+      "theme": "grandeurs_mesures",
+      "competence": "Connaître et utiliser les formules du volume d'un pavé droit (item eg_09)",
+      "enonce": "Quel est le volume d'un pavé droit de hauteur 1,5 m et de base rectangulaire de 2 m de longueur et 1,3 m de largeur ? On rappelle que 1 m³ = 1 000 L.",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "qcm",
+        "reponse_canonique": "B"
+      },
+      "options": [
+        {
+          "id": "A",
+          "texte": "2,6 m³"
+        },
+        {
+          "id": "B",
+          "texte": "3 900 L"
+        },
+        {
+          "id": "C",
+          "texte": "3 000 L"
+        }
+      ]
+    },
+    {
+      "id": "auto_annale_2023_metropole_juin_q6",
+      "source": {
+        "type": "annale_dnb",
+        "document": "2023_Brevet_Metropole_26_juin_2023_FK.pdf",
+        "numero_question": 6,
+        "item_liste": "al_01"
+      },
+      "theme": "programmes_calcul",
+      "competence": "Interpréter une suite d'instructions : programme de calcul (item al_01)",
+      "enonce": "Voici deux programmes de calcul. Programme B : Choisir un nombre, Soustraire 5 à ce nombre, Multiplier le résultat par 3, Ajouter 11 au résultat. Quel résultat obtient-on avec le programme B si on choisit 5,5 comme nombre de départ ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "12.5"
+      }
+    },
+    {
+      "id": "auto_annale_2023_metropole_juin_q7",
+      "source": {
+        "type": "annale_dnb",
+        "document": "2023_Brevet_Metropole_26_juin_2023_FK.pdf",
+        "numero_question": 7,
+        "item_liste": "dp_05"
+      },
+      "theme": "stats_probas",
+      "competence": "Lire et interpréter des informations présentées sous forme de tableaux (item dp_05)",
+      "enonce": "Un opticien vend différents modèles de lunettes de soleil. Nombre de paires vendues : Modèle 1 : 1200, Modèle 2 : 950, Modèle 3 : 875, Modèle 4 : 250, Modèle 5 : 300. Calculer le nombre total de paires de lunettes de soleil vendues en 2022.",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "entier",
+        "reponse_canonique": "3575"
+      }
+    },
+    {
+      "id": "auto_annale_2023_metropole_q1",
+      "source": {
+        "type": "annale_dnb",
+        "document": "2023_Metropole_maths.pdf",
+        "numero_question": 1,
+        "item_liste": "nc_04"
+      },
+      "theme": "pourcentages_proportionnalite",
+      "competence": "Déterminer a % de c quand a vaut 100, 50, 25, 10, 1 (item nc_04)",
+      "enonce": "Dans une classe de 25 élèves, 60 % des élèves sont des filles. Combien y a-t-il de filles dans cette classe ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "qcm",
+        "reponse_canonique": "B"
+      },
+      "options": [
+        {
+          "id": "A",
+          "texte": "10"
+        },
+        {
+          "id": "B",
+          "texte": "15"
+        },
+        {
+          "id": "C",
+          "texte": "20"
+        }
+      ]
+    },
+    {
+      "id": "auto_annale_2023_metropole_q3",
+      "source": {
+        "type": "annale_dnb",
+        "document": "2023_Metropole_maths.pdf",
+        "numero_question": 3,
+        "item_liste": "dp_01"
+      },
+      "theme": "stats_probas",
+      "competence": "Attribuer des probabilités dans des cas simples (équiprobabilité) (item dp_01)",
+      "enonce": "Dans un sac, il y a 17 jetons rouges, 23 jetons jaunes et 20 jetons bleus, tous indiscernables au toucher. On tire au hasard un jeton du sac. Quelle est la probabilité d'obtenir un jeton rouge ou un jeton jaune ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "qcm",
+        "reponse_canonique": "A"
+      },
+      "options": [
+        {
+          "id": "A",
+          "texte": "2/3"
+        },
+        {
+          "id": "B",
+          "texte": "0,6"
+        },
+        {
+          "id": "C",
+          "texte": "17/23"
+        }
+      ]
+    },
+    {
+      "id": "auto_annale_2023_metropole_q5",
+      "source": {
+        "type": "annale_dnb",
+        "document": "2023_Metropole_maths.pdf",
+        "numero_question": 5,
+        "item_liste": "eg_09"
+      },
+      "theme": "grandeurs_mesures",
+      "competence": "Connaître et utiliser les formules du volume d'un pavé droit (item eg_09)",
+      "enonce": "Quel est le volume d'un pavé droit de hauteur 1,5 m et de base rectangulaire de 2 m de longueur et 1,3 m de largeur ? On rappelle que 1 m³ = 1 000 L.",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "qcm",
+        "reponse_canonique": "B"
+      },
+      "options": [
+        {
+          "id": "A",
+          "texte": "2,6 m³"
+        },
+        {
+          "id": "B",
+          "texte": "3 900 L"
+        },
+        {
+          "id": "C",
+          "texte": "3 000 L"
+        }
+      ]
+    },
+    {
+      "id": "auto_annale_2023_metropole_q6",
+      "source": {
+        "type": "annale_dnb",
+        "document": "2023_Metropole_maths.pdf",
+        "numero_question": 6,
+        "item_liste": "al_01"
+      },
+      "theme": "programmes_calcul",
+      "competence": "Interpréter une suite d'instructions : programme de calcul (item al_01)",
+      "enonce": "Quel résultat obtient-on avec le programme B si on choisit 5,5 comme nombre de départ ? Programme B : Choisir un nombre. Soustraire 5 à ce nombre. Multiplier le résultat par 3. Ajouter 11 au résultat.",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "12,5"
+      }
+    },
+    {
+      "id": "auto_annale_2024_unknown_q1",
+      "source": {
+        "type": "annale_dnb",
+        "document": "2024_Brevet_19_09_2024_Metro_Ant__DV_3.pdf",
+        "numero_question": 1,
+        "item_liste": "nc_08"
+      },
+      "theme": "calcul_numerique",
+      "competence": "Appliquer les critères de divisibilité et décomposer en facteurs premiers (item nc_08)",
+      "enonce": "La décomposition en produit de facteurs premiers du nombre 260 est 4×5×13.",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "Faux"
+      }
+    },
+    {
+      "id": "auto_annale_2024_unknown_q2",
+      "source": {
+        "type": "annale_dnb",
+        "document": "2024_Brevet_19_09_2024_Metro_Ant__DV_3.pdf",
+        "numero_question": 2,
+        "item_liste": "dp_01"
+      },
+      "theme": "stats_probas",
+      "competence": "Attribuer des probabilités dans des cas simples (équiprobabilité) (item dp_01)",
+      "enonce": "Une urne opaque contient des boules indiscernables au toucher : 3 boules blanches, 4 boules jaunes et 8 boules rouges. On pioche au hasard une boule dans cette urne et on note sa couleur. Une autre urne opaque contient des boules indiscernables au toucher : 1 boule marquée de la lettre A, 1 boule marquée de la lettre B et 3 boules marquées de la lettre C. On pioche au hasard une boule dans cette urne et on note la lettre obtenue. La probabilité d'obtenir une boule de couleur rouge est supérieure à la probabilité d'obtenir une boule marquée de la lettre C.",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "Faux"
+      }
+    },
+    {
+      "id": "auto_annale_2024_unknown_q3",
+      "source": {
+        "type": "annale_dnb",
+        "document": "2024_Brevet_19_09_2024_Metro_Ant__DV_3.pdf",
+        "numero_question": 3,
+        "item_liste": "nc_13"
+      },
+      "theme": "calcul_litteral",
+      "competence": "Résoudre des équations du type ax + b = c (item nc_13)",
+      "enonce": "La solution de l'équation 7x + 5 = 2x − 2 est −1,4.",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "Vrai"
+      }
+    },
+    {
+      "id": "auto_annale_2024_unknown_q4",
+      "source": {
+        "type": "annale_dnb",
+        "document": "2024_Brevet_19_09_2024_Metro_Ant__DV_3.pdf",
+        "numero_question": 4,
+        "item_liste": "eg_09"
+      },
+      "theme": "grandeurs_mesures",
+      "competence": "Connaître et utiliser la formule du volume d'un cylindre (item eg_09)",
+      "enonce": "On empile 10 pièces cylindriques de 1,9 cm de diamètre et de 0,2 cm de hauteur. Le volume du cylindre, arrondi à l'unité, formé par les 10 pièces est de 6 cm³. Rappel : le volume d'un cylindre de rayon R et de hauteur h est égal à π×R²×h.",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "Vrai"
+      }
+    },
+    {
+      "id": "auto_annale_2024_unknown_q5",
+      "source": {
+        "type": "annale_dnb",
+        "document": "2024_Brevet_19_09_2024_Metro_Ant__DV_3.pdf",
+        "numero_question": 5,
+        "item_liste": "eg_05"
+      },
+      "theme": "grandeurs_mesures",
+      "competence": "Connaître les procédures de conversion d'unités (item eg_05)",
+      "enonce": "Un éléphant qui court à une vitesse de 5 m/s est plus rapide qu'un cochon qui se déplace à une vitesse de 17 km/h.",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "Vrai"
+      }
+    },
+    {
+      "id": "auto_annale_2024_unknown_q6",
+      "source": {
+        "type": "annale_dnb",
+        "document": "2024_Brevet_19_09_2024_Metro_Ant__DV_3.pdf",
+        "numero_question": 6,
+        "item_liste": "dp_05"
+      },
+      "theme": "stats_probas",
+      "competence": "Lire et interpréter des informations présentées sous forme de tableaux (item dp_05)",
+      "enonce": "Quel jour la production d'électricité a-t-elle été la plus grande ? (Productions en kWh : Lundi 381, Mardi 363, Mercredi 322, Jeudi 329, Vendredi 393, Samedi 405, Dimanche 376)",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "Samedi"
+      }
+    },
+    {
+      "id": "auto_annale_2024_unknown_q7",
+      "source": {
+        "type": "annale_dnb",
+        "document": "2024_Brevet_19_09_2024_Metro_Ant__DV_3.pdf",
+        "numero_question": 7,
+        "item_liste": "dp_03"
+      },
+      "theme": "stats_probas",
+      "competence": "Exprimer une moyenne (item dp_03)",
+      "enonce": "Quelle est la production moyenne d'électricité par jour sur cette période ? (Productions en kWh : Lundi 381, Mardi 363, Mercredi 322, Jeudi 329, Vendredi 393, Samedi 405, Dimanche 376)",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "367",
+        "unite": "kWh"
+      }
+    },
+    {
+      "id": "auto_annale_2024_unknown_q8",
+      "source": {
+        "type": "annale_dnb",
+        "document": "2024_Brevet_19_09_2024_Metro_Ant__DV_3.pdf",
+        "numero_question": 8,
+        "item_liste": "nc_11"
+      },
+      "theme": "calcul_litteral",
+      "competence": "Calculer la valeur d'une expression algébrique (item nc_11)",
+      "enonce": "On considère la fonction f définie par f(x) = x² + 10x + 16. Vérifier par le calcul que l'image de 6 par la fonction f est 112.",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "entier",
+        "reponse_canonique": "112"
+      }
+    },
+    {
+      "id": "auto_annale_2024_etrangers_juin_q1",
+      "source": {
+        "type": "annale_dnb",
+        "document": "2024_Brevet_Centres_Etrangers_juin_2024_FK.pdf",
+        "numero_question": 1,
+        "item_liste": "nc_06"
+      },
+      "theme": "calcul_numerique",
+      "competence": "Passer d'une écriture décimale à la notation scientifique (item nc_06)",
+      "enonce": "Donner l'écriture scientifique de 0,193×10⁻¹⁰⁰.",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "qcm",
+        "reponse_canonique": "B"
+      },
+      "options": [
+        {
+          "id": "A",
+          "texte": "1,93×10⁻⁹⁹"
+        },
+        {
+          "id": "B",
+          "texte": "1,93×10⁻¹⁰¹"
+        },
+        {
+          "id": "C",
+          "texte": "193×10⁻¹⁰³"
+        },
+        {
+          "id": "D",
+          "texte": "193×10⁻⁹⁷"
+        }
+      ]
+    },
+    {
+      "id": "auto_annale_2024_etrangers_juin_q3",
+      "source": {
+        "type": "annale_dnb",
+        "document": "2024_Brevet_Centres_Etrangers_juin_2024_FK.pdf",
+        "numero_question": 3,
+        "item_liste": "dp_01"
+      },
+      "theme": "stats_probas",
+      "competence": "Attribuer des probabilités dans des cas simples (équiprobabilité) (item dp_01)",
+      "enonce": "Sam fait tourner la roue ci-contre et regarde le nombre désigné par la flèche, qui peut être 1 ou 2. On admet que chaque secteur a autant de chance d'être désigné. Le nombre écrit dans un des secteurs a été effacé. Est-il possible d'écrire un nombre dans ce secteur de sorte que la probabilité que la flèche désigne le nombre 2 soit égale à 3/5 ? (La roue comporte 15 secteurs avec les nombres : 2, 2, 2, 1, 1, 2, 2, 1, 2, 1, 1, 1, 2, 2, et un secteur effacé. On compte 8 secteurs marqués 2 et 6 secteurs marqués 1.)",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "qcm",
+        "reponse_canonique": "B"
+      },
+      "options": [
+        {
+          "id": "A",
+          "texte": "Oui, en écrivant le nombre 1"
+        },
+        {
+          "id": "B",
+          "texte": "Oui, en écrivant le nombre 2"
+        },
+        {
+          "id": "C",
+          "texte": "Ce n'est pas possible"
+        },
+        {
+          "id": "D",
+          "texte": "Oui, en laissant le secteur vide"
+        }
+      ],
+      "figure": "auto_annale_2024_etrangers_juin_q3.png"
+    },
+    {
+      "id": "auto_annale_2024_etrangers_juin_q4",
+      "source": {
+        "type": "annale_dnb",
+        "document": "2024_Brevet_Centres_Etrangers_juin_2024_FK.pdf",
+        "numero_question": 4,
+        "item_liste": "dp_03"
+      },
+      "theme": "stats_probas",
+      "competence": "Exprimer une moyenne (item dp_03)",
+      "enonce": "On considère la liste de nombres suivante : 5 ; 1 ; 3 ; 10 ; 17 ; 11 ; 10. Pour cette liste de nombres, que représente le nombre 5 ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "qcm",
+        "reponse_canonique": "C"
+      },
+      "options": [
+        {
+          "id": "A",
+          "texte": "La médiane"
+        },
+        {
+          "id": "B",
+          "texte": "L'étendue"
+        },
+        {
+          "id": "C",
+          "texte": "La moyenne"
+        },
+        {
+          "id": "D",
+          "texte": "Rien de particulier"
+        }
+      ]
+    },
+    {
+      "id": "auto_annale_2024_etrangers_juin_q5",
+      "source": {
+        "type": "annale_dnb",
+        "document": "2024_Brevet_Centres_Etrangers_juin_2024_FK.pdf",
+        "numero_question": 5,
+        "item_liste": "nc_03"
+      },
+      "theme": "fractions",
+      "competence": "Simplifier, comparer des fractions, calculer avec des fractions (item nc_03)",
+      "enonce": "Léa achète un vélo électrique. Pour le réserver, elle paye 1/5 du prix au magasin. Le magasin lui propose de payer le reste en trois paiements d'un même montant. Quelle fraction du prix du vélo représente l'un de ces trois paiements ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "qcm",
+        "reponse_canonique": "C"
+      },
+      "options": [
+        {
+          "id": "A",
+          "texte": "12/5"
+        },
+        {
+          "id": "B",
+          "texte": "1/15"
+        },
+        {
+          "id": "C",
+          "texte": "4/15"
+        },
+        {
+          "id": "D",
+          "texte": "3/5"
+        }
+      ]
+    },
+    {
+      "id": "auto_annale_2024_metropole_q1",
+      "source": {
+        "type": "annale_dnb",
+        "document": "2024_Brevet_Metropole_1_07_2024_DV.pdf",
+        "numero_question": 1,
+        "item_liste": "nc_11"
+      },
+      "theme": "calcul_litteral",
+      "competence": "Calculer la valeur d'une expression algébrique (item nc_11)",
+      "enonce": "On considère la fonction f définie par f(x) = 3x − 2. Quelle est l'image de −4 par cette fonction ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "qcm",
+        "reponse_canonique": "A"
+      },
+      "options": [
+        {
+          "id": "A",
+          "texte": "−14"
+        },
+        {
+          "id": "B",
+          "texte": "−10"
+        },
+        {
+          "id": "C",
+          "texte": "−3"
+        }
+      ]
+    },
+    {
+      "id": "auto_annale_2024_metropole_q2",
+      "source": {
+        "type": "annale_dnb",
+        "document": "2024_Brevet_Metropole_1_07_2024_DV.pdf",
+        "numero_question": 2,
+        "item_liste": "nc_11"
+      },
+      "theme": "calcul_numerique",
+      "competence": "Calculer la valeur d'une expression algébrique y compris avec des puissances (item nc_11)",
+      "enonce": "Combien vaut (−5)³ ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "qcm",
+        "reponse_canonique": "A"
+      },
+      "options": [
+        {
+          "id": "A",
+          "texte": "−125"
+        },
+        {
+          "id": "B",
+          "texte": "−15"
+        },
+        {
+          "id": "C",
+          "texte": "125"
+        }
+      ]
+    },
+    {
+      "id": "auto_annale_2024_metropole_q3",
+      "source": {
+        "type": "annale_dnb",
+        "document": "2024_Brevet_Metropole_1_07_2024_DV.pdf",
+        "numero_question": 3,
+        "item_liste": "eg_13"
+      },
+      "theme": "geometrie_numerique",
+      "competence": "Mobiliser les propriétés de la translation (item eg_13)",
+      "enonce": "Quelle est l'image du point J par la translation qui transforme C en A ? (Grille de points : B, C, G, H en ligne du haut ; A, D, J, I en ligne du milieu ; F, E, L, K en ligne du bas)",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "qcm",
+        "reponse_canonique": "A"
+      },
+      "options": [
+        {
+          "id": "A",
+          "texte": "H"
+        },
+        {
+          "id": "B",
+          "texte": "E"
+        },
+        {
+          "id": "C",
+          "texte": "D"
+        }
+      ],
+      "figure": "auto_annale_2024_metropole_q3.png"
+    },
+    {
+      "id": "auto_annale_2024_metropole_q4",
+      "source": {
+        "type": "annale_dnb",
+        "document": "2024_Brevet_Metropole_1_07_2024_DV.pdf",
+        "numero_question": 4,
+        "item_liste": "pf_04"
+      },
+      "theme": "stats_probas",
+      "competence": "Exploiter un graphique représentant la dépendance de deux grandeurs (item pf_04)",
+      "enonce": "Quel est l'antécédent de 3 par la fonction f ? (Graphique montrant la courbe Cf dans un repère, passant par le point (3, 3) approximativement)",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "qcm",
+        "reponse_canonique": "A"
+      },
+      "options": [
+        {
+          "id": "A",
+          "texte": "3"
+        },
+        {
+          "id": "B",
+          "texte": "−3"
+        },
+        {
+          "id": "C",
+          "texte": "0"
+        }
+      ],
+      "figure": "auto_annale_2024_metropole_q4.png"
+    },
+    {
+      "id": "auto_annale_2024_metropole_q5",
+      "source": {
+        "type": "annale_dnb",
+        "document": "2024_Brevet_Metropole_1_07_2024_DV.pdf",
+        "numero_question": 5,
+        "item_liste": "dp_04"
+      },
+      "theme": "stats_probas",
+      "competence": "Déterminer une médiane pour une série comportant un petit nombre de valeurs (item dp_04)",
+      "enonce": "On a mesuré les tailles, en m, de sept élèves : 1,46 ; 1,65 ; 1,6 ; 1,72 ; 1,7 ; 1,67 ; 1,75. Quelle est la médiane, en m, de ces tailles ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "qcm",
+        "reponse_canonique": "B",
+        "unite": "m"
+      },
+      "options": [
+        {
+          "id": "A",
+          "texte": "1,72"
+        },
+        {
+          "id": "B",
+          "texte": "1,67"
+        },
+        {
+          "id": "C",
+          "texte": "1,65"
+        }
+      ]
+    },
+    {
+      "id": "auto_annale_2024_metropole_q6",
+      "source": {
+        "type": "annale_dnb",
+        "document": "2024_Brevet_Metropole_1_07_2024_DV.pdf",
+        "numero_question": 6,
+        "item_liste": "eg_12"
+      },
+      "theme": "geometrie_numerique",
+      "competence": "Reconnaître une situation de trigonométrie et utiliser le cosinus (item eg_12)",
+      "enonce": "Dans le triangle ABC rectangle en A, qui n'est pas en vraie grandeur, quelle est la valeur de cos α ? (AC = 3, AB = 4, BC = 5, α est l'angle en B)",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "qcm",
+        "reponse_canonique": "A"
+      },
+      "options": [
+        {
+          "id": "A",
+          "texte": "0,8"
+        },
+        {
+          "id": "B",
+          "texte": "0,75"
+        },
+        {
+          "id": "C",
+          "texte": "0,6"
+        }
+      ],
+      "figure": "auto_annale_2024_metropole_q6.png"
+    },
+    {
+      "id": "auto_annale_2024_metropole_q7",
+      "source": {
+        "type": "annale_dnb",
+        "document": "2024_Brevet_Metropole_1_07_2024_DV.pdf",
+        "numero_question": 7,
+        "item_liste": "al_01"
+      },
+      "theme": "programmes_calcul",
+      "competence": "Interpréter une suite d'instructions : programme de calcul (item al_01)",
+      "enonce": "Vérifier que, si on choisit 5 comme nombre de départ, le résultat du programme A est 56. Programme A : Choisir un nombre. Prendre le carré du nombre choisi. Multiplier le résultat par 2. Ajouter le double du nombre de départ. Soustraire 4 au résultat.",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "entier",
+        "reponse_canonique": "56"
+      }
+    },
+    {
+      "id": "auto_annale_2024_metropole_q8",
+      "source": {
+        "type": "annale_dnb",
+        "document": "2024_Brevet_Metropole_1_07_2024_DV.pdf",
+        "numero_question": 8,
+        "item_liste": "al_01"
+      },
+      "theme": "programmes_calcul",
+      "competence": "Interpréter une suite d'instructions : programme de calcul (item al_01)",
+      "enonce": "Quel résultat obtient-on avec le programme B si on choisit −9 comme nombre de départ ? Programme B (Scratch) : mettre Résultat 1 à nombre choisi + 2 ; mettre Résultat 2 à nombre choisi − 1 ; Dire Résultat 1 * Résultat 2.",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "entier",
+        "reponse_canonique": "70"
+      }
+    },
+    {
+      "id": "auto_annale_2024_metropole_q9",
+      "source": {
+        "type": "annale_dnb",
+        "document": "2024_Brevet_Metropole_1_07_2024_DV.pdf",
+        "numero_question": 9,
+        "item_liste": "dp_01"
+      },
+      "theme": "stats_probas",
+      "competence": "Attribuer des probabilités dans des cas simples (équiprobabilité) (item dp_01)",
+      "enonce": "Déterminer la probabilité que la bille s'arrête sur un numéro inférieur ou égal à 6. (Roulette numérotée de 0 à 36, équiprobabilité)",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "fraction",
+        "reponse_canonique": "7/37"
+      },
+      "figure": "auto_annale_2024_metropole_q9.png"
+    },
+    {
+      "id": "auto_annale_2024_metropole_q1",
+      "source": {
+        "type": "annale_dnb",
+        "document": "2024_Metropole_maths.pdf",
+        "numero_question": 1,
+        "item_liste": "nc_11"
+      },
+      "theme": "calcul_litteral",
+      "competence": "Calculer la valeur d'une expression algébrique (item nc_11)",
+      "enonce": "On considère la fonction f définie par f(x) = 3x – 2. Quelle est l'image de – 4 par cette fonction ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "qcm",
+        "reponse_canonique": "A"
+      },
+      "options": [
+        {
+          "id": "A",
+          "texte": "–14"
+        },
+        {
+          "id": "B",
+          "texte": "–10"
+        },
+        {
+          "id": "C",
+          "texte": "–3"
+        }
+      ]
+    },
+    {
+      "id": "auto_annale_2024_metropole_q2",
+      "source": {
+        "type": "annale_dnb",
+        "document": "2024_Metropole_maths.pdf",
+        "numero_question": 2,
+        "item_liste": "nc_11"
+      },
+      "theme": "calcul_numerique",
+      "competence": "Calculer la valeur d'une expression algébrique y compris avec des puissances (item nc_11)",
+      "enonce": "Combien vaut (−5)³ ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "qcm",
+        "reponse_canonique": "A"
+      },
+      "options": [
+        {
+          "id": "A",
+          "texte": "–125"
+        },
+        {
+          "id": "B",
+          "texte": "–15"
+        },
+        {
+          "id": "C",
+          "texte": "125"
+        }
+      ]
+    },
+    {
+      "id": "auto_annale_2024_metropole_q3",
+      "source": {
+        "type": "annale_dnb",
+        "document": "2024_Metropole_maths.pdf",
+        "numero_question": 3,
+        "item_liste": "eg_13"
+      },
+      "theme": "geometrie_numerique",
+      "competence": "Mobiliser les propriétés de la translation (item eg_13)",
+      "enonce": "Quelle est l'image du point J par la translation qui transforme C en A ? (Les points B, C, G, H sont sur une première ligne ; A, D, J, I sur une deuxième ligne ; F, E, L, K sur une troisième ligne, formant une grille régulière.)",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "qcm",
+        "reponse_canonique": "B"
+      },
+      "options": [
+        {
+          "id": "A",
+          "texte": "H"
+        },
+        {
+          "id": "B",
+          "texte": "E"
+        },
+        {
+          "id": "C",
+          "texte": "D"
+        }
+      ],
+      "figure": "auto_annale_2024_metropole_q3.png"
+    },
+    {
+      "id": "auto_annale_2024_metropole_q4",
+      "source": {
+        "type": "annale_dnb",
+        "document": "2024_Metropole_maths.pdf",
+        "numero_question": 4,
+        "item_liste": "pf_04"
+      },
+      "theme": "stats_probas",
+      "competence": "Exploiter un graphique représentant la dépendance de deux grandeurs (item pf_04)",
+      "enonce": "Quel est l'antécédent de 3 par la fonction f ? (Le graphique de la courbe Cf montre que f(x) = 3 pour x = –3.)",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "qcm",
+        "reponse_canonique": "B"
+      },
+      "options": [
+        {
+          "id": "A",
+          "texte": "3"
+        },
+        {
+          "id": "B",
+          "texte": "– 3"
+        },
+        {
+          "id": "C",
+          "texte": "0"
+        }
+      ],
+      "figure": "auto_annale_2024_metropole_q4.png"
+    },
+    {
+      "id": "auto_annale_2024_metropole_q5",
+      "source": {
+        "type": "annale_dnb",
+        "document": "2024_Metropole_maths.pdf",
+        "numero_question": 5,
+        "item_liste": "dp_04"
+      },
+      "theme": "stats_probas",
+      "competence": "Déterminer une médiane pour une série comportant un petit nombre de valeurs (item dp_04)",
+      "enonce": "On a mesuré les tailles, en m, de sept élèves : 1,46 ; 1,65 ; 1,6 ; 1,72 ; 1,7 ; 1,67 ; 1,75. Quelle est la médiane, en m, de ces tailles ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "qcm",
+        "reponse_canonique": "B",
+        "unite": "m"
+      },
+      "options": [
+        {
+          "id": "A",
+          "texte": "1,72"
+        },
+        {
+          "id": "B",
+          "texte": "1,67"
+        },
+        {
+          "id": "C",
+          "texte": "1,65"
+        }
+      ]
+    },
+    {
+      "id": "auto_annale_2024_metropole_q6",
+      "source": {
+        "type": "annale_dnb",
+        "document": "2024_Metropole_maths.pdf",
+        "numero_question": 6,
+        "item_liste": "eg_12"
+      },
+      "theme": "geometrie_numerique",
+      "competence": "Reconnaître une situation de trigonométrie et utiliser cosinus (item eg_12)",
+      "enonce": "Dans le triangle ABC rectangle en A ci-contre, qui n'est pas en vraie grandeur, quelle est la valeur de cos α ? (AB = 4, AC = 3, BC = 5, l'angle α est en B.)",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "qcm",
+        "reponse_canonique": "A"
+      },
+      "options": [
+        {
+          "id": "A",
+          "texte": "0,8"
+        },
+        {
+          "id": "B",
+          "texte": "0,75"
+        },
+        {
+          "id": "C",
+          "texte": "0,6"
+        }
+      ],
+      "figure": "auto_annale_2024_metropole_q6.png"
+    },
+    {
+      "id": "auto_annale_2024_metropole_q7",
+      "source": {
+        "type": "annale_dnb",
+        "document": "2024_Metropole_maths.pdf",
+        "numero_question": 7,
+        "item_liste": "al_01"
+      },
+      "theme": "programmes_calcul",
+      "competence": "Interpréter une suite d'instructions : programme de calcul (item al_01)",
+      "enonce": "Quel résultat obtient-on avec le programme B si on choisit −9 comme nombre de départ ? (Programme B : mettre Résultat 1 à Nombre choisi + 2, mettre Résultat 2 à Nombre choisi − 1, dire Résultat 1 × Résultat 2.)",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "entier",
+        "reponse_canonique": "70"
+      },
+      "figure": "auto_annale_2024_metropole_q7.png"
+    },
+    {
+      "id": "auto_annale_2024_metropole_q8",
+      "source": {
+        "type": "annale_dnb",
+        "document": "2024_Metropole_maths.pdf",
+        "numero_question": 8,
+        "item_liste": "al_01"
+      },
+      "theme": "programmes_calcul",
+      "competence": "Interpréter une suite d'instructions : programme de calcul (item al_01)",
+      "enonce": "Vérifier que, si on choisit 5 comme nombre de départ, le résultat du programme A est 56. (Programme A : Choisir un nombre. Prendre le carré du nombre choisi. Multiplier le résultat par 2. Ajouter le double du nombre de départ. Soustraire 4 au résultat.)",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "entier",
+        "reponse_canonique": "56"
+      }
+    },
+    {
+      "id": "auto_annale_2025_metropole_sept_q1",
+      "source": {
+        "type": "annale_dnb",
+        "document": "2025_Brevet_Metropole_sept_2025_DV.pdf",
+        "numero_question": 1,
+        "item_liste": "dp_05"
+      },
+      "theme": "stats_probas",
+      "competence": "Lire et interpréter des informations présentées sous forme de tableaux (item dp_05)",
+      "enonce": "On considère la série suivante : 4 ; 8 ; 11 ; 7 ; 2 ; 3 ; 14. Quelle est l'étendue de cette série ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "qcm",
+        "reponse_canonique": "C"
+      },
+      "options": [
+        {
+          "id": "A",
+          "texte": "10"
+        },
+        {
+          "id": "B",
+          "texte": "7"
+        },
+        {
+          "id": "C",
+          "texte": "12"
+        },
+        {
+          "id": "D",
+          "texte": "14"
+        }
+      ]
+    },
+    {
+      "id": "auto_annale_2025_metropole_sept_q2",
+      "source": {
+        "type": "annale_dnb",
+        "document": "2025_Brevet_Metropole_sept_2025_DV.pdf",
+        "numero_question": 2,
+        "item_liste": "eg_05"
+      },
+      "theme": "grandeurs_mesures",
+      "competence": "Connaître les correspondances d'unités : dm³/L (item eg_05)",
+      "enonce": "Quel est le volume correspondant à 1 L ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "qcm",
+        "reponse_canonique": "C"
+      },
+      "options": [
+        {
+          "id": "A",
+          "texte": "1 m³"
+        },
+        {
+          "id": "B",
+          "texte": "1 cm³"
+        },
+        {
+          "id": "C",
+          "texte": "1 dm³"
+        },
+        {
+          "id": "D",
+          "texte": "1 mm³"
+        }
+      ]
+    },
+    {
+      "id": "auto_annale_2025_metropole_sept_q3",
+      "source": {
+        "type": "annale_dnb",
+        "document": "2025_Brevet_Metropole_sept_2025_DV.pdf",
+        "numero_question": 3,
+        "item_liste": "nc_06"
+      },
+      "theme": "calcul_numerique",
+      "competence": "Passer d'une notation scientifique à une écriture décimale (item nc_06)",
+      "enonce": "Quel est le nombre dont l'écriture scientifique est 8,6 × 10⁻⁴ ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "qcm",
+        "reponse_canonique": "B"
+      },
+      "options": [
+        {
+          "id": "A",
+          "texte": "86 000"
+        },
+        {
+          "id": "B",
+          "texte": "0,000 86"
+        },
+        {
+          "id": "C",
+          "texte": "−0,000 86"
+        },
+        {
+          "id": "D",
+          "texte": "0,000 086"
+        }
+      ]
+    },
+    {
+      "id": "auto_annale_2025_metropole_sept_q4",
+      "source": {
+        "type": "annale_dnb",
+        "document": "2025_Brevet_Metropole_sept_2025_DV.pdf",
+        "numero_question": 4,
+        "item_liste": "pf_02"
+      },
+      "theme": "pourcentages_proportionnalite",
+      "competence": "Résoudre un problème de proportionnalité (ratio) (item pf_02)",
+      "enonce": "La longueur et la largeur du drapeau de la France sont dans le ratio 3 : 2. Quelle est la largeur du drapeau de la France dont la longueur est égale à 90 cm ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "qcm",
+        "reponse_canonique": "D",
+        "unite": "cm"
+      },
+      "options": [
+        {
+          "id": "A",
+          "texte": "54 cm"
+        },
+        {
+          "id": "B",
+          "texte": "135 cm"
+        },
+        {
+          "id": "C",
+          "texte": "45 cm"
+        },
+        {
+          "id": "D",
+          "texte": "60 cm"
+        }
+      ]
+    },
+    {
+      "id": "auto_annale_2025_metropole_sept_q5",
+      "source": {
+        "type": "annale_dnb",
+        "document": "2025_Brevet_Metropole_sept_2025_DV.pdf",
+        "numero_question": 5,
+        "item_liste": "pf_03"
+      },
+      "theme": "pourcentages_proportionnalite",
+      "competence": "Appliquer une diminution exprimée en pourcentage (item pf_03)",
+      "enonce": "Le prix d'un parfum est passé de 75 € à 60 €. Quel pourcentage de réduction a été appliqué ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "qcm",
+        "reponse_canonique": "D",
+        "unite": "%"
+      },
+      "options": [
+        {
+          "id": "A",
+          "texte": "80 %"
+        },
+        {
+          "id": "B",
+          "texte": "25 %"
+        },
+        {
+          "id": "C",
+          "texte": "15 %"
+        },
+        {
+          "id": "D",
+          "texte": "20 %"
+        }
+      ]
+    },
+    {
+      "id": "auto_annale_2025_metropole_sept_q6",
+      "source": {
+        "type": "annale_dnb",
+        "document": "2025_Brevet_Metropole_sept_2025_DV.pdf",
+        "numero_question": 6,
+        "item_liste": "nc_12"
+      },
+      "theme": "calcul_litteral",
+      "competence": "Factoriser une expression simple (item nc_12)",
+      "enonce": "Quelle est la forme factorisée de 4x² − 25 ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "qcm",
+        "reponse_canonique": "B"
+      },
+      "options": [
+        {
+          "id": "A",
+          "texte": "(2x − 5)²"
+        },
+        {
+          "id": "B",
+          "texte": "(2x − 5)(2x + 5)"
+        },
+        {
+          "id": "C",
+          "texte": "(4x − 5)(4x + 5)"
+        },
+        {
+          "id": "D",
+          "texte": "(4x − 5)²"
+        }
+      ]
+    },
+    {
+      "id": "auto_annale_2025_metropole_sept_q7",
+      "source": {
+        "type": "annale_dnb",
+        "document": "2025_Brevet_Metropole_sept_2025_DV.pdf",
+        "numero_question": 7,
+        "item_liste": "pf_04"
+      },
+      "theme": "stats_probas",
+      "competence": "Exploiter un graphique représentant la dépendance de deux grandeurs (item pf_04)",
+      "enonce": "On donne la courbe représentative de la fonction f définie par f(x) = 0,5x + 2 où x désigne la température de l'eau (en °C) et f(x) le temps de filtration (en h). Quelle est l'image de 10 par la fonction ? Aucune justification n'est demandée.",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "7",
+        "unite": "h"
+      },
+      "figure": "auto_annale_2025_metropole_sept_q7.png"
+    },
+    {
+      "id": "auto_annale_2025_metropole_sept_q8",
+      "source": {
+        "type": "annale_dnb",
+        "document": "2025_Brevet_Metropole_sept_2025_DV.pdf",
+        "numero_question": 8,
+        "item_liste": "eg_13"
+      },
+      "theme": "geometrie_numerique",
+      "competence": "Mobiliser les propriétés de la rotation/symétrie (item eg_13)",
+      "enonce": "Quel est le nom de la transformation géométrique permettant de passer du rectangle n°1 au rectangle n°2 ? Aucune justification n'est demandée.",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "rotation"
+      },
+      "figure": "auto_annale_2025_metropole_sept_q8.png"
+    },
+    {
+      "id": "auto_annale_2025_metropole_q1",
+      "source": {
+        "type": "annale_dnb",
+        "document": "2025_Metropole_maths.pdf",
+        "numero_question": 1,
+        "item_liste": "dp_01"
+      },
+      "theme": "stats_probas",
+      "competence": "Attribuer des probabilités dans des cas simples (équiprobabilité) (item dp_01)",
+      "enonce": "On dispose d'une urne A contenant 6 boules numérotées : 7 ; 10 ; 12 ; 15 ; 24 ; 30. On tire une boule dans l'urne A, quelle est la probabilité d'obtenir un nombre pair ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "fraction",
+        "reponse_canonique": "4/6"
+      }
+    },
+    {
+      "id": "auto_annale_2025_metropole_q2",
+      "source": {
+        "type": "annale_dnb",
+        "document": "2025_Metropole_maths.pdf",
+        "numero_question": 2,
+        "item_liste": "pf_02"
+      },
+      "theme": "pourcentages_proportionnalite",
+      "competence": "Mobiliser une procédure adaptée pour résoudre un problème de proportionnalité (item pf_02)",
+      "enonce": "Le prix de 3 melons est 8,40 €. Combien coûtent 5 melons ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "qcm",
+        "reponse_canonique": "C",
+        "unite": "€"
+      },
+      "options": [
+        {
+          "id": "A",
+          "texte": "16,40 €"
+        },
+        {
+          "id": "B",
+          "texte": "42 €"
+        },
+        {
+          "id": "C",
+          "texte": "14 €"
+        },
+        {
+          "id": "D",
+          "texte": "10,40 €"
+        }
+      ]
+    },
+    {
+      "id": "auto_annale_2025_metropole_q3",
+      "source": {
+        "type": "annale_dnb",
+        "document": "2025_Metropole_maths.pdf",
+        "numero_question": 3,
+        "item_liste": "eg_13"
+      },
+      "theme": "geometrie_numerique",
+      "competence": "Mobiliser les propriétés de la symétrie axiale, centrale, translation (item eg_13)",
+      "enonce": "Quelle transformation permet de passer de la figure 1 à la figure 2 ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "qcm",
+        "reponse_canonique": "C"
+      },
+      "options": [
+        {
+          "id": "A",
+          "texte": "Une symétrie centrale"
+        },
+        {
+          "id": "B",
+          "texte": "Une rotation"
+        },
+        {
+          "id": "C",
+          "texte": "Une translation"
+        },
+        {
+          "id": "D",
+          "texte": "Une symétrie axiale"
+        }
+      ],
+      "figure": "auto_annale_2025_metropole_q3.png"
+    },
+    {
+      "id": "auto_annale_2025_metropole_q4",
+      "source": {
+        "type": "annale_dnb",
+        "document": "2025_Metropole_maths.pdf",
+        "numero_question": 4,
+        "item_liste": "pf_03"
+      },
+      "theme": "pourcentages_proportionnalite",
+      "competence": "Appliquer une augmentation ou une diminution exprimée en pourcentage (item pf_03)",
+      "enonce": "Un article coûte 350 €. Son prix augmente de 20 %. Quel est son nouveau prix ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "qcm",
+        "reponse_canonique": "A",
+        "unite": "€"
+      },
+      "options": [
+        {
+          "id": "A",
+          "texte": "420 €"
+        },
+        {
+          "id": "B",
+          "texte": "330 €"
+        },
+        {
+          "id": "C",
+          "texte": "370 €"
+        },
+        {
+          "id": "D",
+          "texte": "280 €"
+        }
+      ]
+    },
+    {
+      "id": "auto_annale_2025_metropole_q5",
+      "source": {
+        "type": "annale_dnb",
+        "document": "2025_Metropole_maths.pdf",
+        "numero_question": 5,
+        "item_liste": "eg_08"
+      },
+      "theme": "grandeurs_mesures",
+      "competence": "Connaître et utiliser les formules d'aire d'un triangle (item eg_08)",
+      "enonce": "Quelle est l'aire du triangle rectangle ABC ? (Triangle rectangle en C avec AB = 6 cm, BC = 4,5 cm, AC = 7,5 cm, angle droit en C)",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "qcm",
+        "reponse_canonique": "B",
+        "unite": "cm²"
+      },
+      "options": [
+        {
+          "id": "A",
+          "texte": "27 cm²"
+        },
+        {
+          "id": "B",
+          "texte": "13,5 cm²"
+        },
+        {
+          "id": "C",
+          "texte": "18 cm²"
+        },
+        {
+          "id": "D",
+          "texte": "9 cm²"
+        }
+      ],
+      "figure": "auto_annale_2025_metropole_q5.png"
+    },
+    {
+      "id": "auto_annale_2025_metropole_q6",
+      "source": {
+        "type": "annale_dnb",
+        "document": "2025_Metropole_maths.pdf",
+        "numero_question": 6,
+        "item_liste": "nc_12"
+      },
+      "theme": "calcul_litteral",
+      "competence": "Développer et factoriser une expression simple (item nc_12)",
+      "enonce": "Quelle est la forme développée et réduite de l'expression (2x + 3)(x − 4) ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "qcm",
+        "reponse_canonique": "A"
+      },
+      "options": [
+        {
+          "id": "A",
+          "texte": "2x² − 5x − 12"
+        },
+        {
+          "id": "B",
+          "texte": "2x² − 11x − 12"
+        },
+        {
+          "id": "C",
+          "texte": "2x² − 12"
+        },
+        {
+          "id": "D",
+          "texte": "3x − 1"
+        }
+      ]
+    },
+    {
+      "id": "auto_annale_2025_metropole_q7",
+      "source": {
+        "type": "annale_dnb",
+        "document": "2025_Metropole_maths.pdf",
+        "numero_question": 7,
+        "item_liste": "dp_04"
+      },
+      "theme": "stats_probas",
+      "competence": "Déterminer une médiane pour une série comportant un petit nombre de valeurs (item dp_04)",
+      "enonce": "Voici les temps de 9 élèves : 5 min 30 s ; 5 min 45 s ; 5 min 49 s ; 5 min 50 s ; 6 min ; 6 min 11 s ; 6 min 12 s ; 6 min 20 s ; 6 min 40 s. Quel est le temps médian de cette série ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "6 min"
+      }
+    },
+    {
+      "id": "auto_annale_2025_metropole_q8",
+      "source": {
+        "type": "annale_dnb",
+        "document": "2025_Metropole_maths.pdf",
+        "numero_question": 8,
+        "item_liste": "al_01"
+      },
+      "theme": "programmes_calcul",
+      "competence": "Interpréter une suite d'instructions : programme de calcul (item al_01)",
+      "enonce": "Programme de Zoé : Choisir un nombre, Soustraire 4, Multiplier par 2, Ajouter 8. Quel résultat obtient-on avec ce programme si on choisit −7 comme nombre de départ ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "entier",
+        "reponse_canonique": "-14"
+      }
+    },
+    {
+      "id": "auto_annale_2025_metropole_q9",
+      "source": {
+        "type": "annale_dnb",
+        "document": "2025_Metropole_maths.pdf",
+        "numero_question": 9,
+        "item_liste": "nc_13"
+      },
+      "theme": "calcul_litteral",
+      "competence": "Résoudre des équations du type ax + b = c (item nc_13)",
+      "enonce": "Quel nombre faut-il choisir au départ pour obtenir 75 avec le programme de Fred ? (Le résultat du programme de Fred est 20x + 50)",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "1.25"
+      }
+    }
+  ]
+}

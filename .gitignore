@@ -47,6 +47,9 @@ content/francais/comprehension/exercises/_all.json
 content/francais/redaction/subjects/_all.json
 .venv-test/
 
+# Journaux d'extraction Opus offline (raw + rejets) — debug local seulement.
+scripts/.logs/
+
 # Annales DNB maths : les 241 sujets + 190 corrigés (~250 Mo) sont synchronisés
 # en local depuis ~/Documents/Projets/RevisionDNB/Mathematiques via
 # scripts/sync_math_annales.sh, puis ingérés dans Albert. On versionne
