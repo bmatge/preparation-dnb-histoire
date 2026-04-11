@@ -964,5 +964,137 @@ Logs startup : `175 questions automatismes maths chargées` après
 
 ---
 
+## ADDENDUM 2026-04-11 — Pattern « Bouton Outils » par matière (FAB)
+
+Depuis la PR #26, la matière mathématiques expose un bouton flottant
+**« Outils »** en bas à droite de toutes ses pages, qui déplie une mini
+popin contenant la calculette. Le pattern est réutilisable tel quel
+pour ajouter un outil matière-spécifique côté français (dictionnaire,
+définitions…) ou histoire-géo (chronologie, repère…).
+
+### Architecture
+
+- `app/core/templates/base.html` expose un block Jinja vide en fin de
+  `<body>` :
+  ```jinja
+  {% block fab %}{% endblock %}
+  ```
+  Ce block est le **point d'injection transverse** : par défaut rien
+  n'est rendu, chaque matière décide ou non de le remplir.
+
+- Chaque matière qui veut son propre FAB crée **deux fichiers** dans
+  `app/<matière>/templates/` :
+  1. `_<matière>_base.html` — layout intermédiaire qui étend
+     `base.html` et remplit le block `fab` avec un include.
+  2. `_tools_fab.html` — le contenu effectif (bouton + popin + logique).
+
+- **Tous les templates de la matière étendent `_<matière>_base.html`**
+  au lieu de `base.html`. Une seule ligne à changer par template.
+
+### Recette pour ajouter un FAB à une nouvelle matière
+
+1. **Créer `_<matière>_base.html`** (exemple français) :
+   ```jinja
+   {% extends "base.html" %}
+
+   {% block fab %}
+     {% include "_tools_fab.html" %}
+   {% endblock %}
+   ```
+
+2. **Créer `_tools_fab.html`** — reprendre la structure HTML de
+   `app/mathematiques/templates/_tools_fab.html` comme point de départ
+   (bouton rond `fixed bottom-5 right-5 z-50`, popin dépliante au clic,
+   fermeture via croix / Échap / clic hors-popin). Remplacer le bloc
+   formulaire et le `<script>` par ce qui est spécifique à la matière.
+   Le corps du popin est totalement libre : JS vanilla, HTMX vers une
+   route `/français/outils/definition`, contenu statique…
+
+3. **Faire pointer les templates de la matière vers le nouveau layout**.
+   Pour chaque template qui affiche une page (`index.html`, `home.html`,
+   `step_*.html`, `quiz.html`, etc.), remplacer :
+   ```jinja
+   {% extends "base.html" %}
+   ```
+   par :
+   ```jinja
+   {% extends "_<matière>_base.html" %}
+   ```
+
+4. **Exposer `_<matière>_TEMPLATES` aux Jinja2Templates des
+   sous-épreuves**. Chaque sous-épreuve a son propre
+   `Jinja2Templates(directory=[...])` dans `routes.py`. Il faut y
+   ajouter le dossier de templates de la matière racine, sinon
+   `_<matière>_base.html` et `_tools_fab.html` ne seront pas
+   résolvables.
+
+   Exemple côté maths (pattern à reproduire pour français / HG) :
+   ```python
+   _HERE = Path(__file__).resolve().parent
+   _APP_DIR = _HERE.parent.parent
+   _CORE_TEMPLATES = _APP_DIR / "core" / "templates"
+   _MATH_TEMPLATES = _HERE.parent / "templates"  # <-- ajout
+   _AUTO_TEMPLATES = _HERE / "templates"
+   templates = Jinja2Templates(
+       directory=[str(_AUTO_TEMPLATES), str(_MATH_TEMPLATES), str(_CORE_TEMPLATES)]
+   )
+   ```
+
+### Gotchas à connaître
+
+- **Ordre des directories Jinja** : la sous-épreuve d'abord, puis la
+  matière racine, puis core. Jinja cherche dans l'ordre — si deux
+  partiels portent le même nom, c'est le plus spécifique qui gagne.
+
+- **Ne pas oublier un template** : en maths il y a 7 templates qui
+  étendent `_maths_base.html` (index matière + 3 templates automatismes
+  + 3 templates problèmes). Oublier un seul fichier = page sans FAB.
+  Les tests `tests/mathematiques/test_tools_fab.py` vérifient la
+  présence du marqueur `id="math-fab-root"` sur chaque type de page et
+  son absence sur les autres matières — **copier ce pattern de test**
+  pour valider le nouvel outil côté français / HG.
+
+- **Le block est positionné *avant* `</body>`**, donc il reste visible
+  au-dessus des formulaires HTMX sans interférer avec eux (`z-50` sur
+  le conteneur racine du FAB).
+
+- **Content Security Policy** : `_tools_fab.html` utilise un
+  `<script>` inline. Si une CSP stricte est introduite plus tard, il
+  faudra déplacer les handlers dans un fichier statique dédié
+  (`app/static/<matière>_tools_fab.js`) et ajouter un `<script src="…">`
+  — pas bloquant pour l'instant, mais à garder en tête.
+
+- **Pas de persistance côté serveur** dans l'exemple maths : la
+  calculette est 100 % client-side. Pour un outil qui appellerait
+  Albert (p. ex. une définition côté français), préférer une route
+  HTMX POST qui rend un fragment à injecter dans la popin — éviter
+  `fetch` à la main si on peut, pour rester cohérent avec le reste du
+  projet.
+
+### Idées de contenu par matière
+
+- **Français** : lookup d'une définition (RAG contre
+  `dnb_francais_methodo` ou un dictionnaire committé), conjugaison d'un
+  verbe, rappel des règles d'accord de base.
+- **Histoire-géo-EMC** : recherche d'un repère chronologique ou spatial
+  par mot-clé, conversion d'une date en siècle, rappel d'un personnage.
+
+Dans tous les cas : le pattern fournit **uniquement le container
+(bouton + popin)**, la logique interne est libre. Inspiration pour le
+style : gradient `from-brand-500 to-purple-600` en header du popin,
+`rounded-2xl shadow-2xl`, fermeture par Échap / clic extérieur.
+
+### Fichiers de référence côté maths
+
+- `app/core/templates/base.html` — block `fab` en fin de body.
+- `app/mathematiques/templates/_maths_base.html` — layout maths.
+- `app/mathematiques/templates/_tools_fab.html` — calculette JS
+  (bouton + popin + whitelist stricte + historique).
+- `app/mathematiques/{automatismes,problemes}/routes.py` — exemple de
+  Jinja2Templates avec `_MATH_TEMPLATES` dans la liste.
+- `tests/mathematiques/test_tools_fab.py` — pattern de test à recopier.
+
+---
+
 *Fin du handoff. Fichier généré automatiquement — ne pas éditer à la main
 sauf pour ajouter des notes de passation additionnelles.*
