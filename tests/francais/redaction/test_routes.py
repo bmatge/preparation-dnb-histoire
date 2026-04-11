@@ -401,3 +401,66 @@ class TestRestart:
         # Après restart, /step/1 doit re-rediriger vers home (plus de session).
         r2 = test_client.get(f"{PREFIX}/step/1", follow_redirects=False)
         assert r2.status_code == 303
+
+
+# ============================================================================
+# Resume — reprise ciblée depuis un brouillon localStorage
+# ============================================================================
+
+
+class TestResume:
+    """Route /resume/{subject_id}/step/{step}?option=... utilisée par le
+    bandeau global de reprise du helper ``draft_autosave.js``.
+
+    On vérifie que :
+    - le subject_id passé dans l'URL est celui effectivement rendu
+      ensuite sur /step/N (pas celui éventuellement stocké dans le
+      cookie courant) ;
+    - l'option est bien rétablie dans ``request.session`` pour que
+      ``_require_option`` laisse passer.
+    """
+
+    def test_resume_forces_target_subject_and_option(self, test_client):
+        # Session en cours sur imagination, pour poser un cookie différent
+        _create_session_and_choose(test_client, option="imagination")
+
+        with DBSession(get_engine()) as s:
+            target = s.exec(select(FrenchRedactionSubject).limit(1)).first()
+            assert target is not None
+            target_id = target.id
+
+        r = test_client.get(
+            f"{PREFIX}/resume/{target_id}/step/6?option=reflexion",
+            follow_redirects=False,
+        )
+        assert r.status_code == 303
+        assert r.headers["location"].endswith("/step/6")
+
+        r2 = test_client.get(f"{PREFIX}/step/6")
+        assert r2.status_code == 200
+        assert (
+            f'data-draft-key="fr:redaction:step6:{target_id}:reflexion"'
+            in r2.text
+        )
+
+    def test_resume_unknown_subject_redirects_home(self, test_client):
+        r = test_client.get(
+            f"{PREFIX}/resume/999999/step/2?option=imagination",
+            follow_redirects=False,
+        )
+        assert r.status_code == 303
+        assert r.headers["location"].endswith("/francais/redaction/")
+
+    def test_resume_invalid_step_returns_404(self, test_client):
+        r = test_client.get(
+            f"{PREFIX}/resume/1/step/99?option=imagination",
+            follow_redirects=False,
+        )
+        assert r.status_code == 404
+
+    def test_resume_invalid_option_returns_400(self, test_client):
+        r = test_client.get(
+            f"{PREFIX}/resume/1/step/2?option=bogus",
+            follow_redirects=False,
+        )
+        assert r.status_code == 400

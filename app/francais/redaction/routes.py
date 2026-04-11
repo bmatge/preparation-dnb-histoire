@@ -177,6 +177,41 @@ def restart(request: Request):
     return RedirectResponse(url=f"{PREFIX}/", status_code=303)
 
 
+@router.get("/resume/{subject_id}/step/{step}")
+def resume(
+    request: Request,
+    subject_id: int,
+    step: int,
+    option: str,
+    s: DBSession = Depends(db_session),
+):
+    """Reprend une session pour un sujet, une option et une étape précis.
+
+    Appelée par le bandeau global de reprise du helper
+    ``draft_autosave.js``. Recrée une session DB pointant sur le bon
+    sujet et restaure l'option (imagination/réflexion) dans le cookie
+    Starlette — sans quoi ``_require_option`` redirigerait l'élève vers
+    l'étape 1 et lui ferait choisir à nouveau son option, ce qui
+    changerait la clé localStorage et perdrait le brouillon.
+    """
+    if step not in (2, 4, 6):
+        raise HTTPException(status_code=404, detail="Étape inconnue.")
+    if option not in ("imagination", "reflexion"):
+        raise HTTPException(status_code=400, detail="Option invalide.")
+    row = get_subject(s, subject_id)
+    if row is None:
+        return RedirectResponse(url=f"{PREFIX}/", status_code=303)
+    new_sess = core_db.create_session(
+        s,
+        subject_kind=SUBJECT_KIND,
+        subject_id=row.id,
+        mode="semi_assiste",
+    )
+    request.session["redaction_session_id"] = new_sess.id
+    request.session["redaction_option"] = option
+    return RedirectResponse(url=f"{PREFIX}/step/{step}", status_code=303)
+
+
 # ---------------------------------------------------------------------------
 # Étape 1 — affichage des deux options + choix
 # ---------------------------------------------------------------------------

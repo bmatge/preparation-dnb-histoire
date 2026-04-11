@@ -32,6 +32,7 @@
       Ta rédaction
     </span>
     <textarea name="redaction" rows="22" required minlength="400"
+              data-draft-key="fr:redaction:step6:{{ subject.id }}:{{ option }}"
               placeholder="{% if option == 'imagination' %}Ouverture…&#10;&#10;Péripéties…&#10;&#10;Dénouement…{% else %}Introduction…&#10;&#10;Premier argument…&#10;&#10;Second argument…&#10;&#10;Conclusion…{% endif %}"
               class="w-full border border-slate-200 rounded-xl px-4 py-3 text-[15px] leading-relaxed focus:ring-2 focus:ring-brand-400 focus:border-brand-400 outline-none transition"></textarea>
   </label>

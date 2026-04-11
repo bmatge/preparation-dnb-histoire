@@ -242,3 +242,52 @@ class TestRestart:
         # Le restart DC redirige vers la racine globale "/", pas vers la
         # matière elle-même (cf. routes.py::restart).
         assert r.headers["location"] == "/"
+
+
+class TestResume:
+    """Route /resume/{subject_id}/step/{step} utilisée par le bandeau
+    global de reprise de brouillon (cf. app/static/draft_autosave.js).
+
+    Point clé : le sujet rendu doit être celui passé dans l'URL, pas
+    celui qui traîne dans le cookie Starlette — sinon l'élève qui clique
+    sur "Reprendre" depuis l'accueil retomberait sur un sujet aléatoire
+    et son brouillon localStorage serait perdu.
+    """
+
+    def test_resume_forces_target_subject(self, test_client):
+        from app.histoire_geo_emc.developpement_construit import models as m
+
+        # Crée une session courante pointant sur un sujet aléatoire
+        _create_session(test_client)
+
+        # Récupère un sujet arbitraire à reprendre (≠ potentiellement de
+        # celui du cookie)
+        with DBSession(get_engine()) as s:
+            target = s.exec(select(m.Subject).limit(1)).first()
+            assert target is not None
+            target_id = target.id
+
+        r = test_client.get(
+            f"{PREFIX}/resume/{target_id}/step/2", follow_redirects=False
+        )
+        assert r.status_code == 303
+        assert r.headers["location"].endswith("/step/2")
+
+        # Après le resume, /step/2 doit rendre le bon sujet dans la clé
+        # localStorage du textarea.
+        r2 = test_client.get(f"{PREFIX}/step/2")
+        assert r2.status_code == 200
+        assert f'data-draft-key="hg-emc:dc:step2:{target_id}"' in r2.text
+
+    def test_resume_unknown_subject_redirects_home(self, test_client):
+        r = test_client.get(
+            f"{PREFIX}/resume/999999/step/2", follow_redirects=False
+        )
+        assert r.status_code == 303
+        assert r.headers["location"].endswith("/developpement-construit/")
+
+    def test_resume_invalid_step_returns_404(self, test_client):
+        r = test_client.get(
+            f"{PREFIX}/resume/1/step/99", follow_redirects=False
+        )
+        assert r.status_code == 404

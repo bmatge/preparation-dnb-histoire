@@ -23,6 +23,7 @@
       {% endif %}
     </span>
     <textarea name="proposition" rows="12" required minlength="30"
+              data-draft-key="fr:redaction:step2:{{ subject.id }}:{{ option }}"
               placeholder="{% if option == 'imagination' %}Ouverture : ...&#10;Élément déclencheur : ...&#10;Péripéties : ...&#10;Dénouement : ...&#10;Idées d'images / sentiments à intégrer : ...{% else %}Position : ...&#10;Argument 1 : ...&#10;  - exemple : ...&#10;Argument 2 : ...&#10;  - exemple : ...&#10;Ouverture / conclusion : ...{% endif %}"
               class="w-full border border-slate-200 rounded-xl px-4 py-3 font-mono text-sm focus:ring-2 focus:ring-brand-400 focus:border-brand-400 outline-none transition"></textarea>
   </label>

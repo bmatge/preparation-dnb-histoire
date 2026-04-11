@@ -160,6 +160,40 @@ def restart(request: Request):
     return RedirectResponse(url="/", status_code=303)
 
 
+@router.get("/resume/{subject_id}/step/{step}")
+def resume(
+    request: Request,
+    subject_id: int,
+    step: int,
+    s: DBSession = Depends(db_session),
+):
+    """Reprend une session pour un sujet et une étape précis.
+
+    Cette route est appelée par le bandeau global de reprise du helper
+    ``draft_autosave.js`` quand l'élève clique sur "Reprendre →" depuis
+    l'accueil ou un sélecteur. Elle recrée une session DB pointant sur le
+    bon sujet (indépendamment de ce qui était éventuellement déjà stocké
+    dans le cookie Starlette) avant de rediriger vers l'étape demandée,
+    ce qui garantit que ``step_{N}.html`` rend bien le sujet d'origine
+    du brouillon localStorage.
+    """
+    if step not in (2, 4, 6):
+        raise HTTPException(status_code=404, detail="Étape inconnue.")
+    subj = hgemc_models.get_subject(s, subject_id)
+    if subj is None:
+        # Sujet supprimé depuis la sauvegarde du brouillon : on repart
+        # proprement sur l'accueil matière plutôt que d'afficher une 404.
+        return RedirectResponse(url=f"{PREFIX}/", status_code=303)
+    new_sess = core_db.create_session(
+        s,
+        subject_kind="hgemc_dc",
+        subject_id=subj.id,
+        mode=Mode.SEMI_ASSISTE.value,
+    )
+    request.session["session_id"] = new_sess.id
+    return RedirectResponse(url=f"{PREFIX}/step/{step}", status_code=303)
+
+
 # ---------------------------------------------------------------------------
 # Étape 1 — affichage du sujet
 # ---------------------------------------------------------------------------
