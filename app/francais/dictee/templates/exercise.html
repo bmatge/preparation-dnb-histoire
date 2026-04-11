@@ -28,72 +28,71 @@
   </section>
   {% endif %}
 
-  <section class="rounded-2xl bg-white border border-slate-200 p-6 shadow-sm">
-    <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
-      <h2 class="font-display text-lg font-bold text-brand-800">
-        Écoute phrase par phrase
-      </h2>
-      <form method="post" action="/francais/dictee/session/{{ session.id }}/voice"
-            class="flex items-center gap-2">
-        <label class="text-xs text-slate-500">Voix :</label>
-        <select name="voice" onchange="this.form.submit()"
-                class="text-sm rounded-lg border border-slate-200 px-2 py-1">
-          {% for slug, label in voices %}
-          <option value="{{ slug }}" {% if slug == current_voice %}selected{% endif %}>{{ label }}</option>
-          {% endfor %}
-        </select>
-      </form>
-    </div>
-
-    <p class="text-sm text-slate-600 mb-4">
-      Tu peux écouter chaque phrase autant de fois que tu veux. Le bouton
-      « tout lire » enchaîne toutes les phrases avec une pause de 4 secondes
-      entre chacune.
-    </p>
-
-    <div class="space-y-2">
-      {% for url in audio_urls %}
-      <div class="flex items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 px-4 py-2">
-        <span class="text-xs text-slate-500 w-12 shrink-0">
-          Phrase {{ loop.index }}
-        </span>
-        <audio controls preload="metadata" src="{{ url }}" class="flex-1 h-8 dictee-audio"></audio>
+  <section class="rounded-2xl bg-white border border-slate-200 p-5 shadow-sm">
+    <div class="flex flex-wrap items-center gap-4">
+      <div class="flex items-center gap-2">
+        <label for="voice-select" class="text-sm font-medium text-slate-700">Voix</label>
+        <form method="post" action="/francais/dictee/session/{{ session.id }}/voice">
+          <select id="voice-select" name="voice" onchange="this.form.submit()"
+                  class="text-sm rounded-lg border border-slate-200 px-2 py-1.5">
+            {% for slug, label in voices %}
+            <option value="{{ slug }}" {% if slug == current_voice %}selected{% endif %}>{{ label }}</option>
+            {% endfor %}
+          </select>
+        </form>
       </div>
-      {% endfor %}
-    </div>
 
-    <div class="mt-4 flex flex-wrap items-center gap-3">
-      <button type="button" id="btn-play-all" class="btn-secondary">
-        Tout lire (4s entre phrases)
+      <button type="button" id="btn-play-all" class="btn-primary">
+        Tout lire (pause 4s)
       </button>
-      <span id="play-all-status" class="text-xs text-slate-500"></span>
+      <span id="play-all-status" class="text-sm text-slate-500"></span>
     </div>
   </section>
 
-  <section class="rounded-2xl bg-white border border-slate-200 p-6 shadow-sm">
-    <h2 class="font-display text-lg font-bold text-brand-800 mb-3">
-      Ta copie
-    </h2>
-    <form hx-post="/francais/dictee/session/{{ session.id }}/answer"
-          hx-target="#feedback-zone"
-          hx-swap="innerHTML">
-      <textarea
-        name="copie"
-        rows="10"
-        class="w-full rounded-xl border border-slate-200 p-3 text-sm focus:border-brand-400 focus:outline-none font-serif"
-        placeholder="Écris ici la dictée que tu entends, phrase par phrase…"
-        required
-      >{{ last_answer }}</textarea>
-      <div class="mt-3 flex items-center justify-between gap-2">
-        <span class="text-xs text-slate-500">
-          <span class="htmx-indicator">⏳ Vérification en cours…</span>
-        </span>
-        <button type="submit" class="btn-primary">Vérifier ma copie</button>
-      </div>
-    </form>
+  <div class="grid gap-6 lg:grid-cols-3">
+    <section class="rounded-2xl bg-white border border-slate-200 p-6 shadow-sm lg:col-span-2 lg:col-start-1 lg:row-start-1">
+      <h2 class="font-display text-lg font-bold text-brand-800 mb-3">
+        Ta copie
+      </h2>
+      <form hx-post="/francais/dictee/session/{{ session.id }}/answer"
+            hx-target="#feedback-zone"
+            hx-swap="innerHTML">
+        <textarea
+          name="copie"
+          rows="16"
+          class="w-full rounded-xl border border-slate-200 p-3 text-sm focus:border-brand-400 focus:outline-none font-serif"
+          placeholder="Écris ici la dictée que tu entends, phrase par phrase…"
+          required
+        >{{ last_answer }}</textarea>
+        <div class="mt-3 flex items-center justify-between gap-2">
+          <span class="text-xs text-slate-500">
+            <span class="htmx-indicator">Vérification en cours…</span>
+          </span>
+          <button type="submit" class="btn-primary">Vérifier ma copie</button>
+        </div>
+      </form>
 
-    <div id="feedback-zone" class="mt-6"></div>
-  </section>
+      <div id="feedback-zone" class="mt-6"></div>
+    </section>
+
+    <section class="rounded-2xl bg-white border border-slate-200 p-5 shadow-sm lg:col-start-3 lg:row-start-1 lg:sticky lg:top-4 lg:self-start">
+      <h2 class="font-display text-base font-bold text-brand-800 mb-1">
+        Phrase par phrase
+      </h2>
+      <p class="text-xs text-slate-500 mb-3">
+        Réécoute chaque phrase autant que tu veux.
+      </p>
+
+      <div class="space-y-2 max-h-[60vh] overflow-y-auto pr-1 -mr-1">
+        {% for url in audio_urls %}
+        <div class="rounded-xl border border-slate-200 bg-slate-50 px-3 py-2">
+          <div class="text-xs text-slate-500 mb-1">Phrase {{ loop.index }}</div>
+          <audio controls preload="metadata" src="{{ url }}" class="w-full h-8 dictee-audio"></audio>
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+  </div>
 </div>
 
 <script>
