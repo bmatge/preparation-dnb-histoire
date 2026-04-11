@@ -22,6 +22,7 @@ from fastapi import APIRouter, Request
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 
+from app.francais import outils as fr_outils
 from app.francais.comprehension.routes import router as comprehension_router
 from app.francais.dictee.routes import router as dictee_router
 from app.francais.redaction.routes import router as redaction_router
@@ -44,6 +45,10 @@ templates = Jinja2Templates(directory=[str(_FR_TEMPLATES), str(_CORE_TEMPLATES)]
 def francais_index(request: Request):
     """Page d'index de la matière : liste des sous-épreuves."""
     return templates.TemplateResponse(request, "index.html")
+
+
+# Route du mini-dictionnaire (bouton flottant « Outils »).
+fr_outils.register_route(router, templates)
 
 
 router.include_router(comprehension_router, prefix="/comprehension")

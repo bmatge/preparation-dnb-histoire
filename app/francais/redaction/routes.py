@@ -63,9 +63,12 @@ router = APIRouter(tags=["francais-redaction"])
 _HERE = Path(__file__).resolve().parent
 _APP_DIR = _HERE.parent.parent
 _CORE_TEMPLATES = _APP_DIR / "core" / "templates"
+_FR_TEMPLATES = _HERE.parent / "templates"  # pour _francais_base.html + _tools_fab.html
 _REDAC_TEMPLATES = _HERE / "templates"
 
-templates = Jinja2Templates(directory=[str(_REDAC_TEMPLATES), str(_CORE_TEMPLATES)])
+templates = Jinja2Templates(
+    directory=[str(_REDAC_TEMPLATES), str(_FR_TEMPLATES), str(_CORE_TEMPLATES)]
+)
 templates.env.filters["eval_md"] = lambda txt: Markup(render_eval_markdown(txt or ""))
 
 

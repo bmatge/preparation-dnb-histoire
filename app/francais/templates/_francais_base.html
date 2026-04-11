@@ -1,0 +1,16 @@
+{# Layout intermédiaire spécifique à la matière français.
+
+   Rôle : injecter le bouton flottant « Outils » (mini-dictionnaire)
+   sur toutes les pages français sans devoir répéter l'include dans
+   chaque template. Chaque template français (index, comprehension,
+   dictee, redaction) étend ce fichier au lieu de `base.html`.
+
+   Cf. `app/core/templates/_definition_fab.html` pour le partial
+   partagé — la recette « par matière » reste la même que pour maths,
+   cf. `_maths_base.html`. #}
+
+{% extends "base.html" %}
+
+{% block fab %}
+  {% include "_tools_fab.html" %}
+{% endblock %}
