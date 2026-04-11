@@ -104,7 +104,12 @@ class CollectionSpec:
 MATIERE_COLLECTIONS: dict[str, tuple[str, ...]] = {
     "hgemc": ("corriges", "methodo", "programmes", "sujets"),
     "francais": ("fr_programme", "fr_methodo", "fr_redaction_sujets"),
-    "mathematiques": ("math_programmes", "math_methodo", "math_sujets"),
+    "mathematiques": (
+        "math_programmes",
+        "math_methodo",
+        "math_sujets",
+        "math_annales",
+    ),
     "sciences": (
         "sciences_programme",
         "sciences_methodo",
@@ -209,6 +214,23 @@ COLLECTIONS: dict[str, CollectionSpec] = {
         ),
         sources=[MATH_CONTENT / "automatismes" / "questions"],
         file_patterns=("*.json",),
+    ),
+    "math_annales": CollectionSpec(
+        key="math_annales",
+        name="dnb_math_annales",
+        description=(
+            "Annales officielles DNB mathématiques 2008-2025 (métropole, "
+            "centres étrangers, Amérique, Asie, Polynésie, Nouvelle-Calédonie, "
+            "Pondichéry) et leurs corrigés. Sert de contexte RAG aux tâches "
+            "d'évaluation et de révélation pour ancrer les feedbacks sur "
+            "des énoncés et des démarches proches du sujet que l'élève "
+            "travaille. Contenu hors-git (voir content/mathematiques/annales/"
+            "README.md pour la procédure de synchronisation locale)."
+        ),
+        sources=[
+            MATH_CONTENT / "annales",
+            MATH_CONTENT / "annales" / "corrections",
+        ],
     ),
     "sciences_programme": CollectionSpec(
         key="sciences_programme",

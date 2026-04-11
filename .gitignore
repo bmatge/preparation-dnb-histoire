@@ -47,6 +47,17 @@ content/francais/comprehension/exercises/_all.json
 content/francais/redaction/subjects/_all.json
 .venv-test/
 
+# Annales DNB maths : les 241 sujets + 190 corrigés (~250 Mo) sont synchronisés
+# en local depuis ~/Documents/Projets/RevisionDNB/Mathematiques via
+# scripts/sync_math_annales.sh, puis ingérés dans Albert. On versionne
+# uniquement le squelette du dossier (.gitkeep + README), pas les PDFs.
+content/mathematiques/annales/**
+!content/mathematiques/annales/
+!content/mathematiques/annales/.gitkeep
+!content/mathematiques/annales/README.md
+!content/mathematiques/annales/corrections/
+!content/mathematiques/annales/corrections/.gitkeep
+
 # Claude Code : config perso (permissions) + lockfile runtime du scheduler
 .claude/settings.json
 .claude/scheduled_tasks.lock

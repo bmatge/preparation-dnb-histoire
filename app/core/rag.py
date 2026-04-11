@@ -105,16 +105,19 @@ COLLECTION_LABELS: dict[str, dict[str, str]] = {
         "dnb_francais_methodo": "méthodo",
         "dnb_francais_redaction_sujets": "sujet",
     },
-    # Mathématiques : trois collections, une par type de source.
+    # Mathématiques : quatre collections, une par type de source.
     # `dnb_math_methodo` regroupe les fiches de méthode + cadrage de
     # l'épreuve. `dnb_math_programmes` couvre le programme cycle 4 + les
     # attendus 3e/4e/5e + les repères annuels. `dnb_math_automatismes_sujets`
     # contient les questions du corpus committé (converties en markdown
-    # à la volée par scripts/ingest.py).
+    # à la volée par scripts/ingest.py). `dnb_math_annales` contient les
+    # annales officielles 2008-2025 et leurs corrigés (hors-git, ingéré
+    # depuis content/mathematiques/annales/ après sync local).
     "mathematiques": {
         "dnb_math_methodo": "méthodo",
         "dnb_math_programmes": "programme",
         "dnb_math_automatismes_sujets": "sujet",
+        "dnb_math_annales": "annale",
     },
     # Sciences : quatre collections. `dnb_sciences_methodo` regroupe les
     # 8 fiches de méthode thématiques (couvrant PC/SVT/Techno).
@@ -156,12 +159,13 @@ FALLBACK_COLLECTION_IDS: dict[str, dict[str, int]] = {
         "dnb_programmes": 184797,
         "dnb_sujets": 184809,
     },
-    # Mathématiques : IDs à renseigner après le premier run de
-    # `python -m scripts.ingest --matiere mathematiques`. Tant que ce dict
-    # est vide, le client RAG fait un fetch via `/v1/collections` (route
-    # nominale, ce fallback ne sert que si l'API liste les collections est
-    # cassée — situation extrêmement rare en prod).
-    "mathematiques": {},
+    # Mathématiques : IDs récupérés via `/v1/collections` après le premier
+    # run de `python -m scripts.ingest --only math_annales`. Le filet de
+    # sécurité ne sert que si la route de listing est cassée (extrêmement
+    # rare en prod).
+    "mathematiques": {
+        "dnb_math_annales": 185030,
+    },
     # Sciences : idem, IDs à renseigner après le premier run de
     # `python -m scripts.ingest --matiere sciences`.
     "sciences": {},
@@ -255,8 +259,10 @@ TASK_COLLECTIONS: dict[str, dict[Task, tuple[str, ...]]] = {
     # Mathématiques : la méthodo (cadrage + 8 fiches thématiques) est la
     # source principale pour les indices et la révélation. Le programme
     # est ajouté pour ancrer les explications dans les attendus officiels
-    # de fin de cycle 4. Pas d'interrogation de la collection sujets en
-    # V1 (les questions sont déjà portées par la base SQLite).
+    # de fin de cycle 4. Les annales 2008-2025 + corrigés sont interrogées
+    # à l'éval ouverte pour citer une démarche ou un cadrage proche (et
+    # uniquement là, pour ne pas biaiser les indices gradués avec une
+    # réponse déjà rédigée ailleurs).
     "mathematiques": {
         Task.MATH_AUTO_HINT: (
             "dnb_math_methodo",
@@ -268,13 +274,14 @@ TASK_COLLECTIONS: dict[str, dict[Task, tuple[str, ...]]] = {
         Task.MATH_AUTO_EVAL_OPEN: (
             "dnb_math_methodo",
             "dnb_math_programmes",
+            "dnb_math_annales",
         ),
         # Raisonnement et résolution de problèmes : mêmes collections que
         # les automatismes. Les fiches de méthode (8 thématiques) couvrent
         # à la fois les automatismes et les techniques mobilisées dans les
         # exercices de raisonnement (Pythagore, Thalès, PGCD, fonctions,
-        # probabilités…). Pas de collection dédiée aux énoncés de problèmes
-        # en V1 — on pourra en ajouter une si le besoin apparaît.
+        # probabilités…). Les annales DNB maths sont ajoutées à l'éval
+        # ouverte pour que le tuteur puisse citer une démarche proche.
         Task.MATH_PROB_HINT: (
             "dnb_math_methodo",
         ),
@@ -285,6 +292,7 @@ TASK_COLLECTIONS: dict[str, dict[Task, tuple[str, ...]]] = {
         Task.MATH_PROB_EVAL_OPEN: (
             "dnb_math_methodo",
             "dnb_math_programmes",
+            "dnb_math_annales",
         ),
     },
     # Sciences : les 8 fiches de méthode (regroupées dans
