@@ -1,0 +1,287 @@
+{
+  "questions": [
+    {
+      "id": "svt_cs_01",
+      "discipline": "svt",
+      "theme": "corps_sante",
+      "competence": "Rôle de la digestion",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_04_svt_corps_sante" },
+      "enonce": "La digestion a pour rôle de transformer les aliments en ... que l'organisme peut absorber. Complète par un mot.",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "nutriments",
+        "formes_acceptees": ["des nutriments", "les nutriments", "nutriment"]
+      }
+    },
+    {
+      "id": "svt_cs_02",
+      "discipline": "svt",
+      "theme": "corps_sante",
+      "competence": "Organe d'absorption des nutriments",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_04_svt_corps_sante" },
+      "enonce": "Dans quel organe du tube digestif les nutriments passent-ils principalement dans le sang ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "intestin grêle",
+        "formes_acceptees": ["l intestin grele", "intestin grele", "grele"]
+      }
+    },
+    {
+      "id": "svt_cs_03",
+      "discipline": "svt",
+      "theme": "corps_sante",
+      "competence": "Échanges gazeux dans les poumons",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_04_svt_corps_sante" },
+      "enonce": "Dans les alvéoles pulmonaires, quel gaz passe de l'air vers le sang ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "dioxygène",
+        "formes_acceptees": ["le dioxygene", "dioxygene", "O2"]
+      }
+    },
+    {
+      "id": "svt_cs_04",
+      "discipline": "svt",
+      "theme": "corps_sante",
+      "competence": "Échanges gazeux — rejet",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_04_svt_corps_sante" },
+      "enonce": "Quel gaz est rejeté par le sang dans les alvéoles pulmonaires lors de l'expiration ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "dioxyde de carbone",
+        "formes_acceptees": ["CO2", "le dioxyde de carbone", "gaz carbonique"]
+      }
+    },
+    {
+      "id": "svt_cs_05",
+      "discipline": "svt",
+      "theme": "corps_sante",
+      "competence": "Lieu des échanges gazeux",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_04_svt_corps_sante" },
+      "enonce": "Où se font les échanges gazeux entre l'air et le sang dans les poumons ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "alvéoles pulmonaires",
+        "formes_acceptees": ["les alveoles pulmonaires", "alveoles", "alveoles pulmonaires", "dans les alveoles"]
+      }
+    },
+    {
+      "id": "svt_cs_06",
+      "discipline": "svt",
+      "theme": "corps_sante",
+      "competence": "Rôle du sang",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_04_svt_corps_sante" },
+      "enonce": "Quel organe pompe le sang dans tout le corps ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "cœur",
+        "formes_acceptees": ["le coeur", "coeur", "c\u0153ur"]
+      }
+    },
+    {
+      "id": "svt_cs_07",
+      "discipline": "svt",
+      "theme": "corps_sante",
+      "competence": "Puberté",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_04_svt_corps_sante" },
+      "enonce": "La puberté est-elle une étape biologique marquant le passage de l'enfance à l'adolescence ? (vrai ou faux)",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "vrai_faux",
+        "reponse_canonique": "vrai"
+      }
+    },
+    {
+      "id": "svt_cs_08",
+      "discipline": "svt",
+      "theme": "corps_sante",
+      "competence": "Protection contre les IST",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_04_svt_corps_sante" },
+      "enonce": "Quel moyen de contraception protège aussi contre les infections sexuellement transmissibles (IST) ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "préservatif",
+        "formes_acceptees": ["le preservatif", "un preservatif", "preservatif masculin", "preservatif feminin"]
+      }
+    },
+    {
+      "id": "svt_cs_09",
+      "discipline": "svt",
+      "theme": "corps_sante",
+      "competence": "Système nerveux central",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_04_svt_corps_sante" },
+      "enonce": "Quels sont les deux organes qui composent le système nerveux central ?",
+      "scoring": {
+        "mode": "albert",
+        "reponse_modele": "Le cerveau et la moelle épinière.",
+        "criteres_validation": [
+          "La réponse mentionne bien le cerveau.",
+          "La réponse mentionne bien la moelle épinière."
+        ]
+      }
+    },
+    {
+      "id": "svt_cs_10",
+      "discipline": "svt",
+      "theme": "corps_sante",
+      "competence": "Neurone",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_04_svt_corps_sante" },
+      "enonce": "Comment s'appellent les cellules qui transmettent le message nerveux dans le corps ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "neurones",
+        "formes_acceptees": ["les neurones", "neurone", "un neurone"]
+      }
+    },
+    {
+      "id": "svt_cs_11",
+      "discipline": "svt",
+      "theme": "corps_sante",
+      "competence": "Synapse",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_04_svt_corps_sante" },
+      "enonce": "Comment appelle-t-on la zone de communication entre deux neurones ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "synapse",
+        "formes_acceptees": ["la synapse", "une synapse"]
+      }
+    },
+    {
+      "id": "svt_cs_12",
+      "discipline": "svt",
+      "theme": "corps_sante",
+      "competence": "Microorganismes — bactérie vs virus",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_04_svt_corps_sante" },
+      "enonce": "La grippe est-elle causée par une bactérie ou un virus ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "virus",
+        "formes_acceptees": ["un virus", "le virus"]
+      }
+    },
+    {
+      "id": "svt_cs_13",
+      "discipline": "svt",
+      "theme": "corps_sante",
+      "competence": "Phagocytose",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_04_svt_corps_sante" },
+      "enonce": "Quelles cellules du système immunitaire « mangent » (phagocytent) les microbes ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "globules blancs",
+        "formes_acceptees": ["les globules blancs", "leucocytes", "les leucocytes"]
+      }
+    },
+    {
+      "id": "svt_cs_14",
+      "discipline": "svt",
+      "theme": "corps_sante",
+      "competence": "Anticorps",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_04_svt_corps_sante" },
+      "enonce": "Comment s'appellent les protéines produites par le système immunitaire pour neutraliser les antigènes ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "anticorps",
+        "formes_acceptees": ["les anticorps", "des anticorps"]
+      }
+    },
+    {
+      "id": "svt_cs_15",
+      "discipline": "svt",
+      "theme": "corps_sante",
+      "competence": "Barrière naturelle",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_04_svt_corps_sante" },
+      "enonce": "Cite une barrière naturelle de l'organisme contre les microbes (en un mot).",
+      "scoring": {
+        "mode": "albert",
+        "reponse_modele": "La peau.",
+        "criteres_validation": [
+          "La réponse mentionne la peau OU les muqueuses.",
+          "Un seul mot suffit."
+        ]
+      }
+    },
+    {
+      "id": "svt_cs_16",
+      "discipline": "svt",
+      "theme": "corps_sante",
+      "competence": "Principe de la vaccination",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_04_svt_corps_sante" },
+      "enonce": "La vaccination consiste à injecter une forme atténuée ou morte d'un microbe pour que l'organisme fabrique des ... (complète par un mot).",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "anticorps",
+        "formes_acceptees": ["des anticorps", "les anticorps"]
+      }
+    },
+    {
+      "id": "svt_cs_17",
+      "discipline": "svt",
+      "theme": "corps_sante",
+      "competence": "Mémoire immunitaire",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_04_svt_corps_sante" },
+      "enonce": "Après une vaccination, l'organisme garde en « mémoire » comment réagir au microbe. Vrai ou faux ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "vrai_faux",
+        "reponse_canonique": "vrai"
+      }
+    },
+    {
+      "id": "svt_cs_18",
+      "discipline": "svt",
+      "theme": "corps_sante",
+      "competence": "Circulation sanguine — petite circulation",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_04_svt_corps_sante" },
+      "enonce": "Le sang qui va du cœur vers les poumons pour se recharger en dioxygène emprunte la ... circulation. Complète par un mot.",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "petite",
+        "formes_acceptees": ["petite circulation", "la petite"]
+      }
+    },
+    {
+      "id": "svt_cs_19",
+      "discipline": "svt",
+      "theme": "corps_sante",
+      "competence": "Air inspiré vs air expiré",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_04_svt_corps_sante" },
+      "enonce": "L'air expiré est-il plus riche en dioxygène ou en dioxyde de carbone que l'air inspiré ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "dioxyde de carbone",
+        "formes_acceptees": ["CO2", "plus de CO2", "en CO2", "gaz carbonique"]
+      },
+      "reveal_explication": "Air inspiré : ~21 % O₂ / ~0,04 % CO₂. Air expiré : ~16 % O₂ / ~4 % CO₂. On rejette plus de CO₂."
+    },
+    {
+      "id": "svt_cs_20",
+      "discipline": "svt",
+      "theme": "corps_sante",
+      "competence": "Réaction inflammatoire",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_04_svt_corps_sante" },
+      "enonce": "Rougeur, chaleur et douleur sur une blessure sont les signes d'une réaction ... (complète par un mot).",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "inflammatoire",
+        "formes_acceptees": ["reaction inflammatoire", "une reaction inflammatoire"]
+      }
+    }
+  ]
+}

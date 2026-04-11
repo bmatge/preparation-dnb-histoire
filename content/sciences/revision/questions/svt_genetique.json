@@ -1,0 +1,284 @@
+{
+  "questions": [
+    {
+      "id": "svt_gen_01",
+      "discipline": "svt",
+      "theme": "genetique",
+      "competence": "Définition de l'ADN",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_08_genetique" },
+      "enonce": "Que signifie le sigle ADN ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "acide désoxyribonucléique",
+        "formes_acceptees": ["acide desoxyribonucleique", "l acide desoxyribonucleique"]
+      }
+    },
+    {
+      "id": "svt_gen_02",
+      "discipline": "svt",
+      "theme": "genetique",
+      "competence": "Structure de l'ADN",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_08_genetique" },
+      "enonce": "L'ADN a une forme caractéristique. Laquelle ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "double hélice",
+        "formes_acceptees": ["en double helice", "une double helice", "double helice"]
+      }
+    },
+    {
+      "id": "svt_gen_03",
+      "discipline": "svt",
+      "theme": "genetique",
+      "competence": "Bases azotées",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_08_genetique" },
+      "enonce": "Combien de bases azotées différentes composent l'ADN ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "entier",
+        "reponse_canonique": "4"
+      },
+      "reveal_explication": "Les 4 bases sont : A (adénine), T (thymine), G (guanine), C (cytosine)."
+    },
+    {
+      "id": "svt_gen_04",
+      "discipline": "svt",
+      "theme": "genetique",
+      "competence": "Appariement des bases",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_08_genetique" },
+      "enonce": "Dans l'ADN, avec quelle base s'apparie la base A (adénine) ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "T",
+        "formes_acceptees": ["thymine", "la thymine"]
+      }
+    },
+    {
+      "id": "svt_gen_05",
+      "discipline": "svt",
+      "theme": "genetique",
+      "competence": "Localisation de l'ADN",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_08_genetique" },
+      "enonce": "Dans quelle partie de la cellule se trouve l'ADN ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "noyau",
+        "formes_acceptees": ["le noyau", "dans le noyau"]
+      }
+    },
+    {
+      "id": "svt_gen_06",
+      "discipline": "svt",
+      "theme": "genetique",
+      "competence": "Nombre de chromosomes",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_08_genetique" },
+      "enonce": "Combien de chromosomes contient une cellule humaine normale (non reproductrice) ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "entier",
+        "reponse_canonique": "46"
+      }
+    },
+    {
+      "id": "svt_gen_07",
+      "discipline": "svt",
+      "theme": "genetique",
+      "competence": "Nombre de paires",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_08_genetique" },
+      "enonce": "Combien de paires de chromosomes contient une cellule humaine normale ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "entier",
+        "reponse_canonique": "23"
+      }
+    },
+    {
+      "id": "svt_gen_08",
+      "discipline": "svt",
+      "theme": "genetique",
+      "competence": "Gamètes",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_08_genetique" },
+      "enonce": "Combien de chromosomes contient un gamète humain (spermatozoïde ou ovule) ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "entier",
+        "reponse_canonique": "23"
+      },
+      "reveal_explication": "Le gamète contient la moitié des chromosomes (23) pour que l'enfant en reçoive 46 après fécondation."
+    },
+    {
+      "id": "svt_gen_09",
+      "discipline": "svt",
+      "theme": "genetique",
+      "competence": "Chromosomes sexuels",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_08_genetique" },
+      "enonce": "Quels sont les deux chromosomes sexuels d'un individu de sexe masculin ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "XY",
+        "formes_acceptees": ["X Y", "x et y", "X et Y"]
+      }
+    },
+    {
+      "id": "svt_gen_10",
+      "discipline": "svt",
+      "theme": "genetique",
+      "competence": "Chromosomes sexuels — féminin",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_08_genetique" },
+      "enonce": "Quels sont les deux chromosomes sexuels d'un individu de sexe féminin ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "XX",
+        "formes_acceptees": ["X X", "x et x"]
+      }
+    },
+    {
+      "id": "svt_gen_11",
+      "discipline": "svt",
+      "theme": "genetique",
+      "competence": "Définition d'un gène",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_08_genetique" },
+      "enonce": "Qu'est-ce qu'un gène ?",
+      "scoring": {
+        "mode": "albert",
+        "reponse_modele": "Une portion d'ADN qui code pour un caractère.",
+        "criteres_validation": [
+          "La réponse indique qu'un gène est une portion / un fragment / un segment d'ADN.",
+          "La réponse mentionne qu'il code pour un caractère / une caractéristique / une information génétique."
+        ]
+      }
+    },
+    {
+      "id": "svt_gen_12",
+      "discipline": "svt",
+      "theme": "genetique",
+      "competence": "Définition d'un allèle",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_08_genetique" },
+      "enonce": "Comment appelle-t-on les différentes versions d'un même gène ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "allèles",
+        "formes_acceptees": ["des alleles", "les alleles", "allele", "un allele"]
+      }
+    },
+    {
+      "id": "svt_gen_13",
+      "discipline": "svt",
+      "theme": "genetique",
+      "competence": "Allèle dominant",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_08_genetique" },
+      "enonce": "Un allèle qui s'exprime même en une seule copie est dit ... (complète par un mot).",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "dominant",
+        "formes_acceptees": ["allele dominant", "un allele dominant"]
+      }
+    },
+    {
+      "id": "svt_gen_14",
+      "discipline": "svt",
+      "theme": "genetique",
+      "competence": "Allèle récessif",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_08_genetique" },
+      "enonce": "Un allèle qui ne s'exprime que s'il est présent en deux copies est dit ... (complète par un mot).",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "récessif",
+        "formes_acceptees": ["recessif", "allele recessif"]
+      }
+    },
+    {
+      "id": "svt_gen_15",
+      "discipline": "svt",
+      "theme": "genetique",
+      "competence": "Caractère héréditaire vs acquis",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_08_genetique" },
+      "enonce": "La couleur des yeux est-elle un caractère héréditaire ou acquis ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "héréditaire",
+        "formes_acceptees": ["hereditaire", "un caractere hereditaire"]
+      }
+    },
+    {
+      "id": "svt_gen_16",
+      "discipline": "svt",
+      "theme": "genetique",
+      "competence": "Caractère acquis",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_08_genetique" },
+      "enonce": "Une cicatrice d'opération est-elle transmise aux enfants ? (vrai ou faux)",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "vrai_faux",
+        "reponse_canonique": "faux"
+      },
+      "reveal_explication": "Non — c'est un caractère acquis, il n'est pas transmis par l'ADN."
+    },
+    {
+      "id": "svt_gen_17",
+      "discipline": "svt",
+      "theme": "genetique",
+      "competence": "Mutation",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_08_genetique" },
+      "enonce": "Qu'est-ce qu'une mutation en génétique ?",
+      "scoring": {
+        "mode": "albert",
+        "reponse_modele": "Une modification aléatoire de l'ADN.",
+        "criteres_validation": [
+          "La réponse mentionne une modification (ou changement) de l'ADN.",
+          "La réponse indique que c'est aléatoire ou accidentel (critère souple : accepter si le mot « aléatoire » est absent mais le sens est préservé)."
+        ]
+      }
+    },
+    {
+      "id": "svt_gen_18",
+      "discipline": "svt",
+      "theme": "genetique",
+      "competence": "Transmission des mutations",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_08_genetique" },
+      "enonce": "Une mutation survenue dans une cellule reproductrice peut-elle être transmise aux enfants ? (vrai ou faux)",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "vrai_faux",
+        "reponse_canonique": "vrai"
+      }
+    },
+    {
+      "id": "svt_gen_19",
+      "discipline": "svt",
+      "theme": "genetique",
+      "competence": "Trisomie 21",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_08_genetique" },
+      "enonce": "Dans la trisomie 21, combien de chromosomes 21 possède la personne concernée ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "entier",
+        "reponse_canonique": "3"
+      }
+    },
+    {
+      "id": "svt_gen_20",
+      "discipline": "svt",
+      "theme": "genetique",
+      "competence": "Parenté et ADN",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_08_genetique" },
+      "enonce": "Plus l'ADN de deux espèces est similaire, plus leur ancêtre commun est ... (complète par un mot).",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "récent",
+        "formes_acceptees": ["plus recent", "proche", "recent."]
+      }
+    }
+  ]
+}

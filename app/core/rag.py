@@ -116,6 +116,19 @@ COLLECTION_LABELS: dict[str, dict[str, str]] = {
         "dnb_math_programmes": "programme",
         "dnb_math_automatismes_sujets": "sujet",
     },
+    # Sciences : quatre collections. `dnb_sciences_methodo` regroupe les
+    # 8 fiches de méthode thématiques (couvrant PC/SVT/Techno).
+    # `dnb_sciences_programme` couvre le programme cycle 4 (physique-chimie
+    # + SVT + technologie). `dnb_sciences_annales` contient les 73 sujets
+    # d'annales DNB Sciences 2018-2025 (utile en RAG pour la rév. ouverte).
+    # `dnb_sciences_revision_questions` contient les questions du corpus
+    # committé (converties en markdown à la volée par scripts/ingest.py).
+    "sciences": {
+        "dnb_sciences_methodo": "méthodo",
+        "dnb_sciences_programme": "programme",
+        "dnb_sciences_annales": "annale",
+        "dnb_sciences_revision_questions": "sujet",
+    },
 }
 
 # Fenêtre de bascule : si un nouveau nom de collection ne résout pas côté
@@ -149,6 +162,9 @@ FALLBACK_COLLECTION_IDS: dict[str, dict[str, int]] = {
     # nominale, ce fallback ne sert que si l'API liste les collections est
     # cassée — situation extrêmement rare en prod).
     "mathematiques": {},
+    # Sciences : idem, IDs à renseigner après le premier run de
+    # `python -m scripts.ingest --matiere sciences`.
+    "sciences": {},
 }
 
 
@@ -269,6 +285,28 @@ TASK_COLLECTIONS: dict[str, dict[Task, tuple[str, ...]]] = {
         Task.MATH_PROB_EVAL_OPEN: (
             "dnb_math_methodo",
             "dnb_math_programmes",
+        ),
+    },
+    # Sciences : les 8 fiches de méthode (regroupées dans
+    # `dnb_sciences_methodo`) sont la source principale pour les indices
+    # et la révélation — elles couvrent les notions clés des trois
+    # disciplines. Le programme cycle 4 est ajouté pour la révélation
+    # et l'éval ouverte (ancrage dans les attendus officiels). Les
+    # annales DNB Sciences ne sont interrogées qu'à l'éval ouverte,
+    # pour permettre au modèle de citer un cadrage ou un exemple
+    # proche quand c'est utile.
+    "sciences": {
+        Task.SCIENCES_REV_HINT: (
+            "dnb_sciences_methodo",
+        ),
+        Task.SCIENCES_REV_REVEAL: (
+            "dnb_sciences_methodo",
+            "dnb_sciences_programme",
+        ),
+        Task.SCIENCES_REV_EVAL_OPEN: (
+            "dnb_sciences_methodo",
+            "dnb_sciences_programme",
+            "dnb_sciences_annales",
         ),
     },
 }

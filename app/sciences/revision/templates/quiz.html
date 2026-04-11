@@ -1,0 +1,75 @@
+{% extends "_sciences_base.html" %}
+
+{% block title %}Révision {{ discipline_label }} — Question {{ position }}/{{ total }}{% endblock %}
+
+{% block timer %}{% with kind="sciences_revision", session_id_str=session_id|string %}{% include "_exercise_timer.html" %}{% endwith %}{% endblock %}
+
+{% block content %}
+<div class="flex items-center justify-between mb-4 animate-reveal">
+  <span class="text-sm font-semibold text-slate-500">
+    Question <span class="text-brand-700">{{ position }}</span> / {{ total }}
+  </span>
+  <span class="text-sm text-slate-500">
+    Score : <span class="font-bold text-brand-700">{{ score }}</span>
+  </span>
+</div>
+
+<div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 mb-6 animate-reveal">
+  <div class="text-xs uppercase tracking-wider text-slate-400 mb-2">
+    {{ discipline_label }} · {{ theme_label }}
+  </div>
+  <p class="font-display text-xl text-slate-900 leading-snug whitespace-pre-line">{{ question.enonce }}</p>
+</div>
+
+<form hx-post="/sciences/revision/quiz/answer"
+      hx-target="#feedback-area"
+      hx-swap="innerHTML"
+      hx-indicator="#loading"
+      class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 space-y-4 animate-reveal">
+  <label class="block">
+    <span class="text-sm font-semibold text-slate-700 block mb-2">
+      Ta réponse
+    </span>
+    <input type="text" name="answer" autocomplete="off" required
+           inputmode="text"
+           placeholder="Un nombre, un mot-clé, une lettre de proposition…"
+           class="w-full border border-slate-200 rounded-xl px-4 py-3 text-base focus:ring-2 focus:ring-brand-400 focus:border-brand-400 outline-none transition">
+  </label>
+  <div class="flex items-center justify-between gap-3 flex-wrap">
+    <span id="loading" class="htmx-indicator text-sm text-brand-700 items-center gap-2">
+      <span class="inline-block h-2.5 w-2.5 rounded-full bg-brand-500 animate-ping"></span>
+      J'analyse…
+    </span>
+    <div class="flex items-center gap-2 ml-auto">
+      <button type="button"
+              hx-post="/sciences/revision/quiz/hint"
+              hx-target="#feedback-area"
+              hx-swap="innerHTML"
+              hx-indicator="#loading"
+              class="btn-secondary">
+        Indice
+      </button>
+      <button type="button"
+              hx-post="/sciences/revision/quiz/reveal"
+              hx-target="#feedback-area"
+              hx-swap="innerHTML"
+              hx-indicator="#loading"
+              hx-confirm="Tu veux qu'on te révèle la réponse maintenant ?"
+              class="btn-secondary">
+        Je donne ma langue au chat
+      </button>
+      <button type="submit" class="btn-primary hover:wiggle">
+        Valider
+      </button>
+    </div>
+  </div>
+</form>
+
+<div id="feedback-area" class="mt-6"></div>
+
+<div class="mt-8 text-center">
+  <a href="/sciences/revision/restart" class="text-sm text-slate-500 hover:text-brand-700">
+    ← Abandonner ce quiz
+  </a>
+</div>
+{% endblock %}

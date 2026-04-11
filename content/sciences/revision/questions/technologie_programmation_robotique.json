@@ -1,0 +1,105 @@
+{
+  "questions": [
+    {
+      "id": "tech_pr_01",
+      "discipline": "technologie",
+      "theme": "programmation_robotique",
+      "competence": "Définition d'un algorithme",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_06_technologie" },
+      "enonce": "Qu'est-ce qu'un algorithme ?",
+      "scoring": {
+        "mode": "albert",
+        "reponse_modele": "Une suite d'instructions ordonnées pour résoudre un problème.",
+        "criteres_validation": [
+          "La réponse indique qu'un algorithme est une suite (ou une séquence) d'instructions.",
+          "La réponse évoque l'objectif : résoudre un problème ou effectuer une tâche."
+        ]
+      }
+    },
+    {
+      "id": "tech_pr_02",
+      "discipline": "technologie",
+      "theme": "programmation_robotique",
+      "competence": "Structures de base — boucle",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_06_technologie" },
+      "enonce": "Comment appelle-t-on une structure qui répète plusieurs fois les mêmes instructions en programmation ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "boucle",
+        "formes_acceptees": ["une boucle", "la boucle", "loop"]
+      }
+    },
+    {
+      "id": "tech_pr_03",
+      "discipline": "technologie",
+      "theme": "programmation_robotique",
+      "competence": "Structures de base — condition",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_06_technologie" },
+      "enonce": "Une structure « si ... alors ... sinon ... » est appelée une ... (complète par un mot).",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "condition",
+        "formes_acceptees": ["une condition", "un test", "branchement conditionnel", "conditionnelle"]
+      }
+    },
+    {
+      "id": "tech_pr_04",
+      "discipline": "technologie",
+      "theme": "programmation_robotique",
+      "competence": "Variables",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_06_technologie" },
+      "enonce": "En programmation, comment appelle-t-on un élément qui sert à stocker une information (un nombre, un texte) pour la réutiliser ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "variable",
+        "formes_acceptees": ["une variable", "les variables", "variables"]
+      }
+    },
+    {
+      "id": "tech_pr_05",
+      "discipline": "technologie",
+      "theme": "programmation_robotique",
+      "competence": "Langages de programmation",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_06_technologie" },
+      "enonce": "Cite un langage de programmation utilisé au collège (en un mot).",
+      "scoring": {
+        "mode": "albert",
+        "reponse_modele": "Scratch.",
+        "criteres_validation": [
+          "La réponse cite un langage cohérent : Scratch, Python, JavaScript (ou d'autres langages courants au collège)."
+        ]
+      }
+    },
+    {
+      "id": "tech_pr_06",
+      "discipline": "technologie",
+      "theme": "programmation_robotique",
+      "competence": "Internet",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_06_technologie" },
+      "enonce": "Internet est un réseau ... (complète par un mot : local, national ou mondial).",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "mondial",
+        "formes_acceptees": ["un reseau mondial", "reseau mondial", "international"]
+      }
+    },
+    {
+      "id": "tech_pr_07",
+      "discipline": "technologie",
+      "theme": "programmation_robotique",
+      "competence": "Serveur",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_06_technologie" },
+      "enonce": "Comment appelle-t-on un ordinateur qui fournit des services à d'autres ordinateurs sur un réseau (par exemple pour héberger un site web) ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "serveur",
+        "formes_acceptees": ["un serveur", "le serveur"]
+      }
+    }
+  ]
+}

@@ -84,6 +84,7 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 HGEMC_CONTENT = REPO_ROOT / "content" / "histoire-geo-emc"
 FRANCAIS_CONTENT = REPO_ROOT / "content" / "francais"
 MATH_CONTENT = REPO_ROOT / "content" / "mathematiques"
+SCIENCES_CONTENT = REPO_ROOT / "content" / "sciences"
 
 
 @dataclass(frozen=True)
@@ -104,6 +105,12 @@ MATIERE_COLLECTIONS: dict[str, tuple[str, ...]] = {
     "hgemc": ("corriges", "methodo", "programmes", "sujets"),
     "francais": ("fr_programme", "fr_methodo", "fr_redaction_sujets"),
     "mathematiques": ("math_programmes", "math_methodo", "math_sujets"),
+    "sciences": (
+        "sciences_programme",
+        "sciences_methodo",
+        "sciences_annales",
+        "sciences_revision_questions",
+    ),
 }
 
 
@@ -201,6 +208,53 @@ COLLECTIONS: dict[str, CollectionSpec] = {
             "(Albert ne parse pas les .json)."
         ),
         sources=[MATH_CONTENT / "automatismes" / "questions"],
+        file_patterns=("*.json",),
+    ),
+    "sciences_programme": CollectionSpec(
+        key="sciences_programme",
+        name="dnb_sciences_programme",
+        description=(
+            "Programme officiel cycle 4 pour les trois disciplines "
+            "scientifiques (Physique-Chimie, SVT, Technologie). Source "
+            "d'autorité anti-hallucination pour les questions de "
+            "révision sciences DNB 2026."
+        ),
+        sources=[SCIENCES_CONTENT / "programme"],
+    ),
+    "sciences_methodo": CollectionSpec(
+        key="sciences_methodo",
+        name="dnb_sciences_methodo",
+        description=(
+            "Fiches méthodologiques sciences DNB : huit fiches "
+            "thématiques couvrant l'organisation de la matière, les "
+            "mouvements et l'énergie, l'électricité et les signaux, "
+            "l'univers et les mélanges, le corps humain et la santé, "
+            "la Terre et l'évolution, la génétique et la technologie."
+        ),
+        sources=[SCIENCES_CONTENT / "methodologie"],
+    ),
+    "sciences_annales": CollectionSpec(
+        key="sciences_annales",
+        name="dnb_sciences_annales",
+        description=(
+            "Annales du DNB Sciences 2018-2025 (série générale). "
+            "Inclut les sujets de métropole, Amérique du Nord/Sud, "
+            "Asie, Polynésie, Nouvelle-Calédonie et centres étrangers. "
+            "Utilisé pour ancrer les feedbacks Albert sur des exemples "
+            "concrets d'énoncés proches."
+        ),
+        sources=[SCIENCES_CONTENT / "annales"],
+    ),
+    "sciences_revision_questions": CollectionSpec(
+        key="sciences_revision_questions",
+        name="dnb_sciences_revision_questions",
+        description=(
+            "Banque de questions de révision sciences DNB 2026, "
+            "structurée par discipline (Physique-Chimie, SVT, "
+            "Technologie) et par thème. Convertie en markdown à la "
+            "volée à l'upload (Albert ne parse pas les .json)."
+        ),
+        sources=[SCIENCES_CONTENT / "revision" / "questions"],
         file_patterns=("*.json",),
     ),
 }
@@ -507,6 +561,78 @@ def _math_questions_json_to_markdown(json_path: Path) -> tuple[bytes, str]:
     return md, md_name
 
 
+def _sciences_questions_json_to_markdown(json_path: Path) -> tuple[bytes, str]:
+    """Transforme un fichier JSON de questions de révision sciences en markdown.
+
+    Format attendu : un objet avec une clé `questions` dont chaque entrée
+    porte `id`, `discipline`, `theme`, `competence`, `enonce`, `scoring`
+    (mode python ou albert), `source` et éventuellement des `indices` /
+    `reveal_explication`.
+
+    Convention identique à `_math_questions_json_to_markdown` : un bloc
+    markdown par question (énoncé + réponse attendue ou modèle + critères
+    pour les ouvertes), les indices pré-calculés et l'explication de
+    révélation sont volontairement OMIS — Albert les régénère côté
+    runtime, pas besoin de les indexer.
+
+    Retourne (contenu_markdown_utf8, nom_virtuel_md).
+    """
+    data = json.loads(json_path.read_text(encoding="utf-8"))
+    questions = data.get("questions") or []
+    nom_batch = json_path.stem
+
+    lines: list[str] = []
+    lines.append(f"# Banque révision sciences — batch « {nom_batch} »")
+    lines.append("")
+    lines.append(f"Source : {json_path.name}")
+    lines.append("")
+
+    for q in questions:
+        qid = q.get("id", "?")
+        discipline = q.get("discipline", "?")
+        theme = q.get("theme", "?")
+        competence = q.get("competence", "")
+        enonce = (q.get("enonce") or "").strip()
+        scoring = q.get("scoring") or {}
+        mode = scoring.get("mode", "?")
+
+        lines.append(f"## Question {qid}")
+        lines.append("")
+        lines.append(f"**Discipline** : {discipline}")
+        lines.append(f"**Thème** : {theme}")
+        if competence:
+            lines.append(f"**Compétence** : {competence}")
+        lines.append("")
+        lines.append(f"**Énoncé** : {enonce}")
+        lines.append("")
+
+        if mode == "python":
+            type_rep = scoring.get("type_reponse", "?")
+            rep = scoring.get("reponse_canonique", "?")
+            unite = scoring.get("unite") or ""
+            rep_label = f"{rep} {unite}".strip()
+            lines.append(f"**Réponse attendue** : {rep_label} (type : {type_rep})")
+        elif mode == "albert":
+            modele = scoring.get("reponse_modele", "?")
+            lines.append(f"**Réponse modèle** : {modele}")
+            criteres = scoring.get("criteres_validation") or []
+            if criteres:
+                lines.append("")
+                lines.append("**Critères de validation** :")
+                for c in criteres:
+                    lines.append(f"- {c}")
+        else:
+            lines.append(f"**Mode de scoring** : {mode}")
+
+        lines.append("")
+        lines.append("---")
+        lines.append("")
+
+    md = "\n".join(lines).encode("utf-8")
+    md_name = json_path.stem + ".md"
+    return md, md_name
+
+
 def _redaction_subject_json_to_markdown(json_path: Path) -> tuple[bytes, str]:
     """Transforme un JSON de sujet de rédaction (français) en markdown.
 
@@ -673,6 +799,19 @@ def ingest_collection(
                 )
             elif spec.key == "math_sujets" and file_path.suffix.lower() == ".json":
                 md_bytes, md_name = _math_questions_json_to_markdown(file_path)
+                resp = client.upload_document(
+                    collection_id=collection_id,
+                    file_path=file_path,
+                    display_name=str(rel.with_suffix(".md")),
+                    content_override=md_bytes,
+                    virtual_filename=md_name,
+                    mime_override="text/markdown",
+                )
+            elif (
+                spec.key == "sciences_revision_questions"
+                and file_path.suffix.lower() == ".json"
+            ):
+                md_bytes, md_name = _sciences_questions_json_to_markdown(file_path)
                 resp = client.upload_document(
                     collection_id=collection_id,
                     file_path=file_path,

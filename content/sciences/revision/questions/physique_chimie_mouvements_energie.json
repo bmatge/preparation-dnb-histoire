@@ -1,0 +1,224 @@
+{
+  "questions": [
+    {
+      "id": "pc_me_01",
+      "discipline": "physique_chimie",
+      "theme": "mouvements_energie",
+      "competence": "Calcul de vitesse (v = d/t)",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_02_mouvements_energie" },
+      "enonce": "Un cycliste parcourt 30 km en 2 h. Quelle est sa vitesse moyenne en km/h ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "15",
+        "unite": "km/h"
+      },
+      "reveal_explication": "v = d / t = 30 / 2 = 15 km/h."
+    },
+    {
+      "id": "pc_me_02",
+      "discipline": "physique_chimie",
+      "theme": "mouvements_energie",
+      "competence": "Conversion km/h → m/s",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_02_mouvements_energie" },
+      "enonce": "Convertis 72 km/h en m/s.",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "20",
+        "unite": "m/s"
+      },
+      "reveal_explication": "Pour passer de km/h à m/s, on divise par 3,6 : 72 / 3,6 = 20 m/s."
+    },
+    {
+      "id": "pc_me_03",
+      "discipline": "physique_chimie",
+      "theme": "mouvements_energie",
+      "competence": "Types de mouvements",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_02_mouvements_energie" },
+      "enonce": "Un objet dont la vitesse augmente a un mouvement dit « ... ». Complète par un seul mot.",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "accéléré",
+        "formes_acceptees": ["accelere", "mouvement accelere"]
+      }
+    },
+    {
+      "id": "pc_me_04",
+      "discipline": "physique_chimie",
+      "theme": "mouvements_energie",
+      "competence": "Trajectoire",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_02_mouvements_energie" },
+      "enonce": "Un objet se déplace en ligne droite à vitesse constante. Son mouvement est rectiligne et ... (complète).",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "uniforme",
+        "formes_acceptees": ["uniforme.", "mouvement uniforme"]
+      }
+    },
+    {
+      "id": "pc_me_05",
+      "discipline": "physique_chimie",
+      "theme": "mouvements_energie",
+      "competence": "Effets d'une force",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_02_mouvements_energie" },
+      "enonce": "Cite un effet possible d'une force sur un objet (en un mot, par exemple « déformer »).",
+      "scoring": {
+        "mode": "albert",
+        "reponse_modele": "mettre en mouvement",
+        "criteres_validation": [
+          "La réponse mentionne au moins un des trois effets : mettre en mouvement, modifier le mouvement (accélérer/ralentir/changer de direction), ou déformer l'objet.",
+          "Un seul mot ou une expression courte suffit."
+        ]
+      }
+    },
+    {
+      "id": "pc_me_06",
+      "discipline": "physique_chimie",
+      "theme": "mouvements_energie",
+      "competence": "Calcul du poids P = m × g",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_02_mouvements_energie" },
+      "enonce": "Quel est le poids d'un objet de masse 5 kg sur Terre (g = 10 N/kg) ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "50",
+        "unite": "N"
+      },
+      "reveal_explication": "P = m × g = 5 × 10 = 50 N."
+    },
+    {
+      "id": "pc_me_07",
+      "discipline": "physique_chimie",
+      "theme": "mouvements_energie",
+      "competence": "Distinction masse / poids",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_02_mouvements_energie" },
+      "enonce": "La masse d'un objet change-t-elle quand on l'emmène sur la Lune ? (vrai ou faux)",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "vrai_faux",
+        "reponse_canonique": "faux"
+      },
+      "reveal_explication": "La masse (quantité de matière) reste identique. C'est le poids qui change car l'intensité de pesanteur est différente sur la Lune."
+    },
+    {
+      "id": "pc_me_08",
+      "discipline": "physique_chimie",
+      "theme": "mouvements_energie",
+      "competence": "Instrument de mesure",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_02_mouvements_energie" },
+      "enonce": "Avec quel instrument mesure-t-on le poids d'un objet ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "dynamomètre",
+        "formes_acceptees": ["un dynamometre", "le dynamometre"]
+      }
+    },
+    {
+      "id": "pc_me_09",
+      "discipline": "physique_chimie",
+      "theme": "mouvements_energie",
+      "competence": "Énergie cinétique Ec = ½mv²",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_02_mouvements_energie" },
+      "enonce": "Un objet de masse 2 kg se déplace à 3 m/s. Quelle est son énergie cinétique en joules ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "9",
+        "unite": "J"
+      },
+      "reveal_explication": "Ec = ½ × m × v² = 0,5 × 2 × 3² = 0,5 × 2 × 9 = 9 J."
+    },
+    {
+      "id": "pc_me_10",
+      "discipline": "physique_chimie",
+      "theme": "mouvements_energie",
+      "competence": "Énergie potentielle de position",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_02_mouvements_energie" },
+      "enonce": "Une pomme de 0,2 kg est suspendue à 5 m du sol (g = 10 N/kg). Quelle est son énergie potentielle en joules ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "10",
+        "unite": "J"
+      },
+      "reveal_explication": "Ep = m × g × h = 0,2 × 10 × 5 = 10 J."
+    },
+    {
+      "id": "pc_me_11",
+      "discipline": "physique_chimie",
+      "theme": "mouvements_energie",
+      "competence": "Conservation de l'énergie mécanique",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_02_mouvements_energie" },
+      "enonce": "Une bille tombe d'une table (sans frottement). Quelle énergie augmente pendant la chute : cinétique ou potentielle ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "cinétique",
+        "formes_acceptees": ["energie cinetique", "l energie cinetique"]
+      },
+      "reveal_explication": "La bille descend : son énergie potentielle diminue et son énergie cinétique augmente (elle accélère). La somme des deux (énergie mécanique) se conserve."
+    },
+    {
+      "id": "pc_me_12",
+      "discipline": "physique_chimie",
+      "theme": "mouvements_energie",
+      "competence": "Conversion d'énergie — panneau solaire",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_02_mouvements_energie" },
+      "enonce": "Un panneau solaire convertit de l'énergie lumineuse en énergie ... (complète par un mot).",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "électrique",
+        "formes_acceptees": ["electrique", "energie electrique"]
+      }
+    },
+    {
+      "id": "pc_me_13",
+      "discipline": "physique_chimie",
+      "theme": "mouvements_energie",
+      "competence": "Puissance électrique P = U × I",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_02_mouvements_energie" },
+      "enonce": "Une lampe fonctionne sous 230 V et est traversée par un courant de 0,5 A. Quelle est sa puissance en watts ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "115",
+        "unite": "W"
+      },
+      "reveal_explication": "P = U × I = 230 × 0,5 = 115 W."
+    },
+    {
+      "id": "pc_me_14",
+      "discipline": "physique_chimie",
+      "theme": "mouvements_energie",
+      "competence": "Énergie électrique E = P × t",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_02_mouvements_energie" },
+      "enonce": "Une lampe de 0,1 kW reste allumée pendant 2 h. Quelle énergie consomme-t-elle en kWh ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "0.2",
+        "unite": "kWh"
+      },
+      "reveal_explication": "E = P × t = 0,1 × 2 = 0,2 kWh."
+    },
+    {
+      "id": "pc_me_15",
+      "discipline": "physique_chimie",
+      "theme": "mouvements_energie",
+      "competence": "Unité de l'énergie",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_02_mouvements_energie" },
+      "enonce": "Quelle est l'unité internationale (SI) de l'énergie ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "joule",
+        "formes_acceptees": ["le joule", "joules", "J"]
+      }
+    }
+  ]
+}

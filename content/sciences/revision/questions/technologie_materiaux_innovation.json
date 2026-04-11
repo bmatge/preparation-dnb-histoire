@@ -1,0 +1,117 @@
+{
+  "questions": [
+    {
+      "id": "tech_mi_01",
+      "discipline": "technologie",
+      "theme": "materiaux_innovation",
+      "competence": "Familles de matériaux — métaux",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_06_technologie" },
+      "enonce": "L'aluminium appartient à quelle famille de matériaux ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "métaux",
+        "formes_acceptees": ["metaux", "les metaux", "metal", "metal metaux"]
+      }
+    },
+    {
+      "id": "tech_mi_02",
+      "discipline": "technologie",
+      "theme": "materiaux_innovation",
+      "competence": "Familles de matériaux — plastiques",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_06_technologie" },
+      "enonce": "Le PVC fait partie de quelle famille de matériaux ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "plastiques",
+        "formes_acceptees": ["plastique", "les plastiques", "matieres plastiques"]
+      }
+    },
+    {
+      "id": "tech_mi_03",
+      "discipline": "technologie",
+      "theme": "materiaux_innovation",
+      "competence": "Familles de matériaux — organiques",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_06_technologie" },
+      "enonce": "Le bois fait partie de la famille des matériaux ... (complète par un mot).",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "organiques",
+        "formes_acceptees": ["organique", "matieres organiques"]
+      }
+    },
+    {
+      "id": "tech_mi_04",
+      "discipline": "technologie",
+      "theme": "materiaux_innovation",
+      "competence": "Propriétés — conductivité",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_06_technologie" },
+      "enonce": "Les plastiques sont-ils de bons conducteurs électriques ? (vrai ou faux)",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "vrai_faux",
+        "reponse_canonique": "faux"
+      },
+      "reveal_explication": "Les plastiques sont isolants électriques, c'est pour ça qu'on les utilise pour les gaines de câbles."
+    },
+    {
+      "id": "tech_mi_05",
+      "discipline": "technologie",
+      "theme": "materiaux_innovation",
+      "competence": "Éco-conception",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_06_technologie" },
+      "enonce": "Cite une action d'éco-conception qui permet de réduire l'impact environnemental d'un produit.",
+      "scoring": {
+        "mode": "albert",
+        "reponse_modele": "Utiliser des matériaux recyclables.",
+        "criteres_validation": [
+          "La réponse cite une action plausible : matériaux recyclables, réduction de la consommation d'énergie, réparabilité, durée de vie allongée, limitation des emballages, réduction des transports, etc."
+        ]
+      }
+    },
+    {
+      "id": "tech_mi_06",
+      "discipline": "technologie",
+      "theme": "materiaux_innovation",
+      "competence": "Recyclabilité",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_06_technologie" },
+      "enonce": "Parmi ces matériaux, lequel est le plus facilement recyclable : verre, polystyrène expansé, cuir ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "verre",
+        "formes_acceptees": ["le verre"]
+      }
+    },
+    {
+      "id": "tech_mi_07",
+      "discipline": "technologie",
+      "theme": "materiaux_innovation",
+      "competence": "Propriétés — isolant thermique",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_06_technologie" },
+      "enonce": "Quelle propriété d'un matériau caractérise sa capacité à ne PAS laisser passer la chaleur ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "isolant thermique",
+        "formes_acceptees": ["isolation thermique", "isolant", "isolation", "faible conductivite thermique"]
+      }
+    },
+    {
+      "id": "tech_mi_08",
+      "discipline": "technologie",
+      "theme": "materiaux_innovation",
+      "competence": "Masse volumique comme critère de choix",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_06_technologie" },
+      "enonce": "Pour concevoir une pièce qui doit être légère, on privilégie un matériau de masse volumique plutôt ... (complète par un mot).",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "faible",
+        "formes_acceptees": ["petite", "basse", "faible."]
+      }
+    }
+  ]
+}

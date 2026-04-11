@@ -1,0 +1,220 @@
+{
+  "questions": [
+    {
+      "id": "pc_es_01",
+      "discipline": "physique_chimie",
+      "theme": "electricite_signaux",
+      "competence": "Loi d'Ohm — calcul de U",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_03_electricite_signaux" },
+      "enonce": "Une résistance de 100 Ω est traversée par un courant de 0,2 A. Quelle est la tension à ses bornes en volts ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "20",
+        "unite": "V"
+      },
+      "reveal_explication": "U = R × I = 100 × 0,2 = 20 V."
+    },
+    {
+      "id": "pc_es_02",
+      "discipline": "physique_chimie",
+      "theme": "electricite_signaux",
+      "competence": "Loi d'Ohm — calcul de I",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_03_electricite_signaux" },
+      "enonce": "Une lampe de résistance 50 Ω est branchée sous 10 V. Quelle est l'intensité du courant en ampères ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "0.2",
+        "unite": "A"
+      },
+      "reveal_explication": "I = U / R = 10 / 50 = 0,2 A."
+    },
+    {
+      "id": "pc_es_03",
+      "discipline": "physique_chimie",
+      "theme": "electricite_signaux",
+      "competence": "Unité de la résistance",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_03_electricite_signaux" },
+      "enonce": "Quelle est l'unité de la résistance électrique ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "ohm",
+        "formes_acceptees": ["l ohm", "ohms", "Ω"]
+      }
+    },
+    {
+      "id": "pc_es_04",
+      "discipline": "physique_chimie",
+      "theme": "electricite_signaux",
+      "competence": "Circuit en série — intensité",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_03_electricite_signaux" },
+      "enonce": "Dans un circuit en série, l'intensité du courant est-elle la même partout ? (vrai ou faux)",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "vrai_faux",
+        "reponse_canonique": "vrai"
+      },
+      "reveal_explication": "Oui — dans un circuit en série, l'intensité est la même dans tous les composants."
+    },
+    {
+      "id": "pc_es_05",
+      "discipline": "physique_chimie",
+      "theme": "electricite_signaux",
+      "competence": "Circuit en dérivation — tension",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_03_electricite_signaux" },
+      "enonce": "Dans un circuit en dérivation, la tension aux bornes de chaque branche est-elle la même ou se partage-t-elle ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "la même",
+        "formes_acceptees": ["meme", "la meme", "identique", "elle est la meme"]
+      },
+      "reveal_explication": "En dérivation, chaque branche voit la même tension. C'est l'intensité qui se partage."
+    },
+    {
+      "id": "pc_es_06",
+      "discipline": "physique_chimie",
+      "theme": "electricite_signaux",
+      "competence": "Sécurité électrique — fusible",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_03_electricite_signaux" },
+      "enonce": "Quel composant protège un circuit contre les surintensités en fondant quand le courant est trop élevé ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "fusible",
+        "formes_acceptees": ["un fusible", "le fusible"]
+      }
+    },
+    {
+      "id": "pc_es_07",
+      "discipline": "physique_chimie",
+      "theme": "electricite_signaux",
+      "competence": "Propagation du son",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_03_electricite_signaux" },
+      "enonce": "Le son peut-il se propager dans le vide ? (vrai ou faux)",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "vrai_faux",
+        "reponse_canonique": "faux"
+      },
+      "reveal_explication": "Le son a besoin d'un milieu matériel (solide, liquide, gaz) pour se propager. Dans le vide, aucun son ne se propage."
+    },
+    {
+      "id": "pc_es_08",
+      "discipline": "physique_chimie",
+      "theme": "electricite_signaux",
+      "competence": "Vitesse du son dans l'air",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_03_electricite_signaux" },
+      "enonce": "Quelle est environ la vitesse du son dans l'air en m/s ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "entier",
+        "reponse_canonique": "340",
+        "unite": "m/s",
+        "tolerances": { "abs": 10 }
+      }
+    },
+    {
+      "id": "pc_es_09",
+      "discipline": "physique_chimie",
+      "theme": "electricite_signaux",
+      "competence": "Fréquence et hauteur du son",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_03_electricite_signaux" },
+      "enonce": "La hauteur d'un son (grave ou aigu) est caractérisée par sa ... (complète par un mot).",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "fréquence",
+        "formes_acceptees": ["frequence", "la frequence"]
+      }
+    },
+    {
+      "id": "pc_es_10",
+      "discipline": "physique_chimie",
+      "theme": "electricite_signaux",
+      "competence": "Unité de la fréquence",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_03_electricite_signaux" },
+      "enonce": "Quelle est l'unité de la fréquence ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "hertz",
+        "formes_acceptees": ["le hertz", "Hz", "hertzs"]
+      }
+    },
+    {
+      "id": "pc_es_11",
+      "discipline": "physique_chimie",
+      "theme": "electricite_signaux",
+      "competence": "Plage de fréquences audibles",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_03_electricite_signaux" },
+      "enonce": "Au-dessus de quelle fréquence (en Hz) parle-t-on d'ultrasons ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "entier",
+        "reponse_canonique": "20000",
+        "unite": "Hz"
+      },
+      "reveal_explication": "Les sons audibles pour l'humain vont de 20 Hz à 20 000 Hz. Au-delà, ce sont des ultrasons."
+    },
+    {
+      "id": "pc_es_12",
+      "discipline": "physique_chimie",
+      "theme": "electricite_signaux",
+      "competence": "Propagation de la lumière",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_03_electricite_signaux" },
+      "enonce": "La lumière peut-elle se propager dans le vide ? (vrai ou faux)",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "vrai_faux",
+        "reponse_canonique": "vrai"
+      },
+      "reveal_explication": "Contrairement au son, la lumière se propage dans le vide (c'est ainsi que la lumière du Soleil nous parvient)."
+    },
+    {
+      "id": "pc_es_13",
+      "discipline": "physique_chimie",
+      "theme": "electricite_signaux",
+      "competence": "Vitesse de la lumière",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_03_electricite_signaux" },
+      "enonce": "Quelle est la vitesse de la lumière dans le vide en km/s ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "entier",
+        "reponse_canonique": "300000",
+        "unite": "km/s"
+      },
+      "reveal_explication": "300 000 km/s, soit 3 × 10⁸ m/s — la valeur à retenir par cœur."
+    },
+    {
+      "id": "pc_es_14",
+      "discipline": "physique_chimie",
+      "theme": "electricite_signaux",
+      "competence": "Intensité sonore",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_03_electricite_signaux" },
+      "enonce": "Dans quelle unité s'exprime l'intensité sonore (le caractère fort ou faible d'un son) ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "décibel",
+        "formes_acceptees": ["decibel", "le decibel", "dB", "en decibels", "decibels"]
+      }
+    },
+    {
+      "id": "pc_es_15",
+      "discipline": "physique_chimie",
+      "theme": "electricite_signaux",
+      "competence": "Propagation de la lumière",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_03_electricite_signaux" },
+      "enonce": "Dans un milieu homogène, la lumière se propage en ligne ... (complète par un mot).",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "droite",
+        "formes_acceptees": ["en ligne droite", "ligne droite"]
+      }
+    }
+  ]
+}

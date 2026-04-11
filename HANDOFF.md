@@ -1098,3 +1098,342 @@ style : gradient `from-brand-500 to-purple-600` en header du popin,
 
 *Fin du handoff. Fichier généré automatiquement — ne pas éditer à la main
 sauf pour ajouter des notes de passation additionnelles.*
+
+---
+
+## ADDENDUM 2026-04-11 — Sciences / épreuve Révision par thème (PR feature/sciences)
+
+### Périmètre livré
+
+Quatrième matière sur la plateforme. Une seule épreuve active :
+**Révision par thème** — quiz court par discipline et par thème,
+texte-only, couvrant les trois disciplines du DNB Sciences 2026 :
+Physique-Chimie, SVT, Technologie. Le jour J, l'épreuve officielle
+(1 h, 50 points, coefficient 2) contient deux disciplines tirées parmi
+ces trois, c'est pour ça qu'on révise les trois.
+
+La simulation chronométrée « épreuve complète » reste en V2,
+bloquée par le rendu des documents visuels (photos, schémas annotés,
+graphiques) — **même arbitrage que « problèmes maths »**. La vague 1
+ne fait que des questions qui sont auto-suffisantes à partir de leur
+énoncé textuel.
+
+URLs exposées :
+
+  GET  /sciences/                                        accueil matière
+  GET  /sciences/revision/                               index épreuve (3 cartes disciplines)
+  GET  /sciences/revision/{discipline_slug}/             accueil discipline (sélecteur thème + start)
+  POST /sciences/revision/{discipline_slug}/quiz/new     création quiz
+  GET  /sciences/revision/quiz                           question courante
+  POST /sciences/revision/quiz/answer                    évaluation
+  POST /sciences/revision/quiz/hint                      indice gradué
+  POST /sciences/revision/quiz/reveal                    révélation
+  GET  /sciences/revision/quiz/synthese                  bilan
+  GET  /sciences/revision/restart                        efface l'état
+
+Disciplines (slugs URL / identifiants internes) :
+- `physique-chimie` → `physique_chimie`
+- `svt`             → `svt`
+- `technologie`     → `technologie`
+
+### Choix d'architecture : épreuve unique partagée par path param
+
+Contrairement à HG-EMC (2 épreuves) ou maths (2 épreuves), les « trois
+disciplines » sciences ne sont **pas** trois épreuves distinctes mais
+trois sous-corpus d'une même épreuve. Plutôt que de tripler le code
+sous `app/sciences/{physique_chimie,svt,technologie}/` (qui aurait été
+~85 % dupliqué), le module `app/sciences/revision/` porte toute la
+logique et filtre par `discipline` en SQL. La discipline courante vit
+dans l'URL (path param) pour l'accueil + la création de quiz, puis
+dans le cookie Starlette (`sciences_rev_quiz.discipline`) pendant la
+navigation du quiz. Si à terme une discipline diverge fortement
+(ex. Techno qui aurait besoin d'un évaluateur bloc Scratch), on
+extrairait un sous-module dédié — pour l'instant c'est overkill.
+
+### Structure du module `app/sciences/`
+
+```
+app/sciences/
+  __init__.py                            # SUBJECT_KIND = "sciences"
+  routes.py                              # router racine /sciences/
+  templates/
+    _sciences_base.html                  # layout matière (pas de FAB en V1)
+    index.html                           # accueil matière (1 carte revision + placeholder V2)
+  revision/
+    __init__.py
+    models.py                            # ALLOWED_DISCIPLINES, ALLOWED_THEMES_PAR_DISCIPLINE,
+                                         # THEME_TO_DISCIPLINE, Pydantic SciencesQuestion,
+                                         # SQLModel SciencesQuestionRow/SciencesAttempt,
+                                         # init_sciences_revision()
+    loader.py                            # DISCIPLINE_LABELS + THEME_LABELS + pick_for_quiz
+    scoring.py                           # check() déterministe 6 types : entier, decimal,
+                                         # pourcentage, texte_court, qcm, vrai_faux
+    pedagogy.py                          # dispatch python/albert + _safe_chat +
+                                         # evaluate_answer / generate_hint / reveal_answer
+    prompts.py                           # persona tuteur sciences + 3 builders (hint, reveal,
+                                         # open_eval)
+    routes.py                            # router /sciences/revision/, 9 endpoints HTTP
+    templates/
+      index.html                         # index épreuve (3 cartes disciplines)
+      home.html                          # accueil discipline (sélecteur thème / longueur)
+      quiz.html                          # une question, formulaire HTMX
+      synthese.html                      # bilan + questions à retravailler
+      _partials/feedback.html            # variantes correct/incorrect/hint/revealed/error
+```
+
+### Types de questions supportés (scoring déterministe Python)
+
+Héritage simplifié du scoring automatismes maths, étendu pour
+coller au format sciences :
+
+| type          | usage                                                                 |
+|---------------|-----------------------------------------------------------------------|
+| `entier`      | Nombre de chromosomes, nb atomes, âge en Ga (tol. 0)                  |
+| `decimal`     | Masse volumique, vitesse, énergie (tol. abs. 0.01 par défaut)         |
+| `pourcentage` | Composition air, IOT (tol. abs. 0.5 par défaut, signe `%` optionnel)  |
+| `texte_court` | Mot-clé, définition, nom d'espèce (lex-normalisation + inclusion)     |
+| `qcm`         | Identifiant de proposition (« P2 », « 3 », « C »), comparaison stricte|
+| `vrai_faux`   | Vrai / faux + synonymes (oui/non, true/false, juste/incorrect…)       |
+
+Les questions à réponse ouverte courte (ex. « cite une conséquence du
+réchauffement climatique », « cite une énergie renouvelable ») passent
+en `mode = "albert"` avec `reponse_modele` + `criteres_validation`.
+L'évaluation Albert force un JSON strict
+`{"correct": bool, "feedback_court": str}` via `SCIENCES_REV_EVAL_OPEN`
+(gpt-oss-120b), même pattern que `MATH_AUTO_EVAL_OPEN`. Le fallback si
+Albert plante est `False` — l'élève voit « pas trouvé » mais peut
+retenter.
+
+### Pédagogie hybride (identique au pattern automatismes maths)
+
+- **Scoring déterministe Python** pour ~90 % du corpus (QCM,
+  vrai/faux, numériques, mots-clés).
+- **Scoring Albert** pour les ouvertes courtes nécessitant un
+  jugement souple (critères sémantiques plutôt que forme exacte).
+- **Indices gradués** (3 niveaux) via `Task.SCIENCES_REV_HINT`
+  (Mistral-Small). Fallback déterministe basé sur le type de réponse
+  ou la première lettre de la réponse canonique si Albert plante.
+- **Révélation** via `Task.SCIENCES_REV_REVEAL` + fallback déterministe
+  avec la réponse canonique brute + `reveal_explication` pré-écrite.
+- **Règle cardinale héritée** : la bonne réponse EST l'objectif
+  d'apprentissage. Pas de ghostwriting (réponses courtes),
+  `check_no_ghostwriting=False` partout côté sciences.
+
+### Corpus committé : 150 questions, 11 thèmes, 3 disciplines
+
+Pipeline 100 % offline en session Claude Code (Read PDF → Write JSON).
+Aucun appel à l'API Anthropic. Basé sur les 8 fiches méthode
+committées (plus un éclatement manuel de la fiche Technologie en
+4 thèmes pour couvrir le programme cycle 4).
+
+| Discipline       | Thème                      | # questions |
+|------------------|----------------------------|-------------|
+| Physique-Chimie  | organisation_matiere       | 15          |
+|                  | mouvements_energie         | 15          |
+|                  | electricite_signaux        | 15          |
+|                  | univers_melanges           | 15          |
+| **Total PC**     |                            | **60**      |
+| SVT              | corps_sante                | 20          |
+|                  | terre_evolution            | 20          |
+|                  | genetique                  | 20          |
+| **Total SVT**    |                            | **60**      |
+| Technologie      | objets_techniques          | 8           |
+|                  | materiaux_innovation       | 8           |
+|                  | programmation_robotique    | 7           |
+|                  | chaine_energie             | 7           |
+| **Total Techno** |                            | **30**      |
+| **TOTAL**        |                            | **150**     |
+
+Layout :
+
+```
+content/sciences/
+  annales/                                 # 69 PDF annales DNB 2018-2025
+  corriges/                                # 36 PDF corrigés officiels
+  methodologie/                            # 8 fiches méthode
+  programme/                               # 1 PDF programme cycle 4
+  notation/                                # 2 PDF (BO 2026 modalités + infographie)
+  revision/
+    questions/                             # 11 batches JSON, chargés par init_sciences_revision
+      physique_chimie_organisation_matiere.json
+      physique_chimie_mouvements_energie.json
+      physique_chimie_electricite_signaux.json
+      physique_chimie_univers_melanges.json
+      svt_corps_sante.json
+      svt_terre_evolution.json
+      svt_genetique.json
+      technologie_objets_techniques.json
+      technologie_materiaux_innovation.json
+      technologie_programmation_robotique.json
+      technologie_chaine_energie.json
+```
+
+**Convention loader** : `init_sciences_revision` lit tous les `*.json`
+du dossier `revision/questions/` *sauf* ceux qui commencent par `_`
+(méta-fichiers réservés). Validation stricte du couple
+(discipline, thème) via la table `THEME_TO_DISCIPLINE` — toute
+question incohérente est rejetée avec un warning, pas de crash.
+
+### Collections Albert
+
+Quatre collections ajoutées dans `scripts/ingest.py` (`COLLECTIONS` +
+`MATIERE_COLLECTIONS["sciences"]`) :
+
+| Clé ingest                    | Collection Albert                  | Source                                       |
+|-------------------------------|------------------------------------|----------------------------------------------|
+| `sciences_programme`          | `dnb_sciences_programme`           | content/sciences/programme/                  |
+| `sciences_methodo`            | `dnb_sciences_methodo`             | content/sciences/methodologie/ (8 fiches)    |
+| `sciences_annales`            | `dnb_sciences_annales`             | content/sciences/annales/ (69 PDF)           |
+| `sciences_revision_questions` | `dnb_sciences_revision_questions`  | revision/questions/*.json (md à la volée)    |
+
+Conversion JSON → markdown spécifique via
+`_sciences_questions_json_to_markdown` : un bloc par question avec
+discipline + thème + énoncé + réponse attendue/modèle + critères pour
+les questions ouvertes. Les indices et `reveal_explication` sont
+volontairement omis de l'indexation (Albert les régénère côté runtime).
+
+`FALLBACK_COLLECTION_IDS["sciences"]` est laissé vide (`{}`) en
+attendant le premier run de `python -m scripts.ingest --matiere sciences`
+qui créera les 4 collections côté Albert et permettra de copier les
+IDs ici.
+
+**À faire après le merge** :
+1. `python -m scripts.ingest --matiere sciences --dry-run` pour valider
+   les specs et le nombre de fichiers candidats (attendu : 1 programme
+   + 8 methodo + 69 annales + 11 JSON questions = 89 fichiers).
+2. `python -m scripts.ingest --matiere sciences` pour créer les 4
+   collections et pousser les corpus.
+3. Reporter les IDs générés dans `FALLBACK_COLLECTION_IDS["sciences"]`
+   dans `app/core/rag.py`.
+
+### Tâches Albert ajoutées
+
+3 nouvelles tâches dans `app/core/albert_client.py::Task` (avec
+profils de routage dans `TASK_PROFILES`) :
+
+- `SCIENCES_REV_HINT` → Mistral-Small, T=0.5, max_tokens=300
+- `SCIENCES_REV_REVEAL` → Mistral-Small, T=0.3, max_tokens=500
+- `SCIENCES_REV_EVAL_OPEN` → gpt-oss-120b, T=0.2, max_tokens=800,
+  `require_citations=False`, `check_no_ghostwriting=False`
+
+Le mapping `TASK_COLLECTIONS["sciences"]` dans `app/core/rag.py`
+branche ces tâches sur les bonnes collections :
+- `SCIENCES_REV_HINT` → `sciences_methodo` uniquement
+- `SCIENCES_REV_REVEAL` → `sciences_methodo` + `sciences_programme`
+- `SCIENCES_REV_EVAL_OPEN` → les 3 (methodo + programme + annales)
+
+### Intégration core
+
+- `app/core/main.py` : import + `include_router(sciences_router)` +
+  `init_sciences_revision()` dans `on_startup`
+- `app/core/templates/base.html` : entrée « Sciences » dans le menu
+  matières (desktop + mobile)
+- `app/core/templates/home.html` : 4e carte d'accueil « Sciences »
+  (le layout passe de 3 cartes + 1 pleine largeur à 4 cartes sur grille
+  2×2)
+- `app/core/templates/_exercise_timer.html` : profil
+  `sciences_revision` (30 min pour une discipline, 60 min pour
+  l'épreuve complète)
+
+### Tests (vague 1)
+
+3 fichiers dans `tests/sciences/revision/` + `test_corpus_validation.py`
+étendu :
+
+- `test_scoring.py` (~40 tests) : 6 types (entier, decimal,
+  pourcentage, texte_court, qcm, vrai_faux) × cas positifs/négatifs/
+  tolérances/formes acceptées/synonymes vrai-faux. Mode inconnu → False.
+- `test_loader.py` (~13 tests) : `init_sciences_revision` charge ≥ 150
+  questions, idempotent, couvre les 3 disciplines, les 11 thèmes, ≥ 10
+  questions par discipline, ≥ 5 par thème. Cohérence
+  discipline/thème validée. `pick_for_quiz` filtre/respecte n, ne
+  crashe pas si n trop grand, renvoie vide sur thème inexistant.
+- `test_routes.py` (~14 tests) : smoke HTTP via `TestClient` sur les
+  9 endpoints, parcours start → question → answer → hint → reveal →
+  synthese → restart, avec `FakeAlbertClient` mocké via la fixture
+  `test_client` du conftest racine (étendu pour monkeypatcher le
+  singleton sciences).
+- `test_corpus_validation.py` (étendu) : chaque batch valide contre
+  `SciencesQuestion` Pydantic, corpus ≥ 150, slugs uniques, ≥ 25
+  questions par discipline, ≥ 5 par thème.
+
+**Nombre de tests ajoutés** : ~72 (40 scoring + 13 loader + 14 routes
++ 5 corpus). Suite complète après merge à valider avec
+`.venv/bin/python -m pytest` — non exécuté en session (pytest absent
+du .venv local, installation en `requirements-dev.txt` mais pas
+installée sur ce dev).
+
+### Smoke test manuel (sans pytest)
+
+Effectué en session via `.venv/bin/python -c` (FastAPI TestClient avec
+FakeAlbertClient) :
+
+1. `GET /sciences/` → 200, accueil matière OK
+2. `GET /sciences/revision/` → 200, 3 cartes discipline présentes
+3. `GET /sciences/revision/{physique-chimie|svt|technologie}/` → 200
+4. `GET /sciences/revision/discipline-fantome/` → 404 (bon résolveur de slug)
+5. `POST /sciences/revision/physique-chimie/quiz/new` → 303 → `/sciences/revision/quiz`
+6. `GET /sciences/revision/quiz` → 200, question affichée
+7. `POST /sciences/revision/quiz/answer answer=46` → fragment 200
+8. `POST /sciences/revision/quiz/hint` → fragment « Indice 1/3 » 200
+9. `POST /sciences/revision/quiz/reveal` → fragment révélation 200
+10. `GET /sciences/revision/quiz/synthese` → 200
+11. `GET /sciences/revision/restart` → 303 → `/sciences/revision/`
+
+Log startup : `150 questions révision sciences chargées`. Idempotent
+validé (`n1 == n2 == 150`).
+
+### Fichiers 100 % à moi (workstream sciences)
+
+- `app/sciences/**` (nouveau, 9 fichiers Python + 7 templates)
+- `content/sciences/**` (nouveau, dont 11 fichiers JSON questions +
+  116 PDF copiés depuis `RevisionDNB/Sciences/`)
+- `tests/sciences/**` (nouveau, 3 fichiers test_*.py + __init__.py)
+- `app/core/main.py` (modifié : import + include_router +
+  init_sciences_revision dans on_startup + log)
+- `app/core/albert_client.py` (modifié : +3 tâches SCIENCES_REV_*)
+- `app/core/rag.py` (modifié : +entries `sciences` dans
+  COLLECTION_LABELS, TASK_COLLECTIONS, FALLBACK_COLLECTION_IDS)
+- `app/core/templates/home.html` (modifié : 4e carte Sciences sur
+  grille 2×2 au lieu de 3+1)
+- `app/core/templates/base.html` (modifié : entrée « Sciences » dans
+  le menu matières desktop + mobile)
+- `app/core/templates/_exercise_timer.html` (modifié : profil
+  `sciences_revision`)
+- `scripts/ingest.py` (modifié : +4 specs sciences + converter
+  `_sciences_questions_json_to_markdown`)
+- `tests/conftest.py` (modifié : import `_sciences_rev_models` +
+  monkeypatch du singleton `_albert_client` côté sciences dans la
+  fixture `test_client`)
+- `tests/corpus/test_corpus_validation.py` (étendu : 5 tests révision
+  sciences, schéma + taille + unicité + répartition discipline + thème)
+
+### Points d'attention pour la suite
+
+1. **IDs collections Albert** à reporter dans
+   `FALLBACK_COLLECTION_IDS["sciences"]` après le premier `ingest`
+   (comme pour maths).
+2. **Technologie sous-représentée** : 30 questions seulement, parce
+   que le programme techno est plus récent (arrive vraiment avec le
+   DNB 2026) et les annales 2018-2025 n'en contiennent quasiment pas.
+   Les 4 thèmes techno sont extrapolés du programme cycle 4 + de la
+   fiche 6 (qui est la seule fiche méthode techno). À enrichir quand
+   les premiers sujets officiels 2026 seront disponibles.
+3. **Mascotte sciences** : une carte `<img src="/static/mascots/science.png">`
+   a été ajoutée dans `home.html` mais le fichier n'est pas dans
+   le repo au moment du merge (à peindre + committer séparément,
+   sur le modèle des autres mascottes).
+4. **Pas de FAB « Outils » sciences** en V1. Candidats à considérer
+   pour une V1.5 : tableau périodique simplifié, formulaire physique
+   (liste des formules clés), convertisseurs d'unités. Cf. pattern
+   FAB dans l'addendum 2026-04-11 « Bouton Outils ».
+5. **Mode « épreuve blanche » sciences** (tirer 2 disciplines au
+   hasard et chronométrer 1 h) en V2. Prérequis : le tirage doit
+   pondérer par nombre de questions disponibles, et il faut un écran
+   de bilan qui sépare les 2 disciplines. Infra timer déjà en place
+   via profil `sciences_revision` (60 min pour l'épreuve complète).
+6. **Suite de tests pytest non exécutée en session** : smoke tests
+   manuels passés OK via TestClient, mais `pytest` n'est pas installé
+   dans le `.venv` local. À valider en CI ou après
+   `.venv/bin/pip install -r requirements-dev.txt`.
+

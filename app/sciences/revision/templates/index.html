@@ -1,0 +1,43 @@
+{% extends "_sciences_base.html" %}
+
+{% block title %}Révision sciences — Choisis ta discipline{% endblock %}
+
+{% block content %}
+<div class="text-center mb-8 animate-reveal">
+  <h1 class="font-display text-3xl font-bold text-slate-900">Révision par thème</h1>
+  <p class="text-slate-600 mt-2 max-w-xl mx-auto">
+    Choisis d'abord la discipline que tu veux travailler aujourd'hui.
+    Tu pourras ensuite préciser un thème ou laisser la machine tirer
+    au hasard dans toute la discipline.
+  </p>
+</div>
+
+<section class="grid sm:grid-cols-3 gap-4 animate-reveal">
+  {% for slug, label in disciplines %}
+  <a href="/sciences/revision/{{ slug }}/"
+     class="group block bg-white rounded-3xl shadow-glow border border-slate-100 p-6 hover:scale-[1.01] transition">
+    <h2 class="font-display font-bold text-xl text-slate-900 mb-1 group-hover:text-brand-900">
+      {{ label }}
+    </h2>
+    <p class="text-sm text-slate-600 mb-3">
+      {% if slug == "physique-chimie" %}
+        Matière, énergie, mouvements, électricité, chimie.
+      {% elif slug == "svt" %}
+        Corps humain, Terre, évolution, génétique.
+      {% else %}
+        Objets techniques, matériaux, programmation, énergie.
+      {% endif %}
+    </p>
+    <span class="inline-flex items-center gap-1 text-sm font-semibold text-brand-700">
+      Commencer <span>→</span>
+    </span>
+  </a>
+  {% endfor %}
+</section>
+
+<div class="mt-8 text-center">
+  <a href="/sciences/" class="text-sm text-slate-500 hover:text-brand-700">
+    ← Retour aux épreuves
+  </a>
+</div>
+{% endblock %}
