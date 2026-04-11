@@ -1,0 +1,112 @@
+{
+  "questions": [
+    {
+      "id": "pc_om_13_v1",
+      "discipline": "physique_chimie",
+      "theme": "organisation_matiere",
+      "competence": "Calcul de masse volumique ρ = m/V",
+      "source": {
+        "type": "variation_generee",
+        "document": "fiche_sciences_01_organisation_matiere"
+      },
+      "enonce": "Un échantillon a une masse de 27 g et un volume de 10 cm³. Quelle est sa masse volumique en g/cm³ ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "2.7",
+        "unite": "g/cm³"
+      },
+      "reveal_explication": "ρ = m / V = 27 / 10 = 2.7 g/cm³ — c'est la masse volumique du aluminium."
+    },
+    {
+      "id": "pc_om_13_v2",
+      "discipline": "physique_chimie",
+      "theme": "organisation_matiere",
+      "competence": "Calcul de masse volumique ρ = m/V",
+      "source": {
+        "type": "variation_generee",
+        "document": "fiche_sciences_01_organisation_matiere"
+      },
+      "enonce": "Un échantillon a une masse de 79 g et un volume de 10 cm³. Quelle est sa masse volumique en g/cm³ ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "7.9",
+        "unite": "g/cm³"
+      },
+      "reveal_explication": "ρ = m / V = 79 / 10 = 7.9 g/cm³ — c'est la masse volumique du fer."
+    },
+    {
+      "id": "pc_om_13_v3",
+      "discipline": "physique_chimie",
+      "theme": "organisation_matiere",
+      "competence": "Calcul de masse volumique ρ = m/V",
+      "source": {
+        "type": "variation_generee",
+        "document": "fiche_sciences_01_organisation_matiere"
+      },
+      "enonce": "Un échantillon a une masse de 89 g et un volume de 10 cm³. Quelle est sa masse volumique en g/cm³ ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "8.9",
+        "unite": "g/cm³"
+      },
+      "reveal_explication": "ρ = m / V = 89 / 10 = 8.9 g/cm³ — c'est la masse volumique du cuivre."
+    },
+    {
+      "id": "pc_om_13_v4",
+      "discipline": "physique_chimie",
+      "theme": "organisation_matiere",
+      "competence": "Calcul de masse volumique ρ = m/V",
+      "source": {
+        "type": "variation_generee",
+        "document": "fiche_sciences_01_organisation_matiere"
+      },
+      "enonce": "Un échantillon a une masse de 193 g et un volume de 10 cm³. Quelle est sa masse volumique en g/cm³ ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "19.3",
+        "unite": "g/cm³"
+      },
+      "reveal_explication": "ρ = m / V = 193 / 10 = 19.3 g/cm³ — c'est la masse volumique du or."
+    },
+    {
+      "id": "pc_om_13_v5",
+      "discipline": "physique_chimie",
+      "theme": "organisation_matiere",
+      "competence": "Calcul de masse volumique ρ = m/V",
+      "source": {
+        "type": "variation_generee",
+        "document": "fiche_sciences_01_organisation_matiere"
+      },
+      "enonce": "Un échantillon a une masse de 50 g et un volume de 50 cm³. Quelle est sa masse volumique en g/cm³ ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "1",
+        "unite": "g/cm³"
+      },
+      "reveal_explication": "ρ = m / V = 50 / 50 = 1 g/cm³ — c'est la masse volumique du eau."
+    },
+    {
+      "id": "pc_om_13_v6",
+      "discipline": "physique_chimie",
+      "theme": "organisation_matiere",
+      "competence": "Calcul de masse volumique ρ = m/V",
+      "source": {
+        "type": "variation_generee",
+        "document": "fiche_sciences_01_organisation_matiere"
+      },
+      "enonce": "Un échantillon a une masse de 113 g et un volume de 10 cm³. Quelle est sa masse volumique en g/cm³ ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "11.3",
+        "unite": "g/cm³"
+      },
+      "reveal_explication": "ρ = m / V = 113 / 10 = 11.3 g/cm³ — c'est la masse volumique du plomb."
+    }
+  ]
+}

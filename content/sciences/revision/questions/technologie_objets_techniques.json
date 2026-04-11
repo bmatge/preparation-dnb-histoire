@@ -1,0 +1,118 @@
+{
+  "questions": [
+    {
+      "id": "tech_ot_01",
+      "discipline": "technologie",
+      "theme": "objets_techniques",
+      "competence": "Fonction d'usage",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_06_technologie" },
+      "enonce": "Que décrit la « fonction d'usage » d'un objet technique ?",
+      "scoring": {
+        "mode": "albert",
+        "reponse_modele": "À quoi sert l'objet, le besoin qu'il satisfait.",
+        "criteres_validation": [
+          "La réponse indique que la fonction d'usage répond à la question « à quoi sert l'objet ? » ou « quel besoin il satisfait ? »."
+        ]
+      }
+    },
+    {
+      "id": "tech_ot_02",
+      "discipline": "technologie",
+      "theme": "objets_techniques",
+      "competence": "Fonction technique",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_06_technologie" },
+      "enonce": "La fonction technique d'un objet décrit plutôt « à quoi il sert » ou « comment il remplit sa fonction » ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "comment il remplit sa fonction",
+        "formes_acceptees": ["comment", "comment il fonctionne", "comment il remplit sa fonction.", "le comment"]
+      },
+      "reveal_explication": "Fonction d'usage = « à quoi ça sert ». Fonction technique = « comment c'est fait pour que ça marche »."
+    },
+    {
+      "id": "tech_ot_03",
+      "discipline": "technologie",
+      "theme": "objets_techniques",
+      "competence": "Chaîne d'information",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_06_technologie" },
+      "enonce": "Dans la chaîne d'information, les trois étapes sont « acquérir », « traiter » et ... (complète par un mot).",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "communiquer",
+        "formes_acceptees": ["la communication", "communication"]
+      }
+    },
+    {
+      "id": "tech_ot_04",
+      "discipline": "technologie",
+      "theme": "objets_techniques",
+      "competence": "Chaîne d'information — rôle du capteur",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_06_technologie" },
+      "enonce": "Dans la chaîne d'information, à quelle étape correspond un capteur ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "acquérir",
+        "formes_acceptees": ["acquerir", "l acquisition", "acquisition"]
+      }
+    },
+    {
+      "id": "tech_ot_05",
+      "discipline": "technologie",
+      "theme": "objets_techniques",
+      "competence": "CAO",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_06_technologie" },
+      "enonce": "Que signifie le sigle CAO en technologie ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "conception assistée par ordinateur",
+        "formes_acceptees": ["conception assistee par ordinateur", "la conception assistee par ordinateur"]
+      }
+    },
+    {
+      "id": "tech_ot_06",
+      "discipline": "technologie",
+      "theme": "objets_techniques",
+      "competence": "Impression 3D",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_06_technologie" },
+      "enonce": "L'impression 3D fabrique un objet « couche par couche » par ajout de matière. Vrai ou faux ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "vrai_faux",
+        "reponse_canonique": "vrai"
+      }
+    },
+    {
+      "id": "tech_ot_07",
+      "discipline": "technologie",
+      "theme": "objets_techniques",
+      "competence": "Prototype",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_06_technologie" },
+      "enonce": "Comment appelle-t-on une première version d'un objet technique qu'on construit pour la tester avant la fabrication en série ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "prototype",
+        "formes_acceptees": ["un prototype", "le prototype"]
+      }
+    },
+    {
+      "id": "tech_ot_08",
+      "discipline": "technologie",
+      "theme": "objets_techniques",
+      "competence": "Cycle de vie — étape",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_06_technologie" },
+      "enonce": "Cite une étape du cycle de vie d'un produit (autre que « utilisation »).",
+      "scoring": {
+        "mode": "albert",
+        "reponse_modele": "La fabrication.",
+        "criteres_validation": [
+          "La réponse mentionne une étape cohérente : extraction des matières premières, fabrication, distribution/transport, fin de vie (recyclage, valorisation, destruction)."
+        ]
+      }
+    }
+  ]
+}

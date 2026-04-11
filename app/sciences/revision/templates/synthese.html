@@ -1,0 +1,54 @@
+{% extends "_sciences_base.html" %}
+
+{% block title %}Révision {{ discipline_label }} — Bilan du quiz{% endblock %}
+
+{% block content %}
+<div class="text-center mb-8 animate-reveal">
+  <h1 class="font-display text-3xl font-bold text-slate-900">Bilan du quiz</h1>
+  <p class="text-slate-600 mt-2">
+    {{ discipline_label }} — tu as trouvé
+    <strong class="text-brand-700">{{ score }}</strong> réponse(s) du
+    premier coup sur {{ total }}.
+  </p>
+</div>
+
+{% if has_missed %}
+<div class="bg-white border border-slate-200 rounded-2xl shadow-sm p-6 mb-6 animate-reveal">
+  <h2 class="font-display text-xl font-bold text-slate-900 mb-3">
+    Questions à retravailler ({{ missed_questions|length }})
+  </h2>
+  <ul class="divide-y divide-slate-100">
+    {% for q in missed_questions %}
+    <li class="py-3">
+      <div class="text-xs uppercase tracking-wider text-slate-400 mb-0.5">
+        {{ theme_labels.get(q.theme, q.theme) }}
+      </div>
+      <div class="font-semibold text-slate-900">{{ q.enonce }}</div>
+      {% set sc = q.scoring %}
+      <div class="text-sm text-slate-600 mt-1">
+        Réponse&nbsp;:
+        <span class="font-semibold text-brand-700">
+          {{ sc.get('reponse_canonique') or sc.get('reponse_modele') or '?' }}
+          {% if sc.get('unite') %}{{ sc.get('unite') }}{% endif %}
+        </span>
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+{% else %}
+<div class="bg-emerald-50 border border-emerald-200 rounded-2xl p-6 mb-6 text-center animate-reveal">
+  <p class="text-emerald-900 font-semibold">Sans faute — bravo !</p>
+  <p class="text-sm text-emerald-800 mt-1">Tu peux enchaîner avec un autre thème ou une autre discipline.</p>
+</div>
+{% endif %}
+
+<div class="flex items-center justify-between gap-3 flex-wrap">
+  <a href="/sciences/revision/" class="text-sm text-slate-500 hover:text-brand-700">
+    ← Retour aux disciplines
+  </a>
+  <a href="/sciences/revision/{{ discipline_slug }}/" class="btn-secondary hover:wiggle">
+    Nouveau quiz
+  </a>
+</div>
+{% endblock %}

@@ -1,0 +1,293 @@
+{
+  "questions": [
+    {
+      "id": "svt_cs_21",
+      "discipline": "svt",
+      "theme": "corps_sante",
+      "competence": "Sommeil — besoins",
+      "source": { "type": "programme", "document": "Programme_cycle4_BO_2020" },
+      "enonce": "Combien d'heures de sommeil par nuit sont recommandées pour un adolescent de 15 ans (valeur approximative) ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "entier",
+        "reponse_canonique": "9",
+        "tolerances": { "abs": 1 }
+      },
+      "reveal_explication": "Les experts recommandent environ 8 à 10 h par nuit à cet âge."
+    },
+    {
+      "id": "svt_cs_22",
+      "discipline": "svt",
+      "theme": "corps_sante",
+      "competence": "Nutrition — groupes d'aliments",
+      "source": { "type": "programme", "document": "Programme_cycle4_BO_2020" },
+      "enonce": "Les glucides, lipides et protéines sont appelés des ... (complète par un mot).",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "nutriments",
+        "formes_acceptees": ["les nutriments", "des nutriments", "macronutriments"]
+      }
+    },
+    {
+      "id": "svt_cs_23",
+      "discipline": "svt",
+      "theme": "corps_sante",
+      "competence": "Sources d'énergie alimentaire",
+      "source": { "type": "programme", "document": "Programme_cycle4_BO_2020" },
+      "enonce": "Parmi les nutriments suivants, lequel apporte le plus d'énergie par gramme : glucides, lipides ou protéines ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "lipides",
+        "formes_acceptees": ["les lipides", "lipide"]
+      },
+      "reveal_explication": "1 g de lipides ≈ 9 kcal, contre ≈ 4 kcal pour les glucides et les protéines."
+    },
+    {
+      "id": "svt_cs_24",
+      "discipline": "svt",
+      "theme": "corps_sante",
+      "competence": "VIH — mode de transmission",
+      "source": { "type": "programme", "document": "Programme_cycle4_BO_2020" },
+      "enonce": "Le VIH ne se transmet PAS par le contact de la peau ni par la salive dans la vie courante. (vrai ou faux)",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "vrai_faux",
+        "reponse_canonique": "vrai"
+      },
+      "reveal_explication": "Le VIH se transmet par voie sexuelle, par le sang et de la mère à l'enfant. Pas par la poignée de main ni par la salive dans la vie courante."
+    },
+    {
+      "id": "svt_cs_25",
+      "discipline": "svt",
+      "theme": "corps_sante",
+      "competence": "Antibiotiques",
+      "source": { "type": "programme", "document": "Programme_cycle4_BO_2020" },
+      "enonce": "Les antibiotiques sont efficaces contre les bactéries. Le sont-ils aussi contre les virus ? (vrai ou faux)",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "vrai_faux",
+        "reponse_canonique": "faux"
+      },
+      "reveal_explication": "Les antibiotiques ne tuent PAS les virus (d'où l'inutilité de prendre un antibiotique pour une grippe)."
+    },
+    {
+      "id": "svt_cs_26",
+      "discipline": "svt",
+      "theme": "corps_sante",
+      "competence": "Rythme cardiaque — repos",
+      "source": { "type": "programme", "document": "Programme_cycle4_BO_2020" },
+      "enonce": "Au repos, un adolescent en bonne santé a un rythme cardiaque moyen d'environ combien de battements par minute ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "entier",
+        "reponse_canonique": "70",
+        "unite": "bpm",
+        "tolerances": { "abs": 20 }
+      },
+      "reveal_explication": "Un adolescent au repos est généralement entre 60 et 90 battements par minute."
+    },
+    {
+      "id": "svt_cs_27",
+      "discipline": "svt",
+      "theme": "corps_sante",
+      "competence": "Réflexe myotatique",
+      "source": { "type": "programme", "document": "Programme_cycle4_BO_2020" },
+      "enonce": "Le mouvement automatique de la jambe quand on tape sur le genou est appelé un ... (complète par un mot).",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "réflexe",
+        "formes_acceptees": ["un reflexe", "reflexe"]
+      }
+    },
+    {
+      "id": "svt_te_21",
+      "discipline": "svt",
+      "theme": "terre_evolution",
+      "competence": "Âge approximatif de la Terre",
+      "source": { "type": "programme", "document": "Programme_cycle4_BO_2020" },
+      "enonce": "La Terre s'est formée il y a environ combien de milliards d'années ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "4.6",
+        "unite": "milliards d'années",
+        "tolerances": { "abs": 0.2 }
+      }
+    },
+    {
+      "id": "svt_te_22",
+      "discipline": "svt",
+      "theme": "terre_evolution",
+      "competence": "Magnitude sismique",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_05_svt_terre_evolution" },
+      "enonce": "Quelle échelle est utilisée pour mesurer la magnitude d'un séisme (énergie libérée) ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "Richter",
+        "formes_acceptees": ["echelle de richter", "l echelle de richter", "richter"]
+      }
+    },
+    {
+      "id": "svt_te_23",
+      "discipline": "svt",
+      "theme": "terre_evolution",
+      "competence": "Épicentre",
+      "source": { "type": "programme", "document": "Programme_cycle4_BO_2020" },
+      "enonce": "Comment appelle-t-on le point de la surface terrestre situé à la verticale du foyer d'un séisme ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "épicentre",
+        "formes_acceptees": ["l epicentre", "un epicentre", "epicentre"]
+      }
+    },
+    {
+      "id": "svt_te_24",
+      "discipline": "svt",
+      "theme": "terre_evolution",
+      "competence": "Cycle du carbone",
+      "source": { "type": "programme", "document": "Programme_cycle4_BO_2020" },
+      "enonce": "Par quel processus les plantes absorbent-elles le dioxyde de carbone de l'atmosphère ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "photosynthèse",
+        "formes_acceptees": ["la photosynthese", "photosynthese"]
+      }
+    },
+    {
+      "id": "svt_te_25",
+      "discipline": "svt",
+      "theme": "terre_evolution",
+      "competence": "Vitesse de déplacement des plaques",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_05_svt_terre_evolution" },
+      "enonce": "Les plaques tectoniques se déplacent de quelques ... par an (choisis un mot : mètres, centimètres ou kilomètres).",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "centimètres",
+        "formes_acceptees": ["centimetres", "cm", "centimetre"]
+      }
+    },
+    {
+      "id": "svt_te_26",
+      "discipline": "svt",
+      "theme": "terre_evolution",
+      "competence": "Bilan carbone — ordre d'idée",
+      "source": { "type": "programme", "document": "Programme_cycle4_BO_2020" },
+      "enonce": "Un trajet en avion émet-il plus ou moins de CO2 par passager et par km qu'un trajet équivalent en TGV ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "plus",
+        "formes_acceptees": ["beaucoup plus", "bien plus", "plus.", "plus que le TGV"]
+      },
+      "reveal_explication": "L'avion émet typiquement 50 à 100 fois plus de CO2 par passager·km que le TGV."
+    },
+    {
+      "id": "svt_gen_21",
+      "discipline": "svt",
+      "theme": "genetique",
+      "competence": "Gamètes féminins",
+      "source": { "type": "programme", "document": "Programme_cycle4_BO_2020" },
+      "enonce": "Comment appelle-t-on les gamètes féminines chez l'humain ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "ovules",
+        "formes_acceptees": ["l ovule", "ovule", "les ovules", "ovocyte", "ovocytes"]
+      }
+    },
+    {
+      "id": "svt_gen_22",
+      "discipline": "svt",
+      "theme": "genetique",
+      "competence": "Gamètes masculins",
+      "source": { "type": "programme", "document": "Programme_cycle4_BO_2020" },
+      "enonce": "Comment appelle-t-on les gamètes masculines chez l'humain ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "spermatozoïdes",
+        "formes_acceptees": ["spermatozoides", "le spermatozoide", "les spermatozoides", "spermatozoide"]
+      }
+    },
+    {
+      "id": "svt_gen_23",
+      "discipline": "svt",
+      "theme": "genetique",
+      "competence": "Fécondation",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_08_genetique" },
+      "enonce": "La rencontre d'un spermatozoïde et d'un ovule forme une cellule unique appelée ... (complète par un mot).",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "zygote",
+        "formes_acceptees": ["un zygote", "oeuf", "cellule oeuf", "cellule-oeuf", "cellule œuf"]
+      },
+      "reveal_explication": "On parle de cellule-œuf ou de zygote, avec 46 chromosomes (23 du père + 23 de la mère)."
+    },
+    {
+      "id": "svt_gen_24",
+      "discipline": "svt",
+      "theme": "genetique",
+      "competence": "Taille de l'ADN",
+      "source": { "type": "programme", "document": "Programme_cycle4_BO_2020" },
+      "enonce": "Le génome humain contient environ combien de gènes (valeur approximative en milliers) ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "entier",
+        "reponse_canonique": "20000",
+        "tolerances": { "abs": 5000 }
+      },
+      "reveal_explication": "Estimation couramment retenue : environ 20 000 gènes codants chez l'humain (les estimations actuelles tournent autour de 19 000 – 21 000)."
+    },
+    {
+      "id": "svt_gen_25",
+      "discipline": "svt",
+      "theme": "genetique",
+      "competence": "Bases complémentaires G-C",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_08_genetique" },
+      "enonce": "Dans l'ADN, avec quelle base s'apparie la base G (guanine) ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "C",
+        "formes_acceptees": ["cytosine", "la cytosine"]
+      }
+    },
+    {
+      "id": "svt_gen_26",
+      "discipline": "svt",
+      "theme": "genetique",
+      "competence": "Mitose",
+      "source": { "type": "programme", "document": "Programme_cycle4_BO_2020" },
+      "enonce": "Comment appelle-t-on le processus par lequel une cellule se divise en deux cellules filles identiques ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "mitose",
+        "formes_acceptees": ["la mitose", "division cellulaire", "une mitose"]
+      }
+    },
+    {
+      "id": "svt_gen_27",
+      "discipline": "svt",
+      "theme": "genetique",
+      "competence": "Similarité ADN humain/chimpanzé",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_08_genetique" },
+      "enonce": "Quel est environ le pourcentage de similarité de l'ADN entre l'humain et le chimpanzé ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "pourcentage",
+        "reponse_canonique": "98.5",
+        "unite": "%",
+        "tolerances": { "abs": 1 }
+      }
+    }
+  ]
+}

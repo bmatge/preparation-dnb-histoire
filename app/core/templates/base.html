@@ -248,6 +248,10 @@
            class="text-slate-600 hover:text-brand-700 hover:bg-brand-50 font-medium px-2.5 py-1.5 rounded-lg transition">
           Maths
         </a>
+        <a href="/sciences/"
+           class="text-slate-600 hover:text-brand-700 hover:bg-brand-50 font-medium px-2.5 py-1.5 rounded-lg transition">
+          Sciences
+        </a>
       </nav>
 
       <button type="button"
@@ -281,6 +285,10 @@
         <a href="/mathematiques/"
            class="text-slate-700 hover:text-brand-700 hover:bg-brand-50 font-medium px-3 py-2 rounded-lg transition">
           Maths
+        </a>
+        <a href="/sciences/"
+           class="text-slate-700 hover:text-brand-700 hover:bg-brand-50 font-medium px-3 py-2 rounded-lg transition">
+          Sciences
         </a>
       </div>
     </nav>
@@ -316,7 +324,128 @@
   <footer class="max-w-3xl mx-auto px-4 py-10 text-xs text-slate-500 text-center">
     Aide-toi mais ne triche pas — l'objectif, c'est de progresser, pas que je rédige à ta place.<br>
     Propulsé par <strong>Albert</strong>, le LLM souverain de l'État français.
+    <div class="mt-3 flex items-center justify-center gap-3">
+      <button type="button"
+              class="underline decoration-dotted hover:text-brand-700 transition"
+              onclick="document.getElementById('modal-mentions').showModal()">
+        Mentions légales
+      </button>
+      <span aria-hidden="true">·</span>
+      <button type="button"
+              class="underline decoration-dotted hover:text-brand-700 transition"
+              onclick="document.getElementById('modal-accessibilite').showModal()">
+        Accessibilité
+      </button>
+    </div>
   </footer>
+
+  {# Modales d'information statiques (mentions légales, accessibilité).
+     On utilise l'élément <dialog> natif : gestion automatique d'Echap,
+     ::backdrop stylable, focus trap. Fermeture au clic sur le backdrop
+     grâce au handler JS en bas de fichier. #}
+  <dialog id="modal-mentions"
+          class="rounded-2xl shadow-glow border border-brand-100 p-0 max-w-lg w-[92vw] backdrop:bg-slate-900/40 backdrop:backdrop-blur-sm">
+    <div class="p-6 sm:p-7">
+      <div class="flex items-start justify-between gap-4 mb-4">
+        <h2 class="font-display text-xl font-bold text-brand-800">Mentions légales</h2>
+        <button type="button"
+                aria-label="Fermer"
+                class="text-slate-400 hover:text-slate-700 transition"
+                onclick="this.closest('dialog').close()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="text-sm text-slate-700 space-y-3 leading-relaxed">
+        <p>
+          Ce site est édité et géré à titre strictement personnel par
+          un papa codeur du dimanche.
+          Il est hébergé sur des serveurs <strong>OVH</strong>, en France.
+        </p>
+        <p>
+          Il ne s'agit <strong>ni d'un site commercial, ni d'un service
+          officiel, ni même d'un projet « sérieux »</strong> : c'est une
+          petite expérimentation bricolée le soir pour aider ma fille à
+          réviser son brevet des collèges dans une ambiance un peu moins
+          austère qu'un manuel scolaire.
+        </p>
+        <p>
+          Aucune donnée n'est revendue, aucun tracker publicitaire n'est
+          posé, et le modèle de langage utilisé côté runtime est
+          <strong>Albert</strong>, l'IA souveraine de l'État français —
+          parce qu'autant confier les brouillons de rédaction d'une
+          collégienne à une infra qui ne part pas outre-Atlantique.
+        </p>
+        <p>
+          Si par le plus grand des hasards ce site te rend service, tant
+          mieux. Si tu y trouves une coquille, un bug ou une énormité
+          historique : ça fait partie du charme de l'artisanat.
+        </p>
+      </div>
+      <div class="mt-5 text-right">
+        <button type="button"
+                class="btn-secondary"
+                onclick="this.closest('dialog').close()">
+          Fermer
+        </button>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog id="modal-accessibilite"
+          class="rounded-2xl shadow-glow border border-brand-100 p-0 max-w-lg w-[92vw] backdrop:bg-slate-900/40 backdrop:backdrop-blur-sm">
+    <div class="p-6 sm:p-7">
+      <div class="flex items-start justify-between gap-4 mb-4">
+        <h2 class="font-display text-xl font-bold text-brand-800">Accessibilité</h2>
+        <button type="button"
+                aria-label="Fermer"
+                class="text-slate-400 hover:text-slate-700 transition"
+                onclick="this.closest('dialog').close()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="text-sm text-slate-700 space-y-3 leading-relaxed">
+        <p>
+          Ce site <strong>n'a pas été audité</strong> au regard du RGAA
+          ni d'aucun autre référentiel d'accessibilité.
+        </p>
+        <p>
+          Il a été développé rapidement, sur un coin de table, et
+          malheureusement les critères d'accessibilité n'ont pas été
+          pris en compte pendant la conception : contrastes, navigation
+          clavier, compatibilité avec les lecteurs d'écran, alternatives
+          textuelles… rien de tout cela n'a été vérifié sérieusement.
+        </p>
+        <p>
+          J'en suis conscient et désolé si cela te rend l'usage du site
+          difficile. Si une situation de blocage concrète te concerne,
+          n'hésite pas à me le faire savoir — je corrigerai ce qui peut
+          l'être au cas par cas.
+        </p>
+      </div>
+      <div class="mt-5 text-right">
+        <button type="button"
+                class="btn-secondary"
+                onclick="this.closest('dialog').close()">
+          Fermer
+        </button>
+      </div>
+    </div>
+  </dialog>
+
+  <script>
+    // Fermeture des <dialog> au clic sur le backdrop (hors de la carte).
+    document.querySelectorAll('dialog').forEach(function(dlg) {
+      dlg.addEventListener('click', function(e) {
+        if (e.target === dlg) dlg.close();
+      });
+    });
+  </script>
 
   {# Emplacement pour le bouton flottant « Outils » spécifique à chaque
      matière (calculette côté maths, dictionnaire/définitions côté français

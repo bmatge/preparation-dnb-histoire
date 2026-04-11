@@ -24,6 +24,12 @@ from app.mathematiques.automatismes.models import (
     ALLOWED_THEMES as MATH_AUTO_THEMES,
     Question as MathAutoQuestion,
 )
+from app.sciences.revision.models import (
+    ALLOWED_DISCIPLINES as SCIENCES_DISCIPLINES,
+    ALLOWED_THEMES as SCIENCES_THEMES,
+    SciencesQuestion,
+    THEME_TO_DISCIPLINE as SCIENCES_THEME_TO_DISCIPLINE,
+)
 
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 
@@ -33,6 +39,9 @@ COMPREHENSION_DIR = (
 )
 MATH_AUTO_DIR = (
     REPO_ROOT / "content" / "mathematiques" / "automatismes" / "questions"
+)
+SCIENCES_REV_DIR = (
+    REPO_ROOT / "content" / "sciences" / "revision" / "questions"
 )
 
 
@@ -220,4 +229,118 @@ def test_math_automatismes_minimum_sujets_zero():
         assert src.get("type") == "sujet_zero_officiel", (
             f"Question {q.get('id')} : type de source attendu "
             f"'sujet_zero_officiel', vu '{src.get('type')}'."
+        )
+
+
+# ============================================================================
+# Sciences — révision par thème (PC / SVT / Technologie)
+# ============================================================================
+#
+# Un fichier JSON par couple (discipline, thème). Chaque entrée doit valider
+# contre ``SciencesQuestion`` Pydantic (cf. app/sciences/revision/models.py).
+# Garanties testées :
+# - Schéma Pydantic valide pour chaque question.
+# - Discipline et thème dans la liste autorisée, et thème cohérent avec
+#   sa discipline (table ``THEME_TO_DISCIPLINE``).
+# - Taille minimale du corpus : 150 questions (spec vague 1).
+# - Slugs `id` uniques sur l'ensemble du corpus.
+# - Chaque discipline représentée (≥ 25 questions), chaque thème ≥ 5.
+
+
+SCIENCES_REV_JSONS = _list_jsons(SCIENCES_REV_DIR)
+
+
+@pytest.mark.skipif(
+    not SCIENCES_REV_JSONS,
+    reason="Aucun batch de révision sciences dans le corpus.",
+)
+@pytest.mark.parametrize(
+    "json_path", SCIENCES_REV_JSONS, ids=lambda p: p.stem
+)
+def test_sciences_revision_batch_valide_schema(json_path: Path):
+    """Chaque question doit valider contre ``SciencesQuestion``."""
+    raw = json.loads(json_path.read_text(encoding="utf-8"))
+    questions = raw.get("questions") or []
+    assert isinstance(questions, list), (
+        f"Le fichier {json_path.name} doit contenir une clé 'questions'."
+    )
+    for entry in questions:
+        q = SciencesQuestion.model_validate(entry)
+        assert q.discipline in SCIENCES_DISCIPLINES, (
+            f"Discipline inconnue {q.discipline!r} dans {json_path.name} (id={q.id})."
+        )
+        assert q.theme in SCIENCES_THEMES, (
+            f"Thème inconnu {q.theme!r} dans {json_path.name} (id={q.id})."
+        )
+        expected_discipline = SCIENCES_THEME_TO_DISCIPLINE.get(q.theme)
+        assert expected_discipline == q.discipline, (
+            f"Question {q.id} : thème {q.theme!r} rattaché à "
+            f"{q.discipline!r}, attendu {expected_discipline!r}."
+        )
+
+
+def test_sciences_revision_corpus_size():
+    """Le corpus sciences doit contenir au moins 150 questions (spec vague 1)."""
+    if not SCIENCES_REV_JSONS:
+        pytest.skip("Corpus révision sciences absent.")
+    total = 0
+    for path in SCIENCES_REV_JSONS:
+        raw = json.loads(path.read_text(encoding="utf-8"))
+        total += len(raw.get("questions") or [])
+    assert total >= 150, (
+        f"Corpus révision sciences trop petit : {total} questions "
+        "(≥ 150 attendues selon la spec vague 1)."
+    )
+
+
+def test_sciences_revision_slugs_are_unique():
+    """Pas de doublon de slug `id` dans le corpus révision sciences."""
+    if not SCIENCES_REV_JSONS:
+        pytest.skip("Corpus révision sciences absent.")
+    seen: set[str] = set()
+    for path in SCIENCES_REV_JSONS:
+        raw = json.loads(path.read_text(encoding="utf-8"))
+        for entry in raw.get("questions") or []:
+            slug = entry.get("id")
+            assert slug, f"Slug vide dans {path.name}"
+            assert slug not in seen, (
+                f"Slug dupliqué : {slug} déjà vu avant {path.name}"
+            )
+            seen.add(slug)
+
+
+def test_sciences_revision_chaque_discipline_representee():
+    """Chaque discipline (PC/SVT/Techno) doit contenir ≥ 25 questions."""
+    if not SCIENCES_REV_JSONS:
+        pytest.skip("Corpus révision sciences absent.")
+    per_discipline: dict[str, int] = {d: 0 for d in SCIENCES_DISCIPLINES}
+    for path in SCIENCES_REV_JSONS:
+        raw = json.loads(path.read_text(encoding="utf-8"))
+        for entry in raw.get("questions") or []:
+            d = entry.get("discipline")
+            if d in per_discipline:
+                per_discipline[d] += 1
+    for discipline, count in per_discipline.items():
+        assert count >= 25, (
+            f"Discipline {discipline!r} sous-représentée : {count} "
+            "questions (≥ 25 attendues)."
+        )
+
+
+def test_sciences_revision_chaque_theme_minimum():
+    """Chaque thème autorisé doit contenir ≥ 5 questions pour qu'un quiz
+    de 5 sur thème unique puisse tourner."""
+    if not SCIENCES_REV_JSONS:
+        pytest.skip("Corpus révision sciences absent.")
+    per_theme: dict[str, int] = {t: 0 for t in SCIENCES_THEMES}
+    for path in SCIENCES_REV_JSONS:
+        raw = json.loads(path.read_text(encoding="utf-8"))
+        for entry in raw.get("questions") or []:
+            t = entry.get("theme")
+            if t in per_theme:
+                per_theme[t] += 1
+    for theme, count in per_theme.items():
+        assert count >= 5, (
+            f"Thème {theme!r} sous-représenté : {count} questions "
+            "(≥ 5 attendues pour un quiz de 5 minimum)."
         )

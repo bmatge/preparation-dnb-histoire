@@ -1,0 +1,294 @@
+{
+  "questions": [
+    {
+      "id": "svt_te_01",
+      "discipline": "svt",
+      "theme": "terre_evolution",
+      "competence": "Structure interne de la Terre",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_05_svt_terre_evolution" },
+      "enonce": "Nomme la couche externe rocheuse de la Terre (celle sur laquelle nous vivons).",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "croûte terrestre",
+        "formes_acceptees": ["la croute terrestre", "croute", "la croute"]
+      }
+    },
+    {
+      "id": "svt_te_02",
+      "discipline": "svt",
+      "theme": "terre_evolution",
+      "competence": "Composition du noyau",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_05_svt_terre_evolution" },
+      "enonce": "De quels métaux est principalement composé le noyau de la Terre ?",
+      "scoring": {
+        "mode": "albert",
+        "reponse_modele": "Fer et nickel.",
+        "criteres_validation": [
+          "La réponse mentionne le fer.",
+          "La réponse mentionne le nickel."
+        ]
+      }
+    },
+    {
+      "id": "svt_te_03",
+      "discipline": "svt",
+      "theme": "terre_evolution",
+      "competence": "Tectonique des plaques",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_05_svt_terre_evolution" },
+      "enonce": "La croûte terrestre est divisée en grands morceaux qui se déplacent lentement, appelés plaques ... (complète par un mot).",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "tectoniques",
+        "formes_acceptees": ["tectonique", "lithospheriques"]
+      }
+    },
+    {
+      "id": "svt_te_04",
+      "discipline": "svt",
+      "theme": "terre_evolution",
+      "competence": "Conséquences du mouvement des plaques",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_05_svt_terre_evolution" },
+      "enonce": "Cite un phénomène géologique causé par le mouvement des plaques tectoniques.",
+      "scoring": {
+        "mode": "albert",
+        "reponse_modele": "Les séismes.",
+        "criteres_validation": [
+          "La réponse mentionne un des phénomènes : séisme(s) / tremblement de terre, volcan / éruption volcanique, ou formation de montagnes."
+        ]
+      }
+    },
+    {
+      "id": "svt_te_05",
+      "discipline": "svt",
+      "theme": "terre_evolution",
+      "competence": "Mesure des séismes",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_05_svt_terre_evolution" },
+      "enonce": "Avec quel instrument enregistre-t-on un séisme ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "sismographe",
+        "formes_acceptees": ["un sismographe", "le sismographe"]
+      }
+    },
+    {
+      "id": "svt_te_06",
+      "discipline": "svt",
+      "theme": "terre_evolution",
+      "competence": "Biodiversité",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_05_svt_terre_evolution" },
+      "enonce": "La biodiversité désigne la diversité des êtres vivants, des espèces et des ... Complète par un mot.",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "écosystèmes",
+        "formes_acceptees": ["des ecosystemes", "ecosysteme", "ecosystemes"]
+      }
+    },
+    {
+      "id": "svt_te_07",
+      "discipline": "svt",
+      "theme": "terre_evolution",
+      "competence": "Menaces sur la biodiversité",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_05_svt_terre_evolution" },
+      "enonce": "Cite une activité humaine qui menace la biodiversité.",
+      "scoring": {
+        "mode": "albert",
+        "reponse_modele": "La déforestation.",
+        "criteres_validation": [
+          "La réponse mentionne une menace plausible : déforestation, pollution, changement climatique, surexploitation des ressources, destruction des habitats, artificialisation des sols, etc."
+        ]
+      }
+    },
+    {
+      "id": "svt_te_08",
+      "discipline": "svt",
+      "theme": "terre_evolution",
+      "competence": "Effet de serre — principe",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_05_svt_terre_evolution" },
+      "enonce": "L'effet de serre est-il un phénomène naturel indispensable à la vie sur Terre ? (vrai ou faux)",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "vrai_faux",
+        "reponse_canonique": "vrai"
+      },
+      "reveal_explication": "Oui. Sans effet de serre naturel, la température moyenne serait d'environ -18 °C. Le problème actuel est son augmentation trop rapide due aux activités humaines."
+    },
+    {
+      "id": "svt_te_09",
+      "discipline": "svt",
+      "theme": "terre_evolution",
+      "competence": "Gaz à effet de serre",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_05_svt_terre_evolution" },
+      "enonce": "Cite un gaz à effet de serre (une seule réponse, le nom ou la formule).",
+      "scoring": {
+        "mode": "albert",
+        "reponse_modele": "Le dioxyde de carbone (CO₂).",
+        "criteres_validation": [
+          "La réponse mentionne un gaz à effet de serre : CO₂ / dioxyde de carbone, CH₄ / méthane, ou vapeur d'eau."
+        ]
+      }
+    },
+    {
+      "id": "svt_te_10",
+      "discipline": "svt",
+      "theme": "terre_evolution",
+      "competence": "Changement climatique — conséquences",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_05_svt_terre_evolution" },
+      "enonce": "Cite une conséquence du réchauffement climatique.",
+      "scoring": {
+        "mode": "albert",
+        "reponse_modele": "La fonte des glaces.",
+        "criteres_validation": [
+          "La réponse mentionne une conséquence plausible : fonte des glaces/glaciers, montée du niveau des océans, événements météo extrêmes, perturbation des écosystèmes, etc."
+        ]
+      }
+    },
+    {
+      "id": "svt_te_11",
+      "discipline": "svt",
+      "theme": "terre_evolution",
+      "competence": "Théorie de l'évolution",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_05_svt_terre_evolution" },
+      "enonce": "Qui a formalisé la théorie de l'évolution des espèces au XIXᵉ siècle ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "Darwin",
+        "formes_acceptees": ["charles darwin", "darwin", "c. darwin"]
+      }
+    },
+    {
+      "id": "svt_te_12",
+      "discipline": "svt",
+      "theme": "terre_evolution",
+      "competence": "Mécanismes de l'évolution",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_05_svt_terre_evolution" },
+      "enonce": "Cite un des deux mécanismes clés de l'évolution.",
+      "scoring": {
+        "mode": "albert",
+        "reponse_modele": "La sélection naturelle.",
+        "criteres_validation": [
+          "La réponse mentionne au moins un des deux mécanismes : mutations génétiques (ou mutations de l'ADN) OU sélection naturelle."
+        ]
+      }
+    },
+    {
+      "id": "svt_te_13",
+      "discipline": "svt",
+      "theme": "terre_evolution",
+      "competence": "Fossiles",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_05_svt_terre_evolution" },
+      "enonce": "Qu'appelle-t-on « fossile » en SVT ?",
+      "scoring": {
+        "mode": "albert",
+        "reponse_modele": "Un reste ou une trace d'organisme ancien conservé dans les roches.",
+        "criteres_validation": [
+          "La réponse évoque un reste ou une trace d'un organisme vivant ancien.",
+          "La réponse mentionne la conservation dans la roche (ou équivalent)."
+        ]
+      }
+    },
+    {
+      "id": "svt_te_14",
+      "discipline": "svt",
+      "theme": "terre_evolution",
+      "competence": "Les fossiles prouvent l'évolution",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_05_svt_terre_evolution" },
+      "enonce": "Les fossiles permettent-ils de reconstituer l'histoire de la vie sur Terre ? (vrai ou faux)",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "vrai_faux",
+        "reponse_canonique": "vrai"
+      }
+    },
+    {
+      "id": "svt_te_15",
+      "discipline": "svt",
+      "theme": "terre_evolution",
+      "competence": "Énergies renouvelables",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_05_svt_terre_evolution" },
+      "enonce": "Parmi ces sources d'énergie, laquelle n'est PAS renouvelable : solaire, éolien, pétrole, hydraulique ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "pétrole",
+        "formes_acceptees": ["petrole", "le petrole"]
+      }
+    },
+    {
+      "id": "svt_te_16",
+      "discipline": "svt",
+      "theme": "terre_evolution",
+      "competence": "Énergies renouvelables",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_05_svt_terre_evolution" },
+      "enonce": "Cite une énergie renouvelable.",
+      "scoring": {
+        "mode": "albert",
+        "reponse_modele": "L'énergie solaire.",
+        "criteres_validation": [
+          "La réponse mentionne une énergie renouvelable : solaire, éolien, hydraulique, biomasse, géothermie."
+        ]
+      }
+    },
+    {
+      "id": "svt_te_17",
+      "discipline": "svt",
+      "theme": "terre_evolution",
+      "competence": "Différencier renouvelable / fossile",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_05_svt_terre_evolution" },
+      "enonce": "Le gaz naturel est-il une énergie renouvelable ? (vrai ou faux)",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "vrai_faux",
+        "reponse_canonique": "faux"
+      },
+      "reveal_explication": "Le gaz naturel est une énergie fossile : il s'épuise et sa combustion libère du CO₂."
+    },
+    {
+      "id": "svt_te_18",
+      "discipline": "svt",
+      "theme": "terre_evolution",
+      "competence": "ADN — rôle",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_05_svt_terre_evolution" },
+      "enonce": "Quel est le rôle principal de l'ADN ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "porter l'information génétique",
+        "formes_acceptees": ["porter l information genetique", "contenir l information genetique", "information genetique", "code genetique", "programme genetique"]
+      }
+    },
+    {
+      "id": "svt_te_19",
+      "discipline": "svt",
+      "theme": "terre_evolution",
+      "competence": "Roches magmatiques",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_05_svt_terre_evolution" },
+      "enonce": "Les volcans résultent de la remontée de quel matériau en fusion ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "magma",
+        "formes_acceptees": ["le magma", "du magma"]
+      }
+    },
+    {
+      "id": "svt_te_20",
+      "discipline": "svt",
+      "theme": "terre_evolution",
+      "competence": "Actions éco-responsables",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_05_svt_terre_evolution" },
+      "enonce": "Cite une action simple permettant de réduire son empreinte carbone au quotidien.",
+      "scoring": {
+        "mode": "albert",
+        "reponse_modele": "Utiliser les transports en commun.",
+        "criteres_validation": [
+          "La réponse propose une action cohérente : transports en commun / vélo / marche, isolation, recyclage, économies d'énergie, alimentation locale, réduction de la viande, etc."
+        ]
+      }
+    }
+  ]
+}

@@ -119,6 +119,16 @@ class Task(str, Enum):
     # réponse forcée en JSON strict {"correct": bool, "feedback_court": str}
     MATH_PROB_EVAL_OPEN = "math_prob_eval_open"
 
+    # --- Sciences : révision par thème ---
+    # Indice gradué (niveau 1, 2 ou 3) sur une question de révision sciences
+    # (physique-chimie, SVT ou technologie).
+    SCIENCES_REV_HINT = "sciences_rev_hint"
+    # Révélation pédagogique de la réponse + mini-explication notionnelle
+    SCIENCES_REV_REVEAL = "sciences_rev_reveal"
+    # Évaluation d'une réponse ouverte courte (questions à scoring=albert),
+    # réponse forcée en JSON strict {"correct": bool, "feedback_court": str}
+    SCIENCES_REV_EVAL_OPEN = "sciences_rev_eval_open"
+
 
 @dataclass(frozen=True)
 class TaskProfile:
@@ -316,6 +326,32 @@ TASK_PROFILES: dict[Task, TaskProfile] = {
         model=MODEL_HEAVY,
         temperature=0.2,
         max_tokens=900,
+        check_no_ghostwriting=False,
+        require_citations=False,
+    ),
+    # --- Sciences : révision par thème ---
+    # Mêmes profils que les automatismes maths : indices et révélations
+    # sur Mistral-Small (courts, rapides, pas de RAG donc pas de
+    # citations exigées), évaluation ouverte sur gpt-oss-120b avec JSON
+    # strict. Les questions de sciences restent courtes donc pas de
+    # risque de ghostwriting — la bonne réponse EST l'objectif
+    # d'apprentissage.
+    Task.SCIENCES_REV_HINT: TaskProfile(
+        model=MODEL_FAST,
+        temperature=0.5,
+        max_tokens=300,
+        check_no_ghostwriting=False,
+    ),
+    Task.SCIENCES_REV_REVEAL: TaskProfile(
+        model=MODEL_FAST,
+        temperature=0.3,
+        max_tokens=500,
+        check_no_ghostwriting=False,
+    ),
+    Task.SCIENCES_REV_EVAL_OPEN: TaskProfile(
+        model=MODEL_HEAVY,
+        temperature=0.2,
+        max_tokens=800,
         check_no_ghostwriting=False,
         require_citations=False,
     ),

@@ -1,0 +1,217 @@
+{
+  "questions": [
+    {
+      "id": "pc_om_01",
+      "discipline": "physique_chimie",
+      "theme": "organisation_matiere",
+      "competence": "Structure de l'atome",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_01_organisation_matiere" },
+      "enonce": "Quelles particules positives trouve-t-on dans le noyau de l'atome ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "protons",
+        "formes_acceptees": ["proton", "les protons", "des protons"]
+      },
+      "reveal_explication": "Le noyau contient les protons (charge +) et les neutrons (neutres). Les électrons gravitent autour."
+    },
+    {
+      "id": "pc_om_02",
+      "discipline": "physique_chimie",
+      "theme": "organisation_matiere",
+      "competence": "Neutralité de l'atome",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_01_organisation_matiere" },
+      "enonce": "Un atome est-il électriquement neutre ? (réponds par vrai ou faux)",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "vrai_faux",
+        "reponse_canonique": "vrai"
+      },
+      "reveal_explication": "Oui, car le nombre de protons (+) est toujours égal au nombre d'électrons (-)."
+    },
+    {
+      "id": "pc_om_03",
+      "discipline": "physique_chimie",
+      "theme": "organisation_matiere",
+      "competence": "Formule chimique de l'eau",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_01_organisation_matiere" },
+      "enonce": "Quelle est la formule chimique de la molécule d'eau ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "H2O",
+        "formes_acceptees": ["h2o", "H₂O"]
+      }
+    },
+    {
+      "id": "pc_om_04",
+      "discipline": "physique_chimie",
+      "theme": "organisation_matiere",
+      "competence": "Composition du dioxyde de carbone",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_01_organisation_matiere" },
+      "enonce": "Combien d'atomes d'oxygène contient une molécule de dioxyde de carbone (CO2) ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "entier",
+        "reponse_canonique": "2"
+      }
+    },
+    {
+      "id": "pc_om_05",
+      "discipline": "physique_chimie",
+      "theme": "organisation_matiere",
+      "competence": "Cation et anion",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_01_organisation_matiere" },
+      "enonce": "Un atome qui a perdu un ou plusieurs électrons devient un cation ou un anion ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "cation",
+        "formes_acceptees": ["un cation"]
+      },
+      "reveal_explication": "Perdre des électrons (-) rend l'atome globalement positif : c'est un cation. Gagner des électrons donne un anion."
+    },
+    {
+      "id": "pc_om_06",
+      "discipline": "physique_chimie",
+      "theme": "organisation_matiere",
+      "competence": "Test des ions cuivre II",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_01_organisation_matiere" },
+      "enonce": "On ajoute de la soude à une solution contenant des ions Cu²⁺. De quelle couleur est le précipité obtenu ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "bleu",
+        "formes_acceptees": ["precipite bleu", "un precipite bleu"]
+      }
+    },
+    {
+      "id": "pc_om_07",
+      "discipline": "physique_chimie",
+      "theme": "organisation_matiere",
+      "competence": "Test des ions chlorure",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_01_organisation_matiere" },
+      "enonce": "Quel réactif permet d'identifier les ions chlorure (Cl⁻) ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "nitrate d'argent",
+        "formes_acceptees": ["le nitrate d argent", "nitrate argent", "AgNO3"]
+      },
+      "reveal_explication": "Le nitrate d'argent donne un précipité blanc avec les ions chlorure."
+    },
+    {
+      "id": "pc_om_08",
+      "discipline": "physique_chimie",
+      "theme": "organisation_matiere",
+      "competence": "Lecture de l'échelle de pH",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_01_organisation_matiere" },
+      "enonce": "Une solution a un pH de 3. Est-elle acide, neutre ou basique ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "acide",
+        "formes_acceptees": ["solution acide"]
+      }
+    },
+    {
+      "id": "pc_om_09",
+      "discipline": "physique_chimie",
+      "theme": "organisation_matiere",
+      "competence": "pH neutre",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_01_organisation_matiere" },
+      "enonce": "Quel est le pH d'une solution neutre comme l'eau pure ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "entier",
+        "reponse_canonique": "7"
+      }
+    },
+    {
+      "id": "pc_om_10",
+      "discipline": "physique_chimie",
+      "theme": "organisation_matiere",
+      "competence": "pH basique",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_01_organisation_matiere" },
+      "enonce": "Une solution de savon a un pH de 9. Est-elle acide, neutre ou basique ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "basique",
+        "formes_acceptees": ["solution basique"]
+      }
+    },
+    {
+      "id": "pc_om_11",
+      "discipline": "physique_chimie",
+      "theme": "organisation_matiere",
+      "competence": "Transformation physique vs chimique",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_01_organisation_matiere" },
+      "enonce": "La fusion de la glace en eau liquide est-elle une transformation physique ou chimique ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "physique",
+        "formes_acceptees": ["transformation physique", "une transformation physique"]
+      },
+      "reveal_explication": "Il s'agit d'un changement d'état : les molécules d'eau restent H2O, leur nature chimique n'a pas changé."
+    },
+    {
+      "id": "pc_om_12",
+      "discipline": "physique_chimie",
+      "theme": "organisation_matiere",
+      "competence": "Loi de conservation de la masse",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_01_organisation_matiere" },
+      "enonce": "Lors d'une réaction chimique, la masse totale des produits est-elle égale à la masse totale des réactifs ? (vrai ou faux)",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "vrai_faux",
+        "reponse_canonique": "vrai"
+      },
+      "reveal_explication": "C'est la loi de Lavoisier : « Rien ne se perd, rien ne se crée, tout se transforme »."
+    },
+    {
+      "id": "pc_om_13",
+      "discipline": "physique_chimie",
+      "theme": "organisation_matiere",
+      "competence": "Calcul d'une masse volumique",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_01_organisation_matiere" },
+      "enonce": "Un objet a une masse de 27 g et un volume de 10 cm³. Quelle est sa masse volumique en g/cm³ ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "2.7",
+        "unite": "g/cm³"
+      },
+      "reveal_explication": "ρ = m / V = 27 / 10 = 2,7 g/cm³ — c'est la masse volumique de l'aluminium."
+    },
+    {
+      "id": "pc_om_14",
+      "discipline": "physique_chimie",
+      "theme": "organisation_matiere",
+      "competence": "Identification d'un métal par sa masse volumique",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_01_organisation_matiere" },
+      "enonce": "Un bloc métallique a une masse volumique de 7,9 g/cm³. De quel métal s'agit-il le plus probablement ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "fer",
+        "formes_acceptees": ["le fer", "du fer"]
+      }
+    },
+    {
+      "id": "pc_om_15",
+      "discipline": "physique_chimie",
+      "theme": "organisation_matiere",
+      "competence": "Formule de la masse volumique",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_01_organisation_matiere" },
+      "enonce": "Quelle est la formule littérale de la masse volumique ρ en fonction de la masse m et du volume V ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "m/V",
+        "formes_acceptees": ["rho = m/V", "rho=m/V", "m / V", "ρ = m/V"]
+      }
+    }
+  ]
+}

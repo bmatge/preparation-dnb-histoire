@@ -1,0 +1,223 @@
+{
+  "questions": [
+    {
+      "id": "pc_um_01",
+      "discipline": "physique_chimie",
+      "theme": "univers_melanges",
+      "competence": "Big Bang — datation",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_07_univers_melanges" },
+      "enonce": "Il y a environ combien de milliards d'années s'est produit le Big Bang ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "13.8",
+        "unite": "milliards d'années",
+        "tolerances": { "abs": 0.3 }
+      }
+    },
+    {
+      "id": "pc_um_02",
+      "discipline": "physique_chimie",
+      "theme": "univers_melanges",
+      "competence": "Système solaire — nombre de planètes",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_07_univers_melanges" },
+      "enonce": "Combien de planètes compte notre système solaire ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "entier",
+        "reponse_canonique": "8"
+      }
+    },
+    {
+      "id": "pc_um_03",
+      "discipline": "physique_chimie",
+      "theme": "univers_melanges",
+      "competence": "Notre galaxie",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_07_univers_melanges" },
+      "enonce": "Comment s'appelle la galaxie dans laquelle se trouve le système solaire ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "Voie Lactée",
+        "formes_acceptees": ["voie lactee", "la voie lactee", "Voie lactée"]
+      }
+    },
+    {
+      "id": "pc_um_04",
+      "discipline": "physique_chimie",
+      "theme": "univers_melanges",
+      "competence": "Formation du système solaire",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_07_univers_melanges" },
+      "enonce": "Il y a environ combien de milliards d'années le système solaire s'est-il formé ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "4.6",
+        "unite": "milliards d'années",
+        "tolerances": { "abs": 0.2 }
+      }
+    },
+    {
+      "id": "pc_um_05",
+      "discipline": "physique_chimie",
+      "theme": "univers_melanges",
+      "competence": "Classement des planètes",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_07_univers_melanges" },
+      "enonce": "Mars est-elle une planète rocheuse ou gazeuse ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "rocheuse",
+        "formes_acceptees": ["une planete rocheuse", "planete rocheuse", "tellurique"]
+      },
+      "reveal_explication": "Les 4 planètes rocheuses sont Mercure, Vénus, Terre et Mars. Jupiter, Saturne, Uranus et Neptune sont gazeuses."
+    },
+    {
+      "id": "pc_um_06",
+      "discipline": "physique_chimie",
+      "theme": "univers_melanges",
+      "competence": "La gravitation",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_07_univers_melanges" },
+      "enonce": "Plus la distance entre deux masses augmente, comment évolue la force de gravitation entre elles ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "diminue",
+        "formes_acceptees": ["elle diminue", "plus faible", "diminue."]
+      }
+    },
+    {
+      "id": "pc_um_07",
+      "discipline": "physique_chimie",
+      "theme": "univers_melanges",
+      "competence": "Corps pur vs mélange",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_07_univers_melanges" },
+      "enonce": "L'eau salée est-elle un corps pur ou un mélange ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "mélange",
+        "formes_acceptees": ["melange", "un melange", "un melange homogene"]
+      }
+    },
+    {
+      "id": "pc_um_08",
+      "discipline": "physique_chimie",
+      "theme": "univers_melanges",
+      "competence": "Mélange homogène / hétérogène",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_07_univers_melanges" },
+      "enonce": "Un mélange d'eau et d'huile est homogène ou hétérogène ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "hétérogène",
+        "formes_acceptees": ["heterogene", "un melange heterogene"]
+      },
+      "reveal_explication": "On voit deux phases distinctes (eau en bas, huile au-dessus) : c'est hétérogène."
+    },
+    {
+      "id": "pc_um_09",
+      "discipline": "physique_chimie",
+      "theme": "univers_melanges",
+      "competence": "Composition de l'air",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_07_univers_melanges" },
+      "enonce": "Quel pourcentage (approximatif) de diazote contient l'air ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "pourcentage",
+        "reponse_canonique": "78",
+        "unite": "%",
+        "tolerances": { "abs": 1 }
+      }
+    },
+    {
+      "id": "pc_um_10",
+      "discipline": "physique_chimie",
+      "theme": "univers_melanges",
+      "competence": "Composition de l'air",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_07_univers_melanges" },
+      "enonce": "Quel pourcentage (approximatif) de dioxygène contient l'air ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "pourcentage",
+        "reponse_canonique": "21",
+        "unite": "%",
+        "tolerances": { "abs": 1 }
+      }
+    },
+    {
+      "id": "pc_um_11",
+      "discipline": "physique_chimie",
+      "theme": "univers_melanges",
+      "competence": "Test d'identification du dioxygène",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_07_univers_melanges" },
+      "enonce": "Quel test permet d'identifier le dioxygène ?",
+      "scoring": {
+        "mode": "albert",
+        "reponse_modele": "On approche une bûchette incandescente : si elle se rallume, il y a du dioxygène.",
+        "criteres_validation": [
+          "La réponse mentionne la bûchette incandescente (ou « à peine éteinte »).",
+          "La réponse précise que la bûchette se rallume en présence de dioxygène."
+        ]
+      }
+    },
+    {
+      "id": "pc_um_12",
+      "discipline": "physique_chimie",
+      "theme": "univers_melanges",
+      "competence": "Test d'identification du dioxyde de carbone",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_07_univers_melanges" },
+      "enonce": "Quel réactif permet d'identifier le dioxyde de carbone ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "eau de chaux",
+        "formes_acceptees": ["l eau de chaux", "la chaux"]
+      },
+      "reveal_explication": "L'eau de chaux se trouble (blanchit) en présence de dioxyde de carbone."
+    },
+    {
+      "id": "pc_um_13",
+      "discipline": "physique_chimie",
+      "theme": "univers_melanges",
+      "competence": "Changements d'état — vaporisation",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_07_univers_melanges" },
+      "enonce": "Le passage de l'état liquide à l'état gazeux s'appelle la ... ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "vaporisation",
+        "formes_acceptees": ["la vaporisation", "ebullition", "evaporation"]
+      }
+    },
+    {
+      "id": "pc_um_14",
+      "discipline": "physique_chimie",
+      "theme": "univers_melanges",
+      "competence": "Technique de séparation",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_07_univers_melanges" },
+      "enonce": "Quelle technique permet de séparer un mélange d'eau et de sable ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "filtration",
+        "formes_acceptees": ["la filtration", "une filtration"]
+      }
+    },
+    {
+      "id": "pc_um_15",
+      "discipline": "physique_chimie",
+      "theme": "univers_melanges",
+      "competence": "Conservation de la masse dans un changement d'état",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_07_univers_melanges" },
+      "enonce": "Lorsqu'on fait fondre 100 g de glace, quelle masse d'eau liquide obtient-on ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "100",
+        "unite": "g"
+      },
+      "reveal_explication": "Lors d'un changement d'état, la masse se conserve. Le volume, lui, change."
+    }
+  ]
+}

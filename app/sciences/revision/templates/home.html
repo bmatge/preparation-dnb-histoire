@@ -1,0 +1,66 @@
+{% extends "_sciences_base.html" %}
+
+{% block title %}Révision {{ discipline_label }} — Choisis ton quiz{% endblock %}
+
+{% block content %}
+<div class="text-center mb-8 animate-reveal">
+  <h1 class="font-display text-3xl font-bold text-slate-900">{{ discipline_label }}</h1>
+  <p class="text-slate-600 mt-2 max-w-xl mx-auto">
+    Quiz court par thème. Tu peux demander jusqu'à 3 indices par
+    question. Si tu sèches, on te révèle la réponse et on regarde
+    ensemble.
+  </p>
+</div>
+
+{% if request.query_params.get('erreur') %}
+<div class="bg-amber-50 border border-amber-200 rounded-2xl p-4 mb-6 text-sm text-amber-900">
+  Aucune question ne correspond à ton thème pour l'instant. Essaie « Tous les thèmes » ou une autre discipline.
+</div>
+{% endif %}
+
+<form method="post" action="/sciences/revision/{{ discipline_slug }}/quiz/new"
+      class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 space-y-5 animate-reveal">
+
+  <div>
+    <label class="block text-sm font-semibold text-slate-700 mb-2" for="theme-select">
+      Thème
+    </label>
+    <select id="theme-select" name="theme"
+            class="w-full border border-slate-200 rounded-xl px-4 py-2.5 bg-white focus:ring-2 focus:ring-brand-400 focus:border-brand-400 outline-none">
+      <option value="">— Tous les thèmes —</option>
+      {% for theme_id, theme_label in available_themes %}
+      <option value="{{ theme_id }}">{{ theme_label }}</option>
+      {% endfor %}
+    </select>
+    {% if not available_themes %}
+    <p class="mt-2 text-xs text-slate-500">
+      Aucun thème n'est encore chargé pour cette discipline. Si tu lances un quiz,
+      le message d'erreur s'affichera — reviens plus tard, on enrichit la banque.
+    </p>
+    {% endif %}
+  </div>
+
+  <div>
+    <label class="block text-sm font-semibold text-slate-700 mb-2">
+      Longueur du quiz
+    </label>
+    <div class="flex flex-wrap gap-2">
+      {% for n in allowed_lengths %}
+      <label class="inline-flex items-center gap-2 px-3 py-2 rounded-xl border border-slate-200 cursor-pointer has-[:checked]:border-brand-500 has-[:checked]:bg-brand-50">
+        <input type="radio" name="length" value="{{ n }}" {% if n == default_length %}checked{% endif %} class="accent-brand-500">
+        <span class="text-sm">{{ n }} questions</span>
+      </label>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="flex items-center justify-between pt-2">
+    <a href="/sciences/revision/" class="text-sm text-slate-500 hover:text-brand-700">
+      ← Retour aux disciplines
+    </a>
+    <button type="submit" class="btn-primary hover:wiggle">
+      Commencer le quiz <span>→</span>
+    </button>
+  </div>
+</form>
+{% endblock %}

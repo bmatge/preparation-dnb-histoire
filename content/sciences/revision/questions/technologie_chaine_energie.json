@@ -1,0 +1,104 @@
+{
+  "questions": [
+    {
+      "id": "tech_ce_01",
+      "discipline": "technologie",
+      "theme": "chaine_energie",
+      "competence": "Chaîne d'énergie — étapes",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_06_technologie" },
+      "enonce": "Dans la chaîne d'énergie, les quatre étapes sont « alimenter », « distribuer », « convertir » et ... (complète par un mot).",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "transmettre",
+        "formes_acceptees": ["la transmission", "transmission"]
+      }
+    },
+    {
+      "id": "tech_ce_02",
+      "discipline": "technologie",
+      "theme": "chaine_energie",
+      "competence": "Chaîne d'énergie — alimentation",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_06_technologie" },
+      "enonce": "Dans un vélo électrique, quel élément correspond à l'étape « alimenter » de la chaîne d'énergie ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "batterie",
+        "formes_acceptees": ["la batterie", "une batterie", "accumulateur"]
+      }
+    },
+    {
+      "id": "tech_ce_03",
+      "discipline": "technologie",
+      "theme": "chaine_energie",
+      "competence": "Chaîne d'énergie — convertir",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_06_technologie" },
+      "enonce": "Dans un aspirateur électrique, quel composant correspond à l'étape « convertir » de la chaîne d'énergie ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "moteur",
+        "formes_acceptees": ["le moteur", "un moteur", "moteur electrique"]
+      },
+      "reveal_explication": "Le moteur électrique convertit l'énergie électrique en énergie mécanique (rotation)."
+    },
+    {
+      "id": "tech_ce_04",
+      "discipline": "technologie",
+      "theme": "chaine_energie",
+      "competence": "Chaîne d'énergie — distribution",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_06_technologie" },
+      "enonce": "Dans la chaîne d'énergie d'un appareil électrique, quel composant sert à « distribuer » (ouvrir ou fermer le flux d'énergie) ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "interrupteur",
+        "formes_acceptees": ["un interrupteur", "l interrupteur", "bouton"]
+      }
+    },
+    {
+      "id": "tech_ce_05",
+      "discipline": "technologie",
+      "theme": "chaine_energie",
+      "competence": "Éolienne",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_06_technologie" },
+      "enonce": "Une éolienne convertit quelle forme d'énergie en énergie électrique ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "énergie cinétique",
+        "formes_acceptees": ["cinetique", "energie cinetique du vent", "mecanique", "energie mecanique", "energie du vent", "eolienne"]
+      },
+      "reveal_explication": "Une éolienne récupère l'énergie cinétique (mécanique) du vent et la convertit en électricité."
+    },
+    {
+      "id": "tech_ce_06",
+      "discipline": "technologie",
+      "theme": "chaine_energie",
+      "competence": "Panneau photovoltaïque",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_06_technologie" },
+      "enonce": "Un panneau photovoltaïque convertit l'énergie ... en énergie électrique (complète par un mot).",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "lumineuse",
+        "formes_acceptees": ["energie lumineuse", "solaire", "energie solaire", "la lumiere"]
+      }
+    },
+    {
+      "id": "tech_ce_07",
+      "discipline": "technologie",
+      "theme": "chaine_energie",
+      "competence": "Pile",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_06_technologie" },
+      "enonce": "Une pile convertit de l'énergie chimique en énergie ... (complète par un mot).",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "électrique",
+        "formes_acceptees": ["electrique", "energie electrique"]
+      }
+    }
+  ]
+}

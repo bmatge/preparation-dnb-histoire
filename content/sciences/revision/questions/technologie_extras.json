@@ -1,0 +1,146 @@
+{
+  "questions": [
+    {
+      "id": "tech_ot_09",
+      "discipline": "technologie",
+      "theme": "objets_techniques",
+      "competence": "Cycle de vie — ordre des étapes",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_06_technologie" },
+      "enonce": "Quelle est la première étape du cycle de vie d'un produit ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "extraction des matières premières",
+        "formes_acceptees": ["extraction des matieres premieres", "extraction", "matieres premieres", "l extraction", "l extraction des matieres premieres"]
+      }
+    },
+    {
+      "id": "tech_ot_10",
+      "discipline": "technologie",
+      "theme": "objets_techniques",
+      "competence": "Cahier des charges",
+      "source": { "type": "programme", "document": "Programme_cycle4_BO_2020" },
+      "enonce": "Comment appelle-t-on le document qui liste les fonctions et contraintes attendues d'un objet technique avant sa conception ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "cahier des charges",
+        "formes_acceptees": ["le cahier des charges", "un cahier des charges"]
+      }
+    },
+    {
+      "id": "tech_ot_11",
+      "discipline": "technologie",
+      "theme": "objets_techniques",
+      "competence": "Modélisation 3D",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_06_technologie" },
+      "enonce": "Cite un logiciel de CAO (Conception Assistée par Ordinateur) utilisé au collège.",
+      "scoring": {
+        "mode": "albert",
+        "reponse_modele": "TinkerCAD, SketchUp ou SolidWorks.",
+        "criteres_validation": [
+          "La réponse cite un logiciel plausible : TinkerCAD, SketchUp, SolidWorks, FreeCAD, Fusion 360, Onshape, Blender, Inventor, etc."
+        ]
+      }
+    },
+    {
+      "id": "tech_mi_09",
+      "discipline": "technologie",
+      "theme": "materiaux_innovation",
+      "competence": "Matériaux composites",
+      "source": { "type": "programme", "document": "Programme_cycle4_BO_2020" },
+      "enonce": "Un matériau composite est formé en combinant au moins combien de familles de matériaux ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "entier",
+        "reponse_canonique": "2"
+      },
+      "reveal_explication": "Un composite associe au moins deux matériaux (ex. fibre de verre + résine plastique) pour combiner leurs propriétés."
+    },
+    {
+      "id": "tech_mi_10",
+      "discipline": "technologie",
+      "theme": "materiaux_innovation",
+      "competence": "Propriété — dureté",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_06_technologie" },
+      "enonce": "Les céramiques sont des matériaux plutôt durs mais aussi plutôt ... (complète par un mot).",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "fragiles",
+        "formes_acceptees": ["fragile", "cassants", "cassants.", "cassant"]
+      }
+    },
+    {
+      "id": "tech_mi_11",
+      "discipline": "technologie",
+      "theme": "materiaux_innovation",
+      "competence": "Recyclage du plastique",
+      "source": { "type": "programme", "document": "Programme_cycle4_BO_2020" },
+      "enonce": "Le sigle PET correspond à un plastique recyclable largement utilisé pour quel type d'emballage ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "bouteilles",
+        "formes_acceptees": ["bouteille", "les bouteilles", "bouteilles d eau", "bouteilles plastiques", "bouteille d eau"]
+      }
+    },
+    {
+      "id": "tech_mi_12",
+      "discipline": "technologie",
+      "theme": "materiaux_innovation",
+      "competence": "Biomatériaux",
+      "source": { "type": "programme", "document": "Programme_cycle4_BO_2020" },
+      "enonce": "Un matériau qui se décompose naturellement dans l'environnement sans laisser de déchet polluant est dit ... (complète par un mot).",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "biodégradable",
+        "formes_acceptees": ["biodegradable", "biodegradables"]
+      }
+    },
+    {
+      "id": "tech_ce_08",
+      "discipline": "technologie",
+      "theme": "chaine_energie",
+      "competence": "Centrale hydroélectrique",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_02_mouvements_energie" },
+      "enonce": "Dans une centrale hydroélectrique, quelle forme d'énergie est convertie en énergie électrique ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "énergie potentielle",
+        "formes_acceptees": ["potentielle", "energie potentielle", "energie mecanique", "mecanique", "l energie de l eau", "l energie mecanique"]
+      },
+      "reveal_explication": "L'eau stockée en hauteur dans un barrage possède de l'énergie potentielle, qui devient cinétique en tombant puis électrique via la turbine et l'alternateur."
+    },
+    {
+      "id": "tech_ce_09",
+      "discipline": "technologie",
+      "theme": "chaine_energie",
+      "competence": "Rendement et énergie perdue",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_02_mouvements_energie" },
+      "enonce": "Lors d'une conversion d'énergie, une partie est toujours « perdue », principalement sous quelle forme ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "chaleur",
+        "formes_acceptees": ["thermique", "energie thermique", "en chaleur", "la chaleur", "sous forme de chaleur", "energie perdue sous forme de chaleur"]
+      }
+    },
+    {
+      "id": "tech_ce_10",
+      "discipline": "technologie",
+      "theme": "chaine_energie",
+      "competence": "Batterie vs pile",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_06_technologie" },
+      "enonce": "Un accumulateur (batterie) a une propriété que n'a pas une pile ordinaire : il peut être ... (complète par un mot).",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "rechargé",
+        "formes_acceptees": ["recharge", "rechargeable", "recharge.", "rechargee"]
+      }
+    }
+  ]
+}
