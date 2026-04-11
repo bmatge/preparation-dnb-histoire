@@ -105,6 +105,17 @@ COLLECTION_LABELS: dict[str, dict[str, str]] = {
         "dnb_francais_methodo": "méthodo",
         "dnb_francais_redaction_sujets": "sujet",
     },
+    # Mathématiques : trois collections, une par type de source.
+    # `dnb_math_methodo` regroupe les fiches de méthode + cadrage de
+    # l'épreuve. `dnb_math_programmes` couvre le programme cycle 4 + les
+    # attendus 3e/4e/5e + les repères annuels. `dnb_math_automatismes_sujets`
+    # contient les questions du corpus committé (converties en markdown
+    # à la volée par scripts/ingest.py).
+    "mathematiques": {
+        "dnb_math_methodo": "méthodo",
+        "dnb_math_programmes": "programme",
+        "dnb_math_automatismes_sujets": "sujet",
+    },
 }
 
 # Fenêtre de bascule : si un nouveau nom de collection ne résout pas côté
@@ -132,6 +143,12 @@ FALLBACK_COLLECTION_IDS: dict[str, dict[str, int]] = {
         "dnb_programmes": 184797,
         "dnb_sujets": 184809,
     },
+    # Mathématiques : IDs à renseigner après le premier run de
+    # `python -m scripts.ingest --matiere mathematiques`. Tant que ce dict
+    # est vide, le client RAG fait un fetch via `/v1/collections` (route
+    # nominale, ce fallback ne sert que si l'API liste les collections est
+    # cassée — situation extrêmement rare en prod).
+    "mathematiques": {},
 }
 
 
@@ -217,6 +234,24 @@ TASK_COLLECTIONS: dict[str, dict[Task, tuple[str, ...]]] = {
             "dnb_francais_methodo",
             "dnb_francais_programme",
             "dnb_francais_redaction_sujets",
+        ),
+    },
+    # Mathématiques : la méthodo (cadrage + 8 fiches thématiques) est la
+    # source principale pour les indices et la révélation. Le programme
+    # est ajouté pour ancrer les explications dans les attendus officiels
+    # de fin de cycle 4. Pas d'interrogation de la collection sujets en
+    # V1 (les questions sont déjà portées par la base SQLite).
+    "mathematiques": {
+        Task.MATH_AUTO_HINT: (
+            "dnb_math_methodo",
+        ),
+        Task.MATH_AUTO_REVEAL: (
+            "dnb_math_methodo",
+            "dnb_math_programmes",
+        ),
+        Task.MATH_AUTO_EVAL_OPEN: (
+            "dnb_math_methodo",
+            "dnb_math_programmes",
         ),
     },
 }

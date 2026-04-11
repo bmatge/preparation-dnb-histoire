@@ -50,6 +50,8 @@ from app.francais.routes import router as francais_router
 from app.histoire_geo_emc.developpement_construit.models import init_hgemc_subjects
 from app.histoire_geo_emc.reperes.models import init_reperes
 from app.histoire_geo_emc.routes import router as hgemc_router, PREFIX as HGEMC_PREFIX
+from app.mathematiques.automatismes.models import init_automatismes
+from app.mathematiques.routes import router as math_router
 
 logger = logging.getLogger(__name__)
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s: %(message)s")
@@ -102,6 +104,7 @@ templates = Jinja2Templates(directory=str(CORE_TEMPLATES))
 
 app.include_router(hgemc_router)
 app.include_router(francais_router)
+app.include_router(math_router)
 
 
 # ============================================================================
@@ -116,13 +119,15 @@ def on_startup() -> None:
     n_reperes = init_reperes()
     n_francais = init_french_comprehension()
     n_redaction = init_french_redaction()
+    n_math_auto = init_automatismes()
     logger.info(
-        "DB prête (%s) — %d sujets DC, %d repères, %d exos français compréhension, %d sujets rédaction chargés",
+        "DB prête (%s) — %d sujets DC, %d repères, %d exos français compréhension, %d sujets rédaction, %d questions automatismes maths chargées",
         core_db.DB_PATH,
         n_hgemc,
         n_reperes,
         n_francais,
         n_redaction,
+        n_math_auto,
     )
 
 

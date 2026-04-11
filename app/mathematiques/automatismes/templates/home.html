@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block title %}Automatismes — Choisis ton quiz{% endblock %}
+
+{% block content %}
+<div class="text-center mb-8 animate-reveal">
+  <div class="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-500 to-purple-600 text-white text-2xl shadow-glow mb-3">🧮</div>
+  <h1 class="font-display text-3xl font-bold text-slate-900">Automatismes</h1>
+  <p class="text-slate-600 mt-2 max-w-xl mx-auto">
+    Quiz court par thème, sans calculatrice. Tu peux demander
+    jusqu'à 3 indices par question. Si tu sèches, on te révèle la
+    réponse et on regarde ensemble.
+  </p>
+</div>
+
+{% if request.query_params.get('erreur') %}
+<div class="bg-amber-50 border border-amber-200 rounded-2xl p-4 mb-6 text-sm text-amber-900">
+  Aucune question ne correspond à ton thème — essaie « Tous les thèmes ».
+</div>
+{% endif %}
+
+<form method="post" action="/mathematiques/automatismes/quiz/new"
+      class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 space-y-5 animate-reveal">
+
+  <div>
+    <label class="block text-sm font-semibold text-slate-700 mb-2" for="theme-select">
+      Thème
+    </label>
+    <select id="theme-select" name="theme"
+            class="w-full border border-slate-200 rounded-xl px-4 py-2.5 bg-white focus:ring-2 focus:ring-brand-400 focus:border-brand-400 outline-none">
+      <option value="">— Tous les thèmes —</option>
+      {% for theme_id, theme_label in available_themes %}
+      <option value="{{ theme_id }}">{{ theme_label }}</option>
+      {% endfor %}
+    </select>
+  </div>
+
+  <div>
+    <label class="block text-sm font-semibold text-slate-700 mb-2">
+      Longueur du quiz
+    </label>
+    <div class="flex flex-wrap gap-2">
+      {% for n in allowed_lengths %}
+      <label class="inline-flex items-center gap-2 px-3 py-2 rounded-xl border border-slate-200 cursor-pointer has-[:checked]:border-brand-500 has-[:checked]:bg-brand-50">
+        <input type="radio" name="length" value="{{ n }}" {% if n == default_length %}checked{% endif %} class="accent-brand-500">
+        <span class="text-sm">{{ n }} questions</span>
+      </label>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="flex items-center justify-between pt-2">
+    <a href="/mathematiques/" class="text-sm text-slate-500 hover:text-brand-700">
+      ← Retour aux épreuves
+    </a>
+    <button type="submit" class="btn-primary hover:wiggle">
+      Commencer le quiz <span>→</span>
+    </button>
+  </div>
+</form>
+{% endblock %}
