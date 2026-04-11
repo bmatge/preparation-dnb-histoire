@@ -253,5 +253,12 @@
     Aide-toi mais ne triche pas — l'objectif, c'est de progresser, pas que je rédige à ta place.<br>
     Propulsé par <strong>Albert</strong>, le LLM souverain de l'État français.
   </footer>
+
+  {# Emplacement pour le bouton flottant « Outils » spécifique à chaque
+     matière (calculette côté maths, dictionnaire/définitions côté français
+     ou histoire dans une itération ultérieure). Chaque matière définit un
+     template `_<matière>_base.html` qui étend ce layout et remplit ce
+     block avec son propre partiel `_tools_fab.html`. #}
+  {% block fab %}{% endblock %}
 </body>
 </html>
