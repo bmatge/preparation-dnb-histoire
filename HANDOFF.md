@@ -728,5 +728,241 @@ Cohérents avec les 3 PR mergées :
 
 ---
 
+## ADDENDUM 2026-04-11 — Mathématiques / épreuve Automatismes (PR feature/math-automatismes)
+
+### Périmètre livré
+
+Première matière maths sur la plateforme. Une seule épreuve active :
+**Automatismes** (20 min sans calculatrice, ~10 questions courtes,
+format DNB 2026). L'épreuve « Raisonnement et résolution de problèmes »
+reste un placeholder visible dans `app/mathematiques/templates/index.html`,
+en attendant la décision sur le rendu des figures.
+
+URLs exposées :
+
+  GET  /mathematiques/                                accueil matière
+  GET  /mathematiques/automatismes/                   accueil épreuve
+  POST /mathematiques/automatismes/quiz/new           création quiz
+  GET  /mathematiques/automatismes/quiz               question courante
+  POST /mathematiques/automatismes/quiz/answer        évaluation
+  POST /mathematiques/automatismes/quiz/hint          indice gradué
+  POST /mathematiques/automatismes/quiz/reveal        révélation explicite
+  GET  /mathematiques/automatismes/quiz/synthese      bilan
+  GET  /mathematiques/automatismes/restart            efface l'état
+
+### Structure du module `app/mathematiques/`
+
+```
+app/mathematiques/
+  __init__.py            # SUBJECT_KIND = "mathematiques"
+  routes.py              # router racine /mathematiques/
+  templates/index.html   # liste épreuves (1 active + 2 placeholders)
+  automatismes/
+    __init__.py
+    routes.py            # 8 endpoints HTTP
+    models.py            # Pydantic Question + SQLModel AutoQuestion/AutoAttempt
+    scoring.py           # check() déterministe : entier/decimal/fraction/%
+    pedagogy.py          # dispatch python/albert + _safe_chat
+    prompts.py           # 3 builders (hint, reveal, eval ouverte) + persona
+    loader.py            # THEME_LABELS + pick_for_quiz
+    templates/
+      home.html          # accueil épreuve + sélecteur thème/longueur
+      quiz.html          # une question, formulaire HTMX
+      synthese.html      # bilan + questions à retravailler
+      _partials/feedback.html  # variantes correct/incorrect/hint/revealed/error
+```
+
+### Pédagogie hybride
+
+- **Scoring déterministe Python** (mode `python`) pour ~95 % du corpus :
+  parsers `normalize_number` / `normalize_fraction` / `normalize_percentage`
+  + tolérances par type (entier 0, décimal ±0.01, pourcentage ±0.5,
+  fraction stricte). `formes_acceptees` court-circuite le parser quand
+  on veut valider une forme exacte (« x = 5 », « 2,5 m »).
+
+- **Scoring Albert** (mode `albert`) pour les questions ouvertes courtes
+  (cosinus en fonction des côtés, notation scientifique, factorisation).
+  Le builder `build_open_eval_prompt` force un JSON strict
+  `{"correct": bool, "feedback_court": str}`. Évalué par
+  `Task.MATH_AUTO_EVAL_OPEN` (gpt-oss-120b, max_tokens 800).
+
+- **Indices gradués** (3 niveaux) via `Task.MATH_AUTO_HINT` (Mistral-Small).
+  Si Albert plante, fallback déterministe basé sur le type de réponse
+  attendu et le premier caractère de la réponse canonique.
+
+- **Révélation** via `Task.MATH_AUTO_REVEAL` + fallback déterministe avec
+  la réponse canonique brute.
+
+- **Règle cardinale héritée des repères HG** : la bonne réponse EST
+  l'objectif d'apprentissage. Pas de risque de ghostwriting (réponses
+  courtes), `check_no_ghostwriting=False` partout côté math.
+
+### Corpus committé : 175 questions, 8 thèmes
+
+Pipeline 100 % offline en session Claude Code (Read PDF + Write JSON).
+Aucun appel à l'API Anthropic.
+
+| Thème                              | # questions |
+|------------------------------------|-------------|
+| calcul_numerique                   | 22          |
+| calcul_litteral                    | 21          |
+| fractions                          | 22          |
+| pourcentages_proportionnalite      | 25          |
+| stats_probas                       | 21          |
+| grandeurs_mesures                  | 20          |
+| geometrie_numerique                | 27          |
+| programmes_calcul                  | 17          |
+| **TOTAL**                          | **175**     |
+
+Dont **19 questions extraites des sujets zéro DNB 2026 officiels** (sujet
+A et sujet B — le PDF Sujet_zero_DNB_2026_maths.pdf est identique au
+sujet A et n'a pas été ré-extrait pour éviter les doublons). La cible
+initiale ≥ 20 sujets zéro a été ajustée à 19 unique : seules 18 questions
+distinctes existent dans les 3 sujets zéro publiés, plus 1 question
+issue d'un découpage utile (auto_sjz_A_q9 → q9a + q9b pour les deux
+paramètres du programme Scratch).
+
+Layout :
+
+```
+content/mathematiques/
+  automatismes/
+    sujets_zero/                           # 3 PDF officiels (DV : doublon maths/A)
+    Liste_automatismes_DNB_2026.pdf
+    Liste_indicative_automatismes_DNB.pdf  # ancienne version (référence)
+    _liste_officielle.json                 # liste normalisée pour ancrage
+    questions/                             # banque chargée par init_automatismes
+      sujets_zero.json                     # 19 questions extraites
+      calcul_numerique.json                # 22 générées
+      calcul_litteral.json                 # 20 générées
+      fractions.json                       # 20 générées
+      pourcentages_proportionnalite.json   # 22 générées
+      stats_probas.json                    # 18 générées
+      grandeurs_mesures.json               # 18 générées
+      geometrie_numerique.json             # 22 générées
+      programmes_calcul.json               # 14 générées
+  programme/                               # 5 PDF (programme cycle 4 + attendus + repères)
+  methodologie/                            # 11 PDF (8 fiches + automatismes/cadrage/évaluation)
+```
+
+**Convention loader** : `init_automatismes` lit tous les `*.json` du
+dossier `questions/` *sauf* ceux qui commencent par `_` (méta-fichiers
+type `_liste_officielle.json`, ou aggrégat legacy `_all.json`).
+
+### Collections Albert
+
+Trois collections ajoutées dans `scripts/ingest.py` (`COLLECTIONS` +
+`MATIERE_COLLECTIONS["mathematiques"]`) :
+
+| Clé ingest      | Collection Albert                  | Source                                |
+|-----------------|------------------------------------|---------------------------------------|
+| `math_programmes` | `dnb_math_programmes`             | content/mathematiques/programme/      |
+| `math_methodo`    | `dnb_math_methodo`                | content/mathematiques/methodologie/   |
+| `math_sujets`     | `dnb_math_automatismes_sujets`    | questions/*.json (md à la volée)      |
+
+Conversion JSON → markdown spécifique côté math via
+`_math_questions_json_to_markdown` : un bloc par question avec énoncé,
+réponse attendue/modèle et critères de validation pour les questions
+ouvertes. Les indices et `reveal_explication` sont volontairement
+**omis** de l'indexation (Albert les régénère côté runtime).
+
+`FALLBACK_COLLECTION_IDS["mathematiques"]` est laissé vide (`{}`) en
+attendant le premier run de `python -m scripts.ingest --matiere mathematiques`
+qui créera les 3 collections côté Albert et permettra de copier les IDs
+ici. Le client RAG résout les IDs via `/v1/collections` à chaud, donc le
+fallback ne sert qu'en cas d'incident sur cette API.
+
+**À faire après le merge** : lancer
+`python -m scripts.ingest --matiere mathematiques` (`--dry-run` validé,
+25 fichiers candidats) et reporter les IDs générés dans
+`FALLBACK_COLLECTION_IDS["mathematiques"]`.
+
+### Tests (vague 1)
+
+187 nouveaux tests dans `tests/mathematiques/automatismes/` +
+`tests/corpus/test_corpus_validation.py` (étendu) :
+
+- `test_scoring.py` (153 tests) : 4 types numériques + texte_court avec
+  ≥ 20 cas par type. Couvre virgule FR, fraction non simplifiée,
+  pourcentage avec/sans `%`, formes_acceptees prioritaires, modes inconnus.
+- `test_loader.py` (10 tests) : `init_automatismes` charge ≥ 150
+  questions, idempotent, couvre les 8 thèmes officiels, ≥ 10 questions
+  par thème (pour qu'un quiz de 10 sur thème unique tourne). `pick_for_quiz`
+  filtre/respecte n, ne crash pas si n trop grand.
+- `test_routes.py` (12 tests) : smoke HTTP via `TestClient` sur les
+  8 endpoints, parcours start → question → answer → hint → reveal →
+  synthese → restart, avec `FakeAlbertClient` mocké via la fixture
+  `test_client` du conftest racine (étendu).
+- `test_corpus_validation.py` (étendu, +13 tests) : valide chaque batch
+  contre `Question` Pydantic, vérifie taille corpus ≥ 150, slugs uniques,
+  ≥ 15 questions sujets zéro avec source.type = `sujet_zero_officiel`.
+
+Suite complète au moment du commit : **368 tests passent** (181
+existants + 187 maths).
+
+### Validation E2E manuelle (uvicorn local)
+
+Effectuée le 2026-04-11 sur `http://127.0.0.1:8767/mathematiques/automatismes/` :
+
+1. `GET /mathematiques/` → 200, page d'index matière OK
+2. `GET /mathematiques/automatismes/` → 200, formulaire avec sélecteur thèmes
+3. `POST /quiz/new theme=fractions length=5` → 303 → quiz
+4. `GET /quiz` → 200, première question affichée avec le bon label thème
+5. `POST /quiz/answer answer=` → fragment "Écris une réponse"
+6. `POST /quiz/answer answer=999` → fragment ✗ (incorrect)
+7. `POST /quiz/hint` → fragment "Indice 1/3" (fallback déterministe car
+   pas de clé Albert valide en dev)
+8. `POST /quiz/reveal` → fragment "Pas grave… bonne réponse"
+9. `GET /quiz/synthese` → 200, page de bilan
+
+Logs startup : `175 questions automatismes maths chargées` après
+`rm -f data/app.db` (idempotent : second startup → même comptage).
+
+### Fichiers 100 % à moi (workstream automatismes maths)
+
+- `app/mathematiques/**` (nouveau, 11 fichiers Python + 5 templates)
+- `content/mathematiques/**` (nouveau, dont 9 fichiers JSON questions +
+  1 `_liste_officielle.json` + 24 PDF copiés depuis `RevisionDNB/`)
+- `tests/mathematiques/**` (nouveau, 3 fichiers test_*.py)
+- `app/core/main.py` (modifié : import + include_router + init_automatismes
+  dans on_startup)
+- `app/core/albert_client.py` (modifié : +3 tâches MATH_AUTO_*)
+- `app/core/rag.py` (modifié : +entries `mathematiques` dans
+  COLLECTION_LABELS, TASK_COLLECTIONS, FALLBACK_COLLECTION_IDS)
+- `app/core/templates/home.html` (modifié : carte Mathématiques
+  remplace le placeholder « Bientôt »)
+- `app/core/templates/base.html` (modifié : entrée « Maths » dans le
+  menu matières)
+- `scripts/ingest.py` (modifié : +3 specs math + converter
+  `_math_questions_json_to_markdown` + `EXCLUDED_PREFIXES` pour ignorer
+  les méta-fichiers `_*.json`)
+- `tests/conftest.py` (modifié : import `_math_auto_models` pour
+  enregistrer les tables, monkeypatch du singleton `_albert_client` côté
+  math dans la fixture `test_client`)
+- `tests/corpus/test_corpus_validation.py` (étendu : 13 tests
+  automatismes maths)
+
+### Points d'attention pour la suite
+
+1. **IDs collections Albert** à reporter dans
+   `FALLBACK_COLLECTION_IDS["mathematiques"]` après le premier `ingest`.
+2. La règle « ≥ 20 sujets zéro » de l'issue est ajustée à 19 (les 3
+   sujets zéro publiés en contiennent 18 distincts ; un découpage utile
+   amène à 19).
+3. Le scoring `texte_court` accepte une comparaison sans-espaces en
+   dernier recours (« 8x » == « 8 x ») pour les expressions littérales
+   courtes. Validé sur 153 cas, mais à surveiller si on étend le type à
+   des phrases plus longues.
+4. Les questions à scoring Albert n'ont pas de retry automatique sur
+   citations manquantes (le builder ne demande des citations que si le
+   RAG a remonté des passages, et le fallback retourne `False` si Albert
+   plante — l'élève est juste marqué « pas trouvé »).
+5. Les sujets zéro qui dépendent d'une figure (Q4/A abscisse, Q4/B
+   graphique, Q7/A et Q8/B Thalès, Q9/A Scratch, Q9/B algorithme) ont
+   été reformulés pour être lisibles sans image. Toutes les valeurs
+   numériques d'origine sont préservées.
+
+---
+
 *Fin du handoff. Fichier généré automatiquement — ne pas éditer à la main
 sauf pour ajouter des notes de passation additionnelles.*
