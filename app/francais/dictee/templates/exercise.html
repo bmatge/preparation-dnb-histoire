@@ -1,0 +1,132 @@
+{% extends "base.html" %}
+{% block title %}{{ dictee.source.annee }} {{ dictee.source.centre }} — Dictée{% endblock %}
+
+{% block content %}
+<div class="space-y-6">
+  <header>
+    <p class="text-sm text-slate-500">
+      <a href="/francais/" class="hover:text-brand-700">Français</a>
+      <span class="mx-1">·</span>
+      <a href="/francais/dictee/" class="hover:text-brand-700">Dictée</a>
+      <span class="mx-1">·</span>
+      {{ dictee.source.annee }} {{ dictee.source.centre }}
+    </p>
+    <h1 class="mt-2 font-display text-2xl font-bold text-brand-900">
+      Dictée — {{ dictee.reference.auteur }}, <em>{{ dictee.reference.oeuvre }}</em>
+      {% if dictee.reference.annee_publication %}({{ dictee.reference.annee_publication }}){% endif %}
+    </h1>
+  </header>
+
+  {% if dictee.notes_examinateur %}
+  <section class="rounded-2xl bg-amber-50 border border-amber-200 p-4">
+    <h2 class="text-sm font-semibold text-amber-900 mb-2">À noter avant de commencer</h2>
+    <ul class="text-sm text-amber-900 space-y-1 list-disc pl-5">
+      {% for note in dictee.notes_examinateur %}
+      <li>{{ note }}</li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+
+  <section class="rounded-2xl bg-white border border-slate-200 p-6 shadow-sm">
+    <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+      <h2 class="font-display text-lg font-bold text-brand-800">
+        Écoute phrase par phrase
+      </h2>
+      <form method="post" action="/francais/dictee/session/{{ session.id }}/voice"
+            class="flex items-center gap-2">
+        <label class="text-xs text-slate-500">Voix :</label>
+        <select name="voice" onchange="this.form.submit()"
+                class="text-sm rounded-lg border border-slate-200 px-2 py-1">
+          {% for slug, label in voices %}
+          <option value="{{ slug }}" {% if slug == current_voice %}selected{% endif %}>{{ label }}</option>
+          {% endfor %}
+        </select>
+      </form>
+    </div>
+
+    <p class="text-sm text-slate-600 mb-4">
+      Tu peux écouter chaque phrase autant de fois que tu veux. Le bouton
+      « tout lire » enchaîne toutes les phrases avec une pause de 4 secondes
+      entre chacune.
+    </p>
+
+    <div class="space-y-2">
+      {% for url in audio_urls %}
+      <div class="flex items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 px-4 py-2">
+        <span class="text-xs text-slate-500 w-12 shrink-0">
+          Phrase {{ loop.index }}
+        </span>
+        <audio controls preload="metadata" src="{{ url }}" class="flex-1 h-8 dictee-audio"></audio>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="mt-4 flex flex-wrap items-center gap-3">
+      <button type="button" id="btn-play-all" class="btn-secondary">
+        Tout lire (4s entre phrases)
+      </button>
+      <span id="play-all-status" class="text-xs text-slate-500"></span>
+    </div>
+  </section>
+
+  <section class="rounded-2xl bg-white border border-slate-200 p-6 shadow-sm">
+    <h2 class="font-display text-lg font-bold text-brand-800 mb-3">
+      Ta copie
+    </h2>
+    <form hx-post="/francais/dictee/session/{{ session.id }}/answer"
+          hx-target="#feedback-zone"
+          hx-swap="innerHTML">
+      <textarea
+        name="copie"
+        rows="10"
+        class="w-full rounded-xl border border-slate-200 p-3 text-sm focus:border-brand-400 focus:outline-none font-serif"
+        placeholder="Écris ici la dictée que tu entends, phrase par phrase…"
+        required
+      >{{ last_answer }}</textarea>
+      <div class="mt-3 flex items-center justify-between gap-2">
+        <span class="text-xs text-slate-500">
+          <span class="htmx-indicator">⏳ Vérification en cours…</span>
+        </span>
+        <button type="submit" class="btn-primary">Vérifier ma copie</button>
+      </div>
+    </form>
+
+    <div id="feedback-zone" class="mt-6"></div>
+  </section>
+</div>
+
+<script>
+  (function() {
+    var audios = Array.prototype.slice.call(document.querySelectorAll('.dictee-audio'));
+    var btn = document.getElementById('btn-play-all');
+    var status = document.getElementById('play-all-status');
+    var current = -1;
+
+    function playNext() {
+      current += 1;
+      if (current >= audios.length) {
+        status.textContent = 'Lecture terminée.';
+        btn.disabled = false;
+        btn.textContent = 'Tout lire (4s entre phrases)';
+        current = -1;
+        return;
+      }
+      status.textContent = 'Phrase ' + (current + 1) + ' / ' + audios.length;
+      var a = audios[current];
+      a.currentTime = 0;
+      a.play();
+      a.onended = function() {
+        setTimeout(playNext, 4000);
+      };
+    }
+
+    btn.addEventListener('click', function() {
+      if (current >= 0) return;  // déjà en cours
+      btn.disabled = true;
+      btn.textContent = 'Lecture en cours…';
+      playNext();
+    });
+  })();
+</script>
+{% endblock %}
