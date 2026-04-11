@@ -51,9 +51,12 @@ router = APIRouter(tags=["mathematiques / problemes"])
 _HERE = Path(__file__).resolve().parent
 _APP_DIR = _HERE.parent.parent
 _CORE_TEMPLATES = _APP_DIR / "core" / "templates"
+_MATH_TEMPLATES = _HERE.parent / "templates"  # pour _maths_base.html + _tools_fab.html
 _PROB_TEMPLATES = _HERE / "templates"
 
-templates = Jinja2Templates(directory=[str(_PROB_TEMPLATES), str(_CORE_TEMPLATES)])
+templates = Jinja2Templates(
+    directory=[str(_PROB_TEMPLATES), str(_MATH_TEMPLATES), str(_CORE_TEMPLATES)]
+)
 templates.env.filters["eval_md"] = lambda txt: Markup(render_eval_markdown(txt or ""))
 
 

@@ -1,0 +1,224 @@
+{# Bouton flottant « Outils » — matière mathématiques.
+
+   Affiche une mini-calculette en popin quand l'élève clique sur le bouton.
+   L'expression est évaluée côté navigateur (aucun appel serveur) après
+   validation par une liste blanche stricte de caractères autorisés :
+   chiffres, virgule/point, opérateurs `+ − × ÷ * / %`, parenthèses,
+   accent circonflexe (puissance). Toute autre entrée est rejetée avant
+   exécution, ce qui neutralise le risque d'injection côté `Function()`.
+
+   L'historique des 5 derniers calculs est conservé en mémoire JS (pas
+   de persistance serveur). Le bouton est positionné en `fixed` bottom
+   right avec `z-50` pour rester au-dessus des formulaires HTMX et ne
+   pas interférer avec eux. #}
+
+<div id="math-fab-root" class="fixed bottom-5 right-5 z-50 flex flex-col items-end gap-3 print:hidden">
+
+  <div id="math-fab-panel"
+       class="hidden w-[min(92vw,22rem)] bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden"
+       role="dialog"
+       aria-label="Outils mathématiques">
+    <div class="flex items-center justify-between px-4 py-3 bg-gradient-to-r from-brand-500 to-purple-600 text-white">
+      <div class="flex items-center gap-2">
+        <span class="inline-flex h-7 w-7 items-center justify-center rounded-lg bg-white/20 text-base">🧮</span>
+        <div>
+          <div class="font-display font-semibold text-sm leading-tight">Calculette</div>
+          <div class="text-[11px] opacity-80 leading-tight">Tape une expression, puis =</div>
+        </div>
+      </div>
+      <button type="button" id="math-fab-close"
+              aria-label="Fermer la calculette"
+              class="h-7 w-7 rounded-lg bg-white/10 hover:bg-white/20 text-white text-sm">
+        ✕
+      </button>
+    </div>
+
+    <form id="math-calc-form" class="p-4 space-y-3" autocomplete="off">
+      <label class="block">
+        <span class="sr-only">Expression à calculer</span>
+        <input type="text"
+               id="math-calc-input"
+               inputmode="text"
+               spellcheck="false"
+               placeholder="(62+59+74+68+55+61+71) / 7"
+               class="w-full border border-slate-200 rounded-xl px-3 py-2.5 text-[15px] font-mono focus:ring-2 focus:ring-brand-400 focus:border-brand-400 outline-none transition">
+      </label>
+      <div class="flex items-center gap-2">
+        <button type="submit" class="btn-primary flex-1">=</button>
+        <button type="button" id="math-calc-clear" class="btn-secondary">Effacer</button>
+      </div>
+      <div id="math-calc-result"
+           class="min-h-[1.75rem] text-right font-mono text-lg text-slate-400"
+           aria-live="polite">—</div>
+    </form>
+
+    <div id="math-calc-history-wrap"
+         class="hidden border-t border-slate-100 bg-slate-50 px-4 py-3">
+      <div class="text-[11px] uppercase tracking-wider text-slate-500 font-semibold mb-1.5">
+        Historique
+      </div>
+      <ul id="math-calc-history" class="space-y-0.5"></ul>
+    </div>
+
+    <p class="px-4 pb-3 text-[11px] text-slate-500 leading-relaxed">
+      Autorisé : <code class="bg-slate-100 px-1 rounded">+ − × ÷ ( ) ^ %</code>,
+      virgule décimale. Exemple : <code class="bg-slate-100 px-1 rounded">(8+7)/2</code>.
+    </p>
+  </div>
+
+  <button type="button" id="math-fab-button"
+          aria-label="Ouvrir les outils"
+          aria-expanded="false"
+          aria-controls="math-fab-panel"
+          class="inline-flex items-center gap-2 pl-4 pr-5 py-3 rounded-full bg-gradient-to-br from-brand-500 to-purple-600 text-white font-display font-semibold text-sm shadow-2xl hover:scale-[1.03] active:scale-[0.98] transition">
+    <span aria-hidden="true" class="text-lg leading-none">🧮</span>
+    Outils
+  </button>
+
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  var root    = document.getElementById("math-fab-root");
+  if (!root) return;
+  var button  = document.getElementById("math-fab-button");
+  var panel   = document.getElementById("math-fab-panel");
+  var closeBt = document.getElementById("math-fab-close");
+  var form    = document.getElementById("math-calc-form");
+  var input   = document.getElementById("math-calc-input");
+  var result  = document.getElementById("math-calc-result");
+  var clearBt = document.getElementById("math-calc-clear");
+  var histWrap = document.getElementById("math-calc-history-wrap");
+  var histList = document.getElementById("math-calc-history");
+  var history  = [];
+  var MAX_HISTORY = 5;
+
+  function openPanel()  {
+    panel.classList.remove("hidden");
+    button.setAttribute("aria-expanded", "true");
+    setTimeout(function () { input && input.focus(); }, 30);
+  }
+  function closePanel() {
+    panel.classList.add("hidden");
+    button.setAttribute("aria-expanded", "false");
+  }
+  function togglePanel() {
+    if (panel.classList.contains("hidden")) openPanel();
+    else closePanel();
+  }
+
+  button.addEventListener("click", togglePanel);
+  closeBt.addEventListener("click", closePanel);
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && !panel.classList.contains("hidden")) {
+      closePanel();
+    }
+  });
+
+  // Ferme quand on clique en dehors.
+  document.addEventListener("click", function (e) {
+    if (panel.classList.contains("hidden")) return;
+    if (root.contains(e.target)) return;
+    closePanel();
+  });
+
+  function setResult(text, kind) {
+    result.textContent = text;
+    result.className =
+      "min-h-[1.75rem] text-right font-mono text-lg " +
+      (kind === "ok"   ? "text-emerald-700 font-semibold"
+      : kind === "err" ? "text-rose-600"
+      :                  "text-slate-400");
+  }
+
+  // Formate un nombre à la française : virgule décimale, 6 décimales max.
+  function formatNumber(n) {
+    if (!isFinite(n)) return String(n);
+    if (Number.isInteger(n)) return n.toString();
+    var rounded = parseFloat(n.toFixed(6));
+    return String(rounded).replace(".", ",");
+  }
+
+  function renderHistory() {
+    if (!history.length) {
+      histWrap.classList.add("hidden");
+      return;
+    }
+    histWrap.classList.remove("hidden");
+    histList.innerHTML = "";
+    history.forEach(function (h) {
+      var li = document.createElement("li");
+      li.className = "flex items-center justify-between gap-2 text-[12px] font-mono";
+      var left = document.createElement("span");
+      left.className = "text-slate-500 truncate";
+      left.textContent = h.expr;
+      var right = document.createElement("button");
+      right.type = "button";
+      right.className = "text-brand-700 font-semibold hover:underline whitespace-nowrap";
+      right.textContent = "= " + h.value;
+      right.addEventListener("click", function () {
+        input.value = h.expr;
+        input.focus();
+      });
+      li.appendChild(left);
+      li.appendChild(right);
+      histList.appendChild(li);
+    });
+  }
+
+  function compute() {
+    var raw = (input.value || "").trim();
+    if (!raw) { setResult("—", null); return; }
+
+    // 1. Normalisation : unicode → ASCII, virgule FR → point, ^ → **
+    var expr = raw
+      .replace(/,/g, ".")
+      .replace(/×/g, "*")
+      .replace(/÷/g, "/")
+      .replace(/−/g, "-")   // tiret moins unicode
+      .replace(/\s+/g, "")
+      .replace(/\^/g, "**");
+
+    // 2. Liste blanche stricte (après avoir replié `**` sur `*` pour le test).
+    var sanity = expr.replace(/\*\*/g, "*");
+    if (!/^[-+*/()%.\d]+$/.test(sanity)) {
+      setResult("Expression invalide", "err");
+      return;
+    }
+
+    // 3. Évaluation en sandbox minimale.
+    var value;
+    try {
+      value = Function('"use strict"; return (' + expr + ");")();
+    } catch (_) {
+      setResult("Calcul impossible", "err");
+      return;
+    }
+    if (typeof value !== "number" || !isFinite(value)) {
+      setResult("Calcul impossible", "err");
+      return;
+    }
+
+    var formatted = formatNumber(value);
+    setResult("= " + formatted, "ok");
+
+    // 4. Historique.
+    history.unshift({ expr: raw, value: formatted });
+    if (history.length > MAX_HISTORY) history.pop();
+    renderHistory();
+  }
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    compute();
+  });
+  clearBt.addEventListener("click", function () {
+    input.value = "";
+    setResult("—", null);
+    input.focus();
+  });
+})();
+</script>

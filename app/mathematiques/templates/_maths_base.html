@@ -1,0 +1,17 @@
+{# Layout intermédiaire spécifique à la matière mathématiques.
+
+   Rôle : ajouter le bouton flottant « Outils » (calculette) sur toutes
+   les pages de la matière sans devoir répéter l'include dans chaque
+   template. Chaque template maths (index, automatismes, problèmes)
+   étend ce fichier au lieu de `base.html`.
+
+   Pour ajouter une FAB sur une autre matière :
+   1. Créer `app/<matière>/templates/_<matière>_base.html` sur ce modèle.
+   2. Créer `app/<matière>/templates/_tools_fab.html` avec les outils.
+   3. Faire pointer les templates de la matière vers ce layout. #}
+
+{% extends "base.html" %}
+
+{% block fab %}
+  {% include "_tools_fab.html" %}
+{% endblock %}
