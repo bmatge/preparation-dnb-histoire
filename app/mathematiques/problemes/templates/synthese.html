@@ -26,7 +26,7 @@
       <div class="text-xs uppercase tracking-wider text-slate-400 mb-0.5">
         Sous-question {{ sq.numero }}
       </div>
-      <div class="font-semibold text-slate-900">{{ sq.texte }}</div>
+      <div class="eval-md font-semibold text-slate-900">{{ sq.texte | eval_md }}</div>
       {% set sc = sq.scoring or {} %}
       <div class="text-sm text-slate-600 mt-1">
         Réponse&nbsp;:

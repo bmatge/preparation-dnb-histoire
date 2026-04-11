@@ -161,7 +161,7 @@
       "titre": "Fonctions linéaire et affine",
       "competence_principale": "Reconnaître proportionnalité, image et antécédent",
       "points_total": 1.5,
-      "contexte": "On considère les deux fonctions suivantes :\n\nf : x ↦ 4x + 3\ng : x ↦ 6x",
+      "contexte": "On considère les deux fonctions suivantes :\n\n```\nf : x ↦ 4x + 3\ng : x ↦ 6x\n```",
       "sous_questions": [
         {
           "id": "prob_2026A_ex3_q1",
@@ -283,7 +283,7 @@
       "titre": "Fonction affine — paquet de lessive",
       "competence_principale": "Modéliser et résoudre avec une fonction affine",
       "points_total": 3.0,
-      "contexte": "Un paquet de lessive vide pèse 200 g. On y verse de la lessive. On sait que 1 cm³ de lessive pèse 1,5 g.\n\nOn note x le volume de lessive versé (en cm³) et on considère la fonction f définie par : f(x) = 1,5x + 200.",
+      "contexte": "Un paquet de lessive vide pèse 200 g. On y verse de la lessive. On sait que 1 cm³ de lessive pèse 1,5 g.\n\nOn note `x` le volume de lessive versé (en cm³) et on considère la fonction `f` définie par :\n\n```\nf(x) = 1,5x + 200\n```",
       "sous_questions": [
         {
           "id": "prob_2026B_ex3_q1",

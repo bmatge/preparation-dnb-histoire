@@ -1,0 +1,858 @@
+{
+  "_comment": "Exercices complémentaires générés en session Claude Code (Opus 4.6), inspirés du programme cycle 4 et des 8 fiches de méthodologie committées (Pythagore, Thalès, trigo, fonctions, stats/probas, PGCD, grandeurs/volumes). Objectif : élargir la couverture à 6 thèmes (stats, probas, fonctions, géométrie, arithmétique, grandeurs/mesures) sans dépendre de figures géométriques — toutes les données spatiales sont données dans le texte. Chaque réponse a été vérifiée à la main.",
+  "exercices": [
+    {
+      "id": "prob_var_stats_01",
+      "source": {"type": "genere_claude_code", "note": "Inspiré de la fiche méthodo statistiques (moyenne, médiane, étendue)."},
+      "theme": "statistiques",
+      "titre": "Notes de Sam en mathématiques",
+      "competence_principale": "Calculer moyenne, médiane et étendue d'une série",
+      "points_total": 3.0,
+      "contexte": "Au cours du trimestre, Sam a obtenu les notes suivantes en mathématiques (sur 20) :\n\n`12  ;  8  ;  15  ;  9  ;  14  ;  10  ;  13`",
+      "sous_questions": [
+        {
+          "id": "prob_var_stats_01_q1",
+          "numero": "1",
+          "texte": "Calcule la moyenne de ces notes (arrondie à 0,1 près).",
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "decimal",
+            "reponse_canonique": "11.6",
+            "tolerances": {"abs": 0.05},
+            "formes_acceptees": ["11,6", "11.6", "11,57", "11.57"]
+          },
+          "indices": {
+            "niveau_1": "La moyenne, c'est la somme des notes divisée par leur nombre.",
+            "niveau_2": "Additionne les 7 notes, puis divise le résultat par 7.",
+            "niveau_3": "12+8+15+9+14+10+13 = 81, puis 81 ÷ 7 ≈ 11,57 qu'on arrondit à 11,6."
+          },
+          "reveal_explication": "Somme : 12+8+15+9+14+10+13 = 81. Moyenne : 81 ÷ 7 ≈ 11,57, soit environ 11,6 arrondi au dixième."
+        },
+        {
+          "id": "prob_var_stats_01_q2",
+          "numero": "2",
+          "texte": "Détermine la médiane de cette série de notes.",
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "entier",
+            "reponse_canonique": "12"
+          },
+          "indices": {
+            "niveau_1": "La médiane est la valeur centrale d'une série rangée dans l'ordre croissant.",
+            "niveau_2": "Range les 7 notes dans l'ordre croissant, puis prends la 4e (celle du milieu).",
+            "niveau_3": "Rangées : 8, 9, 10, 12, 13, 14, 15. La 4e valeur est 12."
+          },
+          "reveal_explication": "On range la série : 8, 9, 10, 12, 13, 14, 15. Avec 7 valeurs, la médiane est la 4e : 12."
+        },
+        {
+          "id": "prob_var_stats_01_q3",
+          "numero": "3",
+          "texte": "Quelle est l'étendue de cette série ?",
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "entier",
+            "reponse_canonique": "7"
+          },
+          "indices": {
+            "niveau_1": "L'étendue mesure l'écart entre la plus grande et la plus petite valeur.",
+            "niveau_2": "Identifie le maximum et le minimum de la série, puis soustrais.",
+            "niveau_3": "Max = 15, min = 8, donc étendue = 15 − 8 = 7."
+          },
+          "reveal_explication": "L'étendue est max − min = 15 − 8 = 7."
+        }
+      ]
+    },
+    {
+      "id": "prob_var_stats_02",
+      "source": {"type": "genere_claude_code", "note": "Inspiré de la fiche méthodo statistiques (effectifs, fréquences)."},
+      "theme": "statistiques",
+      "titre": "Couleurs préférées en classe",
+      "competence_principale": "Effectifs, fréquences et pourcentages",
+      "points_total": 2.5,
+      "contexte": "Dans une classe de 3e, on a demandé à chaque élève sa couleur préférée. Voici le tableau des réponses :\n\n| Couleur  | Bleu | Rouge | Vert | Jaune |\n|----------|------|-------|------|-------|\n| Effectif | 10   | 7     | 5    | 3     |",
+      "sous_questions": [
+        {
+          "id": "prob_var_stats_02_q1",
+          "numero": "1",
+          "texte": "Combien d'élèves compte la classe au total ?",
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "entier",
+            "reponse_canonique": "25"
+          },
+          "indices": {
+            "niveau_1": "L'effectif total est la somme des effectifs de toutes les catégories.",
+            "niveau_2": "Additionne : 10 + 7 + 5 + 3.",
+            "niveau_3": "10 + 7 + 5 + 3 = 25 élèves."
+          },
+          "reveal_explication": "L'effectif total vaut 10 + 7 + 5 + 3 = 25 élèves."
+        },
+        {
+          "id": "prob_var_stats_02_q2",
+          "numero": "2",
+          "texte": "Quel pourcentage des élèves de la classe préfèrent le bleu ?",
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "pourcentage",
+            "reponse_canonique": "40",
+            "formes_acceptees": ["40", "40%", "40 %", "40.0"]
+          },
+          "indices": {
+            "niveau_1": "Un pourcentage, c'est (effectif de la catégorie ÷ effectif total) × 100.",
+            "niveau_2": "Calcule (10 ÷ 25) × 100.",
+            "niveau_3": "10 ÷ 25 = 0,4, donc 40 %."
+          },
+          "reveal_explication": "10 élèves sur 25 préfèrent le bleu : (10 ÷ 25) × 100 = 40 %."
+        },
+        {
+          "id": "prob_var_stats_02_q3",
+          "numero": "3",
+          "texte": "Quel pourcentage des élèves ne préfèrent ni le bleu ni le rouge ?",
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "pourcentage",
+            "reponse_canonique": "32",
+            "formes_acceptees": ["32", "32%", "32 %", "32.0"]
+          },
+          "indices": {
+            "niveau_1": "Commence par trouver combien d'élèves ne préfèrent ni bleu ni rouge (ceux qui préfèrent vert ou jaune).",
+            "niveau_2": "Élèves concernés : 5 + 3 = 8. Calcule ensuite (8 ÷ 25) × 100.",
+            "niveau_3": "8 ÷ 25 = 0,32, soit 32 %."
+          },
+          "reveal_explication": "Les élèves qui ne préfèrent ni bleu ni rouge préfèrent vert ou jaune : 5 + 3 = 8 élèves. En pourcentage : (8 ÷ 25) × 100 = 32 %."
+        }
+      ]
+    },
+    {
+      "id": "prob_var_proba_01",
+      "source": {"type": "genere_claude_code", "note": "Inspiré de la fiche méthodo stats/probas."},
+      "theme": "probabilites",
+      "titre": "Lancer d'un dé à 6 faces",
+      "competence_principale": "Calcul de probabilités en équiprobabilité",
+      "points_total": 2.0,
+      "contexte": "On lance un dé à 6 faces équilibré, numéroté de 1 à 6. On note le numéro obtenu sur la face supérieure.",
+      "sous_questions": [
+        {
+          "id": "prob_var_proba_01_q1",
+          "numero": "1",
+          "texte": "Quelle est la probabilité d'obtenir 6 ? Donne le résultat sous forme de fraction irréductible.",
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "fraction",
+            "reponse_canonique": "1/6"
+          },
+          "indices": {
+            "niveau_1": "En équiprobabilité : P = nombre d'issues favorables ÷ nombre d'issues totales.",
+            "niveau_2": "Ici il y a 1 seule issue favorable (le 6) sur 6 issues possibles.",
+            "niveau_3": "La probabilité vaut 1/6."
+          },
+          "reveal_explication": "Il y a une seule face portant le 6 sur les 6 faces équiprobables, donc P = 1/6."
+        },
+        {
+          "id": "prob_var_proba_01_q2",
+          "numero": "2",
+          "texte": "Quelle est la probabilité d'obtenir un nombre pair ? Donne une fraction irréductible.",
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "fraction",
+            "reponse_canonique": "1/2",
+            "formes_acceptees": ["1/2", "3/6"]
+          },
+          "indices": {
+            "niveau_1": "Identifie les nombres pairs entre 1 et 6.",
+            "niveau_2": "Les pairs sont 2, 4, 6 : 3 issues favorables sur 6.",
+            "niveau_3": "3/6 se simplifie en 1/2."
+          },
+          "reveal_explication": "Les nombres pairs entre 1 et 6 sont 2, 4, 6 : 3 issues favorables. P = 3/6 = 1/2."
+        },
+        {
+          "id": "prob_var_proba_01_q3",
+          "numero": "3",
+          "texte": "Quelle est la probabilité d'obtenir un nombre premier ? Donne une fraction irréductible.",
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "fraction",
+            "reponse_canonique": "1/2",
+            "formes_acceptees": ["1/2", "3/6"]
+          },
+          "indices": {
+            "niveau_1": "Un nombre premier n'a que deux diviseurs : 1 et lui-même. Attention, 1 n'est pas premier.",
+            "niveau_2": "Liste les nombres premiers entre 1 et 6.",
+            "niveau_3": "Les nombres premiers entre 1 et 6 sont 2, 3 et 5 (3 issues) ; 3/6 = 1/2."
+          },
+          "reveal_explication": "Les nombres premiers entre 1 et 6 sont 2, 3 et 5 (1 n'est pas premier, 4 = 2×2 non plus, 6 = 2×3 non plus). P = 3/6 = 1/2."
+        }
+      ]
+    },
+    {
+      "id": "prob_var_proba_02",
+      "source": {"type": "genere_claude_code", "note": "Inspiré de la fiche méthodo stats/probas."},
+      "theme": "probabilites",
+      "titre": "Urne de billes colorées",
+      "competence_principale": "Calcul de probabilités et événement contraire",
+      "points_total": 2.5,
+      "contexte": "Une urne contient 5 billes rouges, 3 billes vertes et 2 billes bleues, toutes indiscernables au toucher. On tire une bille au hasard.",
+      "sous_questions": [
+        {
+          "id": "prob_var_proba_02_q1",
+          "numero": "1",
+          "texte": "Combien l'urne contient-elle de billes au total ?",
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "entier",
+            "reponse_canonique": "10"
+          },
+          "indices": {
+            "niveau_1": "Additionne les billes de chaque couleur.",
+            "niveau_2": "5 + 3 + 2.",
+            "niveau_3": "5 + 3 + 2 = 10 billes."
+          },
+          "reveal_explication": "5 + 3 + 2 = 10 billes au total."
+        },
+        {
+          "id": "prob_var_proba_02_q2",
+          "numero": "2",
+          "texte": "Quelle est la probabilité de tirer une bille rouge ? Donne une fraction irréductible.",
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "fraction",
+            "reponse_canonique": "1/2",
+            "formes_acceptees": ["1/2", "5/10"]
+          },
+          "indices": {
+            "niveau_1": "P(rouge) = nombre de billes rouges ÷ nombre total de billes.",
+            "niveau_2": "5 sur 10, à simplifier.",
+            "niveau_3": "5/10 = 1/2."
+          },
+          "reveal_explication": "P(rouge) = 5/10, soit 1/2 après simplification."
+        },
+        {
+          "id": "prob_var_proba_02_q3",
+          "numero": "3",
+          "texte": "Quelle est la probabilité de tirer une bille qui n'est pas rouge ? Donne une fraction irréductible.",
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "fraction",
+            "reponse_canonique": "1/2",
+            "formes_acceptees": ["1/2", "5/10"]
+          },
+          "indices": {
+            "niveau_1": "« Pas rouge » est l'événement contraire de « rouge ». P(contraire) = 1 − P.",
+            "niveau_2": "1 − 1/2 = ?",
+            "niveau_3": "P(pas rouge) = 1 − 1/2 = 1/2."
+          },
+          "reveal_explication": "L'événement contraire de « rouge » a pour probabilité 1 − 1/2 = 1/2. On peut aussi compter directement les billes non rouges : 3 + 2 = 5, soit 5/10 = 1/2."
+        },
+        {
+          "id": "prob_var_proba_02_q4",
+          "numero": "4",
+          "texte": "Quelle est la probabilité de tirer une bille rouge ou verte ? Donne une fraction irréductible.",
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "fraction",
+            "reponse_canonique": "4/5",
+            "formes_acceptees": ["4/5", "8/10"]
+          },
+          "indices": {
+            "niveau_1": "Compte les billes qui sont rouges OU vertes.",
+            "niveau_2": "5 rouges + 3 vertes = 8 sur 10 billes.",
+            "niveau_3": "8/10 se simplifie en 4/5."
+          },
+          "reveal_explication": "Billes rouges ou vertes : 5 + 3 = 8 sur 10. P = 8/10 = 4/5."
+        }
+      ]
+    },
+    {
+      "id": "prob_var_fonctions_01",
+      "source": {"type": "genere_claude_code", "note": "Inspiré de la fiche méthodo fonctions."},
+      "theme": "fonctions",
+      "titre": "Cerises au marché",
+      "competence_principale": "Fonction linéaire et proportionnalité",
+      "points_total": 3.0,
+      "contexte": "Au marché, les cerises coûtent **4,50 €** le kilogramme.\n\nOn note `p(x)` le prix, en euros, pour `x` kilogrammes de cerises achetées.",
+      "sous_questions": [
+        {
+          "id": "prob_var_fonctions_01_q1",
+          "numero": "1",
+          "texte": "Quel est le prix pour 3 kg de cerises ?",
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "decimal",
+            "reponse_canonique": "13.5",
+            "tolerances": {"abs": 0.01},
+            "unite": "€",
+            "formes_acceptees": ["13,5", "13.5", "13,50", "13.50"]
+          },
+          "indices": {
+            "niveau_1": "Le prix est 4,50 € × la masse en kg.",
+            "niveau_2": "Calcule 4,50 × 3.",
+            "niveau_3": "4,50 × 3 = 13,50 €."
+          },
+          "reveal_explication": "p(3) = 4,50 × 3 = 13,50 €."
+        },
+        {
+          "id": "prob_var_fonctions_01_q2",
+          "numero": "2",
+          "texte": "Donne l'expression de `p(x)` en fonction de `x`.",
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "texte_court",
+            "reponse_canonique": "4,5x",
+            "formes_acceptees": [
+              "4,5x",
+              "4.5x",
+              "4,50x",
+              "4.50x",
+              "4,5*x",
+              "4.5*x",
+              "4,5×x",
+              "4.5×x",
+              "p(x)=4,5x",
+              "p(x)=4.5x"
+            ]
+          },
+          "indices": {
+            "niveau_1": "Pour `x` kg, le prix est « prix unitaire × quantité ».",
+            "niveau_2": "Prix unitaire = 4,50 €/kg, donc p(x) = 4,50 × x.",
+            "niveau_3": "p(x) = 4,5x."
+          },
+          "reveal_explication": "Chaque kilogramme coûte 4,50 €, donc pour `x` kilogrammes : p(x) = 4,5x."
+        },
+        {
+          "id": "prob_var_fonctions_01_q3",
+          "numero": "3",
+          "texte": "La fonction `p` représente-t-elle une situation de proportionnalité ? Réponds par « oui » ou « non ».",
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "texte_court",
+            "reponse_canonique": "oui",
+            "formes_acceptees": ["oui", "Oui", "OUI", "O"]
+          },
+          "indices": {
+            "niveau_1": "Une situation de proportionnalité correspond à une fonction linéaire de la forme `x ↦ kx`.",
+            "niveau_2": "Est-ce que p(x) = 4,5x est de cette forme ?",
+            "niveau_3": "Oui, p est une fonction linéaire de coefficient 4,5."
+          },
+          "reveal_explication": "p(x) = 4,5x est une fonction linéaire (pas de terme constant), donc elle représente bien une situation de proportionnalité de coefficient 4,5 €/kg."
+        },
+        {
+          "id": "prob_var_fonctions_01_q4",
+          "numero": "4",
+          "texte": "Avec 18 €, combien de kilogrammes de cerises peut-on acheter ?",
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "entier",
+            "reponse_canonique": "4",
+            "unite": "kg"
+          },
+          "indices": {
+            "niveau_1": "Tu cherches `x` tel que p(x) = 18. Pose l'équation.",
+            "niveau_2": "4,5x = 18, donc x = 18 ÷ 4,5.",
+            "niveau_3": "18 ÷ 4,5 = 4 kg."
+          },
+          "reveal_explication": "On résout 4,5x = 18, donc x = 18 ÷ 4,5 = 4. On peut acheter 4 kg de cerises avec 18 €."
+        }
+      ]
+    },
+    {
+      "id": "prob_var_fonctions_02",
+      "source": {"type": "genere_claude_code", "note": "Inspiré de la fiche méthodo fonctions (affine vs linéaire)."},
+      "theme": "fonctions",
+      "titre": "Abonnement à la salle de sport",
+      "competence_principale": "Fonction affine et résolution d'équation",
+      "points_total": 3.0,
+      "contexte": "Une salle de sport propose un abonnement :\n\n- **20 €** de frais d'inscription (payés une seule fois),\n- puis **15 € par mois** de cotisation.\n\nOn note `C(x)` le coût total, en euros, pour `x` mois d'abonnement.",
+      "sous_questions": [
+        {
+          "id": "prob_var_fonctions_02_q1",
+          "numero": "1",
+          "texte": "Calcule le coût total pour 3 mois d'abonnement.",
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "entier",
+            "reponse_canonique": "65",
+            "unite": "€"
+          },
+          "indices": {
+            "niveau_1": "Coût = frais d'inscription + (mensualité × nombre de mois).",
+            "niveau_2": "C(3) = 20 + 15 × 3.",
+            "niveau_3": "20 + 45 = 65 €."
+          },
+          "reveal_explication": "C(3) = 20 + 15 × 3 = 20 + 45 = 65 €."
+        },
+        {
+          "id": "prob_var_fonctions_02_q2",
+          "numero": "2",
+          "texte": "Donne l'expression de `C(x)` en fonction de `x`.",
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "texte_court",
+            "reponse_canonique": "15x+20",
+            "formes_acceptees": [
+              "15x+20",
+              "15x + 20",
+              "15*x+20",
+              "15*x + 20",
+              "20+15x",
+              "20 + 15x",
+              "C(x)=15x+20",
+              "C(x)=15x + 20"
+            ]
+          },
+          "indices": {
+            "niveau_1": "Reprends la structure : frais fixes + (coût mensuel × nombre de mois).",
+            "niveau_2": "Le coût mensuel est 15 € × x, à quoi on ajoute 20 € d'inscription.",
+            "niveau_3": "C(x) = 15x + 20."
+          },
+          "reveal_explication": "Le coût mensuel est 15 × x = 15x, et on ajoute 20 € d'inscription : C(x) = 15x + 20."
+        },
+        {
+          "id": "prob_var_fonctions_02_q3",
+          "numero": "3",
+          "texte": "La fonction `C` représente-t-elle une situation de proportionnalité ? Réponds par « oui » ou « non ».",
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "texte_court",
+            "reponse_canonique": "non",
+            "formes_acceptees": ["non", "Non", "NON", "N"]
+          },
+          "indices": {
+            "niveau_1": "Une situation de proportionnalité correspond à une fonction linéaire (pas de terme constant).",
+            "niveau_2": "Est-ce que C(x) = 15x + 20 a un terme constant ?",
+            "niveau_3": "Oui, +20 n'est pas nul, donc C est affine mais pas linéaire : pas de proportionnalité."
+          },
+          "reveal_explication": "C(x) = 15x + 20 est affine mais pas linéaire (à cause du +20). Ce n'est donc pas une situation de proportionnalité : doubler le nombre de mois ne double pas le coût total."
+        },
+        {
+          "id": "prob_var_fonctions_02_q4",
+          "numero": "4",
+          "texte": "Avec un budget de 95 €, combien de mois d'abonnement peut-on s'offrir ?",
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "entier",
+            "reponse_canonique": "5",
+            "unite": "mois"
+          },
+          "indices": {
+            "niveau_1": "Tu cherches `x` tel que C(x) = 95. Pose l'équation.",
+            "niveau_2": "15x + 20 = 95, donc 15x = 75.",
+            "niveau_3": "x = 75 ÷ 15 = 5 mois."
+          },
+          "reveal_explication": "On résout C(x) = 95, soit 15x + 20 = 95. D'où 15x = 75 puis x = 5. On peut s'offrir 5 mois d'abonnement."
+        }
+      ]
+    },
+    {
+      "id": "prob_var_geometrie_01",
+      "source": {"type": "genere_claude_code", "note": "Inspiré de la fiche méthodo géométrie plane (Pythagore)."},
+      "theme": "geometrie",
+      "titre": "Échelle contre un mur",
+      "competence_principale": "Théorème de Pythagore dans un triangle rectangle",
+      "points_total": 3.0,
+      "contexte": "Une échelle de 5 mètres est posée contre un mur vertical. Le pied de l'échelle est à 3 mètres du mur.\n\n> Le sol, le mur et l'échelle forment un triangle rectangle : l'angle droit est au pied du mur, l'échelle est l'hypoténuse.",
+      "sous_questions": [
+        {
+          "id": "prob_var_geometrie_01_q1",
+          "numero": "1",
+          "texte": "À quelle hauteur, en mètres, l'échelle touche-t-elle le mur ?",
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "entier",
+            "reponse_canonique": "4",
+            "unite": "m"
+          },
+          "indices": {
+            "niveau_1": "Dans un triangle rectangle, applique le théorème de Pythagore.",
+            "niveau_2": "5² = 3² + h², donc h² = 25 − 9.",
+            "niveau_3": "h² = 16 donc h = 4 m."
+          },
+          "reveal_explication": "Pythagore : (échelle)² = (distance au mur)² + (hauteur)². Donc 5² = 3² + h², d'où h² = 25 − 9 = 16 et h = 4 m."
+        },
+        {
+          "id": "prob_var_geometrie_01_q2",
+          "numero": "2",
+          "texte": "Si on éloigne le pied de l'échelle à 4 mètres du mur (toujours avec la même échelle de 5 m), à quelle hauteur atteindra-t-elle le mur ?",
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "entier",
+            "reponse_canonique": "3",
+            "unite": "m"
+          },
+          "indices": {
+            "niveau_1": "On réapplique Pythagore avec la nouvelle distance au mur.",
+            "niveau_2": "5² = 4² + h², donc h² = 25 − 16.",
+            "niveau_3": "h² = 9 donc h = 3 m."
+          },
+          "reveal_explication": "5² = 4² + h² donne h² = 25 − 16 = 9, donc h = 3 m. On observe que le triangle (3 ; 4 ; 5) apparaît dans les deux cas."
+        },
+        {
+          "id": "prob_var_geometrie_01_q3",
+          "numero": "3",
+          "texte": "Dans la situation de départ (échelle à 3 m du mur, hauteur 4 m), quel est le périmètre, en mètres, du triangle formé par l'échelle, le mur et le sol ?",
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "entier",
+            "reponse_canonique": "12",
+            "unite": "m"
+          },
+          "indices": {
+            "niveau_1": "Le périmètre d'un triangle est la somme de ses trois côtés.",
+            "niveau_2": "Les côtés sont 3 m, 4 m et 5 m.",
+            "niveau_3": "3 + 4 + 5 = 12 m."
+          },
+          "reveal_explication": "Les trois côtés valent 3 m, 4 m et 5 m. Périmètre = 3 + 4 + 5 = 12 m."
+        }
+      ]
+    },
+    {
+      "id": "prob_var_geometrie_02",
+      "source": {"type": "genere_claude_code", "note": "Inspiré de la fiche méthodo géométrie plane (Pythagore, aires, périmètres)."},
+      "theme": "geometrie",
+      "titre": "Diagonale d'un jardin rectangulaire",
+      "competence_principale": "Pythagore et calculs d'aires / périmètres",
+      "points_total": 3.0,
+      "contexte": "Un jardin rectangulaire mesure **60 mètres** de long et **25 mètres** de large. Un chemin rectiligne traverse le jardin d'un coin à l'autre (diagonale).",
+      "sous_questions": [
+        {
+          "id": "prob_var_geometrie_02_q1",
+          "numero": "1",
+          "texte": "Quel est le périmètre du jardin, en mètres ?",
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "entier",
+            "reponse_canonique": "170",
+            "unite": "m"
+          },
+          "indices": {
+            "niveau_1": "Le périmètre d'un rectangle est 2 × (longueur + largeur).",
+            "niveau_2": "2 × (60 + 25).",
+            "niveau_3": "2 × 85 = 170 m."
+          },
+          "reveal_explication": "Périmètre d'un rectangle = 2 × (L + l) = 2 × (60 + 25) = 2 × 85 = 170 m."
+        },
+        {
+          "id": "prob_var_geometrie_02_q2",
+          "numero": "2",
+          "texte": "Quelle est l'aire du jardin, en mètres carrés ?",
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "entier",
+            "reponse_canonique": "1500",
+            "unite": "m²",
+            "formes_acceptees": ["1500", "1 500", "1500 m²", "1500 m2"]
+          },
+          "indices": {
+            "niveau_1": "L'aire d'un rectangle est longueur × largeur.",
+            "niveau_2": "60 × 25.",
+            "niveau_3": "60 × 25 = 1 500 m²."
+          },
+          "reveal_explication": "Aire d'un rectangle = L × l = 60 × 25 = 1 500 m²."
+        },
+        {
+          "id": "prob_var_geometrie_02_q3",
+          "numero": "3",
+          "texte": "Quelle est la longueur, en mètres, de la diagonale du jardin ?",
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "entier",
+            "reponse_canonique": "65",
+            "unite": "m"
+          },
+          "indices": {
+            "niveau_1": "La diagonale est l'hypoténuse d'un triangle rectangle dont les côtés de l'angle droit sont la longueur et la largeur du rectangle.",
+            "niveau_2": "Applique Pythagore : d² = 60² + 25².",
+            "niveau_3": "d² = 3 600 + 625 = 4 225, donc d = √4 225 = 65 m."
+          },
+          "reveal_explication": "La diagonale est l'hypoténuse d'un triangle rectangle. Pythagore : d² = 60² + 25² = 3 600 + 625 = 4 225. Donc d = √4 225 = 65 m."
+        }
+      ]
+    },
+    {
+      "id": "prob_var_geometrie_03",
+      "source": {"type": "genere_claude_code", "note": "Inspiré de la fiche méthodo géométrie plane (cercle, π)."},
+      "theme": "geometrie",
+      "titre": "Roue de vélo",
+      "competence_principale": "Longueur d'un cercle et applications",
+      "points_total": 2.5,
+      "contexte": "La roue d'un vélo a un **diamètre de 70 cm**.\n\nPour les calculs, on prendra `π ≈ 3,14`.",
+      "sous_questions": [
+        {
+          "id": "prob_var_geometrie_03_q1",
+          "numero": "1",
+          "texte": "Quel est le rayon de la roue, en centimètres ?",
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "entier",
+            "reponse_canonique": "35",
+            "unite": "cm"
+          },
+          "indices": {
+            "niveau_1": "Le rayon est la moitié du diamètre.",
+            "niveau_2": "70 ÷ 2.",
+            "niveau_3": "r = 70 ÷ 2 = 35 cm."
+          },
+          "reveal_explication": "Le rayon vaut la moitié du diamètre : r = 70 ÷ 2 = 35 cm."
+        },
+        {
+          "id": "prob_var_geometrie_03_q2",
+          "numero": "2",
+          "texte": "Quelle est la circonférence (longueur) de la roue, en centimètres ? Arrondis à 0,1 près.",
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "decimal",
+            "reponse_canonique": "219.8",
+            "tolerances": {"abs": 0.1},
+            "unite": "cm",
+            "formes_acceptees": ["219,8", "219.8", "219.80", "219,80"]
+          },
+          "indices": {
+            "niveau_1": "La circonférence d'un cercle est π × diamètre (ou 2 × π × rayon).",
+            "niveau_2": "Calcule 3,14 × 70.",
+            "niveau_3": "3,14 × 70 = 219,8 cm."
+          },
+          "reveal_explication": "Circonférence = π × d = 3,14 × 70 = 219,8 cm."
+        },
+        {
+          "id": "prob_var_geometrie_03_q3",
+          "numero": "3",
+          "texte": "À chaque tour, la roue avance d'une circonférence. Quelle distance, en mètres, le vélo parcourt-il lorsque la roue fait exactement 100 tours ? Arrondis à 0,1 près.",
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "decimal",
+            "reponse_canonique": "219.8",
+            "tolerances": {"abs": 0.5},
+            "unite": "m",
+            "formes_acceptees": ["219,8", "219.8", "220", "219,80"]
+          },
+          "indices": {
+            "niveau_1": "Distance parcourue = nombre de tours × circonférence. Attention à l'unité finale.",
+            "niveau_2": "219,8 cm × 100 = 21 980 cm. Convertis ensuite en mètres (1 m = 100 cm).",
+            "niveau_3": "21 980 cm = 219,8 m."
+          },
+          "reveal_explication": "En 100 tours, la roue parcourt 100 × 219,8 cm = 21 980 cm, soit 219,8 m."
+        }
+      ]
+    },
+    {
+      "id": "prob_var_arith_01",
+      "source": {"type": "genere_claude_code", "note": "Inspiré de la fiche méthodo calcul numérique (PGCD)."},
+      "theme": "arithmetique",
+      "titre": "Bouquets du fleuriste",
+      "competence_principale": "Décomposition en facteurs premiers et PGCD",
+      "points_total": 3.0,
+      "contexte": "Un fleuriste dispose de **48 roses** et de **36 tulipes**. Il souhaite composer le plus grand nombre possible de bouquets identiques, de sorte que :\n\n- chaque bouquet contienne le même nombre de roses,\n- chaque bouquet contienne le même nombre de tulipes,\n- toutes les fleurs soient utilisées.",
+      "sous_questions": [
+        {
+          "id": "prob_var_arith_01_q1",
+          "numero": "1",
+          "texte": "Quel est le plus grand nombre de bouquets que le fleuriste peut composer ?",
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "entier",
+            "reponse_canonique": "12"
+          },
+          "indices": {
+            "niveau_1": "Le nombre de bouquets est un diviseur commun à 48 et 36. On cherche le plus grand : c'est le PGCD.",
+            "niveau_2": "Décompose : 48 = 2⁴ × 3 et 36 = 2² × 3². Le PGCD se lit en prenant le minimum des exposants.",
+            "niveau_3": "PGCD(48, 36) = 2² × 3 = 12."
+          },
+          "reveal_explication": "On cherche le plus grand diviseur commun à 48 et 36. Avec 48 = 2⁴ × 3 et 36 = 2² × 3², on obtient PGCD(48, 36) = 2² × 3 = 12. Le fleuriste peut faire au maximum 12 bouquets."
+        },
+        {
+          "id": "prob_var_arith_01_q2",
+          "numero": "2",
+          "texte": "Combien de roses y aura-t-il dans chaque bouquet ?",
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "entier",
+            "reponse_canonique": "4"
+          },
+          "indices": {
+            "niveau_1": "On répartit les 48 roses équitablement entre les 12 bouquets.",
+            "niveau_2": "48 ÷ 12.",
+            "niveau_3": "48 ÷ 12 = 4 roses par bouquet."
+          },
+          "reveal_explication": "48 roses partagées en 12 bouquets : 48 ÷ 12 = 4 roses par bouquet."
+        },
+        {
+          "id": "prob_var_arith_01_q3",
+          "numero": "3",
+          "texte": "Combien de tulipes y aura-t-il dans chaque bouquet ?",
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "entier",
+            "reponse_canonique": "3"
+          },
+          "indices": {
+            "niveau_1": "Même idée qu'à la question précédente, mais avec les tulipes.",
+            "niveau_2": "36 ÷ 12.",
+            "niveau_3": "36 ÷ 12 = 3 tulipes par bouquet."
+          },
+          "reveal_explication": "36 tulipes partagées en 12 bouquets : 36 ÷ 12 = 3 tulipes par bouquet."
+        },
+        {
+          "id": "prob_var_arith_01_q4",
+          "numero": "4",
+          "texte": "Combien de fleurs compte chaque bouquet au total ?",
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "entier",
+            "reponse_canonique": "7"
+          },
+          "indices": {
+            "niveau_1": "Additionne le nombre de roses et le nombre de tulipes par bouquet.",
+            "niveau_2": "4 + 3.",
+            "niveau_3": "4 + 3 = 7 fleurs par bouquet."
+          },
+          "reveal_explication": "Chaque bouquet contient 4 roses et 3 tulipes, soit 4 + 3 = 7 fleurs au total."
+        }
+      ]
+    },
+    {
+      "id": "prob_var_grandeurs_01",
+      "source": {"type": "genere_claude_code", "note": "Inspiré de la fiche méthodo grandeurs et mesures (volumes, capacités)."},
+      "theme": "grandeurs_mesures",
+      "titre": "Remplissage d'une piscine",
+      "competence_principale": "Volume d'un pavé droit et conversion m³ / litres",
+      "points_total": 3.0,
+      "contexte": "Une piscine hors-sol a la forme d'un pavé droit de **8 m de long**, **4 m de large** et **1,5 m de profondeur**. On la remplit avec un tuyau au débit constant de **12 litres par seconde**.",
+      "sous_questions": [
+        {
+          "id": "prob_var_grandeurs_01_q1",
+          "numero": "1",
+          "texte": "Quel est le volume de la piscine, en mètres cubes ?",
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "entier",
+            "reponse_canonique": "48",
+            "unite": "m³",
+            "formes_acceptees": ["48", "48 m³", "48 m3"]
+          },
+          "indices": {
+            "niveau_1": "Le volume d'un pavé droit est le produit de ses trois dimensions.",
+            "niveau_2": "8 × 4 × 1,5.",
+            "niveau_3": "8 × 4 = 32, puis 32 × 1,5 = 48 m³."
+          },
+          "reveal_explication": "Volume d'un pavé droit = L × l × h = 8 × 4 × 1,5 = 48 m³."
+        },
+        {
+          "id": "prob_var_grandeurs_01_q2",
+          "numero": "2",
+          "texte": "Convertis ce volume en litres (rappel : 1 m³ = 1 000 L).",
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "entier",
+            "reponse_canonique": "48000",
+            "unite": "L",
+            "formes_acceptees": ["48000", "48 000", "48000 L", "48 000 L"]
+          },
+          "indices": {
+            "niveau_1": "Pour passer de m³ à L, on multiplie par 1 000.",
+            "niveau_2": "48 × 1 000.",
+            "niveau_3": "48 × 1 000 = 48 000 L."
+          },
+          "reveal_explication": "1 m³ = 1 000 L, donc 48 m³ = 48 × 1 000 = 48 000 L."
+        },
+        {
+          "id": "prob_var_grandeurs_01_q3",
+          "numero": "3",
+          "texte": "Combien de secondes faut-il pour remplir entièrement la piscine à 12 L/s ?",
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "entier",
+            "reponse_canonique": "4000",
+            "unite": "s",
+            "formes_acceptees": ["4000", "4 000", "4000 s"]
+          },
+          "indices": {
+            "niveau_1": "Durée = volume total ÷ débit.",
+            "niveau_2": "48 000 L ÷ 12 L/s.",
+            "niveau_3": "48 000 ÷ 12 = 4 000 secondes."
+          },
+          "reveal_explication": "Durée = 48 000 ÷ 12 = 4 000 s (soit environ 1 h 07 min)."
+        }
+      ]
+    },
+    {
+      "id": "prob_var_grandeurs_02",
+      "source": {"type": "genere_claude_code", "note": "Inspiré de la fiche méthodo grandeurs et mesures (vitesses, durées)."},
+      "theme": "grandeurs_mesures",
+      "titre": "Trajet en train",
+      "competence_principale": "Vitesse, distance, durée et conversions",
+      "points_total": 3.0,
+      "contexte": "Un train à grande vitesse parcourt **320 km** en **2 heures et 40 minutes**. On suppose que sa vitesse est constante pendant tout le trajet.",
+      "sous_questions": [
+        {
+          "id": "prob_var_grandeurs_02_q1",
+          "numero": "1",
+          "texte": "Exprime la durée du trajet en heures, sous forme décimale (arrondie à 0,01 près).",
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "decimal",
+            "reponse_canonique": "2.67",
+            "tolerances": {"abs": 0.01},
+            "unite": "h",
+            "formes_acceptees": ["2,67", "2.67", "2,66", "2.66", "2.6667", "2,6667"]
+          },
+          "indices": {
+            "niveau_1": "2 h 40 min, c'est 2 h plus une fraction d'heure. Convertis 40 min en heures.",
+            "niveau_2": "40 min = 40/60 h = 2/3 h ≈ 0,67 h.",
+            "niveau_3": "2 + 40/60 = 8/3 ≈ 2,67 h."
+          },
+          "reveal_explication": "2 h 40 min = 2 h + 40/60 h = 2 h + 2/3 h = 8/3 h ≈ 2,67 h (arrondi au centième)."
+        },
+        {
+          "id": "prob_var_grandeurs_02_q2",
+          "numero": "2",
+          "texte": "Quelle est la vitesse moyenne du train, en kilomètres par heure ?",
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "entier",
+            "reponse_canonique": "120",
+            "unite": "km/h"
+          },
+          "indices": {
+            "niveau_1": "Vitesse moyenne = distance totale ÷ durée totale.",
+            "niveau_2": "320 ÷ (8/3) = 320 × 3/8.",
+            "niveau_3": "320 × 3 ÷ 8 = 960 ÷ 8 = 120 km/h."
+          },
+          "reveal_explication": "Vitesse = distance ÷ durée = 320 ÷ (8/3) = 320 × 3/8 = 960 ÷ 8 = 120 km/h."
+        },
+        {
+          "id": "prob_var_grandeurs_02_q3",
+          "numero": "3",
+          "texte": "À cette vitesse constante, quelle distance, en kilomètres, le train parcourt-il en 45 minutes ?",
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "entier",
+            "reponse_canonique": "90",
+            "unite": "km"
+          },
+          "indices": {
+            "niveau_1": "Convertis 45 min en heures, puis multiplie par la vitesse.",
+            "niveau_2": "45 min = 0,75 h ; distance = 120 × 0,75.",
+            "niveau_3": "120 × 0,75 = 90 km."
+          },
+          "reveal_explication": "45 min = 0,75 h. Distance = vitesse × durée = 120 × 0,75 = 90 km."
+        },
+        {
+          "id": "prob_var_grandeurs_02_q4",
+          "numero": "4",
+          "texte": "Combien d'heures faut-il au train pour parcourir 600 km à cette vitesse ?",
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "entier",
+            "reponse_canonique": "5",
+            "unite": "h"
+          },
+          "indices": {
+            "niveau_1": "Durée = distance ÷ vitesse.",
+            "niveau_2": "600 ÷ 120.",
+            "niveau_3": "600 ÷ 120 = 5 h."
+          },
+          "reveal_explication": "Durée = distance ÷ vitesse = 600 ÷ 120 = 5 h."
+        }
+      ]
+    }
+  ]
+}
