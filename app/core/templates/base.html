@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{% block title %}Révise ton DNB{% endblock %}</title>
+  <title>{% block title %}Révise ton brevet{% endblock %}</title>
   <link rel="icon" href="data:,">
   <!-- Assets vendored localement (cf. app/static/vendor/) pour respecter la
        CSP de Traefik et garder l'app 100% souveraine — aucun appel CDN. -->
@@ -216,18 +216,25 @@
   <header class="sticky top-0 z-20 backdrop-blur bg-white/70 border-b border-slate-200/60">
     <div class="max-w-3xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
       <a href="/" class="flex items-center gap-2 font-display font-bold text-lg text-brand-700">
-        <span class="inline-flex items-center justify-center h-9 w-9 rounded-xl bg-gradient-to-br from-brand-500 to-purple-500 text-white shadow-glow">📚</span>
-        <span>Révise ton DNB</span>
+        <img src="/static/mascots/logo.png"
+             alt=""
+             class="h-10 w-10 object-contain"
+             width="40" height="40">
+        <span>Révise ton brevet</span>
       </a>
-      <nav class="text-sm flex items-center gap-2 sm:gap-3">
-        {# ============================================================
-           Menu matières — une entrée par matière disponible.
 
-           Chaque lien pointe vers la **page d'index** de la matière
-           (pas vers une épreuve précise) : c'est là que l'élève choisit
-           son épreuve. Ajouter une nouvelle entrée ici quand un
-           nouveau router matière est monté dans `app/core/main.py`.
-           ============================================================ #}
+      {# ============================================================
+         Menu matières — une entrée par matière disponible.
+
+         Chaque lien pointe vers la **page d'index** de la matière
+         (pas vers une épreuve précise) : c'est là que l'élève choisit
+         son épreuve. Ajouter une nouvelle entrée ici quand un
+         nouveau router matière est monté dans `app/core/main.py`.
+
+         Deux rendus : barre inline à partir de md, panneau déroulant
+         sous le header en dessous.
+         ============================================================ #}
+      <nav class="hidden md:flex text-sm items-center gap-2 md:gap-3">
         <a href="/histoire-geo-emc/"
            class="text-slate-600 hover:text-brand-700 hover:bg-brand-50 font-medium px-2.5 py-1.5 rounded-lg transition">
           Histoire-Géo-EMC
@@ -241,9 +248,64 @@
           Maths
         </a>
       </nav>
+
+      <button type="button"
+              id="nav-toggle"
+              aria-label="Ouvrir le menu"
+              aria-controls="nav-mobile"
+              aria-expanded="false"
+              class="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-lg text-slate-700 hover:text-brand-700 hover:bg-brand-50 transition">
+        <svg id="nav-icon-burger" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="4" y1="7" x2="20" y2="7"></line>
+          <line x1="4" y1="12" x2="20" y2="12"></line>
+          <line x1="4" y1="17" x2="20" y2="17"></line>
+        </svg>
+        <svg id="nav-icon-close" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="hidden">
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+        </svg>
+      </button>
     </div>
+
+    <nav id="nav-mobile" class="hidden md:hidden border-t border-slate-200/60 bg-white/80">
+      <div class="max-w-3xl mx-auto px-4 py-2 flex flex-col gap-1 text-sm">
+        <a href="/histoire-geo-emc/"
+           class="text-slate-700 hover:text-brand-700 hover:bg-brand-50 font-medium px-3 py-2 rounded-lg transition">
+          Histoire-Géo-EMC
+        </a>
+        <a href="/francais/"
+           class="text-slate-700 hover:text-brand-700 hover:bg-brand-50 font-medium px-3 py-2 rounded-lg transition">
+          Français
+        </a>
+        <a href="/mathematiques/"
+           class="text-slate-700 hover:text-brand-700 hover:bg-brand-50 font-medium px-3 py-2 rounded-lg transition">
+          Maths
+        </a>
+      </div>
+    </nav>
+
     {% block progress %}{% endblock %}
   </header>
+
+  <script>
+    (function() {
+      var btn = document.getElementById('nav-toggle');
+      var panel = document.getElementById('nav-mobile');
+      var iconBurger = document.getElementById('nav-icon-burger');
+      var iconClose = document.getElementById('nav-icon-close');
+      if (!btn || !panel) return;
+      btn.addEventListener('click', function() {
+        var willOpen = panel.classList.contains('hidden');
+        panel.classList.toggle('hidden');
+        btn.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+        btn.setAttribute('aria-label', willOpen ? 'Fermer le menu' : 'Ouvrir le menu');
+        if (iconBurger && iconClose) {
+          iconBurger.classList.toggle('hidden', willOpen);
+          iconClose.classList.toggle('hidden', !willOpen);
+        }
+      });
+    })();
+  </script>
 
   <main class="max-w-3xl mx-auto px-4 py-10">
     {% block content %}{% endblock %}
