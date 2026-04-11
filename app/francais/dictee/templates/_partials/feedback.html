@@ -1,0 +1,57 @@
+{# Feedback retourné par /session/{id}/answer (HTMX swap dans #feedback-zone) #}
+
+<div class="rounded-2xl bg-white border border-slate-200 p-6 shadow-sm">
+  <div class="flex items-baseline justify-between mb-4">
+    <h3 class="font-display text-lg font-bold text-brand-900">
+      {% if result.parfait %}
+        Bravo, dictée parfaite&nbsp;!
+      {% else %}
+        Ta note&nbsp;: {{ result.note_sur_10 }}/10
+      {% endif %}
+    </h3>
+    <span class="text-xs text-slate-500">
+      {{ result.nb_fautes }} faute{% if result.nb_fautes > 1 %}s{% endif %}
+    </span>
+  </div>
+
+  {% if not result.parfait %}
+  <p class="text-sm text-slate-600 mb-3">
+    Voici ta copie corrigée. Les passages en rouge barré sont ce que tu as
+    écrit, en vert ce qu'il fallait écrire. Les mots en orange sont ceux
+    que tu as oubliés.
+  </p>
+
+  <div class="font-serif leading-relaxed text-slate-800 rounded-xl bg-slate-50 border border-slate-200 p-4 text-base">
+    {%- for d in result.diff -%}
+      {%- if d.status == "ok" -%}
+        {{ d.expected }}
+      {%- elif d.status == "wrong" -%}
+        <span class="line-through text-red-600">{{ d.got }}</span><span class="text-emerald-700 font-semibold">{{ d.expected }}</span>
+      {%- elif d.status == "missing" -%}
+        <span class="bg-amber-100 text-amber-900 font-semibold rounded px-0.5">{{ d.expected }}</span>
+      {%- elif d.status == "extra" -%}
+        <span class="line-through text-red-600">{{ d.got }}</span>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+
+  <div class="mt-4 text-xs text-slate-500">
+    <strong class="text-slate-700">Barème simplifié</strong> : 1 point retiré
+    par faute, plafonné à 10 points perdus. Le barème officiel DNB compte
+    1 point pour les fautes lexicales et 2 points pour les fautes grammaticales,
+    cette nuance arrivera dans une prochaine version.
+  </div>
+  {% else %}
+  <p class="text-emerald-700 text-sm">
+    Aucune faute, c'est exactement le texte attendu. Tu peux passer à une
+    autre dictée pour t'entraîner sur d'autres pièges.
+  </p>
+  {% endif %}
+
+  <div class="mt-5 flex flex-wrap gap-2">
+    <a href="/francais/dictee/" class="btn-secondary">Choisir une autre dictée</a>
+    <a href="/francais/dictee/session/{{ session_id }}/synthese" class="btn-primary">
+      Voir le bilan complet
+    </a>
+  </div>
+</div>

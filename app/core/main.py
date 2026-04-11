@@ -45,6 +45,7 @@ from starlette.middleware.sessions import SessionMiddleware
 
 from app.core import db as core_db
 from app.francais.comprehension.loader import init_french_comprehension
+from app.francais.dictee.loader import init_french_dictee
 from app.francais.redaction.loader import init_french_redaction
 from app.francais.routes import router as francais_router
 from app.histoire_geo_emc.developpement_construit.models import init_hgemc_subjects
@@ -60,6 +61,7 @@ REPO_ROOT = APP_DIR.parent
 CORE_TEMPLATES = APP_DIR / "core" / "templates"
 STATIC_DIR = APP_DIR / "static"
 FRANCAIS_IMAGES_DIR = REPO_ROOT / "content" / "francais" / "comprehension" / "images"
+FRANCAIS_DICTEES_AUDIO_DIR = REPO_ROOT / "content" / "francais" / "dictee" / "audio"
 
 
 # ============================================================================
@@ -92,6 +94,14 @@ if FRANCAIS_IMAGES_DIR.exists():
         name="francais-images",
     )
 
+# MP3 des dictées français servis directement depuis content/.
+if FRANCAIS_DICTEES_AUDIO_DIR.exists():
+    app.mount(
+        "/francais-dictees-audio",
+        StaticFiles(directory=str(FRANCAIS_DICTEES_AUDIO_DIR)),
+        name="francais-dictees-audio",
+    )
+
 # Templates core : uniquement pour l'accueil global et base.html.
 templates = Jinja2Templates(directory=str(CORE_TEMPLATES))
 
@@ -116,13 +126,15 @@ def on_startup() -> None:
     n_reperes = init_reperes()
     n_francais = init_french_comprehension()
     n_redaction = init_french_redaction()
+    n_dictee = init_french_dictee()
     logger.info(
-        "DB prête (%s) — %d sujets DC, %d repères, %d exos français compréhension, %d sujets rédaction chargés",
+        "DB prête (%s) — %d sujets DC, %d repères, %d exos compréhension, %d sujets rédaction, %d dictées chargées",
         core_db.DB_PATH,
         n_hgemc,
         n_reperes,
         n_francais,
         n_redaction,
+        n_dictee,
     )
 
 

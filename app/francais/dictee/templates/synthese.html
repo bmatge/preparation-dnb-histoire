@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block title %}Bilan dictée — {{ dictee.source.annee }} {{ dictee.source.centre }}{% endblock %}
+
+{% block content %}
+<div class="space-y-6">
+  <header>
+    <p class="text-sm text-slate-500">
+      <a href="/francais/" class="hover:text-brand-700">Français</a>
+      <span class="mx-1">·</span>
+      <a href="/francais/dictee/" class="hover:text-brand-700">Dictée</a>
+      <span class="mx-1">·</span>
+      Bilan
+    </p>
+    <h1 class="mt-2 font-display text-2xl font-bold text-brand-900">
+      Bilan — {{ dictee.reference.auteur }}, <em>{{ dictee.reference.oeuvre }}</em>
+    </h1>
+  </header>
+
+  {% if result %}
+  <section class="rounded-2xl bg-white border border-slate-200 p-6 shadow-sm">
+    <div class="flex items-baseline justify-between mb-4">
+      <h2 class="font-display text-xl font-bold text-brand-800">
+        Note&nbsp;: {{ result.note_sur_10 }}/10
+      </h2>
+      <span class="text-sm text-slate-500">
+        {{ result.nb_fautes }} faute{% if result.nb_fautes > 1 %}s{% endif %}
+      </span>
+    </div>
+
+    <h3 class="text-sm font-semibold text-slate-600 uppercase tracking-wide mb-2">
+      Texte de référence
+    </h3>
+    <p class="font-serif leading-relaxed text-slate-800 rounded-xl bg-slate-50 border border-slate-200 p-4 mb-4">
+      {{ dictee.texte_complet }}
+    </p>
+
+    {% if dictee.phrases %}
+    <h3 class="text-sm font-semibold text-slate-600 uppercase tracking-wide mb-2">
+      Pièges anticipés par l'examinateur
+    </h3>
+    <div class="space-y-3">
+      {% for phrase in dictee.phrases %}
+        {% if phrase.difficultes %}
+        <div class="rounded-xl border border-slate-200 p-3">
+          <div class="text-xs font-semibold text-slate-500 mb-1">Phrase {{ phrase.ordre }}</div>
+          <ul class="text-sm text-slate-700 space-y-1">
+            {% for d in phrase.difficultes %}
+            <li>
+              <span class="inline-block text-xs font-semibold uppercase rounded px-1.5 py-0.5 bg-brand-100 text-brand-800 mr-1">{{ d.type }}</span>
+              <strong>{{ d.mot }}</strong> — {{ d.explication }}
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+    {% endif %}
+  </section>
+  {% else %}
+  <section class="rounded-2xl bg-amber-50 border border-amber-200 p-6 text-amber-900">
+    Tu n'as pas encore soumis de copie pour cette dictée.
+    <a href="/francais/dictee/session/{{ session.id }}" class="underline">Reprendre l'exercice</a>.
+  </section>
+  {% endif %}
+
+  <div class="flex flex-wrap gap-2">
+    <a href="/francais/dictee/" class="btn-primary">Une autre dictée</a>
+    <a href="/francais/" class="btn-secondary">Retour au français</a>
+  </div>
+</div>
+{% endblock %}
