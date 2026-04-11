@@ -48,10 +48,13 @@ _HERE = Path(__file__).resolve().parent
 _APP_DIR = _HERE.parent.parent
 _REPO_ROOT = _APP_DIR.parent
 _CORE_TEMPLATES = _APP_DIR / "core" / "templates"
+_FR_TEMPLATES = _HERE.parent / "templates"  # pour _francais_base.html + _tools_fab.html
 _COMP_TEMPLATES = _HERE / "templates"
 _IMAGES_DIR = _REPO_ROOT / "content" / "francais" / "comprehension" / "images"
 
-templates = Jinja2Templates(directory=[str(_COMP_TEMPLATES), str(_CORE_TEMPLATES)])
+templates = Jinja2Templates(
+    directory=[str(_COMP_TEMPLATES), str(_FR_TEMPLATES), str(_CORE_TEMPLATES)]
+)
 
 
 def _image_url_for(slug: str) -> str | None:

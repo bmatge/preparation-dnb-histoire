@@ -1,0 +1,16 @@
+{# Layout intermédiaire spécifique à la matière histoire-géo-EMC.
+
+   Rôle : injecter le bouton flottant « Outils » (mini-dictionnaire)
+   sur toutes les pages HG-EMC sans devoir répéter l'include dans
+   chaque template. Chaque template HG-EMC (index, développement
+   construit, repères) étend ce fichier au lieu de `base.html`.
+
+   Cf. `app/core/templates/_definition_fab.html` pour le partial
+   partagé — la recette « par matière » reste la même que pour maths,
+   cf. `_maths_base.html`. #}
+
+{% extends "base.html" %}
+
+{% block fab %}
+  {% include "_tools_fab.html" %}
+{% endblock %}

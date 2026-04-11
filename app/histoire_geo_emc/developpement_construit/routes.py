@@ -65,9 +65,12 @@ router = APIRouter(tags=["histoire-geo-emc / développement construit"])
 _HERE = Path(__file__).resolve().parent
 _APP_DIR = _HERE.parent.parent
 _CORE_TEMPLATES = _APP_DIR / "core" / "templates"
+_HGEMC_TEMPLATES = _HERE.parent / "templates"  # pour _hgemc_base.html + _tools_fab.html
 _DC_TEMPLATES = _HERE / "templates"
 
-templates = Jinja2Templates(directory=[str(_DC_TEMPLATES), str(_CORE_TEMPLATES)])
+templates = Jinja2Templates(
+    directory=[str(_DC_TEMPLATES), str(_HGEMC_TEMPLATES), str(_CORE_TEMPLATES)]
+)
 templates.env.filters["eval_md"] = lambda txt: Markup(render_eval_markdown(txt or ""))
 
 

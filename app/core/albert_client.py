@@ -94,6 +94,13 @@ class Task(str, Enum):
     # Correction finale fond + forme de la copie (étape 7)
     FR_REDACTION_FINAL_CORRECTION = "fr_redaction_final_correction"
 
+    # --- Outils matière : mini-dictionnaire (bouton flottant FAB) ---
+    # Définition TRÈS courte (1-2 phrases) d'un mot ou d'une expression
+    # saisie par l'élève dans la popin « Outils » côté français.
+    FR_DEFINITION = "fr_definition"
+    # Idem côté histoire-géographie-EMC (notion, date, lieu, personnage…).
+    HGEMC_DEFINITION = "hgemc_definition"
+
     # --- Mathématiques : automatismes ---
     # Indice gradué (niveau 1, 2 ou 3) sur une question d'automatismes
     MATH_AUTO_HINT = "math_auto_hint"
@@ -234,6 +241,27 @@ TASK_PROFILES: dict[Task, TaskProfile] = {
         max_tokens=2000,
         require_citations=True,
         check_no_ghostwriting=False,
+    ),
+    # --- Outils matière : mini-dictionnaire ---
+    # Très court, rapide, pas de RAG. Mistral-Small suffit largement pour
+    # une définition de 1 à 2 phrases. max_tokens=300 pour laisser la marge
+    # au modèle sans encourager les réponses longues (le prompt est strict
+    # sur la longueur). Pas de citations exigées (on ne branche pas le RAG
+    # sur cet outil), pas de filtre ghostwriting (sortie = une définition
+    # factuelle courte, rien à voir avec une rédaction à la place).
+    Task.FR_DEFINITION: TaskProfile(
+        model=MODEL_FAST,
+        temperature=0.3,
+        max_tokens=300,
+        check_no_ghostwriting=False,
+        require_citations=False,
+    ),
+    Task.HGEMC_DEFINITION: TaskProfile(
+        model=MODEL_FAST,
+        temperature=0.3,
+        max_tokens=300,
+        check_no_ghostwriting=False,
+        require_citations=False,
     ),
     # --- Mathématiques : automatismes ---
     # Indice et révélation : Mistral-Small (court, rapide). Pas de RAG donc

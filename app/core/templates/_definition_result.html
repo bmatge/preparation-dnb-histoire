@@ -1,0 +1,21 @@
+{# Fragment HTML renvoyé par les routes `/outils/definition` des
+   matières. Injecté par HTMX dans la zone `[data-fab-result]` de
+   `_definition_fab.html`.
+
+   Variables attendues :
+   - term       : mot/expression demandé (échappé par Jinja)
+   - definition : texte court renvoyé par Albert (1 à 2 phrases)
+   - error      : message d'erreur utilisateur-lisible si l'appel
+                  Albert a échoué (aucune stack trace). Quand `error`
+                  est fourni, `definition` et `term` sont ignorés. #}
+
+{% if error %}
+<div class="rounded-xl bg-rose-50 border border-rose-200 px-3 py-2.5 text-[13px] text-rose-800">
+  {{ error }}
+</div>
+{% else %}
+<div class="rounded-xl bg-emerald-50 border border-emerald-200 px-3 py-2.5 text-[13px] text-slate-800 leading-relaxed animate-reveal">
+  <div class="font-semibold text-emerald-900 mb-0.5">{{ term }}</div>
+  <div>{{ definition }}</div>
+</div>
+{% endif %}

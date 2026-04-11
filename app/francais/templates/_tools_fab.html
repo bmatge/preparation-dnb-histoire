@@ -1,0 +1,17 @@
+{# Bouton flottant « Outils » de la matière français.
+
+   Wrapper mince : définit les variables Jinja attendues par le partial
+   partagé `_definition_fab.html` (situé dans `app/core/templates/`)
+   puis l'inclut. Toute la logique HTML+JS vit dans le partial partagé
+   — ce fichier n'a qu'à fournir les spécificités matière (URL de la
+   route, id racine, libellé, placeholder).
+
+   L'id `fr-fab-root` est le marqueur utilisé par les tests de
+   présence / absence (`tests/francais/test_tools_fab.py`). #}
+
+{% set fab_root_id = "fr-fab-root" %}
+{% set fab_endpoint = "/francais/outils/definition" %}
+{% set fab_matiere_label = "français" %}
+{% set fab_placeholder = "alexandrin, hypallage, apposition…" %}
+{% set fab_mascot_src = "/static/mascots/francais.png" %}
+{% include "_definition_fab.html" %}

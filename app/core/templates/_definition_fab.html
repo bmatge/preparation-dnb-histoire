@@ -1,0 +1,153 @@
+{# Bouton flottant « Outils » partagé — mini-dictionnaire.
+
+   Partial réutilisable entre matières : chaque matière (français,
+   HG-EMC…) crée son propre `_tools_fab.html` qui se contente de
+   définir les variables ci-dessous et d'inclure ce fichier. La
+   logique HTML + JS vit ici une seule fois, les spécificités (URL de
+   l'endpoint, libellés, identifiants de tests) sont passées en
+   variables Jinja. Les ids DOM sont préfixés par `fab_root_id` pour
+   permettre aux tests de vérifier la présence / absence de la FAB
+   matière par matière.
+
+   Variables Jinja attendues :
+   - fab_root_id       : id CSS de la racine (ex. "fr-fab-root").
+   - fab_endpoint      : URL POST qui renvoie le fragment HTML résultat
+                         (HTMX : `hx-post`).
+   - fab_matiere_label : libellé affiché dans le header de la popin
+                         (ex. "français", "histoire-géo-EMC").
+   - fab_placeholder   : exemple de mots/expressions affiché dans
+                         l'input (ex. "alexandrin, hypallage…").
+   - fab_mascot_src    : URL de la mascotte matière affichée dans le
+                         header de la popin et sur le bouton flottant
+                         (ex. "/static/mascots/francais.png").
+
+   Le form POSTe via HTMX vers `fab_endpoint` avec un champ `term`.
+   Le serveur répond un fragment HTML (voir `_definition_result.html`)
+   qui est injecté dans la zone résultat. Pas d'évaluation JS côté
+   client (contrairement à la calculette maths), tout passe par
+   Albert derrière la route matière. #}
+
+<div id="{{ fab_root_id }}"
+     class="fixed bottom-5 right-5 z-50 flex flex-col items-end gap-3 print:hidden">
+
+  <div data-fab-panel
+       class="hidden w-[min(92vw,22rem)] bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden"
+       role="dialog"
+       aria-label="Mini-dictionnaire {{ fab_matiere_label }}">
+    <div class="flex items-center justify-between px-4 py-3 bg-gradient-to-r from-brand-500 to-purple-600 text-white">
+      <div class="flex items-center gap-2">
+        <img src="{{ fab_mascot_src }}"
+             alt=""
+             class="h-9 w-9 object-contain drop-shadow"
+             width="36" height="36">
+        <div>
+          <div class="font-display font-semibold text-sm leading-tight">Mini-dictionnaire</div>
+          <div class="text-[11px] opacity-80 leading-tight">Tape un mot, je te donne sa définition courte</div>
+        </div>
+      </div>
+      <button type="button" data-fab-close
+              aria-label="Fermer le mini-dictionnaire"
+              class="h-7 w-7 rounded-lg bg-white/10 hover:bg-white/20 text-white text-sm">
+        ✕
+      </button>
+    </div>
+
+    <form data-fab-form
+          class="p-4 space-y-3"
+          autocomplete="off"
+          hx-post="{{ fab_endpoint }}"
+          hx-target="[data-fab-result]"
+          hx-swap="innerHTML"
+          hx-indicator="[data-fab-loader]">
+      <label class="block">
+        <span class="sr-only">Mot ou expression à définir</span>
+        <input type="text"
+               name="term"
+               data-fab-input
+               maxlength="80"
+               spellcheck="false"
+               placeholder="{{ fab_placeholder }}"
+               class="w-full border border-slate-200 rounded-xl px-3 py-2.5 text-[15px] focus:ring-2 focus:ring-brand-400 focus:border-brand-400 outline-none transition">
+      </label>
+      <div class="flex items-center gap-2">
+        <button type="submit" class="btn-primary flex-1">Définir</button>
+        <button type="button" data-fab-clear class="btn-secondary">Effacer</button>
+      </div>
+      <div data-fab-loader class="htmx-indicator text-[12px] text-slate-500 italic">
+        Recherche en cours…
+      </div>
+      <div data-fab-result
+           class="min-h-[1.75rem]"
+           aria-live="polite"></div>
+    </form>
+
+    <p class="px-4 pb-3 text-[11px] text-slate-500 leading-relaxed">
+      Astuce : tape le mot exactement comme il apparaît dans ton texte ou ta
+      consigne. Pour un mot ambigu, ajoute un bout de contexte.
+    </p>
+  </div>
+
+  <button type="button" data-fab-button
+          aria-label="Ouvrir le mini-dictionnaire"
+          aria-expanded="false"
+          class="inline-flex items-center gap-2 pl-2 pr-5 py-2 rounded-full bg-gradient-to-br from-brand-500 to-purple-600 text-white font-display font-semibold text-sm shadow-2xl hover:scale-[1.03] active:scale-[0.98] transition">
+    <img src="{{ fab_mascot_src }}"
+         alt=""
+         class="h-10 w-10 object-contain drop-shadow"
+         width="40" height="40">
+    Outils
+  </button>
+
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  var root = document.getElementById("{{ fab_root_id }}");
+  if (!root) return;
+  var button = root.querySelector("[data-fab-button]");
+  var panel  = root.querySelector("[data-fab-panel]");
+  var closeBt = root.querySelector("[data-fab-close]");
+  var form   = root.querySelector("[data-fab-form]");
+  var input  = root.querySelector("[data-fab-input]");
+  var clearBt = root.querySelector("[data-fab-clear]");
+  var result = root.querySelector("[data-fab-result]");
+
+  function openPanel() {
+    panel.classList.remove("hidden");
+    button.setAttribute("aria-expanded", "true");
+    setTimeout(function () { input && input.focus(); }, 30);
+  }
+  function closePanel() {
+    panel.classList.add("hidden");
+    button.setAttribute("aria-expanded", "false");
+  }
+  function togglePanel() {
+    if (panel.classList.contains("hidden")) openPanel();
+    else closePanel();
+  }
+
+  button.addEventListener("click", togglePanel);
+  closeBt.addEventListener("click", closePanel);
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && !panel.classList.contains("hidden")) {
+      closePanel();
+    }
+  });
+
+  // Ferme quand on clique en dehors du FAB (popin ou bouton).
+  document.addEventListener("click", function (e) {
+    if (panel.classList.contains("hidden")) return;
+    if (root.contains(e.target)) return;
+    closePanel();
+  });
+
+  clearBt.addEventListener("click", function () {
+    input.value = "";
+    result.innerHTML = "";
+    input.focus();
+  });
+})();
+</script>
