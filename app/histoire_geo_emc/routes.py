@@ -30,6 +30,7 @@ from fastapi import APIRouter, Request
 from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.templating import Jinja2Templates
 
+from app.histoire_geo_emc import outils as hgemc_outils
 from app.histoire_geo_emc.developpement_construit.routes import router as dc_router
 from app.histoire_geo_emc.reperes.routes import router as reperes_router
 
@@ -61,6 +62,10 @@ templates = Jinja2Templates(directory=[str(_HGEMC_TEMPLATES), str(_CORE_TEMPLATE
 def hgemc_index(request: Request):
     """Page d'index de la matière : liste des épreuves disponibles."""
     return templates.TemplateResponse(request, "index.html")
+
+
+# Route du mini-dictionnaire (bouton flottant « Outils »).
+hgemc_outils.register_route(router, templates)
 
 
 # ============================================================================
