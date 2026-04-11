@@ -103,6 +103,15 @@ class Task(str, Enum):
     # réponse forcée en JSON strict {"correct": bool, "feedback_court": str}
     MATH_AUTO_EVAL_OPEN = "math_auto_eval_open"
 
+    # --- Mathématiques : raisonnement et résolution de problèmes ---
+    # Indice gradué sur une sous-question d'exercice de raisonnement
+    MATH_PROB_HINT = "math_prob_hint"
+    # Révélation pédagogique d'une sous-question + mini-explication
+    MATH_PROB_REVEAL = "math_prob_reveal"
+    # Évaluation d'une justification courte (sous-question à scoring=albert),
+    # réponse forcée en JSON strict {"correct": bool, "feedback_court": str}
+    MATH_PROB_EVAL_OPEN = "math_prob_eval_open"
+
 
 @dataclass(frozen=True)
 class TaskProfile:
@@ -253,6 +262,32 @@ TASK_PROFILES: dict[Task, TaskProfile] = {
         model=MODEL_HEAVY,
         temperature=0.2,
         max_tokens=800,
+        check_no_ghostwriting=False,
+        require_citations=False,
+    ),
+    # --- Mathématiques : raisonnement et résolution de problèmes ---
+    # Mêmes profils que pour les automatismes : les indices et révélations
+    # tournent sur Mistral-Small (courts, rapides, pas de citations exigées),
+    # l'évaluation ouverte passe sur gpt-oss-120b avec JSON strict. Les
+    # questions sont plus longues (contexte d'exercice + sous-question),
+    # on monte un peu le plafond de tokens pour laisser la marge côté
+    # reasoning du modèle heavy.
+    Task.MATH_PROB_HINT: TaskProfile(
+        model=MODEL_FAST,
+        temperature=0.5,
+        max_tokens=400,
+        check_no_ghostwriting=False,
+    ),
+    Task.MATH_PROB_REVEAL: TaskProfile(
+        model=MODEL_FAST,
+        temperature=0.3,
+        max_tokens=600,
+        check_no_ghostwriting=False,
+    ),
+    Task.MATH_PROB_EVAL_OPEN: TaskProfile(
+        model=MODEL_HEAVY,
+        temperature=0.2,
+        max_tokens=900,
         check_no_ghostwriting=False,
         require_citations=False,
     ),

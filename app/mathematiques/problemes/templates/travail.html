@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+
+{% block title %}{{ exercise.titre }} — Sous-question {{ position }}/{{ total }}{% endblock %}
+
+{% block content %}
+<div class="flex items-center justify-between mb-3 animate-reveal">
+  <div>
+    <div class="text-xs uppercase tracking-wider text-brand-700 font-semibold mb-0.5">
+      {{ theme_label }}
+    </div>
+    <h1 class="font-display text-2xl font-bold text-slate-900">{{ exercise.titre }}</h1>
+  </div>
+  <span class="text-sm text-slate-500">
+    Score : <span class="font-bold text-brand-700">{{ score }}</span>/{{ total }}
+  </span>
+</div>
+
+<div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 mb-5 animate-reveal">
+  <details class="group" open>
+    <summary class="flex items-center justify-between cursor-pointer list-none">
+      <span class="text-sm font-semibold text-slate-700">Énoncé de l'exercice</span>
+      <span class="text-xs text-slate-500 group-open:hidden">Afficher</span>
+      <span class="text-xs text-slate-500 hidden group-open:inline">Replier</span>
+    </summary>
+    <div class="eval-md mt-3 text-slate-800 text-[15px]">{{ exercise.contexte | eval_md }}</div>
+  </details>
+</div>
+
+<div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 mb-5 animate-reveal">
+  <div class="flex items-center justify-between mb-3">
+    <span class="text-sm font-semibold text-slate-500">
+      Sous-question <span class="text-brand-700">{{ position }}</span> / {{ total }}
+      <span class="text-slate-400"> — n° {{ subquestion.numero }}</span>
+    </span>
+    <span class="text-xs text-slate-400">
+      Indices : {{ hints_used }}/{{ max_hints }}
+    </span>
+  </div>
+  <div class="eval-md font-display text-lg text-slate-900 leading-snug">{{ subquestion.texte | eval_md }}</div>
+</div>
+
+<form hx-post="/mathematiques/problemes/travail/answer"
+      hx-target="#feedback-area"
+      hx-swap="innerHTML"
+      hx-indicator="#loading"
+      class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 space-y-4 animate-reveal">
+  <label class="block">
+    <span class="text-sm font-semibold text-slate-700 block mb-2">
+      Ta réponse
+    </span>
+    {% set sc = subquestion.scoring or {} %}
+    {% if sc.mode == "albert" %}
+    <textarea name="answer" rows="3" required
+              placeholder="Rédige une justification courte (1 à 2 phrases)"
+              class="w-full border border-slate-200 rounded-xl px-4 py-3 text-base focus:ring-2 focus:ring-brand-400 focus:border-brand-400 outline-none transition"></textarea>
+    {% else %}
+    <input type="text" name="answer" autocomplete="off" required
+           inputmode="text"
+           placeholder="Un nombre, une fraction a/b, une expression…"
+           class="w-full border border-slate-200 rounded-xl px-4 py-3 text-base focus:ring-2 focus:ring-brand-400 focus:border-brand-400 outline-none transition">
+    {% endif %}
+  </label>
+  <div class="flex items-center justify-between gap-3 flex-wrap">
+    <span id="loading" class="htmx-indicator text-sm text-brand-700 items-center gap-2">
+      <span class="inline-block h-2.5 w-2.5 rounded-full bg-brand-500 animate-ping"></span>
+      J'analyse…
+    </span>
+    <div class="flex items-center gap-2 ml-auto">
+      <button type="button"
+              hx-post="/mathematiques/problemes/travail/hint"
+              hx-target="#feedback-area"
+              hx-swap="innerHTML"
+              hx-indicator="#loading"
+              class="btn-secondary">
+        Indice
+      </button>
+      <button type="button"
+              hx-post="/mathematiques/problemes/travail/reveal"
+              hx-target="#feedback-area"
+              hx-swap="innerHTML"
+              hx-indicator="#loading"
+              hx-confirm="Tu veux qu'on te révèle la réponse maintenant ?"
+              class="btn-secondary">
+        Je donne ma langue au chat
+      </button>
+      <button type="submit" class="btn-primary hover:wiggle">
+        Valider
+      </button>
+    </div>
+  </div>
+</form>
+
+<div id="feedback-area" class="mt-6"></div>
+
+<div class="mt-8 text-center">
+  <a href="/mathematiques/problemes/restart" class="text-sm text-slate-500 hover:text-brand-700">
+    ← Abandonner cet exercice
+  </a>
+</div>
+{% endblock %}

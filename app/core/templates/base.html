@@ -9,6 +9,7 @@
        CSP de Traefik et garder l'app 100% souveraine — aucun appel CDN. -->
   <script src="/static/vendor/tailwind.js"></script>
   <script src="/static/vendor/htmx.min.js" defer></script>
+  <script src="/static/draft_autosave.js" defer></script>
   <script>
     tailwind.config = {
       theme: {
@@ -104,6 +105,51 @@
       padding: 0.1em 0.4em;
       border-radius: 0.35em;
       font-size: 0.9em;
+    }
+    .eval-md pre {
+      background: #f0f4ff;
+      color: #1f29a6;
+      padding: 0.75em 1em;
+      border-radius: 0.65em;
+      font-size: 0.95em;
+      line-height: 1.6;
+      overflow-x: auto;
+      border: 1px solid #dde7ff;
+    }
+    .eval-md pre code {
+      background: transparent;
+      padding: 0;
+      font-size: 1em;
+    }
+    .eval-md table {
+      border-collapse: collapse;
+      margin: 0.6em 0;
+      font-size: 0.92em;
+      border: 1px solid #dde7ff;
+      border-radius: 0.5em;
+      overflow: hidden;
+    }
+    .eval-md thead th {
+      background: #eef2ff;
+      color: #1f29a6;
+      font-weight: 600;
+      padding: 0.4em 0.8em;
+      border-bottom: 2px solid #c0d1ff;
+      text-align: center;
+    }
+    .eval-md tbody td {
+      padding: 0.35em 0.8em;
+      border-top: 1px solid #eef2ff;
+      text-align: center;
+    }
+    .eval-md tbody tr:nth-child(even) td {
+      background: #fafbff;
+    }
+    .eval-md blockquote {
+      border-left: 3px solid #c0d1ff;
+      padding-left: 1em;
+      color: #475569;
+      font-style: italic;
     }
 
     /* HTMX loading indicator */

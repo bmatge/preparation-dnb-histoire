@@ -1,8 +1,9 @@
 """Router racine de la matière mathématiques.
 
 Monté par `app.core.main` sous le préfixe `/mathematiques`. Expose la
-page d'index matière et inclut les sous-routers d'épreuve. Vague 1 :
-seule l'épreuve « Automatismes » est active.
+page d'index matière et inclut les sous-routers d'épreuve : vague 1 les
+automatismes (Partie 1 du DNB), vague 2 la sous-épreuve « raisonnement
+et résolution de problèmes » (Partie 2).
 """
 
 from __future__ import annotations
@@ -15,6 +16,7 @@ from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 
 from app.mathematiques.automatismes.routes import router as automatismes_router
+from app.mathematiques.problemes.routes import router as problemes_router
 
 logger = logging.getLogger(__name__)
 
@@ -37,6 +39,7 @@ def math_index(request: Request):
 
 
 router.include_router(automatismes_router, prefix="/automatismes")
+router.include_router(problemes_router, prefix="/problemes")
 
 
 __all__ = ["router", "PREFIX"]

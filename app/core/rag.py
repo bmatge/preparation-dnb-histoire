@@ -253,6 +253,23 @@ TASK_COLLECTIONS: dict[str, dict[Task, tuple[str, ...]]] = {
             "dnb_math_methodo",
             "dnb_math_programmes",
         ),
+        # Raisonnement et résolution de problèmes : mêmes collections que
+        # les automatismes. Les fiches de méthode (8 thématiques) couvrent
+        # à la fois les automatismes et les techniques mobilisées dans les
+        # exercices de raisonnement (Pythagore, Thalès, PGCD, fonctions,
+        # probabilités…). Pas de collection dédiée aux énoncés de problèmes
+        # en V1 — on pourra en ajouter une si le besoin apparaît.
+        Task.MATH_PROB_HINT: (
+            "dnb_math_methodo",
+        ),
+        Task.MATH_PROB_REVEAL: (
+            "dnb_math_methodo",
+            "dnb_math_programmes",
+        ),
+        Task.MATH_PROB_EVAL_OPEN: (
+            "dnb_math_methodo",
+            "dnb_math_programmes",
+        ),
     },
 }
 

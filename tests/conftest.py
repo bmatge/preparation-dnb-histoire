@@ -32,6 +32,7 @@ from app.histoire_geo_emc.developpement_construit import (  # noqa: F401
 )
 from app.histoire_geo_emc.reperes import models as _reperes_models  # noqa: F401
 from app.mathematiques.automatismes import models as _math_auto_models  # noqa: F401
+from app.mathematiques.problemes import models as _math_prob_models  # noqa: F401
 
 # La racine du repo (un parent du dossier tests/).
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -138,11 +139,13 @@ def test_client(tmp_path, monkeypatch, fake_albert, fake_rag):
     from app.francais.redaction import pedagogy as fr_redac_ped
     from app.francais.comprehension import pedagogy as fr_comp_ped
     from app.mathematiques.automatismes import pedagogy as math_auto_ped
+    from app.mathematiques.problemes import pedagogy as math_prob_ped
 
     monkeypatch.setattr(hgemc_ped, "_albert_client", fake_albert)
     monkeypatch.setattr(fr_redac_ped, "_albert_client", fake_albert)
     monkeypatch.setattr(fr_comp_ped, "_client", fake_albert)
     monkeypatch.setattr(math_auto_ped, "_albert_client", fake_albert)
+    monkeypatch.setattr(math_prob_ped, "_albert_client", fake_albert)
 
     # ── 4. App + TestClient ──────────────────────────────────────────────
     from fastapi.testclient import TestClient
