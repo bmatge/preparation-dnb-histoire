@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% block title %}Dictée — Français DNB{% endblock %}
+
+{% block content %}
+<div class="space-y-8">
+  <header>
+    <p class="text-sm text-slate-500">
+      <a href="/francais/" class="hover:text-brand-700">Français</a>
+      <span class="mx-1">·</span>
+      Dictée
+    </p>
+    <h1 class="mt-2 font-display text-3xl font-bold text-brand-900">
+      Dictée
+    </h1>
+    <p class="mt-2 text-slate-600">
+      {{ total }} dictées d'annales officielles disponibles. Tu écoutes les phrases
+      les unes après les autres et tu écris ce que tu entends. À la fin tu obtiens
+      ta note sur 10 et tu vois exactement où sont tes fautes.
+    </p>
+  </header>
+
+  <section class="rounded-2xl bg-white border border-slate-200 p-6 shadow-sm">
+    <h2 class="font-display text-lg font-bold text-brand-800 mb-3">Démarrer</h2>
+    <form method="post" action="/francais/dictee/session/new" class="space-y-4">
+      <div>
+        <label class="text-xs font-semibold text-slate-600 uppercase tracking-wide">
+          Voix
+        </label>
+        <div class="mt-2 flex flex-wrap gap-3">
+          {% for slug, label in voices %}
+          <label class="inline-flex items-center gap-2 rounded-xl border border-slate-200 px-3 py-2 cursor-pointer hover:border-brand-300">
+            <input type="radio" name="voice" value="{{ slug }}"
+                   {% if slug == default_voice %}checked{% endif %}
+                   class="text-brand-600 focus:ring-brand-400">
+            <span class="text-sm text-slate-700">{{ label }}</span>
+          </label>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="flex flex-wrap items-center gap-3">
+        <button type="submit" class="btn-primary hover:wiggle">
+          Tirer une dictée au hasard
+        </button>
+        <span class="text-sm text-slate-500">
+          ou choisis une dictée précise ci-dessous
+        </span>
+      </div>
+    </form>
+  </section>
+
+  <section>
+    <h2 class="font-display text-lg font-bold text-brand-800 mb-3">
+      Toutes les dictées
+    </h2>
+    <ul class="grid gap-2 sm:grid-cols-2">
+      {% for d in dictees %}
+      <li>
+        <form method="post" action="/francais/dictee/session/new" class="contents">
+          <input type="hidden" name="dictee_id" value="{{ d.id }}">
+          <input type="hidden" name="voice" value="{{ default_voice }}" id="voice-{{ d.id }}">
+          <button type="submit"
+                  class="w-full text-left rounded-xl bg-white border border-slate-200 px-4 py-3 hover:border-brand-300 hover:shadow-sm transition">
+            <div class="font-medium text-brand-900">{{ d.annee }} — {{ d.centre }}</div>
+            <div class="text-xs text-slate-500 mt-0.5">{{ d.slug }}</div>
+          </button>
+        </form>
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
+</div>
+
+<script>
+  // Synchronise la voix sélectionnée du formulaire « démarrer » avec
+  // les boutons de la liste, pour que l'élève n'ait pas à recliquer.
+  document.querySelectorAll('input[name="voice"]').forEach(function(input) {
+    input.addEventListener('change', function() {
+      document.querySelectorAll('input[id^="voice-"]').forEach(function(hidden) {
+        hidden.value = input.value;
+      });
+    });
+  });
+</script>
+{% endblock %}
