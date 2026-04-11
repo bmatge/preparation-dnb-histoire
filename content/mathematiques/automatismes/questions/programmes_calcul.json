@@ -1,0 +1,117 @@
+{
+  "_comment": "Questions générées en session Claude Code, ancrées sur l'item al_01 (interpréter une suite d'instructions : programme de calcul, déplacement, construction géométrique) de la liste officielle 2026.",
+  "questions": [
+    {
+      "id": "auto_gen_pc_01",
+      "source": {"type": "genere_claude_code", "item_liste": "al_01"},
+      "theme": "programmes_calcul",
+      "competence": "Interpréter un programme de calcul à deux étapes",
+      "enonce": "On suit ce programme : prendre un nombre, le multiplier par 3, ajouter 5. Quel résultat obtient-on en partant de 4 ?",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "17"}
+    },
+    {
+      "id": "auto_gen_pc_02",
+      "source": {"type": "genere_claude_code", "item_liste": "al_01"},
+      "theme": "programmes_calcul",
+      "competence": "Interpréter un programme de calcul à deux étapes",
+      "enonce": "On suit ce programme : prendre un nombre, ajouter 7, multiplier par 2. Quel résultat obtient-on en partant de 3 ?",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "20"}
+    },
+    {
+      "id": "auto_gen_pc_03",
+      "source": {"type": "genere_claude_code", "item_liste": "al_01"},
+      "theme": "programmes_calcul",
+      "competence": "Interpréter un programme avec mise au carré",
+      "enonce": "On suit ce programme : choisir un nombre, le mettre au carré, retrancher 1. Quel résultat obtient-on en partant de 5 ?",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "24"}
+    },
+    {
+      "id": "auto_gen_pc_04",
+      "source": {"type": "genere_claude_code", "item_liste": "al_01"},
+      "theme": "programmes_calcul",
+      "competence": "Interpréter un programme à trois étapes",
+      "enonce": "On suit ce programme : choisir un nombre, le multiplier par 4, ajouter 6, diviser le tout par 2. Quel résultat obtient-on en partant de 2 ?",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "7"}
+    },
+    {
+      "id": "auto_gen_pc_05",
+      "source": {"type": "genere_claude_code", "item_liste": "al_01"},
+      "theme": "programmes_calcul",
+      "competence": "Interpréter un programme à deux étapes",
+      "enonce": "On suit ce programme : choisir un nombre, retrancher 3, multiplier le résultat par 5. Quel résultat obtient-on en partant de 8 ?",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "25"}
+    },
+    {
+      "id": "auto_gen_pc_06",
+      "source": {"type": "genere_claude_code", "item_liste": "al_01"},
+      "theme": "programmes_calcul",
+      "competence": "Interpréter un programme avec carré et somme",
+      "enonce": "On suit ce programme : choisir un nombre, le mettre au carré, ajouter le nombre choisi au départ. Quel résultat obtient-on en partant de 3 ?",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "12"}
+    },
+    {
+      "id": "auto_gen_pc_07",
+      "source": {"type": "genere_claude_code", "item_liste": "al_01"},
+      "theme": "programmes_calcul",
+      "competence": "Interpréter un programme à trois étapes",
+      "enonce": "On suit ce programme : choisir un nombre, ajouter 10, retrancher 4, multiplier le résultat par 3. Quel résultat obtient-on en partant de 2 ?",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "24"}
+    },
+    {
+      "id": "auto_gen_pc_08",
+      "source": {"type": "genere_claude_code", "item_liste": "al_01"},
+      "theme": "programmes_calcul",
+      "competence": "Interpréter un programme à deux étapes",
+      "enonce": "On suit ce programme : choisir un nombre, le doubler, retrancher 1. Quel résultat obtient-on en partant de 7 ?",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "13"}
+    },
+    {
+      "id": "auto_gen_pc_09",
+      "source": {"type": "genere_claude_code", "item_liste": "al_01"},
+      "theme": "programmes_calcul",
+      "competence": "Interpréter un programme à deux étapes",
+      "enonce": "On suit ce programme : choisir un nombre, le tripler, ajouter 2. Quel résultat obtient-on en partant de 5 ?",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "17"}
+    },
+    {
+      "id": "auto_gen_pc_10",
+      "source": {"type": "genere_claude_code", "item_liste": "al_01"},
+      "theme": "programmes_calcul",
+      "competence": "Interpréter un programme avec carré final",
+      "enonce": "On suit ce programme : choisir un nombre, ajouter 1, élever le résultat au carré. Quel résultat obtient-on en partant de 4 ?",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "25"}
+    },
+    {
+      "id": "auto_gen_pc_11",
+      "source": {"type": "genere_claude_code", "item_liste": "al_01"},
+      "theme": "programmes_calcul",
+      "competence": "Interpréter un programme avec étapes successives",
+      "enonce": "On suit ce programme : choisir un nombre, le multiplier par 2, ajouter 5, soustraire le nombre choisi au départ. Quel résultat obtient-on en partant de 10 ?",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "15"}
+    },
+    {
+      "id": "auto_gen_pc_12",
+      "source": {"type": "genere_claude_code", "item_liste": "al_01"},
+      "theme": "programmes_calcul",
+      "competence": "Interpréter un programme de construction (pentagone)",
+      "enonce": "Pour dessiner un pentagone régulier avec un programme qui répète « avancer puis tourner », combien de répétitions doit-on indiquer ?",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "5"}
+    },
+    {
+      "id": "auto_gen_pc_13",
+      "source": {"type": "genere_claude_code", "item_liste": "al_01"},
+      "theme": "programmes_calcul",
+      "competence": "Interpréter un programme de construction (angle pentagone)",
+      "enonce": "Pour dessiner un pentagone régulier avec un programme qui répète « avancer puis tourner », de combien de degrés doit-on tourner à chaque étape ?",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "72", "unite": "°"}
+    },
+    {
+      "id": "auto_gen_pc_14",
+      "source": {"type": "genere_claude_code", "item_liste": "al_01"},
+      "theme": "programmes_calcul",
+      "competence": "Interpréter un programme de construction (triangle équilatéral)",
+      "enonce": "Pour dessiner un triangle équilatéral avec un programme qui répète « avancer puis tourner », de combien de degrés doit-on tourner à chaque étape ?",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "120", "unite": "°"}
+    }
+  ]
+}

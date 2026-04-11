@@ -1,0 +1,165 @@
+{
+  "_comment": "Questions extraites des trois sujets zéro DNB 2026 (mathématiques + série générale A + série générale B). Le PDF Sujet_zero_DNB_2026_maths.pdf est identique au sujet série générale A : on n'extrait donc que les questions A et B (le doublon serait nettoyé par la déduplication). Extraction effectuée en session Claude Code, sans appel API Anthropic, le 2026-04-11.",
+  "questions": [
+    {
+      "id": "auto_sjz_A_q1",
+      "source": {"type": "sujet_zero_officiel", "document": "Sujet_zero_DNB_2026_serie_generale_A.pdf", "numero_question": 1},
+      "theme": "fractions",
+      "competence": "Prendre une fraction simple d'un nombre (item nc_04)",
+      "enonce": "Quel est le tiers de 18 ?",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "6"}
+    },
+    {
+      "id": "auto_sjz_A_q2",
+      "source": {"type": "sujet_zero_officiel", "document": "Sujet_zero_DNB_2026_serie_generale_A.pdf", "numero_question": 2},
+      "theme": "grandeurs_mesures",
+      "competence": "Convertir des minutes en heures (item eg_05)",
+      "enonce": "Un film dure 240 min. Quelle est sa durée en heures ?",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "4", "unite": "h", "formes_acceptees": ["4 h", "4h", "4 heures"]}
+    },
+    {
+      "id": "auto_sjz_A_q3",
+      "source": {"type": "sujet_zero_officiel", "document": "Sujet_zero_DNB_2026_serie_generale_A.pdf", "numero_question": 3},
+      "theme": "stats_probas",
+      "competence": "Déterminer la médiane d'une série courte (item dp_04)",
+      "enonce": "Les notes obtenues par un élève sont 8 ; 12 ; 6 ; 19 ; 15. Que vaut la médiane de cette série de notes ?",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "12"}
+    },
+    {
+      "id": "auto_sjz_A_q4",
+      "source": {"type": "sujet_zero_officiel", "document": "Sujet_zero_DNB_2026_serie_generale_A.pdf", "numero_question": 4},
+      "theme": "fractions",
+      "competence": "Lire l'abscisse d'un point sur une droite graduée (item nc_14)",
+      "enonce": "Sur une droite graduée, l'unité (de 0 à 1) est partagée en 4 graduations égales. Le point E se situe à 7 graduations à droite de 0. Quelle est l'abscisse de E ?",
+      "scoring": {"mode": "python", "type_reponse": "fraction", "reponse_canonique": "7/4", "formes_acceptees": ["7/4", "1,75", "1.75"]}
+    },
+    {
+      "id": "auto_sjz_A_q5",
+      "source": {"type": "sujet_zero_officiel", "document": "Sujet_zero_DNB_2026_serie_generale_A.pdf", "numero_question": 5},
+      "theme": "geometrie_numerique",
+      "competence": "Calculer le 3e angle d'un triangle (item eg_04)",
+      "enonce": "Dans le triangle ABC, rectangle en B, l'angle Â mesure 35°. Quelle est la mesure, en degrés, de l'angle Ĉ ?",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "55", "unite": "°"}
+    },
+    {
+      "id": "auto_sjz_A_q6",
+      "source": {"type": "sujet_zero_officiel", "document": "Sujet_zero_DNB_2026_serie_generale_A.pdf", "numero_question": 6},
+      "theme": "geometrie_numerique",
+      "competence": "Reconnaître une situation d'application du cosinus (item eg_12)",
+      "enonce": "Dans le triangle ABC, rectangle en A, exprime le cosinus de l'angle ABC en fonction des longueurs des côtés du triangle.",
+      "scoring": {
+        "mode": "albert",
+        "reponse_modele": "cos(ABC) = AB / BC. AB est le côté adjacent à l'angle ABC, BC est l'hypoténuse.",
+        "criteres_validation": [
+          "L'élève écrit que cos(ABC) vaut le rapport AB / BC (ou équivalent : « côté adjacent sur hypoténuse »).",
+          "Les notations équivalentes (AB/BC, [AB]/[BC], côté adjacent sur hypoténuse) sont acceptées.",
+          "Une réponse qui inverse adjacent et hypoténuse est incorrecte."
+        ]
+      }
+    },
+    {
+      "id": "auto_sjz_A_q7",
+      "source": {"type": "sujet_zero_officiel", "document": "Sujet_zero_DNB_2026_serie_generale_A.pdf", "numero_question": 7},
+      "theme": "geometrie_numerique",
+      "competence": "Appliquer le théorème de Thalès dans la configuration des triangles emboîtés (item eg_11)",
+      "enonce": "Dans un triangle ADE, le point C est sur le segment [AD] et le point B est sur le segment [AE]. Les droites (CB) et (DE) sont parallèles. On donne AC = 4 cm, CB = 2 cm et DE = 7 cm. Quelle est la longueur AD, en cm ?",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "14", "unite": "cm"}
+    },
+    {
+      "id": "auto_sjz_A_q8",
+      "source": {"type": "sujet_zero_officiel", "document": "Sujet_zero_DNB_2026_serie_generale_A.pdf", "numero_question": 8},
+      "theme": "pourcentages_proportionnalite",
+      "competence": "Calculer un pourcentage simple (item nc_04 + pf_03)",
+      "enonce": "Dans un collège, 25 % des 300 élèves participent à une olympiade de mathématiques. Combien d'élèves ne participent pas à cette olympiade ?",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "225"}
+    },
+    {
+      "id": "auto_sjz_A_q9a",
+      "source": {"type": "sujet_zero_officiel", "document": "Sujet_zero_DNB_2026_serie_generale_A.pdf", "numero_question": 9},
+      "theme": "programmes_calcul",
+      "competence": "Interpréter un programme de construction géométrique (item al_01)",
+      "enonce": "Pour dessiner un carré avec un programme qui répète « avancer puis tourner », combien de répétitions doit-on indiquer ?",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "4"}
+    },
+    {
+      "id": "auto_sjz_A_q9b",
+      "source": {"type": "sujet_zero_officiel", "document": "Sujet_zero_DNB_2026_serie_generale_A.pdf", "numero_question": 9},
+      "theme": "programmes_calcul",
+      "competence": "Interpréter un programme de construction géométrique (item al_01)",
+      "enonce": "Pour dessiner un carré avec un programme qui répète « avancer de 50 pas puis tourner », de combien de degrés doit-on tourner à chaque étape ?",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "90", "unite": "°"}
+    },
+    {
+      "id": "auto_sjz_B_q1",
+      "source": {"type": "sujet_zero_officiel", "document": "Sujet_zero_DNB_2026_serie_generale_B.pdf", "numero_question": 1},
+      "theme": "geometrie_numerique",
+      "competence": "Connaître la mesure d'un angle droit (item eg_03)",
+      "enonce": "Quelle est la mesure, en degrés, d'un angle droit ?",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "90", "unite": "°"}
+    },
+    {
+      "id": "auto_sjz_B_q2",
+      "source": {"type": "sujet_zero_officiel", "document": "Sujet_zero_DNB_2026_serie_generale_B.pdf", "numero_question": 2},
+      "theme": "stats_probas",
+      "competence": "Calculer la moyenne d'une série (item dp_03)",
+      "enonce": "Voici une série de quatre notes : 8 ; 10 ; 11 ; 11. Quelle est la moyenne de cette série ?",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "10"}
+    },
+    {
+      "id": "auto_sjz_B_q3",
+      "source": {"type": "sujet_zero_officiel", "document": "Sujet_zero_DNB_2026_serie_generale_B.pdf", "numero_question": 3},
+      "theme": "pourcentages_proportionnalite",
+      "competence": "Déterminer un pourcentage d'un nombre (item nc_04)",
+      "enonce": "Dans un collège de 800 élèves, 25 % des élèves portent des lunettes. Combien d'élèves portent des lunettes ?",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "200"}
+    },
+    {
+      "id": "auto_sjz_B_q4",
+      "source": {"type": "sujet_zero_officiel", "document": "Sujet_zero_DNB_2026_serie_generale_B.pdf", "numero_question": 4},
+      "theme": "stats_probas",
+      "competence": "Lire et interpréter un graphique (item dp_05)",
+      "enonce": "Sur un graphique de température en fonction de l'horaire, à 8 h la température est de 15 °C ; à 16 h elle est de 30 °C. De combien de degrés la température a-t-elle augmenté entre 8 h et 16 h ?",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "15", "unite": "°C"}
+    },
+    {
+      "id": "auto_sjz_B_q5",
+      "source": {"type": "sujet_zero_officiel", "document": "Sujet_zero_DNB_2026_serie_generale_B.pdf", "numero_question": 5},
+      "theme": "pourcentages_proportionnalite",
+      "competence": "Mobiliser une procédure de proportionnalité (item pf_02)",
+      "enonce": "Une voiture roule à 90 km/h. Combien de minutes met-elle pour parcourir 45 km ?",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "30", "unite": "min", "formes_acceptees": ["30 min", "30 minutes", "0,5 h"]}
+    },
+    {
+      "id": "auto_sjz_B_q6",
+      "source": {"type": "sujet_zero_officiel", "document": "Sujet_zero_DNB_2026_serie_generale_B.pdf", "numero_question": 6},
+      "theme": "grandeurs_mesures",
+      "competence": "Calculer le périmètre d'un polygone (item eg_07)",
+      "enonce": "Un losange ABCD a tous ses côtés qui mesurent 3 cm. Quel est son périmètre, en cm ?",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "12", "unite": "cm"}
+    },
+    {
+      "id": "auto_sjz_B_q7",
+      "source": {"type": "sujet_zero_officiel", "document": "Sujet_zero_DNB_2026_serie_generale_B.pdf", "numero_question": 7},
+      "theme": "calcul_litteral",
+      "competence": "Résoudre une équation du type ax + b = c (item nc_13)",
+      "enonce": "Quelle est la solution de l'équation 4x − 3 = 20 ?",
+      "scoring": {"mode": "python", "type_reponse": "decimal", "reponse_canonique": "5.75", "tolerances": {"abs": 0.01}, "formes_acceptees": ["5,75", "23/4", "5.75"]}
+    },
+    {
+      "id": "auto_sjz_B_q8",
+      "source": {"type": "sujet_zero_officiel", "document": "Sujet_zero_DNB_2026_serie_generale_B.pdf", "numero_question": 8},
+      "theme": "geometrie_numerique",
+      "competence": "Appliquer le théorème de Thalès (item eg_11)",
+      "enonce": "Dans un triangle ABC, le point D est sur le segment [BA] et E est sur le segment [BC], avec (DE) parallèle à (AC). On donne BD = 3, BE = 4,5, DE = 4 et AC = 6. Quelle est la longueur BA ?",
+      "scoring": {"mode": "python", "type_reponse": "decimal", "reponse_canonique": "4.5", "tolerances": {"abs": 0.01}, "formes_acceptees": ["4,5", "9/2"]}
+    },
+    {
+      "id": "auto_sjz_B_q9",
+      "source": {"type": "sujet_zero_officiel", "document": "Sujet_zero_DNB_2026_serie_generale_B.pdf", "numero_question": 9},
+      "theme": "programmes_calcul",
+      "competence": "Interpréter un programme de calcul (item al_01)",
+      "enonce": "On suit cet algorithme : prendre un nombre, le multiplier par 8, ajouter 10, puis diviser par 2. Quel résultat obtient-on en partant du nombre 1 ?",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "9"}
+    }
+  ]
+}

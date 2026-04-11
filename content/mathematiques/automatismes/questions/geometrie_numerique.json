@@ -1,0 +1,195 @@
+{
+  "_comment": "Questions générées en session Claude Code, ancrées sur les items eg_03, eg_04, eg_06, eg_10, eg_11, eg_12, eg_13 (angles, solides, Pythagore, Thalès, symétries) de la liste officielle 2026.",
+  "questions": [
+    {
+      "id": "auto_gen_gn_01",
+      "source": {"type": "genere_claude_code", "item_liste": "eg_04"},
+      "theme": "geometrie_numerique",
+      "competence": "Calculer la mesure du 3e angle d'un triangle",
+      "enonce": "Dans un triangle, deux angles mesurent 50° et 60°. Quelle est la mesure du troisième angle, en degrés ?",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "70", "unite": "°"}
+    },
+    {
+      "id": "auto_gen_gn_02",
+      "source": {"type": "genere_claude_code", "item_liste": "eg_04"},
+      "theme": "geometrie_numerique",
+      "competence": "Triangle rectangle : autre angle aigu",
+      "enonce": "Dans un triangle rectangle, l'un des angles aigus mesure 40°. Quelle est la mesure, en degrés, de l'autre angle aigu ?",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "50", "unite": "°"}
+    },
+    {
+      "id": "auto_gen_gn_03",
+      "source": {"type": "genere_claude_code", "item_liste": "eg_04"},
+      "theme": "geometrie_numerique",
+      "competence": "Connaître la somme des angles d'un triangle",
+      "enonce": "Quelle est la somme, en degrés, des mesures des trois angles d'un triangle ?",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "180", "unite": "°"}
+    },
+    {
+      "id": "auto_gen_gn_04",
+      "source": {"type": "genere_claude_code", "item_liste": "eg_04"},
+      "theme": "geometrie_numerique",
+      "competence": "Triangle isocèle : angles à la base",
+      "enonce": "Dans un triangle isocèle, l'angle au sommet principal mesure 80°. Quelle est la mesure, en degrés, de chacun des angles à la base ?",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "50", "unite": "°"}
+    },
+    {
+      "id": "auto_gen_gn_05",
+      "source": {"type": "genere_claude_code", "item_liste": "eg_06"},
+      "theme": "geometrie_numerique",
+      "competence": "Caractéristiques d'un cube",
+      "enonce": "Combien de faces possède un cube ?",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "6"}
+    },
+    {
+      "id": "auto_gen_gn_06",
+      "source": {"type": "genere_claude_code", "item_liste": "eg_06"},
+      "theme": "geometrie_numerique",
+      "competence": "Caractéristiques d'un cube",
+      "enonce": "Combien d'arêtes possède un cube ?",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "12"}
+    },
+    {
+      "id": "auto_gen_gn_07",
+      "source": {"type": "genere_claude_code", "item_liste": "eg_06"},
+      "theme": "geometrie_numerique",
+      "competence": "Caractéristiques d'un cube",
+      "enonce": "Combien de sommets possède un cube ?",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "8"}
+    },
+    {
+      "id": "auto_gen_gn_08",
+      "source": {"type": "genere_claude_code", "item_liste": "eg_06"},
+      "theme": "geometrie_numerique",
+      "competence": "Caractéristiques d'une pyramide à base carrée",
+      "enonce": "Combien de faces possède une pyramide à base carrée ?",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "5"}
+    },
+    {
+      "id": "auto_gen_gn_09",
+      "source": {"type": "genere_claude_code", "item_liste": "eg_10"},
+      "theme": "geometrie_numerique",
+      "competence": "Appliquer le théorème de Pythagore (calcul de l'hypoténuse)",
+      "enonce": "Dans un triangle ABC rectangle en A, on a AB = 3 cm et AC = 4 cm. Quelle est la longueur BC, en cm ?",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "5", "unite": "cm"}
+    },
+    {
+      "id": "auto_gen_gn_10",
+      "source": {"type": "genere_claude_code", "item_liste": "eg_10"},
+      "theme": "geometrie_numerique",
+      "competence": "Appliquer le théorème de Pythagore (calcul de l'hypoténuse)",
+      "enonce": "Dans un triangle ABC rectangle en A, on a AB = 6 cm et AC = 8 cm. Quelle est la longueur BC, en cm ?",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "10", "unite": "cm"}
+    },
+    {
+      "id": "auto_gen_gn_11",
+      "source": {"type": "genere_claude_code", "item_liste": "eg_10"},
+      "theme": "geometrie_numerique",
+      "competence": "Appliquer le théorème de Pythagore (calcul d'un côté de l'angle droit)",
+      "enonce": "Dans un triangle ABC rectangle en A, on a AB = 5 cm et BC = 13 cm. Quelle est la longueur AC, en cm ?",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "12", "unite": "cm"}
+    },
+    {
+      "id": "auto_gen_gn_12",
+      "source": {"type": "genere_claude_code", "item_liste": "eg_10"},
+      "theme": "geometrie_numerique",
+      "competence": "Appliquer le théorème de Pythagore (calcul d'un côté de l'angle droit)",
+      "enonce": "Dans un triangle ABC rectangle en A, on a AB = 8 cm et BC = 10 cm. Quelle est la longueur AC, en cm ?",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "6", "unite": "cm"}
+    },
+    {
+      "id": "auto_gen_gn_13",
+      "source": {"type": "genere_claude_code", "item_liste": "eg_08"},
+      "theme": "geometrie_numerique",
+      "competence": "Aire d'un disque (en fonction de π)",
+      "enonce": "Quelle est l'aire d'un disque de rayon 5 cm, en fonction de π ? Donne la réponse de la forme « 25π » (sans unité).",
+      "scoring": {
+        "mode": "albert",
+        "reponse_modele": "25π cm²",
+        "criteres_validation": [
+          "L'élève écrit 25π (ou 25 π, 25*π, 25 × π).",
+          "Une réponse en cm² ou sans unité est acceptée."
+        ]
+      }
+    },
+    {
+      "id": "auto_gen_gn_14",
+      "source": {"type": "genere_claude_code", "item_liste": "eg_07"},
+      "theme": "geometrie_numerique",
+      "competence": "Périmètre d'un disque (en fonction de π)",
+      "enonce": "Quel est le périmètre d'un disque de rayon 3 cm, en fonction de π ?",
+      "scoring": {
+        "mode": "albert",
+        "reponse_modele": "6π cm",
+        "criteres_validation": [
+          "L'élève écrit 6π (ou 6 π, 6 × π).",
+          "Une réponse en cm est acceptée."
+        ]
+      }
+    },
+    {
+      "id": "auto_gen_gn_15",
+      "source": {"type": "genere_claude_code", "item_liste": "eg_07"},
+      "theme": "geometrie_numerique",
+      "competence": "Calculer la longueur entre deux points alignés",
+      "enonce": "A, B et C sont alignés et A est entre B et C. On a AB = 4 cm et AC = 7 cm. Quelle est la longueur BC, en cm ?",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "11", "unite": "cm"}
+    },
+    {
+      "id": "auto_gen_gn_16",
+      "source": {"type": "genere_claude_code", "item_liste": "eg_03"},
+      "theme": "geometrie_numerique",
+      "competence": "Connaître la mesure d'un angle plat",
+      "enonce": "Combien mesure, en degrés, un angle plat ?",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "180", "unite": "°"}
+    },
+    {
+      "id": "auto_gen_gn_17",
+      "source": {"type": "genere_claude_code", "item_liste": "eg_13"},
+      "theme": "geometrie_numerique",
+      "competence": "Symétrie axiale d'un carré",
+      "enonce": "Combien d'axes de symétrie possède un carré ?",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "4"}
+    },
+    {
+      "id": "auto_gen_gn_18",
+      "source": {"type": "genere_claude_code", "item_liste": "eg_13"},
+      "theme": "geometrie_numerique",
+      "competence": "Symétrie axiale d'un rectangle",
+      "enonce": "Combien d'axes de symétrie possède un rectangle qui n'est pas un carré ?",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "2"}
+    },
+    {
+      "id": "auto_gen_gn_19",
+      "source": {"type": "genere_claude_code", "item_liste": "eg_04"},
+      "theme": "geometrie_numerique",
+      "competence": "Triangle équilatéral : mesure des angles",
+      "enonce": "Dans un triangle équilatéral, combien mesure chaque angle, en degrés ?",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "60", "unite": "°"}
+    },
+    {
+      "id": "auto_gen_gn_20",
+      "source": {"type": "genere_claude_code", "item_liste": "eg_04"},
+      "theme": "geometrie_numerique",
+      "competence": "Somme des angles d'un quadrilatère",
+      "enonce": "Quelle est la somme, en degrés, des mesures des quatre angles d'un quadrilatère ?",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "360", "unite": "°"}
+    },
+    {
+      "id": "auto_gen_gn_21",
+      "source": {"type": "genere_claude_code", "item_liste": "eg_06"},
+      "theme": "geometrie_numerique",
+      "competence": "Reconnaître un polygone",
+      "enonce": "Combien de côtés possède un hexagone ?",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "6"}
+    },
+    {
+      "id": "auto_gen_gn_22",
+      "source": {"type": "genere_claude_code", "item_liste": "eg_11"},
+      "theme": "geometrie_numerique",
+      "competence": "Appliquer le théorème de Thalès (triangles emboîtés)",
+      "enonce": "Dans un triangle ABC, M est sur le segment [AB] et N est sur le segment [AC] avec (MN) parallèle à (BC). On a AM = 2, AB = 6 et BC = 9. Quelle est la longueur MN ?",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "3"}
+    }
+  ]
+}

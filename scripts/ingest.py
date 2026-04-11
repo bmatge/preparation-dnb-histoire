@@ -83,6 +83,7 @@ STATE_DB = Path("data/ingest_state.db")
 REPO_ROOT = Path(__file__).resolve().parent.parent
 HGEMC_CONTENT = REPO_ROOT / "content" / "histoire-geo-emc"
 FRANCAIS_CONTENT = REPO_ROOT / "content" / "francais"
+MATH_CONTENT = REPO_ROOT / "content" / "mathematiques"
 
 
 @dataclass(frozen=True)
@@ -102,6 +103,7 @@ class CollectionSpec:
 MATIERE_COLLECTIONS: dict[str, tuple[str, ...]] = {
     "hgemc": ("corriges", "methodo", "programmes", "sujets"),
     "francais": ("fr_programme", "fr_methodo", "fr_redaction_sujets"),
+    "mathematiques": ("math_programmes", "math_methodo", "math_sujets"),
 }
 
 
@@ -167,10 +169,48 @@ COLLECTIONS: dict[str, CollectionSpec] = {
         sources=[FRANCAIS_CONTENT / "redaction" / "subjects"],
         file_patterns=("*.json",),
     ),
+    "math_programmes": CollectionSpec(
+        key="math_programmes",
+        name="dnb_math_programmes",
+        description=(
+            "Programmes officiels de mathématiques cycle 4 + attendus de "
+            "fin de 3e/4e/5e + repères annuels de progression. Source "
+            "d'autorité anti-hallucination pour les automatismes DNB 2026."
+        ),
+        sources=[MATH_CONTENT / "programme"],
+    ),
+    "math_methodo": CollectionSpec(
+        key="math_methodo",
+        name="dnb_math_methodo",
+        description=(
+            "Fiches méthodologiques mathématiques DNB : automatismes au "
+            "collège, cadrage de l'épreuve 2026, modalités d'évaluation 3e, "
+            "et fiches thématiques (calcul numérique, calcul littéral, "
+            "géométrie plane, trigonométrie, géométrie dans l'espace, "
+            "fonctions, statistiques et probabilités, algorithmique)."
+        ),
+        sources=[MATH_CONTENT / "methodologie"],
+    ),
+    "math_sujets": CollectionSpec(
+        key="math_sujets",
+        name="dnb_math_automatismes_sujets",
+        description=(
+            "Banque de questions d'automatismes DNB 2026 (sujets zéro "
+            "officiels + questions générées ancrées sur la liste indicative "
+            "d'octobre 2025). Convertie en markdown à la volée à l'upload "
+            "(Albert ne parse pas les .json)."
+        ),
+        sources=[MATH_CONTENT / "automatismes" / "questions"],
+        file_patterns=("*.json",),
+    ),
 }
 
-# Fichiers à exclure d'office lors de l'itération (nom, pas glob)
+# Fichiers à exclure d'office lors de l'itération (nom, pas glob).
+# `_all.json` est l'aggrégat legacy côté HG-EMC. Tout autre fichier qui
+# commence par « _ » est un méta-fichier (cf. `_liste_officielle.json` côté
+# automatismes maths) et n'a pas vocation à être indexé non plus.
 EXCLUDED_FILENAMES = {"_all.json"}
+EXCLUDED_PREFIXES = ("_",)
 
 
 # ============================================================================
@@ -397,6 +437,76 @@ def _subject_json_to_markdown(json_path: Path) -> tuple[bytes, str]:
     return md, md_name
 
 
+def _math_questions_json_to_markdown(json_path: Path) -> tuple[bytes, str]:
+    """Transforme un fichier JSON de questions d'automatismes maths en markdown.
+
+    Le format JSON est celui produit en session Claude Code (cf. issue #21
+    et content/mathematiques/automatismes/questions/*.json) : un objet avec
+    une clé `questions` dont chaque entrée porte `id`, `theme`, `competence`,
+    `enonce`, `scoring` (mode python ou albert), `source` et éventuellement
+    des `indices`/`reveal_explication`.
+
+    On produit un bloc markdown par question : énoncé + réponse attendue +
+    critères s'il s'agit d'une question ouverte. Les indices pré-calculés
+    et l'explication pédagogique sont volontairement OMIS — Albert les
+    génère à la volée côté runtime, on n'a pas besoin de les indexer.
+
+    Retourne (contenu_markdown_utf8, nom_virtuel_md).
+    """
+    data = json.loads(json_path.read_text(encoding="utf-8"))
+    questions = data.get("questions") or []
+    nom_batch = json_path.stem
+
+    lines: list[str] = []
+    lines.append(f"# Banque automatismes maths — batch « {nom_batch} »")
+    lines.append("")
+    lines.append(f"Source : {json_path.name}")
+    lines.append("")
+
+    for q in questions:
+        qid = q.get("id", "?")
+        theme = q.get("theme", "?")
+        competence = q.get("competence", "")
+        enonce = (q.get("enonce") or "").strip()
+        scoring = q.get("scoring") or {}
+        mode = scoring.get("mode", "?")
+
+        lines.append(f"## Question {qid}")
+        lines.append("")
+        lines.append(f"**Thème** : {theme}")
+        if competence:
+            lines.append(f"**Compétence** : {competence}")
+        lines.append("")
+        lines.append(f"**Énoncé** : {enonce}")
+        lines.append("")
+
+        if mode == "python":
+            type_rep = scoring.get("type_reponse", "?")
+            rep = scoring.get("reponse_canonique", "?")
+            unite = scoring.get("unite") or ""
+            rep_label = f"{rep} {unite}".strip()
+            lines.append(f"**Réponse attendue** : {rep_label} (type : {type_rep})")
+        elif mode == "albert":
+            modele = scoring.get("reponse_modele", "?")
+            lines.append(f"**Réponse modèle** : {modele}")
+            criteres = scoring.get("criteres_validation") or []
+            if criteres:
+                lines.append("")
+                lines.append("**Critères de validation** :")
+                for c in criteres:
+                    lines.append(f"- {c}")
+        else:
+            lines.append(f"**Mode de scoring** : {mode}")
+
+        lines.append("")
+        lines.append("---")
+        lines.append("")
+
+    md = "\n".join(lines).encode("utf-8")
+    md_name = json_path.stem + ".md"
+    return md, md_name
+
+
 def _redaction_subject_json_to_markdown(json_path: Path) -> tuple[bytes, str]:
     """Transforme un JSON de sujet de rédaction (français) en markdown.
 
@@ -469,6 +579,12 @@ def _redaction_subject_json_to_markdown(json_path: Path) -> tuple[bytes, str]:
 # ============================================================================
 
 
+def _is_excluded(name: str) -> bool:
+    if name in EXCLUDED_FILENAMES:
+        return True
+    return any(name.startswith(p) for p in EXCLUDED_PREFIXES)
+
+
 def _iter_files(spec: CollectionSpec) -> Iterator[Path]:
     """Itère tous les fichiers à ingérer pour une collection donnée."""
     for source in spec.sources:
@@ -476,12 +592,12 @@ def _iter_files(spec: CollectionSpec) -> Iterator[Path]:
             logger.warning("  ⚠ source introuvable: %s", source)
             continue
         if source.is_file():
-            if source.name not in EXCLUDED_FILENAMES:
+            if not _is_excluded(source.name):
                 yield source
         else:
             for pattern in spec.file_patterns:
                 for f in sorted(source.glob(pattern)):
-                    if f.name not in EXCLUDED_FILENAMES:
+                    if not _is_excluded(f.name):
                         yield f
 
 
@@ -547,6 +663,16 @@ def ingest_collection(
                 )
             elif spec.key == "fr_redaction_sujets" and file_path.suffix.lower() == ".json":
                 md_bytes, md_name = _redaction_subject_json_to_markdown(file_path)
+                resp = client.upload_document(
+                    collection_id=collection_id,
+                    file_path=file_path,
+                    display_name=str(rel.with_suffix(".md")),
+                    content_override=md_bytes,
+                    virtual_filename=md_name,
+                    mime_override="text/markdown",
+                )
+            elif spec.key == "math_sujets" and file_path.suffix.lower() == ".json":
+                md_bytes, md_name = _math_questions_json_to_markdown(file_path)
                 resp = client.upload_document(
                     collection_id=collection_id,
                     file_path=file_path,

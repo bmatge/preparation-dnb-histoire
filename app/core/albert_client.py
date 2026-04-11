@@ -94,6 +94,15 @@ class Task(str, Enum):
     # Correction finale fond + forme de la copie (étape 7)
     FR_REDACTION_FINAL_CORRECTION = "fr_redaction_final_correction"
 
+    # --- Mathématiques : automatismes ---
+    # Indice gradué (niveau 1, 2 ou 3) sur une question d'automatismes
+    MATH_AUTO_HINT = "math_auto_hint"
+    # Révélation pédagogique de la réponse + mini-explication
+    MATH_AUTO_REVEAL = "math_auto_reveal"
+    # Évaluation d'une réponse ouverte courte (questions à scoring=albert),
+    # réponse forcée en JSON strict {"correct": bool, "feedback_court": str}
+    MATH_AUTO_EVAL_OPEN = "math_auto_eval_open"
+
 
 @dataclass(frozen=True)
 class TaskProfile:
@@ -216,6 +225,36 @@ TASK_PROFILES: dict[Task, TaskProfile] = {
         max_tokens=2000,
         require_citations=True,
         check_no_ghostwriting=False,
+    ),
+    # --- Mathématiques : automatismes ---
+    # Indice et révélation : Mistral-Small (court, rapide). Pas de RAG donc
+    # pas de citations exigées, pas de risque de ghostwriting (réponses
+    # courtes, l'objectif d'apprentissage EST la bonne réponse).
+    Task.MATH_AUTO_HINT: TaskProfile(
+        model=MODEL_FAST,
+        temperature=0.5,
+        max_tokens=300,
+        check_no_ghostwriting=False,
+    ),
+    Task.MATH_AUTO_REVEAL: TaskProfile(
+        model=MODEL_FAST,
+        temperature=0.3,
+        max_tokens=500,
+        check_no_ghostwriting=False,
+    ),
+    # Évaluation ouverte : gpt-oss-120b en mode reasoning, sortie JSON
+    # strict. max_tokens >= 600 pour laisser de la marge au reasoning
+    # (sinon le `content` revient vide). Citations requises pour matcher
+    # les éventuels [methodo]/[programme] que le prompt invite à insérer
+    # quand un passage RAG a été utilisé. Le retry sur citations manquantes
+    # est désactivé côté pedagogy via `_safe_chat` (qui ne demande pas de
+    # citations strictes : on accepte un JSON sans cite si pas de RAG).
+    Task.MATH_AUTO_EVAL_OPEN: TaskProfile(
+        model=MODEL_HEAVY,
+        temperature=0.2,
+        max_tokens=800,
+        check_no_ghostwriting=False,
+        require_citations=False,
     ),
 }
 

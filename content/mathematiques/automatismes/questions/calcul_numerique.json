@@ -1,0 +1,195 @@
+{
+  "_comment": "Questions générées en session Claude Code, ancrées sur les items nc_02, nc_05, nc_06, nc_07, nc_08, nc_09, nc_14 de la liste officielle 2026 (rubrique « Nombres et calculs »). Auto-vérification des réponses sans calculatrice, conformes au niveau 3e.",
+  "questions": [
+    {
+      "id": "auto_gen_cn_01",
+      "source": {"type": "genere_claude_code", "item_liste": "nc_02"},
+      "theme": "calcul_numerique",
+      "competence": "Calculer avec des nombres décimaux relatifs",
+      "enonce": "Calcule : −7 + 12.",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "5"}
+    },
+    {
+      "id": "auto_gen_cn_02",
+      "source": {"type": "genere_claude_code", "item_liste": "nc_02"},
+      "theme": "calcul_numerique",
+      "competence": "Calculer avec des nombres décimaux relatifs",
+      "enonce": "Calcule : (−3) × (−4).",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "12"}
+    },
+    {
+      "id": "auto_gen_cn_03",
+      "source": {"type": "genere_claude_code", "item_liste": "nc_02"},
+      "theme": "calcul_numerique",
+      "competence": "Additionner des décimaux",
+      "enonce": "Calcule : 5,2 + 3,7.",
+      "scoring": {"mode": "python", "type_reponse": "decimal", "reponse_canonique": "8.9", "tolerances": {"abs": 0.01}, "formes_acceptees": ["8,9", "8.9"]}
+    },
+    {
+      "id": "auto_gen_cn_04",
+      "source": {"type": "genere_claude_code", "item_liste": "nc_02"},
+      "theme": "calcul_numerique",
+      "competence": "Soustraire des décimaux",
+      "enonce": "Calcule : 12,5 − 4,3.",
+      "scoring": {"mode": "python", "type_reponse": "decimal", "reponse_canonique": "8.2", "tolerances": {"abs": 0.01}}
+    },
+    {
+      "id": "auto_gen_cn_05",
+      "source": {"type": "genere_claude_code", "item_liste": "nc_02"},
+      "theme": "calcul_numerique",
+      "competence": "Multiplier un décimal par un entier",
+      "enonce": "Calcule : 2,5 × 4.",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "10"}
+    },
+    {
+      "id": "auto_gen_cn_06",
+      "source": {"type": "genere_claude_code", "item_liste": "nc_07"},
+      "theme": "calcul_numerique",
+      "competence": "Connaître les carrés des entiers de 1 à 12",
+      "enonce": "Quel est le carré de 7 ?",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "49"}
+    },
+    {
+      "id": "auto_gen_cn_07",
+      "source": {"type": "genere_claude_code", "item_liste": "nc_07"},
+      "theme": "calcul_numerique",
+      "competence": "Connaître les carrés des entiers de 1 à 12",
+      "enonce": "Quel est le carré de 11 ?",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "121"}
+    },
+    {
+      "id": "auto_gen_cn_08",
+      "source": {"type": "genere_claude_code", "item_liste": "nc_07"},
+      "theme": "calcul_numerique",
+      "competence": "Connaître les carrés des entiers de 1 à 12",
+      "enonce": "Quel est le carré de 12 ?",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "144"}
+    },
+    {
+      "id": "auto_gen_cn_09",
+      "source": {"type": "genere_claude_code", "item_liste": "nc_07"},
+      "theme": "calcul_numerique",
+      "competence": "Connaître les carrés des entiers de 1 à 12",
+      "enonce": "Quel est le carré de 9 ?",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "81"}
+    },
+    {
+      "id": "auto_gen_cn_10",
+      "source": {"type": "genere_claude_code", "item_liste": "nc_08"},
+      "theme": "calcul_numerique",
+      "competence": "Appliquer un critère de divisibilité",
+      "enonce": "Le nombre 945 est-il divisible par 9 ? Réponds par « oui » ou « non ».",
+      "scoring": {"mode": "python", "type_reponse": "texte_court", "reponse_canonique": "oui"}
+    },
+    {
+      "id": "auto_gen_cn_11",
+      "source": {"type": "genere_claude_code", "item_liste": "nc_08"},
+      "theme": "calcul_numerique",
+      "competence": "Appliquer un critère de divisibilité",
+      "enonce": "Le nombre 124 est-il divisible par 3 ? Réponds par « oui » ou « non ».",
+      "scoring": {"mode": "python", "type_reponse": "texte_court", "reponse_canonique": "non"}
+    },
+    {
+      "id": "auto_gen_cn_12",
+      "source": {"type": "genere_claude_code", "item_liste": "nc_06"},
+      "theme": "calcul_numerique",
+      "competence": "Passer d'une écriture décimale à la notation scientifique",
+      "enonce": "Écris 24 000 en notation scientifique.",
+      "scoring": {
+        "mode": "albert",
+        "reponse_modele": "2,4 × 10⁴",
+        "criteres_validation": [
+          "L'écriture est de la forme a × 10^n avec 1 ≤ a < 10.",
+          "Les valeurs attendues sont a = 2,4 et n = 4 (acceptable : 2,4·10^4, 2,4 × 10^4, 2,4*10^4)."
+        ]
+      }
+    },
+    {
+      "id": "auto_gen_cn_13",
+      "source": {"type": "genere_claude_code", "item_liste": "nc_06"},
+      "theme": "calcul_numerique",
+      "competence": "Passer d'une écriture décimale à la notation scientifique",
+      "enonce": "Écris 0,003 en notation scientifique.",
+      "scoring": {
+        "mode": "albert",
+        "reponse_modele": "3 × 10⁻³",
+        "criteres_validation": [
+          "L'écriture est de la forme a × 10^n avec 1 ≤ a < 10.",
+          "Les valeurs attendues sont a = 3 et n = −3."
+        ]
+      }
+    },
+    {
+      "id": "auto_gen_cn_14",
+      "source": {"type": "genere_claude_code", "item_liste": "nc_09"},
+      "theme": "calcul_numerique",
+      "competence": "Donner le successeur d'un entier",
+      "enonce": "Quel est le successeur du nombre entier 49 ?",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "50"}
+    },
+    {
+      "id": "auto_gen_cn_15",
+      "source": {"type": "genere_claude_code", "item_liste": "nc_09"},
+      "theme": "calcul_numerique",
+      "competence": "Donner le prédécesseur d'un entier",
+      "enonce": "Quel est le prédécesseur du nombre entier 100 ?",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "99"}
+    },
+    {
+      "id": "auto_gen_cn_16",
+      "source": {"type": "genere_claude_code", "item_liste": "nc_09"},
+      "theme": "calcul_numerique",
+      "competence": "Donner le double d'un entier",
+      "enonce": "Quel est le double de 17 ?",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "34"}
+    },
+    {
+      "id": "auto_gen_cn_17",
+      "source": {"type": "genere_claude_code", "item_liste": "nc_09"},
+      "theme": "calcul_numerique",
+      "competence": "Donner le triple d'un entier",
+      "enonce": "Quel est le triple de 15 ?",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "45"}
+    },
+    {
+      "id": "auto_gen_cn_18",
+      "source": {"type": "genere_claude_code", "item_liste": "nc_09"},
+      "theme": "calcul_numerique",
+      "competence": "Donner la moitié d'un entier",
+      "enonce": "Quelle est la moitié de 86 ?",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "43"}
+    },
+    {
+      "id": "auto_gen_cn_19",
+      "source": {"type": "genere_claude_code", "item_liste": "nc_02"},
+      "theme": "calcul_numerique",
+      "competence": "Comparer des nombres décimaux",
+      "enonce": "Lequel des deux nombres est le plus grand : 0,72 ou 0,8 ?",
+      "scoring": {"mode": "python", "type_reponse": "texte_court", "reponse_canonique": "0,8", "formes_acceptees": ["0,8", "0.8"]}
+    },
+    {
+      "id": "auto_gen_cn_20",
+      "source": {"type": "genere_claude_code", "item_liste": "nc_02"},
+      "theme": "calcul_numerique",
+      "competence": "Comparer des nombres décimaux relatifs",
+      "enonce": "Lequel des deux nombres est le plus grand : −3 ou −7 ?",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "-3", "formes_acceptees": ["-3", "−3"]}
+    },
+    {
+      "id": "auto_gen_cn_21",
+      "source": {"type": "genere_claude_code", "item_liste": "nc_14"},
+      "theme": "calcul_numerique",
+      "competence": "Lire l'abscisse d'un point sur une droite graduée",
+      "enonce": "Sur une droite graduée, le segment d'extrémités d'abscisses 2 et 8 a un milieu. Quelle est l'abscisse de ce milieu ?",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "5"}
+    },
+    {
+      "id": "auto_gen_cn_22",
+      "source": {"type": "genere_claude_code", "item_liste": "nc_02"},
+      "theme": "calcul_numerique",
+      "competence": "Calculer une expression avec parenthèses et signes",
+      "enonce": "Calcule : (−2) × 5 + 3.",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "-7", "formes_acceptees": ["-7", "−7"]}
+    }
+  ]
+}

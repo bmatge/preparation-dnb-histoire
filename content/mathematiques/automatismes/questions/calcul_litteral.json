@@ -1,0 +1,199 @@
+{
+  "_comment": "Questions générées en session Claude Code, ancrées sur les items nc_09 à nc_13 (calcul littéral, équations) de la liste officielle 2026.",
+  "questions": [
+    {
+      "id": "auto_gen_cl_01",
+      "source": {"type": "genere_claude_code", "item_liste": "nc_11"},
+      "theme": "calcul_litteral",
+      "competence": "Calculer la valeur d'une expression algébrique",
+      "enonce": "Pour x = 5, calcule la valeur de l'expression 3x + 2.",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "17"}
+    },
+    {
+      "id": "auto_gen_cl_02",
+      "source": {"type": "genere_claude_code", "item_liste": "nc_11"},
+      "theme": "calcul_litteral",
+      "competence": "Calculer la valeur d'une expression algébrique avec carré",
+      "enonce": "Pour x = −2, calcule la valeur de l'expression x² + 1.",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "5"}
+    },
+    {
+      "id": "auto_gen_cl_03",
+      "source": {"type": "genere_claude_code", "item_liste": "nc_11"},
+      "theme": "calcul_litteral",
+      "competence": "Calculer la valeur d'une expression algébrique",
+      "enonce": "Pour y = 3, calcule la valeur de l'expression 2y² − y.",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "15"}
+    },
+    {
+      "id": "auto_gen_cl_04",
+      "source": {"type": "genere_claude_code", "item_liste": "nc_10"},
+      "theme": "calcul_litteral",
+      "competence": "Simplifier une expression littérale (somme de termes en x)",
+      "enonce": "Réduis l'expression : 3x + 5x.",
+      "scoring": {"mode": "python", "type_reponse": "texte_court", "reponse_canonique": "8x", "formes_acceptees": ["8x", "8 x", "8*x", "8×x"]}
+    },
+    {
+      "id": "auto_gen_cl_05",
+      "source": {"type": "genere_claude_code", "item_liste": "nc_10"},
+      "theme": "calcul_litteral",
+      "competence": "Simplifier une expression littérale (somme de termes en a)",
+      "enonce": "Réduis l'expression : 7a − 2a + a.",
+      "scoring": {"mode": "python", "type_reponse": "texte_court", "reponse_canonique": "6a", "formes_acceptees": ["6a", "6 a", "6*a"]}
+    },
+    {
+      "id": "auto_gen_cl_06",
+      "source": {"type": "genere_claude_code", "item_liste": "nc_12"},
+      "theme": "calcul_litteral",
+      "competence": "Développer une expression simple",
+      "enonce": "Développe l'expression : 4(x + 3).",
+      "scoring": {
+        "mode": "albert",
+        "reponse_modele": "4x + 12",
+        "criteres_validation": [
+          "L'élève écrit 4x + 12 (ordre des termes indifférent : 12 + 4x est aussi accepté).",
+          "Toute écriture équivalente sans parenthèse est correcte."
+        ]
+      }
+    },
+    {
+      "id": "auto_gen_cl_07",
+      "source": {"type": "genere_claude_code", "item_liste": "nc_12"},
+      "theme": "calcul_litteral",
+      "competence": "Développer une expression simple",
+      "enonce": "Développe l'expression : 2(3x − 5).",
+      "scoring": {
+        "mode": "albert",
+        "reponse_modele": "6x − 10",
+        "criteres_validation": [
+          "L'élève écrit 6x − 10 (ou −10 + 6x).",
+          "Le signe est obligatoire : 6x + 10 est faux."
+        ]
+      }
+    },
+    {
+      "id": "auto_gen_cl_08",
+      "source": {"type": "genere_claude_code", "item_liste": "nc_12"},
+      "theme": "calcul_litteral",
+      "competence": "Développer avec un coefficient négatif",
+      "enonce": "Développe l'expression : −3(x + 2).",
+      "scoring": {
+        "mode": "albert",
+        "reponse_modele": "−3x − 6",
+        "criteres_validation": [
+          "L'élève écrit −3x − 6 (les deux signes sont négatifs).",
+          "Une réponse comme −3x + 6 est incorrecte."
+        ]
+      }
+    },
+    {
+      "id": "auto_gen_cl_09",
+      "source": {"type": "genere_claude_code", "item_liste": "nc_12"},
+      "theme": "calcul_litteral",
+      "competence": "Factoriser une expression simple",
+      "enonce": "Factorise l'expression : 5x + 5.",
+      "scoring": {
+        "mode": "albert",
+        "reponse_modele": "5(x + 1)",
+        "criteres_validation": [
+          "L'élève met 5 en facteur et obtient 5(x + 1)."
+        ]
+      }
+    },
+    {
+      "id": "auto_gen_cl_10",
+      "source": {"type": "genere_claude_code", "item_liste": "nc_12"},
+      "theme": "calcul_litteral",
+      "competence": "Factoriser une expression simple",
+      "enonce": "Factorise l'expression : 6x − 9.",
+      "scoring": {
+        "mode": "albert",
+        "reponse_modele": "3(2x − 3)",
+        "criteres_validation": [
+          "L'élève met 3 en facteur et obtient 3(2x − 3).",
+          "On accepte aussi 3 × (2x − 3)."
+        ]
+      }
+    },
+    {
+      "id": "auto_gen_cl_11",
+      "source": {"type": "genere_claude_code", "item_liste": "nc_13"},
+      "theme": "calcul_litteral",
+      "competence": "Résoudre x + b = c",
+      "enonce": "Résous l'équation : x + 7 = 12.",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "5", "formes_acceptees": ["x = 5", "x=5", "5"]}
+    },
+    {
+      "id": "auto_gen_cl_12",
+      "source": {"type": "genere_claude_code", "item_liste": "nc_13"},
+      "theme": "calcul_litteral",
+      "competence": "Résoudre ax = c",
+      "enonce": "Résous l'équation : 3x = 21.",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "7", "formes_acceptees": ["x = 7", "x=7", "7"]}
+    },
+    {
+      "id": "auto_gen_cl_13",
+      "source": {"type": "genere_claude_code", "item_liste": "nc_13"},
+      "theme": "calcul_litteral",
+      "competence": "Résoudre ax + b = c",
+      "enonce": "Résous l'équation : 2x + 5 = 17.",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "6", "formes_acceptees": ["x = 6", "x=6", "6"]}
+    },
+    {
+      "id": "auto_gen_cl_14",
+      "source": {"type": "genere_claude_code", "item_liste": "nc_13"},
+      "theme": "calcul_litteral",
+      "competence": "Résoudre ax + b = c",
+      "enonce": "Résous l'équation : 4x − 3 = 13.",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "4", "formes_acceptees": ["x = 4", "x=4", "4"]}
+    },
+    {
+      "id": "auto_gen_cl_15",
+      "source": {"type": "genere_claude_code", "item_liste": "nc_13"},
+      "theme": "calcul_litteral",
+      "competence": "Résoudre x − b = 0",
+      "enonce": "Résous l'équation : x − 8 = 0.",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "8"}
+    },
+    {
+      "id": "auto_gen_cl_16",
+      "source": {"type": "genere_claude_code", "item_liste": "nc_13"},
+      "theme": "calcul_litteral",
+      "competence": "Résoudre ax = c (résultat négatif)",
+      "enonce": "Résous l'équation : 5x = −25.",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "-5", "formes_acceptees": ["x = -5", "x=-5", "-5", "−5"]}
+    },
+    {
+      "id": "auto_gen_cl_17",
+      "source": {"type": "genere_claude_code", "item_liste": "nc_09"},
+      "theme": "calcul_litteral",
+      "competence": "Exprimer le double d'un nombre n en littéral",
+      "enonce": "Soit n un nombre entier. Exprime son double en fonction de n.",
+      "scoring": {"mode": "python", "type_reponse": "texte_court", "reponse_canonique": "2n", "formes_acceptees": ["2n", "2 n", "2*n", "2×n"]}
+    },
+    {
+      "id": "auto_gen_cl_18",
+      "source": {"type": "genere_claude_code", "item_liste": "nc_09"},
+      "theme": "calcul_litteral",
+      "competence": "Exprimer le carré d'un nombre n en littéral",
+      "enonce": "Soit n un nombre entier. Exprime son carré en fonction de n.",
+      "scoring": {"mode": "python", "type_reponse": "texte_court", "reponse_canonique": "n²", "formes_acceptees": ["n²", "n2", "n*n", "n×n", "n^2"]}
+    },
+    {
+      "id": "auto_gen_cl_19",
+      "source": {"type": "genere_claude_code", "item_liste": "nc_09"},
+      "theme": "calcul_litteral",
+      "competence": "Exprimer le successeur d'un nombre n en littéral",
+      "enonce": "Soit n un nombre entier. Exprime son successeur en fonction de n.",
+      "scoring": {"mode": "python", "type_reponse": "texte_court", "reponse_canonique": "n+1", "formes_acceptees": ["n+1", "n + 1", "1+n", "1 + n"]}
+    },
+    {
+      "id": "auto_gen_cl_20",
+      "source": {"type": "genere_claude_code", "item_liste": "nc_09"},
+      "theme": "calcul_litteral",
+      "competence": "Exprimer la moitié d'un nombre n en littéral",
+      "enonce": "Soit n un nombre entier. Exprime sa moitié en fonction de n.",
+      "scoring": {"mode": "python", "type_reponse": "texte_court", "reponse_canonique": "n/2", "formes_acceptees": ["n/2", "n / 2", "0,5n", "0.5n"]}
+    }
+  ]
+}
