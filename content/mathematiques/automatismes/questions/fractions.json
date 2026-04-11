@@ -1,0 +1,165 @@
+{
+  "_comment": "Questions générées en session Claude Code, ancrées sur les items nc_01, nc_03, nc_04, nc_05 (fractions et écritures équivalentes) de la liste officielle 2026.",
+  "questions": [
+    {
+      "id": "auto_gen_fr_01",
+      "source": {"type": "genere_claude_code", "item_liste": "nc_03"},
+      "theme": "fractions",
+      "competence": "Simplifier une fraction simple",
+      "enonce": "Simplifie la fraction 6/8 jusqu'à la rendre irréductible.",
+      "scoring": {"mode": "python", "type_reponse": "fraction", "reponse_canonique": "3/4"}
+    },
+    {
+      "id": "auto_gen_fr_02",
+      "source": {"type": "genere_claude_code", "item_liste": "nc_03"},
+      "theme": "fractions",
+      "competence": "Simplifier une fraction simple",
+      "enonce": "Simplifie la fraction 10/15 jusqu'à la rendre irréductible.",
+      "scoring": {"mode": "python", "type_reponse": "fraction", "reponse_canonique": "2/3"}
+    },
+    {
+      "id": "auto_gen_fr_03",
+      "source": {"type": "genere_claude_code", "item_liste": "nc_03"},
+      "theme": "fractions",
+      "competence": "Simplifier une fraction simple",
+      "enonce": "Simplifie la fraction 12/16 jusqu'à la rendre irréductible.",
+      "scoring": {"mode": "python", "type_reponse": "fraction", "reponse_canonique": "3/4"}
+    },
+    {
+      "id": "auto_gen_fr_04",
+      "source": {"type": "genere_claude_code", "item_liste": "nc_03"},
+      "theme": "fractions",
+      "competence": "Simplifier une fraction simple",
+      "enonce": "Simplifie la fraction 25/100 jusqu'à la rendre irréductible.",
+      "scoring": {"mode": "python", "type_reponse": "fraction", "reponse_canonique": "1/4"}
+    },
+    {
+      "id": "auto_gen_fr_05",
+      "source": {"type": "genere_claude_code", "item_liste": "nc_01"},
+      "theme": "fractions",
+      "competence": "Convertir une fraction simple en décimal",
+      "enonce": "Donne l'écriture décimale de la fraction 1/2.",
+      "scoring": {"mode": "python", "type_reponse": "decimal", "reponse_canonique": "0.5", "formes_acceptees": ["0,5", "0.5"]}
+    },
+    {
+      "id": "auto_gen_fr_06",
+      "source": {"type": "genere_claude_code", "item_liste": "nc_01"},
+      "theme": "fractions",
+      "competence": "Convertir une fraction simple en décimal",
+      "enonce": "Donne l'écriture décimale de la fraction 3/4.",
+      "scoring": {"mode": "python", "type_reponse": "decimal", "reponse_canonique": "0.75", "formes_acceptees": ["0,75", "0.75"]}
+    },
+    {
+      "id": "auto_gen_fr_07",
+      "source": {"type": "genere_claude_code", "item_liste": "nc_01"},
+      "theme": "fractions",
+      "competence": "Convertir une fraction simple en décimal",
+      "enonce": "Donne l'écriture décimale de la fraction 5/2.",
+      "scoring": {"mode": "python", "type_reponse": "decimal", "reponse_canonique": "2.5", "formes_acceptees": ["2,5", "2.5"]}
+    },
+    {
+      "id": "auto_gen_fr_08",
+      "source": {"type": "genere_claude_code", "item_liste": "nc_01"},
+      "theme": "fractions",
+      "competence": "Convertir une fraction simple en décimal",
+      "enonce": "Donne l'écriture décimale de la fraction 1/10.",
+      "scoring": {"mode": "python", "type_reponse": "decimal", "reponse_canonique": "0.1", "formes_acceptees": ["0,1", "0.1"]}
+    },
+    {
+      "id": "auto_gen_fr_09",
+      "source": {"type": "genere_claude_code", "item_liste": "nc_03"},
+      "theme": "fractions",
+      "competence": "Additionner deux fractions de dénominateurs simples",
+      "enonce": "Calcule : 1/2 + 1/4. Donne le résultat sous forme de fraction irréductible.",
+      "scoring": {"mode": "python", "type_reponse": "fraction", "reponse_canonique": "3/4"}
+    },
+    {
+      "id": "auto_gen_fr_10",
+      "source": {"type": "genere_claude_code", "item_liste": "nc_03"},
+      "theme": "fractions",
+      "competence": "Additionner deux fractions de même dénominateur",
+      "enonce": "Calcule : 2/3 + 1/3. Donne le résultat sous sa forme la plus simple.",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "1", "formes_acceptees": ["1", "1/1", "3/3"]}
+    },
+    {
+      "id": "auto_gen_fr_11",
+      "source": {"type": "genere_claude_code", "item_liste": "nc_03"},
+      "theme": "fractions",
+      "competence": "Multiplier deux fractions",
+      "enonce": "Calcule : 1/2 × 1/2. Donne le résultat sous forme de fraction irréductible.",
+      "scoring": {"mode": "python", "type_reponse": "fraction", "reponse_canonique": "1/4"}
+    },
+    {
+      "id": "auto_gen_fr_12",
+      "source": {"type": "genere_claude_code", "item_liste": "nc_04"},
+      "theme": "fractions",
+      "competence": "Prendre le tiers d'un nombre",
+      "enonce": "Quel est le tiers de 24 ?",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "8"}
+    },
+    {
+      "id": "auto_gen_fr_13",
+      "source": {"type": "genere_claude_code", "item_liste": "nc_04"},
+      "theme": "fractions",
+      "competence": "Prendre le quart d'un nombre",
+      "enonce": "Quel est le quart de 28 ?",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "7"}
+    },
+    {
+      "id": "auto_gen_fr_14",
+      "source": {"type": "genere_claude_code", "item_liste": "nc_04"},
+      "theme": "fractions",
+      "competence": "Prendre le quart d'un nombre",
+      "enonce": "Quel est le quart de 16 ?",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "4"}
+    },
+    {
+      "id": "auto_gen_fr_15",
+      "source": {"type": "genere_claude_code", "item_liste": "nc_03"},
+      "theme": "fractions",
+      "competence": "Comparer deux fractions",
+      "enonce": "Lequel des deux nombres est le plus grand : 1/2 ou 2/3 ?",
+      "scoring": {"mode": "python", "type_reponse": "fraction", "reponse_canonique": "2/3"}
+    },
+    {
+      "id": "auto_gen_fr_16",
+      "source": {"type": "genere_claude_code", "item_liste": "nc_03"},
+      "theme": "fractions",
+      "competence": "Comparer deux fractions",
+      "enonce": "Lequel des deux nombres est le plus grand : 3/4 ou 5/8 ?",
+      "scoring": {"mode": "python", "type_reponse": "fraction", "reponse_canonique": "3/4"}
+    },
+    {
+      "id": "auto_gen_fr_17",
+      "source": {"type": "genere_claude_code", "item_liste": "nc_05"},
+      "theme": "fractions",
+      "competence": "Écrire un décimal sous forme de fraction irréductible",
+      "enonce": "Écris 1,5 sous forme de fraction irréductible.",
+      "scoring": {"mode": "python", "type_reponse": "fraction", "reponse_canonique": "3/2"}
+    },
+    {
+      "id": "auto_gen_fr_18",
+      "source": {"type": "genere_claude_code", "item_liste": "nc_05"},
+      "theme": "fractions",
+      "competence": "Écrire un décimal sous forme de fraction irréductible",
+      "enonce": "Écris 0,25 sous forme de fraction irréductible.",
+      "scoring": {"mode": "python", "type_reponse": "fraction", "reponse_canonique": "1/4"}
+    },
+    {
+      "id": "auto_gen_fr_19",
+      "source": {"type": "genere_claude_code", "item_liste": "nc_05"},
+      "theme": "fractions",
+      "competence": "Écrire un décimal sous forme de fraction irréductible",
+      "enonce": "Écris 2,5 sous forme de fraction irréductible.",
+      "scoring": {"mode": "python", "type_reponse": "fraction", "reponse_canonique": "5/2"}
+    },
+    {
+      "id": "auto_gen_fr_20",
+      "source": {"type": "genere_claude_code", "item_liste": "nc_05"},
+      "theme": "fractions",
+      "competence": "Convertir une fraction simple en pourcentage",
+      "enonce": "Quel pourcentage représente la fraction 1/4 ?",
+      "scoring": {"mode": "python", "type_reponse": "pourcentage", "reponse_canonique": "25", "unite": "%", "formes_acceptees": ["25", "25 %", "25%"]}
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "source": "Liste_automatismes_DNB_2026.pdf",
+  "intitule_officiel": "Liste indicative d'automatismes susceptibles d'être mobilisés lors de l'épreuve écrite de mathématiques (séries générale et professionnelle)",
+  "ministere": "Ministère de l'Éducation nationale, de l'Enseignement supérieur et de la Recherche",
+  "version": "Octobre 2025",
+  "rubriques": [
+    {
+      "code": "nombres_calculs",
+      "titre": "Nombres et calculs",
+      "items": [
+        {"id": "nc_01", "libelle": "Entretenir l'écriture décimale des fractions simples comme 1/2 ; 1/4 ; 3/4 ; 3/2 ; 4/2 ; 5/2 ; 1/10 ; 100/100 ; 7/1.", "themes": ["fractions", "calcul_numerique"]},
+        {"id": "nc_02", "libelle": "Comparer des nombres décimaux et calculer avec des nombres décimaux (y compris négatifs).", "themes": ["calcul_numerique"]},
+        {"id": "nc_03", "libelle": "Simplifier, comparer des fractions, calculer avec des fractions.", "themes": ["fractions"]},
+        {"id": "nc_04", "libelle": "Prendre une fraction simple d'un nombre : le tiers de 18 ; le quart de 12. Déterminer a % de c quand a vaut 100, 50, 25, 10, 1.", "themes": ["fractions", "pourcentages_proportionnalite"]},
+        {"id": "nc_05", "libelle": "Écrire un même nombre sous de multiples formes, par exemple dire que 1,2 = 12/10 = 6/5 = 1 + 1/5 = 120 % = 120/100.", "themes": ["fractions", "calcul_numerique", "pourcentages_proportionnalite"]},
+        {"id": "nc_06", "libelle": "Passer d'une écriture décimale à la notation scientifique.", "themes": ["calcul_numerique"]},
+        {"id": "nc_07", "libelle": "Connaître les carrés des nombres entiers compris entre 1 et 12.", "themes": ["calcul_numerique"]},
+        {"id": "nc_08", "libelle": "Appliquer les critères de divisibilité par 2, 3, 5, 9.", "themes": ["calcul_numerique"]},
+        {"id": "nc_09", "libelle": "Pour un nombre entier n, exprimer son double, son triple, sa moitié, son prédécesseur, son successeur, son carré.", "themes": ["calcul_numerique", "calcul_litteral"]},
+        {"id": "nc_10", "libelle": "Simplifier des expressions littérales.", "themes": ["calcul_litteral"]},
+        {"id": "nc_11", "libelle": "Calculer la valeur d'une expression algébrique y compris avec des puissances, sans technicité excessive.", "themes": ["calcul_litteral"]},
+        {"id": "nc_12", "libelle": "Développer et factoriser une expression simple.", "themes": ["calcul_litteral"]},
+        {"id": "nc_13", "libelle": "Résoudre des équations du type ax = c, x + b = c, ax + b = c.", "themes": ["calcul_litteral"]},
+        {"id": "nc_14", "libelle": "Sur une droite graduée, lire l'abscisse d'un point et placer un point d'abscisse donnée.", "themes": ["calcul_numerique"]}
+      ]
+    },
+    {
+      "code": "espace_geometrie",
+      "titre": "Espace et géométrie",
+      "items": [
+        {"id": "eg_01", "libelle": "Dans le plan muni d'un repère orthogonal, lire les coordonnées d'un point, placer un point de coordonnées données.", "themes": ["geometrie_numerique"]},
+        {"id": "eg_02", "libelle": "Exploiter le codage d'une figure pour identifier des triangles, des quadrilatères particuliers, une médiatrice.", "themes": ["geometrie_numerique"]},
+        {"id": "eg_03", "libelle": "Reconnaître et citer des angles sur une configuration géométrique. Connaître angle plat, nul, opposés par le sommet, adjacents, supplémentaires, aigus, obtus. Angle droit = 90°, plat = 180°.", "themes": ["geometrie_numerique"]},
+        {"id": "eg_04", "libelle": "Connaître la somme des mesures des angles d'un triangle, calculer la mesure du troisième angle d'un triangle connaissant les deux autres.", "themes": ["geometrie_numerique"]},
+        {"id": "eg_05", "libelle": "Connaître les procédures de conversion d'unités : mm, cm, m, km ; mm², cm², m², km² ; cm³, dm³, m³ ; g, kg ; mL, cL, dL, L ; correspondances s/min/h/jour, dm³/L, m³/kL.", "themes": ["grandeurs_mesures"]},
+        {"id": "eg_06", "libelle": "Reconnaître des solides (cube, pavé droit, prisme droit, cylindre, pyramide, cône).", "themes": ["geometrie_numerique"]},
+        {"id": "eg_07", "libelle": "Déterminer le périmètre d'un polygone, d'un disque.", "themes": ["geometrie_numerique", "grandeurs_mesures"]},
+        {"id": "eg_08", "libelle": "Connaître et utiliser les formules d'aire d'un triangle, d'un rectangle, d'un disque.", "themes": ["grandeurs_mesures", "geometrie_numerique"]},
+        {"id": "eg_09", "libelle": "Connaître et utiliser les formules du volume d'un cube, d'un pavé droit, d'un prisme droit, d'un cylindre.", "themes": ["grandeurs_mesures", "geometrie_numerique"]},
+        {"id": "eg_10", "libelle": "Reconnaître une situation d'application du théorème de Pythagore et appliquer l'égalité de Pythagore.", "themes": ["geometrie_numerique"]},
+        {"id": "eg_11", "libelle": "Reconnaître une situation d'application du théorème de Thalès (triangles emboîtés) et utiliser l'égalité des rapports.", "themes": ["geometrie_numerique"]},
+        {"id": "eg_12", "libelle": "Reconnaître une situation d'application de la ligne trigonométrique cosinus et utiliser l'égalité des rapports.", "themes": ["geometrie_numerique"]},
+        {"id": "eg_13", "libelle": "Mobiliser les propriétés de la symétrie axiale, de la symétrie centrale, de la translation.", "themes": ["geometrie_numerique"]}
+      ]
+    },
+    {
+      "code": "donnees_probas",
+      "titre": "Organisation et gestion de données et probabilités",
+      "items": [
+        {"id": "dp_01", "libelle": "Attribuer des probabilités dans des cas simples (équiprobabilité).", "themes": ["stats_probas"]},
+        {"id": "dp_02", "libelle": "Exprimer une fréquence simple.", "themes": ["stats_probas"]},
+        {"id": "dp_03", "libelle": "Exprimer une moyenne.", "themes": ["stats_probas"]},
+        {"id": "dp_04", "libelle": "Déterminer une médiane pour une série comportant un petit nombre de valeurs.", "themes": ["stats_probas"]},
+        {"id": "dp_05", "libelle": "Lire et interpréter des informations présentées sous forme de tableaux, de diagrammes et de graphiques.", "themes": ["stats_probas"]}
+      ]
+    },
+    {
+      "code": "proportionnalite_fonctions",
+      "titre": "Proportionnalité, fonctions",
+      "items": [
+        {"id": "pf_01", "libelle": "Reconnaître si une situation donnée entre dans le cadre de la proportionnalité ou non.", "themes": ["pourcentages_proportionnalite"]},
+        {"id": "pf_02", "libelle": "Mobiliser une procédure adaptée (linéarité, retour à l'unité) pour résoudre un problème de proportionnalité.", "themes": ["pourcentages_proportionnalite"]},
+        {"id": "pf_03", "libelle": "Appliquer une augmentation ou une diminution exprimée en pourcentage.", "themes": ["pourcentages_proportionnalite"]},
+        {"id": "pf_04", "libelle": "Exploiter un graphique représentant la dépendance de deux grandeurs (lecture d'abscisses ou d'ordonnées).", "themes": ["stats_probas"]}
+      ]
+    },
+    {
+      "code": "algorithmique",
+      "titre": "Algorithmique et programmation",
+      "items": [
+        {"id": "al_01", "libelle": "Interpréter une suite d'instructions : programme de calcul, déplacement, construction géométrique.", "themes": ["programmes_calcul"]}
+      ]
+    }
+  ]
+}

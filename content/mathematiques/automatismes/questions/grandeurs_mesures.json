@@ -1,0 +1,149 @@
+{
+  "_comment": "Questions générées en session Claude Code, ancrées sur les items eg_05, eg_07, eg_08, eg_09 (conversions, périmètres, aires et volumes) de la liste officielle 2026.",
+  "questions": [
+    {
+      "id": "auto_gen_gm_01",
+      "source": {"type": "genere_claude_code", "item_liste": "eg_05"},
+      "theme": "grandeurs_mesures",
+      "competence": "Convertir des cm en m",
+      "enonce": "Convertis 250 cm en mètres.",
+      "scoring": {"mode": "python", "type_reponse": "decimal", "reponse_canonique": "2.5", "unite": "m", "tolerances": {"abs": 0.001}, "formes_acceptees": ["2,5", "2.5"]}
+    },
+    {
+      "id": "auto_gen_gm_02",
+      "source": {"type": "genere_claude_code", "item_liste": "eg_05"},
+      "theme": "grandeurs_mesures",
+      "competence": "Convertir des km en m",
+      "enonce": "Convertis 3 km en mètres.",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "3000", "unite": "m"}
+    },
+    {
+      "id": "auto_gen_gm_03",
+      "source": {"type": "genere_claude_code", "item_liste": "eg_05"},
+      "theme": "grandeurs_mesures",
+      "competence": "Convertir des m en km",
+      "enonce": "Convertis 1 500 m en kilomètres.",
+      "scoring": {"mode": "python", "type_reponse": "decimal", "reponse_canonique": "1.5", "unite": "km", "tolerances": {"abs": 0.001}, "formes_acceptees": ["1,5", "1.5"]}
+    },
+    {
+      "id": "auto_gen_gm_04",
+      "source": {"type": "genere_claude_code", "item_liste": "eg_05"},
+      "theme": "grandeurs_mesures",
+      "competence": "Convertir des m² en cm²",
+      "enonce": "Convertis 5 m² en cm².",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "50000", "unite": "cm²"}
+    },
+    {
+      "id": "auto_gen_gm_05",
+      "source": {"type": "genere_claude_code", "item_liste": "eg_05"},
+      "theme": "grandeurs_mesures",
+      "competence": "Convertir des L en cL",
+      "enonce": "Convertis 2,5 L en cL.",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "250", "unite": "cL"}
+    },
+    {
+      "id": "auto_gen_gm_06",
+      "source": {"type": "genere_claude_code", "item_liste": "eg_05"},
+      "theme": "grandeurs_mesures",
+      "competence": "Correspondance dm³ ↔ L",
+      "enonce": "À combien de litres correspondent 3 dm³ ?",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "3", "unite": "L"}
+    },
+    {
+      "id": "auto_gen_gm_07",
+      "source": {"type": "genere_claude_code", "item_liste": "eg_05"},
+      "theme": "grandeurs_mesures",
+      "competence": "Convertir une durée h+min en min",
+      "enonce": "Convertis 1 h 30 min en minutes.",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "90", "unite": "min"}
+    },
+    {
+      "id": "auto_gen_gm_08",
+      "source": {"type": "genere_claude_code", "item_liste": "eg_05"},
+      "theme": "grandeurs_mesures",
+      "competence": "Convertir des secondes en minutes",
+      "enonce": "Convertis 120 secondes en minutes.",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "2", "unite": "min"}
+    },
+    {
+      "id": "auto_gen_gm_09",
+      "source": {"type": "genere_claude_code", "item_liste": "eg_05"},
+      "theme": "grandeurs_mesures",
+      "competence": "Convertir des heures en secondes",
+      "enonce": "Convertis 2 h en secondes.",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "7200", "unite": "s"}
+    },
+    {
+      "id": "auto_gen_gm_10",
+      "source": {"type": "genere_claude_code", "item_liste": "eg_05"},
+      "theme": "grandeurs_mesures",
+      "competence": "Convertir des g en kg",
+      "enonce": "Convertis 1 500 g en kilogrammes.",
+      "scoring": {"mode": "python", "type_reponse": "decimal", "reponse_canonique": "1.5", "unite": "kg", "tolerances": {"abs": 0.001}, "formes_acceptees": ["1,5", "1.5"]}
+    },
+    {
+      "id": "auto_gen_gm_11",
+      "source": {"type": "genere_claude_code", "item_liste": "eg_07"},
+      "theme": "grandeurs_mesures",
+      "competence": "Calculer le périmètre d'un carré",
+      "enonce": "Quel est le périmètre, en cm, d'un carré dont le côté mesure 7 cm ?",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "28", "unite": "cm"}
+    },
+    {
+      "id": "auto_gen_gm_12",
+      "source": {"type": "genere_claude_code", "item_liste": "eg_07"},
+      "theme": "grandeurs_mesures",
+      "competence": "Calculer le périmètre d'un rectangle",
+      "enonce": "Quel est le périmètre, en cm, d'un rectangle de longueur 8 cm et de largeur 5 cm ?",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "26", "unite": "cm"}
+    },
+    {
+      "id": "auto_gen_gm_13",
+      "source": {"type": "genere_claude_code", "item_liste": "eg_08"},
+      "theme": "grandeurs_mesures",
+      "competence": "Calculer l'aire d'un rectangle",
+      "enonce": "Quelle est l'aire, en cm², d'un rectangle de longueur 6 cm et de largeur 4 cm ?",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "24", "unite": "cm²"}
+    },
+    {
+      "id": "auto_gen_gm_14",
+      "source": {"type": "genere_claude_code", "item_liste": "eg_08"},
+      "theme": "grandeurs_mesures",
+      "competence": "Calculer l'aire d'un carré",
+      "enonce": "Quelle est l'aire, en cm², d'un carré de côté 5 cm ?",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "25", "unite": "cm²"}
+    },
+    {
+      "id": "auto_gen_gm_15",
+      "source": {"type": "genere_claude_code", "item_liste": "eg_08"},
+      "theme": "grandeurs_mesures",
+      "competence": "Calculer l'aire d'un triangle rectangle",
+      "enonce": "Quelle est l'aire, en cm², d'un triangle rectangle dont les deux côtés de l'angle droit mesurent 6 cm et 4 cm ?",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "12", "unite": "cm²"}
+    },
+    {
+      "id": "auto_gen_gm_16",
+      "source": {"type": "genere_claude_code", "item_liste": "eg_09"},
+      "theme": "grandeurs_mesures",
+      "competence": "Calculer le volume d'un cube",
+      "enonce": "Quel est le volume, en cm³, d'un cube dont l'arête mesure 3 cm ?",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "27", "unite": "cm³"}
+    },
+    {
+      "id": "auto_gen_gm_17",
+      "source": {"type": "genere_claude_code", "item_liste": "eg_09"},
+      "theme": "grandeurs_mesures",
+      "competence": "Calculer le volume d'un pavé droit",
+      "enonce": "Quel est le volume, en cm³, d'un pavé droit dont les arêtes mesurent 5 cm, 4 cm et 2 cm ?",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "40", "unite": "cm³"}
+    },
+    {
+      "id": "auto_gen_gm_18",
+      "source": {"type": "genere_claude_code", "item_liste": "eg_05"},
+      "theme": "grandeurs_mesures",
+      "competence": "Convertir des km en m",
+      "enonce": "Convertis 0,5 km en mètres.",
+      "scoring": {"mode": "python", "type_reponse": "entier", "reponse_canonique": "500", "unite": "m"}
+    }
+  ]
+}
