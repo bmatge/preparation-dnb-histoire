@@ -2,50 +2,60 @@
 {% block title %}Français — Révise ton brevet{% endblock %}
 
 {% block content %}
-<div class="space-y-8">
-  <header>
-    <h1 class="font-display text-3xl font-bold text-brand-900">Français</h1>
-    <p class="mt-2 text-slate-600">
-      Choisis une sous-épreuve pour t'entraîner.
+<section class="text-center mb-10 animate-reveal">
+  <h1 class="font-display text-4xl sm:text-5xl font-black text-slate-900 leading-tight mb-4">
+    Français
+  </h1>
+  <p class="text-slate-600 max-w-xl mx-auto text-lg">
+    L'épreuve de français du DNB, c'est trois sous-épreuves sur 100 points et
+    3 h au total. Choisis celle que tu veux travailler aujourd'hui.
+  </p>
+</section>
+
+<section class="grid sm:grid-cols-2 gap-4 animate-reveal">
+  <a href="/francais/comprehension/"
+     class="group block bg-white rounded-3xl shadow-glow border border-slate-100 p-6 hover:scale-[1.01] transition">
+    <h2 class="font-display font-bold text-xl text-slate-900 mb-1 group-hover:text-brand-900">
+      Compréhension et interprétation
+    </h2>
+    <p class="text-sm text-slate-600 mb-3">
+      Travaille question par question sur un texte littéraire. L'IA te donne
+      des indices mais jamais la réponse — tu cherches d'abord par toi-même.
     </p>
-  </header>
+    <p class="text-xs text-slate-500 mb-3">50 points · 1 h 10</p>
+    <span class="inline-flex items-center gap-1 text-sm font-semibold text-brand-700">
+      Commencer <span>→</span>
+    </span>
+  </a>
 
-  <div class="grid gap-4 sm:grid-cols-2">
-    <a href="/francais/comprehension/"
-       class="group block rounded-2xl bg-white border border-slate-200 p-6 shadow-sm hover:shadow-glow hover:border-brand-300 transition">
-      <h2 class="font-display text-xl font-bold text-brand-800 group-hover:text-brand-900">
-        Compréhension et compétences d'interprétation
-      </h2>
-      <p class="mt-2 text-sm text-slate-600">
-        Travaille question par question sur un texte littéraire.
-        L'IA te donne des indices mais jamais la réponse — tu cherches d'abord par toi-même.
-      </p>
-      <p class="mt-4 text-xs text-slate-500">50 points · durée 1 h 10</p>
-    </a>
+  <a href="/francais/dictee/"
+     class="group block bg-white rounded-3xl shadow-glow border border-slate-100 p-6 hover:scale-[1.01] transition">
+    <h2 class="font-display font-bold text-xl text-slate-900 mb-1 group-hover:text-brand-900">
+      Dictée
+    </h2>
+    <p class="text-sm text-slate-600 mb-3">
+      Tu écoutes phrase par phrase puis tu écris ce que tu entends. À la fin
+      tu obtiens ta note sur 10 et tu vois exactement où sont tes fautes.
+    </p>
+    <p class="text-xs text-slate-500 mb-3">10 points · 20 min</p>
+    <span class="inline-flex items-center gap-1 text-sm font-semibold text-brand-700">
+      Commencer <span>→</span>
+    </span>
+  </a>
 
-    <a href="/francais/dictee/"
-       class="group block rounded-2xl bg-white border border-slate-200 p-6 shadow-sm hover:shadow-glow hover:border-brand-300 transition">
-      <h2 class="font-display text-xl font-bold text-brand-800 group-hover:text-brand-900">
-        Dictée
-      </h2>
-      <p class="mt-2 text-sm text-slate-600">
-        Tu écoutes phrase par phrase puis tu écris ce que tu entends. À la fin
-        tu obtiens ta note sur 10 et tu vois exactement où sont tes fautes.
-      </p>
-      <p class="mt-4 text-xs text-slate-500">10 points · durée 20 min</p>
-    </a>
-
-    <a href="/francais/redaction/"
-       class="group block rounded-2xl bg-white border border-slate-200 p-6 shadow-sm hover:shadow-glow hover:border-brand-300 transition">
-      <h2 class="font-display text-xl font-bold text-brand-800 group-hover:text-brand-900">
-        Rédaction
-      </h2>
-      <p class="mt-2 text-sm text-slate-600">
-        Deux sujets au choix (imagination ou réflexion). L'IA t'accompagne
-        par des questions mais ne rédige jamais à ta place.
-      </p>
-      <p class="mt-4 text-xs text-slate-500">40 points · durée 1 h 30</p>
-    </a>
-  </div>
-</div>
+  <a href="/francais/redaction/"
+     class="group block bg-white rounded-3xl shadow-glow border border-slate-100 p-6 hover:scale-[1.01] transition sm:col-span-2">
+    <h2 class="font-display font-bold text-xl text-slate-900 mb-1 group-hover:text-brand-900">
+      Rédaction
+    </h2>
+    <p class="text-sm text-slate-600 mb-3">
+      Deux sujets au choix (imagination ou réflexion). L'IA t'accompagne par
+      des questions mais ne rédige jamais à ta place, étape par étape.
+    </p>
+    <p class="text-xs text-slate-500 mb-3">40 points · 1 h 30</p>
+    <span class="inline-flex items-center gap-1 text-sm font-semibold text-brand-700">
+      Commencer <span>→</span>
+    </span>
+  </a>
+</section>
 {% endblock %}
