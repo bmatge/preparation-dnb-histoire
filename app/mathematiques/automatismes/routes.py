@@ -204,6 +204,7 @@ def quiz_page(
             "score": state.get("score", 0),
             "hints_used": state.get("current_hints", 0),
             "revealed": state.get("revealed", False),
+            "session_id": state["db_session_id"],
         },
     )
 

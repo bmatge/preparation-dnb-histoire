@@ -220,6 +220,7 @@ def travail_page(
             "score": state.get("score", 0),
             "hints_used": state.get("current_hints", 0),
             "max_hints": MAX_HINTS_PER_SUBQUESTION,
+            "session_id": state["db_session_id"],
         },
     )
 

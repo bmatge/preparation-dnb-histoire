@@ -1,6 +1,8 @@
 {% extends "_francais_base.html" %}
 {% block title %}{{ dictee.source.annee }} {{ dictee.source.centre }} — Dictée{% endblock %}
 
+{% block timer %}{% with kind="fr_dictee", session_id_str=session.id|string %}{% include "_exercise_timer.html" %}{% endwith %}{% endblock %}
+
 {% block content %}
 <div class="space-y-6">
   <header>

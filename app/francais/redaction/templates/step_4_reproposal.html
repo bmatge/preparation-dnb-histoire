@@ -1,6 +1,7 @@
 {% extends "_francais_base.html" %}
 
 {% block progress %}{% with step=4, step_label="Tu retravailles" %}{% include "_partials/progress.html" %}{% endwith %}{% endblock %}
+{% block timer %}{% with kind="fr_redaction", session_id_str=session_id|string %}{% include "_exercise_timer.html" %}{% endwith %}{% endblock %}
 
 {% block content %}
 <div class="text-center mb-6 animate-reveal">

@@ -1,0 +1,94 @@
+{# ============================================================
+   Timer à double décompte pour les exercices du DNB.
+
+   Inclure ce partial à l'intérieur de {% block timer %} dans une
+   page d'exercice. Deux variables doivent être fournies (via
+   {% with %} ou {% set %} dans le bloc appelant) :
+
+     kind            : identifiant du profil de durée. Valeurs valides
+                       ci-dessous dans _TIMER_PROFILES.
+     session_id_str  : identifiant de session converti en chaîne.
+                       Sert de clé localStorage pour persister le
+                       départ du chrono entre rechargements et, pour
+                       les exercices multi-étapes (DC, rédaction),
+                       entre les différentes étapes d'un même parcours.
+
+   Le JS associé est chargé depuis base.html
+   (/static/exercise_timer.js) et détecte automatiquement les
+   éléments via l'attribut data-exercise-timer.
+   ============================================================ #}
+{% set _TIMER_PROFILES = {
+  "hgemc_dc": {
+    "exercise_minutes": 40,
+    "exercise_label": "Développement construit",
+    "epreuve_minutes": 120,
+    "epreuve_label": "Épreuve HG-EMC complète",
+  },
+  "hgemc_reperes": {
+    "exercise_minutes": 15,
+    "exercise_label": "Repères",
+    "epreuve_minutes": 120,
+    "epreuve_label": "Épreuve HG-EMC complète",
+  },
+  "fr_comprehension": {
+    "exercise_minutes": 70,
+    "exercise_label": "Compréhension",
+    "epreuve_minutes": 180,
+    "epreuve_label": "Épreuve de français complète",
+  },
+  "fr_dictee": {
+    "exercise_minutes": 20,
+    "exercise_label": "Dictée",
+    "epreuve_minutes": 180,
+    "epreuve_label": "Épreuve de français complète",
+  },
+  "fr_redaction": {
+    "exercise_minutes": 90,
+    "exercise_label": "Rédaction",
+    "epreuve_minutes": 180,
+    "epreuve_label": "Épreuve de français complète",
+  },
+  "math_automatismes": {
+    "exercise_minutes": 20,
+    "exercise_label": "Automatismes",
+    "epreuve_minutes": 120,
+    "epreuve_label": "Épreuve de mathématiques complète",
+  },
+  "math_problemes": {
+    "exercise_minutes": 100,
+    "exercise_label": "Raisonnement et problèmes",
+    "epreuve_minutes": 120,
+    "epreuve_label": "Épreuve de mathématiques complète",
+  },
+} %}
+{% set _cfg = _TIMER_PROFILES.get(kind) %}
+{% if _cfg %}
+<div data-exercise-timer
+     data-timer-key="{{ kind }}_{{ session_id_str }}"
+     data-exercise-sec="{{ _cfg.exercise_minutes * 60 }}"
+     data-epreuve-sec="{{ _cfg.epreuve_minutes * 60 }}"
+     class="bg-white/80 backdrop-blur border-t border-slate-200/60">
+  <div class="max-w-3xl mx-auto px-4 py-2 flex items-stretch gap-4 text-xs text-slate-600">
+    <div class="flex-1 min-w-0">
+      <div class="flex items-center justify-between gap-2">
+        <span class="truncate font-medium text-slate-700">{{ _cfg.exercise_label }}</span>
+        <span class="font-mono font-semibold text-slate-900 tabular-nums" data-timer-exercise>—</span>
+      </div>
+      <div class="mt-1 h-1 rounded-full bg-slate-200 overflow-hidden">
+        <div class="h-full bg-brand-500 transition-[width] duration-1000 ease-linear"
+             data-timer-exercise-bar style="width:0%"></div>
+      </div>
+    </div>
+    <div class="flex-1 min-w-0">
+      <div class="flex items-center justify-between gap-2">
+        <span class="truncate font-medium text-slate-700">{{ _cfg.epreuve_label }}</span>
+        <span class="font-mono font-semibold text-slate-900 tabular-nums" data-timer-epreuve>—</span>
+      </div>
+      <div class="mt-1 h-1 rounded-full bg-slate-200 overflow-hidden">
+        <div class="h-full bg-purple-500 transition-[width] duration-1000 ease-linear"
+             data-timer-epreuve-bar style="width:0%"></div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}

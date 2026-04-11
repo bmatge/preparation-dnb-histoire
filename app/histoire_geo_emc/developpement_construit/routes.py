@@ -210,7 +210,7 @@ def step_1(request: Request, s: DBSession = Depends(db_session)):
     return templates.TemplateResponse(
         request,
         "step_1_subject.html",
-        {"subject": _subject_dict(subj)},
+        {"subject": _subject_dict(subj), "session_id": sess.id},
     )
 
 
@@ -242,7 +242,7 @@ def step_2(request: Request, s: DBSession = Depends(db_session)):
     return templates.TemplateResponse(
         request,
         "step_2_proposal.html",
-        {"subject": _subject_dict(subj)},
+        {"subject": _subject_dict(subj), "session_id": sess.id},
     )
 
 
@@ -293,6 +293,7 @@ def step_4(request: Request, s: DBSession = Depends(db_session)):
         {
             "subject": _subject_dict(subj),
             "previous_proposal": first.content if first else "",
+            "session_id": sess.id,
         },
     )
 
@@ -344,6 +345,7 @@ def step_6(request: Request, s: DBSession = Depends(db_session)):
         {
             "subject": _subject_dict(subj),
             "previous_proposal": second.content if second else "",
+            "session_id": sess.id,
         },
     )
 

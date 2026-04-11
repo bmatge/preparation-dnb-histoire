@@ -10,6 +10,7 @@
   <script src="/static/vendor/tailwind.js"></script>
   <script src="/static/vendor/htmx.min.js" defer></script>
   <script src="/static/draft_autosave.js" defer></script>
+  <script src="/static/exercise_timer.js" defer></script>
   <script>
     tailwind.config = {
       theme: {
@@ -285,6 +286,7 @@
     </nav>
 
     {% block progress %}{% endblock %}
+    {% block timer %}{% endblock %}
   </header>
 
   <script>

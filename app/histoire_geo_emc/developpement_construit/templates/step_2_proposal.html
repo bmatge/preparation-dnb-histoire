@@ -1,6 +1,7 @@
 {% extends "_hgemc_base.html" %}
 
 {% block progress %}{% with step=2, step_label="Ta première proposition" %}{% include "_partials/progress.html" %}{% endwith %}{% endblock %}
+{% block timer %}{% with kind="hgemc_dc", session_id_str=session_id|string %}{% include "_exercise_timer.html" %}{% endwith %}{% endblock %}
 
 {% block content %}
 <div class="text-center mb-6 animate-reveal">

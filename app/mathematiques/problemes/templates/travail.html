@@ -2,6 +2,8 @@
 
 {% block title %}{{ exercise.titre }} — Sous-question {{ position }}/{{ total }}{% endblock %}
 
+{% block timer %}{% with kind="math_problemes", session_id_str=session_id|string %}{% include "_exercise_timer.html" %}{% endwith %}{% endblock %}
+
 {% block content %}
 <div class="flex items-center justify-between mb-3 animate-reveal">
   <div>

@@ -2,6 +2,8 @@
 
 {% block title %}Repères — Question {{ position }}/{{ total }}{% endblock %}
 
+{% block timer %}{% with kind="hgemc_reperes", session_id_str=session_id|string %}{% include "_exercise_timer.html" %}{% endwith %}{% endblock %}
+
 {% block content %}
 <div class="flex items-center justify-between mb-4 animate-reveal">
   <span class="text-sm font-semibold text-slate-500">
