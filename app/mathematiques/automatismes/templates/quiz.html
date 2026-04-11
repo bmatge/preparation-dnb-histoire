@@ -19,6 +19,11 @@
     {{ theme_label }}
   </div>
   <p class="font-display text-xl text-slate-900 leading-snug whitespace-pre-line">{{ question.enonce }}</p>
+  {% if question.figure %}
+  <img src="/math-figures/{{ question.figure }}"
+       alt="Figure de la question"
+       class="mx-auto max-w-md my-4 rounded-lg border border-slate-200 bg-white">
+  {% endif %}
 </div>
 
 <form hx-post="/mathematiques/automatismes/quiz/answer"
@@ -26,6 +31,22 @@
       hx-swap="innerHTML"
       hx-indicator="#loading"
       class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 space-y-4 animate-reveal">
+  {% set opts = question.options %}
+  {% if opts %}
+  <fieldset class="space-y-2">
+    <legend class="text-sm font-semibold text-slate-700 block mb-2">
+      Ta réponse
+    </legend>
+    {% for opt in opts %}
+    <label class="flex items-center gap-3 border border-slate-200 rounded-xl px-4 py-3 hover:border-brand-400 hover:bg-brand-50/40 cursor-pointer transition">
+      <input type="radio" name="answer" value="{{ opt.id }}" required
+             class="h-4 w-4 text-brand-600 focus:ring-brand-400">
+      <span class="font-semibold text-slate-700 w-5">{{ opt.id }}.</span>
+      <span class="text-slate-900">{{ opt.texte }}</span>
+    </label>
+    {% endfor %}
+  </fieldset>
+  {% else %}
   <label class="block">
     <span class="text-sm font-semibold text-slate-700 block mb-2">
       Ta réponse
@@ -35,6 +56,7 @@
            placeholder="Un nombre, une fraction a/b, un pourcentage…"
            class="w-full border border-slate-200 rounded-xl px-4 py-3 text-base focus:ring-2 focus:ring-brand-400 focus:border-brand-400 outline-none transition">
   </label>
+  {% endif %}
   <div class="flex items-center justify-between gap-3 flex-wrap">
     <span id="loading" class="htmx-indicator text-sm text-brand-700 items-center gap-2">
       <span class="inline-block h-2.5 w-2.5 rounded-full bg-brand-500 animate-ping"></span>

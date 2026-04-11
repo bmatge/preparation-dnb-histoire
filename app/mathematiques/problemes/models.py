@@ -99,6 +99,9 @@ class ProblemSubquestion(BaseModel):
     scoring: ProblemScoringPython | ProblemScoringAlbert
     indices: QuestionIndices = PydField(default_factory=QuestionIndices)
     reveal_explication: str | None = None
+    # Figure spécifique à la sous-question (nom de fichier dans
+    # content/mathematiques/figures/). Null si la figure est au niveau exercice.
+    figure: str | None = None
 
 
 class ProblemExerciseSchema(BaseModel):
@@ -118,6 +121,9 @@ class ProblemExerciseSchema(BaseModel):
     points_total: float
     contexte: str
     sous_questions: list[ProblemSubquestion]
+    # Figure au niveau exercice (contexte) — nom de fichier dans
+    # content/mathematiques/figures/, servi sur /math-figures.
+    figure: str | None = None
 
 
 # ============================================================================
@@ -142,6 +148,9 @@ class ProblemExercise(SQLModel, table=True):
 
     # Source : sérialisée en JSON (plusieurs champs optionnels).
     source_json: str
+
+    # Figure au niveau exercice (nom de fichier dans content/mathematiques/figures/).
+    figure: str | None = None
 
     @property
     def sous_questions(self) -> list[dict]:
@@ -261,6 +270,7 @@ def init_problemes() -> int:
                         contexte=ex.contexte,
                         sous_questions_json=sq_payload,
                         source_json=source_payload,
+                        figure=ex.figure,
                     )
                 )
             else:
@@ -271,6 +281,7 @@ def init_problemes() -> int:
                 existing.contexte = ex.contexte
                 existing.sous_questions_json = sq_payload
                 existing.source_json = source_payload
+                existing.figure = ex.figure
                 s.add(existing)
             n_loaded += 1
         s.commit()

@@ -67,6 +67,7 @@ CORE_TEMPLATES = APP_DIR / "core" / "templates"
 STATIC_DIR = APP_DIR / "static"
 FRANCAIS_IMAGES_DIR = REPO_ROOT / "content" / "francais" / "comprehension" / "images"
 FRANCAIS_DICTEES_AUDIO_DIR = REPO_ROOT / "content" / "francais" / "dictee" / "audio"
+MATH_FIGURES_DIR = REPO_ROOT / "content" / "mathematiques" / "figures"
 
 
 # ============================================================================
@@ -105,6 +106,14 @@ if FRANCAIS_DICTEES_AUDIO_DIR.exists():
         "/francais-dictees-audio",
         StaticFiles(directory=str(FRANCAIS_DICTEES_AUDIO_DIR)),
         name="francais-dictees-audio",
+    )
+
+# Figures extraites des PDFs maths (sujets zéro, annales) servies depuis content/.
+if MATH_FIGURES_DIR.exists():
+    app.mount(
+        "/math-figures",
+        StaticFiles(directory=str(MATH_FIGURES_DIR)),
+        name="math-figures",
     )
 
 # Templates core : uniquement pour l'accueil global et base.html.

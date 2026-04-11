@@ -73,6 +73,7 @@ ALLOWED_TYPE_REPONSE: tuple[str, ...] = (
     "fraction",
     "pourcentage",
     "texte_court",
+    "qcm",
 )
 
 
@@ -126,6 +127,14 @@ class QuestionIndices(BaseModel):
     niveau_3: str | None = None
 
 
+class QuestionOption(BaseModel):
+    """Une option de QCM : identifiant court (« A », « B »…) + libellé affiché."""
+
+    model_config = ConfigDict(extra="forbid")
+    id: str
+    texte: str
+
+
 class Question(BaseModel):
     """Une question d'automatismes au format JSON committé."""
 
@@ -139,6 +148,10 @@ class Question(BaseModel):
     scoring: ScoringPython | ScoringAlbert
     indices: QuestionIndices = PydField(default_factory=QuestionIndices)
     reveal_explication: str | None = None
+    # Nom de fichier dans content/mathematiques/figures/ (servi sur /math-figures).
+    figure: str | None = None
+    # Options QCM affichées par le template si type_reponse == "qcm".
+    options: list[QuestionOption] | None = None
 
 
 # ============================================================================
@@ -170,6 +183,14 @@ class AutoQuestion(SQLModel, table=True):
 
     reveal_explication: str | None = None
 
+    # Nom de fichier image (dans content/mathematiques/figures/) servi sur
+    # /math-figures. Nullable pour les questions texte-only.
+    figure: str | None = None
+
+    # Options QCM sérialisées en JSON (liste de {id, texte}). Nullable pour
+    # les questions non-QCM.
+    options_json: str | None = None
+
     @property
     def scoring(self) -> dict:
         try:
@@ -190,6 +211,15 @@ class AutoQuestion(SQLModel, table=True):
             return json.loads(self.indices_json)
         except (json.JSONDecodeError, TypeError):
             return {}
+
+    @property
+    def options(self) -> list[dict]:
+        if not self.options_json:
+            return []
+        try:
+            return json.loads(self.options_json) or []
+        except (json.JSONDecodeError, TypeError):
+            return []
 
 
 class AutoAttempt(SQLModel, table=True):
@@ -280,6 +310,13 @@ def init_automatismes() -> int:
             indices_payload = json.dumps(
                 q.indices.model_dump(), ensure_ascii=False
             )
+            options_payload = (
+                json.dumps(
+                    [opt.model_dump() for opt in q.options], ensure_ascii=False
+                )
+                if q.options
+                else None
+            )
 
             if existing is None:
                 s.add(
@@ -293,6 +330,8 @@ def init_automatismes() -> int:
                         source_json=source_payload,
                         indices_json=indices_payload,
                         reveal_explication=q.reveal_explication,
+                        figure=q.figure,
+                        options_json=options_payload,
                     )
                 )
             else:
@@ -304,6 +343,8 @@ def init_automatismes() -> int:
                 existing.source_json = source_payload
                 existing.indices_json = indices_payload
                 existing.reveal_explication = q.reveal_explication
+                existing.figure = q.figure
+                existing.options_json = options_payload
                 s.add(existing)
             n_loaded += 1
         s.commit()
@@ -384,6 +425,7 @@ __all__ = [
     "ScoringAlbert",
     "QuestionSource",
     "QuestionIndices",
+    "QuestionOption",
     "Question",
     "AutoQuestion",
     "AutoAttempt",

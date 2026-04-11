@@ -268,6 +268,13 @@ def check(scoring: dict[str, Any], student_answer: str) -> bool:
         # et variable ne devrait pas faire échouer la comparaison.
         return expected_norm.replace(" ", "") == student_norm.replace(" ", "")
 
+    if type_reponse == "qcm":
+        # Match strict sur l'identifiant d'option (« A », « B », « C »…) après
+        # normalisation lex (lower, strip, accents). L'élève envoie la valeur
+        # du radio (ex. « C ») via le formulaire HTMX, qui correspond au
+        # champ `id` de l'option dans le JSON.
+        return _lex_norm(student_answer) == _lex_norm(expected_raw)
+
     # Type inconnu : on échoue silencieusement.
     return False
 

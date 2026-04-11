@@ -25,6 +25,11 @@
       <span class="text-xs text-slate-500 hidden group-open:inline">Replier</span>
     </summary>
     <div class="eval-md mt-3 text-slate-800 text-[15px]">{{ exercise.contexte | eval_md }}</div>
+    {% if exercise.figure %}
+    <img src="/math-figures/{{ exercise.figure }}"
+         alt="Figure de l'exercice"
+         class="mx-auto max-w-md my-4 rounded-lg border border-slate-200 bg-white">
+    {% endif %}
   </details>
 </div>
 
@@ -39,6 +44,11 @@
     </span>
   </div>
   <div class="eval-md font-display text-lg text-slate-900 leading-snug">{{ subquestion.texte | eval_md }}</div>
+  {% if subquestion.figure %}
+  <img src="/math-figures/{{ subquestion.figure }}"
+       alt="Figure de la sous-question"
+       class="mx-auto max-w-md my-4 rounded-lg border border-slate-200 bg-white">
+  {% endif %}
 </div>
 
 <form hx-post="/mathematiques/problemes/travail/answer"

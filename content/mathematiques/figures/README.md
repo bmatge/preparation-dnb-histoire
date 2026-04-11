@@ -19,12 +19,16 @@ ce n'est pas utilisé en V1.
 
 | Fichier | Source PDF | Page | Question |
 |---|---|---|---|
-| `auto_sjz_a_q4_droite_graduee.png` | `Sujet_zero_DNB_2026_serie_generale_A.pdf` | 1 | Q4 — droite graduée, abscisse du point E |
-| `auto_sjz_a_q7_thales.png` | `Sujet_zero_DNB_2026_serie_generale_A.pdf` | 2 | Q7 — Thalès, triangle ADE avec (DE)//(CB) |
-| `auto_sjz_a_q9_scratch_carre.png` | `Sujet_zero_DNB_2026_serie_generale_A.pdf` | 2 | Q9 — blocs Scratch, programme « définir carré » |
-| `auto_sjz_b_q4_temperature.png` | `Sujet_zero_DNB_2026_serie_generale_B.pdf` | 2 | Q4 — graphique température en fonction de l'horaire |
-| `auto_sjz_b_q8_thales.png` | `Sujet_zero_DNB_2026_serie_generale_B.pdf` | 3 | Q8 — Thalès, triangle avec (DE)//(AC) |
-| `auto_sjz_b_q9_algorithme.png` | `Sujet_zero_DNB_2026_serie_generale_B.pdf` | 3 | Q9 — blocs Scratch, algorithme multiplier/ajouter/diviser |
+| `auto_sjz_a_q4_droite_graduee.png` | `Sujet_zero_DNB_2026_serie_generale_A.pdf` | 1 | Automatisme Q4 — droite graduée, abscisse du point E |
+| `auto_sjz_a_q7_thales.png` | `Sujet_zero_DNB_2026_serie_generale_A.pdf` | 2 | Automatisme Q7 — Thalès, triangle ADE avec (DE)//(CB) |
+| `auto_sjz_a_q9_scratch_carre.png` | `Sujet_zero_DNB_2026_serie_generale_A.pdf` | 2 | Automatisme Q9 — blocs Scratch, programme « définir carré » |
+| `auto_sjz_b_q4_temperature.png` | `Sujet_zero_DNB_2026_serie_generale_B.pdf` | 2 | Automatisme Q4 — graphique température en fonction de l'horaire |
+| `auto_sjz_b_q8_thales.png` | `Sujet_zero_DNB_2026_serie_generale_B.pdf` | 3 | Automatisme Q8 — Thalès, triangle avec (DE)//(AC) |
+| `auto_sjz_b_q9_algorithme.png` | `Sujet_zero_DNB_2026_serie_generale_B.pdf` | 3 | Automatisme Q9 — blocs Scratch, algorithme multiplier/ajouter/diviser |
+| `prob_sjz_a_ex3_droites.png` | `Sujet_zero_DNB_2026_serie_generale_A.pdf` | 5 | Problème Ex3 — graphe des droites (d1) et (d2) pour f(x)=4x+3 et g(x)=6x |
+| `prob_sjz_a_ex4_octogone.png` | `Sujet_zero_DNB_2026_serie_generale_A.pdf` | 6 | Problème Ex4 — octogone IJKLMNOP inscrit dans le carré ABCD (sans cercle) |
+| `prob_sjz_a_ex4_octogone_et_cercle.png` | `Sujet_zero_DNB_2026_serie_generale_A.pdf` | 6 | Problème Ex4 — octogone + cercle inscrit de diamètre 9, figure principale de l'exercice |
+| `prob_sjz_b_ex1_triangle.png` | `Sujet_zero_DNB_2026_serie_generale_B.pdf` | 4 | Problème Ex1 — triangle ABC avec (BA)//(EC), ABC=36°, BAC=108°, x/y/z à déterminer |
 
 ## Reproduire l'extraction
 

@@ -1,5 +1,5 @@
 {
-  "_comment": "Exercices de la Partie 2 (raisonnement et résolution de problèmes) des sujets zéro DNB 2026, série générale A et B, décomposés en sous-questions à réponse numérique ou texte court. Les sous-questions qui nécessitent un rendu graphique (tracés, lectures graphiques) ont été retirées pour cette V1 — seul le raisonnement et les calculs sont évalués. Les deux exercices les plus dépendants d'une figure (A4 octogone/carré, B1 angles dans un triangle) sont reportés à une V2 avec support SVG.",
+  "_comment": "Exercices de la Partie 2 (raisonnement et résolution de problèmes) des sujets zéro DNB 2026, série générale A et B, décomposés en sous-questions à réponse numérique ou texte court. Les sous-questions à pure construction graphique par l'élève (ex. B3.q2b tracer f, B3.q3a lecture sur la construction) restent retirées. Les exercices A4 (octogone dans un carré) et B1 (angles avec parallèles) ont été ajoutés le 2026-04-12 avec figures extraites via pdfimages, de même que les sous-questions graphiques A3.q4 et A3.q5 qui s'appuient sur une lecture du graphe des droites (d1) et (d2).",
   "exercices": [
     {
       "id": "prob_2026A_ex1",
@@ -156,12 +156,13 @@
     },
     {
       "id": "prob_2026A_ex3",
-      "source": {"type": "sujet_zero_dnb_2026", "serie": "A", "exercice": 3, "note": "Sous-questions graphiques retirées pour V1 (lecture de graphique non prise en charge)."},
+      "source": {"type": "sujet_zero_dnb_2026", "serie": "A", "exercice": 3},
       "theme": "fonctions",
       "titre": "Fonctions linéaire et affine",
-      "competence_principale": "Reconnaître proportionnalité, image et antécédent",
-      "points_total": 1.5,
-      "contexte": "On considère les deux fonctions suivantes :\n\n```\nf : x ↦ 4x + 3\ng : x ↦ 6x\n```",
+      "competence_principale": "Reconnaître proportionnalité, image et antécédent, associer droites et fonctions",
+      "points_total": 3.0,
+      "figure": "prob_sjz_a_ex3_droites.png",
+      "contexte": "On considère les deux fonctions suivantes :\n\n```\nf : x ↦ 4x + 3\ng : x ↦ 6x\n```\n\nLeurs représentations graphiques (d₁) et (d₂) sont tracées sur le graphique ci-contre.",
       "sous_questions": [
         {
           "id": "prob_2026A_ex3_q1",
@@ -212,6 +213,61 @@
             "niveau_3": "4x = −3 donc x = −3/4."
           },
           "reveal_explication": "On résout f(x) = 0, soit 4x + 3 = 0. On obtient 4x = −3 puis x = −3/4. L'antécédent de 0 par f est −3/4."
+        },
+        {
+          "id": "prob_2026A_ex3_q4",
+          "numero": "4",
+          "texte": "Associe à chaque droite la fonction qu'elle représente. Indice : regarde laquelle passe par l'origine du repère. Réponds en donnant la fonction de (d₁) puis celle de (d₂), par exemple « d1=g, d2=f ».",
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "texte_court",
+            "reponse_canonique": "d1=g, d2=f",
+            "formes_acceptees": [
+              "d1=g, d2=f",
+              "d1=g d2=f",
+              "d1:g d2:f",
+              "d1:g, d2:f",
+              "d1 = g, d2 = f",
+              "(d1)=g, (d2)=f",
+              "(d1) = g et (d2) = f",
+              "g et f",
+              "g ; f"
+            ]
+          },
+          "indices": {
+            "niveau_1": "Une fonction linéaire (de la forme x ↦ kx) passe obligatoirement par l'origine (0 ; 0).",
+            "niveau_2": "Regarde quelle droite passe exactement par l'origine : ce sera la représentation de g(x) = 6x.",
+            "niveau_3": "(d₁) passe par l'origine → (d₁) représente g. (d₂) coupe l'axe des ordonnées en 3 → (d₂) représente f."
+          },
+          "reveal_explication": "g(x) = 6x est linéaire, donc sa représentation passe par l'origine : c'est (d₁). f(x) = 4x + 3 a une ordonnée à l'origine de 3, donc sa représentation est (d₂)."
+        },
+        {
+          "id": "prob_2026A_ex3_q5",
+          "numero": "5",
+          "texte": "Détermine graphiquement les coordonnées du point d'intersection des droites (d₁) et (d₂). Réponds au format (x ; y).",
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "texte_court",
+            "reponse_canonique": "(1,5 ; 9)",
+            "formes_acceptees": [
+              "(1,5 ; 9)",
+              "(1,5;9)",
+              "(1.5 ; 9)",
+              "(1.5;9)",
+              "1,5 ; 9",
+              "1.5 ; 9",
+              "1,5;9",
+              "1.5;9",
+              "(3/2 ; 9)",
+              "(3/2;9)"
+            ]
+          },
+          "indices": {
+            "niveau_1": "Le point d'intersection est celui où les deux droites se croisent — lis son abscisse puis son ordonnée sur le graphique.",
+            "niveau_2": "L'abscisse semble valoir 1,5 et l'ordonnée semble valoir 9.",
+            "niveau_3": "On peut vérifier par le calcul : f(x) = g(x) donne 4x + 3 = 6x, soit x = 1,5. Alors y = 6 × 1,5 = 9."
+          },
+          "reveal_explication": "Graphiquement le point d'intersection se lit autour de (1,5 ; 9). Par le calcul : 4x + 3 = 6x ⇔ 2x = 3 ⇔ x = 1,5 ; puis y = 6 × 1,5 = 9."
         }
       ]
     },
@@ -453,6 +509,190 @@
             "niveau_3": "13 filles + 11 garçons = 24 élèves par groupe."
           },
           "reveal_explication": "On a 91 ÷ 7 = 13 filles par groupe, et 77 ÷ 7 = 11 garçons par groupe. Chaque groupe comporte donc 13 + 11 = 24 élèves."
+        }
+      ]
+    },
+    {
+      "id": "prob_2026A_ex4",
+      "source": {"type": "sujet_zero_dnb_2026", "serie": "A", "exercice": 4},
+      "theme": "geometrie",
+      "titre": "Carré, octogone et disque",
+      "competence_principale": "Calculer une aire, comparer des grandeurs, utiliser les propriétés d'un disque",
+      "points_total": 3.0,
+      "figure": "prob_sjz_a_ex4_octogone_et_cercle.png",
+      "contexte": "ABCD est un carré de côté 9 cm. Sur les côtés du carré, les segments marqués d'une même codification sont de même longueur. On a tracé :\n\n- le polygone grisé IJKLMNOP à 8 côtés, inscrit dans le carré ABCD ;\n- les diagonales du carré qui se coupent en S ;\n- le cercle de centre S et de diamètre 9 cm.",
+      "sous_questions": [
+        {
+          "id": "prob_2026A_ex4_q1a",
+          "numero": "1.a",
+          "texte": "Le polygone IJKLMNOP est-il régulier, c'est-à-dire a-t-il tous ses côtés de même longueur ? Justifie ta réponse.",
+          "scoring": {
+            "mode": "albert",
+            "reponse_modele": "Non, le polygone IJKLMNOP n'est pas régulier. Les côtés qui longent les bords du carré (IJ, KL, MN, OP) mesurent 3 cm (un tiers du côté du carré), tandis que les côtés obliques qui coupent les coins du carré (JK, LM, NO, PI) mesurent 3√2 cm ≈ 4,24 cm. Un polygone régulier devrait avoir tous ses côtés de même longueur, ce qui n'est pas le cas ici.",
+            "criteres_validation": [
+              "L'élève répond explicitement « non » (le polygone n'est pas régulier).",
+              "Il justifie en distinguant deux types de côtés : les côtés sur les bords du carré (3 cm) et les côtés obliques (3√2 cm ou ≈ 4,24 cm).",
+              "Une justification par observation visuelle « les côtés n'ont pas tous la même longueur » est recevable mais moins solide qu'une justification chiffrée."
+            ]
+          },
+          "indices": {
+            "niveau_1": "Un polygone est régulier si tous ses côtés ont la même longueur. Compare les côtés qui longent les côtés du carré et ceux qui coupent les coins.",
+            "niveau_2": "Chaque côté du carré est découpé en trois parties égales (les codages le montrent), donc les côtés IJ, KL, MN, OP mesurent 9/3 = 3 cm.",
+            "niveau_3": "Les côtés obliques (PI, JK, LM, NO) coupent un coin du carré qui est un triangle rectangle isocèle de côtés 3 cm : par Pythagore, la longueur oblique est 3√2 ≈ 4,24 cm. Elle est donc différente de 3 cm : le polygone n'est pas régulier."
+          },
+          "reveal_explication": "Les côtés IJ, KL, MN, OP longent les côtés du carré et mesurent 3 cm chacun (9/3). Les côtés PI, JK, LM, NO coupent un coin en diagonale et mesurent 3√2 ≈ 4,24 cm. Comme 3 ≠ 3√2, le polygone n'est pas régulier."
+        },
+        {
+          "id": "prob_2026A_ex4_q1b",
+          "numero": "1.b",
+          "texte": "Justifie que l'aire de la surface grisée IJKLMNOP est égale à 63 cm².",
+          "scoring": {
+            "mode": "albert",
+            "reponse_modele": "L'aire du carré ABCD est 9 × 9 = 81 cm². Les 4 coins retirés sont des triangles rectangles isocèles de côtés 3 cm ; chacun a pour aire (3 × 3)/2 = 4,5 cm². Les 4 coins totalisent 4 × 4,5 = 18 cm². L'aire de IJKLMNOP vaut donc 81 − 18 = 63 cm².",
+            "criteres_validation": [
+              "L'élève calcule correctement l'aire du carré (81 cm²).",
+              "Il identifie les 4 triangles rectangles isocèles de côtés 3 cm (un dans chaque coin) et calcule leur aire individuelle (4,5 cm²) puis totale (18 cm²).",
+              "Il conclut par 81 − 18 = 63 cm²."
+            ]
+          },
+          "indices": {
+            "niveau_1": "Aire du polygone grisé = aire du carré − aire des coins retirés.",
+            "niveau_2": "L'aire du carré vaut 9² = 81 cm². Chaque coin est un triangle rectangle isocèle de côtés 3 cm, donc d'aire (3 × 3)/2 = 4,5 cm².",
+            "niveau_3": "Il y a 4 coins, soit une aire totale retirée de 4 × 4,5 = 18 cm². Donc aire IJKLMNOP = 81 − 18 = 63 cm²."
+          },
+          "reveal_explication": "Aire du carré : 9² = 81 cm². Chaque coin retiré est un triangle rectangle isocèle de cathètes 3 cm, d'aire (3×3)/2 = 4,5 cm². Quatre coins : 4 × 4,5 = 18 cm². Donc aire IJKLMNOP = 81 − 18 = 63 cm²."
+        },
+        {
+          "id": "prob_2026A_ex4_q2a",
+          "numero": "2.a",
+          "texte": "Détermine l'aire du disque de centre S et de diamètre 9 cm. Donne la valeur exacte puis la valeur arrondie à 0,01 cm² près.",
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "decimal",
+            "reponse_canonique": "63.62",
+            "tolerances": {"abs": 0.05},
+            "unite": "cm²",
+            "formes_acceptees": [
+              "63,62",
+              "63.62",
+              "63,61",
+              "63.61",
+              "20,25π",
+              "20,25 π",
+              "20.25π",
+              "81π/4",
+              "(81/4)π"
+            ]
+          },
+          "indices": {
+            "niveau_1": "L'aire d'un disque est π × r², avec r le rayon. Ici le diamètre vaut 9 cm.",
+            "niveau_2": "Le rayon est 9/2 = 4,5 cm. Donc aire = π × 4,5² = π × 20,25.",
+            "niveau_3": "π × 20,25 ≈ 3,1416 × 20,25 ≈ 63,62 cm²."
+          },
+          "reveal_explication": "Le rayon est r = 9/2 = 4,5 cm. L'aire vaut π × r² = π × (4,5)² = 20,25π cm² ≈ 63,62 cm²."
+        },
+        {
+          "id": "prob_2026A_ex4_q2b",
+          "numero": "2.b",
+          "texte": "La différence entre l'aire du polygone IJKLMNOP (63 cm²) et l'aire du disque (≈ 63,62 cm²) représente-t-elle moins de 1 % de l'aire du disque ? Justifie par un calcul.",
+          "scoring": {
+            "mode": "albert",
+            "reponse_modele": "La différence vaut environ 63,62 − 63 = 0,62 cm². En pourcentage de l'aire du disque : 0,62/63,62 ≈ 0,0097, soit environ 0,97 %. Comme 0,97 % < 1 %, la différence représente bien moins de 1 % de l'aire du disque.",
+            "criteres_validation": [
+              "L'élève calcule la différence des aires (environ 0,62 cm²).",
+              "Il la divise par l'aire du disque (≈ 63,62 cm²) et obtient un rapport proche de 0,0097 ou 0,97 %.",
+              "Il conclut explicitement que ce pourcentage est inférieur à 1 %."
+            ]
+          },
+          "indices": {
+            "niveau_1": "Pour comparer à 1 %, calcule (différence ÷ aire du disque) × 100.",
+            "niveau_2": "Différence = 63,62 − 63 = 0,62 cm². Puis 0,62 ÷ 63,62 ≈ ?",
+            "niveau_3": "0,62 ÷ 63,62 ≈ 0,0097, soit environ 0,97 %. Comme 0,97 % < 1 %, c'est bien inférieur à 1 %."
+          },
+          "reveal_explication": "Différence = 63,62 − 63 = 0,62 cm². Rapport à l'aire du disque : 0,62/63,62 ≈ 0,0097 ≈ 0,97 %. Comme 0,97 % < 1 %, la différence représente bien moins de 1 % de l'aire du disque."
+        }
+      ]
+    },
+    {
+      "id": "prob_2026B_ex1",
+      "source": {"type": "sujet_zero_dnb_2026", "serie": "B", "exercice": 1},
+      "theme": "geometrie",
+      "titre": "Angles, triangle et droites parallèles",
+      "competence_principale": "Utiliser la somme des angles d'un triangle, un angle droit et les propriétés d'un triangle isocèle",
+      "points_total": 3.0,
+      "figure": "prob_sjz_b_ex1_triangle.png",
+      "contexte": "Sur la figure ci-contre :\n\n- les points B, A et D sont alignés ;\n- les droites (BA) et (EC) sont parallèles ;\n- dans le triangle ABC, l'angle ABC = 36° et l'angle BAC = 108° (lisible sur la figure) ;\n- le triangle ACD est tel que AD = CD (codage) ;\n- la droite (BE) est perpendiculaire à (EC) (angle droit repéré en E).\n\nOn cherche à déterminer la mesure des trois angles x, y et z marqués sur la figure.",
+      "sous_questions": [
+        {
+          "id": "prob_2026B_ex1_q1",
+          "numero": "1",
+          "texte": "Rappelle la propriété de la somme des angles d'un triangle, puis calcule la mesure de l'angle ACB repéré par la lettre x, en degrés.",
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "entier",
+            "reponse_canonique": "36",
+            "unite": "°"
+          },
+          "indices": {
+            "niveau_1": "Dans n'importe quel triangle, la somme des trois angles fait 180°.",
+            "niveau_2": "Dans le triangle ABC, tu connais déjà deux angles : ABC = 36° et BAC = 108°. Soustrais leur somme de 180°.",
+            "niveau_3": "x = 180 − (36 + 108) = 180 − 144 = 36°."
+          },
+          "reveal_explication": "La somme des angles d'un triangle vaut 180°. Dans le triangle ABC, on connaît ABC = 36° et BAC = 108°. Donc ACB = 180 − (36 + 108) = 36°. L'angle x mesure 36°."
+        },
+        {
+          "id": "prob_2026B_ex1_q2a",
+          "numero": "2.a",
+          "texte": "Que peut-on dire des droites (AB) et (EB) ? Justifie ta réponse en t'appuyant sur le parallélisme de (BA) et (EC) et sur l'angle droit en E.",
+          "scoring": {
+            "mode": "albert",
+            "reponse_modele": "Les droites (AB) et (EB) sont perpendiculaires. En effet, on sait que (BA) // (EC) et que (BE) ⊥ (EC) (angle droit en E). Or si une droite (BE) est perpendiculaire à une droite (EC), elle est aussi perpendiculaire à toute droite parallèle à (EC) — donc en particulier à (BA). D'où (BE) ⊥ (BA).",
+            "criteres_validation": [
+              "L'élève conclut explicitement que (AB) et (EB) sont perpendiculaires.",
+              "Il justifie en utilisant à la fois le parallélisme (BA)//(EC) et l'angle droit en E.",
+              "Il mentionne la propriété « si une droite est perpendiculaire à l'une de deux droites parallèles, elle est perpendiculaire à l'autre » (ou équivalent)."
+            ]
+          },
+          "indices": {
+            "niveau_1": "Regarde ce qu'on sait : (BA) // (EC) et (BE) est perpendiculaire à (EC) en E.",
+            "niveau_2": "Rappelle la propriété : si une droite est perpendiculaire à l'une de deux droites parallèles, alors elle est perpendiculaire à l'autre.",
+            "niveau_3": "Comme (BE) ⊥ (EC) et (EC) // (BA), on en déduit que (BE) ⊥ (BA). Les droites (AB) et (EB) sont donc perpendiculaires."
+          },
+          "reveal_explication": "On sait que (BA) // (EC) et (BE) ⊥ (EC). La propriété « une droite perpendiculaire à l'une de deux droites parallèles est perpendiculaire à l'autre » donne (BE) ⊥ (BA). Les droites (AB) et (EB) sont donc perpendiculaires."
+        },
+        {
+          "id": "prob_2026B_ex1_q2b",
+          "numero": "2.b",
+          "texte": "En déduire la mesure de l'angle CBE repéré par la lettre y, en degrés.",
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "entier",
+            "reponse_canonique": "54",
+            "unite": "°"
+          },
+          "indices": {
+            "niveau_1": "Puisque (BE) ⊥ (BA), l'angle ABE mesure 90°. L'angle CBE est une partie de cet angle ABE.",
+            "niveau_2": "Sur la figure, C est à l'intérieur de l'angle ABE, donc ABE = ABC + CBE, c'est-à-dire 90 = 36 + y.",
+            "niveau_3": "y = 90 − 36 = 54°."
+          },
+          "reveal_explication": "Comme (BE) ⊥ (BA), l'angle ABE vaut 90°. Le point C étant à l'intérieur de cet angle, on a ABE = ABC + CBE, soit 90 = 36 + y. Donc y = 54°."
+        },
+        {
+          "id": "prob_2026B_ex1_q3",
+          "numero": "3",
+          "texte": "On s'intéresse maintenant à l'angle ADC repéré par la lettre z. Détermine sa mesure en expliquant les étapes (calcule d'abord DAC, puis utilise le triangle isocèle ACD).",
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "entier",
+            "reponse_canonique": "36",
+            "unite": "°"
+          },
+          "indices": {
+            "niveau_1": "Les points B, A et D sont alignés. L'angle BAC est donné (108°). Utilise cette information pour calculer DAC.",
+            "niveau_2": "Puisque B, A, D sont alignés, l'angle BAD est plat (180°), donc DAC = 180 − BAC = 180 − 108 = 72°.",
+            "niveau_3": "Le triangle ACD est isocèle en D (car AD = CD), donc les angles à la base sont égaux : DCA = DAC = 72°. Par somme des angles : ADC = 180 − 72 − 72 = 36°."
+          },
+          "reveal_explication": "Étape 1 : B, A, D alignés ⇒ BAD = 180° ⇒ DAC = 180 − 108 = 72°.\nÉtape 2 : dans le triangle ACD isocèle en D (AD = CD), les angles à la base sont égaux, donc DCA = DAC = 72°.\nÉtape 3 : somme des angles ⇒ ADC = 180 − 72 − 72 = 36°. L'angle z mesure donc 36°."
         }
       ]
     }
