@@ -1,0 +1,238 @@
+{
+  "questions": [
+    {
+      "id": "pc_es_01_v1",
+      "discipline": "physique_chimie",
+      "theme": "electricite_signaux",
+      "competence": "Loi d'Ohm — calcul de U",
+      "source": {
+        "type": "variation_generee",
+        "document": "fiche_sciences_03_electricite_signaux"
+      },
+      "enonce": "Une résistance de 50 Ω est traversée par un courant de 0.4 A. Quelle est la tension à ses bornes en volts ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "20",
+        "unite": "V"
+      },
+      "reveal_explication": "U = R × I = 50 × 0.4 = 20 V."
+    },
+    {
+      "id": "pc_es_01_v2",
+      "discipline": "physique_chimie",
+      "theme": "electricite_signaux",
+      "competence": "Loi d'Ohm — calcul de U",
+      "source": {
+        "type": "variation_generee",
+        "document": "fiche_sciences_03_electricite_signaux"
+      },
+      "enonce": "Une résistance de 100 Ω est traversée par un courant de 0.1 A. Quelle est la tension à ses bornes en volts ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "10",
+        "unite": "V"
+      },
+      "reveal_explication": "U = R × I = 100 × 0.1 = 10 V."
+    },
+    {
+      "id": "pc_es_01_v3",
+      "discipline": "physique_chimie",
+      "theme": "electricite_signaux",
+      "competence": "Loi d'Ohm — calcul de U",
+      "source": {
+        "type": "variation_generee",
+        "document": "fiche_sciences_03_electricite_signaux"
+      },
+      "enonce": "Une résistance de 220 Ω est traversée par un courant de 0.05 A. Quelle est la tension à ses bornes en volts ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "11",
+        "unite": "V"
+      },
+      "reveal_explication": "U = R × I = 220 × 0.05 = 11 V."
+    },
+    {
+      "id": "pc_es_01_v4",
+      "discipline": "physique_chimie",
+      "theme": "electricite_signaux",
+      "competence": "Loi d'Ohm — calcul de U",
+      "source": {
+        "type": "variation_generee",
+        "document": "fiche_sciences_03_electricite_signaux"
+      },
+      "enonce": "Une résistance de 10 Ω est traversée par un courant de 2 A. Quelle est la tension à ses bornes en volts ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "20",
+        "unite": "V"
+      },
+      "reveal_explication": "U = R × I = 10 × 2 = 20 V."
+    },
+    {
+      "id": "pc_es_01_v5",
+      "discipline": "physique_chimie",
+      "theme": "electricite_signaux",
+      "competence": "Loi d'Ohm — calcul de U",
+      "source": {
+        "type": "variation_generee",
+        "document": "fiche_sciences_03_electricite_signaux"
+      },
+      "enonce": "Une résistance de 5 Ω est traversée par un courant de 1 A. Quelle est la tension à ses bornes en volts ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "5",
+        "unite": "V"
+      },
+      "reveal_explication": "U = R × I = 5 × 1 = 5 V."
+    },
+    {
+      "id": "pc_es_01_v6",
+      "discipline": "physique_chimie",
+      "theme": "electricite_signaux",
+      "competence": "Loi d'Ohm — calcul de U",
+      "source": {
+        "type": "variation_generee",
+        "document": "fiche_sciences_03_electricite_signaux"
+      },
+      "enonce": "Une résistance de 75 Ω est traversée par un courant de 0.2 A. Quelle est la tension à ses bornes en volts ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "15",
+        "unite": "V"
+      },
+      "reveal_explication": "U = R × I = 75 × 0.2 = 15 V."
+    },
+    {
+      "id": "pc_es_02_v1",
+      "discipline": "physique_chimie",
+      "theme": "electricite_signaux",
+      "competence": "Loi d'Ohm — calcul de I",
+      "source": {
+        "type": "variation_generee",
+        "document": "fiche_sciences_03_electricite_signaux"
+      },
+      "enonce": "Un dipôle de résistance 6 Ω est branché sous 12 V. Quelle est l'intensité du courant en ampères ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "2",
+        "unite": "A",
+        "tolerances": {
+          "abs": 0.005
+        }
+      },
+      "reveal_explication": "I = U / R = 12 / 6 ≈ 2 A."
+    },
+    {
+      "id": "pc_es_02_v2",
+      "discipline": "physique_chimie",
+      "theme": "electricite_signaux",
+      "competence": "Loi d'Ohm — calcul de I",
+      "source": {
+        "type": "variation_generee",
+        "document": "fiche_sciences_03_electricite_signaux"
+      },
+      "enonce": "Un dipôle de résistance 8 Ω est branché sous 24 V. Quelle est l'intensité du courant en ampères ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "3",
+        "unite": "A",
+        "tolerances": {
+          "abs": 0.005
+        }
+      },
+      "reveal_explication": "I = U / R = 24 / 8 ≈ 3 A."
+    },
+    {
+      "id": "pc_es_02_v3",
+      "discipline": "physique_chimie",
+      "theme": "electricite_signaux",
+      "competence": "Loi d'Ohm — calcul de I",
+      "source": {
+        "type": "variation_generee",
+        "document": "fiche_sciences_03_electricite_signaux"
+      },
+      "enonce": "Un dipôle de résistance 100 Ω est branché sous 10 V. Quelle est l'intensité du courant en ampères ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "0.1",
+        "unite": "A",
+        "tolerances": {
+          "abs": 0.005
+        }
+      },
+      "reveal_explication": "I = U / R = 10 / 100 ≈ 0.1 A."
+    },
+    {
+      "id": "pc_es_02_v4",
+      "discipline": "physique_chimie",
+      "theme": "electricite_signaux",
+      "competence": "Loi d'Ohm — calcul de I",
+      "source": {
+        "type": "variation_generee",
+        "document": "fiche_sciences_03_electricite_signaux"
+      },
+      "enonce": "Un dipôle de résistance 460 Ω est branché sous 230 V. Quelle est l'intensité du courant en ampères ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "0.5",
+        "unite": "A",
+        "tolerances": {
+          "abs": 0.005
+        }
+      },
+      "reveal_explication": "I = U / R = 230 / 460 ≈ 0.5 A."
+    },
+    {
+      "id": "pc_es_02_v5",
+      "discipline": "physique_chimie",
+      "theme": "electricite_signaux",
+      "competence": "Loi d'Ohm — calcul de I",
+      "source": {
+        "type": "variation_generee",
+        "document": "fiche_sciences_03_electricite_signaux"
+      },
+      "enonce": "Un dipôle de résistance 9 Ω est branché sous 4.5 V. Quelle est l'intensité du courant en ampères ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "0.5",
+        "unite": "A",
+        "tolerances": {
+          "abs": 0.005
+        }
+      },
+      "reveal_explication": "I = U / R = 4.5 / 9 ≈ 0.5 A."
+    },
+    {
+      "id": "pc_es_02_v6",
+      "discipline": "physique_chimie",
+      "theme": "electricite_signaux",
+      "competence": "Loi d'Ohm — calcul de I",
+      "source": {
+        "type": "variation_generee",
+        "document": "fiche_sciences_03_electricite_signaux"
+      },
+      "enonce": "Un dipôle de résistance 50 Ω est branché sous 5 V. Quelle est l'intensité du courant en ampères ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "0.1",
+        "unite": "A",
+        "tolerances": {
+          "abs": 0.005
+        }
+      },
+      "reveal_explication": "I = U / R = 5 / 50 ≈ 0.1 A."
+    }
+  ]
+}

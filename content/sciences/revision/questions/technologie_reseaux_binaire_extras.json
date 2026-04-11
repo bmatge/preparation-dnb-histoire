@@ -1,0 +1,119 @@
+{
+  "questions": [
+    {
+      "id": "tech_pr_08",
+      "discipline": "technologie",
+      "theme": "programmation_robotique",
+      "competence": "Numération binaire",
+      "source": { "type": "programme", "document": "Programme_cycle4_BO_2020" },
+      "enonce": "Combien de valeurs différentes peut prendre un bit ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "entier",
+        "reponse_canonique": "2"
+      },
+      "reveal_explication": "Un bit vaut 0 ou 1 : deux valeurs possibles."
+    },
+    {
+      "id": "tech_pr_09",
+      "discipline": "technologie",
+      "theme": "programmation_robotique",
+      "competence": "Conversion binaire → décimal",
+      "source": { "type": "programme", "document": "Programme_cycle4_BO_2020" },
+      "enonce": "Convertis le nombre binaire 1010 en décimal.",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "entier",
+        "reponse_canonique": "10"
+      },
+      "reveal_explication": "1×8 + 0×4 + 1×2 + 0×1 = 10."
+    },
+    {
+      "id": "tech_pr_10",
+      "discipline": "technologie",
+      "theme": "programmation_robotique",
+      "competence": "Byte",
+      "source": { "type": "programme", "document": "Programme_cycle4_BO_2020" },
+      "enonce": "Combien de bits contient un octet ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "entier",
+        "reponse_canonique": "8"
+      }
+    },
+    {
+      "id": "tech_pr_11",
+      "discipline": "technologie",
+      "theme": "programmation_robotique",
+      "competence": "Adresse IP",
+      "source": { "type": "programme", "document": "Programme_cycle4_BO_2020" },
+      "enonce": "Qu'est-ce qu'une adresse IP sert à identifier sur un réseau ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "un ordinateur",
+        "formes_acceptees": ["ordinateur", "une machine", "machine", "un appareil", "un equipement", "un hote", "un terminal"]
+      },
+      "reveal_explication": "Une adresse IP identifie de manière unique une machine (ordinateur, téléphone, imprimante…) sur un réseau."
+    },
+    {
+      "id": "tech_pr_12",
+      "discipline": "technologie",
+      "theme": "programmation_robotique",
+      "competence": "HTTP",
+      "source": { "type": "programme", "document": "Programme_cycle4_BO_2020" },
+      "enonce": "Que signifient les lettres HTTP dans l'adresse d'un site web ?",
+      "scoring": {
+        "mode": "albert",
+        "reponse_modele": "HyperText Transfer Protocol — le protocole qui permet de transférer les pages web entre un serveur et un navigateur.",
+        "criteres_validation": [
+          "La réponse indique qu'il s'agit d'un protocole de transfert (ou de communication).",
+          "Elle mentionne qu'il concerne le web / les pages web / l'hypertexte."
+        ]
+      }
+    },
+    {
+      "id": "tech_pr_13",
+      "discipline": "technologie",
+      "theme": "programmation_robotique",
+      "competence": "Variables Scratch",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_06_technologie" },
+      "enonce": "Dans Scratch, un bloc « répéter 10 fois » est un exemple de quelle structure de contrôle ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "boucle",
+        "formes_acceptees": ["une boucle", "boucle pour", "boucle iterative", "iteration"]
+      }
+    },
+    {
+      "id": "tech_pr_14",
+      "discipline": "technologie",
+      "theme": "programmation_robotique",
+      "competence": "Capteur",
+      "source": { "type": "programme", "document": "Programme_cycle4_BO_2020" },
+      "enonce": "Un capteur de température convertit une grandeur physique en ... (complète par un mot).",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "signal",
+        "formes_acceptees": ["un signal", "signal electrique", "signal numerique", "tension", "une tension", "donnee", "information"]
+      },
+      "reveal_explication": "Un capteur transforme une grandeur physique (température, lumière, distance…) en un signal électrique exploitable par un système."
+    },
+    {
+      "id": "tech_pr_15",
+      "discipline": "technologie",
+      "theme": "programmation_robotique",
+      "competence": "Actionneur",
+      "source": { "type": "programme", "document": "Programme_cycle4_BO_2020" },
+      "enonce": "Comment appelle-t-on un composant qui transforme un ordre (signal) en action (mouvement, lumière, chaleur) ? En un mot.",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "actionneur",
+        "formes_acceptees": ["un actionneur", "l actionneur"]
+      }
+    }
+  ]
+}

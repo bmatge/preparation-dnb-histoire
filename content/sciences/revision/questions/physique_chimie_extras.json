@@ -1,0 +1,223 @@
+{
+  "questions": [
+    {
+      "id": "pc_om_16",
+      "discipline": "physique_chimie",
+      "theme": "organisation_matiere",
+      "competence": "Test du dihydrogène",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_07_univers_melanges" },
+      "enonce": "Comment identifie-t-on un gaz comme étant du dihydrogène (H2) ?",
+      "scoring": {
+        "mode": "albert",
+        "reponse_modele": "On approche une allumette enflammée : une détonation (« pop ») confirme la présence de dihydrogène.",
+        "criteres_validation": [
+          "La réponse mentionne l'allumette (ou une flamme) approchée.",
+          "La réponse mentionne une détonation ou un « pop » caractéristique."
+        ]
+      }
+    },
+    {
+      "id": "pc_om_17",
+      "discipline": "physique_chimie",
+      "theme": "organisation_matiere",
+      "competence": "pH très acide",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_01_organisation_matiere" },
+      "enonce": "Le jus de citron a un pH d'environ 2. Est-il plus acide, aussi acide ou moins acide que l'eau pure ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "plus acide",
+        "formes_acceptees": ["plus", "plus acide que l eau", "beaucoup plus acide", "tres acide"]
+      },
+      "reveal_explication": "L'eau pure a un pH de 7 (neutre). Un pH plus bas = plus acide."
+    },
+    {
+      "id": "pc_om_18",
+      "discipline": "physique_chimie",
+      "theme": "organisation_matiere",
+      "competence": "Formule du méthane",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_01_organisation_matiere" },
+      "enonce": "Quelle est la formule chimique du méthane ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "CH4",
+        "formes_acceptees": ["ch4", "CH₄"]
+      }
+    },
+    {
+      "id": "pc_om_19",
+      "discipline": "physique_chimie",
+      "theme": "organisation_matiere",
+      "competence": "Élément chimique — symbole",
+      "source": { "type": "programme", "document": "Programme_cycle4_BO_2020" },
+      "enonce": "Quel est le symbole chimique du fer ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "Fe",
+        "formes_acceptees": ["fe"]
+      }
+    },
+    {
+      "id": "pc_om_20",
+      "discipline": "physique_chimie",
+      "theme": "organisation_matiere",
+      "competence": "Élément chimique — symbole",
+      "source": { "type": "programme", "document": "Programme_cycle4_BO_2020" },
+      "enonce": "Quel est le symbole chimique de l'oxygène ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "O",
+        "formes_acceptees": ["o"]
+      }
+    },
+    {
+      "id": "pc_me_16",
+      "discipline": "physique_chimie",
+      "theme": "mouvements_energie",
+      "competence": "Freinage et distance d'arrêt",
+      "source": { "type": "programme", "document": "Programme_cycle4_BO_2020" },
+      "enonce": "La distance de freinage d'un véhicule est-elle proportionnelle à la vitesse, au carré de la vitesse, ou constante ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "au carré de la vitesse",
+        "formes_acceptees": ["carre de la vitesse", "au carre", "proportionnelle au carre", "carre", "v2", "v^2", "v au carre"]
+      },
+      "reveal_explication": "La distance de freinage est proportionnelle à v² : doubler la vitesse quadruple la distance d'arrêt."
+    },
+    {
+      "id": "pc_me_17",
+      "discipline": "physique_chimie",
+      "theme": "mouvements_energie",
+      "competence": "Énergie — unité historique",
+      "source": { "type": "programme", "document": "Programme_cycle4_BO_2020" },
+      "enonce": "Combien de joules contient 1 kWh ? Réponds en millions (ex : 3.6 pour 3,6 millions).",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "3.6",
+        "unite": "millions de J",
+        "tolerances": { "abs": 0.05 }
+      },
+      "reveal_explication": "1 kWh = 3 600 000 J = 3,6 millions de joules (1000 W × 3600 s)."
+    },
+    {
+      "id": "pc_es_16",
+      "discipline": "physique_chimie",
+      "theme": "electricite_signaux",
+      "competence": "Tension d'une pile AA",
+      "source": { "type": "programme", "document": "Programme_cycle4_BO_2020" },
+      "enonce": "Quelle est la tension nominale d'une pile type AA (en volts) ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "1.5",
+        "unite": "V",
+        "tolerances": { "abs": 0.1 }
+      }
+    },
+    {
+      "id": "pc_es_17",
+      "discipline": "physique_chimie",
+      "theme": "electricite_signaux",
+      "competence": "Tension du secteur en France",
+      "source": { "type": "programme", "document": "Programme_cycle4_BO_2020" },
+      "enonce": "Quelle est la tension efficace du secteur électrique domestique en France (en volts) ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "entier",
+        "reponse_canonique": "230",
+        "unite": "V",
+        "tolerances": { "abs": 5 }
+      }
+    },
+    {
+      "id": "pc_es_18",
+      "discipline": "physique_chimie",
+      "theme": "electricite_signaux",
+      "competence": "Écho — ultrasons",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_03_electricite_signaux" },
+      "enonce": "Quel type de signal (sons) utilisent les chauves-souris pour se repérer dans le noir ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "ultrasons",
+        "formes_acceptees": ["les ultrasons", "des ultrasons", "ultrason"]
+      }
+    },
+    {
+      "id": "pc_um_16",
+      "discipline": "physique_chimie",
+      "theme": "univers_melanges",
+      "competence": "Durée d'un jour terrestre",
+      "source": { "type": "programme", "document": "Programme_cycle4_BO_2020" },
+      "enonce": "Combien d'heures dure un jour sur Terre (approximativement) ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "entier",
+        "reponse_canonique": "24",
+        "unite": "h"
+      }
+    },
+    {
+      "id": "pc_um_17",
+      "discipline": "physique_chimie",
+      "theme": "univers_melanges",
+      "competence": "Année lumière",
+      "source": { "type": "programme", "document": "Programme_cycle4_BO_2020" },
+      "enonce": "Une année-lumière est une unité de ... (complète par un mot : temps, distance ou masse).",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "distance",
+        "formes_acceptees": ["une distance", "la distance", "longueur"]
+      },
+      "reveal_explication": "C'est la distance parcourue par la lumière en un an (≈ 9,46 × 10¹² km). Piège classique : ce n'est pas une durée !"
+    },
+    {
+      "id": "pc_um_18",
+      "discipline": "physique_chimie",
+      "theme": "univers_melanges",
+      "competence": "Satellite naturel de la Terre",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_07_univers_melanges" },
+      "enonce": "Quel est le nom du satellite naturel de la Terre ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "Lune",
+        "formes_acceptees": ["la lune", "lune"]
+      }
+    },
+    {
+      "id": "pc_um_19",
+      "discipline": "physique_chimie",
+      "theme": "univers_melanges",
+      "competence": "Planète la plus proche du Soleil",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_07_univers_melanges" },
+      "enonce": "Quelle est la planète la plus proche du Soleil ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "Mercure",
+        "formes_acceptees": ["mercure"]
+      }
+    },
+    {
+      "id": "pc_um_20",
+      "discipline": "physique_chimie",
+      "theme": "univers_melanges",
+      "competence": "Planète la plus grosse",
+      "source": { "type": "fiche_methode", "document": "fiche_sciences_07_univers_melanges" },
+      "enonce": "Quelle est la plus grosse planète du système solaire ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "texte_court",
+        "reponse_canonique": "Jupiter",
+        "formes_acceptees": ["jupiter"]
+      }
+    }
+  ]
+}

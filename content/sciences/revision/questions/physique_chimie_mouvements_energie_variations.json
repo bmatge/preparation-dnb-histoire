@@ -1,0 +1,796 @@
+{
+  "questions": [
+    {
+      "id": "pc_me_01_v1",
+      "discipline": "physique_chimie",
+      "theme": "mouvements_energie",
+      "competence": "Calcul de vitesse (v = d/t)",
+      "source": {
+        "type": "variation_generee",
+        "document": "fiche_sciences_02_mouvements_energie"
+      },
+      "enonce": "Un cycliste parcourt 60 km en 2 h. Quelle est sa vitesse moyenne en km/h ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "30",
+        "unite": "km/h"
+      },
+      "reveal_explication": "v = d / t = 60 / 2 = 30 km/h."
+    },
+    {
+      "id": "pc_me_01_v2",
+      "discipline": "physique_chimie",
+      "theme": "mouvements_energie",
+      "competence": "Calcul de vitesse (v = d/t)",
+      "source": {
+        "type": "variation_generee",
+        "document": "fiche_sciences_02_mouvements_energie"
+      },
+      "enonce": "Un TGV parcourt 120 km en 3 h. Quelle est sa vitesse moyenne en km/h ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "40",
+        "unite": "km/h"
+      },
+      "reveal_explication": "v = d / t = 120 / 3 = 40 km/h."
+    },
+    {
+      "id": "pc_me_01_v3",
+      "discipline": "physique_chimie",
+      "theme": "mouvements_energie",
+      "competence": "Calcul de vitesse (v = d/t)",
+      "source": {
+        "type": "variation_generee",
+        "document": "fiche_sciences_02_mouvements_energie"
+      },
+      "enonce": "Un automobiliste parcourt 90 km en 3 h. Quelle est sa vitesse moyenne en km/h ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "30",
+        "unite": "km/h"
+      },
+      "reveal_explication": "v = d / t = 90 / 3 = 30 km/h."
+    },
+    {
+      "id": "pc_me_01_v4",
+      "discipline": "physique_chimie",
+      "theme": "mouvements_energie",
+      "competence": "Calcul de vitesse (v = d/t)",
+      "source": {
+        "type": "variation_generee",
+        "document": "fiche_sciences_02_mouvements_energie"
+      },
+      "enonce": "Un randonneur parcourt 50 km en 5 h. Quelle est sa vitesse moyenne en km/h ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "10",
+        "unite": "km/h"
+      },
+      "reveal_explication": "v = d / t = 50 / 5 = 10 km/h."
+    },
+    {
+      "id": "pc_me_01_v5",
+      "discipline": "physique_chimie",
+      "theme": "mouvements_energie",
+      "competence": "Calcul de vitesse (v = d/t)",
+      "source": {
+        "type": "variation_generee",
+        "document": "fiche_sciences_02_mouvements_energie"
+      },
+      "enonce": "Un cycliste lors d'une étape parcourt 100 km en 2 h. Quelle est sa vitesse moyenne en km/h ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "50",
+        "unite": "km/h"
+      },
+      "reveal_explication": "v = d / t = 100 / 2 = 50 km/h."
+    },
+    {
+      "id": "pc_me_01_v6",
+      "discipline": "physique_chimie",
+      "theme": "mouvements_energie",
+      "competence": "Calcul de vitesse (v = d/t)",
+      "source": {
+        "type": "variation_generee",
+        "document": "fiche_sciences_02_mouvements_energie"
+      },
+      "enonce": "Un conducteur de train parcourt 200 km en 4 h. Quelle est sa vitesse moyenne en km/h ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "50",
+        "unite": "km/h"
+      },
+      "reveal_explication": "v = d / t = 200 / 4 = 50 km/h."
+    },
+    {
+      "id": "pc_me_01_v7",
+      "discipline": "physique_chimie",
+      "theme": "mouvements_energie",
+      "competence": "Calcul de vitesse (v = d/t)",
+      "source": {
+        "type": "variation_generee",
+        "document": "fiche_sciences_02_mouvements_energie"
+      },
+      "enonce": "Un coureur à pied parcourt 45 km en 3 h. Quelle est sa vitesse moyenne en km/h ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "15",
+        "unite": "km/h"
+      },
+      "reveal_explication": "v = d / t = 45 / 3 = 15 km/h."
+    },
+    {
+      "id": "pc_me_02_v1",
+      "discipline": "physique_chimie",
+      "theme": "mouvements_energie",
+      "competence": "Conversion km/h → m/s",
+      "source": {
+        "type": "variation_generee",
+        "document": "fiche_sciences_02_mouvements_energie"
+      },
+      "enonce": "Convertis 36 km/h en m/s.",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "10",
+        "unite": "m/s",
+        "tolerances": {
+          "abs": 0.1
+        }
+      },
+      "reveal_explication": "Pour passer de km/h à m/s, on divise par 3,6 : 36 / 3,6 ≈ 10 m/s."
+    },
+    {
+      "id": "pc_me_02_v2",
+      "discipline": "physique_chimie",
+      "theme": "mouvements_energie",
+      "competence": "Conversion km/h → m/s",
+      "source": {
+        "type": "variation_generee",
+        "document": "fiche_sciences_02_mouvements_energie"
+      },
+      "enonce": "Convertis 54 km/h en m/s.",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "15",
+        "unite": "m/s",
+        "tolerances": {
+          "abs": 0.1
+        }
+      },
+      "reveal_explication": "Pour passer de km/h à m/s, on divise par 3,6 : 54 / 3,6 ≈ 15 m/s."
+    },
+    {
+      "id": "pc_me_02_v3",
+      "discipline": "physique_chimie",
+      "theme": "mouvements_energie",
+      "competence": "Conversion km/h → m/s",
+      "source": {
+        "type": "variation_generee",
+        "document": "fiche_sciences_02_mouvements_energie"
+      },
+      "enonce": "Convertis 90 km/h en m/s.",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "25",
+        "unite": "m/s",
+        "tolerances": {
+          "abs": 0.1
+        }
+      },
+      "reveal_explication": "Pour passer de km/h à m/s, on divise par 3,6 : 90 / 3,6 ≈ 25 m/s."
+    },
+    {
+      "id": "pc_me_02_v4",
+      "discipline": "physique_chimie",
+      "theme": "mouvements_energie",
+      "competence": "Conversion km/h → m/s",
+      "source": {
+        "type": "variation_generee",
+        "document": "fiche_sciences_02_mouvements_energie"
+      },
+      "enonce": "Convertis 108 km/h en m/s.",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "30",
+        "unite": "m/s",
+        "tolerances": {
+          "abs": 0.1
+        }
+      },
+      "reveal_explication": "Pour passer de km/h à m/s, on divise par 3,6 : 108 / 3,6 ≈ 30 m/s."
+    },
+    {
+      "id": "pc_me_02_v5",
+      "discipline": "physique_chimie",
+      "theme": "mouvements_energie",
+      "competence": "Conversion km/h → m/s",
+      "source": {
+        "type": "variation_generee",
+        "document": "fiche_sciences_02_mouvements_energie"
+      },
+      "enonce": "Convertis 18 km/h en m/s.",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "5",
+        "unite": "m/s",
+        "tolerances": {
+          "abs": 0.1
+        }
+      },
+      "reveal_explication": "Pour passer de km/h à m/s, on divise par 3,6 : 18 / 3,6 ≈ 5 m/s."
+    },
+    {
+      "id": "pc_me_02_v6",
+      "discipline": "physique_chimie",
+      "theme": "mouvements_energie",
+      "competence": "Conversion km/h → m/s",
+      "source": {
+        "type": "variation_generee",
+        "document": "fiche_sciences_02_mouvements_energie"
+      },
+      "enonce": "Convertis 126 km/h en m/s.",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "35",
+        "unite": "m/s",
+        "tolerances": {
+          "abs": 0.1
+        }
+      },
+      "reveal_explication": "Pour passer de km/h à m/s, on divise par 3,6 : 126 / 3,6 ≈ 35 m/s."
+    },
+    {
+      "id": "pc_me_06_v1",
+      "discipline": "physique_chimie",
+      "theme": "mouvements_energie",
+      "competence": "Calcul du poids P = m × g",
+      "source": {
+        "type": "variation_generee",
+        "document": "fiche_sciences_02_mouvements_energie"
+      },
+      "enonce": "Quel est le poids (en newtons) d'un objet de masse 2 kg sur Terre, avec g = 10 N/kg ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "20",
+        "unite": "N"
+      },
+      "reveal_explication": "P = m × g = 2 × 10 = 20 N."
+    },
+    {
+      "id": "pc_me_06_v2",
+      "discipline": "physique_chimie",
+      "theme": "mouvements_energie",
+      "competence": "Calcul du poids P = m × g",
+      "source": {
+        "type": "variation_generee",
+        "document": "fiche_sciences_02_mouvements_energie"
+      },
+      "enonce": "Quel est le poids (en newtons) d'un objet de masse 10 kg sur Terre, avec g = 10 N/kg ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "100",
+        "unite": "N"
+      },
+      "reveal_explication": "P = m × g = 10 × 10 = 100 N."
+    },
+    {
+      "id": "pc_me_06_v3",
+      "discipline": "physique_chimie",
+      "theme": "mouvements_energie",
+      "competence": "Calcul du poids P = m × g",
+      "source": {
+        "type": "variation_generee",
+        "document": "fiche_sciences_02_mouvements_energie"
+      },
+      "enonce": "Quel est le poids (en newtons) d'un objet de masse 25 kg sur Terre, avec g = 10 N/kg ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "250",
+        "unite": "N"
+      },
+      "reveal_explication": "P = m × g = 25 × 10 = 250 N."
+    },
+    {
+      "id": "pc_me_06_v4",
+      "discipline": "physique_chimie",
+      "theme": "mouvements_energie",
+      "competence": "Calcul du poids P = m × g",
+      "source": {
+        "type": "variation_generee",
+        "document": "fiche_sciences_02_mouvements_energie"
+      },
+      "enonce": "Quel est le poids (en newtons) d'un objet de masse 0.5 kg sur Terre, avec g = 10 N/kg ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "5",
+        "unite": "N"
+      },
+      "reveal_explication": "P = m × g = 0.5 × 10 = 5 N."
+    },
+    {
+      "id": "pc_me_06_v5",
+      "discipline": "physique_chimie",
+      "theme": "mouvements_energie",
+      "competence": "Calcul du poids P = m × g",
+      "source": {
+        "type": "variation_generee",
+        "document": "fiche_sciences_02_mouvements_energie"
+      },
+      "enonce": "Quel est le poids (en newtons) d'un objet de masse 75 kg sur Terre, avec g = 10 N/kg ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "750",
+        "unite": "N"
+      },
+      "reveal_explication": "P = m × g = 75 × 10 = 750 N."
+    },
+    {
+      "id": "pc_me_06_v6",
+      "discipline": "physique_chimie",
+      "theme": "mouvements_energie",
+      "competence": "Calcul du poids P = m × g",
+      "source": {
+        "type": "variation_generee",
+        "document": "fiche_sciences_02_mouvements_energie"
+      },
+      "enonce": "Quel est le poids (en newtons) d'un objet de masse 100 kg sur Terre, avec g = 10 N/kg ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "1000",
+        "unite": "N"
+      },
+      "reveal_explication": "P = m × g = 100 × 10 = 1000 N."
+    },
+    {
+      "id": "pc_me_09_v1",
+      "discipline": "physique_chimie",
+      "theme": "mouvements_energie",
+      "competence": "Énergie cinétique Ec = ½mv²",
+      "source": {
+        "type": "variation_generee",
+        "document": "fiche_sciences_02_mouvements_energie"
+      },
+      "enonce": "Un objet de masse 4 kg se déplace à 2 m/s. Quelle est son énergie cinétique en joules ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "8",
+        "unite": "J"
+      },
+      "reveal_explication": "Ec = ½ × m × v² = 0,5 × 4 × 2² = 8 J."
+    },
+    {
+      "id": "pc_me_09_v2",
+      "discipline": "physique_chimie",
+      "theme": "mouvements_energie",
+      "competence": "Énergie cinétique Ec = ½mv²",
+      "source": {
+        "type": "variation_generee",
+        "document": "fiche_sciences_02_mouvements_energie"
+      },
+      "enonce": "Un objet de masse 1 kg se déplace à 10 m/s. Quelle est son énergie cinétique en joules ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "50",
+        "unite": "J"
+      },
+      "reveal_explication": "Ec = ½ × m × v² = 0,5 × 1 × 10² = 50 J."
+    },
+    {
+      "id": "pc_me_09_v3",
+      "discipline": "physique_chimie",
+      "theme": "mouvements_energie",
+      "competence": "Énergie cinétique Ec = ½mv²",
+      "source": {
+        "type": "variation_generee",
+        "document": "fiche_sciences_02_mouvements_energie"
+      },
+      "enonce": "Un objet de masse 10 kg se déplace à 5 m/s. Quelle est son énergie cinétique en joules ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "125",
+        "unite": "J"
+      },
+      "reveal_explication": "Ec = ½ × m × v² = 0,5 × 10 × 5² = 125 J."
+    },
+    {
+      "id": "pc_me_09_v4",
+      "discipline": "physique_chimie",
+      "theme": "mouvements_energie",
+      "competence": "Énergie cinétique Ec = ½mv²",
+      "source": {
+        "type": "variation_generee",
+        "document": "fiche_sciences_02_mouvements_energie"
+      },
+      "enonce": "Un objet de masse 0.5 kg se déplace à 4 m/s. Quelle est son énergie cinétique en joules ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "4",
+        "unite": "J"
+      },
+      "reveal_explication": "Ec = ½ × m × v² = 0,5 × 0.5 × 4² = 4 J."
+    },
+    {
+      "id": "pc_me_09_v5",
+      "discipline": "physique_chimie",
+      "theme": "mouvements_energie",
+      "competence": "Énergie cinétique Ec = ½mv²",
+      "source": {
+        "type": "variation_generee",
+        "document": "fiche_sciences_02_mouvements_energie"
+      },
+      "enonce": "Un objet de masse 2 kg se déplace à 6 m/s. Quelle est son énergie cinétique en joules ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "36",
+        "unite": "J"
+      },
+      "reveal_explication": "Ec = ½ × m × v² = 0,5 × 2 × 6² = 36 J."
+    },
+    {
+      "id": "pc_me_09_v6",
+      "discipline": "physique_chimie",
+      "theme": "mouvements_energie",
+      "competence": "Énergie cinétique Ec = ½mv²",
+      "source": {
+        "type": "variation_generee",
+        "document": "fiche_sciences_02_mouvements_energie"
+      },
+      "enonce": "Un objet de masse 5 kg se déplace à 2 m/s. Quelle est son énergie cinétique en joules ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "10",
+        "unite": "J"
+      },
+      "reveal_explication": "Ec = ½ × m × v² = 0,5 × 5 × 2² = 10 J."
+    },
+    {
+      "id": "pc_me_10_v1",
+      "discipline": "physique_chimie",
+      "theme": "mouvements_energie",
+      "competence": "Énergie potentielle de position",
+      "source": {
+        "type": "variation_generee",
+        "document": "fiche_sciences_02_mouvements_energie"
+      },
+      "enonce": "Un objet de masse 1 kg est suspendu à 2 m du sol (g = 10 N/kg). Quelle est son énergie potentielle en joules ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "20",
+        "unite": "J"
+      },
+      "reveal_explication": "Ep = m × g × h = 1 × 10 × 2 = 20 J."
+    },
+    {
+      "id": "pc_me_10_v2",
+      "discipline": "physique_chimie",
+      "theme": "mouvements_energie",
+      "competence": "Énergie potentielle de position",
+      "source": {
+        "type": "variation_generee",
+        "document": "fiche_sciences_02_mouvements_energie"
+      },
+      "enonce": "Un objet de masse 0.5 kg est suspendu à 10 m du sol (g = 10 N/kg). Quelle est son énergie potentielle en joules ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "50",
+        "unite": "J"
+      },
+      "reveal_explication": "Ep = m × g × h = 0.5 × 10 × 10 = 50 J."
+    },
+    {
+      "id": "pc_me_10_v3",
+      "discipline": "physique_chimie",
+      "theme": "mouvements_energie",
+      "competence": "Énergie potentielle de position",
+      "source": {
+        "type": "variation_generee",
+        "document": "fiche_sciences_02_mouvements_energie"
+      },
+      "enonce": "Un objet de masse 2 kg est suspendu à 5 m du sol (g = 10 N/kg). Quelle est son énergie potentielle en joules ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "100",
+        "unite": "J"
+      },
+      "reveal_explication": "Ep = m × g × h = 2 × 10 × 5 = 100 J."
+    },
+    {
+      "id": "pc_me_10_v4",
+      "discipline": "physique_chimie",
+      "theme": "mouvements_energie",
+      "competence": "Énergie potentielle de position",
+      "source": {
+        "type": "variation_generee",
+        "document": "fiche_sciences_02_mouvements_energie"
+      },
+      "enonce": "Un objet de masse 0.1 kg est suspendu à 20 m du sol (g = 10 N/kg). Quelle est son énergie potentielle en joules ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "20",
+        "unite": "J"
+      },
+      "reveal_explication": "Ep = m × g × h = 0.1 × 10 × 20 = 20 J."
+    },
+    {
+      "id": "pc_me_10_v5",
+      "discipline": "physique_chimie",
+      "theme": "mouvements_energie",
+      "competence": "Énergie potentielle de position",
+      "source": {
+        "type": "variation_generee",
+        "document": "fiche_sciences_02_mouvements_energie"
+      },
+      "enonce": "Un objet de masse 3 kg est suspendu à 4 m du sol (g = 10 N/kg). Quelle est son énergie potentielle en joules ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "120",
+        "unite": "J"
+      },
+      "reveal_explication": "Ep = m × g × h = 3 × 10 × 4 = 120 J."
+    },
+    {
+      "id": "pc_me_10_v6",
+      "discipline": "physique_chimie",
+      "theme": "mouvements_energie",
+      "competence": "Énergie potentielle de position",
+      "source": {
+        "type": "variation_generee",
+        "document": "fiche_sciences_02_mouvements_energie"
+      },
+      "enonce": "Un objet de masse 5 kg est suspendu à 3 m du sol (g = 10 N/kg). Quelle est son énergie potentielle en joules ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "150",
+        "unite": "J"
+      },
+      "reveal_explication": "Ep = m × g × h = 5 × 10 × 3 = 150 J."
+    },
+    {
+      "id": "pc_me_13_v1",
+      "discipline": "physique_chimie",
+      "theme": "mouvements_energie",
+      "competence": "Puissance électrique P = U × I",
+      "source": {
+        "type": "variation_generee",
+        "document": "fiche_sciences_02_mouvements_energie"
+      },
+      "enonce": "Un appareil fonctionne sous 12 V et est traversé par un courant de 2 A. Quelle est sa puissance en watts ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "24",
+        "unite": "W"
+      },
+      "reveal_explication": "P = U × I = 12 × 2 = 24 W."
+    },
+    {
+      "id": "pc_me_13_v2",
+      "discipline": "physique_chimie",
+      "theme": "mouvements_energie",
+      "competence": "Puissance électrique P = U × I",
+      "source": {
+        "type": "variation_generee",
+        "document": "fiche_sciences_02_mouvements_energie"
+      },
+      "enonce": "Un appareil fonctionne sous 6 V et est traversé par un courant de 0.5 A. Quelle est sa puissance en watts ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "3",
+        "unite": "W"
+      },
+      "reveal_explication": "P = U × I = 6 × 0.5 = 3 W."
+    },
+    {
+      "id": "pc_me_13_v3",
+      "discipline": "physique_chimie",
+      "theme": "mouvements_energie",
+      "competence": "Puissance électrique P = U × I",
+      "source": {
+        "type": "variation_generee",
+        "document": "fiche_sciences_02_mouvements_energie"
+      },
+      "enonce": "Un appareil fonctionne sous 230 V et est traversé par un courant de 1 A. Quelle est sa puissance en watts ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "230",
+        "unite": "W"
+      },
+      "reveal_explication": "P = U × I = 230 × 1 = 230 W."
+    },
+    {
+      "id": "pc_me_13_v4",
+      "discipline": "physique_chimie",
+      "theme": "mouvements_energie",
+      "competence": "Puissance électrique P = U × I",
+      "source": {
+        "type": "variation_generee",
+        "document": "fiche_sciences_02_mouvements_energie"
+      },
+      "enonce": "Un appareil fonctionne sous 24 V et est traversé par un courant de 0.25 A. Quelle est sa puissance en watts ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "6",
+        "unite": "W"
+      },
+      "reveal_explication": "P = U × I = 24 × 0.25 = 6 W."
+    },
+    {
+      "id": "pc_me_13_v5",
+      "discipline": "physique_chimie",
+      "theme": "mouvements_energie",
+      "competence": "Puissance électrique P = U × I",
+      "source": {
+        "type": "variation_generee",
+        "document": "fiche_sciences_02_mouvements_energie"
+      },
+      "enonce": "Un appareil fonctionne sous 110 V et est traversé par un courant de 2 A. Quelle est sa puissance en watts ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "220",
+        "unite": "W"
+      },
+      "reveal_explication": "P = U × I = 110 × 2 = 220 W."
+    },
+    {
+      "id": "pc_me_13_v6",
+      "discipline": "physique_chimie",
+      "theme": "mouvements_energie",
+      "competence": "Puissance électrique P = U × I",
+      "source": {
+        "type": "variation_generee",
+        "document": "fiche_sciences_02_mouvements_energie"
+      },
+      "enonce": "Un appareil fonctionne sous 9 V et est traversé par un courant de 0.1 A. Quelle est sa puissance en watts ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "0.9",
+        "unite": "W"
+      },
+      "reveal_explication": "P = U × I = 9 × 0.1 = 0.9 W."
+    },
+    {
+      "id": "pc_me_14_v1",
+      "discipline": "physique_chimie",
+      "theme": "mouvements_energie",
+      "competence": "Énergie électrique E = P × t",
+      "source": {
+        "type": "variation_generee",
+        "document": "fiche_sciences_02_mouvements_energie"
+      },
+      "enonce": "Un appareil de 0.5 kW fonctionne pendant 3 h. Quelle énergie consomme-t-il en kWh ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "1.5",
+        "unite": "kWh"
+      },
+      "reveal_explication": "E = P × t = 0.5 × 3 = 1.5 kWh."
+    },
+    {
+      "id": "pc_me_14_v2",
+      "discipline": "physique_chimie",
+      "theme": "mouvements_energie",
+      "competence": "Énergie électrique E = P × t",
+      "source": {
+        "type": "variation_generee",
+        "document": "fiche_sciences_02_mouvements_energie"
+      },
+      "enonce": "Un appareil de 1 kW fonctionne pendant 4 h. Quelle énergie consomme-t-il en kWh ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "4",
+        "unite": "kWh"
+      },
+      "reveal_explication": "E = P × t = 1 × 4 = 4 kWh."
+    },
+    {
+      "id": "pc_me_14_v3",
+      "discipline": "physique_chimie",
+      "theme": "mouvements_energie",
+      "competence": "Énergie électrique E = P × t",
+      "source": {
+        "type": "variation_generee",
+        "document": "fiche_sciences_02_mouvements_energie"
+      },
+      "enonce": "Un appareil de 2 kW fonctionne pendant 1 h. Quelle énergie consomme-t-il en kWh ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "2",
+        "unite": "kWh"
+      },
+      "reveal_explication": "E = P × t = 2 × 1 = 2 kWh."
+    },
+    {
+      "id": "pc_me_14_v4",
+      "discipline": "physique_chimie",
+      "theme": "mouvements_energie",
+      "competence": "Énergie électrique E = P × t",
+      "source": {
+        "type": "variation_generee",
+        "document": "fiche_sciences_02_mouvements_energie"
+      },
+      "enonce": "Un appareil de 0.1 kW fonctionne pendant 10 h. Quelle énergie consomme-t-il en kWh ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "1",
+        "unite": "kWh"
+      },
+      "reveal_explication": "E = P × t = 0.1 × 10 = 1 kWh."
+    },
+    {
+      "id": "pc_me_14_v5",
+      "discipline": "physique_chimie",
+      "theme": "mouvements_energie",
+      "competence": "Énergie électrique E = P × t",
+      "source": {
+        "type": "variation_generee",
+        "document": "fiche_sciences_02_mouvements_energie"
+      },
+      "enonce": "Un appareil de 0.2 kW fonctionne pendant 5 h. Quelle énergie consomme-t-il en kWh ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "1",
+        "unite": "kWh"
+      },
+      "reveal_explication": "E = P × t = 0.2 × 5 = 1 kWh."
+    },
+    {
+      "id": "pc_me_14_v6",
+      "discipline": "physique_chimie",
+      "theme": "mouvements_energie",
+      "competence": "Énergie électrique E = P × t",
+      "source": {
+        "type": "variation_generee",
+        "document": "fiche_sciences_02_mouvements_energie"
+      },
+      "enonce": "Un appareil de 0.06 kW fonctionne pendant 10 h. Quelle énergie consomme-t-il en kWh ?",
+      "scoring": {
+        "mode": "python",
+        "type_reponse": "decimal",
+        "reponse_canonique": "0.6",
+        "unite": "kWh"
+      },
+      "reveal_explication": "E = P × t = 0.06 × 10 = 0.6 kWh."
+    }
+  ]
+}
