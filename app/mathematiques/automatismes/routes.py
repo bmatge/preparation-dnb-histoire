@@ -9,6 +9,7 @@ matière) sous le préfixe `/automatismes`. URLs finales :
   POST /mathematiques/automatismes/quiz/answer     évalue, renvoie partial HTMX
   POST /mathematiques/automatismes/quiz/hint       demande un indice gradué
   POST /mathematiques/automatismes/quiz/reveal     révèle la réponse (« je sèche »)
+  GET  /mathematiques/automatismes/quiz/next       passe à la question suivante
   GET  /mathematiques/automatismes/quiz/synthese   écran de fin de partie
   GET  /mathematiques/automatismes/restart         efface le quiz courant
 
@@ -104,6 +105,22 @@ def _advance(state: dict) -> None:
     state["current_hints"] = 0
     state["previous_answers"] = []
     state["revealed"] = False
+    state["completed"] = False
+
+
+def _already_completed_feedback(request: Request) -> HTMLResponse:
+    return templates.TemplateResponse(
+        request,
+        "_partials/feedback.html",
+        {
+            "kind": "error",
+            "message": (
+                "Tu as déjà validé cette question. Clique sur « Question "
+                "suivante » pour continuer."
+            ),
+            "show_next": True,
+        },
+    )
 
 
 # ============================================================================
@@ -166,6 +183,7 @@ def quiz_new(
         "current_hints": 0,
         "previous_answers": [],
         "revealed": False,
+        "completed": False,
         "missed_ids": [],
         "score": 0,
         "filter_theme": theme or None,
@@ -225,6 +243,9 @@ def quiz_answer(
     if state is None:
         raise HTTPException(status_code=303, headers={"Location": f"{PREFIX}/"})
 
+    if state.get("completed"):
+        return _already_completed_feedback(request)
+
     question = _current_question(s, state)
     if question is None:
         return RedirectResponse(url=f"{PREFIX}/quiz/synthese", status_code=303)
@@ -257,7 +278,7 @@ def quiz_answer(
     if is_correct:
         if hints_used == 0:
             state["score"] = state.get("score", 0) + 1
-        _advance(state)
+        state["completed"] = True
         _set_quiz_state(request, state)
         return templates.TemplateResponse(
             request,
@@ -300,6 +321,9 @@ def quiz_hint(
     state = _get_quiz_state(request)
     if state is None:
         raise HTTPException(status_code=303, headers={"Location": f"{PREFIX}/"})
+
+    if state.get("completed"):
+        return _already_completed_feedback(request)
 
     question = _current_question(s, state)
     if question is None:
@@ -351,6 +375,9 @@ def quiz_reveal(
     if state is None:
         raise HTTPException(status_code=303, headers={"Location": f"{PREFIX}/"})
 
+    if state.get("completed"):
+        return _already_completed_feedback(request)
+
     question = _current_question(s, state)
     if question is None:
         return RedirectResponse(url=f"{PREFIX}/quiz/synthese", status_code=303)
@@ -370,7 +397,7 @@ def quiz_reveal(
         missed.append(question.id)
     state["missed_ids"] = missed
     state["revealed"] = True
-    _advance(state)
+    state["completed"] = True
     _set_quiz_state(request, state)
     return templates.TemplateResponse(
         request,
@@ -417,6 +444,24 @@ def quiz_synthese(
             "theme_labels": THEME_LABELS,
         },
     )
+
+
+@router.get("/quiz/next")
+def quiz_next(request: Request):
+    """Avance à la question suivante après validation ou révélation.
+
+    L'avancement est découplé de la validation/révélation pour éviter
+    une désynchronisation si l'élève reclique sur « Valider » ou
+    « Indice » alors que la question affichée est déjà résolue côté
+    serveur. Tant que cet endpoint n'a pas été appelé, l'état pointe
+    sur la question que le navigateur affiche.
+    """
+    state = _get_quiz_state(request)
+    if state is None:
+        return RedirectResponse(url=f"{PREFIX}/", status_code=303)
+    _advance(state)
+    _set_quiz_state(request, state)
+    return RedirectResponse(url=f"{PREFIX}/quiz", status_code=303)
 
 
 @router.get("/restart")
