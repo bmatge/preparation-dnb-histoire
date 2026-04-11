@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block title %}Problèmes — Choisis un exercice{% endblock %}
+
+{% block content %}
+<div class="text-center mb-8 animate-reveal">
+  <div class="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-500 to-purple-600 text-white text-2xl shadow-glow mb-3">📐</div>
+  <h1 class="font-display text-3xl font-bold text-slate-900">Raisonnement et résolution de problèmes</h1>
+  <p class="text-slate-600 mt-2 max-w-2xl mx-auto">
+    La Partie 2 du DNB maths (14 points, 1 h 40, calculatrice autorisée). Chaque
+    exercice est décomposé en sous-questions. Tu peux demander jusqu'à 3 indices
+    par sous-question, et obtenir la correction quand tu sèches.
+  </p>
+</div>
+
+{% if request.query_params.get('erreur') %}
+<div class="bg-amber-50 border border-amber-200 rounded-2xl p-4 mb-6 text-sm text-amber-900">
+  Cet exercice n'existe pas — choisis-en un dans la liste.
+</div>
+{% endif %}
+
+<section class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 mb-6 animate-reveal">
+  <div class="flex items-center gap-2 flex-wrap">
+    <span class="text-sm font-semibold text-slate-700 mr-1">Thème :</span>
+    <a href="/mathematiques/problemes/"
+       class="px-3 py-1.5 rounded-full text-sm border {% if not selected_theme %}border-brand-500 bg-brand-50 text-brand-700{% else %}border-slate-200 text-slate-600 hover:border-brand-300{% endif %}">
+      Tous
+    </a>
+    {% for theme_id, theme_label in available_themes %}
+    <a href="/mathematiques/problemes/?theme={{ theme_id }}"
+       class="px-3 py-1.5 rounded-full text-sm border {% if selected_theme == theme_id %}border-brand-500 bg-brand-50 text-brand-700{% else %}border-slate-200 text-slate-600 hover:border-brand-300{% endif %}">
+      {{ theme_label }}
+    </a>
+    {% endfor %}
+  </div>
+</section>
+
+{% if exercises %}
+<section class="grid sm:grid-cols-2 gap-4 animate-reveal">
+  {% for ex in exercises %}
+  <a href="/mathematiques/problemes/start/{{ ex.id }}"
+     class="block bg-white rounded-2xl border border-slate-100 shadow-sm p-5 hover:scale-[1.01] hover:border-brand-300 transition">
+    <div class="flex items-start justify-between gap-3 mb-2">
+      <div class="text-xs uppercase tracking-wider text-brand-700 font-semibold">
+        {{ theme_labels.get(ex.theme, ex.theme) }}
+      </div>
+      <div class="text-xs text-slate-500">{{ ex.points_total }} pts</div>
+    </div>
+    <div class="font-display font-bold text-lg text-slate-900 mb-1">
+      {{ ex.titre }}
+    </div>
+    <div class="text-sm text-slate-600 mb-3">
+      {{ ex.competence_principale }}
+    </div>
+    <div class="text-xs text-slate-500">
+      {{ ex.sous_questions | length }} sous-question(s)
+    </div>
+  </a>
+  {% endfor %}
+</section>
+{% else %}
+<div class="bg-amber-50 border border-amber-200 rounded-2xl p-5 text-sm text-amber-900 animate-reveal">
+  Aucun exercice ne correspond à ce thème pour le moment.
+</div>
+{% endif %}
+
+<div class="mt-8 text-center">
+  <a href="/mathematiques/" class="text-sm text-slate-500 hover:text-brand-700">
+    ← Retour aux épreuves
+  </a>
+</div>
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %}{{ exercise.titre }} — Bilan{% endblock %}
+
+{% block content %}
+<div class="text-center mb-8 animate-reveal">
+  <div class="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-500 to-purple-600 text-white text-2xl shadow-glow mb-3">🏁</div>
+  <div class="text-xs uppercase tracking-wider text-brand-700 font-semibold mb-1">
+    {{ theme_label }}
+  </div>
+  <h1 class="font-display text-3xl font-bold text-slate-900">{{ exercise.titre }}</h1>
+  <p class="text-slate-600 mt-2">
+    Tu as trouvé <strong class="text-brand-700">{{ score }}</strong>
+    sous-question(s) du premier coup sur {{ total }}.
+  </p>
+</div>
+
+{% if has_missed %}
+<div class="bg-white border border-slate-200 rounded-2xl shadow-sm p-6 mb-6 animate-reveal">
+  <h2 class="font-display text-xl font-bold text-slate-900 mb-3">
+    Sous-questions à retravailler ({{ missed_subquestions | length }})
+  </h2>
+  <ul class="divide-y divide-slate-100">
+    {% for sq in missed_subquestions %}
+    <li class="py-3">
+      <div class="text-xs uppercase tracking-wider text-slate-400 mb-0.5">
+        Sous-question {{ sq.numero }}
+      </div>
+      <div class="font-semibold text-slate-900">{{ sq.texte }}</div>
+      {% set sc = sq.scoring or {} %}
+      <div class="text-sm text-slate-600 mt-1">
+        Réponse&nbsp;:
+        <span class="font-semibold text-brand-700">
+          {{ sc.get('reponse_canonique') or sc.get('reponse_modele') or '?' }}
+          {% if sc.get('unite') %}{{ sc.get('unite') }}{% endif %}
+        </span>
+      </div>
+      {% if sq.reveal_explication %}
+      <div class="text-xs text-slate-500 mt-1">{{ sq.reveal_explication }}</div>
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+{% else %}
+<div class="bg-emerald-50 border border-emerald-200 rounded-2xl p-6 mb-6 text-center animate-reveal">
+  <p class="text-emerald-900 font-semibold">Sans faute — bravo !</p>
+  <p class="text-sm text-emerald-800 mt-1">Tu peux enchaîner avec un autre exercice pour varier les thèmes.</p>
+</div>
+{% endif %}
+
+<div class="flex items-center justify-between gap-3 flex-wrap">
+  <a href="/mathematiques/problemes/" class="text-sm text-slate-500 hover:text-brand-700">
+    ← Choisir un autre exercice
+  </a>
+  <a href="/mathematiques/problemes/start/{{ exercise.id }}" class="btn-secondary hover:wiggle">
+    Refaire cet exercice
+  </a>
+</div>
+{% endblock %}

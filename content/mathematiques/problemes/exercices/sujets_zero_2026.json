@@ -1,0 +1,460 @@
+{
+  "_comment": "Exercices de la Partie 2 (raisonnement et résolution de problèmes) des sujets zéro DNB 2026, série générale A et B, décomposés en sous-questions à réponse numérique ou texte court. Les sous-questions qui nécessitent un rendu graphique (tracés, lectures graphiques) ont été retirées pour cette V1 — seul le raisonnement et les calculs sont évalués. Les deux exercices les plus dépendants d'une figure (A4 octogone/carré, B1 angles dans un triangle) sont reportés à une V2 avec support SVG.",
+  "exercices": [
+    {
+      "id": "prob_2026A_ex1",
+      "source": {"type": "sujet_zero_dnb_2026", "serie": "A", "exercice": 1},
+      "theme": "statistiques",
+      "titre": "Enquêtes développement durable",
+      "competence_principale": "Lire, calculer et interpréter des données statistiques",
+      "points_total": 3.0,
+      "contexte": "Dans le cadre d'un projet de labellisation « Éducation au développement durable », un collège réalise deux enquêtes sur une période donnée.\n\nPREMIÈRE ENQUÊTE : gaspillage alimentaire à la cantine.\nPendant sept semaines, on relève la masse totale (en kilogrammes) d'aliments jetés chaque semaine :\n\n| Semaine | 1  | 2  | 3  | 4  | 5  | 6  | 7  |\n|---------|----|----|----|----|----|----|----|\n| Masse   | 62 | 59 | 74 | 68 | 55 | 61 | 71 |\n\nL'objectif du collège : la moyenne, par semaine, ne doit pas dépasser 65 kg.\n\nSECONDE ENQUÊTE : déplacements à vélo entre domicile et collège.\nEffectifs par distance parcourue à vélo (en km), à lire comme un diagramme en bâtons :\n\n| Distance (km) | 0  | 1  | 2  | 3  | 4  | 5  | 6  | 7  | 8  |\n|---------------|----|----|----|----|----|----|----|----|----|\n| Effectif      | 33 | 32 | 42 | 31 | 35 | 27 | 23 | 21 | 13 |\n\nLes élèves qui n'utilisent pas le vélo parcourent 0 km à vélo.",
+      "sous_questions": [
+        {
+          "id": "prob_2026A_ex1_q1",
+          "numero": "1",
+          "texte": "Calcule la moyenne, en kilogrammes, des masses d'aliments jetés sur les 7 semaines (arrondie à 0,01 près).",
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "decimal",
+            "reponse_canonique": "64.29",
+            "tolerances": {"abs": 0.05},
+            "unite": "kg",
+            "formes_acceptees": ["64,29", "64.29", "64.28"]
+          },
+          "indices": {
+            "niveau_1": "Rappelle-toi ce qu'est une moyenne : on additionne toutes les valeurs, puis on divise par le nombre de valeurs.",
+            "niveau_2": "Additionne les 7 masses — tu trouves 450 kg — puis divise par 7.",
+            "niveau_3": "450 ÷ 7, arrondi au centième, donne environ 64,29."
+          },
+          "reveal_explication": "La somme des masses vaut 62+59+74+68+55+61+71 = 450 kg. La moyenne est 450÷7 ≈ 64,29 kg, donc strictement inférieure à 65 kg : le collège a bien atteint son objectif."
+        },
+        {
+          "id": "prob_2026A_ex1_q2a",
+          "numero": "2.a",
+          "texte": "Détermine l'effectif total d'élèves du collège (somme de toutes les barres du diagramme).",
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "entier",
+            "reponse_canonique": "257"
+          },
+          "indices": {
+            "niveau_1": "L'effectif total correspond à la somme de tous les effectifs du diagramme, distance par distance.",
+            "niveau_2": "Additionne dans l'ordre : 33 + 32 + 42 + 31 + 35 + 27 + 23 + 21 + 13.",
+            "niveau_3": "La somme s'arrête à 257 élèves."
+          },
+          "reveal_explication": "33+32+42+31+35+27+23+21+13 = 257. Le collège compte 257 élèves."
+        },
+        {
+          "id": "prob_2026A_ex1_q2b_eleves",
+          "numero": "2.b (i)",
+          "texte": "Combien d'élèves ont parcouru au moins 5 km à vélo pour se rendre au collège ?",
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "entier",
+            "reponse_canonique": "84"
+          },
+          "indices": {
+            "niveau_1": "« Au moins 5 km » signifie 5 km OU plus. Regarde les barres à 5, 6, 7 et 8 km.",
+            "niveau_2": "Additionne les effectifs de 5, 6, 7 et 8 km.",
+            "niveau_3": "27 + 23 + 21 + 13 = 84."
+          },
+          "reveal_explication": "Il faut sommer les effectifs des distances 5, 6, 7 et 8 km : 27+23+21+13 = 84 élèves."
+        },
+        {
+          "id": "prob_2026A_ex1_q2b_pct",
+          "numero": "2.b (ii)",
+          "texte": "Quel pourcentage ces élèves représentent-ils sur l'effectif total du collège (arrondi à 0,1 près) ? L'affirmation « plus de 30 % des élèves ont parcouru au moins 5 km à vélo » est-elle vraie ?",
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "pourcentage",
+            "reponse_canonique": "32.7",
+            "tolerances": {"abs": 0.2},
+            "formes_acceptees": ["32,7", "32.7", "32.7 %", "32,7 %", "32,68", "32.68"]
+          },
+          "indices": {
+            "niveau_1": "Pour passer d'un nombre d'élèves à un pourcentage, divise par l'effectif total puis multiplie par 100.",
+            "niveau_2": "Calcule (84 ÷ 257) × 100.",
+            "niveau_3": "Le calcul donne environ 32,68 %, arrondi à 32,7 % — et c'est strictement plus que 30 %, donc l'affirmation est vraie."
+          },
+          "reveal_explication": "84 ÷ 257 ≈ 0,3268, soit ≈ 32,7 %. Comme 32,7 % > 30 %, l'affirmation est vraie."
+        }
+      ]
+    },
+    {
+      "id": "prob_2026A_ex2",
+      "source": {"type": "sujet_zero_dnb_2026", "serie": "A", "exercice": 2},
+      "theme": "programmes_calcul",
+      "titre": "Programme de calcul",
+      "competence_principale": "Reconnaître et manipuler une identité remarquable",
+      "points_total": 3.0,
+      "contexte": "On donne le programme de calcul suivant :\n\n1. Choisir un nombre.\n2. Le multiplier par 2.\n3. Élever le résultat au carré.\n4. Retrancher 9.\n5. Afficher le résultat.",
+      "sous_questions": [
+        {
+          "id": "prob_2026A_ex2_q1",
+          "numero": "1",
+          "texte": "Vérifie qu'en partant de 4, le programme affiche bien 55. Quel résultat obtiens-tu ?",
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "entier",
+            "reponse_canonique": "55"
+          },
+          "indices": {
+            "niveau_1": "Applique les étapes une par une à partir de 4.",
+            "niveau_2": "Étape 2 : 4 × 2 = 8. Étape 3 : 8² = ? Étape 4 : on retranche 9.",
+            "niveau_3": "4 → 8 → 64 → 64 − 9 = 55."
+          },
+          "reveal_explication": "4 × 2 = 8 ; 8² = 64 ; 64 − 9 = 55. Le programme affiche bien 55."
+        },
+        {
+          "id": "prob_2026A_ex2_q2a",
+          "numero": "2.a",
+          "texte": "On appelle x le nombre choisi au départ. Écris, en fonction de x, le résultat obtenu par le programme (développe et simplifie).",
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "texte_court",
+            "reponse_canonique": "4x²-9",
+            "formes_acceptees": [
+              "4x²-9",
+              "4x^2-9",
+              "4x^2 - 9",
+              "4x² - 9",
+              "4xx-9",
+              "4*x*x-9",
+              "4*x^2-9",
+              "(2x)²-9",
+              "(2x)^2-9",
+              "(2x)²- 9",
+              "4x*x-9"
+            ]
+          },
+          "indices": {
+            "niveau_1": "Réécris chaque étape sous forme d'expression algébrique en partant de x.",
+            "niveau_2": "Étape 2 : 2x. Étape 3 : (2x)². Étape 4 : on retranche 9.",
+            "niveau_3": "(2x)² − 9 = 4x² − 9."
+          },
+          "reveal_explication": "x → 2x → (2x)² = 4x² → 4x² − 9. L'expression cherchée est 4x² − 9."
+        },
+        {
+          "id": "prob_2026A_ex2_q2b",
+          "numero": "2.b",
+          "texte": "Parmi A = 55, B = (2x+3)², C = (2x−3)(2x+3), D = (2x−3)², laquelle de ces expressions correspond au résultat obtenu par le programme ? Réponds par la lettre.",
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "texte_court",
+            "reponse_canonique": "C",
+            "formes_acceptees": ["C", "c", "C.", "reponse C", "expression C"]
+          },
+          "indices": {
+            "niveau_1": "Tu cherches une expression qui vaut 4x² − 9. Pense aux identités remarquables.",
+            "niveau_2": "L'identité (a−b)(a+b) = a² − b² avec a = 2x et b = 3 donne exactement 4x² − 9.",
+            "niveau_3": "La bonne réponse est l'expression C."
+          },
+          "reveal_explication": "Avec l'identité remarquable (a−b)(a+b) = a²−b² où a=2x et b=3, on obtient (2x−3)(2x+3) = 4x²−9. C'est l'expression C."
+        }
+      ]
+    },
+    {
+      "id": "prob_2026A_ex3",
+      "source": {"type": "sujet_zero_dnb_2026", "serie": "A", "exercice": 3, "note": "Sous-questions graphiques retirées pour V1 (lecture de graphique non prise en charge)."},
+      "theme": "fonctions",
+      "titre": "Fonctions linéaire et affine",
+      "competence_principale": "Reconnaître proportionnalité, image et antécédent",
+      "points_total": 1.5,
+      "contexte": "On considère les deux fonctions suivantes :\n\nf : x ↦ 4x + 3\ng : x ↦ 6x",
+      "sous_questions": [
+        {
+          "id": "prob_2026A_ex3_q1",
+          "numero": "1",
+          "texte": "Parmi les deux fonctions f et g, laquelle représente une situation de proportionnalité ? Réponds par la lettre de la fonction.",
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "texte_court",
+            "reponse_canonique": "g",
+            "formes_acceptees": ["g", "G", "g(x)", "fonction g", "la fonction g"]
+          },
+          "indices": {
+            "niveau_1": "Une situation de proportionnalité est représentée par une fonction linéaire, de la forme x ↦ kx.",
+            "niveau_2": "Regarde laquelle des deux fonctions vaut 0 quand x = 0.",
+            "niveau_3": "g(x) = 6x est linéaire (sans terme constant) donc proportionnelle ; f(x) = 4x + 3 a un terme +3 et n'est donc pas proportionnelle."
+          },
+          "reveal_explication": "Une fonction représente une situation de proportionnalité si elle est linéaire, c'est-à-dire de la forme x ↦ kx. C'est le cas de g : x ↦ 6x. La fonction f, à cause du +3, est affine mais pas linéaire."
+        },
+        {
+          "id": "prob_2026A_ex3_q2",
+          "numero": "2",
+          "texte": "Calcule l'image de 0 par la fonction g.",
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "entier",
+            "reponse_canonique": "0"
+          },
+          "indices": {
+            "niveau_1": "L'image de 0 par g, c'est simplement g(0).",
+            "niveau_2": "Remplace x par 0 dans l'expression 6x.",
+            "niveau_3": "g(0) = 6 × 0 = 0."
+          },
+          "reveal_explication": "g(0) = 6 × 0 = 0. L'image de 0 par g est 0."
+        },
+        {
+          "id": "prob_2026A_ex3_q3",
+          "numero": "3",
+          "texte": "Détermine l'antécédent de 0 par la fonction f. Donne la réponse sous forme de fraction simplifiée.",
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "fraction",
+            "reponse_canonique": "-3/4",
+            "formes_acceptees": ["-3/4", "-0,75", "-0.75", "-6/8", "-9/12"]
+          },
+          "indices": {
+            "niveau_1": "Chercher un antécédent de 0 par f, c'est résoudre l'équation f(x) = 0.",
+            "niveau_2": "Pose 4x + 3 = 0 et isole x.",
+            "niveau_3": "4x = −3 donc x = −3/4."
+          },
+          "reveal_explication": "On résout f(x) = 0, soit 4x + 3 = 0. On obtient 4x = −3 puis x = −3/4. L'antécédent de 0 par f est −3/4."
+        }
+      ]
+    },
+    {
+      "id": "prob_2026B_ex2",
+      "source": {"type": "sujet_zero_dnb_2026", "serie": "B", "exercice": 2},
+      "theme": "probabilites",
+      "titre": "Probabilités — urne de 21 jetons",
+      "competence_principale": "Calculer des probabilités dans une situation d'équiprobabilité",
+      "points_total": 2.0,
+      "contexte": "Une urne contient 21 jetons numérotés de 1 à 21, indiscernables au toucher. On tire un jeton au hasard.",
+      "sous_questions": [
+        {
+          "id": "prob_2026B_ex2_q1",
+          "numero": "1",
+          "texte": "On note A l'événement « obtenir 2, 3 ou 10 ». Calcule la probabilité de l'événement A, sous forme de fraction irréductible.",
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "fraction",
+            "reponse_canonique": "1/7",
+            "formes_acceptees": ["1/7", "3/21"]
+          },
+          "indices": {
+            "niveau_1": "En situation d'équiprobabilité, P(A) = (nombre d'issues favorables) ÷ (nombre total d'issues).",
+            "niveau_2": "Ici il y a 3 issues favorables (2, 3, 10) et 21 issues au total.",
+            "niveau_3": "3/21 se simplifie en 1/7."
+          },
+          "reveal_explication": "P(A) = 3/21, et après simplification par 3, P(A) = 1/7."
+        },
+        {
+          "id": "prob_2026B_ex2_q2a",
+          "numero": "2.a",
+          "texte": "On note B l'événement « obtenir un jeton dont le numéro est un diviseur de 24 ». Combien d'issues comporte l'événement B (c'est-à-dire : combien y a-t-il de diviseurs de 24 entre 1 et 21) ?",
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "entier",
+            "reponse_canonique": "7"
+          },
+          "indices": {
+            "niveau_1": "Liste à la main tous les diviseurs de 24, puis ne garde que ceux qui sont entre 1 et 21.",
+            "niveau_2": "Les diviseurs de 24 sont : 1, 2, 3, 4, 6, 8, 12, 24. Lequel faut-il écarter ?",
+            "niveau_3": "On écarte 24 (car l'urne ne va que jusqu'à 21). Il reste 7 diviseurs : 1, 2, 3, 4, 6, 8, 12."
+          },
+          "reveal_explication": "Les diviseurs de 24 sont 1, 2, 3, 4, 6, 8, 12 et 24. Parmi ces diviseurs, ceux qui figurent dans l'urne (1 à 21) sont 1, 2, 3, 4, 6, 8 et 12 : 7 issues."
+        },
+        {
+          "id": "prob_2026B_ex2_q2b",
+          "numero": "2.b",
+          "texte": "Détermine la probabilité de l'événement B, sous forme de fraction irréductible.",
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "fraction",
+            "reponse_canonique": "1/3",
+            "formes_acceptees": ["1/3", "7/21"]
+          },
+          "indices": {
+            "niveau_1": "Réutilise la formule P(B) = (issues favorables)/(issues totales).",
+            "niveau_2": "Ici : 7 issues favorables sur 21. Simplifie la fraction.",
+            "niveau_3": "7/21 = 1/3."
+          },
+          "reveal_explication": "P(B) = 7/21, et après simplification par 7, P(B) = 1/3."
+        }
+      ]
+    },
+    {
+      "id": "prob_2026B_ex3",
+      "source": {"type": "sujet_zero_dnb_2026", "serie": "B", "exercice": 3, "note": "Sous-questions graphiques (2.b représenter graphiquement, 3.a lecture graphique) retirées pour V1."},
+      "theme": "fonctions",
+      "titre": "Fonction affine — paquet de lessive",
+      "competence_principale": "Modéliser et résoudre avec une fonction affine",
+      "points_total": 3.0,
+      "contexte": "Un paquet de lessive vide pèse 200 g. On y verse de la lessive. On sait que 1 cm³ de lessive pèse 1,5 g.\n\nOn note x le volume de lessive versé (en cm³) et on considère la fonction f définie par : f(x) = 1,5x + 200.",
+      "sous_questions": [
+        {
+          "id": "prob_2026B_ex3_q1",
+          "numero": "1",
+          "texte": "Quelle est la masse totale, en grammes, d'un paquet de lessive contenant 1 600 cm³ de lessive (masse de la lessive + masse du paquet vide) ?",
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "entier",
+            "reponse_canonique": "2600",
+            "unite": "g",
+            "formes_acceptees": ["2600", "2 600", "2600 g"]
+          },
+          "indices": {
+            "niveau_1": "La masse totale est la masse de la lessive plus celle du paquet vide.",
+            "niveau_2": "Masse de lessive = 1,5 × 1 600 g. Ajoute ensuite les 200 g du paquet vide.",
+            "niveau_3": "1,5 × 1 600 = 2 400 g, puis 2 400 + 200 = 2 600 g."
+          },
+          "reveal_explication": "La masse de la lessive vaut 1,5 × 1 600 = 2 400 g. En ajoutant les 200 g du paquet vide, on obtient 2 600 g."
+        },
+        {
+          "id": "prob_2026B_ex3_q2a",
+          "numero": "2.a",
+          "texte": "Lorsque x représente le volume de lessive en cm³, que représente concrètement la valeur f(x) ? Réponds en une phrase courte (précise l'unité).",
+          "scoring": {
+            "mode": "albert",
+            "reponse_modele": "f(x) représente la masse totale (en grammes) du paquet de lessive contenant x cm³ de lessive.",
+            "criteres_validation": [
+              "Mentionne explicitement la masse totale (ou la masse du paquet).",
+              "Précise l'unité en grammes.",
+              "Fait le lien avec le volume de lessive x en cm³."
+            ]
+          },
+          "indices": {
+            "niveau_1": "Reprends les mots de l'énoncé : que calcule la formule 1,5x + 200 ?",
+            "niveau_2": "1,5x est la masse de la lessive, et 200 est la masse du paquet vide.",
+            "niveau_3": "f(x) représente la masse totale du paquet (lessive comprise), en grammes."
+          },
+          "reveal_explication": "f(x) représente la masse totale du paquet de lessive, en grammes, lorsqu'il contient x cm³ de lessive. C'est la somme de la masse de lessive (1,5x) et de la masse du paquet vide (200)."
+        },
+        {
+          "id": "prob_2026B_ex3_q3b",
+          "numero": "3.b",
+          "texte": "Un paquet de lessive pèse 2 300 g. Par le calcul, détermine le volume de lessive (en cm³) qu'il contient.",
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "entier",
+            "reponse_canonique": "1400",
+            "unite": "cm³",
+            "formes_acceptees": ["1400", "1 400", "1400 cm³", "1400 cm3"]
+          },
+          "indices": {
+            "niveau_1": "Tu cherches x tel que f(x) = 2 300. Pose l'équation et résous-la.",
+            "niveau_2": "1,5x + 200 = 2 300, donc 1,5x = 2 100.",
+            "niveau_3": "x = 2 100 ÷ 1,5 = 1 400 cm³."
+          },
+          "reveal_explication": "On pose f(x) = 2 300, soit 1,5x + 200 = 2 300. D'où 1,5x = 2 100, puis x = 1 400. Le paquet contient 1 400 cm³ de lessive."
+        },
+        {
+          "id": "prob_2026B_ex3_q3c",
+          "numero": "3.c",
+          "texte": "Un paquet de lessive en forme de pavé mesure 12 cm de largeur, 8 cm de profondeur et 15 cm de hauteur. Quel est son volume en cm³ ?",
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "entier",
+            "reponse_canonique": "1440",
+            "unite": "cm³",
+            "formes_acceptees": ["1440", "1 440", "1440 cm³", "1440 cm3"]
+          },
+          "indices": {
+            "niveau_1": "Le volume d'un pavé droit est le produit de ses trois dimensions.",
+            "niveau_2": "Calcule 12 × 8 × 15.",
+            "niveau_3": "12 × 8 = 96, puis 96 × 15 = 1 440 cm³. Comme 1 440 > 1 400, le pavé peut contenir les 1 400 cm³ trouvés à la question précédente."
+          },
+          "reveal_explication": "Le volume du pavé vaut 12 × 8 × 15 = 1 440 cm³. Comme 1 440 > 1 400, le pavé peut bien contenir les 1 400 cm³ de lessive."
+        }
+      ]
+    },
+    {
+      "id": "prob_2026B_ex4",
+      "source": {"type": "sujet_zero_dnb_2026", "serie": "B", "exercice": 4},
+      "theme": "arithmetique",
+      "titre": "Club sciences — groupes égaux",
+      "competence_principale": "Décomposer en facteurs premiers et utiliser le PGCD",
+      "points_total": 2.5,
+      "contexte": "Dans un collège, 91 filles et 77 garçons participent à un club sciences.\n\nOn souhaite former des groupes de sorte que chaque groupe ait le même nombre de filles et le même nombre de garçons, en utilisant tous les élèves.",
+      "sous_questions": [
+        {
+          "id": "prob_2026B_ex4_q1a",
+          "numero": "1 (i)",
+          "texte": "Décompose 91 en produit de facteurs premiers (écris ta réponse sous la forme a×b).",
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "texte_court",
+            "reponse_canonique": "7×13",
+            "formes_acceptees": [
+              "7×13",
+              "7x13",
+              "7*13",
+              "13×7",
+              "13x7",
+              "13*7",
+              "7 × 13",
+              "13 × 7"
+            ]
+          },
+          "indices": {
+            "niveau_1": "Teste les petits nombres premiers : 2, 3, 5, 7, 11, 13…",
+            "niveau_2": "91 est-il divisible par 7 ?",
+            "niveau_3": "91 = 7 × 13, et 7 et 13 sont premiers, donc c'est la décomposition."
+          },
+          "reveal_explication": "91 n'est pas divisible par 2, 3 ni 5 ; il est divisible par 7 : 91 = 7 × 13. Comme 7 et 13 sont premiers, la décomposition est 91 = 7 × 13."
+        },
+        {
+          "id": "prob_2026B_ex4_q1b",
+          "numero": "1 (ii)",
+          "texte": "Décompose 77 en produit de facteurs premiers (sous la forme a×b).",
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "texte_court",
+            "reponse_canonique": "7×11",
+            "formes_acceptees": [
+              "7×11",
+              "7x11",
+              "7*11",
+              "11×7",
+              "11x7",
+              "11*7",
+              "7 × 11",
+              "11 × 7"
+            ]
+          },
+          "indices": {
+            "niveau_1": "Comme pour 91, teste 2, 3, 5, 7…",
+            "niveau_2": "77 est divisible par 7 : 77 = 7 × ?",
+            "niveau_3": "77 = 7 × 11, et 7 et 11 sont premiers."
+          },
+          "reveal_explication": "77 = 7 × 11, et 7 et 11 sont premiers : c'est la décomposition en facteurs premiers."
+        },
+        {
+          "id": "prob_2026B_ex4_q2",
+          "numero": "2",
+          "texte": "Combien de groupes au maximum peut-on former si chaque groupe doit avoir le même nombre de filles et le même nombre de garçons ?",
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "entier",
+            "reponse_canonique": "7"
+          },
+          "indices": {
+            "niveau_1": "Le nombre maximum de groupes est un diviseur commun à 91 et 77. On cherche le plus grand.",
+            "niveau_2": "Le plus grand diviseur commun (PGCD) se lit directement sur les décompositions en facteurs premiers : c'est le produit des facteurs communs.",
+            "niveau_3": "91 = 7 × 13 et 77 = 7 × 11 ; le seul facteur commun est 7, donc PGCD(91,77) = 7."
+          },
+          "reveal_explication": "Le nombre maximum de groupes est le PGCD de 91 et 77. À partir des décompositions 91 = 7 × 13 et 77 = 7 × 11, on voit que le seul facteur commun est 7, donc PGCD(91,77) = 7. On peut former au maximum 7 groupes."
+        },
+        {
+          "id": "prob_2026B_ex4_q3",
+          "numero": "3",
+          "texte": "Dans ce cas, combien d'élèves (filles + garçons) y aura-t-il dans chaque groupe ?",
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "entier",
+            "reponse_canonique": "24"
+          },
+          "indices": {
+            "niveau_1": "Commence par calculer combien de filles et combien de garçons se retrouvent dans chaque groupe.",
+            "niveau_2": "91 ÷ 7 = ? filles par groupe ; 77 ÷ 7 = ? garçons par groupe. Additionne.",
+            "niveau_3": "13 filles + 11 garçons = 24 élèves par groupe."
+          },
+          "reveal_explication": "On a 91 ÷ 7 = 13 filles par groupe, et 77 ÷ 7 = 11 garçons par groupe. Chaque groupe comporte donc 13 + 11 = 24 élèves."
+        }
+      ]
+    }
+  ]
+}

@@ -52,6 +52,7 @@ from app.histoire_geo_emc.developpement_construit.models import init_hgemc_subje
 from app.histoire_geo_emc.reperes.models import init_reperes
 from app.histoire_geo_emc.routes import router as hgemc_router, PREFIX as HGEMC_PREFIX
 from app.mathematiques.automatismes.models import init_automatismes
+from app.mathematiques.problemes.models import init_problemes
 from app.mathematiques.routes import router as math_router
 
 logger = logging.getLogger(__name__)
@@ -131,8 +132,9 @@ def on_startup() -> None:
     n_redaction = init_french_redaction()
     n_dictee = init_french_dictee()
     n_math_auto = init_automatismes()
+    n_math_prob = init_problemes()
     logger.info(
-        "DB prête (%s) — %d sujets DC, %d repères, %d exos compréhension, %d sujets rédaction, %d dictées, %d questions automatismes maths chargées",
+        "DB prête (%s) — %d sujets DC, %d repères, %d exos compréhension, %d sujets rédaction, %d dictées, %d questions automatismes maths, %d exercices problèmes maths chargés",
         core_db.DB_PATH,
         n_hgemc,
         n_reperes,
@@ -140,6 +142,7 @@ def on_startup() -> None:
         n_redaction,
         n_dictee,
         n_math_auto,
+        n_math_prob,
     )
 
 
