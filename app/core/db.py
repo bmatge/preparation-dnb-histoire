@@ -100,13 +100,58 @@ def db_session() -> Iterator[DBSession]:
         yield session
 
 
+def _schema_matches() -> bool:
+    """Vérifie que les colonnes SQL correspondent au schéma SQLModel déclaré.
+
+    Compare les colonnes de chaque table SQLModel existante en DB avec celles
+    déclarées en Python. Retourne False dès qu'une colonne manque. N'utilise
+    pas Alembic : on reste sur le principe drop & recharge (cf. CLAUDE.md).
+    """
+    import sqlite3
+
+    if not DB_PATH.exists():
+        return True  # la DB va être créée de zéro, pas de divergence possible
+
+    conn = sqlite3.connect(DB_PATH)
+    try:
+        for table in SQLModel.metadata.sorted_tables:
+            cursor = conn.execute(f"PRAGMA table_info('{table.name}')")
+            db_cols = {row[1] for row in cursor.fetchall()}
+            if not db_cols:
+                continue  # table pas encore créée — create_all la gèrera
+            model_cols = {col.name for col in table.columns}
+            missing = model_cols - db_cols
+            if missing:
+                logger.warning(
+                    "Colonnes manquantes dans %s : %s — drop & recreate de la DB",
+                    table.name,
+                    missing,
+                )
+                return False
+    finally:
+        conn.close()
+    return True
+
+
 def init_db() -> None:
-    """Crée les tables SQLModel.
+    """Crée les tables SQLModel, en supprimant la DB si le schéma a divergé.
 
     Le chargement des contenus métier (sujets DC, etc.) est la responsabilité
     de chaque sous-module de matière, appelé depuis `app.core.main.on_startup`
     après cet `init_db`.
+
+    Si des colonnes sont manquantes dans une table existante (schéma Python
+    a évolué entre deux déploiements), la DB est supprimée puis recréée. Les
+    données runtime (sessions, attempts) sont perdues mais les contenus métier
+    sont idempotents (rechargés au startup suivant). Pas de migration Alembic.
     """
+    if not _schema_matches():
+        logger.info("Suppression de %s (schéma obsolète)", DB_PATH)
+        DB_PATH.unlink(missing_ok=True)
+        # Recréer l'engine pour pointer vers le fichier frais (SQLite ouvre à
+        # la première connexion, le fichier sera recréé par create_all).
+        global _engine
+        _engine = create_engine(f"sqlite:///{DB_PATH}", echo=False)
     SQLModel.metadata.create_all(_engine)
 
 
