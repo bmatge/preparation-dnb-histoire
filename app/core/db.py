@@ -170,12 +170,19 @@ def init_db() -> None:
     données runtime (sessions, attempts) sont perdues mais les contenus métier
     sont idempotents (rechargés au startup suivant). Pas de migration Alembic.
     """
+    global _engine
     if not _schema_matches():
         logger.info("Suppression de %s (schéma obsolète)", DB_PATH)
+        # Fermer toutes les connexions du pool de l'ancien engine AVANT de
+        # supprimer le fichier, sinon des connexions orphelines peuvent rester
+        # pointées vers le fichier supprimé et retourner « readonly database ».
+        _engine.dispose()
         DB_PATH.unlink(missing_ok=True)
+        # Supprimer aussi les fichiers journal SQLite résiduels.
+        for suffix in ("-wal", "-shm", "-journal"):
+            DB_PATH.with_name(DB_PATH.name + suffix).unlink(missing_ok=True)
         # Recréer l'engine pour pointer vers le fichier frais (SQLite ouvre à
         # la première connexion, le fichier sera recréé par create_all).
-        global _engine
         _engine = create_engine(
             f"sqlite:///{DB_PATH}",
             echo=False,
