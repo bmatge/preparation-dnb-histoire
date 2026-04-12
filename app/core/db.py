@@ -176,7 +176,11 @@ def init_db() -> None:
         # Recréer l'engine pour pointer vers le fichier frais (SQLite ouvre à
         # la première connexion, le fichier sera recréé par create_all).
         global _engine
-        _engine = create_engine(f"sqlite:///{DB_PATH}", echo=False)
+        _engine = create_engine(
+            f"sqlite:///{DB_PATH}",
+            echo=False,
+            connect_args={"check_same_thread": False},
+        )
     SQLModel.metadata.create_all(_engine)
 
 
