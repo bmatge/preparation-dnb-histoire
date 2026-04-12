@@ -64,8 +64,21 @@
       return;
     }
 
+    // Nettoyer les anciens timers du meme kind (evite l'accumulation
+    // dans localStorage apres de multiples sessions).
+    var kindPrefix = "exercise_timer_" + (root.dataset.timerKey || "anon").replace(/_\d+$/, "_");
+    try {
+      for (var i = localStorage.length - 1; i >= 0; i--) {
+        var k = localStorage.key(i);
+        if (k && k.indexOf(kindPrefix) === 0 && k !== storageKey) {
+          localStorage.removeItem(k);
+        }
+      }
+    } catch (e) { /* localStorage indispo */ }
+
+    var MAX_AGE_MS = 4 * 60 * 60 * 1000; // 4 h — au-dela on considere le timer comme perime
     var start = readStart(storageKey);
-    if (start === null) {
+    if (start === null || (Date.now() - start) > MAX_AGE_MS) {
       start = Date.now();
       writeStart(storageKey, start);
     }
