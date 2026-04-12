@@ -366,24 +366,36 @@ def get_item_ids_by_status(
 
 
 def get_user_stats(s: DBSession) -> dict[str, int]:
-    """Compte les utilisateurs uniques (user_key distinctes dans Session).
+    """Compte les utilisateurs uniques (user_key distinctes).
 
     Renvoie total, nouveaux aujourd'hui, nouveaux cette semaine.
-    Un utilisateur est "nouveau" a la date de sa premiere session.
+    Un utilisateur est "nouveau" a la date de sa premiere activite, calculee
+    comme le minimum entre sa premiere Session (si user_key renseigne) et sa
+    premiere ligne UserProgress. L'union sur UserProgress est indispensable
+    pour retrouver les utilisateurs anciens dont les Sessions avaient ete
+    ecrites avec user_key=None avant le fix.
     """
-    from sqlalchemy import func, case
+    from sqlalchemy import func, case, union_all
 
     now = datetime.utcnow()
     today_start = now.replace(hour=0, minute=0, second=0, microsecond=0)
     week_start = today_start - timedelta(days=today_start.weekday())
-    # Sous-requete : premiere session par user_key
+    # Union des activites connues : sessions (post-fix) + progression (pre/post fix).
+    sessions_q = select(
+        Session.user_key.label("user_key"),
+        Session.created_at.label("ts"),
+    ).where(Session.user_key.isnot(None))
+    progress_q = select(
+        UserProgress.user_key.label("user_key"),
+        UserProgress.first_seen_at.label("ts"),
+    )
+    activity = union_all(sessions_q, progress_q).subquery()
     sub = (
         select(
-            Session.user_key,
-            func.min(Session.created_at).label("first_seen"),
+            activity.c.user_key,
+            func.min(activity.c.ts).label("first_seen"),
         )
-        .where(Session.user_key.isnot(None))
-        .group_by(Session.user_key)
+        .group_by(activity.c.user_key)
         .subquery()
     )
     row = s.exec(
