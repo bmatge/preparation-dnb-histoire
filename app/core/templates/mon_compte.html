@@ -55,6 +55,7 @@
       {# --- Cle actuelle --- #}
       <div class="bg-white rounded-2xl shadow-glow border border-slate-100 p-5">
         <h2 class="font-display font-bold text-lg text-brand-800 mb-3">Ta cle</h2>
+        <label for="user-key-display" class="sr-only">Ta cle unique</label>
         <div class="flex items-center gap-2">
           <input id="user-key-display"
                  type="text"
@@ -80,6 +81,7 @@
           Si tu as note ta cle d'un autre appareil, colle-la ici pour retrouver
           ta progression.
         </p>
+        <label for="restore-input" class="sr-only">Cle a restaurer</label>
         <div class="flex items-center gap-2">
           <input id="restore-input"
                  type="text"
@@ -109,8 +111,9 @@
         </p>
         <button type="button"
                 id="btn-reset"
-                class="btn-secondary text-sm text-red-600 border-red-200 hover:bg-red-50">
-          Nouvelle cle
+                class="btn-secondary text-sm text-red-600 border-red-200 hover:bg-red-50"
+                aria-label="Supprimer ma progression et generer une nouvelle cle">
+          Nouvelle cle (progression perdue)
         </button>
       </div>
     </div>

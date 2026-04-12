@@ -14,15 +14,15 @@
 <form hx-post="/histoire-geo-emc/developpement-construit/step/2/submit" hx-target="#response-area" hx-swap="innerHTML"
       hx-indicator="#loading"
       class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 space-y-4 animate-reveal">
-  <label class="block">
-    <span class="text-sm font-semibold text-slate-700 flex items-center gap-2 mb-2">
+  <div>
+    <label for="proposition" class="text-sm font-semibold text-slate-700 flex items-center gap-2 mb-2">
       Ton plan + tes idées
-    </span>
-    <textarea name="proposition" rows="10" required minlength="20"
+    </label>
+    <textarea id="proposition" name="proposition" rows="10" required minlength="20"
               data-draft-key="hg-emc:dc:step2:{{ subject.id }}"
               placeholder="I. Première partie : ...&#10;   - idée / exemple : ...&#10;II. Deuxième partie : ...&#10;   - idée / exemple : ...&#10;III. (optionnel)"
               class="w-full border border-slate-200 rounded-xl px-4 py-3 font-mono text-sm focus:ring-2 focus:ring-brand-400 focus:border-brand-400 outline-none transition"></textarea>
-  </label>
+  </div>
 
   <div class="flex items-center justify-between gap-3 flex-wrap">
     <span id="loading" class="htmx-indicator text-sm text-brand-700 items-center gap-2">
@@ -36,5 +36,5 @@
   </div>
 </form>
 
-<div id="response-area" class="mt-8"></div>
+<div id="response-area" class="mt-8" aria-live="polite" aria-atomic="true"></div>
 {% endblock %}

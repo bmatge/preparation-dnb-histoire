@@ -85,24 +85,26 @@
   </div>
 </div>
 
-<div id="help-area" class="mb-6"></div>
+<div id="help-area" class="mb-6" aria-live="polite" aria-atomic="true"></div>
 
 <form method="post" action="/francais/redaction/step/1/choose" class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 space-y-4 animate-reveal">
-  <div class="text-sm font-semibold text-slate-700 mb-2">Mon choix :</div>
-  <div class="grid sm:grid-cols-2 gap-2">
-    <label class="cursor-pointer">
-      <input type="radio" name="option" value="imagination" required class="peer sr-only">
-      <div class="text-center px-4 py-4 rounded-xl border-2 border-slate-200 peer-checked:border-purple-500 peer-checked:bg-purple-50 peer-checked:text-purple-700 font-medium text-sm transition">
-        Je choisis l'imagination
-      </div>
-    </label>
-    <label class="cursor-pointer">
-      <input type="radio" name="option" value="reflexion" required class="peer sr-only">
-      <div class="text-center px-4 py-4 rounded-xl border-2 border-slate-200 peer-checked:border-amber-500 peer-checked:bg-amber-50 peer-checked:text-amber-700 font-medium text-sm transition">
-        Je choisis la réflexion
-      </div>
-    </label>
-  </div>
+  <fieldset>
+    <legend class="text-sm font-semibold text-slate-700 mb-2">Mon choix :</legend>
+    <div class="grid sm:grid-cols-2 gap-2">
+      <label class="cursor-pointer">
+        <input type="radio" name="option" value="imagination" required class="peer sr-only">
+        <div class="text-center px-4 py-4 rounded-xl border-2 border-slate-200 peer-checked:border-purple-500 peer-checked:bg-purple-50 peer-checked:text-purple-700 peer-focus-visible:ring-2 peer-focus-visible:ring-brand-400 peer-focus-visible:ring-offset-1 font-medium text-sm transition">
+          Je choisis l'imagination
+        </div>
+      </label>
+      <label class="cursor-pointer">
+        <input type="radio" name="option" value="reflexion" required class="peer sr-only">
+        <div class="text-center px-4 py-4 rounded-xl border-2 border-slate-200 peer-checked:border-amber-500 peer-checked:bg-amber-50 peer-checked:text-amber-700 peer-focus-visible:ring-2 peer-focus-visible:ring-brand-400 peer-focus-visible:ring-offset-1 font-medium text-sm transition">
+          Je choisis la réflexion
+        </div>
+      </label>
+    </div>
+  </fieldset>
   <div class="flex justify-end">
     <button type="submit" class="btn-primary hover:wiggle">
       Valider et passer au plan

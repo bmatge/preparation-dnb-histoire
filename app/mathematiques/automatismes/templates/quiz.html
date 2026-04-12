@@ -15,7 +15,7 @@
 </div>
 
 <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 mb-6 animate-reveal">
-  <div class="text-xs uppercase tracking-wider text-slate-400 mb-2">
+  <div class="text-xs uppercase tracking-wider text-slate-500 mb-2">
     {{ theme_label }}
   </div>
   <p class="font-display text-xl text-slate-900 leading-snug whitespace-pre-line">{{ question.enonce }}</p>
@@ -47,15 +47,16 @@
     {% endfor %}
   </fieldset>
   {% else %}
-  <label class="block">
-    <span class="text-sm font-semibold text-slate-700 block mb-2">
+  <div>
+    <label for="answer" class="text-sm font-semibold text-slate-700 block mb-2">
       Ta réponse
-    </span>
-    <input type="text" name="answer" autocomplete="off" required
+    </label>
+    <input id="answer" type="text" name="answer" autocomplete="off" required
            inputmode="text"
            placeholder="Un nombre, une fraction a/b, un pourcentage…"
            class="w-full border border-slate-200 rounded-xl px-4 py-3 text-base focus:ring-2 focus:ring-brand-400 focus:border-brand-400 outline-none transition">
-  </label>
+    {% include "_math_palette.html" %}
+  </div>
   {% endif %}
   <div class="flex items-center justify-between gap-3 flex-wrap">
     <span id="loading" class="htmx-indicator text-sm text-brand-700 items-center gap-2">
@@ -87,7 +88,7 @@
   </div>
 </form>
 
-<div id="feedback-area" class="mt-6"></div>
+<div id="feedback-area" class="mt-6" aria-live="polite" aria-atomic="true"></div>
 
 <div class="mt-8 text-center">
   <a href="/mathematiques/automatismes/restart" class="text-sm text-slate-500 hover:text-brand-700">

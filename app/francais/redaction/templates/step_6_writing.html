@@ -27,15 +27,15 @@
 <form hx-post="/francais/redaction/step/6/submit" hx-target="#response-area" hx-swap="innerHTML"
       hx-indicator="#loading"
       class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 space-y-4 animate-reveal">
-  <label class="block">
-    <span class="text-sm font-semibold text-slate-700 flex items-center gap-2 mb-2">
+  <div>
+    <label for="redaction" class="text-sm font-semibold text-slate-700 flex items-center gap-2 mb-2">
       Ta rédaction
-    </span>
-    <textarea name="redaction" rows="22" required minlength="400"
+    </label>
+    <textarea id="redaction" name="redaction" rows="22" required minlength="400"
               data-draft-key="fr:redaction:step6:{{ subject.id }}:{{ option }}"
               placeholder="{% if option == 'imagination' %}Ouverture…&#10;&#10;Péripéties…&#10;&#10;Dénouement…{% else %}Introduction…&#10;&#10;Premier argument…&#10;&#10;Second argument…&#10;&#10;Conclusion…{% endif %}"
               class="w-full border border-slate-200 rounded-xl px-4 py-3 text-[15px] leading-relaxed focus:ring-2 focus:ring-brand-400 focus:border-brand-400 outline-none transition"></textarea>
-  </label>
+  </div>
 
   <div class="flex items-center justify-between gap-3 flex-wrap">
     <span id="loading" class="htmx-indicator text-sm text-brand-700 items-center gap-2">
@@ -49,5 +49,5 @@
   </div>
 </form>
 
-<div id="response-area" class="mt-8"></div>
+<div id="response-area" class="mt-8" aria-live="polite" aria-atomic="true"></div>
 {% endblock %}

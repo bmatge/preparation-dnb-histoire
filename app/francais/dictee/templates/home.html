@@ -22,10 +22,10 @@
   <section class="rounded-2xl bg-white border border-slate-200 p-6 shadow-sm">
     <h2 class="font-display text-lg font-bold text-brand-800 mb-3">Démarrer</h2>
     <form method="post" action="/francais/dictee/session/new" class="space-y-4">
-      <div>
-        <label class="text-xs font-semibold text-slate-600 uppercase tracking-wide">
+      <fieldset>
+        <legend class="text-xs font-semibold text-slate-600 uppercase tracking-wide">
           Voix
-        </label>
+        </legend>
         <div class="mt-2 flex flex-wrap gap-3">
           {% for slug, label in voices %}
           <label class="inline-flex items-center gap-2 rounded-xl border border-slate-200 px-3 py-2 cursor-pointer hover:border-brand-300">
@@ -36,7 +36,7 @@
           </label>
           {% endfor %}
         </div>
-      </div>
+      </fieldset>
       <div class="flex flex-wrap items-center gap-3">
         <button type="submit" class="btn-primary hover:wiggle">
           Tirer une dictée au hasard

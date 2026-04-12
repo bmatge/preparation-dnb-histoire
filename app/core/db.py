@@ -24,7 +24,7 @@ Helpers principaux :
 from __future__ import annotations
 
 import logging
-from datetime import datetime
+from datetime import datetime, timedelta
 from pathlib import Path
 from typing import Iterator
 
@@ -365,6 +365,45 @@ def get_item_ids_by_status(
     return list(rows)
 
 
+def get_user_stats(s: DBSession) -> dict[str, int]:
+    """Compte les utilisateurs uniques (user_key distinctes dans Session).
+
+    Renvoie total, nouveaux aujourd'hui, nouveaux cette semaine.
+    Un utilisateur est "nouveau" a la date de sa premiere session.
+    """
+    from sqlalchemy import func, case
+
+    now = datetime.utcnow()
+    today_start = now.replace(hour=0, minute=0, second=0, microsecond=0)
+    week_start = today_start - timedelta(days=today_start.weekday())
+    # Sous-requete : premiere session par user_key
+    sub = (
+        select(
+            Session.user_key,
+            func.min(Session.created_at).label("first_seen"),
+        )
+        .where(Session.user_key.isnot(None))
+        .group_by(Session.user_key)
+        .subquery()
+    )
+    row = s.exec(
+        select(
+            func.count().label("total"),
+            func.sum(
+                case((sub.c.first_seen >= today_start, 1), else_=0)
+            ).label("today"),
+            func.sum(
+                case((sub.c.first_seen >= week_start, 1), else_=0)
+            ).label("week"),
+        ).select_from(sub)
+    ).one()
+    return {
+        "total": row.total or 0,
+        "today": row.today or 0,
+        "week": row.week or 0,
+    }
+
+
 __all__ = [
     "Session",
     "Turn",
@@ -382,5 +421,6 @@ __all__ = [
     "record_progress",
     "get_progress_counts",
     "get_item_ids_by_status",
+    "get_user_stats",
     "DB_PATH",
 ]

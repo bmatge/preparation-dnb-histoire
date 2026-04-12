@@ -288,6 +288,31 @@ def api_progression(
     return HTMLResponse(f'<p class="text-xs mt-1">{sep.join(parts)}</p>')
 
 
+@app.get("/api/stats", response_class=HTMLResponse)
+def api_stats(
+    request: Request,
+    s: DBSession = Depends(core_db.db_session),
+):
+    """Fragment HTMX : compteurs d'utilisation (cles uniques)."""
+    stats = core_db.get_user_stats(s)
+    return HTMLResponse(
+        f'<dl class="grid grid-cols-3 gap-4 text-center">'
+        f'<div>'
+        f'<dd class="font-display text-3xl font-bold text-brand-700">{stats["total"]}</dd>'
+        f'<dt class="text-xs text-slate-500 mt-1">utilisateurs</dt>'
+        f'</div>'
+        f'<div>'
+        f'<dd class="font-display text-3xl font-bold text-brand-700">{stats["today"]}</dd>'
+        f'<dt class="text-xs text-slate-500 mt-1">aujourd\'hui</dt>'
+        f'</div>'
+        f'<div>'
+        f'<dd class="font-display text-3xl font-bold text-brand-700">{stats["week"]}</dd>'
+        f'<dt class="text-xs text-slate-500 mt-1">cette semaine</dt>'
+        f'</div>'
+        f'</dl>'
+    )
+
+
 @app.get("/healthz")
 def healthz():
     return {"ok": True}

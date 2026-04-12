@@ -50,7 +50,7 @@
         <div class="font-display text-[1.02rem] leading-relaxed text-slate-800 space-y-0">
           {% for ligne in exercise.texte_support.lignes %}
           <div class="flex gap-3" id="ligne-{{ ligne.n }}">
-            <span class="shrink-0 w-7 text-right text-xs text-slate-300 pt-1 select-none">
+            <span class="shrink-0 w-7 text-right text-xs text-slate-400 pt-1 select-none">
               {% if ligne.n % 5 == 0 %}{{ ligne.n }}{% endif %}
             </span>
             <span>{{ ligne.texte }}</span>
@@ -142,7 +142,7 @@
           id="reponse"
           name="reponse"
           rows="6"
-          class="mt-2 w-full rounded-xl border border-slate-200 p-3 text-sm focus:border-brand-400 focus:outline-none"
+          class="mt-2 w-full rounded-xl border border-slate-200 p-3 text-sm focus:ring-2 focus:ring-brand-400 focus:border-brand-400 outline-none transition"
           placeholder="Rédige ta réponse ici…"
           required
         >{{ last_answer }}</textarea>
@@ -154,7 +154,7 @@
         </div>
       </form>
 
-      <div id="feedback-zone"></div>
+      <div id="feedback-zone" aria-live="polite" aria-atomic="true"></div>
     </div>
 
   </section>

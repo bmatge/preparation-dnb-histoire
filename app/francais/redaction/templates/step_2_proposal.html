@@ -14,19 +14,19 @@
 <form hx-post="/francais/redaction/step/2/submit" hx-target="#response-area" hx-swap="innerHTML"
       hx-indicator="#loading"
       class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 space-y-4 animate-reveal">
-  <label class="block">
-    <span class="text-sm font-semibold text-slate-700 flex items-center gap-2 mb-2">
+  <div>
+    <label for="proposition" class="text-sm font-semibold text-slate-700 flex items-center gap-2 mb-2">
       {% if option == 'imagination' %}
       Ton brouillon de récit (étapes du récit, personnages, ambiance, idées)
       {% else %}
       Ton plan d'argumentation (thèse, arguments, exemples envisagés)
       {% endif %}
-    </span>
-    <textarea name="proposition" rows="12" required minlength="30"
+    </label>
+    <textarea id="proposition" name="proposition" rows="12" required minlength="30"
               data-draft-key="fr:redaction:step2:{{ subject.id }}:{{ option }}"
               placeholder="{% if option == 'imagination' %}Ouverture : ...&#10;Élément déclencheur : ...&#10;Péripéties : ...&#10;Dénouement : ...&#10;Idées d'images / sentiments à intégrer : ...{% else %}Position : ...&#10;Argument 1 : ...&#10;  - exemple : ...&#10;Argument 2 : ...&#10;  - exemple : ...&#10;Ouverture / conclusion : ...{% endif %}"
               class="w-full border border-slate-200 rounded-xl px-4 py-3 font-mono text-sm focus:ring-2 focus:ring-brand-400 focus:border-brand-400 outline-none transition"></textarea>
-  </label>
+  </div>
 
   <div class="flex items-center justify-between gap-3 flex-wrap">
     <span id="loading" class="htmx-indicator text-sm text-brand-700 items-center gap-2">
@@ -40,5 +40,5 @@
   </div>
 </form>
 
-<div id="response-area" class="mt-8"></div>
+<div id="response-area" class="mt-8" aria-live="polite" aria-atomic="true"></div>
 {% endblock %}

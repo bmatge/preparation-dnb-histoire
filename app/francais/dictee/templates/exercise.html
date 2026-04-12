@@ -59,10 +59,12 @@
       <form hx-post="/francais/dictee/session/{{ session.id }}/answer"
             hx-target="#feedback-zone"
             hx-swap="innerHTML">
+        <label for="copie" class="text-sm font-semibold text-slate-700 block mb-2">Ta copie</label>
         <textarea
+          id="copie"
           name="copie"
           rows="16"
-          class="w-full rounded-xl border border-slate-200 p-3 text-sm focus:border-brand-400 focus:outline-none font-serif"
+          class="w-full rounded-xl border border-slate-200 p-3 text-sm focus:ring-2 focus:ring-brand-400 focus:border-brand-400 outline-none font-serif transition"
           placeholder="Écris ici la dictée que tu entends, phrase par phrase…"
           required
         >{{ last_answer }}</textarea>
@@ -74,7 +76,7 @@
         </div>
       </form>
 
-      <div id="feedback-zone" class="mt-6"></div>
+      <div id="feedback-zone" class="mt-6" aria-live="polite" aria-atomic="true"></div>
     </section>
 
     <section class="rounded-2xl bg-white border border-slate-200 p-5 shadow-sm lg:col-start-3 lg:row-start-1 lg:sticky lg:top-4 lg:self-start">

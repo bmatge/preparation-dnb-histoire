@@ -215,6 +215,10 @@
       transform: translateY(-2px);
       box-shadow: 0 12px 28px -8px rgba(64, 91, 255, 0.6);
     }
+    .btn-primary:focus-visible {
+      outline: 2px solid #222ed1;
+      outline-offset: 2px;
+    }
     .btn-secondary {
       display: inline-flex; align-items: center; gap: 0.5rem;
       background: white;
@@ -226,6 +230,10 @@
       transition: background 0.15s ease;
     }
     .btn-secondary:hover { background: #f0f4ff; }
+    .btn-secondary:focus-visible {
+      outline: 2px solid #2a3ef5;
+      outline-offset: 2px;
+    }
 
     /* Progress bar shimmer */
     @keyframes shimmer {
@@ -240,6 +248,10 @@
   </style>
 </head>
 <body class="text-slate-900">
+
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:px-4 focus:py-2 focus:bg-brand-700 focus:text-white focus:rounded-lg focus:text-sm focus:font-semibold">
+    Aller au contenu principal
+  </a>
 
   <header class="sticky top-0 z-20 backdrop-blur bg-white/70 border-b border-slate-200/60">
     <div class="max-w-3xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
@@ -264,25 +276,25 @@
          ============================================================ #}
       <nav class="hidden md:flex text-sm items-center gap-2 md:gap-3">
         <a href="/histoire-geo-emc/"
-           class="text-slate-600 hover:text-brand-700 hover:bg-brand-50 font-medium px-2.5 py-1.5 rounded-lg transition">
+           class="text-slate-600 hover:text-brand-700 focus:text-brand-700 hover:bg-brand-50 focus:bg-brand-50 font-medium px-2.5 py-1.5 rounded-lg transition">
           Histoire-Géo-EMC
         </a>
         <a href="/francais/"
-           class="text-slate-600 hover:text-brand-700 hover:bg-brand-50 font-medium px-2.5 py-1.5 rounded-lg transition">
+           class="text-slate-600 hover:text-brand-700 focus:text-brand-700 hover:bg-brand-50 focus:bg-brand-50 font-medium px-2.5 py-1.5 rounded-lg transition">
           Français
         </a>
         <a href="/mathematiques/"
-           class="text-slate-600 hover:text-brand-700 hover:bg-brand-50 font-medium px-2.5 py-1.5 rounded-lg transition">
+           class="text-slate-600 hover:text-brand-700 focus:text-brand-700 hover:bg-brand-50 focus:bg-brand-50 font-medium px-2.5 py-1.5 rounded-lg transition">
           Maths
         </a>
         <a href="/sciences/"
-           class="text-slate-600 hover:text-brand-700 hover:bg-brand-50 font-medium px-2.5 py-1.5 rounded-lg transition">
+           class="text-slate-600 hover:text-brand-700 focus:text-brand-700 hover:bg-brand-50 focus:bg-brand-50 font-medium px-2.5 py-1.5 rounded-lg transition">
           Sciences
         </a>
       </nav>
 
       <a href="/mon-compte"
-         class="hidden md:inline-flex items-center justify-center h-9 w-9 rounded-lg text-slate-500 hover:text-brand-700 hover:bg-brand-50 transition"
+         class="hidden md:inline-flex items-center justify-center h-9 w-9 rounded-lg text-slate-500 hover:text-brand-700 focus:text-brand-700 hover:bg-brand-50 focus:bg-brand-50 transition"
          title="Ma progression"
          aria-label="Ma progression">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -296,7 +308,7 @@
               aria-label="Ouvrir le menu"
               aria-controls="nav-mobile"
               aria-expanded="false"
-              class="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-lg text-slate-700 hover:text-brand-700 hover:bg-brand-50 transition">
+              class="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-lg text-slate-700 hover:text-brand-700 focus:text-brand-700 hover:bg-brand-50 focus:bg-brand-50 transition">
         <svg id="nav-icon-burger" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <line x1="4" y1="7" x2="20" y2="7"></line>
           <line x1="4" y1="12" x2="20" y2="12"></line>
@@ -312,24 +324,24 @@
     <nav id="nav-mobile" class="hidden md:hidden border-t border-slate-200/60 bg-white/80">
       <div class="max-w-3xl mx-auto px-4 py-2 flex flex-col gap-1 text-sm">
         <a href="/histoire-geo-emc/"
-           class="text-slate-700 hover:text-brand-700 hover:bg-brand-50 font-medium px-3 py-2 rounded-lg transition">
+           class="text-slate-700 hover:text-brand-700 focus:text-brand-700 hover:bg-brand-50 focus:bg-brand-50 font-medium px-3 py-2 rounded-lg transition">
           Histoire-Géo-EMC
         </a>
         <a href="/francais/"
-           class="text-slate-700 hover:text-brand-700 hover:bg-brand-50 font-medium px-3 py-2 rounded-lg transition">
+           class="text-slate-700 hover:text-brand-700 focus:text-brand-700 hover:bg-brand-50 focus:bg-brand-50 font-medium px-3 py-2 rounded-lg transition">
           Français
         </a>
         <a href="/mathematiques/"
-           class="text-slate-700 hover:text-brand-700 hover:bg-brand-50 font-medium px-3 py-2 rounded-lg transition">
+           class="text-slate-700 hover:text-brand-700 focus:text-brand-700 hover:bg-brand-50 focus:bg-brand-50 font-medium px-3 py-2 rounded-lg transition">
           Maths
         </a>
         <a href="/sciences/"
-           class="text-slate-700 hover:text-brand-700 hover:bg-brand-50 font-medium px-3 py-2 rounded-lg transition">
+           class="text-slate-700 hover:text-brand-700 focus:text-brand-700 hover:bg-brand-50 focus:bg-brand-50 font-medium px-3 py-2 rounded-lg transition">
           Sciences
         </a>
         <hr class="border-slate-200/60 my-1">
         <a href="/mon-compte"
-           class="text-slate-700 hover:text-brand-700 hover:bg-brand-50 font-medium px-3 py-2 rounded-lg transition">
+           class="text-slate-700 hover:text-brand-700 focus:text-brand-700 hover:bg-brand-50 focus:bg-brand-50 font-medium px-3 py-2 rounded-lg transition">
           Ma progression
         </a>
       </div>
@@ -359,7 +371,7 @@
     })();
   </script>
 
-  <main class="max-w-3xl mx-auto px-4 py-10">
+  <main id="main-content" class="max-w-3xl mx-auto px-4 py-10">
     {% block content %}{% endblock %}
   </main>
 
@@ -368,15 +380,27 @@
     Propulsé par <strong>Albert</strong>, le LLM souverain de l'État français.
     <div class="mt-3 flex items-center justify-center gap-3">
       <button type="button"
-              class="underline decoration-dotted hover:text-brand-700 transition"
+              class="underline decoration-dotted hover:text-brand-700 focus:text-brand-700 transition"
               onclick="document.getElementById('modal-mentions').showModal()">
         Mentions légales
       </button>
       <span aria-hidden="true">·</span>
       <button type="button"
-              class="underline decoration-dotted hover:text-brand-700 transition"
+              class="underline decoration-dotted hover:text-brand-700 focus:text-brand-700 transition"
               onclick="document.getElementById('modal-accessibilite').showModal()">
         Accessibilité
+      </button>
+      <span aria-hidden="true">·</span>
+      <button type="button"
+              class="underline decoration-dotted hover:text-brand-700 focus:text-brand-700 transition"
+              onclick="document.getElementById('modal-donnees').showModal()">
+        Sources de données
+      </button>
+      <span aria-hidden="true">·</span>
+      <button type="button"
+              class="underline decoration-dotted hover:text-brand-700 focus:text-brand-700 transition"
+              onclick="document.getElementById('modal-stats').showModal()">
+        Statistiques
       </button>
     </div>
   </footer>
@@ -392,7 +416,7 @@
         <h2 class="font-display text-xl font-bold text-brand-800">Mentions légales</h2>
         <button type="button"
                 aria-label="Fermer"
-                class="text-slate-400 hover:text-slate-700 transition"
+                class="text-slate-400 hover:text-slate-700 focus:text-slate-700 transition"
                 onclick="this.closest('dialog').close()">
           <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <line x1="6" y1="6" x2="18" y2="18"></line>
@@ -415,15 +439,15 @@
         </p>
         <p>
           Aucune donnée n'est revendue, aucun tracker publicitaire n'est
-          posé, et le modèle de langage utilisé côté runtime est
-          <strong>Albert</strong>, l'IA souveraine de l'État français —
-          parce qu'autant confier les brouillons de rédaction d'une
-          collégienne à une infra qui ne part pas outre-Atlantique.
+          posé, aucun cookie tiers n'est déposé. Seul un identifiant local
+          (stocké dans ton navigateur) permet de retrouver ta progression
+          d'une visite à l'autre.
         </p>
         <p>
           Si par le plus grand des hasards ce site te rend service, tant
           mieux. Si tu y trouves une coquille, un bug ou une énormité
-          historique : ça fait partie du charme de l'artisanat.
+          historique : ça fait partie du charme de l'artisanat et des
+          risques de l'IA.
         </p>
       </div>
       <div class="mt-5 text-right">
@@ -443,7 +467,7 @@
         <h2 class="font-display text-xl font-bold text-brand-800">Accessibilité</h2>
         <button type="button"
                 aria-label="Fermer"
-                class="text-slate-400 hover:text-slate-700 transition"
+                class="text-slate-400 hover:text-slate-700 focus:text-slate-700 transition"
                 onclick="this.closest('dialog').close()">
           <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <line x1="6" y1="6" x2="18" y2="18"></line>
@@ -453,22 +477,164 @@
       </div>
       <div class="text-sm text-slate-700 space-y-3 leading-relaxed">
         <p>
-          Ce site <strong>n'a pas été audité</strong> au regard du RGAA
-          ni d'aucun autre référentiel d'accessibilité.
+          Ce site <strong>n'a pas fait l'objet d'un audit RGAA formel</strong>,
+          mais un travail de mise en conformité WCAG 2.1 a été mené sur les
+          points suivants :
         </p>
+
+        <div>
+          <h3 class="font-semibold text-brand-800 mb-1">Ce qui a été fait</h3>
+          <ul class="list-disc pl-5 space-y-1">
+            <li>Lien d'évitement « Aller au contenu principal » pour la navigation clavier</li>
+            <li>Structure sémantique : <code class="text-xs bg-slate-100 px-1 rounded">header</code>, <code class="text-xs bg-slate-100 px-1 rounded">nav</code>, <code class="text-xs bg-slate-100 px-1 rounded">main</code>, <code class="text-xs bg-slate-100 px-1 rounded">footer</code>, hiérarchie de titres</li>
+            <li>Formulaires : association <code class="text-xs bg-slate-100 px-1 rounded">label</code>/<code class="text-xs bg-slate-100 px-1 rounded">input</code> explicite, <code class="text-xs bg-slate-100 px-1 rounded">fieldset</code>/<code class="text-xs bg-slate-100 px-1 rounded">legend</code> pour les groupes de choix</li>
+            <li>Indicateurs de focus visibles sur tous les boutons, liens et champs</li>
+            <li>Zones dynamiques (retours HTMX) annoncées aux lecteurs d'écran via <code class="text-xs bg-slate-100 px-1 rounded">aria-live</code></li>
+            <li>Contrastes texte/fond relevés sur les éléments informatifs les plus clairs</li>
+            <li>Information non portée uniquement par la couleur (symboles textuels dans les feedbacks)</li>
+            <li>Modales natives <code class="text-xs bg-slate-100 px-1 rounded">&lt;dialog&gt;</code> avec fermeture au clavier (Échap) et boutons labellisés</li>
+            <li>Alternatives textuelles sur les images</li>
+            <li>Langue de la page déclarée (<code class="text-xs bg-slate-100 px-1 rounded">lang="fr"</code>)</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="font-semibold text-brand-800 mb-1">Ce qui n'a pas été évalué</h3>
+          <ul class="list-disc pl-5 space-y-1">
+            <li>Audit complet RGAA / WCAG par un professionnel de l'accessibilité</li>
+            <li>Tests avec des lecteurs d'écran réels (NVDA, VoiceOver, JAWS)</li>
+            <li>Navigation 100 % clavier sur tous les parcours (quiz, étapes de rédaction)</li>
+            <li>Ratios de contraste mesurés au pixel près sur chaque combinaison</li>
+            <li>Accessibilité des contenus audio (dictée) : pas de transcription textuelle</li>
+            <li>Mode sombre</li>
+          </ul>
+        </div>
+
         <p>
-          Il a été développé rapidement, sur un coin de table, et
-          malheureusement les critères d'accessibilité n'ont pas été
-          pris en compte pendant la conception : contrastes, navigation
-          clavier, compatibilité avec les lecteurs d'écran, alternatives
-          textuelles… rien de tout cela n'a été vérifié sérieusement.
+          Si une situation de blocage concrète te concerne, n'hésite pas
+          à me le faire savoir — je corrigerai ce qui peut l'être.
         </p>
+      </div>
+      <div class="mt-5 text-right">
+        <button type="button"
+                class="btn-secondary"
+                onclick="this.closest('dialog').close()">
+          Fermer
+        </button>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog id="modal-donnees"
+          class="rounded-2xl shadow-glow border border-brand-100 p-0 max-w-lg w-[92vw] backdrop:bg-slate-900/40 backdrop:backdrop-blur-sm">
+    <div class="p-6 sm:p-7">
+      <div class="flex items-start justify-between gap-4 mb-4">
+        <h2 class="font-display text-xl font-bold text-brand-800">Sources de données</h2>
+        <button type="button"
+                aria-label="Fermer"
+                class="text-slate-400 hover:text-slate-700 focus:text-slate-700 transition"
+                onclick="this.closest('dialog').close()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="text-sm text-slate-700 space-y-4 leading-relaxed">
+
         <p>
-          J'en suis conscient et désolé si cela te rend l'usage du site
-          difficile. Si une situation de blocage concrète te concerne,
-          n'hésite pas à me le faire savoir — je corrigerai ce qui peut
-          l'être au cas par cas.
+          Le site s'appuie sur un corpus de <strong>~1 470 fichiers</strong>
+          (annales, corrigés, programmes, fiches méthodo) constitué à partir
+          des sujets officiels du DNB publiés par le ministère.
         </p>
+
+        <div>
+          <h3 class="font-semibold text-brand-800 mb-1">Maths — 2008 à 2025</h3>
+          <p>241 annales PDF, 189 corrections détaillées, 16 automatismes,
+            11 fiches méthodo, 31 figures extraites, 5 textes du programme.</p>
+        </div>
+        <div>
+          <h3 class="font-semibold text-brand-800 mb-1">Français</h3>
+          <p>124 textes de compréhension, 76 sujets de rédaction,
+            35 annales de dictée et ~460 fichiers audio,
+            9 fiches méthodo, 5 textes du programme, 2 barèmes.</p>
+        </div>
+        <div>
+          <h3 class="font-semibold text-brand-800 mb-1">Histoire-Géo-EMC — 2018 à 2022</h3>
+          <p>23 annales PDF, 46 sujets structurés (extraits + variantes),
+            3 corrigés, 7 fiches méthodo, 9 textes du programme,
+            1 base complète de repères chronologiques et spatiaux.</p>
+        </div>
+        <div>
+          <h3 class="font-semibold text-brand-800 mb-1">Sciences — 2018 à 2025</h3>
+          <p>69 annales PDF, 36 corrigés, 18 fiches de révision,
+            8 fiches méthodo, 2 barèmes, 1 programme.</p>
+        </div>
+
+        <hr class="border-slate-200">
+
+        <div>
+          <h3 class="font-semibold text-brand-800 mb-1">Comment ça marche</h3>
+          <p>
+            Les sujets sont <strong>extraits et structurés hors ligne</strong>
+            par le LLM Claude Opus (Anthropic) à partir des PDF d'annales,
+            puis vérifiés manuellement. Ce modèle n'intervient jamais en
+            temps réel.
+          </p>
+          <p class="mt-2">
+            En temps réel, c'est <strong>Albert</strong> — le LLM souverain
+            de l'État français — qui évalue tes copies et anime les quiz.
+            Deux modèles ouverts (disponibles sur Hugging Face) sont
+            utilisés : <strong>gpt-oss-120b</strong> pour les analyses
+            approfondies et <strong>Mistral-Small-24B</strong> pour les
+            interactions courtes.
+          </p>
+          <p class="mt-2">
+            Le corpus complet (annales, corrigés, programmes, méthodos)
+            est indexé dans Albert via un système de
+            <strong>RAG</strong> (recherche augmentée) pour que chaque
+            évaluation s'appuie sur les sources officielles et cite
+            ses références.
+          </p>
+        </div>
+
+      </div>
+      <div class="mt-5 text-right">
+        <button type="button"
+                class="btn-secondary"
+                onclick="this.closest('dialog').close()">
+          Fermer
+        </button>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog id="modal-stats"
+          class="rounded-2xl shadow-glow border border-brand-100 p-0 max-w-lg w-[92vw] backdrop:bg-slate-900/40 backdrop:backdrop-blur-sm">
+    <div class="p-6 sm:p-7">
+      <div class="flex items-start justify-between gap-4 mb-4">
+        <h2 class="font-display text-xl font-bold text-brand-800">Statistiques</h2>
+        <button type="button"
+                aria-label="Fermer"
+                class="text-slate-400 hover:text-slate-700 focus:text-slate-700 transition"
+                onclick="this.closest('dialog').close()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="text-sm text-slate-700 space-y-4 leading-relaxed">
+        <p>
+          Nombre d'utilisateurs ayant lancé au moins un exercice
+          (basé sur les clés uniques générées par le navigateur).
+        </p>
+        <div hx-get="/api/stats"
+             hx-trigger="intersect once"
+             hx-swap="innerHTML"
+             class="min-h-[5rem] flex items-center justify-center">
+          <p class="text-sm text-slate-400">Chargement...</p>
+        </div>
       </div>
       <div class="mt-5 text-right">
         <button type="button"
