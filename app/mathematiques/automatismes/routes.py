@@ -274,6 +274,9 @@ def quiz_answer(
         hints_used=hints_used,
         scoring_mode=question.scoring_mode,
     )
+    user_key = request.headers.get("x-user-key")
+    if user_key:
+        core_db.record_progress(s, user_key, SUBJECT_KIND, str(question.id), is_correct)
 
     if is_correct:
         if hints_used == 0:
@@ -392,6 +395,9 @@ def quiz_reveal(
         hints_used=state.get("current_hints", 0),
         scoring_mode=question.scoring_mode,
     )
+    user_key = request.headers.get("x-user-key")
+    if user_key:
+        core_db.record_progress(s, user_key, SUBJECT_KIND, str(question.id), False)
     missed = state.get("missed_ids") or []
     if question.id not in missed:
         missed.append(question.id)

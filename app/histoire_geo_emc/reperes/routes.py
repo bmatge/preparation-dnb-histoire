@@ -289,6 +289,9 @@ def quiz_answer(
             is_correct=True,
             hints_used=hints_used,
         )
+        user_key = request.headers.get("x-user-key")
+        if user_key:
+            core_db.record_progress(s, user_key, "hgemc_reperes", str(repere.id), True)
         state["score"] = state.get("score", 0) + (1 if hints_used == 0 else 0)
         _advance(state)
         _set_quiz_state(request, state)
@@ -334,6 +337,9 @@ def quiz_answer(
         is_correct=False,
         hints_used=3,
     )
+    user_key = request.headers.get("x-user-key")
+    if user_key:
+        core_db.record_progress(s, user_key, "hgemc_reperes", str(repere.id), False)
     missed = state.get("missed_ids") or []
     if repere.id not in missed:
         missed.append(repere.id)

@@ -37,6 +37,8 @@ from dotenv import load_dotenv
 
 load_dotenv(Path(__file__).resolve().parent.parent.parent / ".env", override=True)
 
+from sqlmodel import Session as DBSession
+
 from fastapi import Depends, FastAPI, Request
 from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
@@ -185,6 +187,32 @@ def home(request: Request):
 def mon_compte(request: Request):
     """Ecran de gestion de la clé élève (copier, restaurer, réinitialiser)."""
     return templates.TemplateResponse(request, "mon_compte.html")
+
+
+@app.get("/api/progression/{subject_kind}", response_class=HTMLResponse)
+def api_progression(
+    subject_kind: str,
+    request: Request,
+    s: DBSession = Depends(core_db.db_session),
+):
+    """Renvoie un badge HTML avec les compteurs reussi/rate pour une epreuve."""
+    user_key = get_user_key(request)
+    if not user_key:
+        return HTMLResponse("")
+    counts = core_db.get_progress_counts(s, user_key, subject_kind)
+    parts: list[str] = []
+    if counts["reussi"]:
+        n = counts["reussi"]
+        suffix = "s" if n > 1 else ""
+        parts.append(f'<span class="text-green-600">{n}\u00a0r\u00e9ussi{suffix}</span>')
+    if counts["rate"]:
+        n = counts["rate"]
+        suffix = "s" if n > 1 else ""
+        parts.append(f'<span class="text-red-500">{n}\u00a0rat\u00e9{suffix}</span>')
+    if not parts:
+        return HTMLResponse("")
+    sep = " \u00b7 "
+    return HTMLResponse(f'<p class="text-xs mt-1">{sep.join(parts)}</p>')
 
 
 @app.get("/healthz")

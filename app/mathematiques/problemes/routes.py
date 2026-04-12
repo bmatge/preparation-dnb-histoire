@@ -278,6 +278,9 @@ def travail_answer(
         hints_used=hints_used,
         scoring_mode=scoring.get("mode") or "?",
     )
+    user_key = request.headers.get("x-user-key")
+    if user_key:
+        core_db.record_progress(s, user_key, SUBJECT_KIND, subquestion.get("id", "?"), is_correct)
 
     if is_correct:
         if hints_used == 0:
@@ -406,6 +409,9 @@ def travail_reveal(
         hints_used=state.get("current_hints", 0),
         scoring_mode=scoring.get("mode") or "?",
     )
+    user_key = request.headers.get("x-user-key")
+    if user_key:
+        core_db.record_progress(s, user_key, SUBJECT_KIND, subquestion.get("id", "?"), False)
     missed = state.get("missed_ids") or []
     sq_id = subquestion.get("id")
     if sq_id and sq_id not in missed:

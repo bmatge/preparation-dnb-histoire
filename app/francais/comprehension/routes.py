@@ -30,6 +30,7 @@ from app.core.db import (
     get_session,
     get_turns,
     get_turns_by_step,
+    record_progress,
     update_session_step,
 )
 from app.francais.comprehension import pedagogy as ped
@@ -206,6 +207,9 @@ def submit_answer(
     item = _find_item(items, order)
 
     result = ped.evaluate_answer(db, session_id, exo, item, reponse)
+    user_key = request.headers.get("x-user-key")
+    if user_key:
+        record_progress(db, user_key, SUBJECT_KIND, f"{exo.id}:{item.label}", result.is_correct)
 
     next_order = order + 1 if order < len(items) else None
     is_last = next_order is None
