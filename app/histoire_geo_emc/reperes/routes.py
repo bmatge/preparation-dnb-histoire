@@ -289,7 +289,7 @@ def quiz_answer(
             },
         )
 
-    is_correct = evaluate_answer(repere, answer)
+    is_correct = evaluate_answer(repere, answer, question=state.get("current_question"))
     hints_used = state.get("current_hints", 0)
 
     if is_correct:

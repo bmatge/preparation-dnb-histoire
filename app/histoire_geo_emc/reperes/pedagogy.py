@@ -173,14 +173,19 @@ def _extract_year(text: str) -> int | None:
     return None
 
 
-def evaluate_answer(repere: Repere, student_answer: str) -> bool:
+def evaluate_answer(
+    repere: Repere,
+    student_answer: str,
+    question: str | None = None,
+) -> bool:
     """Compare la réponse élève à la valeur attendue.
 
     Logique par type :
     - `date`, `evenement` avec annee : on cherche une année dans la
       réponse et on la compare à `repere.annee` avec tolérance ±1.
-    - autres : comparaison sur le `libelle` normalisé, match exact ou
-      inclusion (l'élève peut avoir écrit plus long).
+    - autres : comparaison locale d'abord (rapide), puis appel Albert
+      si le match local échoue (rattrapage des réponses correctes mais
+      formulées différemment du libellé).
     """
     if not student_answer or not student_answer.strip():
         return False
@@ -198,8 +203,51 @@ def evaluate_answer(repere: Repere, student_answer: str) -> bool:
         # Tolérance ±1 an
         return abs(year - repere.annee) <= 1
 
-    # Cas textuel
-    return _match_libelle(repere, student_answer)
+    # Cas textuel : match local d'abord (rapide, pas d'appel réseau)
+    if _match_libelle(repere, student_answer):
+        return True
+
+    # Rattrapage via Albert pour les cas ou la réponse est correcte mais
+    # formulée différemment du libellé (ex : noms de pays pour les BRICS).
+    return _albert_evaluate(repere, student_answer, question)
+
+
+def _albert_evaluate(
+    repere: Repere,
+    student_answer: str,
+    question: str | None,
+) -> bool:
+    """Demande a Albert si la réponse est correcte (rattrapage LLM).
+
+    Appel court (Mistral-Small via UI_TEXT) quand le match local échoue.
+    En cas d'erreur Albert, retourne False (conservateur : pas de faux
+    positif — l'élève peut retenter ou demander un indice).
+    """
+    import json
+
+    notions = json.loads(repere.notions_associees_json or "[]")
+    context_parts = [f"Repere : {repere.libelle}"]
+    if notions:
+        context_parts.append(f"Notions associees : {', '.join(notions)}")
+    if repere.annee:
+        context_parts.append(f"Annee : {repere.annee}")
+    if repere.periode:
+        context_parts.append(f"Periode : {repere.periode}")
+    context = "\n".join(context_parts)
+
+    q_line = f"\nQuestion posee : {question}" if question else ""
+
+    prompt = f"""Tu es un correcteur de reperes d'histoire-geographie pour le DNB.
+
+{context}{q_line}
+Reponse de l'eleve : {student_answer}
+
+La reponse est-elle correcte ou suffisamment proche de la bonne reponse ?
+Reponds UNIQUEMENT par OUI ou NON."""
+
+    messages = [{"role": "user", "content": prompt}]
+    raw = _safe_chat(Task.UI_TEXT, messages, fallback="NON")
+    return raw.strip().upper().startswith("OUI")
 
 
 def _match_libelle(repere: Repere, student_answer: str) -> bool:
