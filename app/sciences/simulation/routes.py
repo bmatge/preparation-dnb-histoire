@@ -165,6 +165,7 @@ def start_simulation(
         subject_kind=SUBJECT_KIND,
         subject_id=None,
         mode="semi_assiste",
+        user_key=request.headers.get("x-user-key") or None,
     )
 
     disc_scores = {}

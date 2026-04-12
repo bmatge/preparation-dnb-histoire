@@ -144,6 +144,7 @@ def redaction_home(request: Request, db: DBSession = Depends(db_session)):
 def session_new(
     request: Request,
     annee: str = Form(default=""),
+    user_key: str = Form(default=""),
     s: DBSession = Depends(db_session),
 ):
     """Crée une session avec un sujet de rédaction tiré au hasard.
@@ -167,6 +168,7 @@ def session_new(
         subject_kind=SUBJECT_KIND,
         subject_id=row.id,
         mode="semi_assiste",
+        user_key=user_key or request.headers.get("x-user-key") or None,
     )
     request.session["redaction_session_id"] = new_sess.id
     request.session.pop("redaction_option", None)
@@ -209,6 +211,7 @@ def resume(
         subject_kind=SUBJECT_KIND,
         subject_id=row.id,
         mode="semi_assiste",
+        user_key=request.headers.get("x-user-key") or None,
     )
     request.session["redaction_session_id"] = new_sess.id
     request.session["redaction_option"] = option

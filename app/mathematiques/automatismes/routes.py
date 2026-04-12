@@ -189,6 +189,7 @@ def quiz_new(
         subject_kind=SUBJECT_KIND,
         subject_id=None,
         mode="semi_assiste",
+        user_key=user_key or None,
     )
     state = {
         "db_session_id": new_sess.id,
