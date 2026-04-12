@@ -323,33 +323,96 @@ def quiz_answer(
     previous = state.get("previous_answers") or []
     previous.append(answer)
     state["previous_answers"] = previous
+    _set_quiz_state(request, state)
+    return templates.TemplateResponse(
+        request,
+        "_partials/feedback.html",
+        {
+            "kind": "incorrect",
+            "message": "Ce n'est pas ça. Tu peux retenter, demander un indice, ou demander la réponse.",
+            "hints_used": hints_used,
+            "max_hints": 3,
+            "show_next": False,
+        },
+    )
 
-    if hints_used < 3:
-        hint_level = hints_used + 1
-        hint_text = generate_hint(repere, hint_level, previous)
-        state["current_hints"] = hint_level
-        _set_quiz_state(request, state)
+
+# ============================================================================
+# Indice
+# ============================================================================
+
+
+@router.post("/quiz/hint", response_class=HTMLResponse)
+def quiz_hint(
+    request: Request,
+    s: DBSession = Depends(db_session),
+):
+    """Génère un indice gradué pour le repère courant."""
+    state = _get_quiz_state(request)
+    if state is None:
+        raise HTTPException(status_code=303, headers={"Location": f"{PREFIX}/"})
+
+    repere = _current_repere(s, state)
+    if repere is None:
+        return RedirectResponse(url=f"{PREFIX}/quiz/synthese", status_code=303)
+
+    hints_used = state.get("current_hints", 0)
+    if hints_used >= 3:
         return templates.TemplateResponse(
             request,
             "_partials/feedback.html",
             {
-                "kind": "hint",
-                "message": hint_text,
-                "hint_level": hint_level,
+                "kind": "error",
+                "message": "Tu as déjà utilisé tes 3 indices. Retente ou demande la réponse.",
                 "show_next": False,
             },
         )
 
-    # Troisième échec → on révèle et on marque manqué
+    hint_level = hints_used + 1
+    previous = state.get("previous_answers") or []
+    hint_text = generate_hint(repere, hint_level, previous)
+    state["current_hints"] = hint_level
+    _set_quiz_state(request, state)
+    return templates.TemplateResponse(
+        request,
+        "_partials/feedback.html",
+        {
+            "kind": "hint",
+            "message": hint_text,
+            "hint_level": hint_level,
+            "show_next": False,
+        },
+    )
+
+
+# ============================================================================
+# Révélation explicite
+# ============================================================================
+
+
+@router.post("/quiz/reveal", response_class=HTMLResponse)
+def quiz_reveal(
+    request: Request,
+    s: DBSession = Depends(db_session),
+):
+    """Révèle la bonne réponse et marque le repère comme manqué."""
+    state = _get_quiz_state(request)
+    if state is None:
+        raise HTTPException(status_code=303, headers={"Location": f"{PREFIX}/"})
+
+    repere = _current_repere(s, state)
+    if repere is None:
+        return RedirectResponse(url=f"{PREFIX}/quiz/synthese", status_code=303)
+
     reveal_text = reveal_answer(repere)
     reperes_models.add_attempt(
         s,
         session_id=state["db_session_id"],
         repere_id=repere.id,
         question_asked=state.get("current_question", "") or "",
-        student_answer=answer,
+        student_answer="",
         is_correct=False,
-        hints_used=3,
+        hints_used=state.get("current_hints", 0),
     )
     user_key = request.headers.get("x-user-key")
     if user_key:

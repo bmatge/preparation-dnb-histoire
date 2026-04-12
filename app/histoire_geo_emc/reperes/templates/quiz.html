@@ -41,9 +41,28 @@
       <span class="inline-block h-2.5 w-2.5 rounded-full bg-brand-500 animate-ping"></span>
       J'analyse…
     </span>
-    <button type="submit" class="btn-primary hover:wiggle ml-auto">
-      Valider
-    </button>
+    <div class="flex items-center gap-2 ml-auto">
+      <button type="button"
+              hx-post="/histoire-geo-emc/reperes/quiz/hint"
+              hx-target="#feedback-area"
+              hx-swap="innerHTML"
+              hx-indicator="#loading"
+              class="btn-secondary">
+        Indice
+      </button>
+      <button type="button"
+              hx-post="/histoire-geo-emc/reperes/quiz/reveal"
+              hx-target="#feedback-area"
+              hx-swap="innerHTML"
+              hx-indicator="#loading"
+              hx-confirm="Tu veux qu'on te révèle la réponse maintenant ?"
+              class="btn-secondary">
+        Je donne ma langue au chat
+      </button>
+      <button type="submit" class="btn-primary hover:wiggle">
+        Valider
+      </button>
+    </div>
   </div>
 </form>
 

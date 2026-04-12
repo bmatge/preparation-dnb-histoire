@@ -35,6 +35,11 @@
   </div>
 </div>
 
+{% elif kind == "incorrect" %}
+<div class="bg-orange-50 border border-orange-200 rounded-2xl p-4 text-sm text-orange-900 animate-reveal">
+  {{ message }}
+</div>
+
 {% elif kind == "error" %}
 <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 text-sm text-slate-700">
   {{ message }}
