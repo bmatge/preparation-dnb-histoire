@@ -166,6 +166,7 @@ def start_exercise(
         subject_kind=SUBJECT_KIND,
         subject_id=None,
         mode="semi_assiste",
+        user_key=request.headers.get("x-user-key") or None,
     )
     state = {
         "db_session_id": new_sess.id,

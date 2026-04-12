@@ -125,6 +125,7 @@ def new_session(
     request: Request,
     dictee_id: int | None = Form(None),
     voice: str = Form(DEFAULT_VOICE),
+    user_key: str = Form(default=""),
     db: DBSession = Depends(db_session),
 ):
     if dictee_id is not None:
@@ -141,7 +142,12 @@ def new_session(
     if voice not in {v[0] for v in AVAILABLE_VOICES}:
         voice = DEFAULT_VOICE
 
-    sess = create_session(db, subject_kind=SUBJECT_KIND, subject_id=row.id)
+    sess = create_session(
+        db,
+        subject_kind=SUBJECT_KIND,
+        subject_id=row.id,
+        user_key=user_key or request.headers.get("x-user-key") or None,
+    )
     update_session_step(db, sess.id, 1)
     request.session["dictee_voice"] = voice
     return RedirectResponse(

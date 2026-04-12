@@ -186,6 +186,7 @@ def quiz_new(
         subject_kind="hgemc_reperes",
         subject_id=None,
         mode="semi_assiste",
+        user_key=user_key or None,
     )
     state = {
         "db_session_id": new_sess.id,
@@ -489,6 +490,7 @@ def quiz_revoir(
         subject_kind="hgemc_reperes",
         subject_id=None,
         mode="semi_assiste",
+        user_key=request.headers.get("x-user-key") or None,
     )
     new_state = {
         "db_session_id": new_sess.id,

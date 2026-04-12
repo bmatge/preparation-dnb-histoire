@@ -126,6 +126,7 @@ def session_new(
     request: Request,
     discipline: str = Form(default=""),
     source: str = Form(default="annales"),
+    user_key: str = Form(default=""),
     s: DBSession = Depends(db_session),
 ):
     """Crée une session avec un sujet aléatoire.
@@ -152,6 +153,7 @@ def session_new(
         subject_kind="hgemc_dc",
         subject_id=subj.id,
         mode=Mode.SEMI_ASSISTE.value,
+        user_key=user_key or request.headers.get("x-user-key") or None,
     )
     request.session["session_id"] = new_sess.id
     return RedirectResponse(url=f"{PREFIX}/step/1", status_code=303)
@@ -192,6 +194,7 @@ def resume(
         subject_kind="hgemc_dc",
         subject_id=subj.id,
         mode=Mode.SEMI_ASSISTE.value,
+        user_key=request.headers.get("x-user-key") or None,
     )
     request.session["session_id"] = new_sess.id
     return RedirectResponse(url=f"{PREFIX}/step/{step}", status_code=303)

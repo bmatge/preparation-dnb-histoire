@@ -123,6 +123,7 @@ def comprehension_home(
 def new_session(
     request: Request,
     exercise_id: int | None = Form(None),
+    user_key: str = Form(default=""),
     db: DBSession = Depends(db_session),
 ):
     """Crée une session, tire un exercice (aléatoire si non précisé), redirige."""
@@ -137,7 +138,12 @@ def new_session(
             detail="Aucun exercice disponible. Vérifie le chargement du catalogue.",
         )
 
-    sess = create_session(db, subject_kind=SUBJECT_KIND, subject_id=row.id)
+    sess = create_session(
+        db,
+        subject_kind=SUBJECT_KIND,
+        subject_id=row.id,
+        user_key=user_key or request.headers.get("x-user-key") or None,
+    )
     update_session_step(db, sess.id, 1)
     return RedirectResponse(
         url=f"/francais/comprehension/session/{sess.id}/item/1",
