@@ -193,6 +193,7 @@ def quiz_new(
     theme: str = Form(default=""),
     length: int = Form(default=DEFAULT_QUIZ_LENGTH),
     mode: str = Form(default="tout"),
+    user_key: str = Form(default=""),
     s: DBSession = Depends(db_session),
 ):
     """Crée un quiz de N questions pour une discipline donnée et démarre."""
@@ -202,7 +203,7 @@ def quiz_new(
 
     exclude_ids: list[str] | None = None
     only_ids: list[str] | None = None
-    user_key = request.headers.get("x-user-key")
+    user_key = user_key or request.headers.get("x-user-key") or ""
     if user_key and mode == "skip-reussies":
         exclude_ids = core_db.get_item_ids_by_status(s, user_key, SUBJECT_KIND, "reussi")
     elif user_key and mode == "refaire-echecs":

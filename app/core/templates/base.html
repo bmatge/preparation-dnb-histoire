@@ -49,9 +49,21 @@
       if (!localStorage.getItem(KEY)) {
         localStorage.setItem(KEY, crypto.randomUUID());
       }
+      // Header sur toutes les requetes HTMX.
       document.addEventListener('htmx:configRequest', function(e) {
         var k = localStorage.getItem(KEY);
         if (k) e.detail.headers['X-User-Key'] = k;
+      });
+      // Hidden input dans tous les <form> classiques (pour les POST non-HTMX).
+      document.addEventListener('DOMContentLoaded', function() {
+        var k = localStorage.getItem(KEY);
+        if (!k) return;
+        document.querySelectorAll('form').forEach(function(f) {
+          if (f.querySelector('input[name="user_key"]')) return;
+          var inp = document.createElement('input');
+          inp.type = 'hidden'; inp.name = 'user_key'; inp.value = k;
+          f.appendChild(inp);
+        });
       });
     })();
   </script>

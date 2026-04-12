@@ -154,12 +154,13 @@ def quiz_new(
     discipline: str = Form(default=""),
     theme: str = Form(default=""),
     mode: str = Form(default="tout"),
+    user_key: str = Form(default=""),
     s: DBSession = Depends(db_session),
 ):
     """Crée un quiz de N repères pseudo-aléatoires et démarre la session."""
     exclude_ids: list[str] | None = None
     only_ids: list[str] | None = None
-    user_key = request.headers.get("x-user-key")
+    user_key = user_key or request.headers.get("x-user-key") or ""
     if user_key and mode == "skip-reussies":
         exclude_ids = core_db.get_item_ids_by_status(s, user_key, "hgemc_reperes", "reussi")
     elif user_key and mode == "refaire-echecs":
