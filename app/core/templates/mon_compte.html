@@ -3,100 +3,164 @@
 {% block title %}Mon compte — Révise ton brevet{% endblock %}
 
 {% block content %}
-<section class="text-center mb-10 animate-reveal">
+<section class="text-center mb-8 animate-reveal">
   <h1 class="font-display text-3xl sm:text-4xl font-black text-slate-900 leading-tight mb-3">
-    Ma progression
+    Mon compte
   </h1>
-  <p class="text-slate-600 max-w-xl mx-auto">
-    Ta cle unique permet de retrouver ta progression d'une visite a l'autre,
-    meme si tu fermes le navigateur. Note-la quelque part si tu veux pouvoir
-    la restaurer sur un autre appareil.
-  </p>
 </section>
 
-<section class="max-w-lg mx-auto mb-8 animate-reveal">
-  <div class="bg-white rounded-2xl shadow-glow border border-slate-100 p-5">
-    <h2 class="font-display font-bold text-lg text-brand-800 mb-4">Tableau de bord</h2>
-    <div hx-get="/api/progression/dashboard"
-         hx-trigger="load"
-         hx-swap="innerHTML"
-         class="min-h-[4rem]">
-      <p class="text-sm text-slate-400 text-center">Chargement...</p>
+{# ============================================================
+   Onglets Progression / Ma cle — pur CSS via :target + hidden.
+   Pas de JS supplementaire : les ancres #progression et #cle
+   controlent l'affichage via le hash de l'URL.
+   ============================================================ #}
+<div class="max-w-lg mx-auto animate-reveal">
+
+  {# --- Barre d'onglets --- #}
+  <nav class="flex gap-1 mb-6 border-b border-slate-200">
+    <a href="#progression" id="tab-btn-progression"
+       class="tab-btn px-4 py-2.5 text-sm font-semibold rounded-t-lg transition
+              text-brand-700 border-b-2 border-brand-500 bg-white">
+      Progression
+    </a>
+    <a href="#cle" id="tab-btn-cle"
+       class="tab-btn px-4 py-2.5 text-sm font-semibold rounded-t-lg transition
+              text-slate-500 hover:text-slate-700 border-b-2 border-transparent">
+      Ma cle
+    </a>
+  </nav>
+
+  {# --- Panneau Progression (visible par defaut) --- #}
+  <div id="panel-progression" class="tab-panel">
+    <div class="bg-white rounded-2xl shadow-glow border border-slate-100 p-5">
+      <div hx-get="/api/progression/dashboard"
+           hx-trigger="load"
+           hx-swap="innerHTML"
+           class="min-h-[4rem]">
+        <p class="text-sm text-slate-400 text-center">Chargement...</p>
+      </div>
     </div>
   </div>
-</section>
 
-<section class="max-w-md mx-auto space-y-6 animate-reveal">
+  {# --- Panneau Ma cle (masque par defaut) --- #}
+  <div id="panel-cle" class="tab-panel hidden">
+    <div class="space-y-6">
 
-  {# --- Cle actuelle --- #}
-  <div class="bg-white rounded-2xl shadow-glow border border-slate-100 p-5">
-    <h2 class="font-display font-bold text-lg text-brand-800 mb-3">Ta cle</h2>
-    <div class="flex items-center gap-2">
-      <input id="user-key-display"
-             type="text"
-             readonly
-             class="flex-1 bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-sm font-mono text-slate-700 select-all"
-             value="">
-      <button type="button"
-              id="btn-copy"
-              class="btn-secondary text-sm whitespace-nowrap"
-              title="Copier la cle">
-        Copier
-      </button>
+      <p class="text-sm text-slate-600">
+        Ta cle unique permet de retrouver ta progression d'une visite a
+        l'autre, meme si tu fermes le navigateur. Note-la quelque part si
+        tu veux pouvoir la restaurer sur un autre appareil.
+      </p>
+
+      {# --- Cle actuelle --- #}
+      <div class="bg-white rounded-2xl shadow-glow border border-slate-100 p-5">
+        <h2 class="font-display font-bold text-lg text-brand-800 mb-3">Ta cle</h2>
+        <div class="flex items-center gap-2">
+          <input id="user-key-display"
+                 type="text"
+                 readonly
+                 class="flex-1 bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-sm font-mono text-slate-700 select-all"
+                 value="">
+          <button type="button"
+                  id="btn-copy"
+                  class="btn-secondary text-sm whitespace-nowrap"
+                  title="Copier la cle">
+            Copier
+          </button>
+        </div>
+        <p id="copy-feedback" class="text-xs text-green-600 mt-1 hidden">
+          Cle copiee dans le presse-papiers.
+        </p>
+      </div>
+
+      {# --- Restaurer une cle --- #}
+      <div class="bg-white rounded-2xl shadow-glow border border-slate-100 p-5">
+        <h2 class="font-display font-bold text-lg text-brand-800 mb-3">Restaurer une cle</h2>
+        <p class="text-sm text-slate-600 mb-3">
+          Si tu as note ta cle d'un autre appareil, colle-la ici pour retrouver
+          ta progression.
+        </p>
+        <div class="flex items-center gap-2">
+          <input id="restore-input"
+                 type="text"
+                 placeholder="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+                 class="flex-1 bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-sm font-mono text-slate-700"
+                 maxlength="36">
+          <button type="button"
+                  id="btn-restore"
+                  class="btn-primary text-sm whitespace-nowrap">
+            Restaurer
+          </button>
+        </div>
+        <p id="restore-error" class="text-xs text-red-600 mt-1 hidden">
+          Format invalide. La cle doit etre un UUID (36 caracteres, avec tirets).
+        </p>
+        <p id="restore-ok" class="text-xs text-green-600 mt-1 hidden">
+          Cle restauree. La page va se recharger.
+        </p>
+      </div>
+
+      {# --- Nouvelle cle --- #}
+      <div class="bg-white rounded-2xl shadow-glow border border-slate-100 p-5">
+        <h2 class="font-display font-bold text-lg text-brand-800 mb-3">Repartir de zero</h2>
+        <p class="text-sm text-slate-600 mb-3">
+          Genere une nouvelle cle. Attention : ta progression actuelle sera
+          perdue si tu ne l'as pas notee.
+        </p>
+        <button type="button"
+                id="btn-reset"
+                class="btn-secondary text-sm text-red-600 border-red-200 hover:bg-red-50">
+          Nouvelle cle
+        </button>
+      </div>
     </div>
-    <p id="copy-feedback" class="text-xs text-green-600 mt-1 hidden">
-      Cle copiee dans le presse-papiers.
-    </p>
   </div>
 
-  {# --- Restaurer une cle --- #}
-  <div class="bg-white rounded-2xl shadow-glow border border-slate-100 p-5">
-    <h2 class="font-display font-bold text-lg text-brand-800 mb-3">Restaurer une cle</h2>
-    <p class="text-sm text-slate-600 mb-3">
-      Si tu as note ta cle d'un autre appareil, colle-la ici pour retrouver
-      ta progression.
-    </p>
-    <div class="flex items-center gap-2">
-      <input id="restore-input"
-             type="text"
-             placeholder="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-             class="flex-1 bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-sm font-mono text-slate-700"
-             maxlength="36">
-      <button type="button"
-              id="btn-restore"
-              class="btn-primary text-sm whitespace-nowrap">
-        Restaurer
-      </button>
-    </div>
-    <p id="restore-error" class="text-xs text-red-600 mt-1 hidden">
-      Format invalide. La cle doit etre un UUID (36 caracteres, avec tirets).
-    </p>
-    <p id="restore-ok" class="text-xs text-green-600 mt-1 hidden">
-      Cle restauree. La page va se recharger.
-    </p>
-  </div>
-
-  {# --- Nouvelle cle --- #}
-  <div class="bg-white rounded-2xl shadow-glow border border-slate-100 p-5">
-    <h2 class="font-display font-bold text-lg text-brand-800 mb-3">Repartir de zero</h2>
-    <p class="text-sm text-slate-600 mb-3">
-      Genere une nouvelle cle. Attention : ta progression actuelle sera perdue
-      si tu ne l'as pas notee.
-    </p>
-    <button type="button"
-            id="btn-reset"
-            class="btn-secondary text-sm text-red-600 border-red-200 hover:bg-red-50">
-      Nouvelle cle
-    </button>
-  </div>
-
-  <div class="text-center">
+  <div class="text-center mt-8">
     <a href="/" class="text-sm text-brand-700 hover:underline">Retour a l'accueil</a>
   </div>
-</section>
+</div>
 
 <script>
 (function() {
+  // --- Onglets ---
+  var tabs = [
+    { btn: document.getElementById('tab-btn-progression'), panel: document.getElementById('panel-progression') },
+    { btn: document.getElementById('tab-btn-cle'),         panel: document.getElementById('panel-cle') },
+  ];
+
+  function activate(id) {
+    tabs.forEach(function(t) {
+      var active = t.btn.id === 'tab-btn-' + id;
+      t.panel.classList.toggle('hidden', !active);
+      // Style actif / inactif
+      if (active) {
+        t.btn.className = t.btn.className
+          .replace('text-slate-500', 'text-brand-700')
+          .replace('border-transparent', 'border-brand-500')
+          .replace('hover:text-slate-700', '');
+        if (!t.btn.className.includes('bg-white')) t.btn.className += ' bg-white';
+      } else {
+        t.btn.className = t.btn.className
+          .replace('text-brand-700', 'text-slate-500')
+          .replace('border-brand-500', 'border-transparent')
+          .replace('bg-white', '');
+        if (!t.btn.className.includes('hover:text-slate-700'))
+          t.btn.className += ' hover:text-slate-700';
+      }
+    });
+  }
+
+  // Au chargement, lire le hash
+  var hash = location.hash.replace('#', '') || 'progression';
+  activate(hash);
+
+  // Clic sur un onglet
+  window.addEventListener('hashchange', function() {
+    activate(location.hash.replace('#', '') || 'progression');
+  });
+
+  // --- Gestion de la cle ---
   var KEY = 'rtd:user-key';
   var UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
@@ -109,13 +173,8 @@
   var restoreOk = document.getElementById('restore-ok');
   var btnReset = document.getElementById('btn-reset');
 
-  // Affiche la cle actuelle
-  function refresh() {
-    display.value = localStorage.getItem(KEY) || '(aucune cle)';
-  }
-  refresh();
+  display.value = localStorage.getItem(KEY) || '(aucune cle)';
 
-  // Copier
   btnCopy.addEventListener('click', function() {
     var k = localStorage.getItem(KEY);
     if (!k) return;
@@ -125,7 +184,6 @@
     });
   });
 
-  // Restaurer
   btnRestore.addEventListener('click', function() {
     var val = restoreInput.value.trim().toLowerCase();
     restoreErr.classList.add('hidden');
@@ -139,7 +197,6 @@
     setTimeout(function() { location.reload(); }, 600);
   });
 
-  // Reset
   btnReset.addEventListener('click', function() {
     if (!confirm('Tu es sur(e) ? Ta progression actuelle sera perdue.')) return;
     localStorage.setItem(KEY, crypto.randomUUID());
