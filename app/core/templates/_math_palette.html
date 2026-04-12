@@ -1,0 +1,30 @@
+{# Palette de caracteres mathematiques cliquables.
+   Insere le caractere au curseur dans l'input cible.
+   Usage : {% include "_math_palette.html" %}
+   Le target_id par defaut est "answer". #}
+<div class="flex flex-wrap gap-1 mt-1.5" role="toolbar" aria-label="Caracteres mathematiques">
+  <button type="button" class="math-char-btn px-2 py-1 text-sm font-mono border border-slate-200 rounded-lg bg-slate-50 hover:bg-brand-50 hover:border-brand-300 text-slate-700 transition cursor-pointer select-none" data-char="×" title="Multiplication" aria-label="Inserer fois">×</button>
+  <button type="button" class="math-char-btn px-2 py-1 text-sm font-mono border border-slate-200 rounded-lg bg-slate-50 hover:bg-brand-50 hover:border-brand-300 text-slate-700 transition cursor-pointer select-none" data-char="÷" title="Division" aria-label="Inserer divise">÷</button>
+  <button type="button" class="math-char-btn px-2 py-1 text-sm font-mono border border-slate-200 rounded-lg bg-slate-50 hover:bg-brand-50 hover:border-brand-300 text-slate-700 transition cursor-pointer select-none" data-char="^" title="Exposant (ex: 10^-3)" aria-label="Inserer exposant">x^n</button>
+  <button type="button" class="math-char-btn px-2 py-1 text-sm font-mono border border-slate-200 rounded-lg bg-slate-50 hover:bg-brand-50 hover:border-brand-300 text-slate-700 transition cursor-pointer select-none" data-char="π" title="Pi" aria-label="Inserer pi">π</button>
+  <button type="button" class="math-char-btn px-2 py-1 text-sm font-mono border border-slate-200 rounded-lg bg-slate-50 hover:bg-brand-50 hover:border-brand-300 text-slate-700 transition cursor-pointer select-none" data-char="√" title="Racine carree" aria-label="Inserer racine">√</button>
+  <button type="button" class="math-char-btn px-2 py-1 text-sm font-mono border border-slate-200 rounded-lg bg-slate-50 hover:bg-brand-50 hover:border-brand-300 text-slate-700 transition cursor-pointer select-none" data-char="≤" title="Inferieur ou egal" aria-label="Inserer inferieur ou egal">≤</button>
+  <button type="button" class="math-char-btn px-2 py-1 text-sm font-mono border border-slate-200 rounded-lg bg-slate-50 hover:bg-brand-50 hover:border-brand-300 text-slate-700 transition cursor-pointer select-none" data-char="≥" title="Superieur ou egal" aria-label="Inserer superieur ou egal">≥</button>
+</div>
+<script>
+(function() {
+  var target = document.getElementById('{{ target_id | default("answer") }}');
+  if (!target) return;
+  document.querySelectorAll('.math-char-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var ch = btn.getAttribute('data-char');
+      var start = target.selectionStart;
+      var end = target.selectionEnd;
+      var val = target.value;
+      target.value = val.slice(0, start) + ch + val.slice(end);
+      target.selectionStart = target.selectionEnd = start + ch.length;
+      target.focus();
+    });
+  });
+})();
+</script>

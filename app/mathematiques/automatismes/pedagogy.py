@@ -106,6 +106,37 @@ def evaluate_answer(
 
 _JSON_BLOCK = re.compile(r"\{[^{}]*\}", re.DOTALL)
 
+# Table de conversion chiffres/signe → exposants Unicode.
+_SUPERSCRIPT = str.maketrans("0123456789+-", "\u2070\u00b9\u00b2\u00b3\u2074\u2075\u2076\u2077\u2078\u2079\u207a\u207b")
+
+
+def _normalize_sci_notation(text: str) -> str:
+    """Convertit les notations scientifiques clavier en forme Unicode.
+
+    3*10^-3  -> 3 x 10^{-3} en superscript
+    3e-3     -> 3 x 10^{-3} en superscript
+    3x10^4   -> 3 x 10^4 en superscript
+    """
+    # E-notation : 3e-3, 2.4E+4, 3E4
+    text = re.sub(
+        r"(\d[,.]?\d*)\s*[eE]\s*([+-]?\d+)",
+        lambda m: m.group(1) + " \u00d7 10" + m.group(2).lstrip("+").translate(_SUPERSCRIPT),
+        text,
+    )
+    # a{*|x|X|.}10^n : 3*10^-3, 2,4x10^4
+    text = re.sub(
+        r"(?<=\d)\s*[*xX\u00b7]\s*10\s*\^\s*([+-]?\d+)",
+        lambda m: " \u00d7 10" + m.group(1).lstrip("+").translate(_SUPERSCRIPT),
+        text,
+    )
+    # Deja × mais avec ^ : 3 × 10^-3
+    text = re.sub(
+        r"(\u00d7\s*10)\s*\^\s*([+-]?\d+)",
+        lambda m: m.group(1) + m.group(2).lstrip("+").translate(_SUPERSCRIPT),
+        text,
+    )
+    return text
+
 
 def _evaluate_open(
     question: auto_models.AutoQuestion, student_answer: str
@@ -116,6 +147,7 @@ def _evaluate_open(
     cas de souci. On injecte un peu de RAG (méthodo + programme) pour
     permettre au modèle de citer une source dans son feedback court.
     """
+    student_answer = _normalize_sci_notation(student_answer)
     rag_passages: list = []
     try:
         rag = get_default_rag_client()
