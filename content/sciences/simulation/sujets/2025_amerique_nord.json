@@ -41,16 +41,16 @@
           "scoring": {
             "mode": "python",
             "type_reponse": "qcm",
-            "reponse_canonique": "A",
-            "formes_acceptees": ["a", "pictogramme A", "pictogramme a", "le pictogramme A"],
+            "reponse_canonique": "C",
+            "formes_acceptees": ["c", "pictogramme C", "pictogramme c", "le pictogramme C"],
             "tolerances": {"abs": 0.0, "rel": 0.0}
           },
           "indices": {
             "niveau_1": "Le celluloid est connu pour etre un materiau tres sensible a la chaleur et aux flammes.",
             "niveau_2": "Parmi les pictogrammes proposes, lequel represente un danger lie au feu ?",
-            "niveau_3": "Le pictogramme A represente une flamme, qui signale un produit inflammable. Le celluloid est inflammable."
+            "niveau_3": "Le pictogramme C represente une flamme, qui signale un produit inflammable. Le celluloid est inflammable."
           },
-          "reveal_explication": "Le celluloid est un materiau tres inflammable. Le pictogramme associe est donc le pictogramme A, qui represente une flamme (produit inflammable)."
+          "reveal_explication": "Le celluloid est un materiau tres inflammable. Le pictogramme associe est donc le pictogramme C, qui represente une flamme (produit inflammable)."
         },
         {
           "id": "sim_2025_an_pc_q2",
