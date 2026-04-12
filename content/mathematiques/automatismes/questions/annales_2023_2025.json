@@ -656,7 +656,7 @@
           "texte": "Oui, en laissant le secteur vide"
         }
       ],
-      "figure": "auto_annale_2024_etrangers_juin_q3.png"
+      "figure": null
     },
     {
       "id": "auto_annale_2024_etrangers_juin_q4",
@@ -968,7 +968,7 @@
         "type_reponse": "fraction",
         "reponse_canonique": "7/37"
       },
-      "figure": "auto_annale_2024_metropole_q9.png"
+      "figure": null
     },
     {
       "id": "auto_annale_2024_metropole_q1",
@@ -1424,7 +1424,7 @@
         "reponse_canonique": "7",
         "unite": "h"
       },
-      "figure": "auto_annale_2025_metropole_sept_q7.png"
+      "figure": null
     },
     {
       "id": "auto_annale_2025_metropole_sept_q8",
@@ -1442,7 +1442,7 @@
         "type_reponse": "texte_court",
         "reponse_canonique": "rotation"
       },
-      "figure": "auto_annale_2025_metropole_sept_q8.png"
+      "figure": null
     },
     {
       "id": "auto_annale_2025_metropole_q1",
