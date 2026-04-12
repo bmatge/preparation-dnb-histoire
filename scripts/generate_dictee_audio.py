@@ -1,49 +1,47 @@
-"""Synthèse vocale offline des dictées DNB français via Coqui XTTS v2.
+"""Synthese vocale offline des dictees DNB francais via Mistral Voxtral TTS.
 
-Script offline, exécuté par le mainteneur sur sa machine de développement.
-Pour chaque dictée extraite par `scripts.extract_dictees`, on génère un MP3
+Script offline, execute par le mainteneur sur sa machine de developpement.
+Pour chaque dictee extraite par `scripts.extract_dictees`, on genere un MP3
 par phrase et par voix vers :
 
     content/francais/dictee/audio/<voix_slug>/<dictee_slug>/phrase_NN.mp3
 
-Les fichiers MP3 sont committés dans le repo et servis comme statiques par
-le runtime — le VPS n'exécute jamais de TTS. La règle souveraineté
+Les fichiers MP3 sont committes dans le repo et servis comme statiques par
+le runtime — le VPS n'execute jamais de TTS. La regle souverainete
 (`CLAUDE.md` §1) interdit les appels externes en runtime, pas en extraction
-offline ; ce script est donc analogue à `extract_dictees.py` côté
+offline ; ce script est donc analogue a `extract_dictees.py` cote
 positionnement.
 
-## Voix retenues
+## Voix
 
-Deux voix XTTS v2, validées en spike pour la qualité française :
-- **Damien Black** (masculine) — voix posée, narration audiobook
-- **Tammie Ema** (féminine) — voix mature, posée
+Le clonage vocal utilise un echantillon de reference (ref_audio) envoye a
+chaque requete. L'echantillon doit etre un MP3 francais de ~10 secondes
+place dans `content/francais/dictee/voices/<slug>.mp3`.
 
-## Vitesse
+## Dependances dev (PAS dans requirements.txt prod)
 
-`speed=0.90`. Légèrement ralenti par rapport au défaut (1.0) pour laisser
-le temps à un élève de 3e d'écrire au rythme normal d'une dictée scolaire.
-
-## Dépendances dev (PAS dans requirements.txt prod)
-
-- `coqui-tts[codec]` (~3 Go avec PyTorch, modèle XTTS v2 ~1,8 Go au 1er run)
-- `ffmpeg` (binaire système, déjà présent sur la plupart des Mac via Homebrew)
+- `httpx` (deja present via FastAPI)
+- `ffmpeg` (binaire systeme, pour le re-encodage en 32 kbps mono)
+- Variable d'environnement `MISTRAL_API_KEY`
 
 ## Licence
 
-XTTS v2 utilise la Coqui Public Model License (CPML), non-commerciale.
-revise-ton-dnb est éducatif gratuit, donc compatible.
+Voxtral TTS utilise la licence CC BY-NC 4.0, non-commerciale.
+revise-ton-dnb est educatif gratuit, donc compatible.
 
 ## Usage
 
     .venv/bin/python -m scripts.generate_dictee_audio
     .venv/bin/python -m scripts.generate_dictee_audio --limit 1
-    .venv/bin/python -m scripts.generate_dictee_audio --voice damien
+    .venv/bin/python -m scripts.generate_dictee_audio --voice koro
     .venv/bin/python -m scripts.generate_dictee_audio --force
+    .venv/bin/python -m scripts.generate_dictee_audio --dry-run
 """
 
 from __future__ import annotations
 
 import argparse
+import base64
 import json
 import logging
 import os
@@ -60,31 +58,35 @@ logger = logging.getLogger(__name__)
 REPO_ROOT = Path(__file__).resolve().parent.parent
 EXERCISES_DIR = REPO_ROOT / "content" / "francais" / "dictee" / "exercises"
 AUDIO_DIR = REPO_ROOT / "content" / "francais" / "dictee" / "audio"
+VOICES_DIR = REPO_ROOT / "content" / "francais" / "dictee" / "voices"
 
-DEFAULT_SPEED = 0.90
+API_URL = "https://api.mistral.ai/v1/audio/speech"
+MODEL = "voxtral-mini-tts-2603"
 
-# Encodage MP3 : 32 kbps mono est largement suffisant pour de la voix lente,
-# le débit perçu est correct et le poids reste sous 50 Ko/phrase.
+# Re-encodage final : 32 kbps mono, suffisant pour de la voix dictee.
 MP3_BITRATE = "32k"
+
+# Pause entre deux appels API pour respecter le rate limit.
+API_PAUSE = 1.0
 
 
 @dataclass(frozen=True)
 class VoiceSpec:
     slug: str
-    xtts_speaker: str
+    sample_file: str
     label: str
 
 
 VOICES: dict[str, VoiceSpec] = {
-    "damien": VoiceSpec(
-        slug="damien",
-        xtts_speaker="Damien Black",
-        label="Damien (voix masculine)",
+    "koro": VoiceSpec(
+        slug="koro",
+        sample_file="koro.mp3",
+        label="Professeur Koro (voix masculine)",
     ),
-    "tammie": VoiceSpec(
-        slug="tammie",
-        xtts_speaker="Tammie Ema",
-        label="Tammie (voix féminine)",
+    "maomao": VoiceSpec(
+        slug="maomao",
+        sample_file="maomao.mp3",
+        label="Mao Mao (voix féminine)",
     ),
 }
 
@@ -97,52 +99,71 @@ def _ensure_ffmpeg() -> None:
         )
 
 
-def _wav_to_mp3(wav_path: Path, mp3_path: Path) -> None:
-    """Convertit un WAV stéréo XTTS en MP3 mono 32 kbps via ffmpeg."""
-    mp3_path.parent.mkdir(parents=True, exist_ok=True)
+def _load_ref_audio(voice: VoiceSpec) -> str:
+    """Charge et encode en base64 l'echantillon de reference d'une voix."""
+    sample_path = VOICES_DIR / voice.sample_file
+    if not sample_path.exists():
+        sys.exit(
+            f"Echantillon introuvable : {sample_path}\n"
+            f"Place un MP3 francais de ~10s dans {VOICES_DIR}/"
+        )
+    return base64.b64encode(sample_path.read_bytes()).decode()
+
+
+def _reencode_mp3(src_mp3: Path, dst_mp3: Path) -> None:
+    """Re-encode un MP3 en mono 32 kbps via ffmpeg."""
+    dst_mp3.parent.mkdir(parents=True, exist_ok=True)
     cmd = [
-        "ffmpeg",
-        "-y",
-        "-loglevel",
-        "error",
-        "-i",
-        str(wav_path),
-        "-ac",
-        "1",
-        "-b:a",
-        MP3_BITRATE,
-        str(mp3_path),
+        "ffmpeg", "-y", "-loglevel", "error",
+        "-i", str(src_mp3),
+        "-ac", "1",
+        "-b:a", MP3_BITRATE,
+        str(dst_mp3),
     ]
     subprocess.run(cmd, check=True)
 
 
 def _synthesize_one(
-    tts,
+    api_key: str,
     text: str,
-    voice: VoiceSpec,
-    speed: float,
+    ref_audio_b64: str,
     out_mp3: Path,
 ) -> None:
-    with tempfile.TemporaryDirectory() as td:
-        wav_path = Path(td) / "out.wav"
-        tts.tts_to_file(
-            text=text,
-            speaker=voice.xtts_speaker,
-            language="fr",
-            file_path=str(wav_path),
-            speed=speed,
-            split_sentences=False,
-        )
-        _wav_to_mp3(wav_path, out_mp3)
+    """Appelle Voxtral TTS et sauvegarde le MP3 re-encode."""
+    import httpx
+
+    resp = httpx.post(
+        API_URL,
+        headers={"Authorization": f"Bearer {api_key}"},
+        json={
+            "model": MODEL,
+            "input": text,
+            "ref_audio": ref_audio_b64,
+            "response_format": "mp3",
+        },
+        timeout=120.0,
+    )
+    resp.raise_for_status()
+    audio_bytes = base64.b64decode(resp.json()["audio_data"])
+
+    with tempfile.NamedTemporaryFile(suffix=".mp3", delete=False) as tmp:
+        tmp.write(audio_bytes)
+        tmp_path = Path(tmp.name)
+
+    try:
+        _reencode_mp3(tmp_path, out_mp3)
+    finally:
+        tmp_path.unlink(missing_ok=True)
 
 
 def _process_dictee(
-    tts,
+    api_key: str,
     json_path: Path,
     voices: list[VoiceSpec],
-    speed: float,
+    ref_audios: dict[str, str],
     *,
     force: bool,
+    dry_run: bool,
 ) -> tuple[int, int]:
     data = json.loads(json_path.read_text(encoding="utf-8"))
     slug = data["id"]
@@ -152,7 +173,8 @@ def _process_dictee(
 
     for voice in voices:
         out_dir = AUDIO_DIR / voice.slug / slug
-        out_dir.mkdir(parents=True, exist_ok=True)
+        ref_b64 = ref_audios[voice.slug]
+
         for phrase in phrases:
             order = phrase["ordre"]
             text = phrase["texte"]
@@ -162,22 +184,30 @@ def _process_dictee(
                 n_skip += 1
                 continue
 
+            if dry_run:
+                logger.info(
+                    "  [dry-run] %s/%s phrase_%02d (%d chars)",
+                    voice.slug, slug, order, len(text),
+                )
+                n_done += 1
+                continue
+
+            out_dir.mkdir(parents=True, exist_ok=True)
             t0 = time.time()
             try:
-                _synthesize_one(tts, text, voice, speed, out_mp3)
+                _synthesize_one(api_key, text, ref_b64, out_mp3)
             except Exception as e:
-                logger.error("  echec %s/%s phrase %d : %s", voice.slug, slug, order, e)
+                logger.error(
+                    "  echec %s/%s phrase %d : %s", voice.slug, slug, order, e,
+                )
                 continue
             dt = time.time() - t0
             logger.info(
                 "  %s/%s phrase_%02d.mp3 (%.1fs, %d chars)",
-                voice.slug,
-                slug,
-                order,
-                dt,
-                len(text),
+                voice.slug, slug, order, dt, len(text),
             )
             n_done += 1
+            time.sleep(API_PAUSE)
 
     return n_done, n_skip
 
@@ -186,47 +216,63 @@ def main() -> int:
     logging.basicConfig(level=logging.INFO, format="%(message)s")
 
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--force", action="store_true", help="re-genere meme si le MP3 existe")
-    parser.add_argument("--limit", type=int, default=None, help="ne traite que les N premieres dictees")
+    parser.add_argument(
+        "--force", action="store_true",
+        help="re-genere meme si le MP3 existe",
+    )
+    parser.add_argument(
+        "--limit", type=int, default=None,
+        help="ne traite que les N premieres dictees",
+    )
     parser.add_argument(
         "--voice",
         choices=list(VOICES.keys()) + ["all"],
         default="all",
         help="ne genere qu'une seule voix",
     )
-    parser.add_argument("--speed", type=float, default=DEFAULT_SPEED)
+    parser.add_argument(
+        "--dry-run", action="store_true",
+        help="affiche ce qui serait genere sans appeler l'API",
+    )
     args = parser.parse_args()
 
-    _ensure_ffmpeg()
-
-    # Import paresseux : XTTS pèse plusieurs Go, on ne le charge qu'au moment
-    # où on en a effectivement besoin.
-    os.environ["COQUI_TOS_AGREED"] = "1"
-    try:
-        from TTS.api import TTS
-    except ImportError as e:
+    api_key = os.environ.get("MISTRAL_API_KEY")
+    if not api_key and not args.dry_run:
         sys.exit(
-            f"Coqui TTS introuvable ({e}). Installe-le avec :\n"
-            "  .venv/bin/pip install 'coqui-tts[codec]' torch torchaudio "
-            "'transformers<5'"
+            "MISTRAL_API_KEY manquant. Ajoute-le dans .env ou exporte-le."
         )
+
+    _ensure_ffmpeg()
 
     if not EXERCISES_DIR.exists():
         sys.exit(f"Repertoire dictees introuvable : {EXERCISES_DIR}")
 
-    json_files = sorted(p for p in EXERCISES_DIR.glob("*.json") if p.name != "_all.json")
+    json_files = sorted(
+        p for p in EXERCISES_DIR.glob("*.json") if p.name != "_all.json"
+    )
     if args.limit is not None:
         json_files = json_files[: args.limit]
     if not json_files:
         sys.exit("Aucune dictee a traiter")
 
-    voices = list(VOICES.values()) if args.voice == "all" else [VOICES[args.voice]]
-    logger.info("%d dictee(s), %d voix, vitesse %.2f", len(json_files), len(voices), args.speed)
+    voices = (
+        list(VOICES.values()) if args.voice == "all"
+        else [VOICES[args.voice]]
+    )
 
-    logger.info("chargement de XTTS v2 (~3 min au premier run)...")
-    t_load = time.time()
-    tts = TTS("tts_models/multilingual/multi-dataset/xtts_v2")
-    logger.info("modele charge en %.1fs", time.time() - t_load)
+    # Charger les echantillons de reference une seule fois.
+    ref_audios: dict[str, str] = {}
+    if not args.dry_run:
+        for voice in voices:
+            logger.info("Chargement echantillon %s...", voice.sample_file)
+            ref_audios[voice.slug] = _load_ref_audio(voice)
+    else:
+        ref_audios = {v.slug: "" for v in voices}
+
+    logger.info(
+        "%d dictee(s), %d voix, modele %s",
+        len(json_files), len(voices), MODEL,
+    )
 
     AUDIO_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -235,13 +281,21 @@ def main() -> int:
     for json_path in json_files:
         logger.info("\n[%s]", json_path.stem)
         n_done, n_skip = _process_dictee(
-            tts, json_path, voices, args.speed, force=args.force
+            api_key or "",
+            json_path,
+            voices,
+            ref_audios,
+            force=args.force,
+            dry_run=args.dry_run,
         )
         total_done += n_done
         total_skip += n_skip
 
     logger.info("\n" + "=" * 60)
-    logger.info("Termine : %d generes, %d ignores (deja presents)", total_done, total_skip)
+    logger.info(
+        "Termine : %d generes, %d ignores (deja presents)",
+        total_done, total_skip,
+    )
     return 0
 
 

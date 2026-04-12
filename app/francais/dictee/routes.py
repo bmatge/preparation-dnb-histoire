@@ -54,10 +54,12 @@ templates = Jinja2Templates(
 # `content/francais/dictee/audio/<slug>/`. Synchronisé avec
 # `scripts/generate_dictee_audio.py:VOICES`.
 AVAILABLE_VOICES: list[tuple[str, str]] = [
+    ("koro", "Professeur Koro (voix masculine)"),
+    ("maomao", "Mao Mao (voix féminine)"),
     ("damien", "Damien (voix masculine)"),
     ("tammie", "Tammie (voix féminine)"),
 ]
-DEFAULT_VOICE = "damien"
+DEFAULT_VOICE = "koro"
 
 
 # ============================================================================
