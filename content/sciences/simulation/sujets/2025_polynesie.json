@@ -284,19 +284,19 @@
           "documents_ref": ["tech_page3"],
           "scoring": {
             "mode": "albert",
-            "reponse_modele": "Flux 1 : information (detection de la bouteille). Flux 2 : information (mesure de la masse). Flux 3 : information (mesure de la luminosite/couleur). Flux 4 : energie (alimentation du tapis roulant). Flux 5 : energie (alimentation de la trappe d'orientation). Flux 6 : energie (alimentation du broyeur). Flux 7 : energie (alimentation du moteur/actionneur).",
+            "reponse_modele": "Flux 1 : information (affichage ecran vers utilisateur). Flux 2 : information (signal capteur de transparence vers carte de commande). Flux 3 : energie (alimentation electrique de la carte de commande). Flux 4 : energie (alimentation du circuit de puissance). Flux 5 : energie (alimentation du moto-reducteur/broyeur). Flux 6 : energie (alimentation du moteur 1). Flux 7 : energie (alimentation du servo-moteur).",
             "criteres_validation": [
-              "L'eleve identifie les flux 1, 2 et 3 comme des flux d'information",
-              "L'eleve identifie les flux 4, 5, 6 et 7 comme des flux d'energie",
+              "L'eleve identifie les flux 1 et 2 comme des flux d'information",
+              "L'eleve identifie les flux 3, 4, 5, 6 et 7 comme des flux d'energie",
               "Au moins 5 reponses correctes sur 7"
             ]
           },
           "indices": {
             "niveau_1": "Un flux d'information transmet une donnee (mesure, detection, signal). Un flux d'energie transmet de la puissance pour faire fonctionner un actionneur (moteur, broyeur).",
             "niveau_2": "Les capteurs (detection, mesure) produisent des flux d'information. Les actionneurs (tapis, trappe, broyeur) recoivent des flux d'energie.",
-            "niveau_3": "Flux d'information : ceux lies a la detection et aux mesures (flux 1, 2, 3). Flux d'energie : ceux qui alimentent les actionneurs (flux 4, 5, 6, 7)."
+            "niveau_3": "Flux d'information : ceux lies aux capteurs et a l'affichage (flux 1, 2). Flux d'energie : ceux qui alimentent la carte, le circuit de puissance et les actionneurs (flux 3, 4, 5, 6, 7)."
           },
-          "reveal_explication": "Les flux 1, 2 et 3 sont des flux d'information car ils correspondent a des signaux de capteurs (detection de bouteille, mesure de masse, mesure de luminosite). Les flux 4, 5, 6 et 7 sont des flux d'energie car ils alimentent les actionneurs de la machine (tapis roulant, trappe, broyeur)."
+          "reveal_explication": "Les flux 1 et 2 sont des flux d'information (affichage ecran, signal du capteur de transparence). Les flux 3 a 7 sont des flux d'energie : le flux 3 alimente la carte de commande, le flux 4 le circuit de puissance, et les flux 5, 6, 7 alimentent les actionneurs (moto-reducteur, moteurs, servo-moteur)."
         },
         {
           "id": "sim_2025_poly_tech_q5",
