@@ -1,0 +1,328 @@
+{
+  "id": "sim_2025_polynesie",
+  "source": {
+    "type": "annale",
+    "annee": 2025,
+    "centre": "polynesie",
+    "document": "2025_Polynesie_sciences.pdf",
+    "corrige": "scb_corrige-2025-sciences-polynesie-septembre.pdf"
+  },
+  "points_total": 50,
+  "disciplines": [
+    {
+      "id": "sim_2025_poly_pc",
+      "discipline": "physique_chimie",
+      "theme_titre": "Mission Artemis II",
+      "points": 25,
+      "documents": [
+        {
+          "id": "pc_page1",
+          "label": "Introduction et classification periodique (atome d'aluminium)",
+          "capture": "2025_polynesie/d1_page_1.png"
+        },
+        {
+          "id": "pc_page2",
+          "label": "Masse volumique de l'aluminium et comparaison des metaux",
+          "capture": "2025_polynesie/d1_page_2.png"
+        },
+        {
+          "id": "pc_page3",
+          "label": "Reaction chimique, forces et decollage de la fusee",
+          "capture": "2025_polynesie/d1_page_3.png"
+        }
+      ],
+      "questions": [
+        {
+          "id": "sim_2025_poly_pc_q1",
+          "numero": "1",
+          "texte": "Indiquer le nombre de protons dans le noyau de l'atome d'aluminium (document 1 : classification periodique, Al : Z=13, A=27).",
+          "points": 2,
+          "documents_ref": ["pc_page1"],
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "entier",
+            "reponse_canonique": "13",
+            "formes_acceptees": ["13 protons", "13"],
+            "tolerances": {"abs": 0.0, "rel": 0.0}
+          },
+          "indices": {
+            "niveau_1": "Dans la classification periodique, chaque element est identifie par deux nombres. Lequel correspond au nombre de protons ?",
+            "niveau_2": "Le numero atomique Z correspond au nombre de protons dans le noyau. Quelle est la valeur de Z pour l'aluminium ?",
+            "niveau_3": "Z = 13 pour l'aluminium, donc il y a 13 protons dans le noyau."
+          },
+          "reveal_explication": "Le numero atomique Z represente le nombre de protons dans le noyau d'un atome. Pour l'aluminium, Z = 13, donc le noyau contient 13 protons."
+        },
+        {
+          "id": "sim_2025_poly_pc_q2",
+          "numero": "2",
+          "texte": "En deduire, en justifiant, le nombre de neutrons dans le noyau de l'atome d'aluminium.",
+          "points": 3,
+          "documents_ref": ["pc_page1"],
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "entier",
+            "reponse_canonique": "14",
+            "formes_acceptees": ["14 neutrons", "14"],
+            "tolerances": {"abs": 0.0, "rel": 0.0}
+          },
+          "indices": {
+            "niveau_1": "Le nombre de masse A represente le nombre total de particules dans le noyau (protons + neutrons).",
+            "niveau_2": "Si A = protons + neutrons, comment calculer le nombre de neutrons a partir de A et Z ?",
+            "niveau_3": "Nombre de neutrons = A - Z = 27 - 13 = 14."
+          },
+          "reveal_explication": "Le nombre de masse A represente la somme des protons et des neutrons dans le noyau. On a A = 27 et Z = 13, donc le nombre de neutrons = A - Z = 27 - 13 = 14 neutrons."
+        },
+        {
+          "id": "sim_2025_poly_pc_q3",
+          "numero": "3",
+          "texte": "Determiner la valeur de la masse volumique de l'aluminium a partir des mesures (document 2 : m = 16,4 g, V1 = 10 mL, V2 = 16 mL). Arrondir au dixieme.",
+          "points": 4,
+          "documents_ref": ["pc_page2"],
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "decimal",
+            "reponse_canonique": "2.7",
+            "formes_acceptees": ["2,7", "2.7", "2,73", "2.73", "2,7 g/mL", "2.7 g/mL"],
+            "tolerances": {"abs": 0.05, "rel": 0.0},
+            "unite": "g/mL"
+          },
+          "indices": {
+            "niveau_1": "La masse volumique se calcule avec la formule rho = m / V. Mais quel volume utiliser ?",
+            "niveau_2": "Le volume de l'echantillon d'aluminium est la difference entre le volume apres immersion (V2) et le volume initial (V1) : V = V2 - V1.",
+            "niveau_3": "V = 16 - 10 = 6 mL. Masse volumique = 16,4 / 6 = 2,73 g/mL, soit 2,7 g/mL arrondi au dixieme."
+          },
+          "reveal_explication": "Le volume de l'echantillon est V = V2 - V1 = 16 - 10 = 6 mL. La masse volumique est rho = m / V = 16,4 / 6 = 2,73 g/mL, soit 2,7 g/mL arrondi au dixieme."
+        },
+        {
+          "id": "sim_2025_poly_pc_q4",
+          "numero": "4",
+          "texte": "Preciser l'interet d'utiliser l'aluminium plutot qu'un autre metal pour un vaisseau spatial (document 3 : masses volumiques argent = 10,5 g/mL, zinc = 7,1 g/mL, fer = 7,9 g/mL, aluminium = valeur calculee).",
+          "points": 5,
+          "documents_ref": ["pc_page2"],
+          "scoring": {
+            "mode": "albert",
+            "reponse_modele": "L'aluminium a la masse volumique la plus faible (2,7 g/mL) parmi tous les metaux du tableau (argent 10,5, zinc 7,1, fer 7,9). Pour un vaisseau spatial, il faut minimiser la masse pour faciliter le decollage et reduire la consommation de carburant. L'aluminium est donc le meilleur choix car il est le plus leger a volume egal.",
+            "criteres_validation": [
+              "L'eleve compare les masses volumiques des differents metaux",
+              "L'eleve identifie l'aluminium comme le metal le plus leger (masse volumique la plus faible)",
+              "L'eleve fait le lien avec la necessite de minimiser la masse pour un vaisseau spatial"
+            ]
+          },
+          "indices": {
+            "niveau_1": "Compare les valeurs de masse volumique des quatre metaux du tableau.",
+            "niveau_2": "Quel metal est le plus leger a volume egal ? Pourquoi est-ce un avantage pour un vaisseau spatial ?",
+            "niveau_3": "L'aluminium a la plus faible masse volumique (2,7 g/mL contre 7,1 a 10,5 pour les autres). Plus leger = plus facile a envoyer dans l'espace."
+          },
+          "reveal_explication": "L'aluminium a la masse volumique la plus faible (2,7 g/mL) parmi les metaux du tableau (argent 10,5, zinc 7,1, fer 7,9). Pour un vaisseau spatial, il est essentiel de minimiser la masse pour faciliter le decollage et economiser du carburant. L'aluminium est donc le materiau le plus adapte."
+        },
+        {
+          "id": "sim_2025_poly_pc_q5",
+          "numero": "5",
+          "texte": "Verifier que dans l'equation 2H2 + O2 -> 2H2O, les atomes sont correctement redistribues.",
+          "points": 3,
+          "documents_ref": ["pc_page3"],
+          "scoring": {
+            "mode": "albert",
+            "reponse_modele": "Cote reactifs : 2H2 contient 4 atomes d'hydrogene et O2 contient 2 atomes d'oxygene, soit au total 4 H et 2 O. Cote produits : 2H2O contient 4 atomes d'hydrogene et 2 atomes d'oxygene, soit au total 4 H et 2 O. On retrouve le meme nombre de chaque type d'atome des deux cotes : les atomes sont bien correctement redistribues (conservation des atomes).",
+            "criteres_validation": [
+              "L'eleve compte les atomes d'hydrogene dans les reactifs (4 H) et dans les produits (4 H)",
+              "L'eleve compte les atomes d'oxygene dans les reactifs (2 O) et dans les produits (2 O)",
+              "L'eleve conclut que les atomes sont bien conserves"
+            ]
+          },
+          "indices": {
+            "niveau_1": "Pour verifier une equation chimique, il faut compter le nombre de chaque type d'atome de chaque cote de la fleche.",
+            "niveau_2": "Compte les atomes H et O separement a gauche (reactifs) et a droite (produits). Sont-ils egaux ?",
+            "niveau_3": "Reactifs : 2 x 2 = 4 atomes H et 2 atomes O. Produits : 2 x 2 = 4 atomes H et 2 x 1 = 2 atomes O. C'est bien equilibre."
+          },
+          "reveal_explication": "Dans les reactifs : 2H2 = 4 atomes d'hydrogene et O2 = 2 atomes d'oxygene. Dans les produits : 2H2O = 4 atomes d'hydrogene et 2 atomes d'oxygene. Il y a bien 4 H et 2 O de chaque cote, les atomes sont correctement redistribues."
+        },
+        {
+          "id": "sim_2025_poly_pc_q6",
+          "numero": "6",
+          "texte": "Choisir parmi les propositions A, B, C celle qui modelise correctement les forces F (poussee vers le haut) et P (poids vers le bas) sur la fusee au decollage. F > P.",
+          "points": 3,
+          "documents_ref": ["pc_page3"],
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "qcm",
+            "reponse_canonique": "B",
+            "formes_acceptees": ["b", "proposition B", "prop B"],
+            "tolerances": {"abs": 0.0, "rel": 0.0}
+          },
+          "indices": {
+            "niveau_1": "La poussee F est dirigee vers le haut et le poids P est dirige vers le bas. Au decollage, laquelle des deux forces est la plus grande ?",
+            "niveau_2": "Puisque la fusee decolle (elle monte), la force de poussee F doit etre plus grande que le poids P. La fleche F doit donc etre plus longue que la fleche P.",
+            "niveau_3": "La proposition B montre F vers le haut (plus grand) et P vers le bas (plus petit), avec F > P. C'est la bonne reponse."
+          },
+          "reveal_explication": "Au decollage, la poussee F est dirigee vers le haut et le poids P vers le bas. Puisque F > P, la fleche representant F doit etre plus longue que celle de P. C'est la proposition B qui modelise correctement cette situation."
+        },
+        {
+          "id": "sim_2025_poly_pc_q7",
+          "numero": "7",
+          "texte": "Verifier en calculant P que la fusee peut decoller. m = 2500 tonnes, g = 10 N/kg, F = 4 x 10^7 N. Rappel : 1 tonne = 1000 kg.",
+          "points": 5,
+          "documents_ref": ["pc_page3"],
+          "scoring": {
+            "mode": "albert",
+            "reponse_modele": "Conversion de la masse : m = 2500 tonnes = 2500 x 1000 = 2 500 000 kg. Calcul du poids : P = m x g = 2 500 000 x 10 = 25 000 000 N = 2,5 x 10^7 N. Comparaison : F = 4 x 10^7 N = 40 000 000 N. On a F > P (40 000 000 > 25 000 000), donc la poussee est superieure au poids. La fusee peut decoller.",
+            "criteres_validation": [
+              "L'eleve convertit la masse en kg (2 500 000 kg)",
+              "L'eleve calcule P = m x g = 25 000 000 N (ou 2,5 x 10^7 N)",
+              "L'eleve compare F et P et conclut que F > P",
+              "L'eleve conclut que la fusee peut decoller"
+            ]
+          },
+          "indices": {
+            "niveau_1": "Commence par convertir la masse en kilogrammes : 1 tonne = 1000 kg.",
+            "niveau_2": "Calcule le poids avec la formule P = m x g. Compare ensuite avec la force de poussee F.",
+            "niveau_3": "m = 2 500 000 kg. P = 2 500 000 x 10 = 25 000 000 N. F = 40 000 000 N. F > P donc la fusee decolle."
+          },
+          "reveal_explication": "m = 2500 x 1000 = 2 500 000 kg. P = m x g = 2 500 000 x 10 = 25 000 000 N = 2,5 x 10^7 N. La poussee F = 4 x 10^7 N = 40 000 000 N. Puisque F (40 000 000 N) > P (25 000 000 N), la poussee est suffisante pour vaincre le poids : la fusee peut decoller."
+        }
+      ]
+    },
+    {
+      "id": "sim_2025_poly_tech",
+      "discipline": "technologie",
+      "theme_titre": "La machine a recycler les bouteilles",
+      "points": 25,
+      "documents": [
+        {
+          "id": "tech_page1",
+          "label": "Introduction et donnees sur le recyclage des bouteilles plastiques",
+          "capture": "2025_polynesie/d2_page_1.png"
+        },
+        {
+          "id": "tech_page2",
+          "label": "Avantages du broyage et cahier des charges",
+          "capture": "2025_polynesie/d2_page_2.png"
+        },
+        {
+          "id": "tech_page3",
+          "label": "Diagramme des flux (energie/information)",
+          "capture": "2025_polynesie/d2_page_3.png"
+        },
+        {
+          "id": "tech_page4",
+          "label": "Programme a completer (algorithme de la machine)",
+          "capture": "2025_polynesie/d2_page_4.png"
+        }
+      ],
+      "questions": [
+        {
+          "id": "sim_2025_poly_tech_q1",
+          "numero": "1",
+          "texte": "Justifier l'importance de recycler les bouteilles plastiques en reprenant les informations du document 1.",
+          "points": 3,
+          "documents_ref": ["tech_page1"],
+          "scoring": {
+            "mode": "albert",
+            "reponse_modele": "Depuis 2015, 6,9 milliards de tonnes de dechets plastiques ont ete produits. Seulement 9% ont ete recycles, 12% incineres, et 79% accumules dans des decharges ou dans la nature. Pres d'un million de bouteilles sont vendues chaque minute dans le monde. Le recyclage est donc essentiel pour reduire cette pollution massive.",
+            "criteres_validation": [
+              "L'eleve cite au moins une donnee chiffree du document 1 (pourcentage de recyclage, quantite de dechets, nombre de bouteilles vendues)",
+              "L'eleve explique que le recyclage permet de reduire la pollution ou l'accumulation des dechets plastiques",
+              "L'eleve s'appuie sur le document et n'invente pas de donnees"
+            ]
+          },
+          "indices": {
+            "niveau_1": "Relis le document 1 et releve les chiffres qui montrent l'ampleur du probleme des dechets plastiques.",
+            "niveau_2": "Quel pourcentage des dechets plastiques est actuellement recycle ? Ou finit le reste ?",
+            "niveau_3": "Seulement 9% des dechets plastiques sont recycles, 79% s'accumulent dans la nature ou les decharges. C'est pourquoi le recyclage est important."
+          },
+          "reveal_explication": "Le document 1 montre que sur 6,9 milliards de tonnes de dechets plastiques produits, seulement 9% sont recycles. 79% s'accumulent dans les decharges ou la nature, et pres d'un million de bouteilles sont vendues chaque minute. Recycler les bouteilles est donc indispensable pour limiter cette pollution."
+        },
+        {
+          "id": "sim_2025_poly_tech_q2",
+          "numero": "2",
+          "texte": "Citer deux avantages qui justifient le broyage des bouteilles (document 1).",
+          "points": 4,
+          "documents_ref": ["tech_page1", "tech_page2"],
+          "scoring": {
+            "mode": "albert",
+            "reponse_modele": "Le broyage reduit considerablement le volume occupe par les bouteilles (le volume de 100 bouteilles broyees est beaucoup plus petit que celui de 100 bouteilles entieres). Cela facilite le transport et le stockage. De plus, le broyage produit des paillettes directement pretes a etre recyclees (transformees en nouveaux objets).",
+            "criteres_validation": [
+              "L'eleve cite la reduction du volume comme premier avantage",
+              "L'eleve cite un deuxieme avantage parmi : facilite le transport, facilite le stockage, produit des paillettes pretes au recyclage"
+            ]
+          },
+          "indices": {
+            "niveau_1": "Regarde les images du document 1 qui comparent les bouteilles entieres et les bouteilles broyees.",
+            "niveau_2": "Que remarques-tu sur le volume occupe par les bouteilles broyees par rapport aux bouteilles entieres ? A quoi servent les paillettes obtenues ?",
+            "niveau_3": "Le broyage reduit le volume (gain de place pour le transport et le stockage) et produit des paillettes pretes a etre recyclees."
+          },
+          "reveal_explication": "Le broyage presente deux avantages principaux : il reduit fortement le volume occupe par les bouteilles (on le voit sur les images comparatives), ce qui facilite le transport et le stockage. Il produit aussi des paillettes directement utilisables pour le recyclage en nouveaux objets."
+        },
+        {
+          "id": "sim_2025_poly_tech_q3",
+          "numero": "3",
+          "texte": "Indiquer si les resultats des 3 groupes sont vraisemblables en verifiant les exigences du cahier des charges (diametre ouverture < main enfant 8 ans, hauteur ouverture environ 1,5 m, ouverture permettant le passage d'une bouteille 2 L, puissance adaptee a un usage domestique).",
+          "points": 6,
+          "documents_ref": ["tech_page2"],
+          "scoring": {
+            "mode": "albert",
+            "reponse_modele": "Groupe 1 : puissance de 2 MW, ce n'est pas vraisemblable car 2 MW (2 000 000 W) est une puissance enorme, comparable a celle d'une petite centrale electrique, pas du tout adaptee a un usage domestique. Le diametre (40 cm) et la hauteur (1,5 m) sont corrects. Groupe 2 : puissance de 1500 W, vraisemblable pour un appareil domestique. Hauteur 1,5 m correcte. Le diametre de 20 cm pourrait etre limite pour le passage d'une bouteille 2 L. Groupe 3 : puissance de 1,5 kW (= 1500 W), vraisemblable. Diametre 40 cm correct. La hauteur de 1 m est peut-etre trop basse pour l'accessibilite (le cahier des charges demande environ 1,5 m).",
+            "criteres_validation": [
+              "L'eleve identifie que la puissance du groupe 1 (2 MW) est non vraisemblable pour un usage domestique",
+              "L'eleve valide la puissance du groupe 2 (1500 W) comme vraisemblable",
+              "L'eleve valide la puissance du groupe 3 (1,5 kW = 1500 W) comme vraisemblable",
+              "L'eleve verifie au moins un autre critere (diametre, hauteur) pour chaque groupe"
+            ]
+          },
+          "indices": {
+            "niveau_1": "Verifie chaque critere du cahier des charges pour chaque groupe : la puissance est-elle adaptee a un appareil de maison ?",
+            "niveau_2": "Compare les puissances : un appareil domestique classique consomme entre 500 et 3000 W. Que vaut 2 MW en watts ?",
+            "niveau_3": "2 MW = 2 000 000 W, c'est beaucoup trop pour un appareil domestique. 1500 W et 1,5 kW sont des puissances raisonnables. Verifie aussi les dimensions."
+          },
+          "reveal_explication": "Groupe 1 : la puissance de 2 MW (= 2 000 000 W) est beaucoup trop elevee pour un usage domestique (non vraisemblable). Groupe 2 : 1500 W est une puissance domestique raisonnable, mais le diametre de 20 cm peut etre juste pour une bouteille 2 L. Groupe 3 : 1,5 kW = 1500 W est correct, le diametre de 40 cm convient, mais la hauteur de 1 m est inferieure aux 1,5 m recommandes."
+        },
+        {
+          "id": "sim_2025_poly_tech_q4",
+          "numero": "4",
+          "texte": "Indiquer par une croix le type de flux (energie ou information) pour les 7 flux du diagramme (document 3).",
+          "points": 6,
+          "documents_ref": ["tech_page3"],
+          "scoring": {
+            "mode": "albert",
+            "reponse_modele": "Flux 1 : information (detection de la bouteille). Flux 2 : information (mesure de la masse). Flux 3 : information (mesure de la luminosite/couleur). Flux 4 : energie (alimentation du tapis roulant). Flux 5 : energie (alimentation de la trappe d'orientation). Flux 6 : energie (alimentation du broyeur). Flux 7 : energie (alimentation du moteur/actionneur).",
+            "criteres_validation": [
+              "L'eleve identifie les flux 1, 2 et 3 comme des flux d'information",
+              "L'eleve identifie les flux 4, 5, 6 et 7 comme des flux d'energie",
+              "Au moins 5 reponses correctes sur 7"
+            ]
+          },
+          "indices": {
+            "niveau_1": "Un flux d'information transmet une donnee (mesure, detection, signal). Un flux d'energie transmet de la puissance pour faire fonctionner un actionneur (moteur, broyeur).",
+            "niveau_2": "Les capteurs (detection, mesure) produisent des flux d'information. Les actionneurs (tapis, trappe, broyeur) recoivent des flux d'energie.",
+            "niveau_3": "Flux d'information : ceux lies a la detection et aux mesures (flux 1, 2, 3). Flux d'energie : ceux qui alimentent les actionneurs (flux 4, 5, 6, 7)."
+          },
+          "reveal_explication": "Les flux 1, 2 et 3 sont des flux d'information car ils correspondent a des signaux de capteurs (detection de bouteille, mesure de masse, mesure de luminosite). Les flux 4, 5, 6 et 7 sont des flux d'energie car ils alimentent les actionneurs de la machine (tapis roulant, trappe, broyeur)."
+        },
+        {
+          "id": "sim_2025_poly_tech_q5",
+          "numero": "5",
+          "texte": "Completer le programme de la machine a recycler (6 reponses attendues, document 4) : gestion du tapis roulant, de la masse, de la luminosite, de la trappe et du broyeur.",
+          "points": 6,
+          "documents_ref": ["tech_page4"],
+          "scoring": {
+            "mode": "albert",
+            "reponse_modele": "Le programme complet : Si bouteille detectee alors avancer le tapis, attendre 3 secondes, arreter le tapis. Verifier la masse : si masse > 50 g alors reculer le tapis (bouteille trop lourde, rejet). Sinon verifier la luminosite : si luminosite > 80 alors orienter la trappe a 0 degres (bouteille transparente). Sinon orienter la trappe a 30 degres (bouteille coloree). Ensuite activer le broyeur, avancer le tapis, attendre 5 secondes, arreter le broyeur, arreter le tapis.",
+            "criteres_validation": [
+              "L'eleve complete correctement la condition sur la masse (si masse > 50)",
+              "L'eleve complete correctement la condition sur la luminosite (si luminosite > 80)",
+              "L'eleve indique l'orientation de la trappe (0 degres pour transparent, 30 degres pour couleur)",
+              "L'eleve indique les actions du broyeur et du tapis (activer/arreter)",
+              "Au moins 4 reponses correctes sur 6"
+            ]
+          },
+          "indices": {
+            "niveau_1": "Lis attentivement l'algorithme et repere les trous a completer. Chaque trou correspond a une action ou une condition logique.",
+            "niveau_2": "Le programme suit une logique : d'abord amener la bouteille (tapis), puis verifier si elle est acceptee (masse), puis trier par couleur (luminosite), puis broyer.",
+            "niveau_3": "Les 6 reponses a trouver portent sur : les actions du tapis (avancer/arreter), le seuil de masse (50 g), le seuil de luminosite (80), les angles de trappe (0 et 30 degres), et les actions du broyeur."
+          },
+          "reveal_explication": "Le programme fonctionne ainsi : si une bouteille est detectee, le tapis avance pendant 3 secondes puis s'arrete. Si la masse depasse 50 g, le tapis recule (rejet). Sinon, la luminosite est testee : si elle depasse 80, la trappe s'oriente a 0 degres (bouteille transparente), sinon a 30 degres (bouteille coloree). Le broyeur est active, le tapis avance pendant 5 secondes, puis tout s'arrete."
+        }
+      ]
+    }
+  ]
+}

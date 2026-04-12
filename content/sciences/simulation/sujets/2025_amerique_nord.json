@@ -1,0 +1,348 @@
+{
+  "id": "sim_2025_amerique_nord",
+  "source": {
+    "type": "annale",
+    "annee": 2025,
+    "centre": "amerique_nord",
+    "document": "2025_Amerique-Nord_sciences.pdf",
+    "corrige": "scb_corrige-2025-sciences-amerique-nord.pdf"
+  },
+  "points_total": 50,
+  "disciplines": [
+    {
+      "id": "sim_2025_an_pc",
+      "discipline": "physique_chimie",
+      "theme_titre": "Balle de tennis de table",
+      "points": 25,
+      "documents": [
+        {
+          "id": "pc_page1",
+          "label": "Introduction, pictogrammes et fabrication des balles",
+          "capture": "2025_amerique_nord/d1_page_1.png"
+        },
+        {
+          "id": "pc_page2",
+          "label": "Composition chimique et molecule d'acrylonitrile",
+          "capture": "2025_amerique_nord/d1_page_2.png"
+        },
+        {
+          "id": "pc_page3",
+          "label": "Mouvement de la balle et energie",
+          "capture": "2025_amerique_nord/d1_page_3.png"
+        }
+      ],
+      "questions": [
+        {
+          "id": "sim_2025_an_pc_q1",
+          "numero": "1",
+          "texte": "Indiquer quel pictogramme est associe aux balles en celluloid.",
+          "points": 1,
+          "documents_ref": ["pc_page1"],
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "qcm",
+            "reponse_canonique": "A",
+            "formes_acceptees": ["a", "pictogramme A", "pictogramme a", "le pictogramme A"],
+            "tolerances": {"abs": 0.0, "rel": 0.0}
+          },
+          "indices": {
+            "niveau_1": "Le celluloid est connu pour etre un materiau tres sensible a la chaleur et aux flammes.",
+            "niveau_2": "Parmi les pictogrammes proposes, lequel represente un danger lie au feu ?",
+            "niveau_3": "Le pictogramme A represente une flamme, qui signale un produit inflammable. Le celluloid est inflammable."
+          },
+          "reveal_explication": "Le celluloid est un materiau tres inflammable. Le pictogramme associe est donc le pictogramme A, qui represente une flamme (produit inflammable)."
+        },
+        {
+          "id": "sim_2025_an_pc_q2",
+          "numero": "2",
+          "texte": "Indiquer s'il s'agit d'une transformation physique ou chimique. Justifier.",
+          "points": 3,
+          "documents_ref": ["pc_page1", "pc_page2"],
+          "scoring": {
+            "mode": "albert",
+            "reponse_modele": "Il s'agit d'une transformation chimique car de nouvelles especes chimiques sont formees : a partir des reactifs (acrylonitrile, butadiene, styrene), on obtient un nouveau materiau, l'ABS, qui n'existait pas au depart. Les especes chimiques de depart sont differentes des especes chimiques obtenues.",
+            "criteres_validation": [
+              "L'eleve identifie une transformation chimique",
+              "L'eleve justifie par la formation de nouvelles especes chimiques (l'ABS)",
+              "L'eleve mentionne que les reactifs (acrylonitrile, butadiene, styrene) sont transformes"
+            ]
+          },
+          "indices": {
+            "niveau_1": "Rappelle-toi la difference entre transformation physique et chimique : dans l'une, les especes chimiques changent, dans l'autre non.",
+            "niveau_2": "On part de trois substances (acrylonitrile, butadiene, styrene) et on obtient un nouveau materiau (ABS). Les especes chimiques sont-elles les memes avant et apres ?",
+            "niveau_3": "C'est une transformation chimique car de nouvelles especes chimiques (l'ABS) sont formees a partir des reactifs."
+          },
+          "reveal_explication": "C'est une transformation chimique car de nouvelles especes chimiques sont formees. A partir des reactifs (acrylonitrile, butadiene et styrene), on obtient un nouveau produit : l'ABS. Les especes chimiques de depart sont differentes de celles obtenues."
+        },
+        {
+          "id": "sim_2025_an_pc_q3",
+          "numero": "3",
+          "texte": "Indiquer le nom et le nombre des atomes presents dans la molecule d'acrylonitrile C3H3N.",
+          "points": 3,
+          "documents_ref": ["pc_page2"],
+          "scoring": {
+            "mode": "albert",
+            "reponse_modele": "La molecule d'acrylonitrile C3H3N contient : 3 atomes de carbone (C), 3 atomes d'hydrogene (H) et 1 atome d'azote (N), soit 7 atomes au total.",
+            "criteres_validation": [
+              "L'eleve identifie 3 atomes de carbone",
+              "L'eleve identifie 3 atomes d'hydrogene",
+              "L'eleve identifie 1 atome d'azote",
+              "L'eleve donne le total de 7 atomes"
+            ]
+          },
+          "indices": {
+            "niveau_1": "Dans une formule chimique, la lettre represente le type d'atome et le chiffre en indice represente le nombre de cet atome.",
+            "niveau_2": "C3 signifie 3 atomes de carbone, H3 signifie 3 atomes d'hydrogene. Que signifie N tout seul ?",
+            "niveau_3": "N tout seul signifie 1 atome d'azote. Au total : 3 + 3 + 1 = 7 atomes."
+          },
+          "reveal_explication": "La formule C3H3N indique : 3 atomes de carbone (C), 3 atomes d'hydrogene (H) et 1 atome d'azote (N). Il y a donc 7 atomes au total dans la molecule d'acrylonitrile."
+        },
+        {
+          "id": "sim_2025_an_pc_q4a",
+          "numero": "4a",
+          "texte": "Donner le nombre de protons que possede l'atome d'azote. Justifier.",
+          "points": 2,
+          "documents_ref": ["pc_page2"],
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "entier",
+            "reponse_canonique": "7",
+            "formes_acceptees": ["7 protons", "sept", "sept protons"],
+            "tolerances": {"abs": 0, "rel": 0}
+          },
+          "indices": {
+            "niveau_1": "Le nombre de protons d'un atome est donne par une information presente dans la classification periodique des elements.",
+            "niveau_2": "Le numero atomique Z correspond au nombre de protons d'un atome. Cherche le numero atomique de l'azote.",
+            "niveau_3": "L'azote a pour numero atomique Z = 7, donc il possede 7 protons."
+          },
+          "reveal_explication": "L'atome d'azote possede 7 protons. En effet, son numero atomique est Z = 7 dans la classification periodique, et le numero atomique correspond au nombre de protons du noyau."
+        },
+        {
+          "id": "sim_2025_an_pc_q4b",
+          "numero": "4b",
+          "texte": "Donner le nombre d'electrons que possede l'atome d'azote. Justifier.",
+          "points": 3,
+          "documents_ref": ["pc_page2"],
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "entier",
+            "reponse_canonique": "7",
+            "formes_acceptees": ["7 electrons", "sept", "sept electrons"],
+            "tolerances": {"abs": 0, "rel": 0}
+          },
+          "indices": {
+            "niveau_1": "Rappelle-toi la propriete fondamentale d'un atome concernant ses charges electriques.",
+            "niveau_2": "Un atome est electriquement neutre. Que peux-tu en deduire sur le lien entre le nombre de protons et le nombre d'electrons ?",
+            "niveau_3": "L'atome est neutre donc il a autant d'electrons (charges negatives) que de protons (charges positives) : 7 electrons."
+          },
+          "reveal_explication": "L'atome d'azote possede 7 electrons. Un atome est electriquement neutre, il contient donc autant d'electrons (charges negatives) que de protons (charges positives). Comme il a 7 protons (Z = 7), il a aussi 7 electrons."
+        },
+        {
+          "id": "sim_2025_an_pc_q5",
+          "numero": "5",
+          "texte": "Caracteriser le mouvement de la balle lors de la phase de descente avec deux mots : rectiligne, curviligne, uniforme, circulaire, accelere, decelere.",
+          "points": 2,
+          "documents_ref": ["pc_page3"],
+          "scoring": {
+            "mode": "albert",
+            "reponse_modele": "Le mouvement de la balle lors de la phase de descente est rectiligne et accelere. La trajectoire est une ligne droite (rectiligne) et la vitesse de la balle augmente pendant la chute (accelere) car elle est entrainee par la pesanteur.",
+            "criteres_validation": [
+              "L'eleve identifie le mouvement comme rectiligne",
+              "L'eleve identifie le mouvement comme accelere",
+              "L'eleve donne une justification coherente pour chaque adjectif"
+            ]
+          },
+          "indices": {
+            "niveau_1": "Regarde la trajectoire de la balle sur le schema : quelle forme a-t-elle lors de la descente ?",
+            "niveau_2": "Pendant la descente, la balle tombe en ligne droite. Sa vitesse augmente-t-elle, diminue-t-elle ou reste-t-elle constante ?",
+            "niveau_3": "La trajectoire est une ligne droite (rectiligne) et la vitesse augmente sous l'effet de la pesanteur (accelere)."
+          },
+          "reveal_explication": "Lors de la descente, le mouvement de la balle est rectiligne (la trajectoire est une ligne droite verticale) et accelere (la vitesse augmente au fur et a mesure de la chute, sous l'effet de la pesanteur)."
+        },
+        {
+          "id": "sim_2025_an_pc_q6",
+          "numero": "6",
+          "texte": "Calculer l'energie potentielle Epp1 de la balle au debut de la descente, h = 0,50 m. Donnees : g = 9,8 N/kg, m = 2,7 g.",
+          "points": 3,
+          "documents_ref": ["pc_page3"],
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "decimal",
+            "reponse_canonique": "0.013",
+            "formes_acceptees": ["0.013", "0.0132", "0.01323", "1.323e-2", "0,013", "0,0132", "0,01323"],
+            "tolerances": {"abs": 0.002, "rel": 0.0},
+            "unite": "J"
+          },
+          "indices": {
+            "niveau_1": "La formule de l'energie potentielle de pesanteur est Epp = m x g x h. Attention aux unites !",
+            "niveau_2": "La masse doit etre en kilogrammes : 2,7 g = 0,0027 kg. Ensuite applique la formule avec g = 9,8 N/kg et h = 0,50 m.",
+            "niveau_3": "Epp = 0,0027 x 9,8 x 0,50 = 0,01323 J, soit environ 0,013 J."
+          },
+          "reveal_explication": "Il faut d'abord convertir la masse en kg : m = 2,7 g = 0,0027 kg. Puis appliquer la formule : Epp = m x g x h = 0,0027 x 9,8 x 0,50 = 0,01323 J, soit environ 0,013 J."
+        },
+        {
+          "id": "sim_2025_an_pc_q7",
+          "numero": "7",
+          "texte": "Indiquer la relation qui permet de calculer Ec. Nommer les grandeurs m et v et donner leur unite.",
+          "points": 3,
+          "documents_ref": ["pc_page3"],
+          "scoring": {
+            "mode": "albert",
+            "reponse_modele": "La relation qui permet de calculer l'energie cinetique est : Ec = 1/2 x m x v² (relation B). m represente la masse, exprimee en kilogrammes (kg). v represente la vitesse, exprimee en metres par seconde (m/s).",
+            "criteres_validation": [
+              "L'eleve identifie la relation B : Ec = 1/2 x m x v²",
+              "L'eleve nomme m comme la masse en kg",
+              "L'eleve nomme v comme la vitesse en m/s"
+            ]
+          },
+          "indices": {
+            "niveau_1": "L'energie cinetique est l'energie liee au mouvement. Quelle formule parmi celles proposees fait intervenir la vitesse ?",
+            "niveau_2": "La bonne formule est Ec = 1/2 x m x v². Que representent m et v ?",
+            "niveau_3": "Relation B : Ec = 1/2 x m x v². m = masse en kg, v = vitesse en m/s."
+          },
+          "reveal_explication": "La relation est Ec = 1/2 x m x v² (relation B). m est la masse de l'objet, exprimee en kilogrammes (kg). v est la vitesse de l'objet, exprimee en metres par seconde (m/s)."
+        },
+        {
+          "id": "sim_2025_an_pc_q8",
+          "numero": "8",
+          "texte": "Determiner la valeur de la vitesse maximale vmax au moment de l'impact (position 5). On considere que l'energie potentielle de pesanteur en position 1 est integralement convertie en energie cinetique en position 5 : Epp1 = Ec5.",
+          "points": 5,
+          "documents_ref": ["pc_page3"],
+          "scoring": {
+            "mode": "albert",
+            "reponse_modele": "On utilise la conservation de l'energie : Epp1 = Ec5, soit m x g x h = 1/2 x m x v². On simplifie par m : g x h = 1/2 x v², donc v² = 2 x g x h. v = racine(2 x g x h) = racine(2 x 9,8 x 0,50) = racine(9,8) = 3,13 m/s. La vitesse maximale au moment de l'impact est d'environ 3,1 m/s.",
+            "criteres_validation": [
+              "L'eleve pose l'egalite Epp = Ec (conservation de l'energie)",
+              "L'eleve developpe m x g x h = 1/2 x m x v²",
+              "L'eleve simplifie par m et isole v",
+              "L'eleve effectue l'application numerique correctement",
+              "L'eleve trouve une valeur proche de 3,1 m/s"
+            ]
+          },
+          "indices": {
+            "niveau_1": "On te dit que toute l'energie potentielle se transforme en energie cinetique. Ecris l'egalite entre les deux formules.",
+            "niveau_2": "m x g x h = 1/2 x m x v². La masse m apparait des deux cotes, tu peux la simplifier. Isole ensuite v.",
+            "niveau_3": "Apres simplification : v = racine(2 x g x h) = racine(2 x 9,8 x 0,5) = racine(9,8) = 3,13 m/s."
+          },
+          "reveal_explication": "Conservation de l'energie : Epp1 = Ec5, donc m x g x h = 1/2 x m x v². On simplifie par m : v² = 2 x g x h = 2 x 9,8 x 0,50 = 9,8. Donc v = racine(9,8) = 3,13 m/s. La vitesse maximale de la balle au moment de l'impact est d'environ 3,1 m/s."
+        }
+      ]
+    },
+    {
+      "id": "sim_2025_an_svt",
+      "discipline": "svt",
+      "theme_titre": "Vers de terre et agriculture",
+      "points": 25,
+      "documents": [
+        {
+          "id": "svt_page1",
+          "label": "Introduction et document 1 : le lombricomposteur",
+          "capture": "2025_amerique_nord/d2_page_1.png"
+        },
+        {
+          "id": "svt_page2",
+          "label": "Documents 2 et 3 : pratiques agricoles et vers de terre",
+          "capture": "2025_amerique_nord/d2_page_2.png"
+        },
+        {
+          "id": "svt_page3",
+          "label": "Annexe : QCM a completer",
+          "capture": "2025_amerique_nord/d2_page_3.png"
+        }
+      ],
+      "questions": [
+        {
+          "id": "sim_2025_an_svt_q1",
+          "numero": "1",
+          "texte": "A l'aide du document 1A, expliquer les differences observees entre les deux photographies (jour 1 et jour 7 du lombricomposteur).",
+          "points": 6,
+          "documents_ref": ["svt_page1"],
+          "scoring": {
+            "mode": "albert",
+            "reponse_modele": "Sur la photo du jour 1, on voit des dechets alimentaires entiers et reconnaissables (pain, legumes, epluchures). Sur la photo du jour 7, les dechets ont ete transformes et decomposes par les vers de terre : la matiere est devenue sombre et homogene, ressemblant a du compost. Les vers de terre ont melange et decompose les dechets organiques grace a leur digestion, transformant la matiere organique en compost.",
+            "criteres_validation": [
+              "L'eleve decrit les differences visuelles entre jour 1 (dechets entiers) et jour 7 (matiere decomposee/compost)",
+              "L'eleve attribue cette transformation a l'action des vers de terre",
+              "L'eleve utilise le vocabulaire de decomposition/transformation de la matiere organique"
+            ]
+          },
+          "indices": {
+            "niveau_1": "Compare attentivement les deux photos : qu'est-ce qui a change entre le jour 1 et le jour 7 ?",
+            "niveau_2": "Au jour 1, les dechets sont entiers et reconnaissables. Au jour 7, la matiere a change d'aspect. Qui est responsable de cette transformation dans un lombricomposteur ?",
+            "niveau_3": "Les vers de terre ont decompose les dechets alimentaires : la matiere est devenue sombre et homogene (compost). C'est le resultat de la digestion des vers."
+          },
+          "reveal_explication": "Au jour 1, les dechets alimentaires sont entiers et reconnaissables. Au jour 7, ils ont ete transformes en compost (matiere sombre et homogene) par l'action des vers de terre qui les ont digeres et decomposes."
+        },
+        {
+          "id": "sim_2025_an_svt_q2",
+          "numero": "2",
+          "texte": "Cocher la ou les bonnes reponses (annexe) :\n- Les vers de terre permettent d'enrichir le sol en nitrates et phosphates grace a leurs dejections.\n- Les vers de terre fabriquent de la matiere organique a partir de matiere minerale.\n- Le compost est riche en dejections de vers de terre.\n- Il faut au moins un mois aux vers de terre pour degrader des dechets alimentaires.",
+          "points": 4,
+          "documents_ref": ["svt_page1", "svt_page3"],
+          "scoring": {
+            "mode": "albert",
+            "reponse_modele": "Les propositions correctes sont : 'Les vers de terre permettent d'enrichir le sol en nitrates et phosphates grace a leurs dejections' (VRAI, d'apres le document 1B) et 'Le compost est riche en dejections de vers de terre' (VRAI, d'apres le document 1A). Les deux autres propositions sont fausses : les vers de terre ne fabriquent pas de matiere organique a partir de matiere minerale (ils decomposent la matiere organique), et il ne faut pas un mois mais seulement 7 jours pour degrader des dechets alimentaires (document 1A).",
+            "criteres_validation": [
+              "L'eleve identifie la proposition 1 comme vraie (enrichissement en nitrates et phosphates)",
+              "L'eleve identifie la proposition 3 comme vraie (compost riche en dejections)",
+              "L'eleve identifie la proposition 2 comme fausse",
+              "L'eleve identifie la proposition 4 comme fausse"
+            ]
+          },
+          "indices": {
+            "niveau_1": "Relis les documents 1A et 1B attentivement pour verifier chaque proposition une par une.",
+            "niveau_2": "Le document 1B parle des dejections des vers et de leur composition. Le document 1A montre la duree de transformation des dechets. Verifie si un mois est necessaire.",
+            "niveau_3": "Propositions vraies : la 1re (nitrates et phosphates dans les dejections, doc 1B) et la 3e (compost riche en dejections). La 2e est fausse (les vers decomposent, ils ne fabriquent pas de matiere organique). La 4e est fausse (7 jours suffisent, pas un mois)."
+          },
+          "reveal_explication": "Les deux propositions correctes sont : 'Les vers de terre permettent d'enrichir le sol en nitrates et phosphates grace a leurs dejections' (confirme par le document 1B) et 'Le compost est riche en dejections de vers de terre' (confirme par le document 1A). La proposition sur la fabrication de matiere organique a partir de matiere minerale est fausse (les vers decomposent la matiere organique). La proposition sur le delai d'un mois est fausse car 7 jours suffisent (document 1A)."
+        },
+        {
+          "id": "sim_2025_an_svt_q3",
+          "numero": "3",
+          "texte": "Identifier l'impact positif ou negatif des trois pratiques agricoles sur les vers de terre : le labour, le type de fertilisant et l'usage de pesticides. Justifier a l'aide de donnees chiffrees.",
+          "points": 8,
+          "documents_ref": ["svt_page2"],
+          "scoring": {
+            "mode": "albert",
+            "reponse_modele": "Labour : impact negatif. Le graphique montre qu'il y a beaucoup plus de vers de terre sans labour (~350 vers/m²) qu'avec labour (~200 vers/m²). Type de fertilisant : le fumier est plus favorable que l'engrais chimique. Avec labour, on observe environ 200 vers/m² avec fumier contre seulement environ 50 vers/m² avec engrais chimique. Pesticides : impact negatif. Les deux courbes du document 3 montrent que plus la quantite de pesticides augmente, plus le nombre de vers de terre diminue.",
+            "criteres_validation": [
+              "L'eleve identifie l'impact negatif du labour avec des donnees chiffrees",
+              "L'eleve identifie que le fumier est plus favorable que l'engrais chimique avec des donnees chiffrees",
+              "L'eleve identifie l'impact negatif des pesticides avec des donnees chiffrees",
+              "L'eleve utilise les documents pour justifier chaque point"
+            ]
+          },
+          "indices": {
+            "niveau_1": "Pour chaque pratique, compare les valeurs sur les graphiques : avec ou sans labour, fumier ou engrais chimique, avec plus ou moins de pesticides.",
+            "niveau_2": "Pour le labour, compare les barres 'avec labour' et 'sans labour'. Pour le fertilisant, compare 'fumier' et 'engrais chimique'. Pour les pesticides, regarde l'evolution des courbes quand la quantite augmente.",
+            "niveau_3": "Labour : negatif (~200 vs ~350 vers/m²). Fumier meilleur qu'engrais chimique (~200 vs ~50 avec labour). Pesticides : negatif (le nombre de vers diminue quand la dose augmente)."
+          },
+          "reveal_explication": "Labour : impact negatif (environ 200 vers/m² avec labour contre 350 sans labour). Fertilisant : le fumier est meilleur que l'engrais chimique (avec labour : ~200 vers/m² avec fumier contre ~50 avec engrais chimique). Pesticides : impact negatif (plus il y a de pesticides, moins il y a de vers de terre, comme le montrent les deux courbes decroissantes)."
+        },
+        {
+          "id": "sim_2025_an_svt_q4",
+          "numero": "4",
+          "texte": "Expliquer en quoi la preservation des vers de terre est un enjeu important pour nourrir l'humanite. Preciser les pratiques agricoles a encourager ou a limiter.",
+          "points": 7,
+          "documents_ref": ["svt_page1", "svt_page2"],
+          "scoring": {
+            "mode": "albert",
+            "reponse_modele": "Les vers de terre enrichissent le sol en elements nutritifs (nitrates, phosphates) grace a leurs dejections, ce qui favorise la croissance des plantes. Ils decomposent aussi les dechets organiques en compost, ameliorant la fertilite du sol. Pour nourrir l'humanite, il faut des sols fertiles qui produisent de bonnes recoltes. Preserver les vers de terre est donc essentiel. Pratiques a encourager : utiliser du fumier plutot que de l'engrais chimique, eviter le labour. Pratiques a limiter : l'usage de pesticides et le labour, qui reduisent les populations de vers de terre.",
+            "criteres_validation": [
+              "L'eleve explique le role des vers de terre dans la fertilite du sol (enrichissement en nitrates/phosphates, decomposition)",
+              "L'eleve fait le lien entre fertilite du sol et production alimentaire pour nourrir l'humanite",
+              "L'eleve identifie les pratiques a encourager (fumier, absence de labour)",
+              "L'eleve identifie les pratiques a limiter (pesticides, labour, engrais chimiques)"
+            ]
+          },
+          "indices": {
+            "niveau_1": "Rappelle-toi ce que font les vers de terre pour le sol (documents 1A et 1B). Pourquoi un sol fertile est-il important pour l'agriculture ?",
+            "niveau_2": "Les vers enrichissent le sol en elements nutritifs et decomposent les dechets. Quelles pratiques agricoles favorisent ou defavorisent les vers de terre (question 3) ?",
+            "niveau_3": "Les vers rendent le sol fertile (nitrates, phosphates). Pour les preserver : encourager le fumier, limiter le labour et les pesticides. Des sols plus fertiles = de meilleures recoltes pour nourrir l'humanite."
+          },
+          "reveal_explication": "Les vers de terre enrichissent le sol en nitrates et phosphates (doc 1B) et decomposent les dechets organiques en compost (doc 1A), ce qui ameliore la fertilite des sols. Des sols fertiles sont necessaires pour produire suffisamment de nourriture. Pour preserver les vers de terre, il faut : encourager l'utilisation de fumier plutot que d'engrais chimiques, limiter le labour et reduire l'usage de pesticides."
+        }
+      ]
+    }
+  ]
+}

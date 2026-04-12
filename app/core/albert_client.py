@@ -129,6 +129,11 @@ class Task(str, Enum):
     # réponse forcée en JSON strict {"correct": bool, "feedback_court": str}
     SCIENCES_REV_EVAL_OPEN = "sciences_rev_eval_open"
 
+    # --- Sciences : simulation chronométrée (épreuve blanche) ---
+    SCIENCES_SIM_HINT = "sciences_sim_hint"
+    SCIENCES_SIM_REVEAL = "sciences_sim_reveal"
+    SCIENCES_SIM_EVAL_OPEN = "sciences_sim_eval_open"
+
 
 @dataclass(frozen=True)
 class TaskProfile:
@@ -349,6 +354,28 @@ TASK_PROFILES: dict[Task, TaskProfile] = {
         check_no_ghostwriting=False,
     ),
     Task.SCIENCES_REV_EVAL_OPEN: TaskProfile(
+        model=MODEL_HEAVY,
+        temperature=0.2,
+        max_tokens=800,
+        check_no_ghostwriting=False,
+        require_citations=False,
+    ),
+    # --- Sciences : simulation chronométrée ---
+    # Mêmes profils que la révision sciences : le contexte de simulation
+    # n'impacte pas le modèle/la température, juste les prompts.
+    Task.SCIENCES_SIM_HINT: TaskProfile(
+        model=MODEL_FAST,
+        temperature=0.5,
+        max_tokens=300,
+        check_no_ghostwriting=False,
+    ),
+    Task.SCIENCES_SIM_REVEAL: TaskProfile(
+        model=MODEL_FAST,
+        temperature=0.3,
+        max_tokens=500,
+        check_no_ghostwriting=False,
+    ),
+    Task.SCIENCES_SIM_EVAL_OPEN: TaskProfile(
         model=MODEL_HEAVY,
         temperature=0.2,
         max_tokens=800,

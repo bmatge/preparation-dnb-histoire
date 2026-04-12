@@ -17,6 +17,7 @@ from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 
 from app.sciences.revision.routes import router as revision_router
+from app.sciences.simulation.routes import router as simulation_router
 
 logger = logging.getLogger(__name__)
 
@@ -41,6 +42,7 @@ def sciences_index(request: Request):
 
 
 router.include_router(revision_router, prefix="/revision")
+router.include_router(simulation_router, prefix="/simulation")
 
 
 __all__ = ["router", "PREFIX"]

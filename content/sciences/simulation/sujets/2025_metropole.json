@@ -1,0 +1,319 @@
+{
+  "id": "sim_2025_metropole",
+  "source": {
+    "type": "annale",
+    "annee": 2025,
+    "centre": "metropole",
+    "document": "2025_Metropole_sciences.pdf",
+    "corrige": null
+  },
+  "points_total": 50,
+  "disciplines": [
+    {
+      "id": "sim_2025_metropole_svt",
+      "discipline": "svt",
+      "theme_titre": "Impact des doryphores sur les cultures de pommes de terre",
+      "points": 25,
+      "documents": [
+        {
+          "id": "svt_intro",
+          "label": "Introduction et photographies",
+          "capture": "2025_metropole/d1_page_1.png"
+        },
+        {
+          "id": "svt_doc1_doc2",
+          "label": "Document 1 (graphiques) et Document 2 (organes du plant)",
+          "capture": "2025_metropole/d1_page_2.png"
+        },
+        {
+          "id": "svt_doc3",
+          "label": "Document 3 : influence de la surface des feuilles",
+          "capture": "2025_metropole/d1_page_3.png"
+        }
+      ],
+      "questions": [
+        {
+          "id": "sim_2025_metro_svt_q1",
+          "numero": "1",
+          "texte": "A l'aide du document 1, recopier le numero de la proposition exacte.\nL'action des doryphores sur le vegetal qui produit les pommes de terre entraine une :\n- Proposition 1 : diminution du nombre des tubercules.\n- Proposition 2 : augmentation du nombre des tubercules.\n- Proposition 3 : diminution de la masse moyenne des tubercules.\n- Proposition 4 : augmentation de la masse moyenne des tubercules.",
+          "points": 4,
+          "documents_ref": ["svt_doc1_doc2"],
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "qcm",
+            "reponse_canonique": "3",
+            "formes_acceptees": ["proposition 3", "prop 3", "p3"],
+            "tolerances": {"abs": 0.0, "rel": 0.0}
+          },
+          "indices": {
+            "niveau_1": "Regarde bien les deux graphiques du document 1 : l'un montre le nombre de tubercules, l'autre la masse moyenne.",
+            "niveau_2": "Compare les barres 'sans doryphore' et 'avec doryphores' sur chaque graphique. Lequel montre une vraie difference ?",
+            "niveau_3": "Le nombre de tubercules ne change quasiment pas, mais la masse moyenne diminue fortement avec les doryphores."
+          },
+          "reveal_explication": "Le document 1 montre que le nombre de tubercules reste similaire (environ 30) avec ou sans doryphores, mais la masse moyenne chute fortement (de 100 g a environ 20 g). La bonne reponse est donc la proposition 3."
+        },
+        {
+          "id": "sim_2025_metro_svt_q2a",
+          "numero": "2a",
+          "texte": "Parmi les 3 experiences A, B ou C proposees dans le tableau (document 3), indiquer l'experience qui permet de tester l'hypothese : 'plus la surface totale des feuilles est petite, plus la masse moyenne des tubercules est faible'. Expliquer votre choix.",
+          "points": 8,
+          "documents_ref": ["svt_doc3"],
+          "scoring": {
+            "mode": "albert",
+            "reponse_modele": "C'est l'experience C qui permet de tester cette hypothese. En effet, dans l'experience C, seul le facteur 'surface des feuilles' varie (lot 5 avec 100% des feuilles et lot 6 avec 75% des feuilles), tandis que la temperature (22 C) et les conditions d'arrosage et de lumiere restent identiques pour les deux lots. C'est donc une experience temoin/test valide.",
+            "criteres_validation": [
+              "L'eleve identifie l'experience C",
+              "L'eleve justifie par le fait qu'un seul facteur varie (la surface des feuilles)",
+              "L'eleve mentionne que les autres facteurs sont maintenus constants (temperature, arrosage, lumiere)"
+            ]
+          },
+          "indices": {
+            "niveau_1": "Pour tester une hypothese, il faut ne faire varier qu'un seul facteur a la fois et garder tous les autres identiques.",
+            "niveau_2": "Compare les trois experiences : dans laquelle la seule difference entre les deux lots est la surface des feuilles, toutes les autres conditions etant identiques ?",
+            "niveau_3": "Dans l'experience B, la temperature change entre les lots. Dans l'experience A, la temperature est la meme. Mais regarde aussi si la surface des feuilles varie..."
+          },
+          "reveal_explication": "L'experience C est la bonne reponse car c'est la seule ou le seul parametre qui varie entre les deux lots est la surface des feuilles (100% vs 75%), tandis que la temperature (22 C), l'arrosage et la lumiere sont identiques."
+        },
+        {
+          "id": "sim_2025_metro_svt_q2b",
+          "numero": "2b",
+          "texte": "Chaque experience a ete realisee avec des lots de 10 plants de pommes de terre. Expliquer l'interet d'avoir utilise plusieurs plants.",
+          "points": 4,
+          "documents_ref": ["svt_doc3"],
+          "scoring": {
+            "mode": "albert",
+            "reponse_modele": "Utiliser plusieurs plants (10 par lot) permet d'obtenir des resultats plus fiables et representatifs. Un seul plant pourrait donner un resultat exceptionnel (tres bon ou tres mauvais) qui ne refleterait pas la realite. Avec plusieurs plants, on peut calculer une moyenne qui limite l'effet du hasard.",
+            "criteres_validation": [
+              "L'eleve evoque la fiabilite ou la representativite des resultats",
+              "L'eleve mentionne l'idee de reduire l'effet du hasard ou des variations individuelles"
+            ]
+          },
+          "indices": {
+            "niveau_1": "Pense a ce qui se passerait si on n'utilisait qu'un seul plant : pourrait-on etre sur du resultat ?",
+            "niveau_2": "En sciences, on repete les experiences pour limiter l'effet de quelque chose...",
+            "niveau_3": "C'est pour limiter l'effet du hasard et rendre les resultats plus fiables."
+          },
+          "reveal_explication": "Utiliser plusieurs plants permet de limiter l'influence du hasard et des variations individuelles entre les plants. Les resultats sont ainsi plus fiables et representatifs."
+        },
+        {
+          "id": "sim_2025_metro_svt_q3",
+          "numero": "3",
+          "texte": "A l'aide des documents 1, 2 et 3, expliquer pourquoi la presence d'un grand nombre de doryphores sur les plants de pommes de terre cultives modifie la masse moyenne des tubercules recoltes par des agriculteurs.",
+          "points": 9,
+          "documents_ref": ["svt_doc1_doc2", "svt_doc3"],
+          "scoring": {
+            "mode": "albert",
+            "reponse_modele": "Les doryphores (larves et adultes) se nourrissent des feuilles du plant de pommes de terre (doc 1). Les feuilles fabriquent la matiere organique grace a la photosynthese (doc 2). Si les doryphores mangent les feuilles, la surface foliaire diminue, donc la photosynthese diminue. Or les tubercules stockent les reserves de matiere organique fabriquee par les feuilles (doc 2). Moins de photosynthese signifie moins de matiere organique produite, donc moins de reserves stockees dans les tubercules. L'experience C du document 3 confirme que la diminution de la surface des feuilles entraine une diminution de la masse des tubercules. La masse moyenne des tubercules diminue donc en presence de doryphores.",
+            "criteres_validation": [
+              "L'eleve explique que les doryphores mangent les feuilles",
+              "L'eleve fait le lien entre feuilles et photosynthese (production de matiere organique)",
+              "L'eleve explique que les tubercules stockent la matiere organique produite par les feuilles",
+              "L'eleve conclut que moins de feuilles = moins de photosynthese = moins de reserves = tubercules moins lourds"
+            ]
+          },
+          "indices": {
+            "niveau_1": "Relis le document 1 pour voir ce que font les doryphores, puis le document 2 pour comprendre le role des feuilles et des tubercules.",
+            "niveau_2": "Fais le lien : doryphores -> feuilles mangees -> moins de photosynthese -> consequences sur les tubercules.",
+            "niveau_3": "Les feuilles font la photosynthese (doc 2), les tubercules stockent la matiere organique produite. Moins de feuilles = moins de matiere organique = tubercules plus legers."
+          },
+          "reveal_explication": "Les doryphores mangent les feuilles, ce qui reduit la surface foliaire. Les feuilles fabriquent la matiere organique par photosynthese (doc 2), et les tubercules stockent cette matiere organique. Moins de feuilles = moins de photosynthese = moins de reserves dans les tubercules = masse moyenne plus faible. Le doc 3 confirme ce lien experimentalement."
+        }
+      ]
+    },
+    {
+      "id": "sim_2025_metropole_pc",
+      "discipline": "physique_chimie",
+      "theme_titre": "Thomas Pesquet et la station spatiale internationale (ISS)",
+      "points": 25,
+      "documents": [
+        {
+          "id": "pc_page1",
+          "label": "Introduction, materiaux innovants et recyclage de l'eau",
+          "capture": "2025_metropole/d2_page_1.png"
+        },
+        {
+          "id": "pc_page2",
+          "label": "Materiaux dans l'ISS et masse volumique",
+          "capture": "2025_metropole/d2_page_2.png"
+        },
+        {
+          "id": "pc_page3",
+          "label": "16 levers de Soleil — mouvement de l'ISS",
+          "capture": "2025_metropole/d2_page_3.png"
+        }
+      ],
+      "questions": [
+        {
+          "id": "sim_2025_metro_pc_q1",
+          "numero": "1",
+          "texte": "Citer deux avantages des materiaux innovants presentes (Renewable Foam et Edible Foam).",
+          "points": 2,
+          "documents_ref": ["pc_page1"],
+          "scoring": {
+            "mode": "albert",
+            "reponse_modele": "Les materiaux innovants sont reutilisables, biodegradables ou comestibles. Ils permettent de remplacer les mousses petrosourcees traditionnelles qui sont inutiles une fois a bord de la station.",
+            "criteres_validation": [
+              "L'eleve cite au moins deux avantages parmi : reutilisables, biodegradables, comestibles",
+              "L'eleve n'invente pas d'avantages non mentionnes dans le texte"
+            ]
+          },
+          "indices": {
+            "niveau_1": "Relis le paragraphe sur les experiences Renewable Foam et Edible Foam.",
+            "niveau_2": "Le texte mentionne trois adjectifs pour decrire ces materiaux : reutilisables, bio... et co...",
+            "niveau_3": "Reutilisables et biodegradables (ou comestibles)."
+          },
+          "reveal_explication": "Le texte indique que ces materiaux sont reutilisables, biodegradables ou comestibles. Il suffit d'en citer deux."
+        },
+        {
+          "id": "sim_2025_metro_pc_q2a",
+          "numero": "2a",
+          "texte": "Indiquer, en donnant un argument, si le dioxygene est un atome ou une molecule.",
+          "points": 3,
+          "documents_ref": ["pc_page1"],
+          "scoring": {
+            "mode": "albert",
+            "reponse_modele": "Le dioxygene est une molecule car sa formule chimique est O2 : il est compose de deux atomes d'oxygene lies entre eux. Le prefixe 'di' signifie deux.",
+            "criteres_validation": [
+              "L'eleve identifie le dioxygene comme une molecule",
+              "L'eleve donne un argument valide (formule O2, prefixe di, compose de deux atomes)"
+            ]
+          },
+          "indices": {
+            "niveau_1": "Que signifie le prefixe 'di' dans 'dioxygene' ?",
+            "niveau_2": "Une molecule est un assemblage d'au moins deux atomes. Le dioxygene O2 est compose de combien d'atomes ?",
+            "niveau_3": "Le dioxygene O2 est une molecule car il contient 2 atomes d'oxygene."
+          },
+          "reveal_explication": "Le dioxygene (O2) est une molecule car il est constitue de deux atomes d'oxygene lies entre eux. Le prefixe 'di' indique la presence de deux atomes."
+        },
+        {
+          "id": "sim_2025_metro_pc_q2b",
+          "numero": "2b",
+          "texte": "L'equation de l'electrolyse de l'eau est : 2 H2O -> 2 H2 + O2. Choisir parmi les propositions ci-dessous celle qui est correcte et justifier.\nP1 : 2 kg d'eau forment 2 kg de dihydrogene et 1 kg de dioxygene.\nP2 : 2 kg d'eau forment 0,22 kg de dihydrogene et 1,78 kg de dioxygene.\nP3 : 2 kg de dihydrogene et 1 kg de dioxygene forment 2 kg d'eau.",
+          "points": 3,
+          "documents_ref": ["pc_page1"],
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "qcm",
+            "reponse_canonique": "P2",
+            "formes_acceptees": ["p2", "proposition 2"],
+            "tolerances": {"abs": 0.0, "rel": 0.0}
+          },
+          "indices": {
+            "niveau_1": "Pense a la conservation de la masse dans une reaction chimique.",
+            "niveau_2": "Verifie que la masse totale des reactifs egale la masse totale des produits dans chaque proposition. Laquelle respecte cette regle ?",
+            "niveau_3": "P1 : 2 = 2+1 = 3 (faux). P2 : 2 = 0,22+1,78 = 2 (ok). P3 : les reactifs et produits sont inverses par rapport a l'equation."
+          },
+          "reveal_explication": "P2 est correcte car la conservation de la masse est respectee : 2 kg d'eau = 0,22 kg de H2 + 1,78 kg de O2 = 2 kg au total. De plus, les reactifs (eau) et les produits (H2 et O2) sont dans le bon sens par rapport a l'equation."
+        },
+        {
+          "id": "sim_2025_metro_pc_q3a",
+          "numero": "3a",
+          "texte": "Classer dans l'ordre les cinq etapes de la demarche experimentale a suivre pour verifier la valeur de la masse volumique du cylindre d'aluminium :\nA. Plonger delicatement le cylindre d'aluminium dans les 50 mL d'eau contenus dans l'eprouvette graduee.\nB. Mesurer la masse m du cylindre d'aluminium a l'aide d'une balance.\nC. Mesurer le volume V2 de l'ensemble cylindre et eau.\nD. Calculer le volume du solide en soustrayant V1 a V2.\nE. Remplir l'eprouvette graduee avec un volume d'eau V1 = 50 mL.",
+          "points": 3,
+          "documents_ref": ["pc_page2"],
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "texte_court",
+            "reponse_canonique": "BEACD",
+            "formes_acceptees": ["B E A C D", "B-E-A-C-D", "b e a c d", "beacd", "B, E, A, C, D"],
+            "tolerances": {"abs": 0.0, "rel": 0.0}
+          },
+          "indices": {
+            "niveau_1": "Commence par les mesures de base : que dois-tu connaitre avant de plonger le cylindre dans l'eau ?",
+            "niveau_2": "D'abord mesurer la masse (B), puis preparer l'eprouvette (E), puis plonger le cylindre (A), puis lire le nouveau volume (C), puis calculer (D).",
+            "niveau_3": "L'ordre est B, E, A, C, D."
+          },
+          "reveal_explication": "L'ordre logique est : B (mesurer la masse) -> E (remplir l'eprouvette a V1=50 mL) -> A (plonger le cylindre) -> C (mesurer V2) -> D (calculer le volume du solide V2-V1)."
+        },
+        {
+          "id": "sim_2025_metro_pc_q3b",
+          "numero": "3b",
+          "texte": "En utilisant les mesures de l'experience precedente, verifier que la masse volumique du cylindre est bien celle de l'aluminium. Detailler les calculs. (m = 40,5 g, V1 = 50 mL, V2 = 65 mL)",
+          "points": 3,
+          "documents_ref": ["pc_page2"],
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "decimal",
+            "reponse_canonique": "2.7",
+            "formes_acceptees": ["2,7", "2.7", "2,70", "2.70", "2,7 g/mL", "2.7 g/mL"],
+            "tolerances": {"abs": 0.05, "rel": 0.0},
+            "unite": "g/mL"
+          },
+          "indices": {
+            "niveau_1": "La masse volumique se calcule avec la formule rho = m / V.",
+            "niveau_2": "Le volume du cylindre est V2 - V1 = 65 - 50 = 15 mL. La masse est 40,5 g.",
+            "niveau_3": "rho = 40,5 / 15 = 2,7 g/mL, ce qui correspond bien a l'aluminium dans le tableau."
+          },
+          "reveal_explication": "Volume du cylindre : V = V2 - V1 = 65 - 50 = 15 mL. Masse volumique : rho = m/V = 40,5/15 = 2,7 g/mL. C'est bien la masse volumique de l'aluminium indiquee dans le tableau."
+        },
+        {
+          "id": "sim_2025_metro_pc_q3c",
+          "numero": "3c",
+          "texte": "En comparant les donnees du tableau 'masse volumique de differents materiaux', expliquer le choix de l'aluminium pour la fabrication des parois des differents modules de l'ISS.",
+          "points": 3,
+          "documents_ref": ["pc_page2"],
+          "scoring": {
+            "mode": "albert",
+            "reponse_modele": "L'aluminium a la masse volumique la plus faible parmi les trois materiaux du tableau (2,7 g/mL contre 4,5 pour le titane et 7,9 pour l'acier). Pour une station spatiale, il faut minimiser la masse des materiaux pour reduire le cout et la difficulte du lancement. L'aluminium est donc le meilleur choix car il est le plus leger a volume egal.",
+            "criteres_validation": [
+              "L'eleve compare les masses volumiques des trois materiaux",
+              "L'eleve identifie l'aluminium comme le plus leger (masse volumique la plus faible)",
+              "L'eleve fait le lien avec la necessite de minimiser la masse pour l'espace"
+            ]
+          },
+          "indices": {
+            "niveau_1": "Compare les trois valeurs de masse volumique dans le tableau.",
+            "niveau_2": "Quel materiau est le plus leger a volume egal ? Pourquoi est-ce important pour une station spatiale ?",
+            "niveau_3": "L'aluminium a la plus faible masse volumique (2,7 g/mL), il est donc le plus leger. En spatial, chaque kilogramme compte."
+          },
+          "reveal_explication": "L'aluminium a la masse volumique la plus faible (2,7 g/mL) par rapport a l'acier (7,9) et au titane (4,5). Pour une station spatiale, il est crucial de minimiser la masse pour faciliter la mise en orbite. L'aluminium est donc le materiau le plus adapte."
+        },
+        {
+          "id": "sim_2025_metro_pc_q4a",
+          "numero": "4a",
+          "texte": "Dans la liste ci-dessous, choisir deux adjectifs et rediger une phrase pour caracteriser le mouvement de l'ISS autour de la Terre. Justifier l'emploi de ces deux adjectifs.\nRectiligne - Circulaire - Accelere - Uniforme - Ralenti.",
+          "points": 4,
+          "documents_ref": ["pc_page3"],
+          "scoring": {
+            "mode": "albert",
+            "reponse_modele": "Le mouvement de l'ISS autour de la Terre est circulaire et uniforme. Il est circulaire car la trajectoire de l'ISS est un cercle (un tour complet autour de la Terre). Il est uniforme car sa vitesse est constante (28 000 km/h d'apres le texte).",
+            "criteres_validation": [
+              "L'eleve choisit 'circulaire' (trajectoire en cercle autour de la Terre)",
+              "L'eleve choisit 'uniforme' (vitesse constante)",
+              "L'eleve justifie chaque adjectif"
+            ]
+          },
+          "indices": {
+            "niveau_1": "Regarde le schema : quelle forme a la trajectoire de l'ISS ?",
+            "niveau_2": "Le texte dit que la vitesse de l'ISS est constante. Quel adjectif correspond a une vitesse constante ?",
+            "niveau_3": "Circulaire (trajectoire en cercle) et uniforme (vitesse constante)."
+          },
+          "reveal_explication": "Le mouvement de l'ISS est circulaire (la trajectoire est un cercle autour de la Terre, visible sur le schema) et uniforme (la vitesse est constante, egale a 28 000 km/h d'apres le texte)."
+        },
+        {
+          "id": "sim_2025_metro_pc_q4b",
+          "numero": "4b",
+          "texte": "Expliquer, grace a un raisonnement et des calculs, la signification du titre du documentaire avec Thomas Pesquet : '16 levers de Soleil'. Detailler les calculs. (L'ISS parcourt environ 42 700 km pour un tour complet, a une vitesse de 28 000 km/h.)",
+          "points": 4,
+          "documents_ref": ["pc_page3"],
+          "scoring": {
+            "mode": "albert",
+            "reponse_modele": "Duree d'un tour de l'ISS : t = d/v = 42 700 / 28 000 = 1,525 h, soit environ 1 h 31 min (ou 91,5 minutes). Nombre de tours en 24 h : 24 / 1,525 = environ 15,7, soit environ 16 tours. A chaque tour, l'ISS voit un lever de soleil. Donc en 24 h, les astronautes voient environ 16 levers de soleil, d'ou le titre du documentaire.",
+            "criteres_validation": [
+              "L'eleve calcule la duree d'un tour (t = d/v)",
+              "L'eleve calcule le nombre de tours en 24 h",
+              "L'eleve fait le lien entre nombre de tours et nombre de levers de soleil",
+              "L'eleve trouve un resultat proche de 16"
+            ]
+          },
+          "indices": {
+            "niveau_1": "Utilise la formule t = d/v pour calculer le temps d'un tour complet de l'ISS.",
+            "niveau_2": "Duree d'un tour = 42 700 / 28 000 heures. Combien de tours en 24 heures ?",
+            "niveau_3": "42 700 / 28 000 = environ 1,5 h par tour. 24 / 1,5 = 16 tours = 16 levers de soleil."
+          },
+          "reveal_explication": "Duree d'un tour : t = 42 700 / 28 000 = 1,525 h (environ 1 h 31 min). Nombre de tours en 24 h : 24 / 1,525 = 15,7, soit environ 16 tours. A chaque tour complet, l'ISS passe du cote nuit au cote jour, ce qui correspond a un lever de soleil. D'ou 16 levers de soleil par jour."
+        }
+      ]
+    }
+  ]
+}

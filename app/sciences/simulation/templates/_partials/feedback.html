@@ -1,0 +1,76 @@
+{# Partial HTMX injecte dans #feedback-area apres une tentative.
+   Variantes selon `kind` : correct | incorrect | hint | revealed | error. #}
+
+{% if kind == "correct" %}
+<div class="bg-emerald-50 border border-emerald-200 rounded-2xl p-5 animate-reveal">
+  <div class="flex items-start gap-3">
+    <div class="flex-shrink-0 h-10 w-10 rounded-xl bg-emerald-500 text-white flex items-center justify-center font-bold">✓</div>
+    <div class="flex-1">
+      <p class="font-semibold text-emerald-900">{{ message }}</p>
+    </div>
+  </div>
+</div>
+
+{% elif kind == "incorrect" %}
+<div class="bg-rose-50 border border-rose-200 rounded-2xl p-5 animate-reveal">
+  <div class="flex items-start gap-3">
+    <div class="flex-shrink-0 h-10 w-10 rounded-xl bg-rose-500 text-white flex items-center justify-center font-bold">✗</div>
+    <div class="flex-1">
+      <p class="text-rose-900">{{ message }}</p>
+      <p class="text-xs text-rose-700 mt-2">
+        Indices deja utilises : {{ hints_used }}/{{ max_hints }}.
+      </p>
+    </div>
+  </div>
+</div>
+
+{% elif kind == "hint" %}
+<div class="bg-amber-50 border border-amber-200 rounded-2xl p-5 animate-reveal">
+  <div class="flex items-start gap-3">
+    <div class="flex-shrink-0 h-10 w-10 rounded-xl bg-amber-500 text-white flex items-center justify-center font-bold">{{ hint_level }}</div>
+    <div class="flex-1">
+      <div class="text-xs uppercase tracking-wider text-amber-700 font-semibold mb-1">
+        Indice {{ hint_level }}/{{ max_hints }}
+      </div>
+      <p class="text-amber-900 leading-relaxed">{{ message }}</p>
+      <p class="text-xs text-amber-700 mt-2">Retente ta reponse dans le formulaire ci-dessus.</p>
+    </div>
+  </div>
+</div>
+
+{% elif kind == "revealed" %}
+<div class="bg-slate-50 border border-slate-200 rounded-2xl p-5 animate-reveal">
+  <div class="flex items-start gap-3">
+    <div class="flex-shrink-0 h-10 w-10 rounded-xl bg-slate-500 text-white flex items-center justify-center font-bold">!</div>
+    <div class="flex-1 eval-md">
+      {{ message | eval_md }}
+    </div>
+  </div>
+</div>
+
+{% elif kind == "error" %}
+<div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 text-sm text-slate-700">
+  {{ message }}
+</div>
+{% endif %}
+
+{% if show_next %}
+<div class="mt-4 text-right">
+  <a href="/sciences/simulation/travail"
+     id="btn-next"
+     class="btn-primary hover:wiggle inline-flex items-center gap-1">
+    Question suivante <span>→</span>
+  </a>
+</div>
+<script>
+(function() {
+  var form = document.querySelector('form[hx-post]');
+  if (form) {
+    form.querySelectorAll('button, input, textarea').forEach(function(el) { el.disabled = true; });
+    form.classList.add('opacity-50', 'pointer-events-none');
+  }
+  var next = document.getElementById('btn-next');
+  if (next) next.focus();
+})();
+</script>
+{% endif %}

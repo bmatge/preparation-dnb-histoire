@@ -57,6 +57,7 @@ from app.mathematiques.automatismes.models import init_automatismes
 from app.mathematiques.problemes.models import init_problemes
 from app.mathematiques.routes import router as math_router
 from app.sciences.revision.models import init_sciences_revision
+from app.sciences.simulation.models import init_sciences_simulation
 from app.sciences.routes import router as sciences_router
 
 logger = logging.getLogger(__name__)
@@ -70,6 +71,7 @@ STATIC_DIR = APP_DIR / "static"
 FRANCAIS_IMAGES_DIR = REPO_ROOT / "content" / "francais" / "comprehension" / "images"
 FRANCAIS_DICTEES_AUDIO_DIR = REPO_ROOT / "content" / "francais" / "dictee" / "audio"
 MATH_FIGURES_DIR = REPO_ROOT / "content" / "mathematiques" / "figures"
+SCIENCES_CAPTURES_DIR = REPO_ROOT / "content" / "sciences" / "simulation" / "captures"
 
 
 # ============================================================================
@@ -118,6 +120,14 @@ if MATH_FIGURES_DIR.exists():
         name="math-figures",
     )
 
+# Captures sciences (screenshots des sujets d'annales) servies depuis content/.
+if SCIENCES_CAPTURES_DIR.exists():
+    app.mount(
+        "/sciences-captures",
+        StaticFiles(directory=str(SCIENCES_CAPTURES_DIR)),
+        name="sciences-captures",
+    )
+
 # Templates core : uniquement pour l'accueil global et base.html.
 templates = Jinja2Templates(directory=str(CORE_TEMPLATES))
 
@@ -148,8 +158,9 @@ def on_startup() -> None:
     n_math_auto = init_automatismes()
     n_math_prob = init_problemes()
     n_sciences_rev = init_sciences_revision()
+    n_sciences_sim = init_sciences_simulation()
     logger.info(
-        "DB prête (%s) — %d sujets DC, %d repères, %d exos compréhension, %d sujets rédaction, %d dictées, %d questions automatismes maths, %d exercices problèmes maths, %d questions révision sciences chargés",
+        "DB prête (%s) — %d sujets DC, %d repères, %d exos compréhension, %d sujets rédaction, %d dictées, %d questions automatismes maths, %d exercices problèmes maths, %d questions révision sciences, %d sujets simulation sciences chargés",
         core_db.DB_PATH,
         n_hgemc,
         n_reperes,
@@ -159,6 +170,7 @@ def on_startup() -> None:
         n_math_auto,
         n_math_prob,
         n_sciences_rev,
+        n_sciences_sim,
     )
 
 
@@ -195,6 +207,7 @@ _EPREUVES = [
     ("math_automatismes", "Automatismes", "/mathematiques/automatismes/"),
     ("math_problemes", "Problemes", "/mathematiques/problemes/"),
     ("sciences_revision", "Sciences", "/sciences/revision/"),
+    ("sciences_simulation", "Simulation Sciences", "/sciences/simulation/"),
 ]
 
 

@@ -1,0 +1,113 @@
+{% extends "_sciences_base.html" %}
+
+{% block title %}Simulation — {{ discipline_label }} · Question {{ position }}/{{ total }}{% endblock %}
+
+{% block timer %}{% with kind="sciences_simulation", session_id_str=session_id|string %}{% include "_exercise_timer.html" %}{% endwith %}{% endblock %}
+
+{% block content %}
+<div class="flex items-center justify-between mb-4 animate-reveal">
+  <span class="text-sm font-semibold text-slate-500">
+    Question <span class="text-brand-700">{{ position }}</span> / {{ total }}
+    · Discipline {{ disc_number }}/{{ disc_total }}
+  </span>
+  <span class="text-sm text-slate-500">
+    Points : <span class="font-bold text-brand-700">{{ total_points | round(1) }}</span>
+  </span>
+</div>
+
+{# En-tete discipline + theme #}
+<div class="bg-brand-50 border border-brand-100 rounded-xl px-4 py-2 mb-4 animate-reveal">
+  <span class="text-sm font-semibold text-brand-800">{{ discipline_label }}</span>
+  <span class="text-sm text-brand-600 ml-2">— {{ theme_titre }}</span>
+</div>
+
+{# Documents (captures) #}
+{% if current_documents %}
+<details open class="bg-white rounded-2xl border border-slate-200 shadow-sm mb-5 animate-reveal">
+  <summary class="cursor-pointer px-5 py-3 font-display font-bold text-slate-900 select-none">
+    Documents
+  </summary>
+  <div class="px-5 pb-5 space-y-4">
+    {% for doc in current_documents %}
+    <figure>
+      <img src="/sciences-captures/{{ doc.capture }}"
+           alt="{{ doc.label }}"
+           loading="lazy"
+           class="mx-auto max-w-full rounded-lg border border-slate-200 bg-white">
+      <figcaption class="text-xs text-slate-500 text-center mt-1">{{ doc.label }}</figcaption>
+    </figure>
+    {% endfor %}
+  </div>
+</details>
+{% endif %}
+
+{# Enonce de la question #}
+<div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 mb-6 animate-reveal">
+  <div class="text-xs uppercase tracking-wider text-slate-500 mb-2">
+    Question {{ question.numero }}
+    {% if question.points %}<span class="ml-2 text-brand-600">({{ question.points }} pt{{ 's' if question.points > 1 else '' }})</span>{% endif %}
+  </div>
+  <p class="font-display text-xl text-slate-900 leading-snug whitespace-pre-line">{{ question.texte }}</p>
+</div>
+
+{# Formulaire de reponse #}
+<form hx-post="/sciences/simulation/travail/answer"
+      hx-target="#feedback-area"
+      hx-swap="innerHTML"
+      hx-indicator="#loading"
+      class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 space-y-4 animate-reveal">
+  <div>
+    <label for="answer" class="text-sm font-semibold text-slate-700 block mb-2">
+      Ta reponse
+    </label>
+    {% set sc = question.scoring or {} %}
+    {% if sc.mode == "albert" %}
+    <textarea id="answer" name="answer" rows="3" required
+              placeholder="Redige une justification courte (1 a 2 phrases)"
+              class="w-full border border-slate-200 rounded-xl px-4 py-3 text-base focus:ring-2 focus:ring-brand-400 focus:border-brand-400 outline-none transition"></textarea>
+    {% else %}
+    <input id="answer" type="text" name="answer" autocomplete="off" required
+           inputmode="text"
+           placeholder="Un nombre, un mot-cle, une lettre de proposition…"
+           class="w-full border border-slate-200 rounded-xl px-4 py-3 text-base focus:ring-2 focus:ring-brand-400 focus:border-brand-400 outline-none transition">
+    {% include "_math_palette.html" %}
+    {% endif %}
+  </div>
+  <div class="flex items-center justify-between gap-3 flex-wrap">
+    <span id="loading" class="htmx-indicator text-sm text-brand-700 items-center gap-2">
+      <span class="inline-block h-2.5 w-2.5 rounded-full bg-brand-500 animate-ping"></span>
+      J'analyse…
+    </span>
+    <div class="flex items-center gap-2 ml-auto">
+      <button type="button"
+              hx-post="/sciences/simulation/travail/hint"
+              hx-target="#feedback-area"
+              hx-swap="innerHTML"
+              hx-indicator="#loading"
+              class="btn-secondary">
+        Indice
+      </button>
+      <button type="button"
+              hx-post="/sciences/simulation/travail/reveal"
+              hx-target="#feedback-area"
+              hx-swap="innerHTML"
+              hx-indicator="#loading"
+              hx-confirm="Tu veux qu'on te revele la reponse maintenant ?"
+              class="btn-secondary">
+        Je donne ma langue au chat
+      </button>
+      <button type="submit" class="btn-primary hover:wiggle">
+        Valider
+      </button>
+    </div>
+  </div>
+</form>
+
+<div id="feedback-area" class="mt-6" aria-live="polite" aria-atomic="true"></div>
+
+<div class="mt-8 text-center">
+  <a href="/sciences/simulation/restart" class="text-sm text-slate-500 hover:text-brand-700">
+    ← Abandonner cette simulation
+  </a>
+</div>
+{% endblock %}

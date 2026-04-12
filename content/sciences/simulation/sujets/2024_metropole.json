@@ -1,0 +1,375 @@
+{
+  "id": "sim_2024_metropole",
+  "source": {
+    "type": "annale",
+    "annee": 2024,
+    "centre": "metropole",
+    "document": "2024_Metropole_sciences.pdf",
+    "corrige": "scb_corrige-2024-sciences-metropole.pdf"
+  },
+  "points_total": 50,
+  "disciplines": [
+    {
+      "id": "sim_2024_metro_pc",
+      "discipline": "physique_chimie",
+      "theme_titre": "Piscine et equilibre de l'eau / Plongeon a 10 m (JO Paris 2024)",
+      "points": 25,
+      "documents": [
+        {
+          "id": "pc_page1",
+          "label": "Introduction, pH de l'eau de piscine et rouge de phenol",
+          "capture": "2024_metropole/d1_page_1.png"
+        },
+        {
+          "id": "pc_page2",
+          "label": "Reaction chimique fer/acide et tests d'identification",
+          "capture": "2024_metropole/d1_page_2.png"
+        },
+        {
+          "id": "pc_page3",
+          "label": "Plongeon a 10 m : energie cinetique et vitesse",
+          "capture": "2024_metropole/d1_page_3.png"
+        }
+      ],
+      "questions": [
+        {
+          "id": "sim_2024_metro_pc_q1",
+          "numero": "1",
+          "texte": "Donner les deux inconvenients d'une eau de piscine dont le pH est inferieur a 7.",
+          "points": 2,
+          "documents_ref": ["pc_page1"],
+          "scoring": {
+            "mode": "albert",
+            "reponse_modele": "Les deux inconvenients d'une eau de piscine dont le pH est inferieur a 7 sont : l'irritation de la peau et des yeux, et la reduction de la duree de vie des equipements metalliques.",
+            "criteres_validation": [
+              "L'eleve mentionne l'irritation de la peau et/ou des yeux",
+              "L'eleve mentionne la reduction de la duree de vie des equipements metalliques"
+            ]
+          },
+          "indices": {
+            "niveau_1": "Relis le document qui presente les consequences d'un pH trop bas pour l'eau de piscine.",
+            "niveau_2": "Un pH inferieur a 7 signifie que l'eau est acide. Quels effets cela a-t-il sur le corps humain et sur les equipements ?",
+            "niveau_3": "L'eau acide irrite la peau et les yeux, et elle abime les equipements metalliques (duree de vie reduite)."
+          },
+          "reveal_explication": "Quand le pH est inferieur a 7, l'eau est acide. Cela provoque deux problemes : une irritation de la peau et des yeux pour les baigneurs, et une reduction de la duree de vie des equipements metalliques de la piscine."
+        },
+        {
+          "id": "sim_2024_metro_pc_q2a",
+          "numero": "2a",
+          "texte": "Indiquer si l'eau de la piscine a un caractere acide, basique ou neutre. Justifier.",
+          "points": 3,
+          "documents_ref": ["pc_page1"],
+          "scoring": {
+            "mode": "albert",
+            "reponse_modele": "L'eau de la piscine est basique. En effet, le test au rouge de phenol donne une couleur rouge, ce qui correspond a un pH compris entre 8,4 et 14 d'apres l'echelle donnee. Un pH superieur a 7 indique un caractere basique.",
+            "criteres_validation": [
+              "L'eleve identifie le caractere basique de l'eau",
+              "L'eleve justifie par la couleur rouge du rouge de phenol",
+              "L'eleve fait le lien avec un pH superieur a 7 (entre 8,4 et 14)"
+            ]
+          },
+          "indices": {
+            "niveau_1": "Observe le resultat du test au rouge de phenol : quelle couleur obtient-on ?",
+            "niveau_2": "La couleur rouge correspond a quel intervalle de pH sur l'echelle du rouge de phenol ? Ce pH est-il superieur ou inferieur a 7 ?",
+            "niveau_3": "Le rouge de phenol est rouge, donc le pH est entre 8,4 et 14. Comme c'est superieur a 7, l'eau est basique."
+          },
+          "reveal_explication": "Le test au rouge de phenol donne une couleur rouge, ce qui correspond a un pH compris entre 8,4 et 14. Puisque ce pH est superieur a 7, l'eau de la piscine a un caractere basique."
+        },
+        {
+          "id": "sim_2024_metro_pc_q2b",
+          "numero": "2b",
+          "texte": "Sachant que S correspond au soufre, donner le nom des autres atomes constituant la molecule de rouge de phenol C19H14O5S.",
+          "points": 3,
+          "documents_ref": ["pc_page1"],
+          "scoring": {
+            "mode": "albert",
+            "reponse_modele": "Les autres atomes constituant la molecule de rouge de phenol sont : le carbone (C), l'hydrogene (H) et l'oxygene (O).",
+            "criteres_validation": [
+              "L'eleve identifie le carbone (C)",
+              "L'eleve identifie l'hydrogene (H)",
+              "L'eleve identifie l'oxygene (O)"
+            ]
+          },
+          "indices": {
+            "niveau_1": "Regarde la formule chimique C19H14O5S : chaque lettre majuscule represente un type d'atome different.",
+            "niveau_2": "On te dit que S est le soufre. Il reste trois autres lettres : C, H et O. A quels atomes correspondent-elles ?",
+            "niveau_3": "C = carbone, H = hydrogene, O = oxygene."
+          },
+          "reveal_explication": "La formule C19H14O5S contient quatre types d'atomes. S est le soufre (donne dans l'enonce). Les trois autres sont : C pour le carbone, H pour l'hydrogene et O pour l'oxygene."
+        },
+        {
+          "id": "sim_2024_metro_pc_q3",
+          "numero": "3",
+          "texte": "Citer parmi Fe, H+, Fe2+, H2 la formule d'une molecule, d'un atome et d'un ion.",
+          "points": 3,
+          "documents_ref": ["pc_page2"],
+          "scoring": {
+            "mode": "albert",
+            "reponse_modele": "Molecule : H2. Atome : Fe. Ion : Fe2+ (ou H+).",
+            "criteres_validation": [
+              "L'eleve identifie H2 comme molecule",
+              "L'eleve identifie Fe comme atome",
+              "L'eleve identifie Fe2+ ou H+ comme ion"
+            ]
+          },
+          "indices": {
+            "niveau_1": "Rappelle-toi : une molecule est composee de plusieurs atomes lies, un atome est un element seul sans charge, et un ion porte une charge electrique (+ ou -).",
+            "niveau_2": "Parmi les quatre formules, laquelle a un indice (chiffre en bas) indiquant plusieurs atomes ? Laquelle n'a ni indice ni charge ? Laquelle porte un + ou un - ?",
+            "niveau_3": "H2 a deux atomes d'hydrogene donc c'est une molecule. Fe est seul et sans charge donc c'est un atome. Fe2+ et H+ portent une charge + donc ce sont des ions."
+          },
+          "reveal_explication": "H2 est une molecule car elle est composee de deux atomes d'hydrogene lies. Fe est un atome car c'est un element seul sans charge. Fe2+ est un ion car il porte une charge positive (2+). H+ est egalement un ion."
+        },
+        {
+          "id": "sim_2024_metro_pc_q4",
+          "numero": "4",
+          "texte": "Ecrire les numeros des propositions correctes parmi P1 a P4 concernant les tests d'identification des produits de la reaction Fe + 2H+ -> Fe2+ + H2.\nP1 : On ajoute de la soude, un precipite vert apparait.\nP2 : On ajoute de la soude, un precipite rouille apparait.\nP3 : On approche une flamme, une detonation se produit.\nP4 : On approche une allumette, elle se rallume.",
+          "points": 2,
+          "documents_ref": ["pc_page2"],
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "texte_court",
+            "reponse_canonique": "P1 P3",
+            "formes_acceptees": ["P1 et P3", "p1 p3", "p1 et p3", "P1, P3", "p1, p3", "1 et 3", "1 3"],
+            "tolerances": {"abs": 0.0, "rel": 0.0}
+          },
+          "indices": {
+            "niveau_1": "Regarde les produits de la reaction : Fe2+ et H2. Les tests doivent identifier ces produits.",
+            "niveau_2": "Le precipite vert avec la soude est le test de l'ion Fe2+. La detonation a la flamme est le test du dihydrogene H2. Ces deux especes sont-elles des produits de la reaction ?",
+            "niveau_3": "Fe2+ est un produit (test = precipite vert = P1). H2 est un produit (test = detonation = P3). Les propositions correctes sont P1 et P3."
+          },
+          "reveal_explication": "Les produits de la reaction sont Fe2+ et H2. P1 est correcte : l'ajout de soude a une solution contenant des ions Fe2+ donne un precipite vert. P3 est correcte : le dihydrogene H2 produit une detonation au contact d'une flamme. P2 (precipite rouille = Fe3+) et P4 (rallume une allumette = O2) testent des especes absentes de cette reaction."
+        },
+        {
+          "id": "sim_2024_metro_pc_q5a",
+          "numero": "5a",
+          "texte": "Decrire l'evolution de l'energie cinetique du plongeur au cours du temps.",
+          "points": 3,
+          "documents_ref": ["pc_page3"],
+          "scoring": {
+            "mode": "albert",
+            "reponse_modele": "L'energie cinetique du plongeur augmente au cours du temps pendant le plongeon. On peut le lire sur le graphique : la courbe d'energie cinetique monte progressivement du depart jusqu'a l'impact avec l'eau.",
+            "criteres_validation": [
+              "L'eleve indique que l'energie cinetique augmente au cours du temps",
+              "L'eleve fait reference au graphique pour appuyer sa reponse"
+            ]
+          },
+          "indices": {
+            "niveau_1": "Observe le graphique representant l'energie cinetique en fonction du temps.",
+            "niveau_2": "La courbe monte-t-elle ou descend-elle au fil du temps ?",
+            "niveau_3": "La courbe monte : l'energie cinetique augmente au cours du temps pendant le plongeon."
+          },
+          "reveal_explication": "D'apres le graphique, l'energie cinetique du plongeur augmente au cours du temps pendant toute la duree du plongeon, depuis le moment ou il quitte la plateforme jusqu'a l'impact avec l'eau."
+        },
+        {
+          "id": "sim_2024_metro_pc_q5b",
+          "numero": "5b",
+          "texte": "Nommer la forme d'energie convertie en energie cinetique.",
+          "points": 3,
+          "documents_ref": ["pc_page3"],
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "texte_court",
+            "reponse_canonique": "energie potentielle de position",
+            "formes_acceptees": ["energie potentielle", "Epp", "potentielle de pesanteur", "energie de position", "energie potentielle de pesanteur"],
+            "tolerances": {"abs": 0.0, "rel": 0.0}
+          },
+          "indices": {
+            "niveau_1": "Le plongeur est en hauteur avant de plonger. Quelle forme d'energie possede un objet en hauteur ?",
+            "niveau_2": "Quand un objet tombe, il perd de la hauteur. L'energie liee a la hauteur s'appelle l'energie potentielle de...",
+            "niveau_3": "C'est l'energie potentielle de position (ou energie potentielle de pesanteur) qui se convertit en energie cinetique lors de la chute."
+          },
+          "reveal_explication": "Lors du plongeon, le plongeur perd de l'altitude. Son energie potentielle de position (aussi appelee energie potentielle de pesanteur) se convertit en energie cinetique. Plus il descend, plus il accelere."
+        },
+        {
+          "id": "sim_2024_metro_pc_q5c",
+          "numero": "5c",
+          "texte": "Indiquer la duree du plongeon en seconde.",
+          "points": 3,
+          "documents_ref": ["pc_page3"],
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "decimal",
+            "reponse_canonique": "1.7",
+            "formes_acceptees": ["1,7", "1.7", "1,7 s", "1.7 s"],
+            "tolerances": {"abs": 0.1, "rel": 0.0},
+            "unite": "s"
+          },
+          "indices": {
+            "niveau_1": "Lis la duree du plongeon sur le graphique : repere le moment ou le plongeur atteint l'eau.",
+            "niveau_2": "Sur l'axe horizontal (temps), lis la valeur au moment de l'impact avec l'eau.",
+            "niveau_3": "La duree du plongeon est d'environ 1,7 seconde (lecture graphique)."
+          },
+          "reveal_explication": "En lisant le graphique, le plongeur atteint l'eau a t = 1,7 s environ. La duree du plongeon est donc de 1,7 seconde."
+        },
+        {
+          "id": "sim_2024_metro_pc_q5d",
+          "numero": "5d",
+          "texte": "Determiner si la vitesse au moment de l'impact respecte la norme de securite (80 km/h).",
+          "points": 3,
+          "documents_ref": ["pc_page3"],
+          "scoring": {
+            "mode": "albert",
+            "reponse_modele": "D'apres le graphique, la vitesse au moment de l'impact est d'environ 14 m/s. Conversion en km/h : 14 x 3,6 = 50,4 km/h. Comme 50,4 km/h est inferieur a 80 km/h, la norme de securite est respectee.",
+            "criteres_validation": [
+              "L'eleve lit correctement la vitesse sur le graphique (environ 14 m/s)",
+              "L'eleve convertit correctement en km/h (multiplication par 3,6)",
+              "L'eleve compare le resultat a 80 km/h et conclut que la norme est respectee"
+            ]
+          },
+          "indices": {
+            "niveau_1": "Lis la vitesse a l'impact sur le graphique (en m/s), puis convertis-la en km/h.",
+            "niveau_2": "Pour convertir des m/s en km/h, on multiplie par 3,6. La vitesse lue est d'environ 14 m/s.",
+            "niveau_3": "14 m/s x 3,6 = 50,4 km/h. C'est inferieur a 80 km/h, donc la norme est respectee."
+          },
+          "reveal_explication": "La vitesse a l'impact lue sur le graphique est d'environ 14 m/s. En convertissant : 14 x 3,6 = 50,4 km/h. Comme 50,4 km/h < 80 km/h, la norme de securite est bien respectee."
+        }
+      ]
+    },
+    {
+      "id": "sim_2024_metro_tech",
+      "discipline": "technologie",
+      "theme_titre": "Vigie : surveillance des incendies de foret",
+      "points": 25,
+      "documents": [
+        {
+          "id": "tech_page1",
+          "label": "Presentation de la vigie et besoin",
+          "capture": "2024_metropole/d2_page_1.png"
+        },
+        {
+          "id": "tech_page2",
+          "label": "Fonctions techniques, mouvement de l'appareil photo",
+          "capture": "2024_metropole/d2_page_2.png"
+        },
+        {
+          "id": "tech_page3",
+          "label": "Autonomie energetique et traitement d'image",
+          "capture": "2024_metropole/d2_page_3.png"
+        },
+        {
+          "id": "tech_annexe1",
+          "label": "Annexe 1 : diagramme fonctions/solutions techniques (a completer)",
+          "capture": "2024_metropole/d2_page_4.png"
+        },
+        {
+          "id": "tech_annexe2",
+          "label": "Annexe 2 : programme de tri (a completer)",
+          "capture": "2024_metropole/d2_page_5.png"
+        }
+      ],
+      "questions": [
+        {
+          "id": "sim_2024_metro_tech_q1",
+          "numero": "1",
+          "texte": "Identifier le besoin de la vigie et associer les solutions techniques aux fonctions techniques (6 reponses attendues sur l'annexe).",
+          "points": 5,
+          "documents_ref": ["tech_page1", "tech_page2", "tech_annexe1"],
+          "scoring": {
+            "mode": "albert",
+            "reponse_modele": "Besoin : assurer la bonne activite du guet / surveiller la foret pour detecter les incendies. Associations : E1 correspond a 7 (structure metallique), E2 correspond a 1 (volets pliants), E3 correspond a 3 (isolation laine de bois) et 6 (ventilation), E4 correspond a 2 (appareil photo 1) et 5 (appareil photo 2), E5 correspond a 4 (panneau photovoltaique et batterie).",
+            "criteres_validation": [
+              "L'eleve identifie le besoin (surveiller la foret / detecter les incendies)",
+              "L'eleve associe correctement la majorite des solutions techniques aux fonctions techniques",
+              "L'eleve fournit au moins 4 associations correctes sur 6"
+            ]
+          },
+          "indices": {
+            "niveau_1": "Relis la presentation de la vigie : a quoi sert-elle ? Puis regarde le diagramme de l'annexe 1 pour associer chaque fonction a sa solution.",
+            "niveau_2": "Le besoin est lie a la surveillance des forets. Pour les associations, chaque solution technique repond a une fonction precise : la structure porte la vigie, les volets protegent, l'isolation et la ventilation assurent le confort, les appareils photo surveillent, le panneau solaire alimente.",
+            "niveau_3": "Besoin : detecter les incendies de foret. E1=structure metallique, E2=volets pliants, E3=isolation+ventilation, E4=appareils photo, E5=panneau solaire+batterie."
+          },
+          "reveal_explication": "Le besoin de la vigie est de surveiller la foret pour detecter les incendies. Les associations sont : E1 = 7 (structure metallique pour supporter la vigie en hauteur), E2 = 1 (volets pliants pour proteger des intemperies), E3 = 3 et 6 (isolation laine de bois et ventilation pour le confort thermique), E4 = 2 et 5 (deux appareils photo pour la surveillance panoramique), E5 = 4 (panneau photovoltaique et batterie pour l'alimentation electrique)."
+        },
+        {
+          "id": "sim_2024_metro_tech_q2",
+          "numero": "2",
+          "texte": "Indiquer la nature du mouvement de l'appareil photo 1. Determiner le temps ecoule pour que l'appareil atteigne la position 6 (60 degres).",
+          "points": 4,
+          "documents_ref": ["tech_page2"],
+          "scoring": {
+            "mode": "albert",
+            "reponse_modele": "Le mouvement de l'appareil photo 1 est un mouvement de rotation. Pour atteindre la position 6 (60 degres) : chaque prise de vue correspond a une rotation de 10 degres, avec un intervalle de 2 secondes entre chaque prise. La position 6 correspond a 60 degres, soit 6 prises de vue. Le temps ecoule est donc 6 x 2 = 12 secondes.",
+            "criteres_validation": [
+              "L'eleve identifie un mouvement de rotation",
+              "L'eleve calcule correctement le temps pour la position 6",
+              "L'eleve trouve 12 secondes"
+            ]
+          },
+          "indices": {
+            "niveau_1": "L'appareil photo tourne autour d'un axe pour balayer le paysage. Quel type de mouvement est-ce ?",
+            "niveau_2": "C'est un mouvement de rotation. Pour le temps, calcule combien de prises de vue sont necessaires pour atteindre 60 degres si chaque prise correspond a 10 degres.",
+            "niveau_3": "Rotation. 60 degres / 10 degres = 6 positions. 6 x 2 secondes = 12 secondes."
+          },
+          "reveal_explication": "L'appareil photo effectue un mouvement de rotation autour de son axe. Chaque position correspond a une rotation de 10 degres, avec 2 secondes entre chaque prise de vue. Pour atteindre la position 6 a 60 degres : 6 positions x 2 secondes = 12 secondes."
+        },
+        {
+          "id": "sim_2024_metro_tech_q3",
+          "numero": "3",
+          "texte": "Calculer la capacite de la batterie Q = I x t necessaire pour assurer 12 heures d'autonomie sans apport solaire.",
+          "points": 6,
+          "documents_ref": ["tech_page3"],
+          "scoring": {
+            "mode": "python",
+            "type_reponse": "decimal",
+            "reponse_canonique": "28.8",
+            "formes_acceptees": ["28,8", "28.8", "28,8 Ah", "28.8 Ah"],
+            "tolerances": {"abs": 0.5, "rel": 0.0},
+            "unite": "Ah"
+          },
+          "indices": {
+            "niveau_1": "La formule est Q = I x t. Il faut d'abord calculer l'intensite totale I en additionnant les intensites de tous les composants.",
+            "niveau_2": "I total = 0,7 + 0,5 + 0,7 + 0,5 = 2,4 A. La duree est t = 12 h.",
+            "niveau_3": "Q = 2,4 x 12 = 28,8 Ah."
+          },
+          "reveal_explication": "L'intensite totale consommee est I = 0,7 + 0,5 + 0,7 + 0,5 = 2,4 A. La capacite necessaire pour 12 heures est Q = I x t = 2,4 x 12 = 28,8 Ah."
+        },
+        {
+          "id": "sim_2024_metro_tech_q4",
+          "numero": "4",
+          "texte": "Exprimer la valeur binaire du pixel P au cycle 2, rechercher les valeurs decimales aux cycles 1 et 2, et deduire si une alerte est declenchee.",
+          "points": 5,
+          "documents_ref": ["tech_page3"],
+          "scoring": {
+            "mode": "albert",
+            "reponse_modele": "Au cycle 1, la valeur binaire est 11000110, soit 198 en decimal. Au cycle 2, la valeur binaire est lue sur le graphique et convertie en decimal. La difference entre les deux valeurs decimales est superieure a 50, donc une alerte est declenchee (un changement significatif dans l'image a ete detecte, pouvant indiquer un depart de feu).",
+            "criteres_validation": [
+              "L'eleve exprime correctement la valeur binaire du pixel au cycle 2",
+              "L'eleve convertit correctement les valeurs binaires en decimal",
+              "L'eleve compare la difference a 50 et conclut sur le declenchement de l'alerte"
+            ]
+          },
+          "indices": {
+            "niveau_1": "Lis la valeur binaire du pixel P sur le graphique pour le cycle 2. Rappelle-toi comment convertir du binaire en decimal.",
+            "niveau_2": "Pour convertir du binaire en decimal, multiplie chaque bit par la puissance de 2 correspondante (128, 64, 32, 16, 8, 4, 2, 1) et additionne.",
+            "niveau_3": "Cycle 1 : 11000110 = 128+64+4+2 = 198. Calcule la valeur du cycle 2 de la meme facon, puis verifie si la difference depasse 50."
+          },
+          "reveal_explication": "Au cycle 1, la valeur binaire 11000110 correspond a 128+64+4+2 = 198 en decimal. Au cycle 2, on lit la nouvelle valeur binaire sur le graphique et on la convertit. Si la difference entre les deux valeurs decimales est superieure a 50, le systeme declenche une alerte car cela indique un changement significatif dans l'image (potentiel depart de feu)."
+        },
+        {
+          "id": "sim_2024_metro_tech_q5",
+          "numero": "5",
+          "texte": "Completer le programme de tri (5 elements attendus sur l'annexe).",
+          "points": 5,
+          "documents_ref": ["tech_page3", "tech_annexe2"],
+          "scoring": {
+            "mode": "albert",
+            "reponse_modele": "Le programme de tri fonctionne ainsi : si une bouteille est presente, le tapis avance. Ensuite, si la masse est superieure a 50 g, la bouteille est rejetee. Sinon, on analyse la transparence : si la luminosite est superieure a 80, on oriente la trappe a 0 degre (bouteille transparente). Sinon, on oriente la trappe a 30 degres (bouteille opaque). Enfin, on active le broyeur.",
+            "criteres_validation": [
+              "L'eleve complete correctement la condition de presence de la bouteille",
+              "L'eleve complete la condition de masse (> 50)",
+              "L'eleve complete la condition de luminosite (> 80)",
+              "L'eleve indique les bonnes orientations de trappe (0 et 30 degres)",
+              "L'eleve place l'activation du broyeur au bon endroit"
+            ]
+          },
+          "indices": {
+            "niveau_1": "Lis le cahier des charges du systeme de tri : quelles sont les etapes successives pour trier une bouteille ?",
+            "niveau_2": "Le programme suit une logique : detection -> pesage -> analyse optique -> orientation -> broyage. Complete chaque bloc avec la bonne condition ou action.",
+            "niveau_3": "Si bouteille presente -> tapis. Si masse > 50 -> rejeter. Si luminosite > 80 -> trappe 0 degre, sinon trappe 30 degres. Activer le broyeur."
+          },
+          "reveal_explication": "Le programme suit cette logique : 1) Si une bouteille est detectee, le tapis avance. 2) Si la masse depasse 50 g, la bouteille est rejetee. 3) Sinon, on mesure la luminosite : si elle depasse 80, la bouteille est transparente et la trappe s'oriente a 0 degre ; sinon, la bouteille est opaque et la trappe s'oriente a 30 degres. 4) Le broyeur est active."
+        }
+      ]
+    }
+  ]
+}
