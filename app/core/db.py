@@ -28,6 +28,7 @@ from datetime import datetime
 from pathlib import Path
 from typing import Iterator
 
+from sqlalchemy import UniqueConstraint
 from sqlmodel import Field, Session as DBSession, SQLModel, create_engine, select
 
 logger = logging.getLogger(__name__)
@@ -60,6 +61,7 @@ class Session(SQLModel, table=True):
     """
 
     id: int | None = Field(default=None, primary_key=True)
+    user_key: str | None = Field(default=None, index=True)
     subject_kind: str = Field(default="hgemc_dc", index=True)
     subject_id: int | None = Field(default=None, foreign_key="subject.id")
     mode: str = "semi_assiste"  # "semi_assiste" pour le MVP
@@ -76,6 +78,29 @@ class Turn(SQLModel, table=True):
     role: str  # "user" | "assistant"
     content: str
     created_at: datetime = Field(default_factory=datetime.utcnow)
+
+
+class UserProgress(SQLModel, table=True):
+    """Progression d'un eleve sur une question/item.
+
+    Table unifiee pour toutes les matieres, identifiee par le triplet
+    (user_key, subject_kind, item_id). Alimentee en ecriture double a cote
+    des tables d'attempts existantes (RepereAttempt, AutoAttempt, etc.).
+    """
+
+    __tablename__ = "userprogress"
+    __table_args__ = (
+        UniqueConstraint("user_key", "subject_kind", "item_id"),
+    )
+
+    id: int | None = Field(default=None, primary_key=True)
+    user_key: str = Field(index=True)
+    subject_kind: str = Field(index=True)
+    item_id: str = Field(index=True)
+    status: str  # "reussi" | "rate" | "en_cours"
+    attempts: int = 1
+    first_seen_at: datetime = Field(default_factory=datetime.utcnow)
+    last_seen_at: datetime = Field(default_factory=datetime.utcnow)
 
 
 # ============================================================================
@@ -165,6 +190,7 @@ def create_session(
     subject_id: int | None = None,
     mode: str = "semi_assiste",
     subject_kind: str = "hgemc_dc",
+    user_key: str | None = None,
 ) -> Session:
     """Crée une nouvelle session élève.
 
@@ -172,11 +198,13 @@ def create_session(
     `subject_id` est optionnel — il ne sert qu'aux épreuves qui pointent
     vers une ligne `Subject` (cf. DC). Les épreuves type quiz le laissent
     à None.
+    `user_key` relie la session à un élève identifié par sa clé localStorage.
     """
     sess = Session(
         subject_kind=subject_kind,
         subject_id=subject_id,
         mode=mode,
+        user_key=user_key,
     )
     s.add(sess)
     s.commit()
@@ -239,9 +267,97 @@ def get_last_user_turn(
     return rows[0] if rows else None
 
 
+# ============================================================================
+# Helpers progression élève (UserProgress)
+# ============================================================================
+
+
+def record_progress(
+    s: DBSession,
+    user_key: str,
+    subject_kind: str,
+    item_id: str,
+    success: bool,
+) -> UserProgress:
+    """Upsert de la progression d'un élève sur un item.
+
+    La réussite est un état absorbant : une fois « reussi », le statut ne
+    repasse jamais à « rate ». Le compteur d'attempts est incrémenté à chaque
+    appel.
+    """
+    row = s.exec(
+        select(UserProgress).where(
+            UserProgress.user_key == user_key,
+            UserProgress.subject_kind == subject_kind,
+            UserProgress.item_id == item_id,
+        )
+    ).first()
+
+    now = datetime.utcnow()
+    if row is None:
+        row = UserProgress(
+            user_key=user_key,
+            subject_kind=subject_kind,
+            item_id=item_id,
+            status="reussi" if success else "rate",
+            attempts=1,
+            first_seen_at=now,
+            last_seen_at=now,
+        )
+    else:
+        row.attempts += 1
+        row.last_seen_at = now
+        if success:
+            row.status = "reussi"
+        # Si déjà « reussi », on ne repasse pas à « rate » (absorbant).
+        # Si « rate » et encore raté, on reste « rate ».
+
+    s.add(row)
+    s.commit()
+    s.refresh(row)
+    return row
+
+
+def get_progress_counts(
+    s: DBSession,
+    user_key: str,
+    subject_kind: str,
+) -> dict[str, int]:
+    """Compte les items par statut pour un élève et une épreuve."""
+    rows = s.exec(
+        select(UserProgress.status).where(
+            UserProgress.user_key == user_key,
+            UserProgress.subject_kind == subject_kind,
+        )
+    ).all()
+    counts: dict[str, int] = {"reussi": 0, "rate": 0, "en_cours": 0}
+    for status in rows:
+        if status in counts:
+            counts[status] += 1
+    return counts
+
+
+def get_item_ids_by_status(
+    s: DBSession,
+    user_key: str,
+    subject_kind: str,
+    status: str,
+) -> list[str]:
+    """Renvoie les item_id ayant le statut demandé pour un élève et une épreuve."""
+    rows = s.exec(
+        select(UserProgress.item_id).where(
+            UserProgress.user_key == user_key,
+            UserProgress.subject_kind == subject_kind,
+            UserProgress.status == status,
+        )
+    ).all()
+    return list(rows)
+
+
 __all__ = [
     "Session",
     "Turn",
+    "UserProgress",
     "init_db",
     "get_engine",
     "db_session",
@@ -252,5 +368,8 @@ __all__ = [
     "get_turns",
     "get_turns_by_step",
     "get_last_user_turn",
+    "record_progress",
+    "get_progress_counts",
+    "get_item_ids_by_status",
     "DB_PATH",
 ]

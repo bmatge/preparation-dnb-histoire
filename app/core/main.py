@@ -37,7 +37,7 @@ from dotenv import load_dotenv
 
 load_dotenv(Path(__file__).resolve().parent.parent.parent / ".env", override=True)
 
-from fastapi import FastAPI, Request
+from fastapi import Depends, FastAPI, Request
 from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
@@ -161,6 +161,16 @@ def on_startup() -> None:
 
 
 # ============================================================================
+# Dépendance user_key (progression élève)
+# ============================================================================
+
+
+def get_user_key(request: Request) -> str | None:
+    """Lit la clé élève depuis le header X-User-Key posé par le JS client."""
+    return request.headers.get("x-user-key") or None
+
+
+# ============================================================================
 # Routes transverses
 # ============================================================================
 
@@ -169,6 +179,12 @@ def on_startup() -> None:
 def home(request: Request):
     """Accueil global : sélecteur de matière."""
     return templates.TemplateResponse(request, "home.html")
+
+
+@app.get("/mon-compte", response_class=HTMLResponse)
+def mon_compte(request: Request):
+    """Ecran de gestion de la clé élève (copier, restaurer, réinitialiser)."""
+    return templates.TemplateResponse(request, "mon_compte.html")
 
 
 @app.get("/healthz")

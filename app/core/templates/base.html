@@ -40,6 +40,21 @@
       },
     };
   </script>
+  <script>
+    // Init cle eleve (progression locale via localStorage).
+    // Genere un UUID v4 au premier chargement, puis injecte X-User-Key
+    // sur toutes les requetes HTMX via htmx:configRequest.
+    (function() {
+      var KEY = 'rtd:user-key';
+      if (!localStorage.getItem(KEY)) {
+        localStorage.setItem(KEY, crypto.randomUUID());
+      }
+      document.addEventListener('htmx:configRequest', function(e) {
+        var k = localStorage.getItem(KEY);
+        if (k) e.detail.headers['X-User-Key'] = k;
+      });
+    })();
+  </script>
   <style>
     body {
       font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
@@ -254,6 +269,16 @@
         </a>
       </nav>
 
+      <a href="/mon-compte"
+         class="hidden md:inline-flex items-center justify-center h-9 w-9 rounded-lg text-slate-500 hover:text-brand-700 hover:bg-brand-50 transition"
+         title="Ma progression"
+         aria-label="Ma progression">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+          <circle cx="12" cy="7" r="4"></circle>
+        </svg>
+      </a>
+
       <button type="button"
               id="nav-toggle"
               aria-label="Ouvrir le menu"
@@ -289,6 +314,11 @@
         <a href="/sciences/"
            class="text-slate-700 hover:text-brand-700 hover:bg-brand-50 font-medium px-3 py-2 rounded-lg transition">
           Sciences
+        </a>
+        <hr class="border-slate-200/60 my-1">
+        <a href="/mon-compte"
+           class="text-slate-700 hover:text-brand-700 hover:bg-brand-50 font-medium px-3 py-2 rounded-lg transition">
+          Ma progression
         </a>
       </div>
     </nav>

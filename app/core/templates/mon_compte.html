@@ -1,0 +1,138 @@
+{% extends "base.html" %}
+
+{% block title %}Mon compte — Révise ton brevet{% endblock %}
+
+{% block content %}
+<section class="text-center mb-10 animate-reveal">
+  <h1 class="font-display text-3xl sm:text-4xl font-black text-slate-900 leading-tight mb-3">
+    Ma progression
+  </h1>
+  <p class="text-slate-600 max-w-xl mx-auto">
+    Ta cle unique permet de retrouver ta progression d'une visite a l'autre,
+    meme si tu fermes le navigateur. Note-la quelque part si tu veux pouvoir
+    la restaurer sur un autre appareil.
+  </p>
+</section>
+
+<section class="max-w-md mx-auto space-y-6 animate-reveal">
+
+  {# --- Cle actuelle --- #}
+  <div class="bg-white rounded-2xl shadow-glow border border-slate-100 p-5">
+    <h2 class="font-display font-bold text-lg text-brand-800 mb-3">Ta cle</h2>
+    <div class="flex items-center gap-2">
+      <input id="user-key-display"
+             type="text"
+             readonly
+             class="flex-1 bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-sm font-mono text-slate-700 select-all"
+             value="">
+      <button type="button"
+              id="btn-copy"
+              class="btn-secondary text-sm whitespace-nowrap"
+              title="Copier la cle">
+        Copier
+      </button>
+    </div>
+    <p id="copy-feedback" class="text-xs text-green-600 mt-1 hidden">
+      Cle copiee dans le presse-papiers.
+    </p>
+  </div>
+
+  {# --- Restaurer une cle --- #}
+  <div class="bg-white rounded-2xl shadow-glow border border-slate-100 p-5">
+    <h2 class="font-display font-bold text-lg text-brand-800 mb-3">Restaurer une cle</h2>
+    <p class="text-sm text-slate-600 mb-3">
+      Si tu as note ta cle d'un autre appareil, colle-la ici pour retrouver
+      ta progression.
+    </p>
+    <div class="flex items-center gap-2">
+      <input id="restore-input"
+             type="text"
+             placeholder="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+             class="flex-1 bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-sm font-mono text-slate-700"
+             maxlength="36">
+      <button type="button"
+              id="btn-restore"
+              class="btn-primary text-sm whitespace-nowrap">
+        Restaurer
+      </button>
+    </div>
+    <p id="restore-error" class="text-xs text-red-600 mt-1 hidden">
+      Format invalide. La cle doit etre un UUID (36 caracteres, avec tirets).
+    </p>
+    <p id="restore-ok" class="text-xs text-green-600 mt-1 hidden">
+      Cle restauree. La page va se recharger.
+    </p>
+  </div>
+
+  {# --- Nouvelle cle --- #}
+  <div class="bg-white rounded-2xl shadow-glow border border-slate-100 p-5">
+    <h2 class="font-display font-bold text-lg text-brand-800 mb-3">Repartir de zero</h2>
+    <p class="text-sm text-slate-600 mb-3">
+      Genere une nouvelle cle. Attention : ta progression actuelle sera perdue
+      si tu ne l'as pas notee.
+    </p>
+    <button type="button"
+            id="btn-reset"
+            class="btn-secondary text-sm text-red-600 border-red-200 hover:bg-red-50">
+      Nouvelle cle
+    </button>
+  </div>
+
+  <div class="text-center">
+    <a href="/" class="text-sm text-brand-700 hover:underline">Retour a l'accueil</a>
+  </div>
+</section>
+
+<script>
+(function() {
+  var KEY = 'rtd:user-key';
+  var UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+
+  var display = document.getElementById('user-key-display');
+  var btnCopy = document.getElementById('btn-copy');
+  var copyFb = document.getElementById('copy-feedback');
+  var restoreInput = document.getElementById('restore-input');
+  var btnRestore = document.getElementById('btn-restore');
+  var restoreErr = document.getElementById('restore-error');
+  var restoreOk = document.getElementById('restore-ok');
+  var btnReset = document.getElementById('btn-reset');
+
+  // Affiche la cle actuelle
+  function refresh() {
+    display.value = localStorage.getItem(KEY) || '(aucune cle)';
+  }
+  refresh();
+
+  // Copier
+  btnCopy.addEventListener('click', function() {
+    var k = localStorage.getItem(KEY);
+    if (!k) return;
+    navigator.clipboard.writeText(k).then(function() {
+      copyFb.classList.remove('hidden');
+      setTimeout(function() { copyFb.classList.add('hidden'); }, 2000);
+    });
+  });
+
+  // Restaurer
+  btnRestore.addEventListener('click', function() {
+    var val = restoreInput.value.trim().toLowerCase();
+    restoreErr.classList.add('hidden');
+    restoreOk.classList.add('hidden');
+    if (!UUID_RE.test(val)) {
+      restoreErr.classList.remove('hidden');
+      return;
+    }
+    localStorage.setItem(KEY, val);
+    restoreOk.classList.remove('hidden');
+    setTimeout(function() { location.reload(); }, 600);
+  });
+
+  // Reset
+  btnReset.addEventListener('click', function() {
+    if (!confirm('Tu es sur(e) ? Ta progression actuelle sera perdue.')) return;
+    localStorage.setItem(KEY, crypto.randomUUID());
+    location.reload();
+  });
+})();
+</script>
+{% endblock %}
