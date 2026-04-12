@@ -189,6 +189,79 @@ def mon_compte(request: Request):
     return templates.TemplateResponse(request, "mon_compte.html")
 
 
+_EPREUVES = [
+    ("hgemc_reperes", "Reperes", "/histoire-geo-emc/reperes/"),
+    ("francais_comprehension", "Comprehension", "/francais/comprehension/"),
+    ("math_automatismes", "Automatismes", "/mathematiques/automatismes/"),
+    ("math_problemes", "Problemes", "/mathematiques/problemes/"),
+    ("sciences_revision", "Sciences", "/sciences/revision/"),
+]
+
+
+@app.get("/api/progression/dashboard", response_class=HTMLResponse)
+def api_progression_dashboard(
+    request: Request,
+    s: DBSession = Depends(core_db.db_session),
+):
+    """Renvoie le tableau de bord de progression complet (fragment HTMX)."""
+    user_key = get_user_key(request)
+    if not user_key:
+        return HTMLResponse(
+            '<p class="text-sm text-slate-500 text-center">'
+            "Reponds a quelques questions pour voir ta progression ici."
+            "</p>"
+        )
+    rows: list[str] = []
+    has_any = False
+    for kind, label, url in _EPREUVES:
+        counts = core_db.get_progress_counts(s, user_key, kind)
+        total = counts["reussi"] + counts["rate"] + counts["en_cours"]
+        if total == 0:
+            rows.append(
+                f'<tr class="text-slate-400">'
+                f'<td class="py-2 pr-3"><a href="{url}" class="hover:text-brand-700">{label}</a></td>'
+                f'<td class="py-2 px-2 text-center">-</td>'
+                f'<td class="py-2 px-2 text-center">-</td>'
+                f'<td class="py-2 pl-3 w-full"></td>'
+                f"</tr>"
+            )
+            continue
+        has_any = True
+        pct = round(100 * counts["reussi"] / total) if total else 0
+        bar_r = f'style="width:{pct}%"' if pct > 0 else 'style="width:0%"'
+        bar_e = f'style="width:{100 - pct}%"' if pct < 100 else 'style="width:0%"'
+        rows.append(
+            f'<tr>'
+            f'<td class="py-2 pr-3 font-medium"><a href="{url}" class="hover:text-brand-700">{label}</a></td>'
+            f'<td class="py-2 px-2 text-center text-green-600">{counts["reussi"]}</td>'
+            f'<td class="py-2 px-2 text-center text-red-500">{counts["rate"]}</td>'
+            f'<td class="py-2 pl-3 w-full">'
+            f'<div class="flex h-2 rounded-full overflow-hidden bg-slate-100">'
+            f'<div class="bg-green-500 rounded-l-full" {bar_r}></div>'
+            f'<div class="bg-red-400 rounded-r-full" {bar_e}></div>'
+            f"</div></td>"
+            f"</tr>"
+        )
+    if not has_any:
+        return HTMLResponse(
+            '<p class="text-sm text-slate-500 text-center">'
+            "Reponds a quelques questions pour voir ta progression ici."
+            "</p>"
+        )
+    header = (
+        "<tr class='text-xs text-slate-500 uppercase tracking-wide'>"
+        "<th class='py-1 pr-3 text-left font-semibold'>Epreuve</th>"
+        "<th class='py-1 px-2 font-semibold'>OK</th>"
+        "<th class='py-1 px-2 font-semibold'>KO</th>"
+        "<th class='py-1 pl-3 text-left font-semibold'>Progression</th>"
+        "</tr>"
+    )
+    nl = "\n"
+    return HTMLResponse(
+        f'<table class="w-full text-sm">{header}{nl.join(rows)}</table>'
+    )
+
+
 @app.get("/api/progression/{subject_kind}", response_class=HTMLResponse)
 def api_progression(
     subject_kind: str,
