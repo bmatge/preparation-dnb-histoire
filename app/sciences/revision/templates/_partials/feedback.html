@@ -57,8 +57,20 @@
 {% if show_next %}
 <div class="mt-4 text-right">
   <a href="/sciences/revision/quiz"
+     id="btn-next"
      class="btn-primary hover:wiggle inline-flex items-center gap-1">
     Question suivante <span>→</span>
   </a>
 </div>
+<script>
+(function() {
+  var form = document.querySelector('form[hx-post]');
+  if (form) {
+    form.querySelectorAll('button, input').forEach(function(el) { el.disabled = true; });
+    form.classList.add('opacity-50', 'pointer-events-none');
+  }
+  var next = document.getElementById('btn-next');
+  if (next) next.focus();
+})();
+</script>
 {% endif %}
