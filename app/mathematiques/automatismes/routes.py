@@ -157,13 +157,26 @@ def quiz_new(
     request: Request,
     theme: str = Form(default=""),
     length: int = Form(default=DEFAULT_QUIZ_LENGTH),
+    mode: str = Form(default="tout"),
     s: DBSession = Depends(db_session),
 ):
     """Crée un quiz de N questions et démarre la session."""
     if length not in ALLOWED_QUIZ_LENGTHS:
         length = DEFAULT_QUIZ_LENGTH
+
+    exclude_ids: list[str] | None = None
+    only_ids: list[str] | None = None
+    user_key = request.headers.get("x-user-key")
+    if user_key and mode == "skip-reussies":
+        exclude_ids = core_db.get_item_ids_by_status(s, user_key, SUBJECT_KIND, "reussi")
+    elif user_key and mode == "refaire-echecs":
+        only_ids = core_db.get_item_ids_by_status(s, user_key, SUBJECT_KIND, "rate")
+        if not only_ids:
+            only_ids = None  # fallback tirage normal
+
     questions = auto_loader.pick_for_quiz(
-        s, n=length, theme=theme or None
+        s, n=length, theme=theme or None,
+        exclude_ids=exclude_ids, only_ids=only_ids,
     )
     if not questions:
         return RedirectResponse(

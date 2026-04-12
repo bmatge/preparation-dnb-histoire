@@ -60,6 +60,8 @@ def pick_for_quiz(
     n: int,
     discipline: str,
     theme: str | None = None,
+    exclude_ids: list[str] | None = None,
+    only_ids: list[str] | None = None,
 ) -> list[science_models.SciencesQuestionRow]:
     """Renvoie N questions tirées au sort pour une discipline, filtrées
     optionnellement par thème.
@@ -73,7 +75,8 @@ def pick_for_quiz(
     if n <= 0:
         return []
     return science_models.random_questions(
-        s, n=n, discipline=discipline, theme=theme
+        s, n=n, discipline=discipline, theme=theme,
+        exclude_ids=exclude_ids, only_ids=only_ids,
     )
 
 

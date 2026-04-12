@@ -382,13 +382,19 @@ def random_questions_by_theme(
     s: DBSession,
     n: int,
     theme: str | None = None,
+    exclude_ids: list[str] | None = None,
+    only_ids: list[str] | None = None,
 ) -> list[AutoQuestion]:
-    """Tire N questions pseudo-aléatoires, filtrées éventuellement par thème."""
+    """Tire N questions pseudo-aléatoires, filtrées optionnellement."""
     import random
 
     q = select(AutoQuestion)
     if theme:
         q = q.where(AutoQuestion.theme == theme)
+    if exclude_ids:
+        q = q.where(AutoQuestion.id.not_in(exclude_ids))  # type: ignore[attr-defined]
+    if only_ids:
+        q = q.where(AutoQuestion.id.in_(only_ids))  # type: ignore[attr-defined]
     rows = list(s.exec(q).all())
     random.shuffle(rows)
     return rows[:n]

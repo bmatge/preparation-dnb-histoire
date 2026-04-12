@@ -33,6 +33,8 @@ def pick_for_quiz(
     s: DBSession,
     n: int,
     theme: str | None = None,
+    exclude_ids: list[str] | None = None,
+    only_ids: list[str] | None = None,
 ) -> list[auto_models.AutoQuestion]:
     """Renvoie N questions tirées au sort, optionnellement filtrées par thème.
 
@@ -46,7 +48,9 @@ def pick_for_quiz(
     """
     if n <= 0:
         return []
-    return auto_models.random_questions_by_theme(s, n=n, theme=theme)
+    return auto_models.random_questions_by_theme(
+        s, n=n, theme=theme, exclude_ids=exclude_ids, only_ids=only_ids,
+    )
 
 
 __all__ = ["THEME_LABELS", "pick_for_quiz"]

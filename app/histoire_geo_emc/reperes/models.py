@@ -198,6 +198,7 @@ def random_reperes(
     discipline: str | None = None,
     theme: str | None = None,
     exclude_ids: list[str] | None = None,
+    only_ids: list[str] | None = None,
 ) -> list[Repere]:
     """Tire N repères pseudo-aléatoires, filtrés optionnellement."""
     import random
@@ -209,6 +210,8 @@ def random_reperes(
         q = q.where(Repere.theme == theme)
     if exclude_ids:
         q = q.where(Repere.id.not_in(exclude_ids))  # type: ignore[attr-defined]
+    if only_ids:
+        q = q.where(Repere.id.in_(only_ids))  # type: ignore[attr-defined]
     all_rows = list(s.exec(q).all())
     random.shuffle(all_rows)
     return all_rows[:n]

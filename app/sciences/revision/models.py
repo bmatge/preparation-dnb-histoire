@@ -430,6 +430,8 @@ def random_questions(
     n: int,
     discipline: str,
     theme: str | None = None,
+    exclude_ids: list[str] | None = None,
+    only_ids: list[str] | None = None,
 ) -> list[SciencesQuestionRow]:
     """Tire N questions pseudo-aléatoires pour une discipline donnée,
     optionnellement filtrées par thème."""
@@ -440,6 +442,10 @@ def random_questions(
     )
     if theme:
         q = q.where(SciencesQuestionRow.theme == theme)
+    if exclude_ids:
+        q = q.where(SciencesQuestionRow.id.not_in(exclude_ids))  # type: ignore[attr-defined]
+    if only_ids:
+        q = q.where(SciencesQuestionRow.id.in_(only_ids))  # type: ignore[attr-defined]
     rows = list(s.exec(q).all())
     random.shuffle(rows)
     return rows[:n]
