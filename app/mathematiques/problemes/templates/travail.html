@@ -1,11 +1,15 @@
 {% extends "_maths_base.html" %}
 
 {# Dispatcher visuel par type d'exercice :
-   - probleme_multi : titre d'exo, contexte partagé en disclose, numéro de sous-question "N/M".
+   - probleme_multi : titre d'exo, contexte partagé (disclose desktop + modale mobile), numéro de sous-question "N/M".
    - qcm            : titre d'exo, pas de contexte, compteur "Question N/M".
    - question_simple: titre d'exo, pas de contexte, pas de compteur (une seule question).
-   Le reste (formulaire, indices, révélation, feedback) est commun aux trois types. #}
+   Le reste (formulaire, indices, révélation, feedback) est commun aux trois types.
+   Mode read_only : l'élève consulte une sous-question déjà traitée via la
+   barre de progression ; le formulaire est remplacé par un rappel de
+   sa réponse et de la réponse attendue. #}
 {% set ex_type = exercise.type or "probleme_multi" %}
+{% set show_progress = (ex_type != "question_simple") and total > 1 %}
 
 {% block title %}
 {%- if ex_type == "question_simple" -%}
@@ -32,9 +36,63 @@
   </span>
 </div>
 
+{% if show_progress %}
+<nav class="mb-5 animate-reveal" aria-label="Progression dans l'exercice">
+  <ol class="flex items-center gap-1.5 flex-wrap">
+    {% for step in progress %}
+    {%- set base = "inline-flex items-center justify-center h-9 w-9 rounded-full text-xs font-bold border transition" -%}
+    {%- if step.is_viewing -%}
+      {%- set style = "ring-2 ring-brand-400 ring-offset-2 ring-offset-white" -%}
+    {%- else -%}
+      {%- set style = "" -%}
+    {%- endif -%}
+    {%- if step.status == "correct_first_try" -%}
+      {%- set color = "bg-emerald-500 text-white border-emerald-600" -%}
+      {%- set label = "Correcte du premier coup" -%}
+      {%- set icon = "✓" -%}
+    {%- elif step.status == "correct_with_hints" -%}
+      {%- set color = "bg-amber-400 text-amber-900 border-amber-500" -%}
+      {%- set label = "Correcte avec aide" -%}
+      {%- set icon = "✓" -%}
+    {%- elif step.status == "revealed" -%}
+      {%- set color = "bg-slate-300 text-slate-700 border-slate-400" -%}
+      {%- set label = "Réponse révélée" -%}
+      {%- set icon = "!" -%}
+    {%- elif step.status == "current" -%}
+      {%- set color = "bg-white text-brand-700 border-brand-500" -%}
+      {%- set label = "Sous-question en cours" -%}
+      {%- set icon = step.numero -%}
+    {%- else -%}
+      {%- set color = "bg-slate-50 text-slate-400 border-slate-200 border-dashed" -%}
+      {%- set label = "À venir" -%}
+      {%- set icon = step.numero -%}
+    {%- endif -%}
+    <li>
+      {% if step.clickable %}
+      <a href="/mathematiques/problemes/travail/revoir/{{ step.index }}"
+         class="{{ base }} {{ color }} {{ style }} hover:scale-105"
+         title="Sous-question {{ step.numero }} — {{ label }}"
+         aria-label="Revoir la sous-question {{ step.numero }} ({{ label }})">
+        {{ icon }}
+      </a>
+      {% else %}
+      <span class="{{ base }} {{ color }} {{ style }}"
+            title="Sous-question {{ step.numero }} — {{ label }}"
+            aria-label="Sous-question {{ step.numero }} ({{ label }})"
+            aria-current="{% if step.is_viewing %}step{% endif %}">
+        {{ icon }}
+      </span>
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ol>
+</nav>
+{% endif %}
+
 {% if ex_type == "probleme_multi" and exercise.contexte %}
-<div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 mb-5 animate-reveal">
-  <details class="group rtd-reminder-details"{% if position == 1 %} open{% endif %}>
+{# Desktop : disclose classique, qui reste discret mais disponible en un clic. #}
+<div class="hidden sm:block bg-white rounded-2xl border border-slate-200 shadow-sm p-5 mb-5 animate-reveal">
+  <details class="group rtd-reminder-details"{% if position == 1 and not read_only %} open{% endif %}>
     <summary class="flex items-center justify-between cursor-pointer list-none gap-3">
       <span class="text-sm font-semibold text-slate-700">Énoncé de l'exercice</span>
       <span class="flex items-center gap-2 text-xs">
@@ -54,6 +112,46 @@
     {% endif %}
   </details>
 </div>
+
+{# Mobile : bouton qui ouvre une modale plein écran. Sur petit écran, le
+   disclose inline poussait la sous-question trop bas et forçait l'élève
+   à scroller ; la modale garde l'énoncé accessible sans l'imposer. #}
+<div class="sm:hidden mb-4 animate-reveal">
+  <button type="button"
+          onclick="document.getElementById('ctx-modal').showModal()"
+          class="w-full flex items-center justify-between gap-3 bg-white rounded-2xl border border-slate-200 shadow-sm px-4 py-3 text-sm font-semibold text-slate-700">
+    <span class="flex items-center gap-2">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-brand-500" aria-hidden="true">
+        <path d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" />
+      </svg>
+      Voir l'énoncé de l'exercice
+    </span>
+    <span class="text-xs text-slate-400">Plein écran</span>
+  </button>
+</div>
+<dialog id="ctx-modal"
+        class="rtd-ctx-dialog p-0 rounded-2xl w-[min(100%,42rem)] max-h-[92vh] backdrop:bg-slate-900/60">
+  <div class="flex items-center justify-between gap-3 px-5 py-3 border-b border-slate-200 sticky top-0 bg-white z-10">
+    <span class="text-sm font-semibold text-slate-700">Énoncé de l'exercice</span>
+    <form method="dialog" class="m-0">
+      <button type="submit"
+              class="inline-flex items-center justify-center h-9 w-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600"
+              aria-label="Fermer l'énoncé">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5" aria-hidden="true">
+          <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+        </svg>
+      </button>
+    </form>
+  </div>
+  <div class="p-5 overflow-y-auto">
+    <div class="eval-md text-slate-800 text-[15px]">{{ exercise.contexte | eval_md }}</div>
+    {% if exercise.figure %}
+    <img src="/math-figures/{{ exercise.figure }}"
+         alt="Figure de l'exercice"
+         class="mx-auto max-w-full my-4 rounded-lg border border-slate-200 bg-white">
+    {% endif %}
+  </div>
+</dialog>
 {% endif %}
 
 <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 mb-5 animate-reveal">
@@ -79,6 +177,70 @@
        class="mx-auto max-w-md my-4 rounded-lg border border-slate-200 bg-white">
   {% endif %}
 </div>
+
+{% if read_only %}
+{# Mode révision : l'élève consulte une SQ déjà traitée. Pas de formulaire,
+   on lui rappelle sa réponse et la réponse attendue pour qu'il puisse
+   comparer, puis on propose de reprendre le parcours au point courant. #}
+{% set sc = subquestion.scoring or {} %}
+{% set reponse_attendue = sc.get('reponse_canonique') or sc.get('reponse_modele') or '?' %}
+{% set unite = sc.get('unite') or '' %}
+<div class="space-y-4 animate-reveal">
+  {% if read_only_entry.status == "correct_first_try" %}
+  <div class="bg-emerald-50 border border-emerald-200 rounded-2xl p-5">
+    <div class="flex items-start gap-3">
+      <div class="flex-shrink-0 h-10 w-10 rounded-xl bg-emerald-500 text-white flex items-center justify-center font-bold">✓</div>
+      <div class="flex-1">
+        <p class="font-semibold text-emerald-900">Tu avais trouvé du premier coup.</p>
+        {% if read_only_entry.answer %}
+        <p class="text-sm text-emerald-800 mt-1">Ta réponse : <span class="font-mono">{{ read_only_entry.answer }}</span></p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  {% elif read_only_entry.status == "correct_with_hints" %}
+  <div class="bg-amber-50 border border-amber-200 rounded-2xl p-5">
+    <div class="flex items-start gap-3">
+      <div class="flex-shrink-0 h-10 w-10 rounded-xl bg-amber-500 text-white flex items-center justify-center font-bold">✓</div>
+      <div class="flex-1">
+        <p class="font-semibold text-amber-900">
+          Tu avais trouvé après {{ read_only_entry.hints_used }} indice{% if read_only_entry.hints_used > 1 %}s{% endif %}.
+        </p>
+        {% if read_only_entry.answer %}
+        <p class="text-sm text-amber-800 mt-1">Ta réponse : <span class="font-mono">{{ read_only_entry.answer }}</span></p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  {% else %}
+  <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5">
+    <div class="flex items-start gap-3">
+      <div class="flex-shrink-0 h-10 w-10 rounded-xl bg-slate-500 text-white flex items-center justify-center font-bold">!</div>
+      <div class="flex-1">
+        <p class="font-semibold text-slate-900">Tu avais demandé la réponse sur cette sous-question.</p>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+
+  <div class="bg-white border border-slate-200 rounded-2xl p-5">
+    <div class="text-xs uppercase tracking-wider text-slate-500 font-semibold mb-1">Réponse attendue</div>
+    <div class="text-lg font-semibold text-brand-700">{{ reponse_attendue }}{% if unite %} {{ unite }}{% endif %}</div>
+    {% if subquestion.reveal_explication %}
+    <div class="text-sm text-slate-600 mt-2">{{ subquestion.reveal_explication }}</div>
+    {% endif %}
+  </div>
+
+  <div class="flex items-center justify-between gap-3 flex-wrap">
+    <a href="/mathematiques/problemes/restart" class="text-sm text-slate-500 hover:text-brand-700">
+      ← Abandonner cet exercice
+    </a>
+    <a href="/mathematiques/problemes/travail" class="btn-primary hover:wiggle inline-flex items-center gap-1">
+      Reprendre le parcours <span>→</span>
+    </a>
+  </div>
+</div>
+{% else %}
 
 <form hx-post="/mathematiques/problemes/travail/answer"
       hx-target="#feedback-area"
@@ -139,4 +301,5 @@
     ← Abandonner cet exercice
   </a>
 </div>
+{% endif %}
 {% endblock %}

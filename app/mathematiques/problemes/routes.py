@@ -122,6 +122,68 @@ def _advance(state: dict) -> None:
     state["revealed"] = False
 
 
+def _push_history(
+    state: dict, sq_id: str, status: str, answer: str, hints_used: int
+) -> None:
+    """Trace une sous-question terminée dans l'historique du cookie.
+
+    Statuts utilisés :
+    - ``correct_first_try`` : bonne réponse du premier coup, sans indice
+    - ``correct_with_hints`` : bonne réponse après 1+ indice
+    - ``revealed`` : l'élève a demandé la révélation
+
+    Historique utilisé pour la barre de progression cliquable et la
+    synthèse finale. On garde ``answer`` pour que l'élève puisse revoir
+    sa propre réponse sur les sous-questions terminées.
+    """
+    history = state.get("history") or []
+    history.append(
+        {
+            "sq_id": sq_id,
+            "status": status,
+            "answer": answer,
+            "hints_used": hints_used,
+        }
+    )
+    state["history"] = history
+
+
+def _build_progress(
+    exercise: prob_models.ProblemExercise, state: dict, viewing_index: int
+) -> list[dict]:
+    """Construit la liste des pastilles de progression pour le template.
+
+    ``viewing_index`` est la sous-question actuellement visible dans la
+    page (soit l'index courant en mode normal, soit un index historique
+    en mode révision). Permet de mettre en valeur la pastille visible
+    sans confondre avec l'index de reprise.
+    """
+    history = state.get("history") or []
+    current_index = state.get("current_index", 0)
+    progress: list[dict] = []
+    for i, sq in enumerate(exercise.sous_questions):
+        if i < len(history):
+            h = history[i]
+            status = h.get("status") or "correct_first_try"
+            clickable = True
+        elif i == current_index:
+            status = "current"
+            clickable = False
+        else:
+            status = "pending"
+            clickable = False
+        progress.append(
+            {
+                "index": i,
+                "numero": sq.get("numero", str(i + 1)),
+                "status": status,
+                "clickable": clickable,
+                "is_viewing": (i == viewing_index),
+            }
+        )
+    return progress
+
+
 # ============================================================================
 # Accueil de la sous-épreuve
 # ============================================================================
@@ -227,6 +289,7 @@ def start_exercise(
         "revealed": False,
         "missed_ids": [],
         "score": 0,
+        "history": [],
     }
     _set_state(request, state)
     return RedirectResponse(url=f"{PREFIX}/travail", status_code=303)
@@ -258,6 +321,7 @@ def travail_page(
             url=f"{PREFIX}/travail/synthese", status_code=303
         )
 
+    current_index = state["current_index"]
     total = len(exercise.sous_questions)
     return templates.TemplateResponse(
         request,
@@ -266,12 +330,65 @@ def travail_page(
             "exercise": exercise,
             "subquestion": subquestion,
             "theme_label": THEME_LABELS.get(exercise.theme, exercise.theme),
-            "position": state["current_index"] + 1,
+            "position": current_index + 1,
             "total": total,
             "score": state.get("score", 0),
             "hints_used": state.get("current_hints", 0),
             "max_hints": MAX_HINTS_PER_SUBQUESTION,
             "session_id": state["db_session_id"],
+            "progress": _build_progress(exercise, state, current_index),
+            "read_only": False,
+            "read_only_entry": None,
+        },
+    )
+
+
+@router.get("/travail/revoir/{index}", response_class=HTMLResponse)
+def travail_revoir(
+    request: Request,
+    index: int,
+    s: DBSession = Depends(db_session),
+):
+    """Affiche en lecture seule une sous-question déjà traitée.
+
+    N'altère pas ``state["current_index"]`` : l'élève peut revenir au
+    point courant de son parcours en cliquant sur la dernière pastille
+    de la barre de progression ou sur le lien « Reprendre ».
+    """
+    state = _get_state(request)
+    if state is None:
+        return RedirectResponse(url=f"{PREFIX}/", status_code=303)
+
+    exercise = _current_exercise(s, state)
+    if exercise is None:
+        _clear_state(request)
+        return RedirectResponse(url=f"{PREFIX}/", status_code=303)
+
+    history = state.get("history") or []
+    sous_questions = exercise.sous_questions
+    if not (0 <= index < len(history)) or index >= len(sous_questions):
+        # Index hors historique : on renvoie sur le parcours en cours.
+        return RedirectResponse(url=f"{PREFIX}/travail", status_code=303)
+
+    subquestion = sous_questions[index]
+    entry = history[index]
+    total = len(sous_questions)
+    return templates.TemplateResponse(
+        request,
+        "travail.html",
+        {
+            "exercise": exercise,
+            "subquestion": subquestion,
+            "theme_label": THEME_LABELS.get(exercise.theme, exercise.theme),
+            "position": index + 1,
+            "total": total,
+            "score": state.get("score", 0),
+            "hints_used": entry.get("hints_used", 0),
+            "max_hints": MAX_HINTS_PER_SUBQUESTION,
+            "session_id": state["db_session_id"],
+            "progress": _build_progress(exercise, state, index),
+            "read_only": True,
+            "read_only_entry": entry,
         },
     )
 
@@ -336,6 +453,15 @@ def travail_answer(
     if is_correct:
         if hints_used == 0:
             state["score"] = state.get("score", 0) + 1
+        _push_history(
+            state,
+            sq_id=subquestion.get("id", "?"),
+            status=(
+                "correct_first_try" if hints_used == 0 else "correct_with_hints"
+            ),
+            answer=answer,
+            hints_used=hints_used,
+        )
         _advance(state)
         _set_state(request, state)
         return templates.TemplateResponse(
@@ -469,6 +595,13 @@ def travail_reveal(
         missed.append(sq_id)
     state["missed_ids"] = missed
     state["revealed"] = True
+    _push_history(
+        state,
+        sq_id=sq_id or "?",
+        status="revealed",
+        answer="",
+        hints_used=state.get("current_hints", 0),
+    )
     _advance(state)
     _set_state(request, state)
     return templates.TemplateResponse(
@@ -505,6 +638,35 @@ def travail_synthese(
     total = len(sous_questions)
     score = state.get("score", 0)
     missed_ids = set(state.get("missed_ids") or [])
+    history = state.get("history") or []
+
+    # Récap complet : une entrée par sous-question avec son statut,
+    # la réponse donnée par l'élève et la réponse attendue. Permet
+    # d'afficher un tableau de bord en fin d'exercice plutôt qu'une
+    # simple liste des ratés.
+    recap: list[dict] = []
+    for i, sq in enumerate(sous_questions):
+        entry = history[i] if i < len(history) else None
+        scoring = sq.get("scoring") or {}
+        reponse_attendue = (
+            scoring.get("reponse_canonique")
+            or scoring.get("reponse_modele")
+            or "?"
+        )
+        unite = scoring.get("unite") or ""
+        recap.append(
+            {
+                "index": i,
+                "numero": sq.get("numero", str(i + 1)),
+                "texte": sq.get("texte", ""),
+                "status": (entry.get("status") if entry else "skipped"),
+                "student_answer": entry.get("answer") if entry else "",
+                "hints_used": entry.get("hints_used", 0) if entry else 0,
+                "reponse_attendue": reponse_attendue,
+                "unite": unite,
+                "reveal_explication": sq.get("reveal_explication") or "",
+            }
+        )
     missed_subquestions = [
         sq for sq in sous_questions if sq.get("id") in missed_ids
     ]
@@ -519,6 +681,7 @@ def travail_synthese(
             "score": score,
             "missed_subquestions": missed_subquestions,
             "has_missed": bool(missed_subquestions),
+            "recap": recap,
         },
     )
 

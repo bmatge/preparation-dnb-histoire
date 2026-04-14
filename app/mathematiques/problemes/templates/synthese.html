@@ -48,6 +48,58 @@
 </div>
 {% endif %}
 
+{% if recap %}
+<div class="bg-white border border-slate-200 rounded-2xl shadow-sm p-6 mb-6 animate-reveal">
+  <h2 class="font-display text-xl font-bold text-slate-900 mb-3">
+    Récap complet
+  </h2>
+  <ol class="divide-y divide-slate-100">
+    {% for row in recap %}
+    {%- if row.status == "correct_first_try" -%}
+      {%- set badge_class = "bg-emerald-500 text-white" -%}
+      {%- set badge_icon = "✓" -%}
+      {%- set row_label = "Correcte du premier coup" -%}
+    {%- elif row.status == "correct_with_hints" -%}
+      {%- set badge_class = "bg-amber-400 text-amber-900" -%}
+      {%- set badge_icon = "✓" -%}
+      {%- set row_label = "Correcte après " ~ row.hints_used ~ " indice" ~ ('s' if row.hints_used > 1 else '') -%}
+    {%- elif row.status == "revealed" -%}
+      {%- set badge_class = "bg-slate-400 text-white" -%}
+      {%- set badge_icon = "!" -%}
+      {%- set row_label = "Réponse révélée" -%}
+    {%- else -%}
+      {%- set badge_class = "bg-slate-200 text-slate-500" -%}
+      {%- set badge_icon = "·" -%}
+      {%- set row_label = "Non traitée" -%}
+    {%- endif -%}
+    <li class="py-3 flex items-start gap-3">
+      <div class="flex-shrink-0 h-9 w-9 rounded-full {{ badge_class }} flex items-center justify-center font-bold text-sm"
+           title="{{ row_label }}" aria-label="{{ row_label }}">
+        {{ badge_icon }}
+      </div>
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center justify-between gap-2 flex-wrap">
+          <div class="text-xs uppercase tracking-wider text-slate-500 font-semibold">
+            Sous-question {{ row.numero }}
+          </div>
+          <div class="text-xs text-slate-500">{{ row_label }}</div>
+        </div>
+        <div class="eval-md text-sm text-slate-800 mt-1 line-clamp-2">{{ row.texte | eval_md }}</div>
+        <div class="text-xs text-slate-600 mt-1">
+          Réponse attendue&nbsp;:
+          <span class="font-semibold text-brand-700">{{ row.reponse_attendue }}{% if row.unite %} {{ row.unite }}{% endif %}</span>
+          {% if row.student_answer %}
+          <span class="text-slate-400"> · ta réponse&nbsp;:</span>
+          <span class="font-mono text-slate-700">{{ row.student_answer }}</span>
+          {% endif %}
+        </div>
+      </div>
+    </li>
+    {% endfor %}
+  </ol>
+</div>
+{% endif %}
+
 <div class="flex items-center justify-between gap-3 flex-wrap">
   <a href="/mathematiques/problemes/" class="text-sm text-slate-500 hover:text-brand-700">
     ← Choisir un autre exercice
