@@ -66,6 +66,25 @@ ALLOWED_THEMES: tuple[str, ...] = (
 )
 
 
+# Trois types d'exercices dans la Partie 2 du DNB maths, présentés
+# différemment dans l'UI :
+#
+# - "probleme_multi" : un énoncé (contexte, figure) partagé par plusieurs
+#   sous-questions qui s'enchaînent logiquement. Rendu : contexte en
+#   disclose au-dessus de chaque sous-question (ouvert sur la 1re,
+#   replié ensuite).
+# - "qcm" : plusieurs questions courtes indépendantes regroupées en un
+#   « quiz » façon automatismes. Pas de contexte partagé — chaque
+#   sous-question est autonome, avec son énoncé et son scoring.
+# - "question_simple" : une unique question autonome (1 sous-question),
+#   sans contexte ni progression multi-étapes.
+ALLOWED_EXERCISE_TYPES: tuple[str, ...] = (
+    "probleme_multi",
+    "qcm",
+    "question_simple",
+)
+
+
 # ============================================================================
 # Schémas Pydantic — format JSON committé
 # ============================================================================
@@ -115,11 +134,18 @@ class ProblemExerciseSchema(BaseModel):
 
     id: str
     source: ProblemSource
+    # Type de rendu UI (cf. ALLOWED_EXERCISE_TYPES). Défaut `probleme_multi`
+    # pour la rétro-compatibilité avec les JSON committés avant
+    # l'introduction de ce champ.
+    type: Literal["probleme_multi", "qcm", "question_simple"] = "probleme_multi"
     theme: str
     titre: str
     competence_principale: str
     points_total: float
-    contexte: str
+    # Énoncé partagé par les sous-questions. Vide (`""`) pour les
+    # exercices de type `qcm` ou `question_simple` où chaque ligne est
+    # autonome.
+    contexte: str = ""
     sous_questions: list[ProblemSubquestion]
     # Figure au niveau exercice (contexte) — nom de fichier dans
     # content/mathematiques/figures/, servi sur /math-figures.
@@ -135,12 +161,16 @@ class ProblemExercise(SQLModel, table=True):
     """Un exercice de la Partie 2 du DNB maths, PK = slug JSON."""
 
     id: str = Field(primary_key=True)
+    # Type de rendu : "probleme_multi" (défaut, contexte partagé), "qcm"
+    # (quiz de questions courtes indépendantes), "question_simple" (une
+    # seule question autonome). Cf. ALLOWED_EXERCISE_TYPES.
+    type: str = Field(default="probleme_multi", index=True)
     theme: str = Field(index=True)
     titre: str
     competence_principale: str
     points_total: float
 
-    contexte: str
+    contexte: str = ""
 
     # Liste des sous-questions sérialisée en JSON (plus simple qu'une
     # table séparée et évite une jointure à chaque affichage).
@@ -263,6 +293,7 @@ def init_problemes() -> int:
                 s.add(
                     ProblemExercise(
                         id=ex.id,
+                        type=ex.type,
                         theme=ex.theme,
                         titre=ex.titre,
                         competence_principale=ex.competence_principale,
@@ -274,6 +305,7 @@ def init_problemes() -> int:
                     )
                 )
             else:
+                existing.type = ex.type
                 existing.theme = ex.theme
                 existing.titre = ex.titre
                 existing.competence_principale = ex.competence_principale
@@ -357,6 +389,7 @@ def add_attempt(
 
 __all__ = [
     "ALLOWED_THEMES",
+    "ALLOWED_EXERCISE_TYPES",
     "ProblemScoringPython",
     "ProblemScoringAlbert",
     "ScoringTolerances",
