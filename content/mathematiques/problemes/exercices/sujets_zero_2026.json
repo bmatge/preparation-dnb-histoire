@@ -3,6 +3,7 @@
   "exercices": [
     {
       "id": "prob_2026A_ex1",
+      "type": "probleme_multi",
       "source": {"type": "sujet_zero_dnb_2026", "serie": "A", "exercice": 1},
       "theme": "statistiques",
       "titre": "Enquêtes développement durable",
@@ -83,6 +84,7 @@
     },
     {
       "id": "prob_2026A_ex2",
+      "type": "probleme_multi",
       "source": {"type": "sujet_zero_dnb_2026", "serie": "A", "exercice": 2},
       "theme": "programmes_calcul",
       "titre": "Programme de calcul",
@@ -156,6 +158,7 @@
     },
     {
       "id": "prob_2026A_ex3",
+      "type": "probleme_multi",
       "source": {"type": "sujet_zero_dnb_2026", "serie": "A", "exercice": 3},
       "theme": "fonctions",
       "titre": "Fonctions linéaire et affine",
@@ -273,6 +276,7 @@
     },
     {
       "id": "prob_2026B_ex2",
+      "type": "probleme_multi",
       "source": {"type": "sujet_zero_dnb_2026", "serie": "B", "exercice": 2},
       "theme": "probabilites",
       "titre": "Probabilités — urne de 21 jetons",
@@ -334,6 +338,7 @@
     },
     {
       "id": "prob_2026B_ex3",
+      "type": "probleme_multi",
       "source": {"type": "sujet_zero_dnb_2026", "serie": "B", "exercice": 3, "note": "Sous-questions graphiques (2.b représenter graphiquement, 3.a lecture graphique) retirées pour V1."},
       "theme": "fonctions",
       "titre": "Fonction affine — paquet de lessive",
@@ -419,6 +424,7 @@
     },
     {
       "id": "prob_2026B_ex4",
+      "type": "probleme_multi",
       "source": {"type": "sujet_zero_dnb_2026", "serie": "B", "exercice": 4},
       "theme": "arithmetique",
       "titre": "Club sciences — groupes égaux",

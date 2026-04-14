@@ -1,6 +1,21 @@
 {% extends "_maths_base.html" %}
 
-{% block title %}{{ exercise.titre }} — Sous-question {{ position }}/{{ total }}{% endblock %}
+{# Dispatcher visuel par type d'exercice :
+   - probleme_multi : titre d'exo, contexte partagé en disclose, numéro de sous-question "N/M".
+   - qcm            : titre d'exo, pas de contexte, compteur "Question N/M".
+   - question_simple: titre d'exo, pas de contexte, pas de compteur (une seule question).
+   Le reste (formulaire, indices, révélation, feedback) est commun aux trois types. #}
+{% set ex_type = exercise.type or "probleme_multi" %}
+
+{% block title %}
+{%- if ex_type == "question_simple" -%}
+{{ exercise.titre }}
+{%- elif ex_type == "qcm" -%}
+{{ exercise.titre }} — Question {{ position }}/{{ total }}
+{%- else -%}
+{{ exercise.titre }} — Sous-question {{ position }}/{{ total }}
+{%- endif -%}
+{% endblock %}
 
 {% block timer %}{% with kind="math_problemes", session_id_str=session_id|string %}{% include "_exercise_timer.html" %}{% endwith %}{% endblock %}
 
@@ -17,6 +32,7 @@
   </span>
 </div>
 
+{% if ex_type == "probleme_multi" and exercise.contexte %}
 <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 mb-5 animate-reveal">
   <details class="group rtd-reminder-details"{% if position == 1 %} open{% endif %}>
     <summary class="flex items-center justify-between cursor-pointer list-none gap-3">
@@ -38,12 +54,19 @@
     {% endif %}
   </details>
 </div>
+{% endif %}
 
 <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 mb-5 animate-reveal">
   <div class="flex items-center justify-between mb-3">
     <span class="text-sm font-semibold text-slate-500">
+      {% if ex_type == "question_simple" %}
+      Question — n° {{ subquestion.numero }}
+      {% elif ex_type == "qcm" %}
+      Question <span class="text-brand-700">{{ position }}</span> / {{ total }}
+      {% else %}
       Sous-question <span class="text-brand-700">{{ position }}</span> / {{ total }}
       <span class="text-slate-500"> — n° {{ subquestion.numero }}</span>
+      {% endif %}
     </span>
     <span class="text-xs text-slate-500">
       Indices : {{ hints_used }}/{{ max_hints }}
