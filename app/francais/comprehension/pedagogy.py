@@ -226,6 +226,22 @@ def count_attempts_at_step(
     return sum(1 for t in turns if t.role == "user")
 
 
+def extract_verdict(turn_content: str) -> str | None:
+    """Extrait le verdict (CORRECTE / PARTIELLE / INSUFFISANTE) d'un turn
+    assistant non-tagué, ou ``None`` si le format n'est pas reconnu.
+
+    Utilisé par les routes pour reconstituer le statut d'un item depuis
+    l'historique des turns sans re-parser toute la sortie Albert.
+    """
+    m = _VERDICT_RE.search(turn_content or "")
+    if not m:
+        return None
+    verdict = m.group(1).upper()
+    if verdict in (EvalVerdict.CORRECTE, EvalVerdict.PARTIELLE, EvalVerdict.INSUFFISANTE):
+        return verdict
+    return None
+
+
 def count_hints_at_step(db: DBSession, session_id: int, step: int) -> int:
     """Nombre d'indices déjà fournis par l'assistant pour ce step.
 
@@ -413,4 +429,5 @@ __all__ = [
     "advance_step",
     "count_attempts_at_step",
     "count_hints_at_step",
+    "extract_verdict",
 ]

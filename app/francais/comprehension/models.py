@@ -280,7 +280,8 @@ class FrenchExercise(SQLModel, table=True):
     slug: str = Field(index=True, unique=True)
     source_file: str
     annee: int = Field(index=True)
-    centre: str
+    centre: str = Field(index=True)
+    session: str = Field(index=True, default="juin")
     data_json: str
 
     def load(self) -> ComprehensionExercise:
