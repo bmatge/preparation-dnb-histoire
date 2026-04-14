@@ -18,11 +18,17 @@
 </div>
 
 <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 mb-5 animate-reveal">
-  <details class="group" open>
-    <summary class="flex items-center justify-between cursor-pointer list-none">
+  <details class="group rtd-reminder-details"{% if position == 1 %} open{% endif %}>
+    <summary class="flex items-center justify-between cursor-pointer list-none gap-3">
       <span class="text-sm font-semibold text-slate-700">Énoncé de l'exercice</span>
-      <span class="text-xs text-slate-500 group-open:hidden">Afficher</span>
-      <span class="text-xs text-slate-500 hidden group-open:inline">Replier</span>
+      <span class="flex items-center gap-2 text-xs">
+        <span class="text-slate-500 group-open:hidden rtd-reminder-label">Afficher</span>
+        <span class="text-slate-500 hidden group-open:inline">Replier</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+             class="h-4 w-4 text-slate-400 transition-transform duration-200 group-open:rotate-180 rtd-reminder-chevron">
+          <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.06l3.71-3.83a.75.75 0 111.08 1.04l-4.25 4.39a.75.75 0 01-1.08 0L5.21 8.27a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+        </svg>
+      </span>
     </summary>
     <div class="eval-md mt-3 text-slate-800 text-[15px]">{{ exercise.contexte | eval_md }}</div>
     {% if exercise.figure %}

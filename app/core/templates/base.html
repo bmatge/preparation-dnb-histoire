@@ -245,6 +245,30 @@
       background-size: 200% 100%;
       animation: shimmer 2.5s linear infinite;
     }
+
+    /* Rappel disclose (énoncé d'exercice replié) : on attire brièvement
+       l'œil de l'élève avec 3 pulsations douces sur le bouton puis on
+       s'arrête pour ne pas distraire. Ne se déclenche que si le details
+       est fermé au chargement. */
+    @keyframes rtd-reminder-pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(64, 91, 255, 0); transform: translateY(0); }
+      50%      { box-shadow: 0 0 0 6px rgba(64, 91, 255, 0.12); transform: translateY(-1px); }
+    }
+    details.rtd-reminder-details:not([open]) > summary {
+      border-radius: 0.5rem;
+      padding: 0.25rem 0.5rem;
+      margin: -0.25rem -0.5rem;
+      animation: rtd-reminder-pulse 1.6s ease-in-out 0s 3;
+    }
+    details.rtd-reminder-details:not([open]) > summary .rtd-reminder-chevron {
+      animation: rtd-reminder-pulse 1.6s ease-in-out 0s 3;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      details.rtd-reminder-details:not([open]) > summary,
+      details.rtd-reminder-details:not([open]) > summary .rtd-reminder-chevron {
+        animation: none;
+      }
+    }
   </style>
 </head>
 <body class="text-slate-900">
