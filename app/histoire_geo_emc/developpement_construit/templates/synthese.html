@@ -1,0 +1,84 @@
+{% extends "_hgemc_base.html" %}
+
+{% block title %}Bilan du développement construit — Histoire-géo{% endblock %}
+
+{% block progress %}{% include "_partials/progress.html" %}{% endblock %}
+
+{% block content %}
+<div class="space-y-6">
+  <header class="text-center animate-reveal">
+    <p class="text-sm text-slate-500">
+      <a href="/histoire-geo-emc/developpement-construit/" class="hover:text-brand-700">Développement construit</a>
+      <span class="mx-1">·</span>
+      Bilan
+    </p>
+    <h1 class="mt-2 font-display text-3xl font-bold text-brand-900">
+      Ton parcours complet
+    </h1>
+    <p class="mt-1 text-sm text-slate-500">
+      {% if subject.discipline %}{{ subject.discipline|capitalize }}{% endif %}
+      {% if subject.year %} · DNB {{ subject.year }}{% endif %}
+      {% if subject.session_label %} {{ subject.session_label }}{% endif %}
+    </p>
+  </header>
+
+  <section class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 animate-reveal">
+    <h2 class="font-display text-lg font-bold text-brand-800 mb-2">Le sujet</h2>
+    <p class="text-[15px] text-slate-900 whitespace-pre-line">{{ subject.consigne }}</p>
+    {% if subject.notions_attendues %}
+    <div class="mt-3 pt-3 border-t border-slate-100">
+      <div class="text-[11px] uppercase tracking-wider text-slate-500 mb-1">Notions attendues</div>
+      <div class="text-xs text-slate-600">{{ subject.notions_attendues }}</div>
+    </div>
+    {% endif %}
+  </section>
+
+  {# Timeline : chaque moment du parcours en carte. Les moments « user »
+     sont éditables via un lien vers l'étape ; les moments « assistant »
+     sont des traces Albert en lecture seule, rendues via le filtre
+     eval_md pour garder la mise en forme markdown. #}
+  <section class="space-y-4">
+    {% for moment in moments %}
+    {%- set is_user = moment.kind == "user" -%}
+    {%- set is_empty = not moment.content -%}
+    <article class="relative rounded-2xl border p-5 animate-reveal
+              {% if is_user %}bg-white border-brand-200{% else %}bg-slate-50 border-slate-200{% endif %}
+              {% if is_empty %}opacity-60{% endif %}">
+      <header class="flex items-center justify-between gap-3 mb-3">
+        <div class="flex items-center gap-2">
+          <span class="inline-flex items-center justify-center h-8 w-8 rounded-full text-xs font-bold
+                       {% if is_user %}bg-brand-500 text-white{% else %}bg-slate-500 text-white{% endif %}">
+            {{ moment.step }}
+          </span>
+          <h3 class="font-display text-base font-bold text-slate-900">{{ moment.title }}</h3>
+          {% if is_user %}
+          <span class="text-[11px] text-brand-700 uppercase tracking-wider">Toi</span>
+          {% else %}
+          <span class="text-[11px] text-slate-500 uppercase tracking-wider">Albert</span>
+          {% endif %}
+        </div>
+        {% if is_user and moment.edit_href and not is_empty %}
+        <a href="{{ moment.edit_href }}" class="text-xs text-brand-600 hover:text-brand-800 hover:underline">
+          Retravailler →
+        </a>
+        {% endif %}
+      </header>
+
+      {% if is_empty %}
+      <p class="text-sm text-slate-500 italic">Pas encore rédigé.</p>
+      {% elif is_user %}
+      <pre class="whitespace-pre-wrap text-[14px] leading-relaxed text-slate-800 bg-slate-50 rounded-xl p-4 font-serif">{{ moment.content }}</pre>
+      {% else %}
+      <div class="eval-md text-slate-800 text-[14px]">{{ moment.content | eval_md }}</div>
+      {% endif %}
+    </article>
+    {% endfor %}
+  </section>
+
+  <div class="flex flex-wrap gap-2 justify-center pt-4">
+    <a href="/histoire-geo-emc/developpement-construit/" class="btn-primary">Nouveau sujet</a>
+    <a href="/histoire-geo-emc/developpement-construit/restart" class="btn-secondary">Recommencer</a>
+    <a href="/" class="btn-secondary">Accueil</a>
+  </div>
+</div>
+{% endblock %}

@@ -1,6 +1,6 @@
 {% extends "_hgemc_base.html" %}
 
-{% block progress %}{% with step=2, step_label="Ta première proposition" %}{% include "_partials/progress.html" %}{% endwith %}{% endblock %}
+{% block progress %}{% include "_partials/progress.html" %}{% endblock %}
 {% block timer %}{% with kind="hgemc_dc", session_id_str=session_id|string %}{% include "_exercise_timer.html" %}{% endwith %}{% endblock %}
 
 {% block content %}
@@ -21,7 +21,7 @@
     <textarea id="proposition" name="proposition" rows="10" required minlength="20"
               data-draft-key="hg-emc:dc:step2:{{ subject.id }}"
               placeholder="I. Première partie : ...&#10;   - idée / exemple : ...&#10;II. Deuxième partie : ...&#10;   - idée / exemple : ...&#10;III. (optionnel)"
-              class="w-full border border-slate-200 rounded-xl px-4 py-3 font-mono text-sm focus:ring-2 focus:ring-brand-400 focus:border-brand-400 outline-none transition"></textarea>
+              class="w-full border border-slate-200 rounded-xl px-4 py-3 font-mono text-sm focus:ring-2 focus:ring-brand-400 focus:border-brand-400 outline-none transition">{{ previous_proposal }}</textarea>
   </div>
 
   <div class="flex items-center justify-between gap-3 flex-wrap">
