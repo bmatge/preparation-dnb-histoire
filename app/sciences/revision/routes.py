@@ -133,6 +133,35 @@ def _advance(state: dict) -> None:
     state["revealed"] = False
 
 
+def _push_history(
+    state: dict,
+    question_id: str,
+    status: str,
+    student_answer: str,
+    hints_used: int,
+) -> None:
+    """Trace une question terminée dans l'historique du cookie.
+
+    Statuts :
+    - ``correct_first_try`` : bonne réponse du premier coup (0 indice)
+    - ``correct_with_hints`` : bonne réponse après 1+ indice
+    - ``revealed`` : l'élève a demandé la réponse
+
+    Utilisé par la synthèse pour afficher 3 compteurs colorés, même
+    pattern que maths problèmes et repères HG.
+    """
+    history = state.get("history") or []
+    history.append(
+        {
+            "question_id": question_id,
+            "status": status,
+            "student_answer": student_answer,
+            "hints_used": hints_used,
+        }
+    )
+    state["history"] = history
+
+
 # ============================================================================
 # Index de l'épreuve (3 cartes disciplines)
 # ============================================================================
@@ -239,6 +268,7 @@ def quiz_new(
         "revealed": False,
         "missed_ids": [],
         "score": 0,
+        "history": [],
         "filter_theme": theme or None,
     }
     _set_quiz_state(request, state)
@@ -335,6 +365,15 @@ def quiz_answer(
     if is_correct:
         if hints_used == 0:
             state["score"] = state.get("score", 0) + 1
+        _push_history(
+            state,
+            question_id=question.id,
+            status=(
+                "correct_first_try" if hints_used == 0 else "correct_with_hints"
+            ),
+            student_answer=answer,
+            hints_used=hints_used,
+        )
         _advance(state)
         _set_quiz_state(request, state)
         return templates.TemplateResponse(
@@ -451,6 +490,13 @@ def quiz_reveal(
         missed.append(question.id)
     state["missed_ids"] = missed
     state["revealed"] = True
+    _push_history(
+        state,
+        question_id=question.id,
+        status="revealed",
+        student_answer="",
+        hints_used=state.get("current_hints", 0),
+    )
     _advance(state)
     _set_quiz_state(request, state)
     return templates.TemplateResponse(
@@ -474,6 +520,12 @@ def quiz_synthese(
     request: Request,
     s: DBSession = Depends(db_session),
 ):
+    """Écran de fin de quiz avec récap par statut (3 compteurs).
+
+    Même pattern que la synthèse repères (PR #46) : on trace ``history``
+    dans le state cookie et on expose 3 compteurs + un récap détaillé
+    plutôt qu'un binaire trouvé/raté.
+    """
     state = _get_quiz_state(request)
     if state is None:
         return RedirectResponse(url=f"{PREFIX}/", status_code=303)
@@ -488,6 +540,25 @@ def quiz_synthese(
     score = state.get("score", 0)
     discipline = state.get("discipline") or "?"
 
+    history: list[dict] = state.get("history") or []
+    recap: list[dict] = []
+    for entry in history:
+        question = science_models.get_question(s, entry["question_id"])
+        if question is None:
+            continue
+        recap.append(
+            {
+                "question": question,
+                "status": entry["status"],
+                "hints_used": entry.get("hints_used", 0),
+                "student_answer": entry.get("student_answer", ""),
+            }
+        )
+
+    nb_first_try = sum(1 for e in recap if e["status"] == "correct_first_try")
+    nb_with_hints = sum(1 for e in recap if e["status"] == "correct_with_hints")
+    nb_revealed = sum(1 for e in recap if e["status"] == "revealed")
+
     return templates.TemplateResponse(
         request,
         "synthese.html",
@@ -501,6 +572,10 @@ def quiz_synthese(
             "discipline_slug": state.get("discipline_slug")
             or DISCIPLINE_SLUGS.get(discipline, discipline),
             "discipline_label": DISCIPLINE_LABELS.get(discipline, discipline),
+            "recap": recap,
+            "nb_first_try": nb_first_try,
+            "nb_with_hints": nb_with_hints,
+            "nb_revealed": nb_revealed,
         },
     )
 
