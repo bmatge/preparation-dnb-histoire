@@ -139,6 +139,10 @@ class Question(BaseModel):
     scoring: ScoringPython | ScoringAlbert
     indices: QuestionIndices = PydField(default_factory=QuestionIndices)
     reveal_explication: str | None = None
+    # Chemin relatif à content/mathematiques/figures/, p. ex.
+    # "sujets_zero/serie_A/A-001-000.png". Servi par StaticFiles sous
+    # /maths-figures/ (cf. app/core/main.py).
+    image: str | None = None
 
 
 # ============================================================================
@@ -169,6 +173,9 @@ class AutoQuestion(SQLModel, table=True):
     indices_json: str = "{}"
 
     reveal_explication: str | None = None
+
+    # Chemin relatif optionnel vers une figure (cf. schéma Pydantic `Question`).
+    image: str | None = None
 
     @property
     def scoring(self) -> dict:
@@ -293,6 +300,7 @@ def init_automatismes() -> int:
                         source_json=source_payload,
                         indices_json=indices_payload,
                         reveal_explication=q.reveal_explication,
+                        image=q.image,
                     )
                 )
             else:
@@ -304,6 +312,7 @@ def init_automatismes() -> int:
                 existing.source_json = source_payload
                 existing.indices_json = indices_payload
                 existing.reveal_explication = q.reveal_explication
+                existing.image = q.image
                 s.add(existing)
             n_loaded += 1
         s.commit()

@@ -19,6 +19,14 @@
     {{ theme_label }}
   </div>
   <p class="font-display text-xl text-slate-900 leading-snug whitespace-pre-line">{{ question.enonce }}</p>
+  {% if question.image %}
+  <figure class="mt-4">
+    <img src="/maths-figures/{{ question.image }}"
+         alt="Figure de la question"
+         class="max-w-full h-auto rounded-lg border border-slate-200 bg-white mx-auto">
+    <figcaption class="sr-only">Figure extraite du sujet officiel DNB.</figcaption>
+  </figure>
+  {% endif %}
 </div>
 
 <form hx-post="/mathematiques/automatismes/quiz/answer"

@@ -88,7 +88,8 @@
       "titre": "Programme de calcul",
       "competence_principale": "Reconnaître et manipuler une identité remarquable",
       "points_total": 3.0,
-      "contexte": "On donne le programme de calcul suivant :\n\n1. Choisir un nombre.\n2. Le multiplier par 2.\n3. Élever le résultat au carré.\n4. Retrancher 9.\n5. Afficher le résultat.",
+      "contexte": "On donne le programme de calcul représenté ci-dessous :",
+      "image": "sujets_zero/serie_A/A-004-009.png",
       "sous_questions": [
         {
           "id": "prob_2026A_ex2_q1",
@@ -156,12 +157,13 @@
     },
     {
       "id": "prob_2026A_ex3",
-      "source": {"type": "sujet_zero_dnb_2026", "serie": "A", "exercice": 3, "note": "Sous-questions graphiques retirées pour V1 (lecture de graphique non prise en charge)."},
+      "source": {"type": "sujet_zero_dnb_2026", "serie": "A", "exercice": 3, "note": "Seules les sous-questions 1 à 3 (proportionnalité, image, antécédent) sont évaluées ici. Les sous-questions 4 (associer chaque droite à sa fonction) et 5 (coordonnées du point d'intersection par lecture graphique) nécessitent une réponse rédigée et sont laissées à l'oral."},
       "theme": "fonctions",
       "titre": "Fonctions linéaire et affine",
       "competence_principale": "Reconnaître proportionnalité, image et antécédent",
       "points_total": 1.5,
-      "contexte": "On considère les deux fonctions suivantes :\n\n```\nf : x ↦ 4x + 3\ng : x ↦ 6x\n```",
+      "contexte": "On considère les deux fonctions suivantes :\n\n```\nf : x ↦ 4x + 3\ng : x ↦ 6x\n```\n\nLeurs représentations graphiques (d₁) et (d₂) sont tracées ci-contre dans un repère orthonormé.",
+      "image": "sujets_zero/serie_A/A-005-010.png",
       "sous_questions": [
         {
           "id": "prob_2026A_ex3_q1",

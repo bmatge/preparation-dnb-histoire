@@ -25,6 +25,14 @@
       <span class="text-xs text-slate-500 hidden group-open:inline">Replier</span>
     </summary>
     <div class="eval-md mt-3 text-slate-800 text-[15px]">{{ exercise.contexte | eval_md }}</div>
+    {% if exercise.image %}
+    <figure class="mt-4">
+      <img src="/maths-figures/{{ exercise.image }}"
+           alt="Figure de l'exercice"
+           class="max-w-full h-auto rounded-lg border border-slate-200 bg-white mx-auto">
+      <figcaption class="sr-only">Figure extraite du sujet officiel DNB.</figcaption>
+    </figure>
+    {% endif %}
   </details>
 </div>
 

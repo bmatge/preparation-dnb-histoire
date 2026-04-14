@@ -118,6 +118,11 @@ class ProblemExerciseSchema(BaseModel):
     points_total: float
     contexte: str
     sous_questions: list[ProblemSubquestion]
+    # Chemin relatif à content/mathematiques/figures/, p. ex.
+    # "sujets_zero/serie_A/A-005-010.png". Servi par StaticFiles sous
+    # /maths-figures/ (cf. app/core/main.py). Affiché dans la section
+    # contexte de l'exercice, avant les sous-questions.
+    image: str | None = None
 
 
 # ============================================================================
@@ -142,6 +147,9 @@ class ProblemExercise(SQLModel, table=True):
 
     # Source : sérialisée en JSON (plusieurs champs optionnels).
     source_json: str
+
+    # Chemin relatif optionnel vers une figure (cf. schéma Pydantic).
+    image: str | None = None
 
     @property
     def sous_questions(self) -> list[dict]:
@@ -261,6 +269,7 @@ def init_problemes() -> int:
                         contexte=ex.contexte,
                         sous_questions_json=sq_payload,
                         source_json=source_payload,
+                        image=ex.image,
                     )
                 )
             else:
@@ -271,6 +280,7 @@ def init_problemes() -> int:
                 existing.contexte = ex.contexte
                 existing.sous_questions_json = sq_payload
                 existing.source_json = source_payload
+                existing.image = ex.image
                 s.add(existing)
             n_loaded += 1
         s.commit()
