@@ -65,8 +65,15 @@ templates.env.filters["eval_md"] = lambda txt: Markup(render_eval_markdown(txt o
 # ============================================================================
 
 THEME_LABELS = prob_loader.THEME_LABELS  # ré-export pour les templates
+CENTRE_LABELS = prob_loader.CENTRE_LABELS
+SESSION_LABELS = prob_loader.SESSION_LABELS
 SUBJECT_KIND = "math_problemes"
 MAX_HINTS_PER_SUBQUESTION = 3
+
+# Types d'exercices regroupés dans la section « Quiz rapides » de la
+# page d'accueil, par opposition aux « Problèmes d'annales » qui ont un
+# contexte partagé long et une progression multi-questions.
+_QUIZ_TYPES = {"qcm", "question_simple"}
 
 
 # ============================================================================
@@ -124,21 +131,64 @@ def _advance(state: dict) -> None:
 def problemes_home(
     request: Request,
     theme: str = "",
+    annee: str = "",
+    centre: str = "",
+    session: str = "",
     s: DBSession = Depends(db_session),
 ):
-    """Accueil : liste des exercices, éventuellement filtrée par thème."""
-    exercises = prob_loader.list_for_home(s, theme=theme or None)
+    """Accueil : liste d'exercices, avec filtres thème / année / centre /
+    session et découpage « Problèmes d'annales » vs « Quiz rapides »."""
+    annee_int: int | None = None
+    if annee:
+        try:
+            annee_int = int(annee)
+        except ValueError:
+            annee_int = None
+
+    exercises = prob_loader.list_for_home(
+        s,
+        theme=theme or None,
+        annee=annee_int,
+        centre=centre or None,
+        session=session or None,
+    )
+
+    problemes_multi = [e for e in exercises if e.type not in _QUIZ_TYPES]
+    quiz_rapides = [e for e in exercises if e.type in _QUIZ_TYPES]
+
     available_themes = [
         (t, THEME_LABELS.get(t, t)) for t in prob_models.list_themes(s)
     ]
+    available_annees = prob_models.list_annees(s)
+    available_centres = [
+        (c, CENTRE_LABELS.get(c, c)) for c in prob_models.list_centres(s)
+    ]
+    available_sessions = [
+        (s_, SESSION_LABELS.get(s_, s_)) for s_ in prob_models.list_sessions(s)
+    ]
+
+    current_filters = {
+        "theme": theme or "",
+        "annee": annee or "",
+        "centre": centre or "",
+        "session": session or "",
+    }
+
     return templates.TemplateResponse(
         request,
         "home.html",
         {
-            "exercises": exercises,
+            "problemes_multi": problemes_multi,
+            "quiz_rapides": quiz_rapides,
+            "total_count": len(exercises),
             "available_themes": available_themes,
-            "selected_theme": theme or "",
+            "available_annees": available_annees,
+            "available_centres": available_centres,
+            "available_sessions": available_sessions,
+            "current_filters": current_filters,
             "theme_labels": THEME_LABELS,
+            "centre_labels": CENTRE_LABELS,
+            "session_labels": SESSION_LABELS,
         },
     )
 

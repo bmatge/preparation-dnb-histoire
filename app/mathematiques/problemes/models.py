@@ -26,6 +26,7 @@ from __future__ import annotations
 
 import json
 import logging
+import re
 from datetime import datetime
 from pathlib import Path
 from typing import Literal
@@ -85,6 +86,32 @@ ALLOWED_EXERCISE_TYPES: tuple[str, ...] = (
 )
 
 
+# Centres d'examen connus. L'ordre ici sert de tri stable dans les
+# filtres de la page d'accueil ; la valeur "metropole" couvre aussi les
+# sujets conjoints Métropole/Antilles (ex. 2024_Brevet_19_09_2024_Metro_Ant).
+# Les autres centres n'ont pas encore d'annales extraites : ils sont
+# listés pour que l'ajout futur ne nécessite pas de toucher ce fichier.
+ALLOWED_CENTRES: tuple[str, ...] = (
+    "metropole",
+    "antilles-guyane",
+    "amerique-nord",
+    "amerique-sud",
+    "asie",
+    "polynesie",
+    "nouvelle-caledonie",
+    "centres-etrangers",
+)
+
+
+# Session d'examen. "sujet_zero" regroupe les deux séries A/B des
+# sujets zéro officiels 2026 (pas d'année d'examen réelle).
+ALLOWED_SESSIONS: tuple[str, ...] = (
+    "juin",
+    "septembre",
+    "sujet_zero",
+)
+
+
 # ============================================================================
 # Schémas Pydantic — format JSON committé
 # ============================================================================
@@ -96,6 +123,13 @@ class ProblemSource(BaseModel):
     Schéma distinct de ``QuestionSource`` (automatismes) parce que les
     clés discriminantes d'un problème (série, numéro d'exercice, note
     libre) n'ont pas d'équivalent côté automatismes.
+
+    Les champs ``annee`` / ``centre`` / ``session`` sont facultatifs :
+    s'ils sont absents du JSON source, ils sont résolus par
+    ``resolve_source_metadata`` à partir de ``document``, ``type`` et
+    ``serie``. Laisser ces champs vides dans les JSON existants évite
+    une migration de masse ; on peut les pré-renseigner à la main quand
+    on ajoute une nouvelle annale dont le nom de fichier est ambigu.
     """
 
     model_config = ConfigDict(extra="forbid")
@@ -105,6 +139,64 @@ class ProblemSource(BaseModel):
     exercice: int | None = None  # numéro d'exercice dans le sujet
     document: str | None = None  # nom du PDF d'origine (optionnel)
     note: str | None = None  # commentaire libre (ex. "sous-questions retirées")
+    annee: int | None = None
+    centre: str | None = None
+    session: str | None = None
+
+
+def resolve_source_metadata(
+    source: ProblemSource,
+) -> tuple[int | None, str | None, str | None]:
+    """Détermine (année, centre, session) d'un exercice.
+
+    Utilise les champs explicites de ``source`` en priorité, et retombe
+    sur des heuristiques basées sur ``source.document`` et
+    ``source.type`` pour les JSON historiques qui n'ont pas ces champs.
+
+    - Sujet zéro DNB 2026 → année 2026, centre None, session "sujet_zero"
+    - Document "YYYY_..." → année extraite du préfixe
+    - Document contenant "sept" → session "septembre" (sinon "juin")
+    - Document contenant "metro" (ou rien d'identifiable) → "metropole"
+    """
+    annee = source.annee
+    centre = source.centre
+    session = source.session
+
+    if "sujet_zero" in (source.type or ""):
+        if annee is None:
+            # Les sujets zéro actuels sont ceux du DNB 2026.
+            annee = 2026
+        if session is None:
+            session = "sujet_zero"
+        return annee, centre, session
+
+    doc = (source.document or "").lower()
+
+    if annee is None:
+        m = re.search(r"(20\d{2})", doc)
+        if m:
+            annee = int(m.group(1))
+
+    if session is None:
+        # On s'appuie sur "sept" (septembre) qui est présent dans tous
+        # les noms de fichier d'annales de rattrapage observés. Par
+        # défaut, on suppose juin (session principale du DNB).
+        if "sept" in doc:
+            session = "septembre"
+        elif doc:
+            session = "juin"
+
+    if centre is None and doc:
+        if "metro" in doc:
+            centre = "metropole"
+        elif "antilles" in doc or "guyane" in doc:
+            centre = "antilles-guyane"
+        elif "polynesie" in doc:
+            centre = "polynesie"
+        elif "asie" in doc:
+            centre = "asie"
+
+    return annee, centre, session
 
 
 class ProblemSubquestion(BaseModel):
@@ -181,6 +273,14 @@ class ProblemExercise(SQLModel, table=True):
 
     # Figure au niveau exercice (nom de fichier dans content/mathematiques/figures/).
     figure: str | None = None
+
+    # Métadonnées de source dénormalisées pour filtrage rapide sur la
+    # page d'accueil. Calculées par ``resolve_source_metadata`` au
+    # moment du chargement JSON → DB, donc rechargées à chaque drop &
+    # recharge sans intervention manuelle.
+    annee: int | None = Field(default=None, index=True)
+    centre: str | None = Field(default=None, index=True)
+    session: str | None = Field(default=None, index=True)
 
     @property
     def sous_questions(self) -> list[dict]:
@@ -288,6 +388,7 @@ def init_problemes() -> int:
             source_payload = json.dumps(
                 ex.source.model_dump(), ensure_ascii=False
             )
+            annee, centre, session = resolve_source_metadata(ex.source)
 
             if existing is None:
                 s.add(
@@ -302,6 +403,9 @@ def init_problemes() -> int:
                         sous_questions_json=sq_payload,
                         source_json=source_payload,
                         figure=ex.figure,
+                        annee=annee,
+                        centre=centre,
+                        session=session,
                     )
                 )
             else:
@@ -314,6 +418,9 @@ def init_problemes() -> int:
                 existing.sous_questions_json = sq_payload
                 existing.source_json = source_payload
                 existing.figure = ex.figure
+                existing.annee = annee
+                existing.centre = centre
+                existing.session = session
                 s.add(existing)
             n_loaded += 1
         s.commit()
@@ -341,6 +448,27 @@ def list_themes(s: DBSession) -> list[str]:
     return [t for t in ALLOWED_THEMES if t in present]
 
 
+def list_annees(s: DBSession) -> list[int]:
+    """Liste les années présentes, triées décroissantes (plus récentes
+    d'abord — ce que l'élève veut voir en premier)."""
+    rows = s.exec(select(ProblemExercise.annee).distinct()).all()
+    return sorted({r for r in rows if r is not None}, reverse=True)
+
+
+def list_centres(s: DBSession) -> list[str]:
+    """Liste les centres présents, ordonnés selon ``ALLOWED_CENTRES``."""
+    rows = s.exec(select(ProblemExercise.centre).distinct()).all()
+    present = {r for r in rows if r}
+    return [c for c in ALLOWED_CENTRES if c in present]
+
+
+def list_sessions(s: DBSession) -> list[str]:
+    """Liste les sessions présentes, ordonnées selon ``ALLOWED_SESSIONS``."""
+    rows = s.exec(select(ProblemExercise.session).distinct()).all()
+    present = {r for r in rows if r}
+    return [s_ for s_ in ALLOWED_SESSIONS if s_ in present]
+
+
 def get_exercise(
     s: DBSession, exercise_id: str
 ) -> ProblemExercise | None:
@@ -348,9 +476,13 @@ def get_exercise(
 
 
 def list_exercises(
-    s: DBSession, theme: str | None = None
+    s: DBSession,
+    theme: str | None = None,
+    annee: int | None = None,
+    centre: str | None = None,
+    session: str | None = None,
 ) -> list[ProblemExercise]:
-    """Liste tous les exercices, optionnellement filtrés par thème.
+    """Liste tous les exercices, optionnellement filtrés.
 
     Ordre stable par id pour que l'affichage sur la page d'index soit
     déterministe (utile pour que l'élève retrouve ses exercices en cours
@@ -359,6 +491,12 @@ def list_exercises(
     q = select(ProblemExercise).order_by(ProblemExercise.id)
     if theme:
         q = q.where(ProblemExercise.theme == theme)
+    if annee is not None:
+        q = q.where(ProblemExercise.annee == annee)
+    if centre:
+        q = q.where(ProblemExercise.centre == centre)
+    if session:
+        q = q.where(ProblemExercise.session == session)
     return list(s.exec(q).all())
 
 
@@ -390,6 +528,8 @@ def add_attempt(
 __all__ = [
     "ALLOWED_THEMES",
     "ALLOWED_EXERCISE_TYPES",
+    "ALLOWED_CENTRES",
+    "ALLOWED_SESSIONS",
     "ProblemScoringPython",
     "ProblemScoringAlbert",
     "ScoringTolerances",
@@ -398,8 +538,12 @@ __all__ = [
     "ProblemExerciseSchema",
     "ProblemExercise",
     "ProblemAttempt",
+    "resolve_source_metadata",
     "init_problemes",
     "list_themes",
+    "list_annees",
+    "list_centres",
+    "list_sessions",
     "get_exercise",
     "list_exercises",
     "add_attempt",
