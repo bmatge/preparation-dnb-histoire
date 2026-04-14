@@ -29,8 +29,33 @@ THEME_LABELS: dict[str, str] = {
 }
 
 
+# Libellés des centres d'examen. Alignés sur ``prob_models.ALLOWED_CENTRES``.
+CENTRE_LABELS: dict[str, str] = {
+    "metropole": "Métropole",
+    "antilles-guyane": "Antilles-Guyane",
+    "amerique-nord": "Amérique du Nord",
+    "amerique-sud": "Amérique du Sud",
+    "asie": "Asie",
+    "polynesie": "Polynésie",
+    "nouvelle-caledonie": "Nouvelle-Calédonie",
+    "centres-etrangers": "Centres étrangers",
+}
+
+
+# Libellés des sessions d'examen.
+SESSION_LABELS: dict[str, str] = {
+    "juin": "Juin",
+    "septembre": "Septembre",
+    "sujet_zero": "Sujet zéro",
+}
+
+
 def list_for_home(
-    s: DBSession, theme: str | None = None
+    s: DBSession,
+    theme: str | None = None,
+    annee: int | None = None,
+    centre: str | None = None,
+    session: str | None = None,
 ) -> list[prob_models.ProblemExercise]:
     """Renvoie les exercices à afficher sur la page d'accueil, filtrés.
 
@@ -39,7 +64,14 @@ def list_for_home(
     il veut travailler, parce que chaque exercice est long (5 à 15 min)
     et mérite d'être sélectionné plutôt que subi.
     """
-    return prob_models.list_exercises(s, theme=theme)
+    return prob_models.list_exercises(
+        s, theme=theme, annee=annee, centre=centre, session=session
+    )
 
 
-__all__ = ["THEME_LABELS", "list_for_home"]
+__all__ = [
+    "THEME_LABELS",
+    "CENTRE_LABELS",
+    "SESSION_LABELS",
+    "list_for_home",
+]

@@ -335,6 +335,7 @@
     },
     {
       "id": "prob_annale_2020_metropole_sept_ex1",
+      "type": "qcm",
       "source": {
         "type": "annale_dnb",
         "document": "2020_brevet_metropole_sept_2020_dv-2.pdf",
@@ -344,7 +345,7 @@
       "titre": "QCM : médiane, probabilités, arithmétique, volume, homothétie",
       "competence_principale": "Mobiliser des connaissances variées (statistiques, probabilités, arithmétique, géométrie)",
       "points_total": 20.0,
-      "contexte": "Cet exercice est un questionnaire à choix multiples (QCM).\nPour chaque question, une seule des trois réponses proposées est exacte.\nSur la copie, indiquer le numéro de la question et recopier, sans justifier, la réponse choisie.\n\n| Questions | Réponse A | Réponse B | Réponse C |\n|---|---|---|---|\n| 1. On donne la série de nombres suivante : 10 ; 6 ; 2 ; 14 ; 25 ; 12 ; 22. La médiane est : | 12 | 13 | 14 |\n| 2. Un sac opaque contient 50 billes bleues, 45 rouges, 45 vertes et 60 jaunes. Les billes sont indiscernables au toucher. On tire une bille au hasard dans ce sac. La probabilité que cette bille soit jaune est : | 60 | 0,3 | 1/60 |\n| 3. La décomposition en facteurs premiers de 2 020 est : | 2×10×101 | 5×5×101 | 2×2×5×101 |\n| 4. La formule qui permet de calculer le volume d'une boule de rayon R est : | 2πR | πR² | (4/3)πR³ |\n| 5. Une homothétie de centre A et de rapport −2 est une transformation qui : | agrandit les longueurs | réduit les longueurs | conserve les longueurs |",
+      "contexte": "",
       "sous_questions": [
         {
           "id": "prob_annale_2020_metropole_sept_ex1_q1",
@@ -767,6 +768,7 @@
     },
     {
       "id": "prob_annale_2021_metropole_sept_ex1",
+      "type": "qcm",
       "source": {
         "type": "annale_dnb",
         "document": "2021_Brevet_Metropole_13_sept_2021_DV-3.pdf",
@@ -776,7 +778,7 @@
       "titre": "QCM : fractions, probabilités, rotation, facteurs premiers, puissances",
       "competence_principale": "Mobiliser des connaissances variées : calcul fractionnaire, probabilités, transformations, arithmétique, puissances",
       "points_total": 20.0,
-      "contexte": "Cet exercice est un Q.C.M. (Questionnaire à Choix Multiples).\nChaque question n'a qu'une seule bonne réponse.\nPour chaque question, précisez sur la copie le numéro de la question et la réponse choisie.\nAucune justification n'est demandée pour cet exercice.\n\n| Question | Réponse A | Réponse B | Réponse C |\n|---|---|---|---|\n| 1. 4/7 + 5/21 = ... | 9/21 | 9/28 | 17/21 |\n| 2. Une urne contient 3 boules jaunes, 2 boules bleues et 4 boules vertes, indiscernables au toucher. On tire une boule au hasard. Quelle est la probabilité d'obtenir une boule verte ? | 4/5 | 4/9 | 5/9 |\n| 3. Sur quelle figure a-t-on représenté une flèche et son image par une rotation de centre O et d'angle 90° ? | Figure A | Figure B | Figure C |\n| 4. La décomposition en produit de facteurs premiers de 117 est : | 3×3×13 | 9×13 | 3×7×7 |\n| 5. 1/((−2)×(−2)×(−2)) = ... | (−2)^(−3) | (−2)^3 | 2^(−3) |",
+      "contexte": "",
       "sous_questions": [
         {
           "id": "prob_annale_2021_metropole_sept_ex1_q1",
@@ -1392,6 +1394,7 @@
     },
     {
       "id": "prob_annale_2021_metropole_ex3",
+      "type": "qcm",
       "source": {
         "type": "annale_dnb",
         "document": "2021_brevet_metropole_28_06_2021_dv.pdf",
@@ -1401,7 +1404,7 @@
       "titre": "QCM : probabilités, transformations géométriques et aires",
       "competence_principale": "Calculer des probabilités, identifier des transformations géométriques, comprendre l'effet d'une homothétie sur les aires",
       "points_total": 20.0,
-      "contexte": "PARTIE A : Une urne contient 7 jetons verts, 4 jetons rouges, 3 jetons bleus et 2 jetons jaunes. Les jetons sont indiscernables au toucher. On pioche un jeton au hasard dans cette urne.\n\nPARTIE B : On considère la figure suivante, composée de vingt motifs numérotés de 1 à 20, dans laquelle :\n• AOB = 36°\n• le motif 11 est l'image du motif 1 par l'homothétie de centre O et de rapport 2.",
+      "contexte": "",
       "sous_questions": [
         {
           "id": "prob_annale_2021_metropole_ex3_q1",
@@ -1760,6 +1763,7 @@
     },
     {
       "id": "prob_annale_2022_unknown_juin_ex2",
+      "type": "qcm",
       "source": {
         "type": "annale_dnb",
         "document": "2022_Brevet_metro_juin_2022_DV.pdf",
@@ -1769,7 +1773,7 @@
       "titre": "QCM : transformations, fonctions, statistiques, géométrie",
       "competence_principale": "Reconnaître des transformations, lire un graphique de fonction, calculer une image, déterminer une médiane, utiliser la similitude",
       "points_total": 20.0,
-      "contexte": "L'année 2022\n\nCet exercice est un questionnaire à choix multiples (QCM). Aucune justification n'est demandée.\nPour chaque question, trois réponses (A, B et C) sont proposées. Une seule réponse est exacte.\nRecopier sur la copie le numéro de la question et la réponse.\n\n| Questions | Réponse A | Réponse B | Réponse C |\n|---|---|---|---|\n| 1. On considère les deux figures suivantes. Par quelle transformation la figure 2 est-elle l'image de la figure 1 ? | une translation | une homothétie | une symétrie axiale |\n| 2. On considère la représentation graphique de la fonction g. Quel est l'antécédent de 2 par la fonction g ? | 2 | 1 | 4 |\n| 3. Soit f la fonction définie par : f(x) = 3x² − 7. Quelle affirmation est correcte ? | 29 est l'image de 2 par la fonction f | f(3) = 20 | f est une fonction affine |\n| 4. On a relevé les performances, en mètres, obtenues au lancer du poids par un groupe de 13 élèves : 3,41 ; 5,25 ; 5,42 ; 4,3 ; 6,11 ; 4,28 ; 5,15 ; 3,7 ; 6,07 ; 5,82 ; 4,62 ; 4,91 ; 4,01. Quelle est la médiane de cette série de valeurs ? | 7 | 4,91 | 5,15 |\n| 5. On considère la configuration suivante, dans laquelle les triangles LAC et BUT sont semblables. LAC : LA=2,1cm, AC=2,4cm, LC=2,5cm. BUT : BU=6,3cm, UT=7,2cm, BT=7,5cm. Par quel nombre doit-on multiplier l'aire du triangle LAC pour obtenir l'aire du triangle BUT ? | 3 | 6 | 9 |",
+      "contexte": "",
       "sous_questions": [
         {
           "id": "prob_annale_2022_unknown_juin_ex2_q1",
@@ -2498,6 +2502,7 @@
     },
     {
       "id": "prob_annale_2023_metropole_sept_ex1",
+      "type": "qcm",
       "source": {
         "type": "annale_dnb",
         "document": "2023_Brevet_Metropole_18_sept_2023_DV.pdf",
@@ -2507,7 +2512,7 @@
       "titre": "QCM : diviseurs, volumes, calcul algébrique, probabilités, homothétie",
       "competence_principale": "Mobiliser des connaissances variées (arithmétique, agrandissement, calcul littéral, probabilités, homothétie)",
       "points_total": 20.0,
-      "contexte": "Cet exercice est un questionnaire à choix multiple (QCM).\nPour chaque question, trois réponses (A, B ou C) sont proposées.\nUne seule réponse est exacte.\nRecopier sur la copie le numéro de la question et la réponse choisie. Aucune justification n'est demandée.\n\n| Questions | Réponse A | Réponse B | Réponse C |\n|---|---|---|---|\n| 1. Citer trois diviseurs de 84. | 84, 168 et 252 | 2, 3 et 4 | 2, 5 et 7 |\n| 2. La pyramide SABCD est un agrandissement de coefficient 2 de la pyramide SA'B'C'D'. Par quel nombre doit-on multiplier le volume de la pyramide SA'B'C'D' pour obtenir le volume de la pyramide SABCD ? | 2 | 8 | 4 |\n| 3. Quelle est la valeur de l'expression x² + 3x − 5 pour x = −2 ? | −15 | 5 | −7 |\n| 4. Dans un sac opaque, on dispose de huit boules numérotées de 1 à 8. On tire une boule au hasard. Quelle est la probabilité d'obtenir un multiple de 2 ? | 1/2 | 1/8 | 1/5 |\n| 5. Le triangle DEF est l'image du triangle ABC par une homothétie de centre O. Quel est son rapport ? | −2 | 2 | −1/2 |",
+      "contexte": "",
       "sous_questions": [
         {
           "id": "prob_annale_2023_metropole_sept_ex1_q1",
@@ -3194,6 +3199,7 @@
     },
     {
       "id": "prob_annale_2023_metropole_juin_ex3",
+      "type": "qcm",
       "source": {
         "type": "annale_dnb",
         "document": "2023_Brevet_Metropole_26_juin_2023_FK.pdf",
@@ -3203,7 +3209,7 @@
       "titre": "QCM : pourcentages, arithmétique, probabilités, rotation, volume",
       "competence_principale": "Mobiliser des connaissances variées (pourcentages, décomposition en facteurs premiers, probabilités, transformations, volumes)",
       "points_total": 20.0,
-      "contexte": "Cet exercice est un questionnaire à choix multiple (QCM).\nPour chaque question, trois réponses (A, B ou C) sont proposées.\nUne seule réponse est exacte.\nRecopier sur la copie le numéro de la question et la réponse choisie. Aucune justification n'est demandée.\n\n| Question | Réponse A | Réponse B | Réponse C |\n|---|---|---|---|\n| 1. Dans une classe de 25 élèves, 60% des élèves sont des filles. Combien y a-t-il de filles dans cette classe ? | 10 | 15 | 20 |\n| 2. Quelle est la décomposition en produit de facteurs premiers de 126 ? | 2×9×7 | 2²×5²+2×13 | 2×3²×7 |\n| 3. Dans un sac, il y a 17 jetons rouges, 23 jetons jaunes et 20 jetons bleus, tous indiscernables au toucher. On tire au hasard un jeton du sac. Quelle est la probabilité d'obtenir un jeton rouge ou un jeton jaune ? | 2/3 | 0,6 | 17/23 |\n| 4. Sur l'octogone régulier ci-dessous, quelle est l'image du segment [DC] par la rotation de centre O qui transforme A en D ? | [GE] | [GF] | [AH] |\n| 5. Quel est le volume d'un pavé droit de hauteur 1,5 m et de base rectangulaire de 2 m de longueur et 1,3 m de largeur ? On rappelle que 1 m³ = 1000 L. | 2,6 m³ | 3 900 L | 3 000 L |",
+      "contexte": "",
       "sous_questions": [
         {
           "id": "prob_annale_2023_metropole_juin_ex3_q1",
@@ -4224,6 +4230,7 @@
     },
     {
       "id": "prob_annale_2024_metropole_ex4",
+      "type": "qcm",
       "source": {
         "type": "annale_dnb",
         "document": "2024_Brevet_Metropole_1_07_2024_DV.pdf",
@@ -4233,7 +4240,7 @@
       "titre": "QCM : fonctions, calcul, translation, médiane, trigonométrie",
       "competence_principale": "Mobiliser des connaissances variées (fonctions, puissances, translation, statistiques, trigonométrie)",
       "points_total": 18.0,
-      "contexte": "Cet exercice est un questionnaire à choix multiple (QCM).\nPour chaque question, trois réponses (A, B ou C) sont proposées.\nUne seule réponse est exacte.\nRecopier sur la copie le numéro de la question et la lettre correspondant à la réponse exacte.\nAucune justification n'est demandée.",
+      "contexte": "",
       "sous_questions": [
         {
           "id": "prob_annale_2024_metropole_ex4_q1",
@@ -4497,6 +4504,7 @@
     },
     {
       "id": "prob_annale_2025_metropole_sept_ex2",
+      "type": "qcm",
       "source": {
         "type": "annale_dnb",
         "document": "2025_Brevet_Metropole_sept_2025_DV.pdf",
@@ -4506,7 +4514,7 @@
       "titre": "QCM – étendue, volumes, écriture scientifique, ratio, pourcentage, factorisation",
       "competence_principale": "Mobiliser des connaissances variées : statistiques, grandeurs, calcul littéral, pourcentages",
       "points_total": 18.0,
-      "contexte": "Cet exercice est un questionnaire à choix multiple (QCM). Pour chaque question, quatre réponses (A, B, C ou D) sont proposées. Une seule réponse est exacte. Recopier sur la copie le numéro de la question et la lettre correspondant à la réponse exacte. Aucune justification n'est demandée.",
+      "contexte": "",
       "sous_questions": [
         {
           "id": "prob_annale_2025_metropole_sept_ex2_q1",
@@ -5088,6 +5096,7 @@
     },
     {
       "id": "prob_annale_2025_metropole_ex3",
+      "type": "qcm",
       "source": {
         "type": "annale_dnb",
         "document": "2025_Metropole_maths.pdf",
@@ -5097,7 +5106,7 @@
       "titre": "QCM : proportionnalité, transformation, pourcentage, aire, calcul littéral, volume",
       "competence_principale": "Résoudre des questions variées en QCM : proportionnalité, transformations, pourcentages, aires, développement, volumes",
       "points_total": 18.0,
-      "contexte": "Cet exercice est un questionnaire à choix multiples (QCM). Aucune justification n'est demandée.\nPour chaque question, quatre réponses (A, B, C ou D) sont proposées.\nUne seule réponse est exacte. Recopier sur la copie le numéro de la question et la lettre correspondant à la réponse exacte.",
+      "contexte": "",
       "sous_questions": [
         {
           "id": "prob_annale_2025_metropole_ex3_q1",
