@@ -45,6 +45,14 @@
     </div>
   </fieldset>
 
+  {# Masquer complètement le sélecteur de thème tant qu'il n'y a pas au
+     moins 2 thèmes distincts en banque — sinon on affiche un sélecteur
+     solitaire qui n'apporte aucun pouvoir de filtrage. Pattern repris
+     de maths problèmes (PR #41). #}
+  {% set total_themes = (themes_by_discipline.histoire|length)
+                       + (themes_by_discipline.geographie|length)
+                       + (themes_by_discipline.emc|length) %}
+  {% if total_themes > 1 %}
   <div>
     <label class="block text-sm font-semibold text-slate-700 mb-2" for="theme-select">
       Thème (optionnel)
@@ -63,6 +71,7 @@
       {% endfor %}
     </select>
   </div>
+  {% endif %}
 
   <fieldset>
     <legend class="block text-sm font-semibold text-slate-700 mb-2">
