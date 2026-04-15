@@ -6,39 +6,77 @@
 <div class="text-center mb-8 animate-reveal">
   <h1 class="font-display text-3xl font-bold text-slate-900">Bilan du quiz</h1>
   <p class="text-slate-600 mt-2">
-    {{ discipline_label }} — tu as trouvé
-    <strong class="text-brand-700">{{ score }}</strong> réponse(s) du
-    premier coup sur {{ total }}.
+    {{ discipline_label }} · Score officiel :
+    <strong class="text-brand-700">{{ score }}</strong> / {{ total }}
+    <span class="text-xs text-slate-500">(1 point par question trouvée sans indice)</span>
   </p>
 </div>
 
-{% if has_missed %}
-<div class="bg-white border border-slate-200 rounded-2xl shadow-sm p-6 mb-6 animate-reveal">
+{# Trois compteurs colorés (1er coup / avec indices / révélé) en plus
+   du score officiel. Pattern repris de la synthèse maths problèmes. #}
+<section class="grid grid-cols-3 gap-3 mb-6 animate-reveal">
+  <div class="rounded-2xl bg-emerald-50 border border-emerald-200 p-4 text-center">
+    <div class="text-2xl font-bold text-emerald-800">{{ nb_first_try }}</div>
+    <div class="text-xs text-emerald-700 mt-0.5">Du premier coup</div>
+  </div>
+  <div class="rounded-2xl bg-amber-50 border border-amber-200 p-4 text-center">
+    <div class="text-2xl font-bold text-amber-800">{{ nb_with_hints }}</div>
+    <div class="text-xs text-amber-700 mt-0.5">Avec indices</div>
+  </div>
+  <div class="rounded-2xl bg-slate-50 border border-slate-200 p-4 text-center">
+    <div class="text-2xl font-bold text-slate-700">{{ nb_revealed }}</div>
+    <div class="text-xs text-slate-600 mt-0.5">Révélées</div>
+  </div>
+</section>
+
+{% if recap %}
+<section class="bg-white border border-slate-200 rounded-2xl shadow-sm p-6 mb-6 animate-reveal">
   <h2 class="font-display text-xl font-bold text-slate-900 mb-3">
-    Questions à retravailler ({{ missed_questions|length }})
+    Détail question par question
   </h2>
   <ul class="divide-y divide-slate-100">
-    {% for q in missed_questions %}
-    <li class="py-3">
-      <div class="text-xs uppercase tracking-wider text-slate-500 mb-0.5">
-        {{ theme_labels.get(q.theme, q.theme) }}
-      </div>
-      <div class="font-semibold text-slate-900">{{ q.enonce }}</div>
-      {% set sc = q.scoring %}
-      <div class="text-sm text-slate-600 mt-1">
-        Réponse&nbsp;:
-        <span class="font-semibold text-brand-700">
-          {{ sc.get('reponse_canonique') or sc.get('reponse_modele') or '?' }}
-          {% if sc.get('unite') %}{{ sc.get('unite') }}{% endif %}
-        </span>
+    {% for entry in recap %}
+    {%- set q = entry.question -%}
+    {%- set sc = q.scoring -%}
+    {%- if entry.status == "correct_first_try" -%}
+      {%- set badge_class = "bg-emerald-100 text-emerald-800" -%}
+      {%- set badge_label = "du premier coup" -%}
+    {%- elif entry.status == "correct_with_hints" -%}
+      {%- set badge_class = "bg-amber-100 text-amber-800" -%}
+      {%- set badge_label = "avec " ~ entry.hints_used ~ " indice" ~ ("s" if entry.hints_used > 1 else "") -%}
+    {%- else -%}
+      {%- set badge_class = "bg-slate-200 text-slate-700" -%}
+      {%- set badge_label = "révélée" -%}
+    {%- endif -%}
+    <li class="py-3 flex items-start gap-3 text-sm">
+      <span class="shrink-0 text-[11px] px-2 py-0.5 rounded-full whitespace-nowrap {{ badge_class }}">
+        {{ badge_label }}
+      </span>
+      <div class="flex-1 min-w-0">
+        <div class="text-xs uppercase tracking-wider text-slate-500 mb-0.5">
+          {{ theme_labels.get(q.theme, q.theme) }}
+        </div>
+        <div class="font-semibold text-slate-900">{{ q.enonce }}</div>
+        <div class="text-xs text-slate-600 mt-1">
+          Réponse attendue&nbsp;:
+          <span class="font-semibold text-brand-700">
+            {{ sc.get('reponse_canonique') or sc.get('reponse_modele') or '?' }}
+            {% if sc.get('unite') %}{{ sc.get('unite') }}{% endif %}
+          </span>
+          {% if entry.status == "correct_with_hints" and entry.student_answer %}
+          <span class="text-slate-500"> · Ta réponse&nbsp;: <span class="font-mono">{{ entry.student_answer }}</span></span>
+          {% endif %}
+        </div>
       </div>
     </li>
     {% endfor %}
   </ul>
-</div>
-{% else %}
+</section>
+{% endif %}
+
+{% if not has_missed and nb_first_try == total and total > 0 %}
 <div class="bg-emerald-50 border border-emerald-200 rounded-2xl p-6 mb-6 text-center animate-reveal">
-  <p class="text-emerald-900 font-semibold">Sans faute — bravo !</p>
+  <p class="text-emerald-900 font-semibold">Sans faute et sans indices — bravo !</p>
   <p class="text-sm text-emerald-800 mt-1">Tu peux enchaîner avec un autre thème ou une autre discipline.</p>
 </div>
 {% endif %}
