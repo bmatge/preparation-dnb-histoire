@@ -2,11 +2,11 @@
 #
 # deploy.sh — script de déploiement local sur le VPS.
 #
-# Enchaîne : git pull → pré-check schéma DB → docker compose down → build
-#            → (optionnel) génération variations → up -d → tail des logs.
+# Enchaîne : git pull → docker compose down → build → (optionnel) génération
+#            variations → up -d → tail des logs.
 # À lancer depuis la racine du repo, sur le serveur de prod.
 #
-# Usage : ./deploy.sh [--no-pull] [--logs] [--generate-variations] [--reset-db]
+# Usage : ./deploy.sh [--no-pull] [--logs] [--generate-variations]
 #
 # Flags :
 #   --no-pull               saute le git pull (utile en test local)
@@ -15,10 +15,19 @@
 #                           conteneur éphémère (docker compose run --rm).
 #                           Nécessite ANTHROPIC_API_KEY dans .env — passée
 #                           automatiquement via env_file.
-#   --reset-db              supprime data/app.db avant de redémarrer. À utiliser
-#                           quand le schéma Subject a changé (cf. HANDOFF §DB :
-#                           pas de migrations Alembic, on assume les drops).
-#                           DESTRUCTIF : perd les sessions élèves en cours.
+#
+# Schéma DB :
+#   Les évolutions de schéma sont prises en charge automatiquement par
+#   ``app.core.db.init_db()`` au démarrage du conteneur (cf. PR #48).
+#   Pour les ajouts de colonnes, une migration additive ``ALTER TABLE``
+#   est appliquée sans perte de données. Pour les divergences non
+#   additives (rename, drop, type change), l'app retombe sur un drop &
+#   recharge complet. Aucun flag à passer ici pour ça.
+#
+#   Si tu veux vraiment forcer un reset complet de la DB pour une raison
+#   exceptionnelle (corruption, reset volontaire pour démo, etc.), fais-le
+#   explicitement à la main AVANT le deploy :
+#     docker compose down && rm -f data/app.db data/app.db-wal data/app.db-shm
 
 set -euo pipefail
 
@@ -28,15 +37,13 @@ cd "$REPO_DIR"
 PULL=1
 TAIL_LOGS=0
 GENERATE_VARIATIONS=0
-RESET_DB=0
 for arg in "$@"; do
   case "$arg" in
     --no-pull)              PULL=0 ;;
     --logs)                 TAIL_LOGS=1 ;;
     --generate-variations)  GENERATE_VARIATIONS=1 ;;
-    --reset-db)             RESET_DB=1 ;;
     -h|--help)
-      sed -n '3,22p' "$0" | sed 's/^# \{0,1\}//'
+      sed -n '3,31p' "$0" | sed 's/^# \{0,1\}//'
       exit 0
       ;;
     *)
@@ -102,61 +109,21 @@ else
   log "git pull ignoré (--no-pull)"
 fi
 
-# 3. Pré-check schéma DB — détecte la dérive avant de redémarrer
-#
-# L'app n'a pas de migrations Alembic (cf. app/db.py §Modèle). Si on ajoute une
-# colonne au modèle Subject et qu'on redéploie sans dropper data/app.db, le
-# conteneur va crasher en boucle sur un SELECT qui référence la nouvelle
-# colonne. On détecte ça ici et on abort proprement (ou on drop si --reset-db).
-#
-# La liste des colonnes attendues est maintenue à la main. À mettre à jour
-# quand le modèle Subject évolue.
-EXPECTED_SUBJECT_COLS=(
-  id source_file dc_index year serie session session_label discipline theme
-  consigne verbe_cle bornes_chrono bornes_spatiales notions_attendues_json
-  bareme_points is_variation
-)
-
-if [[ -f data/app.db ]]; then
-  if command -v sqlite3 >/dev/null 2>&1; then
-    log "pré-check schéma DB (data/app.db)"
-    existing_cols="$(sqlite3 data/app.db "PRAGMA table_info(subject);" 2>/dev/null | cut -d'|' -f2 || true)"
-    missing=()
-    for col in "${EXPECTED_SUBJECT_COLS[@]}"; do
-      if ! grep -qx "$col" <<<"$existing_cols"; then
-        missing+=("$col")
-      fi
-    done
-    if (( ${#missing[@]} > 0 )); then
-      warn "schéma Subject obsolète — colonne(s) manquante(s) : ${missing[*]}"
-      if [[ $RESET_DB -eq 1 ]]; then
-        warn "--reset-db : suppression de data/app.db (sessions perdues)"
-        rm -f data/app.db data/app.db-journal
-        ok "DB supprimée, sera recréée au démarrage"
-      else
-        err "Refuse de déployer avec un schéma incompatible."
-        err "Relance avec --reset-db pour dropper data/app.db (destructif)."
-        exit 1
-      fi
-    else
-      ok "schéma DB à jour"
-    fi
-  else
-    warn "sqlite3 non installé, pré-check schéma sauté"
-  fi
-elif [[ $RESET_DB -eq 1 ]]; then
-  log "--reset-db sans DB existante, rien à supprimer"
-fi
-
-# 4. Stop
+# 3. Stop
+# La gestion du schéma DB (migration additive ou drop legacy en dernier
+# recours) se fait côté Python dans ``app.core.db.init_db()`` au démarrage
+# du conteneur. Pas de pré-check shell ici : l'ancien pré-check était
+# hardcodé sur la table ``subject`` uniquement, exigeait ``sqlite3``
+# installé sur l'hôte (ce qui n'est pas garanti), et faisait silencieusement
+# doublon avec le drop automatique de ``init_db()``. Voir PR #48.
 log "docker compose down"
 docker compose down
 
-# 5. Build
+# 4. Build
 log "docker compose build"
 docker compose build
 
-# 6. (Optionnel) Génération des variations via Opus, dans un conteneur éphémère
+# 5. (Optionnel) Génération des variations via Opus, dans un conteneur éphémère
 #
 # On utilise `docker compose run --rm` plutôt qu'une venv hôte :
 #   - pas besoin d'installer Python + anthropic sur le VPS
@@ -178,11 +145,11 @@ if [[ $GENERATE_VARIATIONS -eq 1 ]]; then
   ok "variations à jour dans content/histoire-geo-emc/subjects/variations/"
 fi
 
-# 7. Up
+# 6. Up
 log "docker compose up -d"
 docker compose up -d
 
-# 8. Statut
+# 7. Statut
 sleep 2
 log "état des conteneurs"
 docker compose ps
