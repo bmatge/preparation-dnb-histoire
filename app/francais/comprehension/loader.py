@@ -70,6 +70,7 @@ def load_exercises(session: DBSession, *, exercises_dir: Path = EXERCISES_DIR) -
                 source_file=exo.source_file or path.name,
                 annee=exo.source.annee,
                 centre=exo.source.centre,
+                session=exo.source.session,
                 data_json=data_json,
             )
             session.add(row)
@@ -77,6 +78,7 @@ def load_exercises(session: DBSession, *, exercises_dir: Path = EXERCISES_DIR) -
             existing.source_file = exo.source_file or path.name
             existing.annee = exo.source.annee
             existing.centre = exo.source.centre
+            existing.session = exo.source.session
             existing.data_json = data_json
             session.add(existing)
 
@@ -150,6 +152,53 @@ def list_exercises(session: DBSession) -> list[FrenchExercise]:
     )
 
 
+def list_for_home(
+    session: DBSession,
+    *,
+    annee: int | None = None,
+    centre: str | None = None,
+    session_label: str | None = None,
+) -> list[FrenchExercise]:
+    """Liste les exercices filtrés pour la page d'accueil.
+
+    Tri : plus récent d'abord (annee desc), puis centre alphabétique pour
+    stabiliser l'ordre entre deux centres de la même année.
+    """
+    stmt = select(FrenchExercise)
+    if annee is not None:
+        stmt = stmt.where(FrenchExercise.annee == annee)
+    if centre:
+        stmt = stmt.where(FrenchExercise.centre == centre)
+    if session_label:
+        stmt = stmt.where(FrenchExercise.session == session_label)
+    stmt = stmt.order_by(
+        FrenchExercise.annee.desc(),  # type: ignore[attr-defined]
+        FrenchExercise.centre.asc(),  # type: ignore[attr-defined]
+    )
+    return list(session.exec(stmt).all())
+
+
+def list_annees(session: DBSession) -> list[int]:
+    rows = session.exec(
+        select(FrenchExercise.annee).distinct().order_by(FrenchExercise.annee.desc())  # type: ignore[attr-defined]
+    ).all()
+    return [int(a) for a in rows]
+
+
+def list_centres(session: DBSession) -> list[str]:
+    rows = session.exec(
+        select(FrenchExercise.centre).distinct().order_by(FrenchExercise.centre.asc())  # type: ignore[attr-defined]
+    ).all()
+    return [c for c in rows if c]
+
+
+def list_sessions(session: DBSession) -> list[str]:
+    rows = session.exec(
+        select(FrenchExercise.session).distinct().order_by(FrenchExercise.session.asc())  # type: ignore[attr-defined]
+    ).all()
+    return [s for s in rows if s]
+
+
 __all__ = [
     "EXERCISES_DIR",
     "load_exercises",
@@ -158,4 +207,8 @@ __all__ = [
     "get_exercise",
     "get_exercise_by_slug",
     "list_exercises",
+    "list_for_home",
+    "list_annees",
+    "list_centres",
+    "list_sessions",
 ]

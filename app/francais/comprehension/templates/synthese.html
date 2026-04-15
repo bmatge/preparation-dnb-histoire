@@ -18,6 +18,34 @@
     </p>
   </header>
 
+  {# Compteurs par statut : 3 états utiles + « non traité » pour les items
+     sautés (l'élève est arrivé en fin de parcours sans avoir traité ce
+     repère — cas rare, possible si navigation manuelle). #}
+  {% set nb_first_try = recap | selectattr("status", "equalto", "correct_first_try") | list | length %}
+  {% set nb_with_hints = recap | selectattr("status", "equalto", "correct_with_hints") | list | length %}
+  {% set nb_revealed = recap | selectattr("status", "equalto", "revealed") | list | length %}
+  {% set nb_pending = recap | selectattr("status", "equalto", "pending") | list | length %}
+  {% set nb_total = recap | length %}
+
+  <section class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+    <div class="rounded-2xl bg-emerald-50 border border-emerald-200 p-4">
+      <div class="text-2xl font-bold text-emerald-800">{{ nb_first_try }}</div>
+      <div class="text-xs text-emerald-700 mt-0.5">Du premier coup</div>
+    </div>
+    <div class="rounded-2xl bg-amber-50 border border-amber-200 p-4">
+      <div class="text-2xl font-bold text-amber-800">{{ nb_with_hints }}</div>
+      <div class="text-xs text-amber-700 mt-0.5">Avec indices</div>
+    </div>
+    <div class="rounded-2xl bg-slate-50 border border-slate-200 p-4">
+      <div class="text-2xl font-bold text-slate-700">{{ nb_revealed }}</div>
+      <div class="text-xs text-slate-600 mt-0.5">Révélées</div>
+    </div>
+    <div class="rounded-2xl bg-white border border-slate-200 p-4">
+      <div class="text-2xl font-bold text-slate-500">{{ nb_pending }}</div>
+      <div class="text-xs text-slate-500 mt-0.5">Non traitées</div>
+    </div>
+  </section>
+
   <section class="rounded-2xl bg-white border border-slate-200 p-6 shadow-sm">
     <h2 class="font-display text-lg font-bold text-brand-800 mb-3">Ton bilan</h2>
     <div class="prose-eval text-slate-700">{{ synthese }}</div>
@@ -25,15 +53,31 @@
 
   <section class="rounded-2xl bg-white border border-slate-200 p-6 shadow-sm">
     <h2 class="font-display text-lg font-bold text-brand-800 mb-3">Détail question par question</h2>
-    <ul class="space-y-2">
-      {% for item, reponse, trouvee_seul in items_resolved %}
-      <li class="flex items-start gap-3 text-sm">
-        <span class="shrink-0 w-10 text-slate-500">Q{{ item.label }}</span>
-        <span class="shrink-0 text-xs px-2 py-0.5 rounded-full
-          {% if trouvee_seul %}bg-emerald-100 text-emerald-800{% else %}bg-amber-100 text-amber-800{% endif %}">
-          {% if trouvee_seul %}trouvée{% else %}révélée{% endif %}
+    <ul class="divide-y divide-slate-100">
+      {% for entry in recap %}
+      {%- set item = entry.item -%}
+      {%- if entry.status == "correct_first_try" -%}
+        {%- set badge_class = "bg-emerald-100 text-emerald-800" -%}
+        {%- set badge_label = "du premier coup" -%}
+      {%- elif entry.status == "correct_with_hints" -%}
+        {%- set badge_class = "bg-amber-100 text-amber-800" -%}
+        {%- set badge_label = "avec " ~ entry.hints_used ~ " indice" ~ ("s" if entry.hints_used > 1 else "") -%}
+      {%- elif entry.status == "revealed" -%}
+        {%- set badge_class = "bg-slate-200 text-slate-700" -%}
+        {%- set badge_label = "révélée" -%}
+      {%- else -%}
+        {%- set badge_class = "bg-white text-slate-400 border border-slate-200" -%}
+        {%- set badge_label = "non traitée" -%}
+      {%- endif -%}
+      <li class="py-2.5 flex items-start gap-3 text-sm">
+        <a href="/francais/comprehension/session/{{ session_id }}/item/{{ item.order }}{% if entry.status != 'pending' %}/revoir{% endif %}"
+           class="shrink-0 w-10 text-brand-700 font-semibold hover:underline">
+          Q{{ item.label }}
+        </a>
+        <span class="shrink-0 text-[11px] px-2 py-0.5 rounded-full whitespace-nowrap {{ badge_class }}">
+          {{ badge_label }}
         </span>
-        <span class="text-slate-600">{{ item.competence or '—' }}</span>
+        <span class="text-slate-600 flex-1">{{ item.competence or '—' }}</span>
       </li>
       {% endfor %}
     </ul>

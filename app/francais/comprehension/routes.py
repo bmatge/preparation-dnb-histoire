@@ -36,7 +36,10 @@ from app.core.db import (
 from app.francais.comprehension import pedagogy as ped
 from app.francais.comprehension.loader import (
     get_exercise,
-    list_exercises,
+    list_annees,
+    list_centres,
+    list_for_home,
+    list_sessions,
     pick_exercise,
 )
 from app.francais.comprehension.models import SUBJECT_KIND, ExerciseItem
@@ -101,6 +104,91 @@ def _last_user_answer(db: DBSession, session_id: int, step: int) -> str:
     return ""
 
 
+def _item_status(
+    db: DBSession, session_id: int, step: int
+) -> tuple[str, int]:
+    """Calcule le statut final d'un item + le nombre d'indices utilisés.
+
+    Les turns d'un item sont classés ainsi :
+    - ``[reveal] …`` = révélation explicite demandée par l'élève
+    - ``[indice-N] …`` = indice gradué (N ∈ {1,2,3})
+    - tout autre turn assistant = verdict d'évaluation brut Albert
+
+    Statuts retournés :
+    - ``revealed`` : un reveal a été déclenché
+    - ``correct_first_try`` : dernier verdict CORRECTE avec 0 indice
+    - ``correct_with_hints`` : dernier verdict CORRECTE avec 1+ indice
+    - ``in_progress`` : au moins une tentative, pas encore résolu
+    - ``pending`` : aucune trace
+    """
+    turns = get_turns_by_step(db, session_id, step)
+    if not turns:
+        return "pending", 0
+
+    has_reveal = any(
+        t.role == "assistant" and t.content.startswith("[reveal]") for t in turns
+    )
+    if has_reveal:
+        hints_used = sum(
+            1 for t in turns if t.role == "assistant" and t.content.startswith("[indice-")
+        )
+        return "revealed", hints_used
+
+    last_verdict: str | None = None
+    for t in reversed(turns):
+        if t.role != "assistant":
+            continue
+        if t.content.startswith("[indice-") or t.content.startswith("[reveal]"):
+            continue
+        verdict = ped.extract_verdict(t.content)
+        if verdict:
+            last_verdict = verdict
+            break
+
+    hints_used = sum(
+        1 for t in turns if t.role == "assistant" and t.content.startswith("[indice-")
+    )
+    if last_verdict == "CORRECTE":
+        return (
+            "correct_first_try" if hints_used == 0 else "correct_with_hints"
+        ), hints_used
+    return "in_progress", hints_used
+
+
+def _build_progress(
+    db: DBSession,
+    session_id: int,
+    items: list[ExerciseItem],
+    viewing_order: int,
+    current_step: int,
+) -> list[dict]:
+    """Construit les pastilles de progression cliquables pour un parcours.
+
+    ``viewing_order`` = l'item actuellement affiché (peut être un item
+    historique en mode revoir). ``current_step`` = le point d'avancement
+    réel de l'élève, qui sert à distinguer « en cours » (cliquable à
+    venir) de « à venir » (pas encore atteint). Un item terminé (resolved)
+    est toujours cliquable via la route ``/revoir/``.
+    """
+    progress: list[dict] = []
+    for it in items:
+        status, _ = _item_status(db, session_id, it.order)
+        clickable = status in {"correct_first_try", "correct_with_hints", "revealed"}
+        display_status = status
+        if status in {"pending", "in_progress"}:
+            display_status = "current" if it.order == current_step else "pending"
+        progress.append(
+            {
+                "order": it.order,
+                "label": it.label,
+                "status": display_status,
+                "clickable": clickable,
+                "is_viewing": (it.order == viewing_order),
+            }
+        )
+    return progress
+
+
 # ============================================================================
 # Accueil / création de session
 # ============================================================================
@@ -109,13 +197,55 @@ def _last_user_answer(db: DBSession, session_id: int, step: int) -> str:
 @router.get("/", response_class=HTMLResponse)
 def comprehension_home(
     request: Request,
+    annee: str = "",
+    centre: str = "",
+    session_label: str = "",
     db: DBSession = Depends(db_session),
 ):
-    exercises = list_exercises(db)
+    """Accueil : liste d'annales avec filtres année / centre / session.
+
+    Les filtres sont masqués côté template quand une seule valeur distincte
+    existe en banque (pas la peine d'afficher un filtre « Centre : Métropole »
+    solitaire). Tant qu'on n'a que des annales de session « juin », le filtre
+    Session reste invisible — il réapparaîtra si on ajoute des sessions
+    septembre ou des sujets zéro.
+    """
+    annee_int: int | None = None
+    if annee:
+        try:
+            annee_int = int(annee)
+        except ValueError:
+            annee_int = None
+
+    exercises = list_for_home(
+        db,
+        annee=annee_int,
+        centre=centre or None,
+        session_label=session_label or None,
+    )
+
+    available_annees = list_annees(db)
+    available_centres = list_centres(db)
+    available_sessions = list_sessions(db)
+
+    current_filters = {
+        "annee": annee or "",
+        "centre": centre or "",
+        "session_label": session_label or "",
+    }
+
     return templates.TemplateResponse(
         request,
         "home.html",
-        {"exercises": exercises, "total": len(exercises)},
+        {
+            "exercises": exercises,
+            "total": len(exercises),
+            "total_catalog": len(list_exercises(db)),
+            "available_annees": available_annees,
+            "available_centres": available_centres,
+            "available_sessions": available_sessions,
+            "current_filters": current_filters,
+        },
     )
 
 
@@ -176,6 +306,7 @@ def show_item(
     hints_used = ped.count_hints_at_step(db, session_id, order)
     last_answer = _last_user_answer(db, session_id, order)
     image_url = _image_url_for(row.slug)
+    progress = _build_progress(db, session_id, items, viewing_order=order, current_step=order)
 
     return templates.TemplateResponse(
         request,
@@ -190,6 +321,66 @@ def show_item(
             "last_answer": last_answer,
             "total_items": len(items),
             "image_url": image_url,
+            "progress": progress,
+            "read_only": False,
+            "read_only_entry": None,
+        },
+    )
+
+
+@router.get("/session/{session_id}/item/{order}/revoir", response_class=HTMLResponse)
+def show_item_revoir(
+    session_id: int,
+    order: int,
+    request: Request,
+    db: DBSession = Depends(db_session),
+):
+    """Affiche en lecture seule un item déjà traité.
+
+    Ne modifie pas ``sess.current_step`` : l'élève peut revenir à son point
+    d'avancement en cliquant sur la dernière pastille cliquable ou sur
+    « Reprendre le parcours ».
+    """
+    sess, row, exo, items = _load_session_exo(db, session_id)
+    item = _find_item(items, order)
+
+    status, hints_used = _item_status(db, session_id, order)
+    # Si l'item n'a pas encore été traité, rediriger vers la vue normale :
+    # la vue read-only n'a pas de sens sans historique.
+    if status in {"pending", "in_progress"}:
+        return RedirectResponse(
+            url=f"/francais/comprehension/session/{session_id}/item/{order}",
+            status_code=303,
+        )
+
+    last_answer = _last_user_answer(db, session_id, order)
+    image_url = _image_url_for(row.slug)
+    progress = _build_progress(
+        db, session_id, items, viewing_order=order, current_step=sess.current_step or 1
+    )
+
+    read_only_entry = {
+        "status": status,
+        "answer": last_answer,
+        "hints_used": hints_used,
+    }
+
+    return templates.TemplateResponse(
+        request,
+        "exercise.html",
+        {
+            "session": sess,
+            "exercise": exo,
+            "items": items,
+            "item": item,
+            "turns": [],
+            "hints_used": hints_used,
+            "last_answer": last_answer,
+            "total_items": len(items),
+            "image_url": image_url,
+            "progress": progress,
+            "read_only": True,
+            "read_only_entry": read_only_entry,
         },
     )
 
@@ -337,20 +528,31 @@ def show_synthese(
 ):
     sess, row, exo, items = _load_session_exo(db, session_id)
 
-    # Pour chaque item, détermine si l'élève a trouvé seul (verdict CORRECTE
-    # sans révélation) ou après indices/révélation.
+    # Pour chaque item, on reconstitue le statut final (3 états utiles :
+    # correct du premier coup, correct avec indices, révélé) + la dernière
+    # réponse de l'élève. Le tuple ``(item, reponse, trouve_seul)`` reste
+    # accepté par ``ped.build_synthese`` pour le prompt Albert ; on passe
+    # en plus une structure enrichie au template pour la récap.
     items_resolved: list[tuple[ExerciseItem, str, bool]] = []
+    recap: list[dict] = []
     for item in items:
-        turns = get_turns_by_step(db, session_id, item.order)
-        if not turns:
-            continue
+        status, hints_used = _item_status(db, session_id, item.order)
         last_user = _last_user_answer(db, session_id, item.order)
-        revealed = any(
-            t.role == "assistant" and t.content.startswith("[reveal]") for t in turns
+        recap.append(
+            {
+                "item": item,
+                "status": status,
+                "answer": last_user,
+                "hints_used": hints_used,
+            }
         )
-        # Trouvé seul·e = pas de révélation, et au moins une évaluation
-        # sans marqueur d'indice
-        items_resolved.append((item, last_user, not revealed))
+        if status == "pending":
+            # Item pas encore touché : on ne l'inclut pas dans items_resolved
+            # pour ne pas fausser l'appel Albert, mais il apparaîtra dans
+            # recap comme « non traité ».
+            continue
+        trouve_seul = status == "correct_first_try"
+        items_resolved.append((item, last_user, trouve_seul))
 
     synthese = ped.build_synthese(db, session_id, items_resolved)
 
@@ -360,6 +562,7 @@ def show_synthese(
         {
             "exercise": exo,
             "items_resolved": items_resolved,
+            "recap": recap,
             "synthese": synthese,
             "session_id": session_id,
         },

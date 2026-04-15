@@ -1,89 +1,186 @@
 {% extends "_francais_base.html" %}
 {% block title %}{{ exercise.source.annee }} {{ exercise.source.centre }} — Compréhension{% endblock %}
 
+{# Barre de progression multi-états rendue dans le slot progress de la base.
+   Chaque pastille est cliquable quand l'item a déjà été résolu (vu au moins
+   une fois avec un verdict final ou une révélation). Statuts possibles :
+     - correct_first_try : emerald
+     - correct_with_hints : amber
+     - revealed : slate
+     - current : blanc sur bord brand
+     - pending : blanc pointillé
+   La pastille actuellement visible reçoit un ring brand pour repère. #}
 {% block progress %}
-<div class="max-w-5xl mx-auto px-4 pb-3">
-  <div class="flex items-center justify-between text-xs text-slate-500 mb-1">
-    <span>Question {{ item.order }} / {{ total_items }}</span>
-    <span>{{ exercise.texte_support.auteur }} — {{ exercise.texte_support.oeuvre }}</span>
-  </div>
-  <div class="h-1.5 w-full bg-slate-200 rounded-full overflow-hidden">
-    <div class="h-full progress-active" style="width: {{ (item.order / total_items * 100) | round(0) }}%"></div>
-  </div>
-</div>
+<nav class="max-w-5xl mx-auto px-4 pb-3 overflow-x-auto" aria-label="Progression dans la séance">
+  <ol class="flex items-center gap-1.5 min-w-max">
+    {% for step in progress %}
+    {%- set base = "inline-flex items-center justify-center h-8 min-w-8 px-2 rounded-full text-[11px] font-bold border transition" -%}
+    {%- if step.is_viewing -%}
+      {%- set style = "ring-2 ring-brand-400 ring-offset-2 ring-offset-white" -%}
+    {%- else -%}
+      {%- set style = "" -%}
+    {%- endif -%}
+    {%- if step.status == "correct_first_try" -%}
+      {%- set color = "bg-emerald-500 text-white border-emerald-600" -%}
+      {%- set label = "Trouvée du premier coup" -%}
+      {%- set icon = step.label -%}
+    {%- elif step.status == "correct_with_hints" -%}
+      {%- set color = "bg-amber-400 text-amber-900 border-amber-500" -%}
+      {%- set label = "Trouvée avec indices" -%}
+      {%- set icon = step.label -%}
+    {%- elif step.status == "revealed" -%}
+      {%- set color = "bg-slate-300 text-slate-700 border-slate-400" -%}
+      {%- set label = "Réponse révélée" -%}
+      {%- set icon = step.label -%}
+    {%- elif step.status == "current" -%}
+      {%- set color = "bg-white text-brand-700 border-brand-500" -%}
+      {%- set label = "Question en cours" -%}
+      {%- set icon = step.label -%}
+    {%- else -%}
+      {%- set color = "bg-slate-50 text-slate-400 border-slate-200 border-dashed" -%}
+      {%- set label = "À venir" -%}
+      {%- set icon = step.label -%}
+    {%- endif -%}
+    <li>
+      {% if step.clickable %}
+      <a href="/francais/comprehension/session/{{ session.id }}/item/{{ step.order }}/revoir"
+         class="{{ base }} {{ color }} {{ style }} hover:scale-105"
+         title="Question {{ step.label }} — {{ label }}"
+         aria-label="Revoir la question {{ step.label }} ({{ label }})">
+        {{ icon }}
+      </a>
+      {% else %}
+      <span class="{{ base }} {{ color }} {{ style }}"
+            title="Question {{ step.label }} — {{ label }}"
+            aria-label="Question {{ step.label }} ({{ label }})"
+            aria-current="{% if step.is_viewing %}step{% endif %}">
+        {{ icon }}
+      </span>
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ol>
+</nav>
 {% endblock %}
 
 {% block timer %}{% with kind="fr_comprehension", session_id_str=session.id|string %}{% include "_exercise_timer.html" %}{% endwith %}{% endblock %}
 
 {% block content %}
+
+{#
+  Macro du texte littéraire — factorisée parce qu'on l'affiche deux fois :
+  inline dans la sidebar desktop, et dans la modale mobile. Contenu identique,
+  seul le conteneur change (sidebar sticky vs dialog plein écran).
+#}
+{% macro texte_support_block() %}
+  {% if exercise.paratexte %}
+  <p class="text-sm italic text-slate-600 mb-4 pb-4 border-b border-slate-100">
+    {{ exercise.paratexte }}
+  </p>
+  {% endif %}
+
+  {% if image_url and exercise.image %}
+  <figure class="mb-5 pb-5 border-b border-slate-100">
+    <img
+      src="{{ image_url }}"
+      alt="{{ exercise.image.description_visuelle }}"
+      class="w-full rounded-xl border border-slate-200 bg-slate-50"
+      loading="lazy"
+    />
+    <figcaption class="mt-2 text-xs text-slate-500">
+      {% if exercise.image.titre %}<em>{{ exercise.image.titre }}</em>{% endif %}
+      {% if exercise.image.auteur %}{% if exercise.image.titre %}, {% endif %}{{ exercise.image.auteur }}{% endif %}
+      {% if exercise.image.annee %} ({{ exercise.image.annee }}){% endif %}
+    </figcaption>
+  </figure>
+  {% endif %}
+
+  <div class="font-display text-[1.02rem] leading-relaxed text-slate-800 space-y-0">
+    {% for ligne in exercise.texte_support.lignes %}
+    <div class="flex gap-3" id="ligne-{{ ligne.n }}">
+      <span class="shrink-0 w-7 text-right text-xs text-slate-400 pt-1 select-none">
+        {% if ligne.n % 5 == 0 %}{{ ligne.n }}{% endif %}
+      </span>
+      <span>{{ ligne.texte }}</span>
+    </div>
+    {% endfor %}
+  </div>
+
+  <div class="mt-6 pt-4 border-t border-slate-100 text-xs text-slate-500">
+    <strong class="text-slate-700">{{ exercise.texte_support.auteur }}</strong>,
+    <em>{{ exercise.texte_support.oeuvre }}</em>{% if exercise.texte_support.partie %},
+    {{ exercise.texte_support.partie }}{% endif %}{% if exercise.texte_support.annee_publication %},
+    {{ exercise.texte_support.annee_publication }}{% endif %}.
+  </div>
+
+  {% if exercise.notes_texte %}
+  <details class="mt-4 text-xs text-slate-500">
+    <summary class="cursor-pointer hover:text-brand-700">Notes du texte</summary>
+    <ul class="mt-2 space-y-1">
+      {% for note in exercise.notes_texte %}
+      <li><sup>{{ note.n }}</sup> <strong>{{ note.terme }}</strong> : {{ note.definition }}</li>
+      {% endfor %}
+    </ul>
+  </details>
+  {% endif %}
+{% endmacro %}
+
 <div class="grid lg:grid-cols-5 gap-8 -mx-4 lg:-mx-16">
 
   {# =========================================
-     COLONNE GAUCHE : texte littéraire (sticky)
+     COLONNE GAUCHE : texte littéraire (sticky desktop seulement).
+     Masquée sur mobile — la modale <dialog> prend le relais.
      ========================================= #}
-  <aside class="lg:col-span-3 px-4">
+  <aside class="hidden lg:block lg:col-span-3 px-4">
     <div class="lg:sticky lg:top-24">
       <div class="rounded-2xl bg-white border border-slate-200 p-6 shadow-sm max-h-[calc(100vh-8rem)] overflow-y-auto">
-
-        {% if exercise.paratexte %}
-        <p class="text-sm italic text-slate-600 mb-4 pb-4 border-b border-slate-100">
-          {{ exercise.paratexte }}
-        </p>
-        {% endif %}
-
-        {% if image_url and exercise.image %}
-        <figure class="mb-5 pb-5 border-b border-slate-100">
-          <img
-            src="{{ image_url }}"
-            alt="{{ exercise.image.description_visuelle }}"
-            class="w-full rounded-xl border border-slate-200 bg-slate-50"
-            loading="lazy"
-          />
-          <figcaption class="mt-2 text-xs text-slate-500">
-            {% if exercise.image.titre %}<em>{{ exercise.image.titre }}</em>{% endif %}
-            {% if exercise.image.auteur %}{% if exercise.image.titre %}, {% endif %}{{ exercise.image.auteur }}{% endif %}
-            {% if exercise.image.annee %} ({{ exercise.image.annee }}){% endif %}
-          </figcaption>
-        </figure>
-        {% endif %}
-
-        <div class="font-display text-[1.02rem] leading-relaxed text-slate-800 space-y-0">
-          {% for ligne in exercise.texte_support.lignes %}
-          <div class="flex gap-3" id="ligne-{{ ligne.n }}">
-            <span class="shrink-0 w-7 text-right text-xs text-slate-400 pt-1 select-none">
-              {% if ligne.n % 5 == 0 %}{{ ligne.n }}{% endif %}
-            </span>
-            <span>{{ ligne.texte }}</span>
-          </div>
-          {% endfor %}
-        </div>
-
-        <div class="mt-6 pt-4 border-t border-slate-100 text-xs text-slate-500">
-          <strong class="text-slate-700">{{ exercise.texte_support.auteur }}</strong>,
-          <em>{{ exercise.texte_support.oeuvre }}</em>{% if exercise.texte_support.partie %},
-          {{ exercise.texte_support.partie }}{% endif %}{% if exercise.texte_support.annee_publication %},
-          {{ exercise.texte_support.annee_publication }}{% endif %}.
-        </div>
-
-        {% if exercise.notes_texte %}
-        <details class="mt-4 text-xs text-slate-500">
-          <summary class="cursor-pointer hover:text-brand-700">Notes du texte</summary>
-          <ul class="mt-2 space-y-1">
-            {% for note in exercise.notes_texte %}
-            <li><sup>{{ note.n }}</sup> <strong>{{ note.terme }}</strong> : {{ note.definition }}</li>
-            {% endfor %}
-          </ul>
-        </details>
-        {% endif %}
-
+        {{ texte_support_block() }}
       </div>
     </div>
   </aside>
 
   {# =========================================
-     COLONNE DROITE : question courante
+     COLONNE DROITE : question courante.
+     Sur mobile elle occupe toute la largeur ; un bouton « Voir le texte »
+     ouvre une modale plein écran avec le texte littéraire (pattern repris
+     de maths problèmes : le texte de 1000+ lignes écrase le contenu utile
+     sur un téléphone, mieux vaut l'avoir à la demande).
      ========================================= #}
   <section class="lg:col-span-2 px-4 space-y-4">
+
+    <div class="lg:hidden">
+      <button type="button"
+              onclick="document.getElementById('texte-modal').showModal()"
+              class="w-full flex items-center justify-between gap-3 bg-white rounded-2xl border border-slate-200 shadow-sm px-4 py-3 text-sm font-semibold text-slate-700">
+        <span class="flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-brand-500" aria-hidden="true">
+            <path fill-rule="evenodd" d="M4.5 2A1.5 1.5 0 003 3.5v13A1.5 1.5 0 004.5 18h11a1.5 1.5 0 001.5-1.5v-13A1.5 1.5 0 0015.5 2h-11zM6 5.75A.75.75 0 016.75 5h6.5a.75.75 0 010 1.5h-6.5A.75.75 0 016 5.75zM6.75 9a.75.75 0 000 1.5h6.5a.75.75 0 000-1.5h-6.5zM6 13.25a.75.75 0 01.75-.75h4a.75.75 0 010 1.5h-4a.75.75 0 01-.75-.75z" clip-rule="evenodd" />
+          </svg>
+          Voir le texte ({{ exercise.texte_support.auteur }})
+        </span>
+        <span class="text-xs text-slate-400">Plein écran</span>
+      </button>
+    </div>
+    <dialog id="texte-modal"
+            class="rtd-ctx-dialog p-0 rounded-2xl w-[min(100%,42rem)] max-h-[92vh] backdrop:bg-slate-900/60">
+      <div class="flex items-center justify-between gap-3 px-5 py-3 border-b border-slate-200 sticky top-0 bg-white z-10">
+        <span class="text-sm font-semibold text-slate-700">
+          {{ exercise.texte_support.auteur }} — <em>{{ exercise.texte_support.oeuvre }}</em>
+        </span>
+        <form method="dialog" class="m-0">
+          <button type="submit"
+                  class="inline-flex items-center justify-center h-9 w-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600"
+                  aria-label="Fermer le texte">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5" aria-hidden="true">
+              <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+            </svg>
+          </button>
+        </form>
+      </div>
+      <div class="p-5 overflow-y-auto">
+        {{ texte_support_block() }}
+      </div>
+    </dialog>
 
     <div class="rounded-2xl bg-white border border-slate-200 p-6 shadow-sm">
       <div class="flex items-baseline justify-between mb-3">
@@ -130,6 +227,60 @@
       {% endif %}
     </div>
 
+    {% if read_only %}
+    {# Mode révision : on rappelle à l'élève l'issue de cette question et on
+       propose de revenir à son point d'avancement. Pas de formulaire, pas
+       d'action Albert. #}
+    <div class="space-y-4">
+      {% if read_only_entry.status == "correct_first_try" %}
+      <div class="bg-emerald-50 border border-emerald-200 rounded-2xl p-5">
+        <div class="flex items-start gap-3">
+          <div class="flex-shrink-0 h-10 w-10 rounded-xl bg-emerald-500 text-white flex items-center justify-center font-bold">✓</div>
+          <div class="flex-1">
+            <p class="font-semibold text-emerald-900">Tu avais trouvé du premier coup.</p>
+            {% if read_only_entry.answer %}
+            <p class="text-sm text-emerald-800 mt-2 whitespace-pre-line">Ta réponse : {{ read_only_entry.answer }}</p>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      {% elif read_only_entry.status == "correct_with_hints" %}
+      <div class="bg-amber-50 border border-amber-200 rounded-2xl p-5">
+        <div class="flex items-start gap-3">
+          <div class="flex-shrink-0 h-10 w-10 rounded-xl bg-amber-500 text-white flex items-center justify-center font-bold">✓</div>
+          <div class="flex-1">
+            <p class="font-semibold text-amber-900">
+              Tu avais trouvé après {{ read_only_entry.hints_used }} indice{% if read_only_entry.hints_used > 1 %}s{% endif %}.
+            </p>
+            {% if read_only_entry.answer %}
+            <p class="text-sm text-amber-800 mt-2 whitespace-pre-line">Ta réponse : {{ read_only_entry.answer }}</p>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      {% else %}
+      <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5">
+        <div class="flex items-start gap-3">
+          <div class="flex-shrink-0 h-10 w-10 rounded-xl bg-slate-500 text-white flex items-center justify-center font-bold">!</div>
+          <div class="flex-1">
+            <p class="font-semibold text-slate-900">Tu avais demandé la réponse sur cette question.</p>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+
+      <div class="flex items-center justify-between gap-3 flex-wrap">
+        <a href="/francais/comprehension/session/{{ session.id }}/synthese"
+           class="text-sm text-slate-500 hover:text-brand-700">
+          ← Voir le bilan
+        </a>
+        <a href="/francais/comprehension/session/{{ session.id }}/item/{{ session.current_step or 1 }}"
+           class="btn-primary hover:wiggle inline-flex items-center gap-1">
+          Reprendre le parcours <span>→</span>
+        </a>
+      </div>
+    </div>
+    {% else %}
     <div id="interaction-zone" class="space-y-4">
       <form hx-post="/francais/comprehension/session/{{ session.id }}/item/{{ item.order }}/answer"
             hx-target="#feedback-zone"
@@ -156,6 +307,7 @@
 
       <div id="feedback-zone" aria-live="polite" aria-atomic="true"></div>
     </div>
+    {% endif %}
 
   </section>
 </div>

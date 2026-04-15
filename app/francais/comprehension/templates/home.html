@@ -1,8 +1,30 @@
 {% extends "_francais_base.html" %}
 {% block title %}Compréhension — Français DNB{% endblock %}
 
+{#
+  Construction d'une URL de filtre qui préserve les autres filtres
+  actifs. Cible remplace la valeur de `key` par `value` (ou l'efface
+  si `value` vaut ""), et conserve tout le reste.
+#}
+{% macro filter_url(current, key, value) -%}
+  {% set params = current.copy() -%}
+  {% set _ = params.update({key: value}) -%}
+  {%- set parts = [] -%}
+  {%- for k, v in params.items() if v -%}
+    {%- set _ = parts.append(k ~ '=' ~ v) -%}
+  {%- endfor -%}
+  /francais/comprehension/{% if parts %}?{{ parts|join('&') }}{% endif %}
+{%- endmacro %}
+
+{% macro filter_pill(label, href, active) -%}
+  <a href="{{ href }}"
+     class="px-3 py-1.5 rounded-full text-sm border whitespace-nowrap {% if active %}border-brand-500 bg-brand-50 text-brand-700 font-semibold{% else %}border-slate-200 text-slate-600 hover:border-brand-300{% endif %}">
+    {{ label }}
+  </a>
+{%- endmacro %}
+
 {% block content %}
-<div class="space-y-8">
+<div class="space-y-6">
   <header>
     <p class="text-sm text-slate-500">
       <a href="/francais/" class="hover:text-brand-700">Français</a>
@@ -12,44 +34,96 @@
     <h1 class="mt-2 font-display text-3xl font-bold text-brand-900">
       Compréhension de texte
     </h1>
-    <p class="mt-2 text-slate-600">
-      {{ total }} sujets d'annales officielles disponibles. Tu lis un texte,
-      puis tu réponds question par question. Tu peux demander jusqu'à 3
-      indices si tu bloques — la réponse ne te sera donnée qu'en tout
+    <p class="mt-2 text-slate-600 max-w-2xl">
+      {{ total_catalog }} sujets d'annales officielles disponibles. Tu lis un
+      texte, puis tu réponds question par question. Tu peux demander jusqu'à
+      3 indices si tu bloques — la réponse ne te sera donnée qu'en tout
       dernier recours.
     </p>
   </header>
 
-  <section class="rounded-2xl bg-white border border-slate-200 p-6 shadow-sm">
-    <h2 class="font-display text-lg font-bold text-brand-800 mb-3">Démarrer</h2>
+  <section class="rounded-2xl bg-white border border-slate-200 p-5 shadow-sm">
     <form method="post" action="/francais/comprehension/session/new" class="flex flex-wrap items-center gap-3">
       <button type="submit" class="btn-primary hover:wiggle">
         Tirer un sujet au hasard
       </button>
       <span class="text-sm text-slate-500">
-        ou choisis un sujet précis ci-dessous
+        ou choisis un sujet précis dans la liste
       </span>
     </form>
   </section>
 
+  <section class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 space-y-4">
+    {% if available_annees and available_annees|length > 1 %}
+    <div class="flex items-start gap-3 flex-wrap">
+      <span class="text-sm font-semibold text-slate-700 shrink-0 pt-1.5 w-20">Année</span>
+      <div class="flex items-center gap-2 flex-wrap">
+        {{ filter_pill("Toutes", filter_url(current_filters, "annee", ""), not current_filters.annee) }}
+        {% for a in available_annees %}
+        {{ filter_pill(a|string, filter_url(current_filters, "annee", a|string), current_filters.annee == (a|string)) }}
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+
+    {% if available_centres and available_centres|length > 1 %}
+    <div class="flex items-start gap-3 flex-wrap">
+      <span class="text-sm font-semibold text-slate-700 shrink-0 pt-1.5 w-20">Centre</span>
+      <div class="flex items-center gap-2 flex-wrap">
+        {{ filter_pill("Tous", filter_url(current_filters, "centre", ""), not current_filters.centre) }}
+        {% for c in available_centres %}
+        {{ filter_pill(c, filter_url(current_filters, "centre", c), current_filters.centre == c) }}
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+
+    {% if available_sessions and available_sessions|length > 1 %}
+    <div class="flex items-start gap-3 flex-wrap">
+      <span class="text-sm font-semibold text-slate-700 shrink-0 pt-1.5 w-20">Session</span>
+      <div class="flex items-center gap-2 flex-wrap">
+        {{ filter_pill("Toutes", filter_url(current_filters, "session_label", ""), not current_filters.session_label) }}
+        {% for s in available_sessions %}
+        {{ filter_pill(s|capitalize, filter_url(current_filters, "session_label", s), current_filters.session_label == s) }}
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+  </section>
+
+  {% if total == 0 %}
+  <div class="bg-amber-50 border border-amber-200 rounded-2xl p-5 text-sm text-amber-900">
+    Aucun sujet ne correspond à ces filtres.
+    <a href="/francais/comprehension/" class="underline font-semibold">Réinitialiser les filtres</a>.
+  </div>
+  {% else %}
   <section>
-    <h2 class="font-display text-lg font-bold text-brand-800 mb-3">
-      Tous les sujets
-    </h2>
-    <ul class="grid gap-2 sm:grid-cols-2">
+    <header class="flex items-baseline justify-between mb-3 px-1">
+      <h2 class="font-display text-lg font-bold text-brand-800">Sujets d'annales</h2>
+      <span class="text-xs text-slate-500">
+        {{ total }} sujet{% if total > 1 %}s{% endif %}
+      </span>
+    </header>
+    <ul class="grid gap-3 sm:grid-cols-2">
       {% for exo in exercises %}
       <li>
         <form method="post" action="/francais/comprehension/session/new" class="contents">
           <input type="hidden" name="exercise_id" value="{{ exo.id }}">
           <button type="submit"
                   class="w-full text-left rounded-xl bg-white border border-slate-200 px-4 py-3 hover:border-brand-300 hover:shadow-sm transition">
-            <div class="font-medium text-brand-900">{{ exo.annee }} — {{ exo.centre }}</div>
-            <div class="text-xs text-slate-500 mt-0.5">{{ exo.slug }}</div>
+            <div class="flex items-baseline gap-2">
+              <span class="font-semibold text-brand-900">{{ exo.annee }}</span>
+              <span class="text-sm text-slate-600">— {{ exo.centre }}</span>
+            </div>
+            <div class="text-xs text-slate-500 mt-0.5">
+              Session {{ exo.session }}
+            </div>
           </button>
         </form>
       </li>
       {% endfor %}
     </ul>
   </section>
+  {% endif %}
 </div>
 {% endblock %}
