@@ -105,6 +105,35 @@ def _advance(state: dict) -> None:
     state["current_question"] = None
 
 
+def _push_history(
+    state: dict,
+    repere_id: str,
+    status: str,
+    student_answer: str,
+    hints_used: int,
+) -> None:
+    """Trace un repère terminé dans l'historique du cookie.
+
+    Statuts :
+    - ``correct_first_try`` : bonne réponse du premier coup (0 indice)
+    - ``correct_with_hints`` : bonne réponse après 1+ indice
+    - ``revealed`` : l'élève a demandé la réponse
+
+    Utilisé par la synthèse pour afficher 3 compteurs colorés au lieu
+    du compteur binaire trouvée/manquée d'origine.
+    """
+    history = state.get("history") or []
+    history.append(
+        {
+            "repere_id": repere_id,
+            "status": status,
+            "student_answer": student_answer,
+            "hints_used": hints_used,
+        }
+    )
+    state["history"] = history
+
+
 # ============================================================================
 # Accueil de l'épreuve
 # ============================================================================
@@ -198,6 +227,7 @@ def quiz_new(
         "current_question": None,
         "missed_ids": [],
         "score": 0,
+        "history": [],
         "filter_discipline": discipline or None,
         "filter_theme": theme or None,
     }
@@ -308,6 +338,15 @@ def quiz_answer(
         if user_key:
             core_db.record_progress(s, user_key, "hgemc_reperes", str(repere.id), True)
         state["score"] = state.get("score", 0) + (1 if hints_used == 0 else 0)
+        _push_history(
+            state,
+            repere_id=repere.id,
+            status=(
+                "correct_first_try" if hints_used == 0 else "correct_with_hints"
+            ),
+            student_answer=answer,
+            hints_used=hints_used,
+        )
         _advance(state)
         _set_quiz_state(request, state)
         return templates.TemplateResponse(
@@ -423,6 +462,13 @@ def quiz_reveal(
         missed.append(repere.id)
     state["missed_ids"] = missed
     state["revealed"] = True
+    _push_history(
+        state,
+        repere_id=repere.id,
+        status="revealed",
+        student_answer="",
+        hints_used=state.get("current_hints", 0),
+    )
     _advance(state)
     _set_quiz_state(request, state)
     return templates.TemplateResponse(
@@ -446,7 +492,13 @@ def quiz_synthese(
     request: Request,
     s: DBSession = Depends(db_session),
 ):
-    """Écran de fin de quiz : score, repères manqués, bouton « revoir »."""
+    """Écran de fin de quiz avec récap détaillé par statut.
+
+    Depuis PR #46 on affiche 3 compteurs (trouvé du 1er coup / avec
+    indices / révélé) plutôt qu'un simple binaire réussi / manqué, et
+    une liste complète — pas seulement les ratés — en reprenant le
+    pattern de la synthèse maths problèmes.
+    """
     state = _get_quiz_state(request)
     if state is None:
         return RedirectResponse(url=f"{PREFIX}/", status_code=303)
@@ -458,6 +510,30 @@ def quiz_synthese(
     total = len(state.get("repere_ids") or [])
     score = state.get("score", 0)
 
+    # Enrichissement : pour chaque entrée d'historique, on récupère
+    # l'objet Repere pour afficher libellé + date + thème dans le récap
+    # détaillé. Les repères non-traités (si l'élève ferme le quiz en
+    # cours de route et revient sur /synthese via l'URL) n'apparaissent
+    # pas — l'historique ne trace que les repères terminés.
+    history: list[dict] = state.get("history") or []
+    recap: list[dict] = []
+    for entry in history:
+        repere = reperes_models.get_repere(s, entry["repere_id"])
+        if repere is None:
+            continue
+        recap.append(
+            {
+                "repere": repere,
+                "status": entry["status"],
+                "hints_used": entry.get("hints_used", 0),
+                "student_answer": entry.get("student_answer", ""),
+            }
+        )
+
+    nb_first_try = sum(1 for e in recap if e["status"] == "correct_first_try")
+    nb_with_hints = sum(1 for e in recap if e["status"] == "correct_with_hints")
+    nb_revealed = sum(1 for e in recap if e["status"] == "revealed")
+
     return templates.TemplateResponse(
         request,
         "synthese.html",
@@ -466,6 +542,10 @@ def quiz_synthese(
             "total": total,
             "missed_reperes": missed_reperes,
             "has_missed": bool(missed_reperes),
+            "recap": recap,
+            "nb_first_try": nb_first_try,
+            "nb_with_hints": nb_with_hints,
+            "nb_revealed": nb_revealed,
         },
     )
 
