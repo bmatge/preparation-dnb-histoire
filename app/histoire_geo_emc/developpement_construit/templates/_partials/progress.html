@@ -1,4 +1,57 @@
-{# Barre de progression du parcours élève. Variable attendue : `step` (1..7). #}
+{#
+  Barre de progression du parcours développement construit HG-EMC.
+
+  Variables attendues :
+  - ``progress``  : liste de 7 dicts (un par étape) produite par
+                    ``_progress_state()`` dans ``routes.py``. Chaque dict a
+                    ``num``, ``label``, ``status`` (done/current/todo),
+                    ``clickable``, ``href`` et ``is_current``.
+  - ``step``      : (legacy) entier 1..7 — utilisé si ``progress`` n'est
+                    pas fourni, pour la rétrocompatibilité.
+  - ``step_label``: idem legacy.
+
+  Les étapes ``done`` et cliquables deviennent des liens ; les autres
+  restent des segments visuels. L'étape courante est mise en valeur par
+  un ring brand. Le label court est affiché sous chaque étape.
+#}
+{% if progress %}
+<nav class="max-w-3xl mx-auto px-4 pb-3" aria-label="Progression dans le développement construit">
+  <ol class="grid grid-cols-7 gap-1.5">
+    {% for step in progress %}
+    {%- set base = "flex-1 h-2 rounded-full block transition" -%}
+    {%- if step.status == "done" -%}
+      {%- set color = "bg-brand-500" -%}
+    {%- elif step.status == "current" -%}
+      {%- set color = "progress-active" -%}
+    {%- else -%}
+      {%- set color = "bg-slate-200" -%}
+    {%- endif -%}
+    {%- set ring = "ring-2 ring-brand-400 ring-offset-1 ring-offset-white" if step.is_current else "" -%}
+    <li class="flex flex-col items-stretch gap-1">
+      {% if step.clickable %}
+      <a href="{{ step.href }}"
+         class="{{ base }} {{ color }} {{ ring }} hover:opacity-80"
+         title="Étape {{ step.num }} — {{ step.label }}"
+         aria-label="Aller à l'étape {{ step.num }} ({{ step.label }})"></a>
+      {% else %}
+      <span class="{{ base }} {{ color }} {{ ring }}"
+            title="Étape {{ step.num }} — {{ step.label }}"
+            aria-label="Étape {{ step.num }} ({{ step.label }})"
+            {% if step.is_current %}aria-current="step"{% endif %}></span>
+      {% endif %}
+      <span class="text-[10px] text-center {% if step.is_current %}text-brand-700 font-semibold{% else %}text-slate-400{% endif %} leading-tight">
+        {{ step.label }}
+      </span>
+    </li>
+    {% endfor %}
+  </ol>
+  {% set current_step = progress | selectattr("is_current") | first %}
+  <div class="mt-1.5 text-[11px] uppercase tracking-wider text-slate-500 text-center">
+    Étape {{ current_step.num if current_step else "?" }} / 7
+  </div>
+</nav>
+{% else %}
+{# Fallback legacy : segments non-cliquables. #}
 <div class="max-w-3xl mx-auto px-4 pb-3">
   <div class="flex items-center gap-1.5">
     {% for i in range(1, 8) %}
@@ -14,3 +67,4 @@
     <span>{{ step_label }}</span>
   </div>
 </div>
+{% endif %}

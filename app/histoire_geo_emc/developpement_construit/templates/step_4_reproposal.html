@@ -1,6 +1,6 @@
 {% extends "_hgemc_base.html" %}
 
-{% block progress %}{% with step=4, step_label="Tu retravailles" %}{% include "_partials/progress.html" %}{% endwith %}{% endblock %}
+{% block progress %}{% include "_partials/progress.html" %}{% endblock %}
 {% block timer %}{% with kind="hgemc_dc", session_id_str=session_id|string %}{% include "_exercise_timer.html" %}{% endwith %}{% endblock %}
 
 {% block content %}
