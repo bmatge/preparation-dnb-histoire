@@ -32,7 +32,7 @@ from markupsafe import Markup
 from sqlmodel import Session as DBSession
 
 from app.core import db as core_db
-from app.core.db import db_session
+from app.core.db import db_session, get_last_user_turn, get_turns_by_step
 from app.core.formatting import render_eval_markdown
 from app.francais.redaction.loader import (
     get_subject,
@@ -123,6 +123,79 @@ def _require_option(request: Request) -> str:
             status_code=303, headers={"Location": f"{PREFIX}/step/1"}
         )
     return opt
+
+
+# ============================================================================
+# Helpers de progression (barre cliquable + synthèse)
+# ============================================================================
+
+# Labels courts affichés sous chaque segment de la barre de progression.
+_STEP_LABELS: dict[int, str] = {
+    1: "Choix",
+    2: "Brouillon v1",
+    3: "Éval 1",
+    4: "Brouillon v2",
+    5: "Éval 2",
+    6: "Rédaction",
+    7: "Correction",
+}
+
+# Routes éditables par l'élève : les étapes paires (formulaires) + l'étape 1
+# (choix d'option) et l'étape 7 (synthèse). Les étapes 3/5 sont des sorties
+# Albert intercalées, visibles dans l'étape paire qui les a déclenchées.
+_STEP_HREFS: dict[int, str] = {
+    1: f"{PREFIX}/step/1",
+    2: f"{PREFIX}/step/2",
+    4: f"{PREFIX}/step/4",
+    6: f"{PREFIX}/step/6",
+    7: f"{PREFIX}/step/synthese",
+}
+
+
+def _step_is_done(s: DBSession, session_id: int, step: int) -> bool:
+    """Une étape est « done » quand elle a produit une trace DB.
+
+    Pour une étape paire (2/4/6), on regarde la dernière réponse élève à ce
+    step. Pour une étape impaire (3/5/7), on regarde la trace assistant.
+    L'étape 1 (choix) est done dès qu'on a choisi une option ; on considère
+    qu'elle est done quand ``current_step >= 2``.
+    """
+    if step in (2, 4, 6):
+        return get_last_user_turn(s, session_id, step=step) is not None
+    if step in (3, 5, 7):
+        turns = get_turns_by_step(s, session_id, step)
+        return any(t.role == "assistant" for t in turns)
+    return False
+
+
+def _progress_state(
+    s: DBSession, session_id: int, current_step: int
+) -> list[dict]:
+    """Construit l'état de chaque segment de la barre de progression.
+
+    L'élève peut cliquer sur toute étape éditable déjà atteinte (steps 1,
+    2, 4, 6) ou sur l'étape 7 si une correction finale a été produite (la
+    route synthese consolide alors tout le parcours).
+    """
+    state: list[dict] = []
+    for n in range(1, 8):
+        is_done = _step_is_done(s, session_id, n) or n < current_step
+        is_current = n == current_step
+        status = "done" if is_done else ("current" if is_current else "todo")
+        clickable = n in _STEP_HREFS and (is_done or is_current) and not (
+            n == 7 and not _step_is_done(s, session_id, 7)
+        )
+        state.append(
+            {
+                "num": n,
+                "label": _STEP_LABELS.get(n, ""),
+                "status": status,
+                "clickable": clickable,
+                "href": _STEP_HREFS.get(n, ""),
+                "is_current": is_current,
+            }
+        )
+    return state
 
 
 # ============================================================================
@@ -227,11 +300,21 @@ def resume(
 def step_1(request: Request, s: DBSession = Depends(db_session)):
     sess = _require_session(request, s)
     row = _require_subject(s, sess)
-    core_db.update_session_step(s, sess.id, step=1)
+    # L'étape 1 ne touche pas current_step si l'élève a déjà avancé ;
+    # elle le repositionne sur 1 seulement si la session n'a pas encore
+    # démarré, pour ne pas écraser la progression quand on revient en
+    # arrière via la barre.
+    if (sess.current_step or 0) < 1:
+        core_db.update_session_step(s, sess.id, step=1)
+    progress = _progress_state(s, sess.id, current_step=sess.current_step or 1)
     return templates.TemplateResponse(
         request,
         "step_1_subject.html",
-        {"subject": _subject_view(row), "session_id": sess.id},
+        {
+            "subject": _subject_view(row),
+            "session_id": sess.id,
+            "progress": progress,
+        },
     )
 
 
@@ -272,7 +355,14 @@ def step_2(request: Request, s: DBSession = Depends(db_session)):
     sess = _require_session(request, s)
     row = _require_subject(s, sess)
     option = _require_option(request)
-    core_db.update_session_step(s, sess.id, step=2)
+    # Ne pas écraser current_step si l'élève est déjà passé à 4 ou 6 et
+    # revient éditer son brouillon v1 via la barre de progression.
+    if (sess.current_step or 0) < 2:
+        core_db.update_session_step(s, sess.id, step=2)
+    # Pre-fill : si l'élève revient en arrière pour retravailler sa
+    # proposition 1, on lui ré-affiche son texte au lieu d'un textarea vide.
+    previous = get_last_user_turn(s, sess.id, step=2)
+    progress = _progress_state(s, sess.id, current_step=sess.current_step or 2)
     return templates.TemplateResponse(
         request,
         "step_2_proposal.html",
@@ -280,6 +370,8 @@ def step_2(request: Request, s: DBSession = Depends(db_session)):
             "subject": _subject_view(row),
             "option": option,
             "session_id": sess.id,
+            "previous_proposal": previous.content if previous else "",
+            "progress": progress,
         },
     )
 
@@ -331,16 +423,27 @@ def step_4(request: Request, s: DBSession = Depends(db_session)):
     sess = _require_session(request, s)
     row = _require_subject(s, sess)
     option = _require_option(request)
-    first = core_db.get_last_user_turn(s, sess.id, step=2)
-    core_db.update_session_step(s, sess.id, step=4)
+    # Pre-fill : si l'élève revient à l'étape 4 après être passé à l'étape 6,
+    # on lui ré-affiche son brouillon v2 plutôt que son v1, pour ne pas
+    # écraser le travail en cours.
+    existing_v2 = core_db.get_last_user_turn(s, sess.id, step=4)
+    if existing_v2:
+        previous = existing_v2.content
+    else:
+        first = core_db.get_last_user_turn(s, sess.id, step=2)
+        previous = first.content if first else ""
+    if (sess.current_step or 0) < 4:
+        core_db.update_session_step(s, sess.id, step=4)
+    progress = _progress_state(s, sess.id, current_step=sess.current_step or 4)
     return templates.TemplateResponse(
         request,
         "step_4_reproposal.html",
         {
             "subject": _subject_view(row),
             "option": option,
-            "previous_proposal": first.content if first else "",
+            "previous_proposal": previous,
             "session_id": sess.id,
+            "progress": progress,
         },
     )
 
@@ -391,16 +494,27 @@ def step_6(request: Request, s: DBSession = Depends(db_session)):
     sess = _require_session(request, s)
     row = _require_subject(s, sess)
     option = _require_option(request)
-    second = core_db.get_last_user_turn(s, sess.id, step=4)
-    core_db.update_session_step(s, sess.id, step=6)
+    # Pre-fill : si l'élève a déjà soumis sa rédaction finale et revient
+    # via la barre, on ré-affiche sa rédaction ; sinon on part du brouillon
+    # v2 comme canvas initial.
+    existing_final = core_db.get_last_user_turn(s, sess.id, step=6)
+    if existing_final:
+        previous = existing_final.content
+    else:
+        second = core_db.get_last_user_turn(s, sess.id, step=4)
+        previous = second.content if second else ""
+    if (sess.current_step or 0) < 6:
+        core_db.update_session_step(s, sess.id, step=6)
+    progress = _progress_state(s, sess.id, current_step=sess.current_step or 6)
     return templates.TemplateResponse(
         request,
         "step_6_writing.html",
         {
             "subject": _subject_view(row),
             "option": option,
-            "previous_proposal": second.content if second else "",
+            "previous_proposal": previous,
             "session_id": sess.id,
+            "progress": progress,
         },
     )
 
@@ -439,8 +553,97 @@ def step_6_submit(
         {
             "title": "Correction finale",
             "content": reply,
-            "next_url": f"{PREFIX}/restart",
-            "next_label": "Recommencer avec un autre sujet",
+            "next_url": f"{PREFIX}/step/synthese",
+            "next_label": "Voir le bilan de mon parcours",
+        },
+    )
+
+
+# ---------------------------------------------------------------------------
+# Synthèse — récap du parcours complet (1ʳᵉ proposition → correction finale)
+# ---------------------------------------------------------------------------
+
+
+@router.get("/step/synthese", response_class=HTMLResponse)
+def step_synthese(request: Request, s: DBSession = Depends(db_session)):
+    """Affiche le parcours complet : les 3 propositions élève et les 3
+    retours Albert, dans l'ordre chronologique.
+
+    Accessible par la barre de progression ou automatiquement après la
+    correction finale. Si un des moments manque (p. ex. l'élève arrive ici
+    avant d'avoir fini), on l'affiche comme « à venir » plutôt que de
+    rediriger — l'élève voit clairement ce qui lui reste à faire.
+    """
+    sess = _require_session(request, s)
+    row = _require_subject(s, sess)
+    option = _require_option(request)
+
+    def _last_user(step: int) -> str:
+        turn = get_last_user_turn(s, sess.id, step=step)
+        return turn.content if turn else ""
+
+    def _last_assistant(step: int) -> str:
+        turns = get_turns_by_step(s, sess.id, step)
+        for t in reversed(turns):
+            if t.role == "assistant":
+                return t.content
+        return ""
+
+    moments = [
+        {
+            "title": "Premier brouillon",
+            "kind": "user",
+            "step": 2,
+            "content": _last_user(2),
+            "edit_href": f"{PREFIX}/step/2",
+        },
+        {
+            "title": "Première évaluation",
+            "kind": "assistant",
+            "step": 3,
+            "content": _last_assistant(3),
+            "edit_href": None,
+        },
+        {
+            "title": "Deuxième brouillon",
+            "kind": "user",
+            "step": 4,
+            "content": _last_user(4),
+            "edit_href": f"{PREFIX}/step/4",
+        },
+        {
+            "title": "Seconde évaluation",
+            "kind": "assistant",
+            "step": 5,
+            "content": _last_assistant(5),
+            "edit_href": None,
+        },
+        {
+            "title": "Rédaction complète",
+            "kind": "user",
+            "step": 6,
+            "content": _last_user(6),
+            "edit_href": f"{PREFIX}/step/6",
+        },
+        {
+            "title": "Correction finale",
+            "kind": "assistant",
+            "step": 7,
+            "content": _last_assistant(7),
+            "edit_href": None,
+        },
+    ]
+
+    progress = _progress_state(s, sess.id, current_step=sess.current_step or 7)
+    return templates.TemplateResponse(
+        request,
+        "synthese.html",
+        {
+            "subject": _subject_view(row),
+            "option": option,
+            "session_id": sess.id,
+            "moments": moments,
+            "progress": progress,
         },
     )
 
