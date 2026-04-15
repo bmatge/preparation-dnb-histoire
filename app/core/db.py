@@ -125,17 +125,18 @@ def db_session() -> Iterator[DBSession]:
         yield session
 
 
-def _schema_matches() -> bool:
-    """Vérifie que les colonnes SQL correspondent au schéma SQLModel déclaré.
+def _missing_columns_per_table() -> dict[str, list]:
+    """Retourne, pour chaque table SQLModel existante en DB, la liste des
+    colonnes déclarées en Python mais absentes du schéma SQLite.
 
-    Compare les colonnes de chaque table SQLModel existante en DB avec celles
-    déclarées en Python. Retourne False dès qu'une colonne manque. N'utilise
-    pas Alembic : on reste sur le principe drop & recharge (cf. CLAUDE.md).
+    Les tables pas encore créées (create_all les fera) et celles sans
+    divergence n'apparaissent pas dans le dict retourné.
     """
     import sqlite3
 
+    missing_by_table: dict[str, list] = {}
     if not DB_PATH.exists():
-        return True  # la DB va être créée de zéro, pas de divergence possible
+        return missing_by_table
 
     conn = sqlite3.connect(DB_PATH)
     try:
@@ -144,35 +145,125 @@ def _schema_matches() -> bool:
             db_cols = {row[1] for row in cursor.fetchall()}
             if not db_cols:
                 continue  # table pas encore créée — create_all la gèrera
-            model_cols = {col.name for col in table.columns}
-            missing = model_cols - db_cols
+            missing = [col for col in table.columns if col.name not in db_cols]
             if missing:
-                logger.warning(
-                    "Colonnes manquantes dans %s : %s — drop & recreate de la DB",
-                    table.name,
-                    missing,
-                )
-                return False
+                missing_by_table[table.name] = missing
     finally:
         conn.close()
-    return True
+    return missing_by_table
+
+
+def _additive_migration_clause(col) -> str | None:
+    """Construit la clause SQL d'un ``ALTER TABLE ... ADD COLUMN`` pour un
+    champ SQLModel, ou retourne ``None`` si la migration additive n'est pas
+    possible (colonne NOT NULL sans default exploitable).
+
+    Les defaults sont dérivés directement depuis le modèle SQLAlchemy :
+    - ``nullable=True`` → colonne ajoutée sans NOT NULL, valeur NULL pour
+      les lignes existantes, c'est toujours valide.
+    - ``nullable=False`` + default scalaire (``Field(default=0)`` ou
+      ``Field(default="juin")``) → ``NOT NULL DEFAULT <valeur>``.
+    - ``nullable=False`` sans default ou avec un default callable
+      (ex. ``default_factory=datetime.utcnow``) → on ne peut pas produire
+      une clause valide pour les lignes existantes, on retourne ``None``
+      et on tombera sur le drop legacy.
+    """
+    type_sql = col.type.compile(dialect=_engine.dialect)
+    nullable = col.nullable
+
+    if nullable:
+        return f'ALTER TABLE "{col.table.name}" ADD COLUMN "{col.name}" {type_sql}'
+
+    default = col.default
+    if default is None or not getattr(default, "is_scalar", False):
+        return None
+
+    raw = default.arg
+    if isinstance(raw, bool):
+        literal = "1" if raw else "0"
+    elif isinstance(raw, (int, float)):
+        literal = str(raw)
+    elif isinstance(raw, str):
+        literal = "'" + raw.replace("'", "''") + "'"
+    else:
+        return None
+
+    return (
+        f'ALTER TABLE "{col.table.name}" ADD COLUMN "{col.name}" '
+        f"{type_sql} NOT NULL DEFAULT {literal}"
+    )
+
+
+def _apply_additive_migrations() -> list[str]:
+    """Tente de combler les divergences additives via ``ALTER TABLE ADD COLUMN``.
+
+    Stratégie de migration sans Alembic, inspirée du choix de projet « drop
+    & recharge » mais en version conservatrice : on préserve les données
+    chaque fois que c'est techniquement possible. Dérive automatiquement
+    les clauses depuis ``SQLModel.metadata`` — aucune liste hardcodée à
+    maintenir, chaque nouveau champ ``Field(...)`` avec un default scalaire
+    est pris en charge tout seul au prochain démarrage.
+
+    Retourne la liste des colonnes qui n'ont **pas** pu être migrées
+    additivement (défaut non-scalaire, NOT NULL sans default). Si cette
+    liste est non vide, l'appelant doit tomber sur le drop legacy. Si
+    elle est vide et que le dict initial l'était aussi, rien n'a été fait.
+    """
+    import sqlite3
+
+    missing_by_table = _missing_columns_per_table()
+    unmigratable: list[str] = []
+    if not missing_by_table:
+        return unmigratable
+
+    conn = sqlite3.connect(DB_PATH)
+    try:
+        for table_name, cols in missing_by_table.items():
+            for col in cols:
+                clause = _additive_migration_clause(col)
+                if clause is None:
+                    unmigratable.append(f"{table_name}.{col.name}")
+                    continue
+                logger.info(
+                    "Migration additive : %s.%s (ALTER TABLE)",
+                    table_name,
+                    col.name,
+                )
+                conn.execute(clause)
+        conn.commit()
+    finally:
+        conn.close()
+    return unmigratable
 
 
 def init_db() -> None:
-    """Crée les tables SQLModel, en supprimant la DB si le schéma a divergé.
+    """Crée les tables SQLModel, migre additivement le schéma si possible,
+    et en dernier recours supprime la DB quand la divergence n'est pas
+    récupérable.
 
-    Le chargement des contenus métier (sujets DC, etc.) est la responsabilité
-    de chaque sous-module de matière, appelé depuis `app.core.main.on_startup`
-    après cet `init_db`.
+    Ordre de traitement :
+    1. On liste les colonnes déclarées en Python mais absentes en DB.
+    2. Pour chaque colonne manquante, on tente un ``ALTER TABLE ADD COLUMN``
+       avec un default dérivé du champ SQLModel (cf. ``_apply_additive_migrations``).
+       Les données runtime (sessions, attempts, progressions élève) sont
+       conservées.
+    3. S'il reste des divergences non-additives (renommage, drop column,
+       changement de type, NOT NULL sans default exploitable), on retombe
+       sur le drop & recharge historique pour rester cohérent avec le
+       schéma SQLModel. Un log explicite liste ce qui a forcé le drop.
 
-    Si des colonnes sont manquantes dans une table existante (schéma Python
-    a évolué entre deux déploiements), la DB est supprimée puis recréée. Les
-    données runtime (sessions, attempts) sont perdues mais les contenus métier
-    sont idempotents (rechargés au startup suivant). Pas de migration Alembic.
+    Le chargement des contenus métier (sujets DC, exos maths, etc.) reste
+    la responsabilité de chaque sous-module matière, appelé après cet
+    ``init_db`` dans ``app.core.main.on_startup``.
     """
     global _engine
-    if not _schema_matches():
-        logger.info("Suppression de %s (schéma obsolète)", DB_PATH)
+    unmigratable = _apply_additive_migrations()
+    needs_drop = bool(unmigratable) or bool(_missing_columns_per_table())
+    if needs_drop:
+        logger.warning(
+            "Schéma non récupérable par migration additive : %s — drop & recharge",
+            unmigratable or "(divergence post-migration)",
+        )
         # Fermer toutes les connexions du pool de l'ancien engine AVANT de
         # supprimer le fichier, sinon des connexions orphelines peuvent rester
         # pointées vers le fichier supprimé et retourner « readonly database ».
